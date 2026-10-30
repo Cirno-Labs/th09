@@ -44,6 +44,11 @@ void BulletManager::Reset()
     this->clearItemType = 5;
 }
 
+int BulletManager::LoadAnm()
+{
+    return g_SpriteEngine->PreloadAnm(8, "etama.anm") == NULL;
+}
+
 void BulletManager::RemoveChain(BulletManager *mgr)
 {
     if (mgr != NULL)
