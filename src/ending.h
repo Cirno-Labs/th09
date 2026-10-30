@@ -37,8 +37,11 @@ public:
     // Loads the script at `path` and starts it. Returns 0, or -1 after
     // logging an error, as th08's (0x40e4f0).
     int Load(char *path);
-    // The update chain element's added callback: loads the staff ANM,
-    // records the clear and loads the ending's script (0x40e580).
+    // The update chain element's added callback: sets bit 0x400 of
+    // g_App.stateFlags, starts the text sprites, records side 0's clear
+    // in modes 0 and 1, opens the menus' entries the clears unlock and
+    // loads the character's script. Returns 0, or -1 on failure
+    // (0x40e580).
     static int AddedCallback(Ending *ending);
     // Runs the script until it waits: shows text lines, runs the '@'
     // commands. Returns 0, or -1 at its end or on failure, as th08's
@@ -84,3 +87,6 @@ public:
     char *cursor;
 };
 ASSERT_SIZE(Ending, 0x2ab8);
+
+// The script of each character's ending (0x4a0ed8).
+extern char *g_EndingFiles[14];

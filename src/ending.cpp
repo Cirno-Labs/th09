@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "ending.h"
+#include "gamemanager.h"
 #include "screeneffect.h"
 #include "sprite.h"
 #include "unsorted.h"
@@ -103,6 +104,132 @@ int Ending::DeletedCallback(Ending *ending)
     delete ending;
     g_App.stateFlags &= ~0x400;
     g_App.hideFps = 0;
+    return 0;
+}
+
+int Ending::AddedCallback(Ending *ending)
+{
+    int j;
+    int i;
+    int count;
+
+    g_App.stateFlags |= 0x400;
+    g_SpriteEngine->ClearTexture();
+    g_SpriteEngine->ClearSpriteData();
+    g_SpriteEngine->ClearBlendMode();
+    g_SpriteEngine->ClearVertexFormat();
+    ClearScreen(0xffffffff);
+    g_App.hideFps = 1;
+    for (j = 0; j < 0xf; j++)
+    {
+        g_App.textAnm->StartScriptAtOrigin(&ending->sprites[j], j + 0xe);
+        ending->sprites[j].pos = D3DXVECTOR3(64.0f, (float)j * 16.0f + 400.0f, 0.0f);
+    }
+    if (g_GameManager.IsMode0())
+    {
+        g_PlayRecord.AddClear(g_GameManager.sides[0].character, g_GameManager.difficulty);
+    }
+    else if (g_GameManager.IsMode1())
+    {
+        g_PlayRecord.AddClear(g_GameManager.sides[0].character, g_GameManager.difficulty);
+    }
+    count = 0;
+    for (i = 0; i <= 4; i++)
+    {
+        if (g_PlayRecord.HasCleared(i))
+        {
+            count++;
+        }
+    }
+    if (count >= 2)
+    {
+        if (g_PlayRecord.GetClears5(5))
+        {
+            g_PlayRecord.OpenEntry2(5);
+        }
+        if (g_PlayRecord.GetClears5(7))
+        {
+            g_PlayRecord.OpenEntry2(7);
+        }
+    }
+    count = 0;
+    for (i = 0; i <= 8; i++)
+    {
+        if (g_PlayRecord.HasCleared(i))
+        {
+            count++;
+        }
+    }
+    if (count >= 4)
+    {
+        if (g_PlayRecord.GetClears5(6))
+        {
+            g_PlayRecord.OpenEntry2(6);
+        }
+        if (g_PlayRecord.GetClears5(8))
+        {
+            g_PlayRecord.OpenEntry2(8);
+        }
+    }
+    count = 0;
+    for (i = 0; i <= 8; i++)
+    {
+        if (g_PlayRecord.HasCleared(i))
+        {
+            count++;
+        }
+    }
+    if (count >= 9)
+    {
+        if (g_PlayRecord.GetClears5(10))
+        {
+            g_PlayRecord.OpenEntry2(10);
+        }
+        if (g_PlayRecord.GetClears5(9))
+        {
+            g_PlayRecord.OpenEntry2(9);
+        }
+        if (g_PlayRecord.GetClears5(11))
+        {
+            g_PlayRecord.OpenEntry2(11);
+        }
+    }
+    count = 0;
+    for (i = 0; i <= 11; i++)
+    {
+        if (g_PlayRecord.HasCleared(i))
+        {
+            count++;
+        }
+    }
+    if (count > 11)
+    {
+        g_PlayRecord.OpenEntry3(12);
+    }
+    if (g_PlayRecord.HasCleared(12))
+    {
+        g_PlayRecord.OpenEntry3(13);
+    }
+    if (g_PlayRecord.HasCleared(13))
+    {
+        for (i = 0; i <= 13; i++)
+        {
+            g_PlayRecord.OpenEntry2(i);
+            g_PlayRecord.OpenEntry3(i);
+        }
+        g_PlayRecord.OpenEntry(14);
+        g_PlayRecord.OpenEntry(15);
+    }
+    ending->canSkip = 1;
+    if (ending->Load(g_EndingFiles[g_GameManager.sides[0].character]) != 0)
+    {
+        return -1;
+    }
+    if (g_Unknown4a7c80 != NULL)
+    {
+        g_Unknown4a7c80->Finish();
+    }
+    g_Unknown4a7c80 = NULL;
     return 0;
 }
 

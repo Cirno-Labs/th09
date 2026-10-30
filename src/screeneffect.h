@@ -37,6 +37,9 @@ ASSERT_SIZE(ScreenEffect, 0x38);
 // (0x4a7c80).
 extern ScreenEffect *g_Unknown4a7c80;
 
+// Clears the back buffer to `color`, as th08's (0x422200).
+void ClearScreen(DWORD color);
+
 // Fills `rect` (left, top, right, bottom) with `color`, as th08's
 // (0x422960).
 void DrawColorRect(float *rect, DWORD color);
