@@ -143,6 +143,41 @@ int App::SetRenderState(D3DRENDERSTATETYPE state, DWORD value)
     return this->d3dDevice->SetRenderState(state, value);
 }
 
+void App::AddPlayTime()
+{
+    DWORD now = timeGetTime();
+    DWORD delta;
+
+    if (now < this->lastPlayTimeTick)
+    {
+        this->lastPlayTimeTick = now;
+    }
+    delta = now - this->lastPlayTimeTick;
+    g_RunTime.hours += delta / 3600000;
+    delta %= 3600000;
+    g_RunTime.minutes += delta / 60000;
+    delta %= 60000;
+    g_RunTime.seconds += delta / 1000;
+    delta %= 1000;
+    g_RunTime.milliseconds += delta;
+    if (g_RunTime.milliseconds >= 1000)
+    {
+        g_RunTime.seconds += g_RunTime.milliseconds / 1000;
+        g_RunTime.milliseconds %= 1000;
+    }
+    if (g_RunTime.seconds >= 60)
+    {
+        g_RunTime.minutes += g_RunTime.seconds / 60;
+        g_RunTime.seconds %= 60;
+    }
+    if (g_RunTime.minutes >= 60)
+    {
+        g_RunTime.hours += g_RunTime.minutes / 60;
+        g_RunTime.minutes %= 60;
+    }
+    this->lastPlayTimeTick = now;
+}
+
 int App::CheckVersionFile(char *version, DWORD size, DWORD checksum)
 {
     DWORD size2;

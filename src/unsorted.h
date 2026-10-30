@@ -100,6 +100,18 @@ struct GameConfigFlags
 class AnmLoaded;
 class Sprite;
 
+// A time kept in the play statistics, as th08's plst fields.
+struct PlayTime
+{
+    DWORD hours;
+    DWORD minutes;
+    DWORD seconds;
+    DWORD milliseconds;
+};
+// How long the game has run (0x4a818c), and played (0x4a819c).
+extern PlayTime g_RunTime;
+extern PlayTime g_PlayTime;
+
 // The object that runs the game (th08's App), at 0x4b3100.
 struct App
 {
@@ -149,6 +161,9 @@ struct App
     // Flushes the sprites and sets render state `state` to `value`
     // (0x42ff40).
     int SetRenderState(D3DRENDERSTATETYPE state, DWORD value);
+    // Adds the time since the last call to g_RunTime, as th08's
+    // (0x42ff70).
+    void AddPlayTime();
     // Returns 0 if verFile lists `version` with `size` and `checksum`,
     // or if `version` is "debug", and -1 otherwise, as th08's
     // (0x430150).
@@ -188,7 +203,10 @@ struct App
     unsigned char pad_744[0x794 - 0x744];
     // Whether fog is on, as EnableFog and DisableFog last set it.
     DWORD fogState;
-    unsigned char pad_798[0x7a8 - 0x798];
+    // timeGetTime() when AddPlayTime and AddTotalPlayTime last ran.
+    DWORD lastPlayTimeTick;
+    DWORD lastTotalPlayTimeTick;
+    unsigned char pad_7a0[0x7a8 - 0x7a0];
     // The contents of the version file, as th08's: lines of a version,
     // a size and a checksum.
     DWORD verFileSize;
