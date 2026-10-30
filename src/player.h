@@ -233,6 +233,9 @@ public:
     // Whether a box `size` from `pos` each way touches the hitbox
     // (0x41bdf0).
     int CheckHitBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size);
+    // Whether a circle of `radius` at `pos` touches the player, the
+    // shot file's hitbox size added (0x41be70).
+    int CheckHitCircle(D3DXVECTOR3 *pos, float radius);
     // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
     int GetUnknown0()

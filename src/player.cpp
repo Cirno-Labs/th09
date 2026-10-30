@@ -124,6 +124,20 @@ int Player::CheckHitBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
     return 1;
 }
 
+int Player::CheckHitCircle(D3DXVECTOR3 *pos, float radius)
+{
+    D3DXVECTOR3 d;
+    float r;
+
+    d = this->pos - *pos;
+    r = radius + this->shtFile->hitboxSize;
+    if (d.x * d.x + d.y * d.y >= r * r)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 int Player::OnDraw2(Player *player)
 {
     g_App.SetView(player->sideIdx);
