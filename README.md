@@ -18,9 +18,23 @@ our own analysis or, for library code, from the libraries themselves.
 
 ## Status
 
-Scaffolding: the layout and tools are taken from the th08 project, and
-the toolchain builds the hook DLL. Nothing is analyzed or decompiled
-yet.
+The toolchain is up, the compiler flags are found, and the first
+functions match.
+
+Ghidra finds 2042 functions. Unlike th06–th08, the game code is
+optimized (`/O2`) but keeps its frame pointer (`/Oy-`), and functions
+default to `__stdcall` (`/Gz`). That puts the game code at
+`0x401000`–`0x44cb5c`: 1038 functions, about 289 KB. D3DX8's tables
+follow it, then D3DX8 and the CRT from `0x47b08c`.
+
+```sh
+just analyze   # writes build/functions_150a.csv
+```
+
+![Progress](docs/progress.svg)
+
+`just progress` renders it, and `just hooks` makes every commit redraw
+it and include it.
 
 ## Target
 
@@ -57,8 +71,8 @@ build 4035) and still the DirectX 8 SDK: D3DX8 is a 13.00 build like
 th08's. No object was compiled with `/GL`, unlike th10.
 
 The build uses th10's toolchain, Visual C++ .NET 2003 SP1 (`cl`
-13.10.6030), not the original's RTM build: it should generate the same
-code, but the standalone exe's Rich header will differ.
+13.10.6030), not the original's RTM build: the code it generates has
+matched so far, but the standalone exe's Rich header will differ.
 `project.toml` expects, in the Wine prefix:
 
 ```
@@ -66,6 +80,8 @@ code, but the standalone exe's Rich header will differ.
 .wine/drive_c/psdk/     Include/, Lib/ (Platform SDK for XP SP2)
 .wine/drive_c/dx8/      include/, lib/ (DirectX 8 SDK)
 ```
+
+The game code is compiled with `/O2 /Oy- /Gz /GX`.
 
 ## Workflow
 
