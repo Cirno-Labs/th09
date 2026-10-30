@@ -71,7 +71,9 @@ struct Effect
     // Vertices the effect allocated, freed when its slot is reused, as
     // th08's.
     VertexTex1DiffuseXyzrwh *vertices;
-    unsigned char pad_d0[0xd4 - 0xd0];
+    // Set by EffectUpdate40d600 while it waits out unknown98.
+    BYTE unknownD0;
+    unsigned char pad_d1[0xd4 - 0xd1];
     // The next effect of a list.
     Effect *next;
 };
@@ -213,3 +215,9 @@ int EffectInit40d910(Effect *effect);
 // at its velocity on the other side, aimed near the player there or
 // straight down. Returns 1 while moving, else 0 (0x40d9e0).
 int EffectUpdate40d9e0(Effect *effect);
+
+// An update callback of the effect table: while unknown98 is set, waits
+// it out and plays sound 0x2e; else moves the effect along a Hermite
+// curve for unknown9c, then fires a bullet at its velocity on the other
+// side. Returns 1 while waiting or moving, else 0 (0x40d600).
+int EffectUpdate40d600(Effect *effect);

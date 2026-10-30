@@ -6,6 +6,7 @@
 #include "sprite.h"
 #include "timer.h"
 
+struct EnemyShooter;
 struct GameSide;
 
 // The five sprites of a bullet type, as th08's (0xd48 bytes). Only the
@@ -129,6 +130,9 @@ public:
     static int LoadAnm();
     // Releases ANM slot 8 (0x412600).
     static void ReleaseAnm();
+    // Fires the shooter's count1 by count2 bullets, as th08's
+    // FirePattern. Returns the last bullet spawned (0x4130f0).
+    int FirePattern(EnemyShooter *shooter);
     // The update chain callback and its added callback, and the draw
     // chain callback (0x4146f0, 0x413e40, 0x413be0).
     static int OnUpdate(BulletManager *mgr);

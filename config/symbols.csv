@@ -161,7 +161,7 @@ address,size,name,symbol
 0x0040d4f0,7,Gui::GetUnknown11ea8,?GetUnknown11ea8@Gui@@QAEHXZ
 0x0040d500,28,EnemyShooter::EnemyShooter,??0EnemyShooter@@QAE@XZ
 0x0040d520,210,EffectInit40d520,?EffectInit40d520@@YIHPAUEffect@@@Z
-0x0040d600,775,Func40d600,
+0x0040d600,775,EffectUpdate40d600,?EffectUpdate40d600@@YIHPAUEffect@@@Z
 0x0040d910,200,EffectInit40d910,?EffectInit40d910@@YIHPAUEffect@@@Z
 0x0040d9e0,464,EffectUpdate40d9e0,?EffectUpdate40d9e0@@YIHPAUEffect@@@Z
 0x0040dbb0,184,EffectInit40dbb0,?EffectInit40dbb0@@YIHPAUEffect@@@Z
@@ -258,7 +258,7 @@ address,size,name,symbol
 0x00412830,245,Func412830,
 0x00412930,40,Bullet::FreeBullet,?FreeBullet@Bullet@@QAEXXZ
 0x00412960,1887,Func412960,
-0x004130f0,200,Func4130f0,
+0x004130f0,200,BulletManager::FirePattern,?FirePattern@BulletManager@@QAEHPAUEnemyShooter@@@Z
 0x004131c0,200,Func4131c0,
 0x00413290,450,Func413290,
 0x00413460,110,Func413460,

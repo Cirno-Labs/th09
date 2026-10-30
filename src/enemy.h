@@ -149,16 +149,29 @@ struct EnemyShooter
     // Bullet::SetCommand20000 for the shooter (0x412760).
     void SetCommand20000(int i, int concurrent, int frames);
 
-    unsigned char pad_0[0x20];
+    // The bullet type, and its color, as th08's BulletShooter.
+    short sprite;
+    short color;
+    D3DXVECTOR3 pos;
+    float angle1;
+    float angle2;
+    float speed1;
+    float speed2;
     // Copied into each bullet.
     BulletCommand commands[18];
-    unsigned char pad_1d0[0x1fc - 0x1d0];
+    unsigned char pad_1d0[0x1f4 - 0x1d0];
+    short count1;
+    short count2;
+    WORD aimMode;
+    WORD unknown1fa;
     // The flags of the commands it has.
     DWORD flags;
     // The sounds of shooting and of the bullets, as th08's.
     int sound;
     int bulletSound;
-    unsigned char pad_208[0x214 - 0x208];
+    unsigned char pad_208[0x20c - 0x208];
+    char unknown20c;
+    unsigned char pad_20d[0x214 - 0x20d];
 };
 ASSERT_SIZE(EnemyShooter, 0x214);
 

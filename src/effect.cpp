@@ -269,6 +269,101 @@ int EffectInit40d520(Effect *effect)
     return 0;
 }
 
+int EffectUpdate40d600(Effect *effect)
+{
+    float t;
+    float f00;
+    float f01;
+    float f10;
+    float f11;
+    float maxSpeed;
+
+    if (effect->unknown98 != 0.0f)
+    {
+        effect->unknownD0 = 1;
+        if (effect->unknownAc.AsFloat() >= effect->unknown98)
+        {
+            g_SoundPlayer.PlaySoundByIdx(0x2e, effect->mgr->sideIdx != 0 ? 500 : -500);
+            effect->unknown98 = 0.0f;
+            effect->unknownAc = 0;
+            effect->unknownD0 = 0;
+            return 1;
+        }
+        return 1;
+    }
+    if (effect->unknownAc.AsFloat() < effect->unknown9c)
+    {
+        t = effect->unknownAc.AsFloat() / effect->unknown9c;
+        f00 = (2.0f * t + 1.0f) * (t - 1.0f) * (t - 1.0f);
+        f01 = (3.0f - 2.0f * t) * t * t;
+        f10 = (1.0f - t) * (1.0f - t) * t;
+        f11 = (t - 1.0f) * t * t;
+        effect->pos.x = f00 * effect->unknown54.x + f10 * effect->unknown3c.x + f01 * effect->unknown60.x +
+                        f11 * effect->unknown48.x;
+        effect->pos.y = f00 * effect->unknown54.y + f10 * effect->unknown3c.y + f01 * effect->unknown60.y +
+                        f11 * effect->unknown48.y;
+        return 1;
+    }
+    if (g_GameManager.gui->GetUnknown11ea8() != 0)
+    {
+        return 0;
+    }
+    EnemyShooter shooter;
+    shooter.pos = effect->velocity;
+    if (effect->unknownAa >= 2 && g_Rng.GetRandomU32InRange(5) == 0)
+    {
+        shooter.sprite = 3;
+    }
+    else
+    {
+        shooter.sprite = effect->unknownA4;
+    }
+    shooter.color = effect->unknownA6;
+    shooter.aimMode = 1;
+    shooter.count1 = 1;
+    shooter.count2 = 1;
+    if (shooter.sprite == 3)
+    {
+        shooter.angle1 = g_Rng.GetRandomF32SignedInRange(0.1308997f) + 1.5707964f;
+    }
+    else if (g_Rng.GetRandomU32InRange(3))
+    {
+        shooter.color = 5;
+        shooter.aimMode = 0;
+        shooter.angle1 = g_Rng.GetRandomF32SignedInRange(0.22439948f);
+    }
+    else
+    {
+        shooter.color = 3;
+        shooter.angle1 = g_Rng.GetRandomF32SignedInRange(0.2617994f) + 1.5707964f;
+    }
+    shooter.speed1 = g_Rng.GetRandomF32SignedInRange(0.4f) + effect->unknownA0;
+    if (g_GameManager.sides[1 - effect->unknownA8].character == 10)
+    {
+        shooter.speed1 *= 0.93f;
+    }
+    if (shooter.sprite == 3)
+    {
+        shooter.speed1 += 0.3f;
+    }
+    maxSpeed = g_GameManager.unknownB4 * 0.1f + 3.0f;
+    if (shooter.speed1 >= maxSpeed)
+    {
+        shooter.speed1 = maxSpeed;
+    }
+    else if (shooter.speed1 < 0.8f)
+    {
+        shooter.speed1 = 0.8f;
+    }
+    shooter.unknown20c = effect->unknownAa + 1;
+    shooter.angle2 = 0.0f;
+    shooter.speed2 = 0.0f;
+    shooter.unknown1fa = 0;
+    shooter.flags = 4;
+    g_GameManager.sides[1 - effect->unknownA8].bulletManager->FirePattern(&shooter);
+    return 0;
+}
+
 int EffectInit40d910(Effect *effect)
 {
     effect->unknown54 = effect->pos;
