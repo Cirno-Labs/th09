@@ -664,6 +664,19 @@ struct App
     void CloseSubThread();
     // Runs `proc` with `arg` in the sub thread, as th08's (0x431ae0).
     int StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg);
+    // The chain callbacks, as th08's: the update element's callback and
+    // its added and deleted callbacks (0x431110, 0x432090, 0x431b70),
+    // and the draw elements' at priorities 0x1f, 0 and 2 (0x431b30,
+    // 0x431540, 0x42ed80).
+    static int OnUpdate(App *app);
+    static int AddedCallback(App *app);
+    static int DeletedCallback(App *app);
+    static int OnDraw(App *app);
+    static int OnDrawLogo(App *app);
+    static int OnDrawLoading(App *app);
+    // Resets the scenes and adds the update and draw elements, as th08's.
+    // Returns 0, or what adding the update element returned (0x432180).
+    static int RegisterChain();
     // Clears subThread, closeSubThread and unknown6b8 (0x41a997).
     void ResetSubThread();
     // Zeroes unknown77c to unknown790 (0x423382).
@@ -682,7 +695,8 @@ struct App
     D3DPRESENT_PARAMETERS presentParams;
     unsigned char pad_384[0x388 - 0x384];
     GameConfig config;
-    unsigned char pad_454[0x458 - 0x454];
+    // Counts the frames, as th08's.
+    int frames;
     int unknown458;
     int unknown45c;
     int unknown460;
@@ -695,7 +709,10 @@ struct App
     // Each side's ten records, ordered by value, and its last one.
     RunRecord records[2][10];
     RunRecord lastRecords[2];
-    unsigned char pad_584[0x590 - 0x584];
+    unsigned char pad_584[0x58c - 0x584];
+    // The scene running, as th08's.
+    int curScene;
+    // The scene to go to.
     int scene;
     int prevScene;
     // Set when the game ends, unless it goes on to scene 3, 10 or 12:

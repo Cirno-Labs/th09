@@ -1,3 +1,4 @@
+#include "chain.h"
 #include "mainmenu.h"
 #include "midi.h"
 #include "screeneffect.h"
@@ -743,4 +744,34 @@ int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
     this->subThread = CreateThread(NULL, 0, proc, arg, 0, &this->subThreadId);
     this->unknown6b8 = 1;
     return this->subThread != NULL ? 0 : -1;
+}
+
+int App::RegisterChain()
+{
+    App *app = &g_App;
+    ChainElem *elem;
+    int ret;
+
+    app->curScene = 0;
+    app->scene = -1;
+    app->frames = 0;
+    elem = g_Chain.CreateElem((ChainCallback)App::OnUpdate);
+    elem->arg = app;
+    elem->addedCallback = (ChainCallback)App::AddedCallback;
+    elem->deletedCallback = (ChainCallback)App::DeletedCallback;
+    ret = g_Chain.AddToCalcChain(elem, 0);
+    if (ret != 0)
+    {
+        return ret;
+    }
+    elem = g_Chain.CreateElem((ChainCallback)App::OnDraw);
+    elem->arg = app;
+    g_Chain.AddToDrawChain(elem, 0x1f);
+    elem = g_Chain.CreateElem((ChainCallback)App::OnDrawLogo);
+    elem->arg = app;
+    g_Chain.AddToDrawChain(elem, 0);
+    elem = g_Chain.CreateElem((ChainCallback)App::OnDrawLoading);
+    elem->arg = app;
+    g_Chain.AddToDrawChain(elem, 2);
+    return 0;
 }
