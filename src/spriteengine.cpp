@@ -73,6 +73,19 @@ void SpriteEngine::ClearLastCameraSetupFlag()
     this->lastCameraSetupFlag = 0xff;
 }
 
+void SpriteEngine::SendInterruptToLoadedSprites(Sprite *vms, int count, short interrupt)
+{
+    while (count != 0)
+    {
+        if (g_SpriteEngine->HasTexture(vms))
+        {
+            vms->SetPendingInterrupt(interrupt);
+        }
+        vms++;
+        count--;
+    }
+}
+
 void SpriteEngine::StepSprites(Sprite *vms, int count)
 {
     while (count != 0)

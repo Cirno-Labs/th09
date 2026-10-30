@@ -406,6 +406,9 @@ public:
     // g_TextureFormats[`format`], as th08's. Returns 0, or -1 on failure
     // (0x43c4c0).
     int CreateTextureFromImage(AnmTexture *tex, AnmImage *image, int format);
+    // Sends interrupt `interrupt` to the `count` sprites from `vms` that
+    // show a loaded sprite, as th08's (0x436de0).
+    void SendInterruptToLoadedSprites(Sprite *vms, int count, short interrupt);
     // Runs `count` sprites from `vms` a frame, as th08's (0x439560).
     void StepSprites(Sprite *vms, int count);
     // Empties the quad batch, as th08's (0x439680).
@@ -423,6 +426,21 @@ public:
     }
     // The ANM file in slot `slot`, as th08's (0x401660).
     AnmLoaded *GetAnm(int slot);
+    // Whether `vm` shows a sprite whose ANM file has its textures
+    // loaded, as th08's. Inline; the copy at 0x423469 is in an /O1
+    // object.
+    BOOL HasTexture(Sprite *vm)
+    {
+        if (vm->spriteData == NULL)
+        {
+            return FALSE;
+        }
+        if (vm->spriteData->sourceFileIndex < 0)
+        {
+            return FALSE;
+        }
+        return this->anms[vm->spriteData->sourceFileIndex].textures != NULL;
+    }
     // The image loaded as surface `surface`, as th08's. Inline in th08;
     // this copy is 0x42f400.
     IDirect3DSurface8 *GetSurface(int surface);

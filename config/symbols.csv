@@ -483,7 +483,7 @@ address,size,name,symbol
 0x00423382,33,Func423382,
 0x004233a3,81,Func4233a3,
 0x004233f4,117,Func4233f4,
-0x00423469,47,Func423469,
+0x00423469,47,SpriteEngine::HasTexture,
 0x00423498,15,Func423498,
 0x004234a7,54,Func4234a7,
 0x004234dd,25,Func4234dd,
@@ -781,7 +781,7 @@ address,size,name,symbol
 0x00436c40,116,Func436c40,
 0x00436cd0,106,Func436cd0,
 0x00436d70,84,Func436d70,
-0x00436de0,63,Func436de0,
+0x00436de0,72,SpriteEngine::SendInterruptToLoadedSprites,?SendInterruptToLoadedSprites@SpriteEngine@@QAEXPAVSprite@@HF@Z
 0x00436e30,203,Func436e30,
 0x00436f30,9352,SpriteEngine::Step,?Step@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00439560,53,SpriteEngine::StepSprites,?StepSprites@SpriteEngine@@QAEXPAVSprite@@H@Z
