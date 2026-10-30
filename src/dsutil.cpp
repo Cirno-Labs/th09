@@ -821,3 +821,14 @@ CSound::CSound(LPDIRECTSOUNDBUFFER *apDSBuffer, DWORD dwDSBufferSize, DWORD dwNu
 
     this->isPlaying = 0;
 }
+
+CSound::~CSound()
+{
+    for (DWORD i = 0; i < m_dwNumBuffers; i++)
+    {
+        SAFE_RELEASE(m_apDSBuffer[i]);
+    }
+
+    SAFE_DELETE_ARRAY(m_apDSBuffer);
+    SAFE_DELETE(m_pWaveFile);
+}
