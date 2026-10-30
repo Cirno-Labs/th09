@@ -150,6 +150,27 @@ int GameManager::IsDemo()
     return this->stateFlags >> 1 & 1;
 }
 
+void GameManager::AddExtend()
+{
+    if (g_GameManager.sides[0].stats->lives < 7.0f)
+    {
+        g_GameManager.sides[0].stats->lives += 1.0f;
+        g_SoundPlayer.PlaySoundByIdx(0x1c, 0);
+    }
+    g_GameManager.sides[0].stats->extendsGiven++;
+    if (g_GameManager.mode == 1)
+    {
+        if (g_GameManager.sides[0].stats->extendsGiven >= 8)
+        {
+            g_GameManager.sides[0].stats->extendsGiven = 99999;
+        }
+    }
+    else if (g_GameManager.sides[0].stats->extendsGiven >= 5)
+    {
+        g_GameManager.sides[0].stats->extendsGiven = 99999;
+    }
+}
+
 int GameManager::RegisterChain()
 {
     GameManager *mgr = &g_GameManager;
