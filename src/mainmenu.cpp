@@ -538,3 +538,26 @@ int MainMenu::OnDraw(MainMenu *menu)
     g_SpriteEngine->FlushQuadBatch();
     return 1;
 }
+
+int MainMenu::ReleaseTitleScene()
+{
+    if (this->unknownC8fc != NULL)
+    {
+        free(this->unknownC8fc);
+        this->unknownC8fc = NULL;
+    }
+    if (this->sprites != NULL)
+    {
+        delete[] this->sprites;
+        this->sprites = NULL;
+    }
+    for (int i = 0; i < 50; i++)
+    {
+        if (this->unknown681c[i] != NULL)
+        {
+            free(this->unknown681c[i]);
+        }
+        this->unknown681c[i] = NULL;
+    }
+    return 0;
+}

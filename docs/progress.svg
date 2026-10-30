@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.59% (503)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">52.41% (554)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.68% (504)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">52.32% (553)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="355.48" height="6" x="0" y="0" class="named"/>
-<rect width="391.52" height="6" x="355.48" y="0" class="todo"/>
+<rect width="356.19" height="6" x="0" y="0" class="named"/>
+<rect width="390.81" height="6" x="356.19" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -567,7 +567,7 @@
 <rect width="12" height="12" x="705" y="135" class="named"><title>0x00424898 MainMenu::OnDraw (329 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="135" class="todo"><title>0x004249e1 Func4249e1 (534 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="135" class="todo"><title>0x00424bf7 Func424bf7 (335 bytes)</title></rect>
-<rect width="12" height="12" x="0" y="150" class="todo"><title>0x00424d4b Func424d4b (84 bytes)</title></rect>
+<rect width="12" height="12" x="0" y="150" class="named"><title>0x00424d4b MainMenu::ReleaseTitleScene (84 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="150" class="todo"><title>0x00424dff Func424dff (150 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="150" class="todo"><title>0x00424e95 Func424e95 (72 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="150" class="todo"><title>0x00424edd Func424edd (211 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.31%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">75.69%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.34%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">75.66%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="181.59" height="6" x="0" y="0" class="named"/>
-<rect width="565.41" height="6" x="181.59" y="0" class="todo"/>
+<rect width="181.81" height="6" x="0" y="0" class="named"/>
+<rect width="565.19" height="6" x="181.81" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1712,7 +1712,7 @@
 <rect width="5.77" height="5.33" x="624.80" y="283.43" class="named"><title>0x004304a0 App::FinishLoadingSprites (85 bytes)</title></rect>
 <rect width="5.77" height="5.33" x="624.80" y="291.76" class="named"><title>0x0043d340 MmTimer::Start (85 bytes)</title></rect>
 <rect width="5.77" height="5.23" x="624.80" y="300.08" class="todo"><title>0x0040e0d0 Func40e0d0 (84 bytes)</title></rect>
-<rect width="5.77" height="5.23" x="624.80" y="308.31" class="todo"><title>0x00424d4b Func424d4b (84 bytes)</title></rect>
+<rect width="5.77" height="5.23" x="624.80" y="308.31" class="named"><title>0x00424d4b MainMenu::ReleaseTitleScene (84 bytes)</title></rect>
 <rect width="5.77" height="5.23" x="624.80" y="316.54" class="named"><title>0x00436d70 SpriteEngine::DrawSprite (84 bytes)</title></rect>
 <rect width="5.77" height="5.23" x="624.80" y="324.77" class="named"><title>0x0043b140 SpriteEngine::DrawProjected3D (84 bytes)</title></rect>
 <rect width="5.50" height="5.49" x="633.58" y="208.09" class="named"><title>0x00440000 CSoundManager::Initialize (84 bytes)</title></rect>

@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "chain.h"
 #include "common.h"
 #include "sprite.h"
 #include "unsorted.h"
@@ -72,6 +73,33 @@ public:
     // Draws the menu's sprites, then the state's own, as th08's
     // (0x424898).
     static int OnDraw(MainMenu *menu);
+    // Frees the files and sprites the title scene loaded, as th08's
+    // (0x424d4b).
+    int ReleaseTitleScene();
+    // Releases the title's ANM files and surface, unregisters the menu
+    // and deletes it, as th08's (0x424d9f).
+    static int DeletedCallback(MainMenu *menu);
+    // Shows sprites first to first + count - 1 dimmed, the next frame
+    // of their ANM, with interrupt 8, and the one at cursor lit with
+    // interrupt 7 (0x424dff).
+    void SelectEntry(int cursor, int first, int count);
+    // Shows frame `frame` of the entry sprite `idx`, with interrupt 7
+    // (0x424e95).
+    void ShowEntryFrame(int frame, int idx);
+    // SelectEntry for every stride-th sprite, stepping each at once
+    // (0x424edd).
+    void SelectEntryStep(int cursor, int first, int count, int stride);
+    // SelectEntry for every stride-th sprite with interrupts 15 and 14
+    // (0x424fb0), and with 18 and 17 (0x42505f).
+    void SelectEntry2(int cursor, int first, int count, int stride);
+    void SelectEntry3(int cursor, int first, int count, int stride);
+    // SelectEntry's interrupts without changing the sprites (0x42510e).
+    void SelectEntryInterrupts(int cursor, int first, int count);
+    // Sends interrupt 9 to the sprites ShowHalves sets and those next
+    // to them, then shows the halves (0x425163).
+    void FlashHalves(int left, int right);
+    // Sends sprite 153 + idx interrupt 9 if `on`, else 10 (0x42520b).
+    void FlashSprite(int idx, int on);
 
     int cursor;
     unsigned char pad_4[0x10 - 0x4];
@@ -82,7 +110,12 @@ public:
     unsigned char pad_30[0x84 - 0x30];
     // The state before the current one.
     int prevState;
-    unsigned char pad_88[0xc910 - 0x88];
+    unsigned char pad_88[0x681c - 0x88];
+    // Files ReleaseTitleScene frees.
+    void *unknown681c[50];
+    unsigned char pad_68e4[0xc8fc - 0x68e4];
+    void *unknownC8fc;
+    unsigned char pad_c900[0xc910 - 0xc900];
     int unknownC910;
     unsigned char pad_c914[0x11b74 - 0xc914];
     int unknown11b74;
@@ -103,4 +136,6 @@ public:
     unsigned char pad_1b234[0x1b238 - 0x1b234];
     // While nonzero, OnDraw draws nothing.
     int loadingState;
+    unsigned char pad_1b23c[0x1b24c - 0x1b23c];
+    ChainElem *drawChain;
 };
