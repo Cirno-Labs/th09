@@ -19,3 +19,8 @@ HDC GdiSurface::GetHdc()
 {
     return this->hdc;
 }
+
+int GdiSurface::GetWidthBytes()
+{
+    return this->widthBytes;
+}
