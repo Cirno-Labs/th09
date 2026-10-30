@@ -680,7 +680,7 @@ address,size,name,symbol
 0x00432410,164,Func432410,
 0x004324c0,679,Network::Init,?Init@Network@@QAEXXZ
 0x00432770,199,Func432770,
-0x00432840,165,Func432840,
+0x00432840,165,Network::CreateDeviceAddress,?CreateDeviceAddress@Network@@QAEJXZ
 0x004328f0,276,Func4328f0,
 0x00432a10,167,Func432a10,
 0x00432ac0,168,Func432ac0,
@@ -2235,6 +2235,11 @@ address,size,name,symbol
 0x00490f70,,g_TextureFormatSizes,?g_TextureFormatSizes@@3QBHB
 0x00491854,,c_dfDIJoystick2,_c_dfDIJoystick2
 0x00491a5c,,c_dfDIKeyboard,_c_dfDIKeyboard
+0x00495290,,CLSID_DP8SP_TCPIP,_CLSID_DP8SP_TCPIP
+0x004952a0,,IID_IDirectPlay8Peer,_IID_IDirectPlay8Peer
+0x004952b0,,CLSID_DirectPlay8Peer,_CLSID_DirectPlay8Peer
+0x004952c0,,IID_IDirectPlay8Address,_IID_IDirectPlay8Address
+0x004952d0,,CLSID_DirectPlay8Address,_CLSID_DirectPlay8Address
 0x004952e0,,IID_IDirectSoundNotify,_IID_IDirectSoundNotify
 0x004952f0,,GUID_SysKeyboard,_GUID_SysKeyboard
 0x00495390,,IID_IDirectInput8A,_IID_IDirectInput8A

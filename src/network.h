@@ -24,6 +24,9 @@ struct Network
     // Closes the peer and releases the addresses and the peer
     // (0x432340).
     void ReleaseInterfaces();
+    // Clears unknown1c and creates the TCP/IP address on `port` to host
+    // on (0x432840).
+    HRESULT CreateDeviceAddress();
     // Handles a DirectPlay message (0x432b70).
     HRESULT HandleMessage(PVOID context, DWORD type, PVOID message);
 
