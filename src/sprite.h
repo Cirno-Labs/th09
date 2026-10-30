@@ -100,7 +100,9 @@ public:
     void *textures;
     // Nonzero while the textures are still being created.
     int loadStep;
+    unsigned char pad_1c[0x120 - 0x1c];
 };
+ASSERT_SIZE(AnmLoaded, 0x120);
 
 // Runs every sprite's script (th08's name), at *0x4dc550.
 class SpriteEngine
@@ -151,9 +153,11 @@ public:
     void Step(Sprite *vm);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
-    // The ANM file in slot `slot`, as th08's. Inline in th08; this copy
-    // is 0x42f400.
+    // The ANM file in slot `slot`, as th08's (0x401660).
     AnmLoaded *GetAnm(int slot);
+    // The image loaded as surface `surface`, as th08's. Inline in th08;
+    // this copy is 0x42f400.
+    IDirect3DSurface8 *GetSurface(int surface);
 
     D3DCOLOR modulateColor;
     int modulateColorEnabled;
@@ -169,9 +173,21 @@ public:
     // How far the screen shakes.
     float shakeX;
     float shakeY;
-    unsigned char pad_24[0x123fc - 0x24];
-    // The ANM files, by slot.
-    AnmLoaded *anmFiles[0x121];
+    // The loaded ANM files, by slot.
+    AnmLoaded anms[0x100];
+    unsigned char pad_12024[0x123fc - 0x12024];
+    // Images loaded as surfaces to copy to the back buffer from, as
+    // th08's.
+    IDirect3DSurface8 *surfaces[0x20];
+    // System memory copies of them, to recreate them from.
+    IDirect3DSurface8 *surfacesBackup[0x20];
+    // The image files they are loaded from, and their sizes.
+    void *surfaceFiles[0x20];
+    int surfaceFileSizes[0x20];
+    // The images' sizes and formats.
+    D3DXIMAGE_INFO surfaceInfos[0x20];
+    // The texture factor last set on the device.
+    D3DCOLOR currentColor;
     // The render state last set, so that sprites only change it when
     // they need to.
     IDirect3DTexture8 *currentTexture;

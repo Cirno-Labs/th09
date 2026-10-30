@@ -38,7 +38,7 @@ address,size,name,symbol
 0x00401610,14,SpriteEngine::ResetColorModulation,?ResetColorModulation@SpriteEngine@@QAEXXZ
 0x00401620,19,SpriteEngine::SetColorModulation,?SetColorModulation@SpriteEngine@@QAEXK@Z
 0x00401640,27,Func401640,
-0x00401660,20,Func401660,
+0x00401660,20,SpriteEngine::GetAnm,?GetAnm@SpriteEngine@@QAEPAVAnmLoaded@@H@Z
 0x00401680,46,Func401680,
 0x004016b0,46,Func4016b0,
 0x004016e0,423,Func4016e0,
@@ -624,7 +624,7 @@ address,size,name,symbol
 0x0042f1a0,517,Func42f1a0,
 0x0042f3b0,18,Func42f3b0,
 0x0042f3d0,31,Func42f3d0,
-0x0042f400,17,SpriteEngine::GetAnm,?GetAnm@SpriteEngine@@QAEPAVAnmLoaded@@H@Z
+0x0042f400,17,SpriteEngine::GetSurface,?GetSurface@SpriteEngine@@QAEPAUIDirect3DSurface8@@H@Z
 0x0042f420,101,SpriteEngine::SetPendingSurfaceCopy,?SetPendingSurfaceCopy@SpriteEngine@@QAEHHHHHHHHHH@Z
 0x0042f490,93,Timer::Add,?Add@Timer@@QAEXM@Z
 0x0042f4f0,71,App::TickTimer,?TickTimer@App@@QAEXPAHPAM@Z

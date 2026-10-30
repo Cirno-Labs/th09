@@ -32,6 +32,11 @@ void SpriteEngine::SetColorModulation(D3DCOLOR color)
     this->modulateColor = color;
 }
 
+AnmLoaded *SpriteEngine::GetAnm(int slot)
+{
+    return &this->anms[slot];
+}
+
 void SpriteEngine::ClearBlendMode()
 {
     this->blendMode = 3;

@@ -49,9 +49,9 @@ int App::GetNoTextRenderDetect()
     return this->config.flags.noTextRenderDetect;
 }
 
-AnmLoaded *SpriteEngine::GetAnm(int slot)
+IDirect3DSurface8 *SpriteEngine::GetSurface(int surface)
 {
-    return this->anmFiles[slot];
+    return this->surfaces[surface];
 }
 
 int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight,
