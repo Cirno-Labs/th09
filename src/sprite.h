@@ -9,6 +9,27 @@
 #include "timer.h"
 
 class AnmLoaded;
+
+// An argument of an ANM instruction, as th08's.
+union AnmArg
+{
+    int i;
+    float f;
+    BYTE b[4];
+};
+
+// An instruction of an ANM script, as th08's.
+struct AnmInstr
+{
+    short opcode;
+    // The size of the instruction, arguments included.
+    WORD size;
+    // The frame of the script it runs on.
+    short time;
+    // Bit n: argument n names a script variable.
+    WORD paramMask;
+    AnmArg args[1];
+};
 struct SpriteData;
 
 // The part of Sprite up to pos, as th08's. Its implicit constructor
@@ -21,7 +42,9 @@ struct SpriteBase
     // Draw scales the sprite's height and width by these.
     float scaleY;
     float scaleX;
-    unsigned char pad_20[0x28 - 0x20];
+    // Added to the scales every frame.
+    float scaleSpeedY;
+    float scaleSpeedX;
     // The size of the sprite, from its SpriteData.
     float spriteWidth;
     float spriteHeight;
@@ -34,10 +57,15 @@ struct SpriteBase
     // The interpolations' frames so far and their lengths, as th08's.
     Timer interpDuration[7];
     Timer interpFrame[7];
-    // The easings of the move and color interpolations.
-    BYTE moveEasing;
-    BYTE colorEasing;
-    unsigned char pad_fa[0x100 - 0xfa];
+    // The easings of the interpolations, as th08's.
+    BYTE interpEasing;
+    BYTE colorInterpEasing;
+    BYTE alphaInterpEasing;
+    BYTE rotationInterpEasing;
+    BYTE scaleInterpEasing;
+    BYTE color2InterpEasing;
+    BYTE color2AlphaInterpEasing;
+    unsigned char pad_ff[0x1];
     // The script's variables, as th08's: ResolveIntArgument and the
     // others read 10000 to 10009 in arguments as these.
     int scriptVar0;
@@ -50,7 +78,9 @@ struct SpriteBase
     float scriptVarF3;
     int scriptVar8;
     int scriptVar9;
-    unsigned char pad_128[0x130 - 0x128];
+    // Added to the texture scroll every frame.
+    float uvScrollSpeedX;
+    float uvScrollSpeedY;
     // The sprite's size scaled down by 256; drawMatrix is a copy of it.
     D3DXMATRIX matrix;
     D3DXMATRIX drawMatrix;
@@ -66,9 +96,42 @@ struct SpriteBase
         };
     };
     // Drawn instead of color when bit 17 of flags is set.
-    D3DCOLOR color2;
-    DWORD flags;
-    unsigned char pad_1fc[0x1fe - 0x1fc];
+    union
+    {
+        D3DCOLOR color2;
+        struct
+        {
+            BYTE color2Rgb[3];
+            BYTE color2Alpha;
+        };
+    };
+    // th08's flags.
+    union
+    {
+        DWORD flags;
+        struct
+        {
+            DWORD shown : 1;
+            DWORD visible : 1;
+            DWORD unusedFlag2 : 1;
+            DWORD unusedFlag3 : 1;
+            DWORD blendMode : 2;
+            DWORD unusedFlag6 : 1;
+            DWORD unusedFlag7 : 1;
+            DWORD usePosOffset : 1;
+            DWORD flip : 2;
+            DWORD anchor : 2;
+            DWORD zWriteDisabled : 1;
+            DWORD stopped : 1;
+            DWORD cameraSetup : 1;
+            DWORD freezeMatrix : 1;
+            DWORD useColor2 : 1;
+            DWORD unusedFlag18 : 1;
+            DWORD scriptPaused : 1;
+        };
+    };
+    // Nonzero: the sprite turns to face where it moves.
+    short autoRotate;
     // The interrupt label to jump to on the next Step; 0 for none.
     short pendingInterrupt;
     // How SpriteEngine::DrawSprite draws the sprite, as th08's.
@@ -97,20 +160,23 @@ public:
     // The script AnmLoaded::StartScriptAtOrigin started.
     short scriptIndex;
     // The script SetScript started, and the instruction Step runs next.
-    void *scriptStart;
-    void *scriptPos;
+    AnmInstr *scriptStart;
+    AnmInstr *scriptPos;
     SpriteData *spriteData;
+    // Where an interrupt returns to.
     Timer interruptReturnTime;
-    unsigned char pad_234[0x238 - 0x234];
-    // Where the move interpolation goes from and to.
+    AnmInstr *interruptReturnPos;
+    // The interpolations' ends, as th08's: the scale tween's x and y
+    // are the start, z and colorTween.x the end; colorTween.y and .z
+    // hold the color's start and end as D3DCOLORs.
     D3DXVECTOR3 moveStart;
     D3DXVECTOR3 moveEnd;
-    unsigned char pad_250[0x278 - 0x250];
-    // The RGB the color interpolation goes from and to; their alpha
-    // bytes are not set by SetColorInterp.
-    D3DCOLOR colorStart;
-    D3DCOLOR colorEnd;
-    unsigned char pad_280[0x288 - 0x280];
+    D3DXVECTOR3 rotateStart;
+    D3DXVECTOR3 rotateEnd;
+    D3DVECTOR scaleTween;
+    D3DVECTOR colorTween;
+    D3DCOLOR color2TweenStart;
+    D3DCOLOR color2TweenEnd;
     // Added to pos when it is drawn.
     D3DXVECTOR3 posOffset;
     int spriteTime;
@@ -504,7 +570,7 @@ public:
     // Draws `vm` as a quad in 3D, as th08's (0x43b140).
     int DrawProjected3D(Sprite *vm);
     // Runs `vm`'s script up to its next wait (0x436f30).
-    void Step(Sprite *vm);
+    int Step(Sprite *vm);
     // Rotates (`x`, `y`) by the angle with `sine` and `cosine` and moves
     // it to (`cx`, `cy`), into `out`, as th08's (0x4397e0).
     void RotatePoint(float *out, float x, float y, float sine, float cosine, float cx, float cy);

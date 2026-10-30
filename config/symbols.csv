@@ -760,7 +760,7 @@ address,size,name,symbol
 0x00435ed0,4,GdiSurface::GetHdc,?GetHdc@GdiSurface@@QAEPAUHDC__@@XZ
 0x00435ee0,4,GdiSurface::GetWidthBytes,?GetWidthBytes@GdiSurface@@QAEHXZ
 0x00435ef0,4,GdiSurface::GetWidth,?GetWidth@GdiSurface@@QAEHXZ
-0x00435f00,4,GdiSurface::GetHeight,?GetHeight@GdiSurface@@QAEHXZ
+0x00435f00,4,GdiSurface::GetHeight,?GetHeight@GdiSurface@@QAEHXZ ?AsFrames@Timer@@QAEHXZ
 0x00435f10,11,GdiSurface::IsCreated,?IsCreated@GdiSurface@@QAE_NXZ
 0x00435f20,29,GdiSurface::GdiSurface,??0GdiSurface@@QAE@XZ
 0x00435f40,78,GdiSurface::Release,?Release@GdiSurface@@QAE_NXZ
@@ -783,7 +783,7 @@ address,size,name,symbol
 0x00436d70,84,SpriteEngine::DrawSprite,?DrawSprite@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00436de0,72,SpriteEngine::SendInterruptToLoadedSprites,?SendInterruptToLoadedSprites@SpriteEngine@@QAEXPAVSprite@@HF@Z
 0x00436e30,203,Sprite::ResolveFloatArgument,?ResolveFloatArgument@Sprite@@QAEMM@Z
-0x00436f30,9352,SpriteEngine::Step,?Step@SpriteEngine@@QAEXPAVSprite@@@Z
+0x00436f30,9360,SpriteEngine::Step,?Step@SpriteEngine@@QAEHPAVSprite@@@Z
 0x00439560,53,SpriteEngine::StepSprites,?StepSprites@SpriteEngine@@QAEXPAVSprite@@H@Z
 0x004395a0,143,AnmLoaded::SetScript,?SetScript@AnmLoaded@@QAEXPAVSprite@@PAX@Z
 0x00439630,66,AnmLoaded::StartSpriteSeries,?StartSpriteSeries@AnmLoaded@@QAEXPAVSprite@@HH@Z

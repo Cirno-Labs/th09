@@ -36,6 +36,12 @@ struct Timer
     void operator--(int);
     // Whether the count changed since the last Tick or Set (0x40f810).
     BOOL HasTicked();
+    // The whole count. Inline; the copy the game calls is folded with
+    // GdiSurface::GetHeight (0x435f00).
+    int AsFrames()
+    {
+        return this->current;
+    }
     // The count with its fraction (0x4014f0).
     float AsFloat();
     // Set, as an assignment (0x401500).
