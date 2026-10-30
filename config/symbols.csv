@@ -836,7 +836,7 @@ address,size,name,symbol
 0x0043ccd0,102,SpriteEngine::PreloadSurface,?PreloadSurface@SpriteEngine@@QAEHHPAD@Z
 0x0043cd40,141,SpriteEngine::PostloadAnm,?PostloadAnm@SpriteEngine@@QAEPAVAnmLoaded@@PAV2@@Z
 0x0043cdd0,87,SpriteEngine::StepAnmLoading,?StepAnmLoading@SpriteEngine@@QAEHXZ
-0x0043ce30,341,Func43ce30,
+0x0043ce30,341,SpriteEngine::SpriteEngine,??0SpriteEngine@@QAE@XZ
 0x0043cf90,59,SpriteEngine::LoadAnm,?LoadAnm@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
 0x0043cfd0,16,MidiDevice::MidiDevice,??0MidiDevice@@QAE@XZ
 0x0043cfe0,40,MidiDevice::Close,?Close@MidiDevice@@QAEHXZ
@@ -2269,6 +2269,7 @@ address,size,name,symbol
 0x004dc548,,g_TextOutlineColor,?g_TextOutlineColor@@3KA
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
 0x004dc558,,g_DiffuseQuad,?g_DiffuseQuad@@3PAUVertexTex1DiffuseXyzrwh@@A
+0x004dc5c8,,g_TexQuad,?g_TexQuad@@3PAUVertexTex1Xyzrwh@@A
 0x004dc628,,g_DiffuseQuadXyz,?g_DiffuseQuadXyz@@3PAUVertexTex1DiffuseXyz@@A
 0x004dc688,,g_MidiTimerLastCounter,?g_MidiTimerLastCounter@@3T_LARGE_INTEGER@@A
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A

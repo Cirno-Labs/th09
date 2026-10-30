@@ -317,6 +317,19 @@ struct VertexDiffuseXyzrwh
     D3DCOLOR diffuse;
 };
 
+// A vertex with a transformed position and texture coordinates, as
+// th08's.
+struct VertexTex1Xyzrwh
+{
+    D3DXVECTOR3 pos;
+    float w;
+    struct
+    {
+        float x;
+        float y;
+    } uv;
+};
+
 // A vertex with an untransformed position and texture coordinates, as
 // th08's.
 struct VertexTex1Xyz
@@ -338,6 +351,9 @@ struct VertexTex1DiffuseXyz
 class SpriteEngine
 {
 public:
+    // Zeroes the engine and sets up g_TexQuad and g_DiffuseQuad, as
+    // th08's (0x43ce30).
+    SpriteEngine();
     // Forgets the texture last set, so that the next sprite sets it
     // again (0x4015f0).
     void ClearTexture();
@@ -578,7 +594,8 @@ public:
     AnmLoaded anms[0x100];
     // The world matrix ProjectSprite3D last used.
     D3DXMATRIX lastWorldMatrix;
-    unsigned char pad_12064[0x123fc - 0x12064];
+    Sprite unknownSprite;
+    unsigned char pad_12308[0x123fc - 0x12308];
     // Images loaded as surfaces to copy to the back buffer from, as
     // th08's.
     IDirect3DSurface8 *surfaces[0x20];
@@ -613,7 +630,9 @@ public:
     // Where the next quad goes, and the first one not drawn yet.
     VertexTex1DiffuseXyzrwh *batchCursor;
     VertexTex1DiffuseXyzrwh *batchStart;
-    unsigned char pad_2b28f0[0x2b2914 - 0x2b28f0];
+    // -1 at first, as th08's pendingTexCopyTexture.
+    int pendingTexCopyTexture;
+    unsigned char pad_2b28f4[0x2b2914 - 0x2b28f4];
     int pendingCopySrcLeft;
     int pendingCopySrcTop;
     int pendingCopySrcWidth;
@@ -624,6 +643,9 @@ public:
     int pendingCopyDstHeight;
 };
 extern SpriteEngine *g_SpriteEngine;
+
+// A quad with texture coordinates, as th08's (0x4dc5c8).
+extern VertexTex1Xyzrwh g_TexQuad[4];
 
 // quad, with a color, as th08's (0x4dc628).
 extern VertexTex1DiffuseXyz g_DiffuseQuadXyz[4];
