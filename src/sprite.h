@@ -14,10 +14,20 @@ class AnmLoaded;
 class Sprite
 {
 public:
-    unsigned char pad_0[0x38];
+    // The sprite's rotations about x, y and z, and their speeds.
+    D3DXVECTOR3 rotation;
+    D3DXVECTOR3 rotationSpeed;
+    // Draw scales the sprite's height and width by these.
+    float scaleY;
+    float scaleX;
+    unsigned char pad_20[0x38 - 0x20];
     // The script's frame.
     Timer scriptTime;
-    unsigned char pad_44[0x1f8 - 0x44];
+    unsigned char pad_44[0x130 - 0x44];
+    D3DXMATRIX matrix;
+    unsigned char pad_170[0x1f0 - 0x170];
+    D3DCOLOR color;
+    unsigned char pad_1f4[0x1f8 - 0x1f4];
     DWORD flags;
     unsigned char pad_1fc[0x204 - 0x1fc];
     // The ANM file whose script runs.
@@ -42,9 +52,19 @@ public:
     BYTE fontHeight;
     unsigned char pad_29a[0xa];
 
-    // Zeroes the sprite's first 0x208 bytes, then sets its scales, color,
-    // matrix, flags and script timer (0x4127b0).
-    void Initialize();
+    // Resets the sprite's state up to pos, as th08's: a scale of 1,
+    // white, the identity matrix, flags 7. Inline; the copy is at
+    // 0x4127b0.
+    void Initialize()
+    {
+        memset(this, 0, offsetof(Sprite, pos));
+        this->scaleY = 1.0f;
+        this->scaleX = 1.0f;
+        this->color = 0xffffffff;
+        D3DXMatrixIdentity(&this->matrix);
+        *(WORD *)&this->flags = 7;
+        this->scriptTime.Initialize();
+    }
 };
 ASSERT_SIZE(Sprite, 0x2a4);
 

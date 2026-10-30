@@ -14,7 +14,7 @@ address,size,name,symbol
 0x00401290,40,Func401290,
 0x004012c0,31,Func4012c0,
 0x004012e0,21,Func4012e0,
-0x00401300,57,Func401300,
+0x00401300,57,D3DXMatrixIdentity,?D3DXMatrixIdentity@@YIPAUD3DXMATRIX@@PAU1@@Z
 0x00401340,19,MemoryManager::Alloc,?Alloc@MemoryManager@@QAEPAXHPBD@Z
 0x00401360,19,MemoryManager::Free,?Free@MemoryManager@@QAEXPAX@Z
 0x00401380,10,MemoryManager::Register,?Register@MemoryManager@@QAEPAXPAXHPBD@Z
