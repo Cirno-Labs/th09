@@ -662,9 +662,12 @@ public:
         }
         return this->anms[vm->spriteData->sourceFileIndex].textures != NULL;
     }
-    // The image loaded as surface `surface`, as th08's. Inline in th08;
-    // this copy is 0x42f400.
-    IDirect3DSurface8 *GetSurface(int surface);
+    // The image loaded as surface `surface`, as th08's. Inline; the copy
+    // is App's object's (0x42f400).
+    IDirect3DSurface8 *GetSurface(int surface)
+    {
+        return this->surfaces[surface];
+    }
 
     D3DCOLOR modulateColor;
     int modulateColorEnabled;

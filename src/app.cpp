@@ -1,3 +1,4 @@
+#include "ascii.h"
 #include "chain.h"
 #include "mainmenu.h"
 #include "midi.h"
@@ -128,11 +129,6 @@ int App::OnDrawLoading(App *app)
         g_LoadingSprites[i].pos -= g_LoadingSprites[i].posOffset;
     }
     return 1;
-}
-
-IDirect3DSurface8 *SpriteEngine::GetSurface(int surface)
-{
-    return this->surfaces[surface];
 }
 
 int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight,
@@ -757,6 +753,41 @@ int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
     this->subThread = CreateThread(NULL, 0, proc, arg, 0, &this->subThreadId);
     this->unknown6b8 = 1;
     return this->subThread != NULL ? 0 : -1;
+}
+
+int App::OnDrawLogo(App *app)
+{
+    g_SpriteEngine->BeginQuadBatch();
+    if (app->loadingState >= 2 && ++app->loadingState >= 5)
+    {
+        D3DXVECTOR3 pos(288.0f, 454.0f, 0.0f);
+        g_AsciiText.SetScale(0.5f, 0.5f);
+        if (app->loadingState < 35)
+        {
+            g_AsciiText.SetAlpha(255 - (app->loadingState - 5) * 128 / 30);
+        }
+        else
+        {
+            g_AsciiText.SetAlpha(255 - (65 - app->loadingState) * 128 / 30);
+        }
+        g_AsciiText.AddFormat(&pos, "Press Shot Button");
+        g_AsciiText.SetScale(1.0f, 1.0f);
+        g_AsciiText.DrawStrings();
+        g_AsciiText.ClearStrings();
+        if (app->loadingState >= 65)
+        {
+            app->loadingState = 5;
+        }
+    }
+    if (app->loadingState != 0)
+    {
+        g_SpriteEngine->CopySurfaceToBackBuffer(8, 0, 0, 0, 0);
+    }
+    else if (g_SpriteEngine->GetSurface(8) != NULL)
+    {
+        g_SpriteEngine->ReleaseSurface(8);
+    }
+    return 1;
 }
 
 int App::OnDraw(App *app)

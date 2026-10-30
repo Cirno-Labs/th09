@@ -143,6 +143,12 @@ public:
     {
         this->stringCount = 0;
     }
+    // Sets the alpha of the color text is queued with. Inline, as th08's;
+    // the copy is at 0x4302a0.
+    void SetAlpha(int alpha)
+    {
+        this->alpha = alpha;
+    }
     // Sets the scale text is queued with. Inline in th08; this is the
     // copy at 0x4234dd, in an /O1 object.
     void SetScale(float x, float y);
@@ -171,7 +177,15 @@ public:
     // How many strings are queued.
     int stringCount;
     // The color, scale and arena flag text is queued with.
-    D3DCOLOR color;
+    union
+    {
+        D3DCOLOR color;
+        struct
+        {
+            BYTE colorRgb[3];
+            BYTE alpha;
+        };
+    };
     float scaleX;
     float scaleY;
     int inArena;

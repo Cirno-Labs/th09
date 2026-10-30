@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.85% (539)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">49.15% (521)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.04% (541)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.96% (519)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="379.84" height="6" x="0" y="0" class="named"/>
-<rect width="367.16" height="6" x="379.84" y="0" class="todo"/>
+<rect width="381.25" height="6" x="0" y="0" class="named"/>
+<rect width="365.75" height="6" x="381.25" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -718,7 +718,7 @@
 <rect width="12" height="12" x="720" y="180" class="named"><title>0x00430150 App::CheckVersionFile (199 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="180" class="named"><title>0x00430220 AsciiText::ClearStrings (11 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="195" class="named"><title>0x00430230 App::CloseSubThread (108 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="195" class="todo"><title>0x004302a0 Func4302a0 (16 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="195" class="named"><title>0x004302a0 AsciiText::SetAlpha (16 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="195" class="named"><title>0x004302b0 App::StartLoadingSprites (173 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="195" class="named"><title>0x00430360 App::StopLoadingSprites (85 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="195" class="named"><title>0x004303c0 App::StartLoadingSpritesOverScreen (214 bytes)</title></rect>
@@ -731,7 +731,7 @@
 <rect width="12" height="12" x="165" y="195" class="todo"><title>0x004307c0 Func4307c0 (736 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="195" class="todo"><title>0x00430aa0 Func430aa0 (1633 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="195" class="todo"><title>0x00431110 App::OnUpdate (844 bytes)</title></rect>
-<rect width="12" height="12" x="210" y="195" class="todo"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
+<rect width="12" height="12" x="210" y="195" class="named"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="195" class="todo"><title>0x00431680 Func431680 (33 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="195" class="todo"><title>0x004316b0 DrawFps (633 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="195" class="todo"><title>0x00431930 App::PlayMusic (254 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.81%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">73.19%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.93%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">73.07%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="200.29" height="6" x="0" y="0" class="named"/>
-<rect width="546.71" height="6" x="200.29" y="0" class="todo"/>
+<rect width="201.14" height="6" x="0" y="0" class="named"/>
+<rect width="545.86" height="6" x="201.14" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1389,7 +1389,7 @@
 <rect width="13.90" height="12.96" x="488.53" y="317.04" class="todo"><title>0x00447480 Func447480 (314 bytes)</title></rect>
 <rect width="13.73" height="13.13" x="505.44" y="75.57" class="todo"><title>0x0044b090 Func44b090 (314 bytes)</title></rect>
 <rect width="13.73" height="13.13" x="522.16" y="75.57" class="todo"><title>0x0044baf0 Func44baf0 (314 bytes)</title></rect>
-<rect width="13.62" height="13.13" x="538.89" y="75.57" class="todo"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
+<rect width="13.62" height="13.13" x="538.89" y="75.57" class="named"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
 <rect width="13.57" height="13.13" x="555.51" y="75.57" class="todo"><title>0x00443010 Func443010 (311 bytes)</title></rect>
 <rect width="13.57" height="13.13" x="572.08" y="75.57" class="todo"><title>0x00449a10 Func449a10 (311 bytes)</title></rect>
 <rect width="13.51" height="13.13" x="588.64" y="75.57" class="todo"><title>0x0044b940 Func44b940 (310 bytes)</title></rect>
@@ -2077,7 +2077,7 @@
 <rect width="0.85" height="0.57" x="714.84" y="301.28" class="named"><title>0x0040f170 EclManager::GetTimeline (16 bytes)</title></rect>
 <rect width="0.85" height="0.57" x="714.84" y="304.86" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>
 <rect width="0.85" height="0.57" x="714.84" y="308.43" class="todo"><title>0x004124d0 Func4124d0 (16 bytes)</title></rect>
-<rect width="0.85" height="0.57" x="714.84" y="312" class="todo"><title>0x004302a0 Func4302a0 (16 bytes)</title></rect>
+<rect width="0.85" height="0.57" x="714.84" y="312" class="named"><title>0x004302a0 AsciiText::SetAlpha (16 bytes)</title></rect>
 <rect width="0.85" height="0.57" x="714.84" y="315.58" class="named"><title>0x00433040 DatArchive::DatArchive (16 bytes)</title></rect>
 <rect width="0.85" height="0.57" x="714.84" y="319.15" class="named"><title>0x004343c0 AsciiText::SetGlyphWidth (16 bytes)</title></rect>
 <rect width="0.85" height="0.57" x="714.84" y="322.73" class="named"><title>0x0043cfd0 MidiDevice::MidiDevice (16 bytes)</title></rect>
