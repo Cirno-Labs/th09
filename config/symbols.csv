@@ -129,7 +129,7 @@ address,size,name,symbol
 0x0040c390,41,Func40c390,
 0x0040c530,563,Func40c530,
 0x0040c770,70,SendExAttackA,?SendExAttackA@@YIXPAUEnemy@@PAX@Z
-0x0040c7c0,69,Func40c7c0,
+0x0040c7c0,69,SendExAttackB,?SendExAttackB@@YIXPAUEnemy@@PAX@Z
 0x0040c810,69,Func40c810,
 0x0040c860,226,Func40c860,
 0x0040c950,14,EffectManager::Init,?Init@EffectManager@@QAEXXZ
