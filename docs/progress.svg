@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.94% (593)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">44.06% (467)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">56.04% (594)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">43.96% (466)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="417.90" height="6" x="0" y="0" class="named"/>
-<rect width="329.10" height="6" x="417.90" y="0" class="todo"/>
+<rect width="418.60" height="6" x="0" y="0" class="named"/>
+<rect width="328.40" height="6" x="418.60" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -492,7 +492,7 @@
 <rect width="12" height="12" x="330" y="120" class="todo"><title>0x0041fcd0 Func41fcd0 (985 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="120" class="todo"><title>0x004200c0 Func4200c0 (45 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="120" class="todo"><title>0x004200f0 Func4200f0 (111 bytes)</title></rect>
-<rect width="12" height="12" x="375" y="120" class="todo"><title>0x00420160 Rng::SetSeed (14 bytes)</title></rect>
+<rect width="12" height="12" x="375" y="120" class="named"><title>0x00420160 Rng::SetSeed (14 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="120" class="todo"><title>0x00420170 Func420170 (8 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="120" class="named"><title>0x00420180 App::GetNoScore (13 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="120" class="todo"><title>0x00420190 ReplayManager::OnUpdateMode0b (257 bytes)</title></rect>
@@ -1133,8 +1133,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.20%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.80%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="225.59" height="6" x="0" y="0" class="named"/>
-<rect width="521.41" height="6" x="225.59" y="0" class="todo"/>
+<rect width="225.62" height="6" x="0" y="0" class="named"/>
+<rect width="521.38" height="6" x="225.62" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2104,7 +2104,7 @@
 <rect width="0.60" height="0.34" x="719.27" y="329.66" class="named"><title>0x00415c50 Gui::ReleaseAnm (14 bytes)</title></rect>
 <rect width="0.39" height="0.55" x="722.87" y="305.57" class="named"><title>0x00415d40 Gui::Init (14 bytes)</title></rect>
 <rect width="0.39" height="0.55" x="726.26" y="305.57" class="named"><title>0x00418920 GuiSide::Init (14 bytes)</title></rect>
-<rect width="0.39" height="0.55" x="729.65" y="305.57" class="todo"><title>0x00420160 Rng::SetSeed (14 bytes)</title></rect>
+<rect width="0.39" height="0.55" x="729.65" y="305.57" class="named"><title>0x00420160 Rng::SetSeed (14 bytes)</title></rect>
 <rect width="0.39" height="0.55" x="733.05" y="305.57" class="named"><title>0x0042e900 Tan (14 bytes)</title></rect>
 <rect width="0.39" height="0.55" x="736.44" y="305.57" class="named"><title>0x0042e910 tan (14 bytes)</title></rect>
 <rect width="0.39" height="0.55" x="739.83" y="305.57" class="named"><title>0x0042ed70 App::HasSubThread (14 bytes)</title></rect>

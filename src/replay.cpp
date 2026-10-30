@@ -2,6 +2,11 @@
 #include "gamemanager.h"
 #include "gui.h"
 
+void Rng::SetSeed(WORD seed)
+{
+    this->seed = seed;
+}
+
 int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
 {
     if ((g_GameManager.stateFlags & 4) && !(g_GameManager.stateFlags & 0x200) && g_GameManager.gui->IsMsgRunning() &&
