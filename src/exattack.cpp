@@ -38,3 +38,28 @@ void ExAttackManager::RemoveChain(ExAttackManager *mgr)
         delete mgr;
     }
 }
+
+void ExAttackManager::Reset()
+{
+    int i;
+    ExAttack *attack;
+
+    attack = this->attacks;
+    for (i = 0; i < 0x100; i++, attack++)
+    {
+        if (attack->active == 0)
+        {
+            continue;
+        }
+        if (attack->onFree != NULL)
+        {
+            attack->onFree(attack);
+        }
+        if (attack->unknown1c != NULL)
+        {
+            g_MemoryManager.Free(attack->unknown1c);
+            attack->unknown1c = NULL;
+        }
+        memset(attack, 0, sizeof(ExAttack));
+    }
+}
