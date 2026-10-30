@@ -1,4 +1,16 @@
 #include "replay.h"
+#include "gamemanager.h"
+#include "gui.h"
+
+int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
+{
+    if ((g_GameManager.stateFlags & 4) && !(g_GameManager.stateFlags & 0x200) && g_GameManager.gui->IsMsgRunning() &&
+        mgr->unknown0 % 3 != 2)
+    {
+        return 6;
+    }
+    return 1;
+}
 
 // Removes the chain elements unknownElem158 and unknownElem15c, if set,
 // and frees the blocks. Returns 0. Static, with the manager in eax

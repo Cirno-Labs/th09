@@ -34,7 +34,10 @@ public:
     // it, if any (0x420c10).
     static void RemoveChain(ReplayManager *mgr);
 
-    unsigned char pad_0[0x8];
+    // OnUpdateMode1b returns 6 while a dialogue runs unless it is 2
+    // modulo 3.
+    int unknown0;
+    unsigned char pad_4[0x8 - 0x4];
     void *unknown08;
     unsigned char pad_c[0x110 - 0xc];
     void *unknown110;

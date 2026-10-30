@@ -15,7 +15,11 @@ struct GuiMsg
     void UnloadBgm(int firstScript);
 
     void *msgFile;
-    unsigned char pad_4[0x14 - 0x4];
+    // The instruction being run.
+    void *instr;
+    // The script running, -1 for none.
+    int scriptIndex;
+    unsigned char pad_c[0x14 - 0xc];
     Sprite portraits[8];
     Sprite unknown1534[2];
     Sprite unknown1a7c;
@@ -65,6 +69,12 @@ public:
     static void RemoveChain(Gui *gui);
     // Resets the front for a new round (0x4181e0).
     void Reset();
+    // Whether a dialogue script runs, or is about to (-2), as th08's.
+    // Inline; the copy is at 0x404980.
+    int IsMsgRunning()
+    {
+        return this->msg.scriptIndex >= 0 || this->msg.scriptIndex == -2 ? 1 : 0;
+    }
 
     ChainElem *calcElem;
     ChainElem *drawElem;
