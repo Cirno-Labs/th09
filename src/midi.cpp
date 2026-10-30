@@ -1,3 +1,4 @@
+// cflags: -/GX
 #include "midi.h"
 #include "unsorted.h"
 
@@ -206,4 +207,10 @@ int MidiDevice::Open(UINT deviceId)
     }
     this->deviceId = deviceId;
     return midiOutOpen(&this->handle, deviceId, (DWORD_PTR)g_App.hwnd, 0, CALLBACK_WINDOW) != MMSYSERR_NOERROR;
+}
+
+MmTimer::~MmTimer()
+{
+    this->Stop();
+    timeEndPeriod(this->caps.wPeriodMin);
 }

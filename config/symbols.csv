@@ -856,7 +856,7 @@ address,size,name,symbol
 0x0043d2b0,1,DebugPrint,?DebugPrint@@YAXPBDZZ
 0x0043d2c0,5,MidiDevice::~MidiDevice,??1MidiDevice@@QAE@XZ
 0x0043d2d0,69,MidiDevice::Open,?Open@MidiDevice@@QAEHI@Z
-0x0043d320,26,Func43d320,
+0x0043d320,26,MmTimer::~MmTimer,??1MmTimer@@QAE@XZ
 0x0043d340,85,Func43d340,
 0x0043d3a0,423,Func43d3a0,
 0x0043d550,45,MidiPlayer::UnloadFile,?UnloadFile@MidiPlayer@@QAEXH@Z
@@ -867,7 +867,7 @@ address,size,name,symbol
 0x0043d7f0,1216,Func43d7f0,
 0x0043de20,12,Func43de20,
 0x0043de30,83,MidiPlayer::Stop,?Stop@MidiPlayer@@QAEHXZ
-0x0043de90,505,Func43de90,
+0x0043de90,505,MidiPlayer::OnTimer,?OnTimer@MidiPlayer@@UAEXXZ
 0x0043e090,58,Func43e090,
 0x0043e0d0,94,MidiPlayer::LoadFile,?LoadFile@MidiPlayer@@QAEHHPAD@Z
 0x0043e130,54,Func43e130,

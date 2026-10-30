@@ -67,13 +67,13 @@ public:
 class MmTimer
 {
 public:
-    // 0x43d0a0.
+    // 0x43d0a0, 0x43d320.
     MmTimer();
     ~MmTimer();
 
     // Starts a periodic timer event every `delay` ms at the finest
     // resolution, calling `callback` with `user`, or OnTimer if there is no
-    // callback. Returns the timer ID, 0 on failure.
+    // callback. Returns the timer ID, 0 on failure (0x43d340).
     UINT Start(UINT delay, LPTIMECALLBACK callback, DWORD_PTR user);
 
     // Kills the timer event, if any, and ends the timer period. Returns 1
@@ -142,6 +142,7 @@ class MidiPlayer : public MmTimer
 {
 public:
     MidiPlayer();
+    // 0x43e090.
     ~MidiPlayer();
 
     virtual void OnTimer();
@@ -157,7 +158,7 @@ public:
     // Stops playback and closes the device. Returns -1 if nothing is
     // loaded, otherwise 0 (0x43de30).
     int Stop();
-    // Unprepares and frees a header from `headers`.
+    // Unprepares and frees a header from `headers` (0x43d790).
     int ReleaseHeader(LPMIDIHDR header);
     // Plays the loaded tracks on the MIDI mapper, ticking every 1 ms.
     // Returns -1 if nothing is loaded, otherwise 0 (0x43d750).
@@ -167,7 +168,7 @@ public:
     // Starts fading the music out over `duration` ms. Returns 0
     // (0x43d1e0).
     int FadeOut(int duration);
-    // Frees the parsed tracks.
+    // Frees the parsed tracks (0x43d580).
     void FreeTracks();
     // Parses the file in a slot into tracks. Returns -1 if the slot is
     // empty, otherwise 0.
@@ -247,7 +248,7 @@ public:
     // Stores the performance counter (0x43d290).
     virtual void OnTimer();
 
-    // Starts the timer, ticking every 16 ms. th07's ticked every 6 ms.
+    // Starts the timer, ticking every 16 ms (0x43de20).
     void StartTimer();
     // Stops the timer (0x43d2a0).
     void StopTimer();

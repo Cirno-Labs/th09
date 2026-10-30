@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.03% (359)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">65.97% (696)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.12% (360)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">65.88% (695)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="254.19" height="6" x="0" y="0" class="named"/>
-<rect width="492.81" height="6" x="254.19" y="0" class="todo"/>
+<rect width="254.90" height="6" x="0" y="0" class="named"/>
+<rect width="492.10" height="6" x="254.90" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -924,7 +924,7 @@
 <rect width="12" height="12" x="60" y="255" class="todo"><title>0x0043d2b0 DebugPrint (1 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="255" class="named"><title>0x0043d2c0 MidiDevice::~MidiDevice (5 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="255" class="named"><title>0x0043d2d0 MidiDevice::Open (69 bytes)</title></rect>
-<rect width="12" height="12" x="105" y="255" class="todo"><title>0x0043d320 Func43d320 (26 bytes)</title></rect>
+<rect width="12" height="12" x="105" y="255" class="named"><title>0x0043d320 MmTimer::~MmTimer (26 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="255" class="todo"><title>0x0043d340 Func43d340 (85 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="255" class="todo"><title>0x0043d3a0 Func43d3a0 (423 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="255" class="todo"><title>0x0043d550 MidiPlayer::UnloadFile (45 bytes)</title></rect>
@@ -935,7 +935,7 @@
 <rect width="12" height="12" x="225" y="255" class="todo"><title>0x0043d7f0 Func43d7f0 (1216 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="255" class="todo"><title>0x0043de20 Func43de20 (12 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="255" class="todo"><title>0x0043de30 MidiPlayer::Stop (83 bytes)</title></rect>
-<rect width="12" height="12" x="270" y="255" class="todo"><title>0x0043de90 Func43de90 (505 bytes)</title></rect>
+<rect width="12" height="12" x="270" y="255" class="todo"><title>0x0043de90 MidiPlayer::OnTimer (505 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="255" class="todo"><title>0x0043e090 Func43e090 (58 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="255" class="todo"><title>0x0043e0d0 MidiPlayer::LoadFile (94 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="255" class="todo"><title>0x0043e130 Func43e130 (54 bytes)</title></rect>
@@ -1126,10 +1126,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.07%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">87.93%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.08%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">87.92%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="90.18" height="6" x="0" y="0" class="named"/>
-<rect width="656.82" height="6" x="90.18" y="0" class="todo"/>
+<rect width="90.25" height="6" x="0" y="0" class="named"/>
+<rect width="656.75" height="6" x="90.25" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1269,7 +1269,7 @@
 <rect width="17.82" height="18.06" x="626.45" y="0" class="todo"><title>0x00407c30 Func407c30 (510 bytes)</title></rect>
 <rect width="17.66" height="18.06" x="647.28" y="0" class="todo"><title>0x0042a7d1 Func42a7d1 (506 bytes)</title></rect>
 <rect width="17.66" height="18.06" x="667.93" y="0" class="todo"><title>0x0044c090 Func44c090 (506 bytes)</title></rect>
-<rect width="17.62" height="18.06" x="688.59" y="0" class="todo"><title>0x0043de90 Func43de90 (505 bytes)</title></rect>
+<rect width="17.62" height="18.06" x="688.59" y="0" class="todo"><title>0x0043de90 MidiPlayer::OnTimer (505 bytes)</title></rect>
 <rect width="17.54" height="18.06" x="709.21" y="0" class="named"><title>0x004353f0 AsciiText::DrawPopups (503 bytes)</title></rect>
 <rect width="17.25" height="18.06" x="729.75" y="0" class="todo"><title>0x00447890 Func447890 (496 bytes)</title></rect>
 <rect width="16.81" height="18.31" x="432.39" y="21.06" class="todo"><title>0x00405f20 Func405f20 (491 bytes)</title></rect>
@@ -1995,7 +1995,7 @@
 <rect width="1.68" height="1.78" x="698.24" y="290.70" class="named"><title>0x00433110 DatArchiveCursor::SkipString (26 bytes)</title></rect>
 <rect width="1.68" height="1.78" x="698.24" y="295.48" class="named"><title>0x004362c0 CreateTextSurface (26 bytes)</title></rect>
 <rect width="1.68" height="1.78" x="698.24" y="300.27" class="named"><title>0x004362e0 ReleaseTextSurface (26 bytes)</title></rect>
-<rect width="1.68" height="1.78" x="698.24" y="305.05" class="todo"><title>0x0043d320 Func43d320 (26 bytes)</title></rect>
+<rect width="1.68" height="1.78" x="698.24" y="305.05" class="named"><title>0x0043d320 MmTimer::~MmTimer (26 bytes)</title></rect>
 <rect width="1.68" height="1.78" x="698.24" y="309.83" class="todo"><title>0x00445560 Func445560 (26 bytes)</title></rect>
 <rect width="1.68" height="1.60" x="698.24" y="314.61" class="named"><title>0x00401090 ModulateChannel (25 bytes)</title></rect>
 <rect width="1.68" height="1.60" x="698.24" y="319.21" class="named"><title>0x004014d0 Timer::Set (25 bytes)</title></rect>
