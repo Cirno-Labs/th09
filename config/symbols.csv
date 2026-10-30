@@ -782,7 +782,7 @@ address,size,name,symbol
 0x00436cd0,108,Sprite::ResolveIntArgumentPtr,?ResolveIntArgumentPtr@Sprite@@QAEPAHPAHGH@Z
 0x00436d70,84,SpriteEngine::DrawSprite,?DrawSprite@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00436de0,72,SpriteEngine::SendInterruptToLoadedSprites,?SendInterruptToLoadedSprites@SpriteEngine@@QAEXPAVSprite@@HF@Z
-0x00436e30,203,Func436e30,
+0x00436e30,203,Sprite::ResolveFloatArgument,?ResolveFloatArgument@Sprite@@QAEMM@Z
 0x00436f30,9352,SpriteEngine::Step,?Step@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00439560,53,SpriteEngine::StepSprites,?StepSprites@SpriteEngine@@QAEXPAVSprite@@H@Z
 0x004395a0,143,AnmLoaded::SetScript,?SetScript@AnmLoaded@@QAEXPAVSprite@@PAX@Z

@@ -204,6 +204,40 @@ void SpriteEngine::SendInterruptToLoadedSprites(Sprite *vms, int count, short in
     }
 }
 
+float Sprite::ResolveFloatArgument(float value)
+{
+    switch ((int)value)
+    {
+    case 10000:
+        return this->scriptVar0;
+    case 10001:
+        return this->scriptVar1;
+    case 10002:
+        return this->scriptVar2;
+    case 10003:
+        return this->scriptVar3;
+    case 10004:
+        return this->scriptVarF0;
+    case 10005:
+        return this->scriptVarF1;
+    case 10006:
+        return this->scriptVarF2;
+    case 10007:
+        return this->scriptVarF3;
+    case 10008:
+        return this->scriptVar8;
+    case 10009:
+        return this->scriptVar9;
+    case 10010:
+        return g_Rng.GetRandomF32ZeroToOne();
+    case 10011:
+        return g_Rng.GetRandomF32MinusOneToOne();
+    case 10012:
+        return g_Rng.GetRandomF32SignedInRange(3.1415927f);
+    }
+    return value;
+}
+
 void SpriteEngine::StepSprites(Sprite *vms, int count)
 {
     while (count != 0)
