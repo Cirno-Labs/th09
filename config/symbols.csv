@@ -737,7 +737,7 @@ address,size,name,symbol
 0x004343e0,251,AsciiText::Initialize,?Initialize@AsciiText@@QAEXXZ
 0x004344e0,89,AsciiText::AddedCallback,?AddedCallback@AsciiText@@SIHPAV1@@Z
 0x00434540,341,AsciiText::DrawStrings,?DrawStrings@AsciiText@@QAEXXZ
-0x004346a0,154,Func4346a0,
+0x004346a0,154,AsciiText::AddPopup,?AddPopup@AsciiText@@QAEXHPAUD3DXVECTOR3@@HK@Z
 0x00434740,1716,Func434740,
 0x00434e30,83,Func434e30,
 0x00434e90,1198,Func434e90,
