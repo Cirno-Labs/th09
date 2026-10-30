@@ -22,6 +22,20 @@ float Fabs(float x);
 float Tan(float angle);
 float Atan(float x);
 
+// The game's random number generator, as th08's, at 0x4ace0c.
+class Rng
+{
+public:
+    // Advances the generator and returns 16 random bits (0x42ae20).
+    WORD GetRandomU16();
+
+    WORD seed;
+    unsigned char pad_2[0x2];
+    // How many times the generator was advanced.
+    DWORD generated;
+};
+extern Rng g_Rng;
+
 // A 2D vector, as th08's.
 struct Vector2
 {

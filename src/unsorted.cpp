@@ -39,6 +39,16 @@ float Fabs(float x)
     return (float)fabs((double)x);
 }
 
+WORD Rng::GetRandomU16()
+{
+    WORD a;
+
+    a = (this->seed ^ 0x9630) - 0x6553;
+    this->seed = (((a & 0xc000) >> 14) + a * 4) & 0xffff;
+    this->generated++;
+    return this->seed;
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);

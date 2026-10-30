@@ -528,7 +528,7 @@ address,size,name,symbol
 0x0042ace0,131,Func42ace0,
 0x0042ad70,59,Func42ad70,
 0x0042adc0,81,Func42adc0,
-0x0042ae20,39,Func42ae20,
+0x0042ae20,39,Rng::GetRandomU16,?GetRandomU16@Rng@@QAEGXZ
 0x0042ae50,24,Func42ae50,
 0x0042ae70,35,Func42ae70,
 0x0042aea0,41,Func42aea0,
@@ -2196,6 +2196,7 @@ address,size,name,symbol
 0x0048e284,4,CoInitialize,__imp__CoInitialize@4
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
+0x004ace0c,,g_Rng,?g_Rng@@3VRng@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
