@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">41.63% (440)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">58.37% (617)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">41.72% (441)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">58.28% (616)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="310.96" height="6" x="0" y="0" class="named"/>
-<rect width="436.04" height="6" x="310.96" y="0" class="todo"/>
+<rect width="311.66" height="6" x="0" y="0" class="named"/>
+<rect width="435.34" height="6" x="311.66" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -873,7 +873,7 @@
 <rect width="12" height="12" x="45" y="240" class="todo"><title>0x0043ad40 SpriteEngine::DrawRotatedNoRound (658 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="240" class="todo"><title>0x0043afe0 SpriteEngine::DrawNoRound (254 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="240" class="named"><title>0x0043b0e0 SpriteEngine::DrawProjected (88 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="240" class="todo"><title>0x0043b140 SpriteEngine::DrawProjected3D (84 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="240" class="named"><title>0x0043b140 SpriteEngine::DrawProjected3D (84 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="240" class="todo"><title>0x0043b1a0 Func43b1a0 (811 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="240" class="todo"><title>0x0043b4d0 Func43b4d0 (238 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="240" class="todo"><title>0x0043b5c0 Func43b5c0 (163 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">16.58%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">83.42%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">16.61%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">83.39%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="123.85" height="6" x="0" y="0" class="named"/>
-<rect width="623.15" height="6" x="123.85" y="0" class="todo"/>
+<rect width="124.06" height="6" x="0" y="0" class="named"/>
+<rect width="622.94" height="6" x="124.06" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1714,7 +1714,7 @@
 <rect width="5.77" height="5.23" x="624.80" y="300.08" class="todo"><title>0x0040e0d0 Func40e0d0 (84 bytes)</title></rect>
 <rect width="5.77" height="5.23" x="624.80" y="308.31" class="todo"><title>0x00424d4b Func424d4b (84 bytes)</title></rect>
 <rect width="5.77" height="5.23" x="624.80" y="316.54" class="named"><title>0x00436d70 SpriteEngine::DrawSprite (84 bytes)</title></rect>
-<rect width="5.77" height="5.23" x="624.80" y="324.77" class="todo"><title>0x0043b140 SpriteEngine::DrawProjected3D (84 bytes)</title></rect>
+<rect width="5.77" height="5.23" x="624.80" y="324.77" class="named"><title>0x0043b140 SpriteEngine::DrawProjected3D (84 bytes)</title></rect>
 <rect width="5.50" height="5.49" x="633.57" y="208.09" class="named"><title>0x00440000 CSoundManager::Initialize (84 bytes)</title></rect>
 <rect width="5.40" height="5.49" x="642.08" y="208.09" class="todo"><title>0x0042e920 Func42e920 (83 bytes)</title></rect>
 <rect width="5.40" height="5.49" x="650.48" y="208.09" class="named"><title>0x00433ce0 LzssReplaceNode (83 bytes)</title></rect>
