@@ -285,7 +285,7 @@ address,size,name,symbol
 0x004158e0,33,Func4158e0,
 0x00415910,799,Func415910,
 0x00415c30,24,Gui::LoadAnm,?LoadAnm@Gui@@SIHXZ
-0x00415c50,14,Func415c50,
+0x00415c50,14,Gui::ReleaseAnm,?ReleaseAnm@Gui@@SIXXZ
 0x00415c60,39,Func415c60,
 0x00415c90,23,Func415c90,
 0x00415cb0,18,Func415cb0,

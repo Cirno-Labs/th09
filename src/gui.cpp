@@ -7,6 +7,11 @@ int Gui::LoadAnm()
     return g_SpriteEngine->PreloadAnm(10, "front.anm") == NULL;
 }
 
+void Gui::ReleaseAnm()
+{
+    g_SpriteEngine->ReleaseAnm(10);
+}
+
 int FreesResources()
 {
     return g_App.freesResources;

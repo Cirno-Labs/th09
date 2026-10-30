@@ -64,6 +64,8 @@ public:
     // Preloads front.anm into ANM slot 10; returns 1 if that fails
     // (0x415c30).
     static int LoadAnm();
+    // Releases ANM slot 10 (0x415c50).
+    static void ReleaseAnm();
     // Has the dialogue unload its music if the game frees its resources.
     // Returns 0 (0x418270).
     static int FreeResources(Gui *gui);
