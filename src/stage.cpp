@@ -1,9 +1,29 @@
 #include "stage.h"
 #include "gamemanager.h"
+#include "unsorted.h"
 
 void Stage::Reset()
 {
     this->unknownCcc = 0;
+}
+
+int Stage::DeletedCallback(Stage *stage)
+{
+    if (FreesResources())
+    {
+        g_SpriteEngine->ReleaseAnm(4);
+    }
+    if (stage->unknown24 != NULL)
+    {
+        g_MemoryManager.Free(stage->unknown24);
+        stage->unknown24 = NULL;
+    }
+    if (stage->unknown820 != NULL)
+    {
+        g_MemoryManager.Free(stage->unknown820);
+        stage->unknown820 = NULL;
+    }
+    return 0;
 }
 
 void Stage::RemoveChain(Stage *stage)

@@ -22,7 +22,8 @@ public:
     // Resets the stage for a new round (0x4011c0).
     void Reset();
     // The update chain callback and its added and deleted callbacks
-    // (0x402350, 0x403830, 0x4024d0).
+    // (0x402350, 0x403830, 0x4024d0). DeletedCallback frees the stage's
+    // ANM, slot 4, if resources are freed, and its two buffers.
     static int OnUpdate(Stage *stage);
     static int AddedCallback(Stage *stage);
     static int DeletedCallback(Stage *stage);
@@ -42,11 +43,17 @@ public:
     // The side, and the other one.
     GameSide *side;
     GameSide *otherSide;
-    unsigned char pad_18[0x2c - 0x18];
+    unsigned char pad_18[0x24 - 0x18];
+    // Freed by DeletedCallback.
+    void *unknown24;
+    unsigned char pad_28[0x2c - 0x28];
     Sprite unknown2c;
     Sprite unknown2d0;
     Sprite unknown574;
-    unsigned char pad_818[0xc08 - 0x818];
+    unsigned char pad_818[0x820 - 0x818];
+    // Freed by DeletedCallback.
+    void *unknown820;
+    unsigned char pad_824[0xc08 - 0x824];
     Timer unknownC08[5];
     unsigned char pad_c44[0xc58 - 0xc44];
     Timer unknownC58;
