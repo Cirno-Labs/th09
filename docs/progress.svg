@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.45% (417)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.55% (640)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.55% (418)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.45% (639)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="294.70" height="6" x="0" y="0" class="named"/>
-<rect width="452.30" height="6" x="294.70" y="0" class="todo"/>
+<rect width="295.41" height="6" x="0" y="0" class="named"/>
+<rect width="451.59" height="6" x="295.41" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -987,7 +987,7 @@
 <rect width="12" height="12" x="255" y="270" class="named"><title>0x00440000 CSoundManager::Initialize (84 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="270" class="named"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="270" class="named"><title>0x004401d0 CSound::Play (160 bytes)</title></rect>
-<rect width="12" height="12" x="300" y="270" class="todo"><title>0x00440270 CStreamingSound::HandleWaveStreamNotification (600 bytes)</title></rect>
+<rect width="12" height="12" x="300" y="270" class="named"><title>0x00440270 CStreamingSound::HandleWaveStreamNotification (600 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="270" class="todo"><title>0x004404d0 CStreamingSound::Reset (115 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="270" class="todo"><title>0x00440550 CWaveFile::~CWaveFile (5 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="270" class="todo"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.34%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.66%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.55%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.45%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="114.58" height="6" x="0" y="0" class="named"/>
-<rect width="632.42" height="6" x="114.58" y="0" class="todo"/>
+<rect width="116.13" height="6" x="0" y="0" class="named"/>
+<rect width="630.87" height="6" x="116.13" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1244,7 +1244,7 @@
 <rect width="20.81" height="19.16" x="386.23" y="266.98" class="named"><title>0x0043e770 SoundPlayer::LoadSound (614 bytes)</title></rect>
 <rect width="20.81" height="19.13" x="386.23" y="289.14" class="named"><title>0x0043e500 SoundPlayer::Initialize (613 bytes)</title></rect>
 <rect width="20.81" height="18.73" x="386.23" y="311.27" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
-<rect width="19.31" height="20.12" x="410.04" y="0" class="todo"><title>0x00440270 CStreamingSound::HandleWaveStreamNotification (600 bytes)</title></rect>
+<rect width="19.31" height="20.12" x="410.04" y="0" class="named"><title>0x00440270 CStreamingSound::HandleWaveStreamNotification (600 bytes)</title></rect>
 <rect width="19.31" height="20.04" x="410.04" y="23.12" class="todo"><title>0x00413e40 BulletManager::AddedCallback (598 bytes)</title></rect>
 <rect width="19.31" height="19.97" x="410.04" y="46.16" class="todo"><title>0x00444700 Func444700 (596 bytes)</title></rect>
 <rect width="19.31" height="19.97" x="410.04" y="69.13" class="todo"><title>0x00447ce0 Func447ce0 (596 bytes)</title></rect>
