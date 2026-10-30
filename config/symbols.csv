@@ -91,7 +91,7 @@ address,size,name,symbol
 0x00405760,1572,Func405760,
 0x00405f20,491,Func405f20,
 0x00406200,15,Rng::GetRandomF32SignedInRange,?GetRandomF32SignedInRange@Rng@@QAEMM@Z
-0x00406210,702,Func406210,
+0x00406210,702,ResolveFloatOperand,?ResolveFloatOperand@@YIPAMPAUEnemy@@PAMGH@Z
 0x004065e0,21,Timer::Sub,?Sub@Timer@@QAEXM@Z
 0x00406600,19,Timer::Add,?Add@Timer@@QAEXH@Z
 0x00406620,18,Timer::Sub,?Sub@Timer@@QAEXH@Z
@@ -109,11 +109,11 @@ address,size,name,symbol
 0x00406820,16,Player::CallUnknown30404,?CallUnknown30404@Player@@QAEHPAUD3DXVECTOR3@@@Z
 0x00406830,28,EclManager::Unload,?Unload@EclManager@@QAEXXZ
 0x00406850,73,EclManager::StartSub,?StartSub@EclManager@@QAEHPAUEnemyUnknown22c@@F@Z
-0x004068a0,1633,Func4068a0,
+0x004068a0,1633,GetFloatOperand,?GetFloatOperand@@YIMPAUEnemy@@M@Z
 0x004070a0,346,Func4070a0,
 0x00407200,288,Func407200,
 0x00407320,296,Func407320,
-0x00407450,74,Func407450,
+0x00407450,74,ScriptMoveLinear,?ScriptMoveLinear@@YIXPAUEnemy@@PAUEclInstr@@M@Z
 0x004074a0,188,Func4074a0,
 0x00407560,157,Func407560,
 0x00407600,255,Func407600,

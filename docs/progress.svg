@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.61% (690)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.83% (372)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.70% (691)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.74% (371)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="482.61" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="482.61" y="0" class="decompiled"/>
-<rect width="260.19" height="6" x="486.81" y="0" class="todo"/>
+<rect width="483.31" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="483.31" y="0" class="decompiled"/>
+<rect width="259.49" height="6" x="487.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -160,7 +160,7 @@
 <rect width="12" height="12" x="585" y="15" class="todo"><title>0x00405760 Func405760 (1572 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="15" class="todo"><title>0x00405f20 Func405f20 (491 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="15" class="named"><title>0x00406200 Rng::GetRandomF32SignedInRange (15 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="15" class="todo"><title>0x00406210 Func406210 (702 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="15" class="todo"><title>0x00406210 ResolveFloatOperand (702 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="15" class="named"><title>0x004065e0 Timer::Sub (21 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="15" class="named"><title>0x00406600 Timer::Add (19 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="15" class="named"><title>0x00406620 Timer::Sub (18 bytes)</title></rect>
@@ -178,11 +178,11 @@
 <rect width="12" height="12" x="105" y="30" class="named"><title>0x00406820 Player::CallUnknown30404 (16 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="30" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="30" class="named"><title>0x00406850 EclManager::StartSub (73 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="30" class="todo"><title>0x004068a0 Func4068a0 (1633 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="30" class="todo"><title>0x004068a0 GetFloatOperand (1633 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="30" class="todo"><title>0x004070a0 Func4070a0 (346 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="30" class="todo"><title>0x00407200 Func407200 (288 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="30" class="todo"><title>0x00407320 Func407320 (296 bytes)</title></rect>
-<rect width="12" height="12" x="210" y="30" class="todo"><title>0x00407450 Func407450 (74 bytes)</title></rect>
+<rect width="12" height="12" x="210" y="30" class="named"><title>0x00407450 ScriptMoveLinear (74 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="30" class="todo"><title>0x004074a0 Func4074a0 (188 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="30" class="todo"><title>0x00407560 Func407560 (157 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="30" class="todo"><title>0x00407600 Func407600 (255 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.96%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.03%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.93%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="246.54" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="246.54" y="0" class="decompiled"/>
-<rect width="500.16" height="6" x="246.84" y="0" class="todo"/>
+<rect width="246.73" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="246.73" y="0" class="decompiled"/>
+<rect width="499.97" height="6" x="247.03" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1170,7 +1170,7 @@
 <rect width="35.46" height="36.02" x="171.92" y="40.64" class="todo"><title>0x00411670 Func411670 (1752 bytes)</title></rect>
 <rect width="35.46" height="35.21" x="171.92" y="79.66" class="todo"><title>0x00434740 PauseMenu::UpdatePauseMenu (1716 bytes)</title></rect>
 <rect width="35.46" height="34.61" x="171.92" y="117.87" class="todo"><title>0x0041af2d GameManager::LoadingThread (1689 bytes)</title></rect>
-<rect width="35.46" height="33.37" x="171.92" y="155.49" class="todo"><title>0x004068a0 Func4068a0 (1633 bytes)</title></rect>
+<rect width="35.46" height="33.37" x="171.92" y="155.49" class="todo"><title>0x004068a0 GetFloatOperand (1633 bytes)</title></rect>
 <rect width="35.46" height="33.37" x="171.92" y="191.85" class="todo"><title>0x00430aa0 App::UpdateNetPlay (1633 bytes)</title></rect>
 <rect width="35.46" height="32.01" x="171.92" y="228.22" class="todo"><title>0x00405760 Func405760 (1572 bytes)</title></rect>
 <rect width="35.46" height="32.01" x="171.92" y="263.23" class="todo"><title>0x004254a7 MainMenu::UpdateState3 (1572 bytes)</title></rect>
@@ -1244,7 +1244,7 @@
 <rect width="21.91" height="21.79" x="360.05" y="283.69" class="todo"><title>0x0044b220 Func44b220 (721 bytes)</title></rect>
 <rect width="21.91" height="21.52" x="360.05" y="308.48" class="todo"><title>0x00446ee0 Func446ee0 (713 bytes)</title></rect>
 <rect width="20.73" height="22.63" x="384.96" y="0" class="todo"><title>0x004471b0 Func4471b0 (710 bytes)</title></rect>
-<rect width="20.73" height="22.34" x="384.96" y="25.63" class="todo"><title>0x00406210 Func406210 (702 bytes)</title></rect>
+<rect width="20.73" height="22.34" x="384.96" y="25.63" class="todo"><title>0x00406210 ResolveFloatOperand (702 bytes)</title></rect>
 <rect width="20.73" height="22.20" x="384.96" y="50.97" class="todo"><title>0x00446060 Func446060 (698 bytes)</title></rect>
 <rect width="20.73" height="22.05" x="384.96" y="76.17" class="todo"><title>0x00418480 Gui::AddedCallback (694 bytes)</title></rect>
 <rect width="20.73" height="22.02" x="384.96" y="101.22" class="todo"><title>0x004162d0 Func4162d0 (693 bytes)</title></rect>
@@ -1759,7 +1759,7 @@
 <rect width="5.39" height="4.66" x="632.36" y="310.02" class="todo"><title>0x004413d0 Func4413d0 (75 bytes)</title></rect>
 <rect width="5.39" height="4.66" x="632.36" y="317.68" class="todo"><title>0x00441b70 Func441b70 (75 bytes)</title></rect>
 <rect width="5.39" height="4.66" x="632.36" y="325.34" class="todo"><title>0x00441be0 Func441be0 (75 bytes)</title></rect>
-<rect width="4.91" height="5.01" x="640.75" y="215.84" class="todo"><title>0x00407450 Func407450 (74 bytes)</title></rect>
+<rect width="4.91" height="5.01" x="640.75" y="215.84" class="named"><title>0x00407450 ScriptMoveLinear (74 bytes)</title></rect>
 <rect width="4.91" height="5.01" x="648.66" y="215.84" class="named"><title>0x00411f80 EnemyManager::RemoveChain (74 bytes)</title></rect>
 <rect width="4.91" height="5.01" x="656.57" y="215.84" class="todo"><title>0x0041e8b0 Func41e8b0 (74 bytes)</title></rect>
 <rect width="4.91" height="5.01" x="664.48" y="215.84" class="todo"><title>0x0042cd40 Func42cd40 (74 bytes)</title></rect>

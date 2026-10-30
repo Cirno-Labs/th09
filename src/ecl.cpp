@@ -59,6 +59,16 @@ int EclManager::StartSub(EnemyUnknown22c *ctx, short sub)
     return 0;
 }
 
+void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t)
+{
+    float start;
+    float end;
+
+    start = GetFloatOperand(enemy, instr->args[4].f);
+    end = GetFloatOperand(enemy, instr->args[5].f);
+    *ResolveFloatOperand(enemy, &instr->args[8].f, 0, -1) = (end - start) * t + start;
+}
+
 void SendExAttack1(Enemy *enemy, EclInstr *instr)
 {
     g_GameManager.exAttackManager->AddAttack(1, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
@@ -66,9 +76,9 @@ void SendExAttack1(Enemy *enemy, EclInstr *instr)
 
 void SetSidesFlag0(Enemy *enemy, EclInstr *instr)
 {
-    enemy->manager->side->flag0 = instr->args[1];
-    enemy->manager->otherSide->flag0 = instr->args[1];
-    if (instr->args[1] != 0)
+    enemy->manager->side->flag0 = instr->args[1].i;
+    enemy->manager->otherSide->flag0 = instr->args[1].i;
+    if (instr->args[1].i != 0)
     {
         g_SoundPlayer.PlaySoundByIdx(0x34, 0);
     }

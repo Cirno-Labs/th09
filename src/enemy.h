@@ -9,6 +9,7 @@
 
 class EnemyManager;
 struct GameSide;
+struct Enemy;
 struct EnemyUnknown22c;
 
 // The head of an ECL file, as th08's: then the offsets of the timelines.
@@ -71,14 +72,31 @@ struct EnemyUnknown30
 };
 ASSERT_SIZE(EnemyUnknown30, 0x30);
 
+// An argument of an ECL instruction, as th08's.
+union EclArg
+{
+    int i;
+    float f;
+};
+
 // An ECL instruction. Only the fields known so far: the enemy script
 // function instruction takes the function in args[0] and passes it the
 // instruction.
 struct EclInstr
 {
     unsigned char pad_0[0xc];
-    int args[2];
+    EclArg args[9];
 };
+
+// `id`, or the float variable it names, as th08's GetFloatOperand
+// (0x4068a0).
+float GetFloatOperand(Enemy *enemy, float id);
+// The float variable `operand` names when bit `bit` of `mask` is set,
+// as th08's (0x406210).
+float *ResolveFloatOperand(Enemy *enemy, float *operand, WORD mask, int bit);
+// The interpolation loops' linear function, as th08's: sets args[8] to
+// t of the way from args[4] to args[5] (0x407450).
+void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t);
 
 // The state of an enemy's ECL script, as th08's EnemyScriptState (0x22c
 // bytes). Only the fields known so far; its implicit constructor is at
