@@ -562,7 +562,7 @@ address,size,name,symbol
 0x0042c8f0,120,Func42c8f0,
 0x0042c970,355,Func42c970,
 0x0042cae0,241,Chain::ReleaseList,?ReleaseList@Chain@@QAEXPAUChainElem@@@Z
-0x0042cbe0,34,Func42cbe0,
+0x0042cbe0,34,Chain::Release,?Release@Chain@@QAEXXZ
 0x0042cc10,25,Func42cc10,
 0x0042cc30,33,Func42cc30,
 0x0042cc60,33,Func42cc60,
@@ -637,7 +637,7 @@ address,size,name,symbol
 0x00430060,237,Func430060,
 0x00430150,199,Func430150,
 0x00430220,11,Func430220,
-0x00430230,108,Func430230,
+0x00430230,108,App::CloseSubThread,?CloseSubThread@App@@QAEXXZ
 0x004302a0,16,Func4302a0,
 0x004302b0,173,Func4302b0,
 0x00430360,85,Func430360,

@@ -71,6 +71,8 @@ public:
     // Removes the elements of the list that starts at `root`, going
     // through a copy of the list it allocates (0x42cae0).
     void ReleaseList(ChainElem *root);
+    // Closes the App's sub thread, then releases both chains (0x42cbe0).
+    void Release();
 
     ChainElem calcChain;
     ChainElem drawChain;

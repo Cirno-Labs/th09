@@ -123,6 +123,8 @@ struct App
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();
+    // Waits for the sub thread to end and closes it (0x430230).
+    void CloseSubThread();
 
     unsigned char pad_0[0x439];
     // Whether the game runs in a window.

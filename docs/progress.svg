@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.66% (90)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">91.34% (949)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.76% (91)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">91.24% (948)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="64.71" height="6" x="0" y="0" class="named"/>
-<rect width="682.29" height="6" x="64.71" y="0" class="todo"/>
+<rect width="65.43" height="6" x="0" y="0" class="named"/>
+<rect width="681.57" height="6" x="65.43" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -630,7 +630,7 @@
 <rect width="12" height="12" x="150" y="165" class="todo"><title>0x0042c8f0 Func42c8f0 (120 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="165" class="todo"><title>0x0042c970 Func42c970 (355 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="165" class="named"><title>0x0042cae0 Chain::ReleaseList (241 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="165" class="todo"><title>0x0042cbe0 Func42cbe0 (34 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="165" class="named"><title>0x0042cbe0 Chain::Release (34 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="165" class="todo"><title>0x0042cc10 Func42cc10 (25 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="165" class="todo"><title>0x0042cc30 Func42cc30 (33 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="165" class="todo"><title>0x0042cc60 Func42cc60 (33 bytes)</title></rect>
@@ -705,7 +705,7 @@
 <rect width="12" height="12" x="525" y="180" class="todo"><title>0x00430060 Func430060 (237 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="180" class="todo"><title>0x00430150 Func430150 (199 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="180" class="todo"><title>0x00430220 Func430220 (11 bytes)</title></rect>
-<rect width="12" height="12" x="570" y="180" class="todo"><title>0x00430230 Func430230 (108 bytes)</title></rect>
+<rect width="12" height="12" x="570" y="180" class="todo"><title>0x00430230 App::CloseSubThread (108 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="180" class="todo"><title>0x004302a0 Func4302a0 (16 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="180" class="todo"><title>0x004302b0 Func4302b0 (173 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="180" class="todo"><title>0x00430360 Func430360 (85 bytes)</title></rect>
@@ -1110,10 +1110,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">1.05%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">98.95%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">1.07%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">98.93%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="7.87" height="6" x="0" y="0" class="named"/>
-<rect width="739.13" height="6" x="7.87" y="0" class="todo"/>
+<rect width="7.96" height="6" x="0" y="0" class="named"/>
+<rect width="739.04" height="6" x="7.96" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.74" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1617,7 +1617,7 @@
 <rect width="6.42" height="6.64" x="649.02" y="172.86" class="todo"><title>0x0041cf30 Func41cf30 (110 bytes)</title></rect>
 <rect width="6.42" height="6.64" x="658.44" y="172.86" class="todo"><title>0x0043d170 Func43d170 (110 bytes)</title></rect>
 <rect width="6.42" height="6.64" x="667.86" y="172.86" class="todo"><title>0x00441d30 Func441d30 (110 bytes)</title></rect>
-<rect width="6.25" height="6.64" x="677.28" y="172.86" class="todo"><title>0x00430230 Func430230 (108 bytes)</title></rect>
+<rect width="6.25" height="6.64" x="677.28" y="172.86" class="todo"><title>0x00430230 App::CloseSubThread (108 bytes)</title></rect>
 <rect width="6.16" height="6.64" x="686.53" y="172.86" class="todo"><title>0x0043fb10 Func43fb10 (107 bytes)</title></rect>
 <rect width="6.08" height="6.64" x="695.70" y="172.86" class="todo"><title>0x0041be70 Func41be70 (106 bytes)</title></rect>
 <rect width="6.08" height="6.64" x="704.78" y="172.86" class="todo"><title>0x00422f67 Func422f67 (106 bytes)</title></rect>
@@ -1909,7 +1909,7 @@
 <rect width="2.54" height="2.07" x="695.29" y="254.28" class="todo"><title>0x00415020 Func415020 (34 bytes)</title></rect>
 <rect width="2.54" height="2.07" x="700.83" y="254.28" class="todo"><title>0x00418270 Func418270 (34 bytes)</title></rect>
 <rect width="2.54" height="2.07" x="706.36" y="254.28" class="todo"><title>0x00422f17 Func422f17 (34 bytes)</title></rect>
-<rect width="2.54" height="2.07" x="711.90" y="254.28" class="todo"><title>0x0042cbe0 Func42cbe0 (34 bytes)</title></rect>
+<rect width="2.54" height="2.07" x="711.90" y="254.28" class="named"><title>0x0042cbe0 Chain::Release (34 bytes)</title></rect>
 <rect width="2.54" height="2.07" x="717.43" y="254.28" class="todo"><title>0x0042ec00 Func42ec00 (34 bytes)</title></rect>
 <rect width="2.54" height="2.07" x="722.97" y="254.28" class="todo"><title>0x004336a0 Func4336a0 (34 bytes)</title></rect>
 <rect width="2.37" height="2.07" x="728.51" y="254.28" class="todo"><title>0x00404920 Func404920 (33 bytes)</title></rect>

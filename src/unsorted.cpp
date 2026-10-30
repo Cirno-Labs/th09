@@ -389,6 +389,13 @@ void Chain::ReleaseList(ChainElem *root)
     }
 }
 
+void Chain::Release()
+{
+    g_App.CloseSubThread();
+    this->ReleaseList(&this->calcChain);
+    this->ReleaseList(&this->drawChain);
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);
