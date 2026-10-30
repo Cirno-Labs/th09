@@ -184,7 +184,7 @@ address,size,name,symbol
 0x0040e4f0,133,Ending::Load,?Load@Ending@@QAEHPAD@Z
 0x0040e580,773,Func40e580,
 0x0040e8a0,1483,Func40e8a0,
-0x0040ef60,119,Func40ef60,
+0x0040ef60,119,Ending::Ending,??0Ending@@QAE@XZ
 0x0040efe0,139,Func40efe0,
 0x0040f080,223,Ending::RegisterChain,?RegisterChain@Ending@@SIHXZ
 0x0040f160,7,EclManager::GetTimelineCount,?GetTimelineCount@EclManager@@QAEHXZ

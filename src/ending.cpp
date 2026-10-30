@@ -1,6 +1,7 @@
 // The ending, from 0x40e080, as th08's ending.cpp.
 
 #include <stdlib.h>
+#include <string.h>
 
 #include "ending.h"
 #include "screeneffect.h"
@@ -139,4 +140,15 @@ int Ending::Load(char *path)
         g_MemoryManager.Free(oldFile);
     }
     return 0;
+}
+
+Ending::Ending()
+{
+    memset(this, 0, sizeof(Ending));
+    this->lineDelay = 8;
+    this->lineTimer = 0;
+    this->timer = 0;
+    this->scrollX = 0.0f;
+    this->scrollY = 0.0f;
+    this->scrollSpeed = 0.0f;
 }

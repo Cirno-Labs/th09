@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.92% (704)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.52% (358)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.01% (705)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.43% (357)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="492.40" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="492.40" y="0" class="decompiled"/>
-<rect width="250.40" height="6" x="496.60" y="0" class="todo"/>
+<rect width="493.10" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="493.10" y="0" class="decompiled"/>
+<rect width="249.70" height="6" x="497.30" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -253,7 +253,7 @@
 <rect width="12" height="12" x="480" y="45" class="named"><title>0x0040e4f0 Ending::Load (133 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="45" class="todo"><title>0x0040e580 Func40e580 (773 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="45" class="todo"><title>0x0040e8a0 Func40e8a0 (1483 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="45" class="todo"><title>0x0040ef60 Func40ef60 (119 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="45" class="named"><title>0x0040ef60 Ending::Ending (119 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="45" class="todo"><title>0x0040efe0 Func40efe0 (139 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="45" class="todo"><title>0x0040f080 Ending::RegisterChain (223 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="45" class="named"><title>0x0040f160 EclManager::GetTimelineCount (7 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.51%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.45%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.56%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.41%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="250.35" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="250.35" y="0" class="decompiled"/>
-<rect width="496.35" height="6" x="250.65" y="0" class="todo"/>
+<rect width="250.66" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="250.66" y="0" class="decompiled"/>
+<rect width="496.05" height="6" x="250.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1629,7 +1629,7 @@
 <rect width="6.88" height="7.49" x="595.65" y="179.85" class="named"><title>0x00433870 MakeFullPath (121 bytes)</title></rect>
 <rect width="6.88" height="7.49" x="595.65" y="190.35" class="named"><title>0x0043f9f0 CSound::RestoreBuffer (121 bytes)</title></rect>
 <rect width="6.88" height="7.41" x="595.65" y="200.84" class="named"><title>0x0042c8f0 InitJoystick (120 bytes)</title></rect>
-<rect width="6.88" height="7.32" x="595.65" y="211.25" class="todo"><title>0x0040ef60 Func40ef60 (119 bytes)</title></rect>
+<rect width="6.88" height="7.32" x="595.65" y="211.25" class="named"><title>0x0040ef60 Ending::Ending (119 bytes)</title></rect>
 <rect width="6.88" height="7.32" x="595.65" y="221.57" class="named"><title>0x0042eb80 App::PopRecord (119 bytes)</title></rect>
 <rect width="6.88" height="7.32" x="595.65" y="231.89" class="todo"><title>0x00445d00 Func445d00 (119 bytes)</title></rect>
 <rect width="6.88" height="7.23" x="595.65" y="242.21" class="named"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>

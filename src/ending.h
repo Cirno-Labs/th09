@@ -15,6 +15,9 @@
 class Ending
 {
 public:
+    // Constructs the Sprites, then zeroes the whole ending and starts
+    // its timers, as th08's inline one (0x40ef60).
+    Ending();
     // Reads a number at the cursor and moves the cursor past it and the
     // NULs after it, as th08's (0x40e0d0).
     int ReadInt();
