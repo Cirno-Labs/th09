@@ -172,6 +172,27 @@ BOOL CALLBACK EnumAxesCallback(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pCont
     return DIENUM_CONTINUE;
 }
 
+BOOL CALLBACK EnumAxesCallback2(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pContext)
+{
+    DIPROPRANGE diprg;
+
+    if (pdidoi->dwType & DIDFT_AXIS)
+    {
+        diprg.diph.dwSize = sizeof(DIPROPRANGE);
+        diprg.diph.dwHeaderSize = sizeof(DIPROPHEADER);
+        diprg.diph.dwHow = DIPH_BYID;
+        diprg.diph.dwObj = pdidoi->dwType;
+        diprg.lMin = -1000;
+        diprg.lMax = +1000;
+
+        if (FAILED(g_App.joystick2->SetProperty(DIPROP_RANGE, &diprg.diph)))
+        {
+            return DIENUM_STOP;
+        }
+    }
+    return DIENUM_CONTINUE;
+}
+
 int OpenGameArchive()
 {
     char path[0x80];
