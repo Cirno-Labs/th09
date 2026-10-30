@@ -6,6 +6,22 @@
 #include "unsorted.h"
 #include "sprite.h"
 
+// Scales color channel `c` by `factor`, where 0x80 is 1, clamping to
+// 0xff, as stage.cpp's: the linker folds the copies (0x401090).
+static BYTE ModulateChannel(BYTE c, BYTE factor)
+{
+    DWORD channel = (DWORD)c * factor >> 7;
+    if (channel >= 0x100)
+    {
+        channel = 0xff;
+    }
+    return channel;
+}
+
+// Scales byte `i` of `color` by byte `i` of `factor`.
+#define MODULATE_CHANNEL(color, factor, i) \
+    ((BYTE *)&(color))[i] = ModulateChannel(((BYTE *)&(color))[i], ((BYTE *)&(factor))[i])
+
 void AnmLoaded::StartScriptAtOrigin(Sprite *vm, int script)
 {
     vm->scriptIndex = script;
@@ -324,6 +340,37 @@ void SpriteEngine::RotatePoint(float *out, float x, float y, float sine, float c
 {
     out[0] = x * cosine - y * sine + cx;
     out[1] = x * sine + y * cosine + cy;
+}
+
+void SpriteEngine::SetBlendModeForSprite(Sprite *vm)
+{
+    if (this->blendMode != (vm->flags >> 4 & 3))
+    {
+        this->FlushQuadBatch();
+        this->blendMode = vm->flags >> 4 & 3;
+        switch (this->blendMode)
+        {
+        case 0:
+            g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+            break;
+        case 1:
+            g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_ONE);
+            break;
+        }
+    }
+    if (this->zWriteDisabled != (vm->flags >> 13 & 1))
+    {
+        this->zWriteDisabled = vm->flags >> 13 & 1;
+        if (this->zWriteDisabled == 0)
+        {
+            g_App.SetRenderState(D3DRS_ZWRITEENABLE, TRUE);
+        }
+        else
+        {
+            g_App.SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+        }
+    }
+    this->renderStateSetCount++;
 }
 
 int SpriteEngine::DrawUnrotated(Sprite *vm)

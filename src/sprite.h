@@ -25,7 +25,9 @@ struct SpriteBase
     // The size of the sprite, from its SpriteData.
     float spriteWidth;
     float spriteHeight;
-    unsigned char pad_30[0x38 - 0x30];
+    // How far the texture coordinates scroll.
+    float uvScrollX;
+    float uvScrollY;
     // The script's frame.
     Timer scriptTime;
     Timer waitTimer;
@@ -60,7 +62,8 @@ struct SpriteBase
             BYTE alpha;
         };
     };
-    unsigned char pad_1f4[0x1f8 - 0x1f4];
+    // Drawn instead of color when bit 17 of flags is set.
+    D3DCOLOR color2;
     DWORD flags;
     unsigned char pad_1fc[0x1fe - 0x1fc];
     // The interrupt label to jump to on the next Step; 0 for none.
@@ -401,6 +404,9 @@ public:
     // Sets the render state for `vm` and draws the projected quad, as
     // th08's (0x43a0f0).
     int DrawQuad(Sprite *vm, int flags);
+    // Sets the blend mode and the z writes for `vm`, as th08's
+    // (0x43a030).
+    void SetBlendModeForSprite(Sprite *vm);
     // DrawQuad with the texture mirrored left to right (0x43a520).
     int DrawQuadMirrored(Sprite *vm, int flags);
     // Draws `vm` projected from its 3D position, as th08's (0x43b0e0).
@@ -561,6 +567,9 @@ public:
     int pendingCopyDstHeight;
 };
 extern SpriteEngine *g_SpriteEngine;
+
+// 0.5f, which DrawQuad's rounding subtracts (0x490f54).
+extern const float g_Half;
 
 // The screen corners of the quad the draw functions build, as th08's
 // (0x4dc558).

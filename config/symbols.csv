@@ -796,7 +796,7 @@ address,size,name,symbol
 0x00439cf0,199,Func439cf0,
 0x00439dc0,199,Func439dc0,
 0x00439e90,411,Func439e90,
-0x0043a030,188,Func43a030,
+0x0043a030,188,SpriteEngine::SetBlendModeForSprite,?SetBlendModeForSprite@SpriteEngine@@QAEXPAVSprite@@@Z
 0x0043a0f0,1067,SpriteEngine::DrawQuad,?DrawQuad@SpriteEngine@@QAEHPAVSprite@@H@Z
 0x0043a520,1067,SpriteEngine::DrawQuadMirrored,?DrawQuadMirrored@SpriteEngine@@QAEHPAVSprite@@H@Z
 0x0043a950,254,SpriteEngine::DrawUnrotated,?DrawUnrotated@SpriteEngine@@QAEHPAVSprite@@@Z
@@ -2219,6 +2219,7 @@ address,size,name,symbol
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
 0x00490f08,,g_SeekOrigins,?g_SeekOrigins@@3QBKB
+0x00490f54,,g_Half,?g_Half@@3MB
 0x00490f58,,g_TextureFormats,?g_TextureFormats@@3QBW4_D3DFORMAT@@B
 0x00490f70,,g_TextureFormatSizes,?g_TextureFormatSizes@@3QBHB
 0x004952e0,,IID_IDirectSoundNotify,_IID_IDirectSoundNotify
