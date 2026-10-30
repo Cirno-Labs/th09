@@ -9,3 +9,8 @@ float Sin(float angle)
 {
     return sinf(angle);
 }
+
+float Sqrt(float x)
+{
+    return sqrtf(x);
+}

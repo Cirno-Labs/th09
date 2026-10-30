@@ -10,3 +10,4 @@
 // (0x401060). Sin and Sqrt follow it.
 float Cos(float angle);
 float Sin(float angle);
+float Sqrt(float x);
