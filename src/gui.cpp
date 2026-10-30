@@ -48,3 +48,13 @@ void GuiSide::RemoveChain(GuiSide *side)
         delete side;
     }
 }
+
+void GuiSide::Reset()
+{
+    this->timerAbdc = 0;
+    if (this->unknownAbcc != 0)
+    {
+        this->unknownAbcc = 2;
+        this->timerAbd0 = 30;
+    }
+}

@@ -4,6 +4,7 @@
 #pragma once
 
 #include "chain.h"
+#include "timer.h"
 
 // The dialogue state. Only the fields known so far.
 struct GuiMsg
@@ -53,4 +54,9 @@ public:
     ChainElem *drawElem;
     unsigned char pad_a668[0xa67c - 0xa668];
     int unknownA67c;
+    unsigned char pad_a680[0xabcc - 0xa680];
+    // Reset turns it from set to 2, restarting timerAbd0 at 30.
+    int unknownAbcc;
+    Timer timerAbd0;
+    Timer timerAbdc;
 };
