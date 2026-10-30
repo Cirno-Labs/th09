@@ -39,6 +39,13 @@ void Player::SetRegisterChainArg(BYTE arg)
     this->registerChainArg = arg;
 }
 
+int Player::OnDraw2(Player *player)
+{
+    g_App.SetView(player->sideIdx);
+    player->DrawHitBullets();
+    return 1;
+}
+
 // Unloads the player's ANM file and frees its shot file if the game frees
 // its resources. Returns 0. Static, with the player in esi (0x41ce60).
 static int FreeResources(Player *player)

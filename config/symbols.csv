@@ -420,7 +420,7 @@ address,size,name,symbol
 0x0041f4c0,190,Func41f4c0,
 0x0041f580,242,Func41f580,
 0x0041f680,205,Func41f680,
-0x0041f760,164,Func41f760,
+0x0041f760,164,Player::DrawHitBullets,?DrawHitBullets@Player@@QAEXXZ
 0x0041f810,1210,Func41f810,
 0x0041fcd0,985,Func41fcd0,
 0x004200c0,45,Func4200c0,

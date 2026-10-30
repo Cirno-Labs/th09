@@ -140,6 +140,10 @@ public:
     void SetRegisterChainArg(BYTE arg);
     // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
     void SubUnknown30388(float amount);
+    // Draws the bullets that hit (state 2) at their positions on the
+    // side's screen, turned to their angle when they rotate, blue while
+    // unknown46e is set, as th08's DrawHitBullets (0x41f760).
+    void DrawHitBullets();
 
     unsigned char pad_0[0x4];
     // RegisterChain's first argument.
