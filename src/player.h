@@ -179,7 +179,11 @@ ASSERT_SIZE(PlayerUnknown30410, 0x40);
 // Placeholder name.
 struct PlayerUnknown30454
 {
-    unsigned char pad_0[0x20];
+    unsigned char pad_0[0x4];
+    D3DXVECTOR3 pos;
+    unsigned char pad_10[0x1c - 0x10];
+    // Drawn while set.
+    int unknown1c;
     Sprite sprite;
 };
 ASSERT_SIZE(PlayerUnknown30454, 0x2c4);
@@ -239,6 +243,9 @@ public:
     // their draw callback if they have one, as th08's DrawBullets
     // (0x41f680).
     void DrawBullets();
+    // Draws the sprites of unknown30454 that are set at their positions
+    // (0x41df80).
+    void DrawUnknown30454();
     // Draws the bullets that hit (state 2) at their positions on the
     // side's screen, turned to their angle when they rotate, blue while
     // unknown46e is set, as th08's DrawHitBullets (0x41f760).

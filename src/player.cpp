@@ -220,6 +220,22 @@ void PlayerUnknown30410::EndCombo()
     this->timer14 = 0;
 }
 
+void Player::DrawUnknown30454()
+{
+    int i;
+
+    for (i = 0; i < 4; i++)
+    {
+        if (this->unknown30454[i].unknown1c != 0)
+        {
+            this->unknown30454[i].sprite.pos.x = g_GameManager.ArenaToScreenX(this->unknown30454[i].pos.x);
+            this->unknown30454[i].sprite.pos.y = g_GameManager.ArenaToScreenY(this->unknown30454[i].pos.y);
+            this->unknown30454[i].sprite.pos.z = 0.15f;
+            g_SpriteEngine->DrawUnrotated(&this->unknown30454[i].sprite);
+        }
+    }
+}
+
 Player::Player()
 {
 }

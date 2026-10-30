@@ -394,7 +394,7 @@ address,size,name,symbol
 0x0041da70,279,Func41da70,
 0x0041db90,138,Func41db90,
 0x0041dc20,814,Func41dc20,
-0x0041df80,99,Func41df80,
+0x0041df80,99,Player::DrawUnknown30454,?DrawUnknown30454@Player@@QAEXXZ
 0x0041dff0,855,Func41dff0,
 0x0041e350,204,Func41e350,
 0x0041e420,753,Func41e420,
