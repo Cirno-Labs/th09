@@ -49,6 +49,14 @@ int GameManager::OnDraw(GameManager *mgr)
     return 1;
 }
 
+void FormatDate(char *buf)
+{
+    time_t t;
+
+    time(&t);
+    strftime(buf, 10, "%y/%m/%d", localtime(&t));
+}
+
 void ChainElem::SetCallback(ChainCallback callback)
 {
     this->callback = callback;
