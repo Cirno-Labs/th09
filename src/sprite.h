@@ -65,7 +65,8 @@ struct SpriteBase
     unsigned char pad_1fc[0x1fe - 0x1fc];
     // The interrupt label to jump to on the next Step; 0 for none.
     short pendingInterrupt;
-    unsigned char pad_200[0x204 - 0x200];
+    // How SpriteEngine::DrawSprite draws the sprite, as th08's.
+    int drawMode;
     // The ANM file whose script runs.
     AnmLoaded *anm;
 };
@@ -380,9 +381,19 @@ public:
     // Releases the ANM files asked to be, and goes on creating the
     // textures of those loading. Returns 0, or -1 on failure (0x43cdd0).
     int StepAnmLoading();
+    // Draws `vm` the way its drawMode asks for, as th08's (0x436d70).
+    void DrawSprite(Sprite *vm);
     // Draws `vm` at its position without rotating it, as th08's
     // (0x43a950).
     int DrawUnrotated(Sprite *vm);
+    // The same, not rounding its position (0x43afe0).
+    int DrawNoRound(Sprite *vm);
+    // Draws `vm` rotated, not rounding its position (0x43ad40).
+    int DrawRotatedNoRound(Sprite *vm);
+    // Draws `vm` projected from its 3D position, as th08's (0x43b0e0).
+    int DrawProjected(Sprite *vm);
+    // Draws `vm` as a quad in 3D, as th08's (0x43b140).
+    int DrawProjected3D(Sprite *vm);
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
     // Rotates (`x`, `y`) by the angle with `sine` and `cosine` and moves

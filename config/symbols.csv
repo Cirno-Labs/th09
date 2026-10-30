@@ -780,7 +780,7 @@ address,size,name,symbol
 0x00436b80,144,Sprite::ResolveIntArgument,?ResolveIntArgument@Sprite@@QAEHH@Z
 0x00436c40,116,Sprite::ResolveFloatArgumentPtr,?ResolveFloatArgumentPtr@Sprite@@QAEPAMPAMGH@Z
 0x00436cd0,108,Sprite::ResolveIntArgumentPtr,?ResolveIntArgumentPtr@Sprite@@QAEPAHPAHGH@Z
-0x00436d70,84,Func436d70,
+0x00436d70,84,SpriteEngine::DrawSprite,?DrawSprite@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00436de0,72,SpriteEngine::SendInterruptToLoadedSprites,?SendInterruptToLoadedSprites@SpriteEngine@@QAEXPAVSprite@@HF@Z
 0x00436e30,203,Func436e30,
 0x00436f30,9352,SpriteEngine::Step,?Step@SpriteEngine@@QAEXPAVSprite@@@Z
@@ -802,10 +802,10 @@ address,size,name,symbol
 0x0043a950,254,SpriteEngine::DrawUnrotated,?DrawUnrotated@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043aa50,254,Func43aa50,
 0x0043ab50,491,SpriteEngine::Draw,?Draw@SpriteEngine@@QAEHPAVSprite@@@Z
-0x0043ad40,658,Func43ad40,
-0x0043afe0,254,Func43afe0,
-0x0043b0e0,88,Func43b0e0,
-0x0043b140,84,Func43b140,
+0x0043ad40,658,SpriteEngine::DrawRotatedNoRound,?DrawRotatedNoRound@SpriteEngine@@QAEHPAVSprite@@@Z
+0x0043afe0,254,SpriteEngine::DrawNoRound,?DrawNoRound@SpriteEngine@@QAEHPAVSprite@@@Z
+0x0043b0e0,88,SpriteEngine::DrawProjected,?DrawProjected@SpriteEngine@@QAEHPAVSprite@@@Z
+0x0043b140,84,SpriteEngine::DrawProjected3D,?DrawProjected3D@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043b1a0,811,Func43b1a0,
 0x0043b4d0,238,Func43b4d0,
 0x0043b5c0,163,Func43b5c0,
