@@ -525,7 +525,7 @@ address,size,name,symbol
 0x004289db,2241,MainMenu::UpdateState8,?UpdateState8@MainMenu@@QAEHXZ
 0x0042929c,966,MainMenu::UpdateState14,?UpdateState14@MainMenu@@QAEHXZ
 0x00429662,1825,MainMenu::UpdateState15,?UpdateState15@MainMenu@@QAEHXZ
-0x00429d83,160,Func429d83,
+0x00429d83,160,MainMenu::MainMenu,??0MainMenu@@QAE@XZ
 0x00429e23,1560,MainMenu::UpdateState1,?UpdateState1@MainMenu@@QAEHXZ
 0x0042a45b,886,MainMenu::UpdateState2,?UpdateState2@MainMenu@@QAEHXZ
 0x0042a7d1,506,MainMenu::UpdateState6,?UpdateState6@MainMenu@@QAEHXZ

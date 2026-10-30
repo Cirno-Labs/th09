@@ -143,11 +143,6 @@ void GameConfig::SetDefaults()
     this->unknownB9 = 2;
 }
 
-GameConfig::GameConfig()
-{
-    this->SetDefaults();
-}
-
 void App::ResetSubThread()
 {
     this->subThread = NULL;

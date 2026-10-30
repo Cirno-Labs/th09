@@ -859,6 +859,11 @@ void MainMenu::MoveCharacterCursor2(int player, int selected, char *entries)
     }
 }
 
+MainMenu::MainMenu()
+{
+    memset(this, 0, sizeof(MainMenu));
+}
+
 int MainMenu::OnUpdate(MainMenu *menu)
 {
     int ret;

@@ -5,6 +5,7 @@
 #include "chain.h"
 #include "common.h"
 #include "gamemanager.h"
+#include "replay.h"
 #include "screeneffect.h"
 #include "sprite.h"
 #include "unsorted.h"
@@ -42,6 +43,11 @@ ASSERT_SIZE(MusicTune, 0x292);
 class MainMenu
 {
 public:
+    // Constructs the replay headers, the tunes, the sprites and the
+    // config, then zeroes the menu, as th08's. Inline there; here the
+    // copy is out of line (0x429d83).
+    MainMenu();
+
     // Queues sound effect `idx` with `arg` and plays it at once
     // (0x422f17).
     void PlaySoundNow(int idx, int arg);
@@ -177,11 +183,14 @@ public:
     unsigned char pad_8c[0x681c - 0x8c];
     // Files ReleaseTitleScene frees.
     void *unknown681c[50];
-    unsigned char pad_68e4[0xc8fc - 0x68e4];
+    // The headers of the replay files.
+    ReplayHeader replays[50];
     void *unknownC8fc;
     unsigned char pad_c900[0xc910 - 0xc900];
     int unknownC910;
-    unsigned char pad_c914[0x11b74 - 0xc914];
+    unsigned char pad_c914[0xc934 - 0xc914];
+    // The music room's tunes.
+    MusicTune tunes[32];
     int unknown11b74;
     unsigned char pad_11b78[0x11b90 - 0x11b78];
     // The title's ANM file, and the result screen's text.
@@ -193,7 +202,7 @@ public:
     Sprite *helpSprite;
     // Sprites of textAnm's script 5, as th08's.
     Sprite helpSprites[14];
-    unsigned char pad_14098[0x1780c - 0x14098];
+    Sprite unknown14098[21];
     // Sprites 0x15 to 0x22 of textAnm, as th08's card details.
     Sprite cardDetailSprites[14];
     Sprite unknown19d04[8];
@@ -207,6 +216,10 @@ public:
     // 2 if it failed.
     int loadingState;
     int unknown1b23c;
-    unsigned char pad_1b240[0x1b24c - 0x1b240];
+    unsigned char pad_1b240[0x1b248 - 0x1b240];
+    ChainElem *calcChain;
     ChainElem *drawChain;
+    unsigned char pad_1b250[0x1b2bc - 0x1b250];
+    GameConfig config;
 };
+ASSERT_SIZE(MainMenu, 0x1b388);

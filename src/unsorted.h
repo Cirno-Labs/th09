@@ -265,8 +265,12 @@ ASSERT_SIZE(BgmDatHeader, 0x10);
 // The config file's contents, in App (th08 kept them in App itself).
 struct GameConfig
 {
-    // Calls SetDefaults (0x41a98b).
-    GameConfig();
+    // Calls SetDefaults. Inline: the title menu's object expands it, and
+    // the copy is at 0x41a98b.
+    GameConfig()
+    {
+        this->SetDefaults();
+    }
     // Zeroes the config and sets the defaults (0x41a8a2).
     void SetDefaults();
 
