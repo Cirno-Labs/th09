@@ -22,3 +22,43 @@ void MainMenu::SetState(int state)
     this->subState = 0;
     this->unknownC910 = 0;
 }
+
+void MainMenu::ReassignButton(ControllerMapping *mapping, short button, short replacement, int unused)
+{
+    if (mapping->shootButton == button)
+    {
+        mapping->shootButton = replacement;
+    }
+    if (mapping->bombButton == button)
+    {
+        mapping->bombButton = replacement;
+    }
+    if (mapping->focusButton == button)
+    {
+        mapping->focusButton = replacement;
+    }
+    if (mapping->upButton == button)
+    {
+        mapping->upButton = replacement;
+    }
+    if (mapping->downButton == button)
+    {
+        mapping->downButton = replacement;
+    }
+    if (mapping->leftButton == button)
+    {
+        mapping->leftButton = replacement;
+    }
+    if (mapping->rightButton == button)
+    {
+        mapping->rightButton = replacement;
+    }
+    if (mapping->menuButton == button)
+    {
+        mapping->menuButton = replacement;
+    }
+    if (mapping->skipButton == button)
+    {
+        mapping->skipButton = replacement;
+    }
+}

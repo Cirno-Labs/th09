@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">44.18% (467)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">55.82% (590)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">44.28% (468)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">55.72% (589)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="330.04" height="6" x="0" y="0" class="named"/>
-<rect width="416.96" height="6" x="330.04" y="0" class="todo"/>
+<rect width="330.74" height="6" x="0" y="0" class="named"/>
+<rect width="416.26" height="6" x="330.74" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -540,7 +540,7 @@
 <rect width="12" height="12" x="300" y="135" class="todo"><title>0x00422d20 ScreenEffect::StartEffect (447 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="135" class="named"><title>0x00422f17 MainMenu::PlaySoundNow (34 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="135" class="named"><title>0x00422f39 MainMenu::SetState (46 bytes)</title></rect>
-<rect width="12" height="12" x="345" y="135" class="todo"><title>0x00422f67 Func422f67 (106 bytes)</title></rect>
+<rect width="12" height="12" x="345" y="135" class="named"><title>0x00422f67 MainMenu::ReassignButton (106 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="135" class="todo"><title>0x00422fd1 Func422fd1 (124 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="135" class="todo"><title>0x0042304d Func42304d (89 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="135" class="todo"><title>0x004230a6 Func4230a6 (89 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.82%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.18%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.86%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.14%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="148.06" height="6" x="0" y="0" class="named"/>
-<rect width="598.94" height="6" x="148.06" y="0" class="todo"/>
+<rect width="148.34" height="6" x="0" y="0" class="named"/>
+<rect width="598.66" height="6" x="148.34" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1643,7 +1643,7 @@
 <rect width="6.26" height="7.02" x="740.74" y="180.09" class="named"><title>0x00436cd0 Sprite::ResolveIntArgumentPtr (108 bytes)</title></rect>
 <rect width="6.32" height="6.86" x="606.50" y="190.11" class="named"><title>0x0043fb10 CSound::SetVolume (107 bytes)</title></rect>
 <rect width="6.32" height="6.77" x="606.50" y="199.97" class="todo"><title>0x0041be70 Func41be70 (106 bytes)</title></rect>
-<rect width="6.32" height="6.77" x="606.50" y="209.75" class="todo"><title>0x00422f67 Func422f67 (106 bytes)</title></rect>
+<rect width="6.32" height="6.77" x="606.50" y="209.75" class="named"><title>0x00422f67 MainMenu::ReassignButton (106 bytes)</title></rect>
 <rect width="6.32" height="6.77" x="606.50" y="219.52" class="todo"><title>0x00447f40 Func447f40 (106 bytes)</title></rect>
 <rect width="6.32" height="6.68" x="606.50" y="229.29" class="named"><title>0x0043ee40 SoundPlayer::QueueSoundCommand (105 bytes)</title></rect>
 <rect width="6.32" height="6.68" x="606.50" y="238.97" class="named"><title>0x004406e0 CSound::~CSound (105 bytes)</title></rect>
