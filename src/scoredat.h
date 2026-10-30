@@ -46,3 +46,6 @@ extern Lsnm g_Lsnm;
 // Sets g_Lsnm to blanks, then reads it from `dat`'s chunk; returns
 // whether there is one (0x421aa0).
 int LoadLsnmChunk(ScoreDat *dat);
+// Resets g_PlayRecord, then reads it from `dat`'s "PLST" chunks
+// (0x421b80).
+int LoadPlstChunk(ScoreDat *dat);

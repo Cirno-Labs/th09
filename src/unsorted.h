@@ -256,7 +256,13 @@ struct PlayRecord
     // (0x4234a7).
     int GetClearFlags(char character, int difficulty);
 
-    unsigned char pad_0[0x2c];
+    // The score file's "PLST" chunk header: version 3.
+    DWORD magic;
+    WORD size;
+    WORD size2;
+    BYTE version;
+    BYTE unknown9;
+    unsigned char pad_a[0x2c - 0xa];
     // Which pieces of music have been heard, by BgmInfo::unknown0c.
     BYTE bgmHeard[0x20];
     // Which entries of three of the menus' lists are open.
@@ -268,7 +274,9 @@ struct PlayRecord
     int clearFlags[6][6];
     unsigned char pad_10c[0x118 - 0x10c];
     int unknown118;
+    unsigned char pad_11c[0x1fc - 0x11c];
 };
+ASSERT_SIZE(PlayRecord, 0x1fc);
 extern PlayRecord g_PlayRecord;
 
 // The header of thbgm.dat, as th08's.

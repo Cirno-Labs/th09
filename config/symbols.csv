@@ -445,7 +445,7 @@ address,size,name,symbol
 0x00421800,208,Func421800,
 0x004218e0,432,Func4218e0,
 0x00421aa0,215,LoadLsnmChunk,?LoadLsnmChunk@@YIHPAUScoreDat@@@Z
-0x00421b80,178,Func421b80,
+0x00421b80,178,LoadPlstChunk,?LoadPlstChunk@@YIHPAUScoreDat@@@Z
 0x00421c80,523,Func421c80,
 0x00421e90,12,Func421e90,
 0x00421ea0,98,LoadScore,?LoadScore@@YIHXZ

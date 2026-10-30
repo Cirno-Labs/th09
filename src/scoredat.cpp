@@ -29,3 +29,39 @@ int LoadLsnmChunk(ScoreDat *dat)
     }
     return 0;
 }
+
+int LoadPlstChunk(ScoreDat *dat)
+{
+    PlayRecord *chunk;
+    int left;
+
+    memset(&g_PlayRecord, 0, sizeof(g_PlayRecord));
+    g_PlayRecord.size = sizeof(PlayRecord);
+    g_PlayRecord.size2 = sizeof(PlayRecord);
+    g_PlayRecord.bgmHeard[0] = 1;
+    g_PlayRecord.openEntries[0] = 1;
+    g_PlayRecord.openEntries[1] = 1;
+    g_PlayRecord.openEntries[2] = 1;
+    g_PlayRecord.openEntries[3] = 1;
+    g_PlayRecord.openEntries[4] = 1;
+    g_PlayRecord.openEntries2[0] = 1;
+    g_PlayRecord.openEntries2[1] = 1;
+    g_PlayRecord.openEntries2[2] = 1;
+    g_PlayRecord.openEntries2[3] = 1;
+    g_PlayRecord.openEntries2[4] = 1;
+    g_PlayRecord.magic = 0x54534c50;
+    g_PlayRecord.version = 3;
+    g_PlayRecord.unknown9 = 0;
+    chunk = (PlayRecord *)((BYTE *)dat + dat->dataOffset);
+    left = dat->fileSize - dat->dataOffset;
+    while (left > 0)
+    {
+        if (chunk->magic == 0x54534c50 && chunk->version == 3)
+        {
+            g_PlayRecord = *chunk;
+        }
+        left -= chunk->size;
+        chunk = (PlayRecord *)((BYTE *)chunk + chunk->size);
+    }
+    return 0;
+}
