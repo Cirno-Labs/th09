@@ -49,6 +49,11 @@ int BulletManager::LoadAnm()
     return g_SpriteEngine->PreloadAnm(8, "etama.anm") == NULL;
 }
 
+void BulletManager::ReleaseAnm()
+{
+    g_SpriteEngine->ReleaseAnm(8);
+}
+
 void BulletManager::RemoveChain(BulletManager *mgr)
 {
     if (mgr != NULL)

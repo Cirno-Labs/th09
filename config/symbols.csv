@@ -233,7 +233,7 @@ address,size,name,symbol
 0x004125a0,3,Func4125a0,
 0x004125b0,36,D3DXVECTOR3::operator-=,??ZD3DXVECTOR3@@QAEAAU0@ABU0@@Z
 0x004125e0,24,BulletManager::LoadAnm,?LoadAnm@BulletManager@@SIHXZ
-0x00412600,14,Func412600,
+0x00412600,14,BulletManager::ReleaseAnm,?ReleaseAnm@BulletManager@@SIXXZ
 0x00412610,54,Func412610,
 0x00412650,37,Func412650,
 0x00412680,39,Func412680,

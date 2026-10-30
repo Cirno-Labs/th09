@@ -78,6 +78,8 @@ public:
     // Preloads etama.anm into ANM slot 8; returns 1 if that fails
     // (0x4125e0).
     static int LoadAnm();
+    // Releases ANM slot 8 (0x412600).
+    static void ReleaseAnm();
     // The update chain callback and its added callback, and the draw
     // chain callback (0x4146f0, 0x413e40, 0x413be0).
     static int OnUpdate(BulletManager *mgr);
