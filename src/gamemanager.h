@@ -87,7 +87,10 @@ public:
     {
         return g_App.camera->viewport.X + x - this->arena[0];
     }
-    float ArenaToScreenY(float y);
+    float ArenaToScreenY(float y)
+    {
+        return g_App.camera->viewport.Y + y - this->arena[1];
+    }
     // Whether a `width` by `height` box centred on (`x`, `y`) touches the
     // play area, as th08's; th09's is centred on x = 0 (0x41a6eb).
     BOOL IsInPlayArea(float x, float y, float width, float height);
