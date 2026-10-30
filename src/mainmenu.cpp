@@ -615,3 +615,14 @@ void MainMenu::SelectEntry2(int cursor, int first, int count, int stride)
     this->anm->SetSprite(&this->sprites[cursor * stride + first], this->sprites[cursor * stride + first].baseSpriteIndex);
     this->sprites[cursor * stride + first].pendingInterrupt = 14;
 }
+
+void MainMenu::SelectEntry3(int cursor, int first, int count, int stride)
+{
+    for (int i = first; i < first + count * stride; i += stride)
+    {
+        this->anm->SetSprite(&this->sprites[i], this->sprites[i].baseSpriteIndex + 1);
+        this->sprites[i].pendingInterrupt = 18;
+    }
+    this->anm->SetSprite(&this->sprites[cursor * stride + first], this->sprites[cursor * stride + first].baseSpriteIndex);
+    this->sprites[cursor * stride + first].pendingInterrupt = 17;
+}
