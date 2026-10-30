@@ -429,3 +429,54 @@ void SoundPlayer::QueueSoundCommand(int type, int arg, char *path)
         break;
     }
 }
+
+int SoundPlayer::Release()
+{
+    int i;
+
+    if (this->bgmFormat != NULL)
+    {
+        g_MemoryManager.Free(this->bgmFormat);
+    }
+    for (i = 0; i < 0x80; i++)
+    {
+        if (this->sounds[i] != NULL)
+        {
+            this->sounds[i]->Release();
+            this->sounds[i] = NULL;
+        }
+        if (this->soundBuffers[i] != NULL)
+        {
+            this->soundBuffers[i]->Release();
+            this->soundBuffers[i] = NULL;
+        }
+    }
+    if (!this->manager)
+    {
+        return 0;
+    }
+    KillTimer(this->hwnd, 1);
+    this->StopBgm();
+    this->dsound = NULL;
+    this->silence->Stop();
+    if (this->silence != NULL)
+    {
+        this->silence->Release();
+        this->silence = NULL;
+    }
+    if (this->bgm != NULL)
+    {
+        delete this->bgm;
+        this->bgm = NULL;
+    }
+    if (this->manager != NULL)
+    {
+        delete this->manager;
+        this->manager = NULL;
+    }
+    for (i = 0; i < 0x13; i++)
+    {
+        this->FreePreloadedBgm(i);
+    }
+    return 0;
+}

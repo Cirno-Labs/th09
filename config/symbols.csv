@@ -891,7 +891,7 @@ address,size,name,symbol
 0x0043ec80,245,SoundPlayer::LoadSounds,?LoadSounds@SoundPlayer@@QAEHXZ
 0x0043ed80,184,BgmNotificationProc,?BgmNotificationProc@@YGKPAX@Z
 0x0043ee40,105,SoundPlayer::QueueSoundCommand,?QueueSoundCommand@SoundPlayer@@QAEXHHPAD@Z
-0x0043eeb0,232,Func43eeb0,
+0x0043eeb0,232,SoundPlayer::Release,?Release@SoundPlayer@@QAEHXZ
 0x0043efa0,252,Func43efa0,
 0x0043f0a0,327,Func43f0a0,
 0x0043f1f0,1416,SoundPlayer::PlayQueuedSounds,?PlayQueuedSounds@SoundPlayer@@QAEHXZ
