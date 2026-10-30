@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.07% (413)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.93% (644)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.17% (414)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.83% (643)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="291.87" height="6" x="0" y="0" class="named"/>
-<rect width="455.13" height="6" x="291.87" y="0" class="todo"/>
+<rect width="292.58" height="6" x="0" y="0" class="named"/>
+<rect width="454.42" height="6" x="292.58" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -983,7 +983,7 @@
 <rect width="12" height="12" x="195" y="270" class="named"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="270" class="named"><title>0x0043fe10 CWaveFile::ResetFile (215 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="270" class="named"><title>0x0043fef0 CWaveFile::Read (218 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="270" class="todo"><title>0x0043ffd0 CWaveFile::Close (36 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="270" class="named"><title>0x0043ffd0 CWaveFile::Close (36 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="270" class="todo"><title>0x00440000 CSoundManager::Initialize (84 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="270" class="todo"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="270" class="todo"><title>0x004401d0 CSound::Play (160 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.12%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.88%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.13%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.87%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="112.93" height="6" x="0" y="0" class="named"/>
-<rect width="634.07" height="6" x="112.93" y="0" class="todo"/>
+<rect width="113.02" height="6" x="0" y="0" class="named"/>
+<rect width="633.98" height="6" x="113.02" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1928,7 +1928,7 @@
 <rect width="2.48" height="2.64" x="744.52" y="264.69" class="todo"><title>0x00405730 Func405730 (36 bytes)</title></rect>
 <rect width="2.71" height="2.42" x="681.75" y="270.33" class="todo"><title>0x004125b0 Func4125b0 (36 bytes)</title></rect>
 <rect width="2.71" height="2.42" x="681.75" y="275.75" class="named"><title>0x0042ac00 ChainElem::~ChainElem (36 bytes)</title></rect>
-<rect width="2.71" height="2.42" x="681.75" y="281.17" class="todo"><title>0x0043ffd0 CWaveFile::Close (36 bytes)</title></rect>
+<rect width="2.71" height="2.42" x="681.75" y="281.17" class="named"><title>0x0043ffd0 CWaveFile::Close (36 bytes)</title></rect>
 <rect width="2.71" height="2.27" x="681.75" y="286.60" class="todo"><title>0x00411d50 EnemyManager::OnDraw (35 bytes)</title></rect>
 <rect width="2.71" height="2.27" x="681.75" y="291.87" class="named"><title>0x0042ae70 Rng::GetRandomF32ZeroToOne (35 bytes)</title></rect>
 <rect width="2.71" height="2.12" x="681.75" y="297.14" class="named"><title>0x004048e0 Rng::GetRandomU32InRange (34 bytes)</title></rect>
