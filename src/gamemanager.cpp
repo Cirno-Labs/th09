@@ -189,3 +189,12 @@ int GameManager::RegisterChain()
     g_Chain.AddToDrawChain(&g_GameManagerDrawChain, 5);
     return 0;
 }
+
+void GameManager::Init()
+{
+    memset(this, 0, sizeof(GameManager));
+    this->SetPlayArea();
+    this->unknown13f = 0;
+    this->unknown378 = 10;
+    this->unknown37c = 10;
+}
