@@ -147,3 +147,10 @@ BOOL PlayerInput::IsPressed(WORD mask)
 {
     return (WORD)(this->unknown6 & mask) != 0 || (WORD)(this->unknown4 & mask) != 0;
 }
+
+void MidiPlayer::Restart(int slot)
+{
+    this->Stop();
+    this->ParseFile(slot);
+    this->Play();
+}
