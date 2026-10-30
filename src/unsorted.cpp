@@ -24,6 +24,11 @@ float Rng::GetRandomF32InRange(float range)
     return this->GetRandomF32ZeroToOne() * range;
 }
 
+float Rng::GetRandomF32SignedInRange(float range)
+{
+    return this->GetRandomF32MinusOneToOne() * range;
+}
+
 float Atan2(float y, float x)
 {
     return (float)atan2((double)y, (double)x);

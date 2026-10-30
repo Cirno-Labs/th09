@@ -39,6 +39,7 @@ public:
     // A random float from 0 up to `range` (0x404910), and from -`range`
     // up to `range` (0x406200).
     float GetRandomF32InRange(float range);
+    float GetRandomF32SignedInRange(float range);
 
     WORD seed;
     unsigned char pad_2[0x2];
