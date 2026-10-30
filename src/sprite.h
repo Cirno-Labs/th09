@@ -246,6 +246,9 @@ public:
     void RenderTextToTextureIndex(IDirect3DTexture8 *texture, int x, int y, int width, int unused, int fontHeight,
                                   int destHeight, D3DCOLOR textColor, D3DCOLOR shadowColor, char *text, float scaleX,
                                   float scaleY);
+    // Renders printf-style text into `sprite`'s texture, as th08's
+    // (0x43bdc0).
+    void RenderText(Sprite *sprite, D3DCOLOR textColor, D3DCOLOR shadowColor, char *fmt, ...);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).

@@ -1,3 +1,6 @@
+#include <stdarg.h>
+#include <stdio.h>
+
 #include "gdisurface.h"
 #include "sprite.h"
 
@@ -110,4 +113,21 @@ void SpriteEngine::RenderTextToTextureIndex(IDirect3DTexture8 *texture, int x, i
     {
         RenderTextToTexture(x, y, width, unused, 8, 8, textColor, shadowColor, text, texture);
     }
+}
+
+void SpriteEngine::RenderText(Sprite *sprite, D3DCOLOR textColor, D3DCOLOR shadowColor, char *fmt, ...)
+{
+    va_list args;
+    char buf[0x80];
+    int fontW;
+    SpriteData *data;
+
+    fontW = sprite->fontWidth;
+    va_start(args, fmt);
+    vsprintf(buf, fmt, args);
+    data = (SpriteData *)sprite->spriteData;
+    this->RenderTextToTextureIndex(data->texture, data->startX, data->startY, data->textureWidth,
+                                   data->textureHeight, fontW, sprite->fontHeight, textColor, shadowColor, buf,
+                                   data->scaleX, data->scaleY);
+    sprite->flags |= 1;
 }
