@@ -473,7 +473,7 @@ address,size,name,symbol
 0x00422f17,34,MainMenu::PlaySoundNow,?PlaySoundNow@MainMenu@@QAEXHH@Z
 0x00422f39,46,MainMenu::SetState,?SetState@MainMenu@@QAEXH@Z
 0x00422f67,106,MainMenu::ReassignButton,?ReassignButton@MainMenu@@QAEXPAUControllerMapping@@FFH@Z
-0x00422fd1,124,Func422fd1,
+0x00422fd1,124,MainMenu::ShowButtonDigits,?ShowButtonDigits@MainMenu@@QAEHPAVSprite@@F@Z
 0x0042304d,89,Func42304d,
 0x004230a6,89,Func4230a6,
 0x004230ff,89,Func4230ff,

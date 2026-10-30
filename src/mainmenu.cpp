@@ -62,3 +62,20 @@ void MainMenu::ReassignButton(ControllerMapping *mapping, short button, short re
         mapping->skipButton = replacement;
     }
 }
+
+int MainMenu::ShowButtonDigits(Sprite *vm, short value)
+{
+    if (value < 0)
+    {
+        vm[0].flags &= ~2;
+        vm[1].flags &= ~2;
+    }
+    else
+    {
+        this->anm->SetSprite(&vm[0], vm[0].baseSpriteIndex + value / 10 * 2);
+        this->anm->SetSprite(&vm[1], vm[1].baseSpriteIndex + value % 10 * 2);
+        vm[0].flags |= 2;
+        vm[1].flags |= 2;
+    }
+    return 0;
+}
