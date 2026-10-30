@@ -34,7 +34,10 @@ struct SpriteBase
     // The interpolations' frames so far and their lengths, as th08's.
     Timer interpDuration[7];
     Timer interpFrame[7];
-    unsigned char pad_f8[0x100 - 0xf8];
+    // The easings of the move and color interpolations.
+    BYTE moveEasing;
+    BYTE colorEasing;
+    unsigned char pad_fa[0x100 - 0xfa];
     // The script's variables, as th08's: ResolveIntArgument and the
     // others read 10000 to 10009 in arguments as these.
     int scriptVar0;
@@ -98,7 +101,16 @@ public:
     void *scriptPos;
     SpriteData *spriteData;
     Timer interruptReturnTime;
-    unsigned char pad_234[0x288 - 0x234];
+    unsigned char pad_234[0x238 - 0x234];
+    // Where the move interpolation goes from and to.
+    D3DXVECTOR3 moveStart;
+    D3DXVECTOR3 moveEnd;
+    unsigned char pad_250[0x278 - 0x250];
+    // The RGB the color interpolation goes from and to; their alpha
+    // bytes are not set by SetColorInterp.
+    D3DCOLOR colorStart;
+    D3DCOLOR colorEnd;
+    unsigned char pad_280[0x288 - 0x280];
     // Added to pos when it is drawn.
     D3DXVECTOR3 posOffset;
     int spriteTime;
@@ -119,6 +131,13 @@ public:
     // ResolveIntArgument for floats; 10010 to 10012 are random numbers
     // (0x436e30).
     float ResolveFloatArgument(float value);
+
+    // Start the move and the color interpolations: over `frames` with
+    // `easing`, pos from `from` to `to`, and the color's RGB. Inline in
+    // th08; these are the copies at 0x4233a3 and 0x4233f4, in an /O1
+    // object.
+    void SetMoveInterp(int frames, BYTE easing, D3DXVECTOR3 *from, D3DXVECTOR3 *to);
+    void SetColorInterp(int frames, BYTE easing, D3DCOLOR from, D3DCOLOR to);
 
     // Sets pendingInterrupt. Inline; the copy is 0x406790.
     void SetPendingInterrupt(short interrupt)

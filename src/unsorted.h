@@ -194,15 +194,22 @@ struct ControllerMapping
 };
 ASSERT_SIZE(ControllerMapping, 0x12);
 
-// One player's input, at 0x4ace18.
+// The players' inputs, at 0x4ace18, and the third one the menus read.
 struct PlayerInput
 {
-    unsigned char pad_0[0x58];
+    // Whether a button of `mask` is down in either of the masks at 4
+    // and 6 (0x423158).
+    BOOL IsPressed(WORD mask);
+
+    unsigned char pad_0[0x4];
+    WORD unknown4;
+    WORD unknown6;
+    unsigned char pad_8[0x58 - 0x8];
     // The default mappings.
     ControllerMapping mappings[3];
 };
 ASSERT_SIZE(PlayerInput, 0x8e);
-extern PlayerInput g_PlayerInputs[2];
+extern PlayerInput g_PlayerInputs[3];
 
 // The header of thbgm.dat, as th08's.
 struct BgmDatHeader
@@ -384,6 +391,9 @@ public:
     // Queues a command of `type` with `arg` and `path` in the first free
     // entry of `commands` (0x43ee40).
     void QueueSoundCommand(int type, int arg, char *path);
+    // Queues the "UnPause" command (7). Inline in th08; this is the copy
+    // at 0x423498, in an /O1 object.
+    void UnPause();
     // Steps the wave music's fades, as th08's (0x42fbe0).
     void UpdateBgmFades();
 
@@ -574,6 +584,8 @@ struct App
     int StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg);
     // Clears subThread, closeSubThread and unknown6b8 (0x41a997).
     void ResetSubThread();
+    // Zeroes unknown77c to unknown790 (0x423382).
+    void ClearUnknown77c();
 
     unsigned char pad_0[0x8];
     IDirect3DDevice8 *d3dDevice;
@@ -629,7 +641,13 @@ struct App
     // 0 while the loading sprites are hidden, 1 while they show, 2 once
     // they are finishing.
     int loadingState;
-    unsigned char pad_744[0x794 - 0x744];
+    unsigned char pad_744[0x77c - 0x744];
+    int unknown77c;
+    unsigned char pad_780[0x784 - 0x780];
+    int unknown784;
+    int unknown788;
+    int unknown78c;
+    int unknown790;
     // Whether fog is on, as EnableFog and DisableFog last set it.
     DWORD fogState;
     // timeGetTime() when AddPlayTime and AddTotalPlayTime last ran.

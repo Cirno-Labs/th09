@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">43.99% (465)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">56.01% (592)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">44.09% (466)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">55.91% (591)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="328.62" height="6" x="0" y="0" class="named"/>
-<rect width="418.38" height="6" x="328.62" y="0" class="todo"/>
+<rect width="329.33" height="6" x="0" y="0" class="named"/>
+<rect width="417.67" height="6" x="329.33" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -538,7 +538,7 @@
 <rect width="12" height="12" x="270" y="135" class="todo"><title>0x00422c50 Func422c50 (113 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="135" class="todo"><title>0x00422cd0 Func422cd0 (68 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="135" class="todo"><title>0x00422d20 ScreenEffect::StartEffect (447 bytes)</title></rect>
-<rect width="12" height="12" x="315" y="135" class="todo"><title>0x00422f17 Func422f17 (34 bytes)</title></rect>
+<rect width="12" height="12" x="315" y="135" class="named"><title>0x00422f17 MainMenu::PlaySoundNow (34 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="135" class="todo"><title>0x00422f39 Func422f39 (46 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="135" class="todo"><title>0x00422f67 Func422f67 (106 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="135" class="todo"><title>0x00422fd1 Func422fd1 (124 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.79%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.21%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.81%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.19%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="147.86" height="6" x="0" y="0" class="named"/>
-<rect width="599.14" height="6" x="147.86" y="0" class="todo"/>
+<rect width="147.95" height="6" x="0" y="0" class="named"/>
+<rect width="599.05" height="6" x="147.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1934,7 +1934,7 @@
 <rect width="2.71" height="2.12" x="681.74" y="297.15" class="named"><title>0x004048e0 Rng::GetRandomU32InRange (34 bytes)</title></rect>
 <rect width="2.71" height="2.12" x="681.74" y="302.27" class="named"><title>0x00415020 Laser::Laser (34 bytes)</title></rect>
 <rect width="2.71" height="2.12" x="681.74" y="307.40" class="named"><title>0x00418270 Gui::FreeResources (34 bytes)</title></rect>
-<rect width="2.71" height="2.12" x="681.74" y="312.52" class="todo"><title>0x00422f17 Func422f17 (34 bytes)</title></rect>
+<rect width="2.71" height="2.12" x="681.74" y="312.52" class="named"><title>0x00422f17 MainMenu::PlaySoundNow (34 bytes)</title></rect>
 <rect width="2.71" height="2.12" x="681.74" y="317.64" class="named"><title>0x0042cbe0 Chain::Release (34 bytes)</title></rect>
 <rect width="2.71" height="2.12" x="681.74" y="322.76" class="todo"><title>0x0042ec00 Func42ec00 (34 bytes)</title></rect>
 <rect width="2.71" height="2.12" x="681.74" y="327.88" class="named"><title>0x004336a0 File::Close (34 bytes)</title></rect>

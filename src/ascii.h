@@ -139,6 +139,9 @@ public:
     {
         this->stringCount = 0;
     }
+    // Sets the scale text is queued with. Inline in th08; this is the
+    // copy at 0x4234dd, in an /O1 object.
+    void SetScale(float x, float y);
     // Inline, as th08's; the copy is at 0x4343c0.
     void SetGlyphWidth(int width)
     {

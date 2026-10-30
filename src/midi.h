@@ -163,6 +163,9 @@ public:
     // Plays the loaded tracks on the MIDI mapper, ticking every 1 ms.
     // Returns -1 if nothing is loaded, otherwise 0 (0x43d750).
     int Play();
+    // Stops, parses slot `slot` and plays it. Inline in th08; this is
+    // the copy at 0x423361, in an /O1 object.
+    void Restart(int slot);
     // Rewinds the tracks (0x43d170).
     void Rewind();
     // Starts fading the music out over `duration` ms. Returns 0
@@ -179,14 +182,6 @@ public:
     // Handles the next event of a track and reads the time of the one
     // after.
     void ProcessEvent(MidiTrack *track);
-    // Stops, parses slot `slot` and plays it.
-    void Restart(int slot)
-    {
-        this->Stop();
-        this->ParseFile(slot);
-        this->Play();
-    }
-
     // The slot of the file being played, -1 for none. LoadFile stops
     // playback before it replaces that file.
     int playingSlot;

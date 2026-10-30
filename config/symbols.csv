@@ -470,7 +470,7 @@ address,size,name,symbol
 0x00422c50,113,Func422c50,
 0x00422cd0,68,Func422cd0,
 0x00422d20,447,ScreenEffect::StartEffect,?StartEffect@ScreenEffect@@SIPAV1@HHHHHHH@Z
-0x00422f17,34,Func422f17,
+0x00422f17,34,MainMenu::PlaySoundNow,?PlaySoundNow@MainMenu@@QAEXHH@Z
 0x00422f39,46,Func422f39,
 0x00422f67,106,Func422f67,
 0x00422fd1,124,Func422fd1,
@@ -2245,6 +2245,9 @@ address,size,name,symbol
 0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAXA
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
+0x004a81cc,,g_OpenEntries,?g_OpenEntries@@3PAEA
+0x004a81dc,,g_OpenEntries2,?g_OpenEntries2@@3PAEA
+0x004a81ec,,g_OpenEntries3,?g_OpenEntries3@@3PAEA
 0x004ac858,,g_Hscr,?g_Hscr@@3UHscr@@A
 0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
 0x004acc00,,g_PathBuffer,?g_PathBuffer@@3PADA
@@ -2258,6 +2261,7 @@ address,size,name,symbol
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
+0x004b42d0,,g_Network,?g_Network@@3PAUNetwork@@A
 0x004b4420,,g_LzssTree,?g_LzssTree@@3PAULzssNode@@A
 0x004cc430,,g_LzssWindow,?g_LzssWindow@@3PAEA
 0x004ce438,,g_AsciiTextElemDraw,?g_AsciiTextElemDraw@@3UChainElem@@A
