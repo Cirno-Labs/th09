@@ -94,6 +94,12 @@ void AnmLoaded::SetScript(Sprite *vm, void *script)
     }
 }
 
+void SpriteEngine::RotatePoint(float *out, float x, float y, float sine, float cosine, float cx, float cy)
+{
+    out[0] = x * cosine - y * sine + cx;
+    out[1] = x * sine + y * cosine + cy;
+}
+
 void SpriteEngine::ReleaseTexture(AnmTexture *tex)
 {
     if (tex->texture != NULL)

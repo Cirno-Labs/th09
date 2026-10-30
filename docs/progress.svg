@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.70% (323)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">69.30% (729)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.80% (324)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">69.20% (728)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="229.35" height="6" x="0" y="0" class="named"/>
-<rect width="517.65" height="6" x="229.35" y="0" class="todo"/>
+<rect width="230.06" height="6" x="0" y="0" class="named"/>
+<rect width="516.94" height="6" x="230.06" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -858,7 +858,7 @@
 <rect width="12" height="12" x="570" y="225" class="todo"><title>0x00439680 Func439680 (29 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="225" class="todo"><title>0x004396a0 SpriteEngine::FlushQuadBatch (137 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="225" class="todo"><title>0x00439730 Func439730 (165 bytes)</title></rect>
-<rect width="12" height="12" x="615" y="225" class="todo"><title>0x004397e0 Func4397e0 (49 bytes)</title></rect>
+<rect width="12" height="12" x="615" y="225" class="named"><title>0x004397e0 SpriteEngine::RotatePoint (49 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="225" class="todo"><title>0x00439820 Func439820 (622 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="225" class="todo"><title>0x00439a90 Func439a90 (595 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="225" class="todo"><title>0x00439cf0 Func439cf0 (199 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.77%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.23%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.79%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.21%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="80.46" height="6" x="0" y="0" class="named"/>
-<rect width="666.54" height="6" x="80.46" y="0" class="todo"/>
+<rect width="80.59" height="6" x="0" y="0" class="named"/>
+<rect width="666.41" height="6" x="80.59" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1843,7 +1843,7 @@
 <rect width="3.42" height="3.57" x="663.52" y="293.61" class="todo"><title>0x0041d110 Func41d110 (49 bytes)</title></rect>
 <rect width="3.42" height="3.57" x="663.52" y="300.17" class="todo"><title>0x0042ecf0 Func42ecf0 (49 bytes)</title></rect>
 <rect width="3.42" height="3.57" x="663.52" y="306.74" class="named"><title>0x00433dc0 LzssPredecessor (49 bytes)</title></rect>
-<rect width="3.42" height="3.57" x="663.52" y="313.30" class="todo"><title>0x004397e0 Func4397e0 (49 bytes)</title></rect>
+<rect width="3.42" height="3.57" x="663.52" y="313.30" class="named"><title>0x004397e0 SpriteEngine::RotatePoint (49 bytes)</title></rect>
 <rect width="3.42" height="3.57" x="663.52" y="319.87" class="todo"><title>0x0043e4a0 Func43e4a0 (49 bytes)</title></rect>
 <rect width="3.42" height="3.57" x="663.52" y="326.43" class="todo"><title>0x0043fce0 CStreamingSound::UpdateFadeIn (49 bytes)</title></rect>
 <rect width="3.42" height="3.56" x="669.94" y="246.71" class="todo"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>

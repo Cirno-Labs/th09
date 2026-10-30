@@ -251,6 +251,9 @@ public:
     int DrawUnrotated(Sprite *vm);
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
+    // Rotates (`x`, `y`) by the angle with `sine` and `cosine` and moves
+    // it to (`cx`, `cy`), into `out`, as th08's (0x4397e0).
+    void RotatePoint(float *out, float x, float y, float sine, float cosine, float cx, float cy);
     // Releases `tex`'s texture and frees its image, as th08's
     // (0x43bc80).
     void ReleaseTexture(AnmTexture *tex);
