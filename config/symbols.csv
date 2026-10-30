@@ -813,7 +813,7 @@ address,size,name,symbol
 0x0043b7b0,318,Func43b7b0,
 0x0043b8f0,200,Func43b8f0,
 0x0043b9c0,472,Func43b9c0,
-0x0043bba0,50,Func43bba0,
+0x0043bba0,50,SpriteEngine::CreateTexture,?CreateTexture@SpriteEngine@@QAEHPAUAnmTexture@@HHH@Z
 0x0043bbe0,150,Func43bbe0,
 0x0043bc80,48,SpriteEngine::ReleaseTexture,?ReleaseTexture@SpriteEngine@@QAEXPAUAnmTexture@@@Z
 0x0043bcb0,138,AnmLoaded::LoadSprite,?LoadSprite@AnmLoaded@@QAEXHPAUSpriteData@@@Z
@@ -1123,7 +1123,7 @@ address,size,name,symbol
 0x0045203e,810,Func45203e,
 0x00452368,40,Func452368,
 0x00452390,102,D3DXCreateTexture,_D3DXCreateTexture@32
-0x004523f6,184,Func4523f6,
+0x004523f6,184,D3DXLoadSurfaceFromFileInMemory,_D3DXLoadSurfaceFromFileInMemory@36
 0x004524ae,422,D3DXLoadSurfaceFromSurface,_D3DXLoadSurfaceFromSurface@32
 0x00452654,134,Func452654,
 0x004526da,740,Func4526da,

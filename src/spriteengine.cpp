@@ -148,6 +148,13 @@ void SpriteEngine::RotatePoint(float *out, float x, float y, float sine, float c
     out[1] = x * sine + y * cosine + cy;
 }
 
+// 0x43bba0
+int SpriteEngine::CreateTexture(AnmTexture *tex, int width, int height, int format)
+{
+    D3DXCreateTexture(g_App.d3dDevice, width, height, 1, 0, g_TextureFormats[format], D3DPOOL_MANAGED, &tex->texture);
+    return 0;
+}
+
 void SpriteEngine::ReleaseTexture(AnmTexture *tex)
 {
     if (tex->texture != NULL)
