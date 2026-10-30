@@ -42,6 +42,10 @@ public:
 };
 extern Rng g_Rng;
 
+// a + b, brought back into -pi..pi in at most 17 steps, as th08's
+// (0x42aed0).
+float AddNormalizeAngle(float a, float b);
+
 // A 2D vector, as th08's.
 struct Vector2
 {
