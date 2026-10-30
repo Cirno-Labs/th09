@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">49.53% (525)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">50.47% (535)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">49.62% (526)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">50.38% (534)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="369.98" height="6" x="0" y="0" class="named"/>
-<rect width="377.02" height="6" x="369.98" y="0" class="todo"/>
+<rect width="370.68" height="6" x="0" y="0" class="named"/>
+<rect width="376.32" height="6" x="370.68" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -587,7 +587,7 @@
 <rect width="12" height="12" x="255" y="150" class="todo"><title>0x004266b5 MainMenu::UpdateState13 (485 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="150" class="todo"><title>0x0042689a MainMenu::UpdateState11 (1387 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="150" class="todo"><title>0x00426e05 MainMenu::UpdateState12 (2258 bytes)</title></rect>
-<rect width="12" height="12" x="300" y="150" class="todo"><title>0x004276d7 Func4276d7 (20 bytes)</title></rect>
+<rect width="12" height="12" x="300" y="150" class="named"><title>0x004276d7 MainMenu::SelectCursorEntry (20 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="150" class="todo"><title>0x004276eb MainMenu::UpdateState9 (2045 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="150" class="todo"><title>0x00427ee8 MainMenu::UpdateState10 (2803 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="150" class="todo"><title>0x004289db MainMenu::UpdateState8 (2241 bytes)</title></rect>
@@ -1133,8 +1133,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">25.50%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">74.50%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="190.46" height="6" x="0" y="0" class="named"/>
-<rect width="556.54" height="6" x="190.46" y="0" class="todo"/>
+<rect width="190.51" height="6" x="0" y="0" class="named"/>
+<rect width="556.49" height="6" x="190.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2042,7 +2042,7 @@
 <rect width="1.30" height="1" x="706.60" y="305.60" class="todo"><title>0x0040f840 Func40f840 (20 bytes)</title></rect>
 <rect width="1.30" height="1" x="706.60" y="309.60" class="todo"><title>0x0040f890 Func40f890 (20 bytes)</title></rect>
 <rect width="1.30" height="1" x="706.60" y="313.60" class="named"><title>0x004120a0 EnemyTimelineTimers::EnemyTimelineTimers (20 bytes)</title></rect>
-<rect width="1.30" height="1" x="706.60" y="317.60" class="todo"><title>0x004276d7 Func4276d7 (20 bytes)</title></rect>
+<rect width="1.30" height="1" x="706.60" y="317.60" class="named"><title>0x004276d7 MainMenu::SelectCursorEntry (20 bytes)</title></rect>
 <rect width="1.30" height="0.80" x="706.60" y="321.60" class="named"><title>0x00401340 MemoryManager::Alloc (19 bytes)</title></rect>
 <rect width="1.30" height="0.80" x="706.60" y="325.40" class="named"><title>0x00401360 MemoryManager::Free (19 bytes)</title></rect>
 <rect width="1.30" height="0.80" x="706.60" y="329.20" class="named"><title>0x00401620 SpriteEngine::SetColorModulation (19 bytes)</title></rect>

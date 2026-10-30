@@ -951,6 +951,11 @@ void MainMenu::MoveCharacterCursor2(int player, int selected, char *entries)
     }
 }
 
+void MainMenu::SelectCursorEntry()
+{
+    this->SelectEntry(this->cursor, this->entryFirst, this->entryCount);
+}
+
 MainMenu::MainMenu()
 {
     memset(this, 0, sizeof(MainMenu));

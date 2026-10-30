@@ -165,6 +165,8 @@ public:
     int UpdateState1();
     int UpdateState2();
     int UpdateState6();
+    // SelectEntry on the entries at entryFirst, with cursor (0x4276d7).
+    void SelectCursorEntry();
     // The update element's callback, as th08's: does nothing while the
     // title loads (returns 4 if that failed, else 1), otherwise runs the
     // state's function, then steps the sprites (0x42a9cb).
@@ -216,7 +218,10 @@ public:
     // 2 if it failed.
     int loadingState;
     int unknown1b23c;
-    unsigned char pad_1b240[0x1b248 - 0x1b240];
+    // The entries SelectCursorEntry lights: the first sprite and the
+    // count.
+    int entryFirst;
+    int entryCount;
     ChainElem *calcChain;
     ChainElem *drawChain;
     unsigned char pad_1b250[0x1b2bc - 0x1b250];

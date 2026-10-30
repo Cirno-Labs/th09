@@ -519,7 +519,7 @@ address,size,name,symbol
 0x004266b5,485,MainMenu::UpdateState13,?UpdateState13@MainMenu@@QAEHXZ
 0x0042689a,1387,MainMenu::UpdateState11,?UpdateState11@MainMenu@@QAEHXZ
 0x00426e05,2258,MainMenu::UpdateState12,?UpdateState12@MainMenu@@QAEHXZ
-0x004276d7,20,Func4276d7,
+0x004276d7,20,MainMenu::SelectCursorEntry,?SelectCursorEntry@MainMenu@@QAEXXZ
 0x004276eb,2045,MainMenu::UpdateState9,?UpdateState9@MainMenu@@QAEHXZ
 0x00427ee8,2803,MainMenu::UpdateState10,?UpdateState10@MainMenu@@QAEHXZ
 0x004289db,2241,MainMenu::UpdateState8,?UpdateState8@MainMenu@@QAEHXZ
