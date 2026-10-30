@@ -443,11 +443,11 @@ address,size,name,symbol
 0x00421670,361,ReplayManager::RegisterChain,?RegisterChain@ReplayManager@@SIPAV1@HPAD@Z
 0x004217e0,21,Func4217e0,
 0x00421800,208,Func421800,
-0x004218e0,432,Func4218e0,
+0x004218e0,432,LoadHscrChunks,?LoadHscrChunks@@YIHPAUScoreDat@@@Z
 0x00421aa0,215,LoadLsnmChunk,?LoadLsnmChunk@@YIHPAUScoreDat@@@Z
 0x00421b80,178,LoadPlstChunk,?LoadPlstChunk@@YIHPAUScoreDat@@@Z
-0x00421c80,523,Func421c80,
-0x00421e90,12,Func421e90,
+0x00421c80,523,LoadScoreDat,?LoadScoreDat@@YIPAUScoreDat@@PAD@Z
+0x00421e90,12,ReleaseScoreDat,?ReleaseScoreDat@@YIXPAUScoreDat@@@Z
 0x00421ea0,98,LoadScore,?LoadScore@@YIHXZ
 0x00421f10,745,SaveScore,?SaveScore@@YIHXZ
 0x00422200,139,Func422200,
@@ -2265,6 +2265,7 @@ address,size,name,symbol
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
 0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
+0x004ac840,,g_ScoreDatHeader,?g_ScoreDatHeader@@3UScoreDat@@A
 0x004ac858,,g_Hscr,?g_Hscr@@3UHscr@@A
 0x004ac884,,g_Unknown4ac884,?g_Unknown4ac884@@3HA
 0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A

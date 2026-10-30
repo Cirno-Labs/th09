@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.19% (585)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">44.81% (475)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.28% (586)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">44.72% (474)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="412.26" height="6" x="0" y="0" class="named"/>
-<rect width="334.74" height="6" x="412.26" y="0" class="todo"/>
+<rect width="412.96" height="6" x="0" y="0" class="named"/>
+<rect width="334.04" height="6" x="412.96" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -511,11 +511,11 @@
 <rect width="12" height="12" x="615" y="120" class="named"><title>0x00421670 ReplayManager::RegisterChain (361 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="120" class="todo"><title>0x004217e0 Func4217e0 (21 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="120" class="todo"><title>0x00421800 Func421800 (208 bytes)</title></rect>
-<rect width="12" height="12" x="660" y="120" class="todo"><title>0x004218e0 Func4218e0 (432 bytes)</title></rect>
+<rect width="12" height="12" x="660" y="120" class="todo"><title>0x004218e0 LoadHscrChunks (432 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="120" class="named"><title>0x00421aa0 LoadLsnmChunk (215 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="120" class="named"><title>0x00421b80 LoadPlstChunk (178 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="120" class="todo"><title>0x00421c80 Func421c80 (523 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="120" class="todo"><title>0x00421e90 Func421e90 (12 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="120" class="todo"><title>0x00421c80 LoadScoreDat (523 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="120" class="named"><title>0x00421e90 ReleaseScoreDat (12 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="120" class="todo"><title>0x00421ea0 LoadScore (98 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="135" class="todo"><title>0x00421f10 SaveScore (745 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="135" class="todo"><title>0x00422200 Func422200 (139 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">29.64%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">70.36%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">29.65%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">70.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="221.44" height="6" x="0" y="0" class="named"/>
-<rect width="525.56" height="6" x="221.44" y="0" class="todo"/>
+<rect width="221.47" height="6" x="0" y="0" class="named"/>
+<rect width="525.53" height="6" x="221.47" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1267,7 +1267,7 @@
 <rect width="18.90" height="18.03" x="476.47" y="0" class="todo"><title>0x004041f0 SpellCard::OnUpdate (536 bytes)</title></rect>
 <rect width="18.81" height="18.03" x="498.36" y="0" class="named"><title>0x004249e1 MainMenu::LoadingThread (534 bytes)</title></rect>
 <rect width="18.53" height="18.03" x="520.18" y="0" class="todo"><title>0x00422960 DrawColorRect (527 bytes)</title></rect>
-<rect width="18.36" height="18.03" x="541.71" y="0" class="todo"><title>0x00421c80 Func421c80 (523 bytes)</title></rect>
+<rect width="18.36" height="18.03" x="541.71" y="0" class="todo"><title>0x00421c80 LoadScoreDat (523 bytes)</title></rect>
 <rect width="18.12" height="18.03" x="563.07" y="0" class="named"><title>0x0042eef0 InitDirectInput (517 bytes)</title></rect>
 <rect width="18.12" height="18.03" x="584.19" y="0" class="named"><title>0x0042f1a0 MeasureRefreshRate (517 bytes)</title></rect>
 <rect width="18.08" height="18.03" x="605.31" y="0" class="todo"><title>0x00407e30 Func407e30 (516 bytes)</title></rect>
@@ -1303,7 +1303,7 @@
 <rect width="16.62" height="16.18" x="614.92" y="21.03" class="todo"><title>0x0041ee50 Func41ee50 (438 bytes)</title></rect>
 <rect width="16.62" height="16.18" x="634.55" y="21.03" class="named"><title>0x00433e00 LzssInsertNode (438 bytes)</title></rect>
 <rect width="16.53" height="16.18" x="654.17" y="21.03" class="todo"><title>0x0044ac20 Func44ac20 (436 bytes)</title></rect>
-<rect width="16.35" height="16.18" x="673.70" y="21.03" class="todo"><title>0x004218e0 Func4218e0 (432 bytes)</title></rect>
+<rect width="16.35" height="16.18" x="673.70" y="21.03" class="todo"><title>0x004218e0 LoadHscrChunks (432 bytes)</title></rect>
 <rect width="16.04" height="16.18" x="693.06" y="21.03" class="named"><title>0x0041b5c6 GameManager::ResetRound (425 bytes)</title></rect>
 <rect width="15.95" height="16.18" x="712.10" y="21.03" class="todo"><title>0x004016e0 Func4016e0 (423 bytes)</title></rect>
 <rect width="15.95" height="16.18" x="731.05" y="21.03" class="named"><title>0x0043d3a0 MidiPlayer::MidiPlayer (423 bytes)</title></rect>
@@ -2130,7 +2130,7 @@
 <rect width="0.10" height="0.46" x="726.15" y="322.61" class="named"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="726.15" y="326.07" class="named"><title>0x0041a9ac GameManager::IsDemo (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="726.15" y="329.54" class="named"><title>0x0041ee20 BulletEx::BulletEx (12 bytes)</title></rect>
-<rect width="0.10" height="0.46" x="729.12" y="312.22" class="todo"><title>0x00421e90 Func421e90 (12 bytes)</title></rect>
+<rect width="0.10" height="0.46" x="729.12" y="312.22" class="named"><title>0x00421e90 ReleaseScoreDat (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="729.12" y="315.68" class="named"><title>0x0042d2c0 App::GetReferenceRasterizer (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="729.12" y="319.15" class="named"><title>0x00433100 DatArchiveCursor::SkipDword (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="729.12" y="322.61" class="named"><title>0x0043d290 MidiTimer::OnTimer (12 bytes)</title></rect>

@@ -65,3 +65,8 @@ int LoadPlstChunk(ScoreDat *dat)
     }
     return 0;
 }
+
+void ReleaseScoreDat(ScoreDat *dat)
+{
+    g_MemoryManager.Free(dat);
+}
