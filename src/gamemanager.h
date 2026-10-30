@@ -34,6 +34,10 @@ class ReplayManager;
 // One side of the game (the third is used for little).
 struct GameSide
 {
+    // Adds a tenth of `points` to stats->score, which counts in tens
+    // (0x40f860).
+    void AddScore(int points);
+
     // The side's objects, which GameManager::DeletedCallback removes.
     Stage *stage;
     Player *player;

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">58.72% (623)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">41.28% (438)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">58.81% (624)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">41.19% (437)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="438.62" height="6" x="0" y="0" class="named"/>
-<rect width="308.38" height="6" x="438.62" y="0" class="todo"/>
+<rect width="439.33" height="6" x="0" y="0" class="named"/>
+<rect width="307.67" height="6" x="439.33" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -263,7 +263,7 @@
 <rect width="12" height="12" x="645" y="45" class="named"><title>0x0040f810 Timer::HasTicked (17 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="45" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="45" class="named"><title>0x0040f840 Sprite::SetRotationZ (20 bytes)</title></rect>
-<rect width="12" height="12" x="690" y="45" class="todo"><title>0x0040f860 Func40f860 (33 bytes)</title></rect>
+<rect width="12" height="12" x="690" y="45" class="named"><title>0x0040f860 GameSide::AddScore (33 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="45" class="todo"><title>0x0040f890 Func40f890 (20 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="45" class="todo"><title>0x0040f8b0 Func40f8b0 (12 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="45" class="todo"><title>0x0040f8c0 Func40f8c0 (29 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.84%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.16%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.85%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.15%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="230.38" height="6" x="0" y="0" class="named"/>
-<rect width="516.62" height="6" x="230.38" y="0" class="todo"/>
+<rect width="230.46" height="6" x="0" y="0" class="named"/>
+<rect width="516.54" height="6" x="230.46" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1946,7 +1946,7 @@
 <rect width="2.36" height="2.44" x="687.30" y="270.15" class="named"><title>0x004336a0 File::Close (34 bytes)</title></rect>
 <rect width="2.36" height="2.44" x="692.66" y="270.15" class="named"><title>0x0043e470 SoundPlayer::SoundPlayer (34 bytes)</title></rect>
 <rect width="2.20" height="2.44" x="698.02" y="270.15" class="todo"><title>0x00404920 Func404920 (33 bytes)</title></rect>
-<rect width="2.20" height="2.44" x="703.21" y="270.15" class="todo"><title>0x0040f860 Func40f860 (33 bytes)</title></rect>
+<rect width="2.20" height="2.44" x="703.21" y="270.15" class="named"><title>0x0040f860 GameSide::AddScore (33 bytes)</title></rect>
 <rect width="2.20" height="2.44" x="708.41" y="270.15" class="named"><title>0x00412780 SinCos (33 bytes)</title></rect>
 <rect width="2.20" height="2.44" x="713.61" y="270.15" class="todo"><title>0x004158e0 Func4158e0 (33 bytes)</title></rect>
 <rect width="2.20" height="2.44" x="718.81" y="270.15" class="named"><title>0x00423361 MidiPlayer::Restart (33 bytes)</title></rect>

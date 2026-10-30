@@ -195,7 +195,7 @@ address,size,name,symbol
 0x0040f810,17,Timer::HasTicked,?HasTicked@Timer@@QAEHXZ
 0x0040f830,16,Timer::operator%,??LTimer@@QAEHH@Z
 0x0040f840,20,Sprite::SetRotationZ,?SetRotationZ@Sprite@@QAEXM@Z
-0x0040f860,33,Func40f860,
+0x0040f860,33,GameSide::AddScore,?AddScore@GameSide@@QAEXH@Z
 0x0040f890,20,Func40f890,
 0x0040f8b0,12,Func40f8b0,
 0x0040f8c0,29,Func40f8c0,

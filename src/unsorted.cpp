@@ -1,6 +1,7 @@
 #include "unsorted.h"
 
 #include "archive.h"
+#include "gamemanager.h"
 #include "chain.h"
 #include "timer.h"
 
@@ -118,6 +119,11 @@ BOOL PlayRecord::IsUnknown118Zero()
 float Fabs(float x)
 {
     return (float)fabs((double)x);
+}
+
+void GameSide::AddScore(int points)
+{
+    this->stats->score += points / 10;
 }
 
 void SinCos(float *sinOut, float *cosOut, float angle)
