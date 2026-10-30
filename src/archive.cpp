@@ -144,3 +144,23 @@ fail:
     }
     return NULL;
 }
+
+void DatArchive::Release()
+{
+    if (this->path != NULL)
+    {
+        GlobalFree(this->path);
+        this->path = NULL;
+    }
+    if (this->entries != NULL)
+    {
+        delete[] this->entries;
+        this->entries = NULL;
+    }
+    if (this->file != NULL)
+    {
+        delete this->file;
+        this->file = NULL;
+    }
+    this->numEntries = 0;
+}
