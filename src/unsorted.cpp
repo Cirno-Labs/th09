@@ -2,6 +2,7 @@
 
 #include "archive.h"
 #include "gamemanager.h"
+#include "player.h"
 #include "chain.h"
 #include "timer.h"
 
@@ -124,6 +125,13 @@ float Fabs(float x)
 void GameSide::AddScore(int points)
 {
     this->stats->score += points / 10;
+}
+
+void PlayerUnknown30410::ResetCombo()
+{
+    this->timer20 = 0;
+    this->count = 0;
+    this->unknown38 = 0;
 }
 
 void SinCos(float *sinOut, float *cosOut, float angle)

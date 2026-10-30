@@ -103,11 +103,29 @@ ASSERT_SIZE(PlayerUnknown3031c, 0x1c);
 // bytes). Placeholder name.
 struct PlayerUnknown30410
 {
+    // Counts a hit and scores it; `pos` is where (0x41d150).
+    void AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d);
+    // AddCombo, counting unknown38 too (0x40f8b0).
+    void AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d)
+    {
+        this->unknown38++;
+        this->AddCombo(pos, a, b, c, d);
+    }
+    // Sets timer20, count and unknown38 to 0 (0x40f8c0).
+    void ResetCombo();
+
     Player *player;
-    unsigned char pad_4[0x14 - 0x4];
+    // The hits counted, and the most of them.
+    int count;
+    int maxCount;
+    int unknownC;
+    // Added to the side's score when the combo ends.
+    int bonus;
     Timer timer14;
     Timer timer20;
-    unsigned char pad_2c[0x40 - 0x2c];
+    unsigned char pad_2c[0x38 - 0x2c];
+    int unknown38;
+    int unknown3c;
 };
 ASSERT_SIZE(PlayerUnknown30410, 0x40);
 

@@ -198,7 +198,7 @@ address,size,name,symbol
 0x0040f860,33,GameSide::AddScore,?AddScore@GameSide@@QAEXH@Z
 0x0040f890,20,Func40f890,
 0x0040f8b0,12,Func40f8b0,
-0x0040f8c0,29,Func40f8c0,
+0x0040f8c0,29,PlayerUnknown30410::ResetCombo,?ResetCombo@PlayerUnknown30410@@QAEXXZ
 0x0040f8e0,205,Func40f8e0,
 0x0040f9b0,188,Func40f9b0,
 0x0040fa70,554,EnemyManager::Initialize,?Initialize@EnemyManager@@QAEXXZ
@@ -387,7 +387,7 @@ address,size,name,symbol
 0x0041d090,61,Func41d090,
 0x0041d0d0,49,Func41d0d0,
 0x0041d110,49,Func41d110,
-0x0041d150,1516,Func41d150,
+0x0041d150,1516,PlayerUnknown30410::AddCombo,?AddCombo@PlayerUnknown30410@@QAEXPAUD3DXVECTOR3@@HHHH@Z
 0x0041d760,126,Func41d760,
 0x0041d7e0,41,Func41d7e0,
 0x0041d810,602,Func41d810,

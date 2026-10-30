@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">58.81% (624)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">41.19% (437)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">58.91% (625)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">41.09% (436)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="439.33" height="6" x="0" y="0" class="named"/>
-<rect width="307.67" height="6" x="439.33" y="0" class="todo"/>
+<rect width="440.03" height="6" x="0" y="0" class="named"/>
+<rect width="306.97" height="6" x="440.03" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -266,7 +266,7 @@
 <rect width="12" height="12" x="690" y="45" class="named"><title>0x0040f860 GameSide::AddScore (33 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="45" class="todo"><title>0x0040f890 Func40f890 (20 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="45" class="todo"><title>0x0040f8b0 Func40f8b0 (12 bytes)</title></rect>
-<rect width="12" height="12" x="735" y="45" class="todo"><title>0x0040f8c0 Func40f8c0 (29 bytes)</title></rect>
+<rect width="12" height="12" x="735" y="45" class="named"><title>0x0040f8c0 PlayerUnknown30410::ResetCombo (29 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="60" class="todo"><title>0x0040f8e0 Func40f8e0 (205 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="60" class="todo"><title>0x0040f9b0 Func40f9b0 (188 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="60" class="named"><title>0x0040fa70 EnemyManager::Initialize (554 bytes)</title></rect>
@@ -455,7 +455,7 @@
 <rect width="12" height="12" x="525" y="105" class="todo"><title>0x0041d090 Func41d090 (61 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="105" class="todo"><title>0x0041d0d0 Func41d0d0 (49 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="105" class="todo"><title>0x0041d110 Func41d110 (49 bytes)</title></rect>
-<rect width="12" height="12" x="570" y="105" class="todo"><title>0x0041d150 Func41d150 (1516 bytes)</title></rect>
+<rect width="12" height="12" x="570" y="105" class="todo"><title>0x0041d150 PlayerUnknown30410::AddCombo (1516 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="105" class="todo"><title>0x0041d760 Func41d760 (126 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="105" class="todo"><title>0x0041d7e0 Func41d7e0 (41 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="105" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.85%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.15%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.86%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.14%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="230.46" height="6" x="0" y="0" class="named"/>
-<rect width="516.54" height="6" x="230.46" y="0" class="todo"/>
+<rect width="230.53" height="6" x="0" y="0" class="named"/>
+<rect width="516.47" height="6" x="230.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1167,7 +1167,7 @@
 <rect width="35.51" height="32.01" x="172.12" y="263.23" class="todo"><title>0x004254a7 MainMenu::UpdateState3 (1572 bytes)</title></rect>
 <rect width="35.51" height="31.76" x="172.12" y="298.24" class="todo"><title>0x0042dd90 Func42dd90 (1561 bytes)</title></rect>
 <rect width="31.15" height="36.17" x="210.63" y="0" class="named"><title>0x00429e23 MainMenu::UpdateState1 (1560 bytes)</title></rect>
-<rect width="31.15" height="35.07" x="210.63" y="39.17" class="todo"><title>0x0041d150 Func41d150 (1516 bytes)</title></rect>
+<rect width="31.15" height="35.07" x="210.63" y="39.17" class="todo"><title>0x0041d150 PlayerUnknown30410::AddCombo (1516 bytes)</title></rect>
 <rect width="31.15" height="34.84" x="210.63" y="77.24" class="todo"><title>0x0042b850 ReadInput (1507 bytes)</title></rect>
 <rect width="31.15" height="34.29" x="210.63" y="115.08" class="todo"><title>0x00417630 Gui::OnUpdate (1485 bytes)</title></rect>
 <rect width="31.15" height="34.24" x="210.63" y="152.37" class="todo"><title>0x0040e8a0 Func40e8a0 (1483 bytes)</title></rect>
@@ -1979,7 +1979,7 @@
 <rect width="2.15" height="2.16" x="744.85" y="275.59" class="named"><title>0x00434280 AsciiText::RemoveChain (31 bytes)</title></rect>
 <rect width="2.24" height="2.08" x="692.68" y="280.75" class="named"><title>0x0043faf0 CSound::GetBuffer (31 bytes)</title></rect>
 <rect width="2.24" height="1.91" x="692.68" y="285.83" class="named"><title>0x0042abe0 ChainElem::ChainElem (30 bytes)</title></rect>
-<rect width="2.24" height="1.75" x="692.68" y="290.75" class="todo"><title>0x0040f8c0 Func40f8c0 (29 bytes)</title></rect>
+<rect width="2.24" height="1.75" x="692.68" y="290.75" class="named"><title>0x0040f8c0 PlayerUnknown30410::ResetCombo (29 bytes)</title></rect>
 <rect width="2.24" height="1.75" x="692.68" y="295.49" class="named"><title>0x0041bdc0 PlayerUnknown24::Reset (29 bytes)</title></rect>
 <rect width="2.24" height="1.75" x="692.68" y="300.24" class="named"><title>0x00433290 DatArchive::GetEntrySize (29 bytes)</title></rect>
 <rect width="2.24" height="1.75" x="692.68" y="304.99" class="named"><title>0x00434260 AsciiText::DeletedCallback (29 bytes)</title></rect>
