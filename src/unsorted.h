@@ -457,7 +457,12 @@ extern PlayTime g_PlayTime;
 // A camera of App's views. Only the fields known so far.
 struct Camera
 {
-    unsigned char pad_0[0xcc];
+    unsigned char pad_0[0x30];
+    // A unit to the camera's right, as th08's Stage camera's.
+    D3DXVECTOR3 cameraRight;
+    unsigned char pad_3c[0x4c - 0x3c];
+    D3DXMATRIX viewMatrix;
+    D3DXMATRIX projectionMatrix;
     D3DVIEWPORT8 viewport;
 };
 
