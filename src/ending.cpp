@@ -91,6 +91,20 @@ void Ending::UpdateFade()
     }
 }
 
+int Ending::DeletedCallback(Ending *ending)
+{
+    g_SpriteEngine->ReleaseAnm(0x13);
+    g_App.scene = 6;
+    g_SpriteEngine->ReleaseSurface(0);
+    g_MemoryManager.Free(ending->file);
+    g_Chain.Remove(ending->drawChain);
+    ending->drawChain = NULL;
+    delete ending;
+    g_App.stateFlags &= ~0x400;
+    g_App.hideFps = 0;
+    return 0;
+}
+
 int Ending::OnDraw(Ending *ending)
 {
     int i;

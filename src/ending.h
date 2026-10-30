@@ -24,6 +24,10 @@ public:
     // Steps the fade, as th08's DrawFade did before drawing it
     // (0x40e170).
     void UpdateFade();
+    // The update chain element's deleted callback: frees what the
+    // ending loaded, removes the draw chain element, frees the ending and
+    // clears bit 0x400 of g_App.stateFlags, as th08's (0x40e2f0).
+    static int DeletedCallback(Ending *ending);
     // The draw chain element's callback: draws the background, the
     // sprites and the fade, as th08's. Returns 1 (0x40e480).
     static int OnDraw(Ending *ending);

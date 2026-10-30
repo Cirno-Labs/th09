@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.73% (702)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.71% (360)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.82% (703)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.61% (359)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="491.01" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="491.01" y="0" class="decompiled"/>
-<rect width="251.80" height="6" x="495.20" y="0" class="todo"/>
+<rect width="491.71" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="491.71" y="0" class="decompiled"/>
+<rect width="251.10" height="6" x="495.90" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -238,7 +238,7 @@
 <rect width="12" height="12" x="255" y="45" class="named"><title>0x0040e170 Ending::UpdateFade (287 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="45" class="named"><title>0x0040e2b0 PlayerInput::IsHeld (17 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="45" class="named"><title>0x0040e2d0 PlayerInput::IsJustPressed (18 bytes)</title></rect>
-<rect width="12" height="12" x="300" y="45" class="todo"><title>0x0040e2f0 Func40e2f0 (115 bytes)</title></rect>
+<rect width="12" height="12" x="300" y="45" class="named"><title>0x0040e2f0 Ending::DeletedCallback (115 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="45" class="named"><title>0x0040e370 SpriteEngine::ClearBlendMode (8 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="45" class="named"><title>0x0040e380 SpriteEngine::ClearVertexFormat (8 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="45" class="named"><title>0x0040e390 SpriteEngine::ClearSpriteData (11 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.43%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.53%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.47%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.49%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="249.72" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="249.72" y="0" class="decompiled"/>
-<rect width="496.99" height="6" x="250.01" y="0" class="todo"/>
+<rect width="250.01" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="250.01" y="0" class="decompiled"/>
+<rect width="496.69" height="6" x="250.31" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1639,7 +1639,7 @@
 <rect width="6.88" height="7.06" x="595.65" y="282.88" class="named"><title>0x0041a6eb GameManager::IsInPlayArea (116 bytes)</title></rect>
 <rect width="6.88" height="7.06" x="595.65" y="292.94" class="named"><title>0x00436c40 Sprite::ResolveFloatArgumentPtr (116 bytes)</title></rect>
 <rect width="6.88" height="7.06" x="595.65" y="303" class="named"><title>0x0043fa70 CSound::GetFreeBuffer (116 bytes)</title></rect>
-<rect width="6.88" height="6.97" x="595.65" y="313.05" class="todo"><title>0x0040e2f0 Func40e2f0 (115 bytes)</title></rect>
+<rect width="6.88" height="6.97" x="595.65" y="313.05" class="named"><title>0x0040e2f0 Ending::DeletedCallback (115 bytes)</title></rect>
 <rect width="6.88" height="6.97" x="595.65" y="323.03" class="named"><title>0x00433d40 LzssReplaceChild (115 bytes)</title></rect>
 <rect width="6.98" height="6.87" x="605.53" y="179.85" class="named"><title>0x004404d0 CStreamingSound::Reset (115 bytes)</title></rect>
 <rect width="6.89" height="6.87" x="615.51" y="179.85" class="named"><title>0x0041cde0 Player::LoadAnms (114 bytes)</title></rect>

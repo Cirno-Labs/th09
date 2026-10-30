@@ -169,7 +169,7 @@ address,size,name,symbol
 0x0040e170,287,Ending::UpdateFade,?UpdateFade@Ending@@QAEXXZ
 0x0040e2b0,17,PlayerInput::IsHeld,?IsHeld@PlayerInput@@QAEGG@Z
 0x0040e2d0,18,PlayerInput::IsJustPressed,?IsJustPressed@PlayerInput@@QAEGG@Z
-0x0040e2f0,115,Func40e2f0,
+0x0040e2f0,115,Ending::DeletedCallback,?DeletedCallback@Ending@@SIHPAV1@@Z
 0x0040e370,8,SpriteEngine::ClearBlendMode,?ClearBlendMode@SpriteEngine@@QAEXXZ
 0x0040e380,8,SpriteEngine::ClearVertexFormat,?ClearVertexFormat@SpriteEngine@@QAEXXZ
 0x0040e390,11,SpriteEngine::ClearSpriteData,?ClearSpriteData@SpriteEngine@@QAEXXZ
