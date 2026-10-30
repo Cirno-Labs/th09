@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.74% (420)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.26% (637)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.83% (421)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.17% (636)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="296.82" height="6" x="0" y="0" class="named"/>
-<rect width="450.18" height="6" x="296.82" y="0" class="todo"/>
+<rect width="297.53" height="6" x="0" y="0" class="named"/>
+<rect width="449.47" height="6" x="297.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -990,7 +990,7 @@
 <rect width="12" height="12" x="300" y="270" class="named"><title>0x00440270 CStreamingSound::HandleWaveStreamNotification (600 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="270" class="named"><title>0x004404d0 CStreamingSound::Reset (115 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="270" class="named"><title>0x00440550 CWaveFile::~CWaveFile (5 bytes)</title></rect>
-<rect width="12" height="12" x="345" y="270" class="todo"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
+<rect width="12" height="12" x="345" y="270" class="named"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="270" class="todo"><title>0x004405e0 CWaveFile::SwitchTrack (63 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="270" class="todo"><title>0x00440620 CWaveFile::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="270" class="todo"><title>0x00440650 CSound::CSound (135 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.59%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.41%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.63%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.37%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="116.44" height="6" x="0" y="0" class="named"/>
-<rect width="630.56" height="6" x="116.44" y="0" class="todo"/>
+<rect width="116.74" height="6" x="0" y="0" class="named"/>
+<rect width="630.26" height="6" x="116.74" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1618,7 +1618,7 @@
 <rect width="6.96" height="7.27" x="596.57" y="221.79" class="todo"><title>0x0040ef60 Func40ef60 (119 bytes)</title></rect>
 <rect width="6.96" height="7.27" x="596.57" y="232.05" class="todo"><title>0x0042eb80 Func42eb80 (119 bytes)</title></rect>
 <rect width="6.96" height="7.27" x="596.57" y="242.32" class="todo"><title>0x00445d00 Func445d00 (119 bytes)</title></rect>
-<rect width="6.96" height="7.18" x="596.57" y="252.59" class="todo"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
+<rect width="6.96" height="7.18" x="596.57" y="252.59" class="named"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
 <rect width="6.96" height="7.09" x="596.57" y="262.77" class="todo"><title>0x004233f4 Func4233f4 (117 bytes)</title></rect>
 <rect width="6.96" height="7.09" x="596.57" y="272.86" class="named"><title>0x00435370 ContinueMenu::DrawContinueMenu (117 bytes)</title></rect>
 <rect width="6.96" height="7.09" x="596.57" y="282.96" class="named"><title>0x0043d210 MidiPlayer::SendVolume (117 bytes)</title></rect>
