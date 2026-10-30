@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "gdisurface.h"
 #include "sprite.h"
@@ -120,14 +121,13 @@ void SpriteEngine::RenderText(Sprite *sprite, D3DCOLOR textColor, D3DCOLOR shado
     va_list args;
     char buf[0x80];
     int fontW;
-    SpriteData *data;
 
     fontW = sprite->fontWidth;
     va_start(args, fmt);
     vsprintf(buf, fmt, args);
-    data = (SpriteData *)sprite->spriteData;
-    this->RenderTextToTextureIndex(data->texture, data->startX, data->startY, data->textureWidth,
-                                   data->textureHeight, fontW, sprite->fontHeight, textColor, shadowColor, buf,
-                                   data->scaleX, data->scaleY);
+    this->RenderTextToTextureIndex(sprite->spriteData->texture, sprite->spriteData->startX,
+                                   sprite->spriteData->startY, sprite->spriteData->textureWidth,
+                                   sprite->spriteData->textureHeight, fontW, sprite->fontHeight, textColor,
+                                   shadowColor, buf, sprite->spriteData->scaleX, sprite->spriteData->scaleY);
     sprite->flags |= 1;
 }

@@ -9,6 +9,7 @@
 #include "timer.h"
 
 class AnmLoaded;
+struct SpriteData;
 
 // The part of Sprite up to pos, as th08's. Its implicit constructor
 // (0x4033a0) constructs the Timers; Sprite's calls it.
@@ -74,7 +75,7 @@ public:
     // The script SetScript started, and the instruction Step runs next.
     void *scriptStart;
     void *scriptPos;
-    void *spriteData;
+    SpriteData *spriteData;
     Timer interruptReturnTime;
     unsigned char pad_234[0x288 - 0x234];
     // Added to pos when it is drawn.
@@ -146,6 +147,14 @@ struct SpriteData
 };
 ASSERT_SIZE(SpriteData, 0x44);
 
+// A texture of an ANM file, and the image it is created from, as th08's.
+struct AnmTexture
+{
+    IDirect3DTexture8 *texture;
+    void *data;
+    int size;
+};
+
 class AnmLoaded
 {
 public:
@@ -179,7 +188,7 @@ public:
     int anmCount;
     SpriteData *sprites;
     void **scripts;
-    void *textures;
+    AnmTexture *textures;
     // Nonzero while the textures are still being created.
     int loadStep;
     unsigned char pad_1c[0x120 - 0x1c];
