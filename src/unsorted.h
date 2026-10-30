@@ -30,6 +30,8 @@ public:
     WORD GetRandomU16();
     // 32 random bits, from two GetRandomU16 calls (0x42ae50).
     DWORD GetRandomU32();
+    // A random float from 0 up to 1 (0x42ae70).
+    float GetRandomF32ZeroToOne();
 
     WORD seed;
     unsigned char pad_2[0x2];

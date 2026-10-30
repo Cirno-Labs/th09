@@ -54,6 +54,11 @@ DWORD Rng::GetRandomU32()
     return (this->GetRandomU16() << 16) | this->GetRandomU16();
 }
 
+float Rng::GetRandomF32ZeroToOne()
+{
+    return this->GetRandomU32() / 4294967296.0f;
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);
