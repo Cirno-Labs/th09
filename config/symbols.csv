@@ -259,7 +259,7 @@ address,size,name,symbol
 0x00413af0,215,Func413af0,
 0x00413be0,591,Func413be0,
 0x00413e40,598,Func413e40,
-0x00414180,52,Func414180,
+0x00414180,52,BulletManager::CutChain,?CutChain@BulletManager@@SIXPAV1@@Z
 0x004141c0,1233,Func4141c0,
 0x004146f0,2184,Func4146f0,
 0x00414fa0,56,Func414fa0,
