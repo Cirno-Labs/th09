@@ -412,6 +412,13 @@ public:
     // Sets the render state for `vm` and draws the projected quad, as
     // th08's (0x43a0f0).
     int DrawQuad(Sprite *vm, int flags);
+    // Draws the `count` vertices of `vertices` as a triangle strip with
+    // `vm`'s texture, as th08's. Returns 0, or -1 if `vm` is hidden
+    // (0x43b4d0).
+    int DrawVertexStrip(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count);
+    // Batches `quad`, set up by the caller, with `vm`'s texture, as
+    // th08's (0x43b5c0).
+    int DrawVertexQuad(Sprite *vm, VertexTex1DiffuseXyzrwh *quad);
     // Sets the blend mode, the texture factor color, the z writes and the
     // camera for `vm`, as th08's (0x439e90).
     void SetRenderStateForSprite(Sprite *vm);

@@ -807,8 +807,8 @@ address,size,name,symbol
 0x0043b0e0,88,SpriteEngine::DrawProjected,?DrawProjected@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043b140,84,SpriteEngine::DrawProjected3D,?DrawProjected3D@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043b1a0,811,Func43b1a0,
-0x0043b4d0,238,Func43b4d0,
-0x0043b5c0,163,Func43b5c0,
+0x0043b4d0,238,SpriteEngine::DrawVertexStrip,?DrawVertexStrip@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@H@Z
+0x0043b5c0,163,SpriteEngine::DrawVertexQuad,?DrawVertexQuad@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@@Z
 0x0043b670,318,Func43b670,
 0x0043b7b0,318,Func43b7b0,
 0x0043b8f0,200,Func43b8f0,

@@ -1140,6 +1140,41 @@ int SpriteEngine::DrawProjected3D(Sprite *vm)
     return this->DrawQuad(vm, 0);
 }
 
+int SpriteEngine::DrawVertexStrip(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count)
+{
+    if (!vm->IsShown())
+    {
+        return -1;
+    }
+    if ((vm->flags >> 1 & 1) == 0)
+    {
+        return -1;
+    }
+    if (vm->alpha == 0)
+    {
+        return -1;
+    }
+    if (this->batchQuadCount != 0)
+    {
+        this->FlushQuadBatch();
+    }
+    if (this->currentTexture != vm->spriteData->texture)
+    {
+        this->currentTexture = vm->spriteData->texture;
+        g_App.d3dDevice->SetTexture(0, this->currentTexture);
+    }
+    if (this->vertexFormat != 3)
+    {
+        g_App.d3dDevice->SetVertexShader(D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1);
+        this->vertexFormat = 3;
+    }
+    this->SetBlendModeForSprite(vm);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+    g_App.d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, count - 2, vertices, sizeof(vertices[0]));
+    return 0;
+}
+
 // 0x43bba0
 int SpriteEngine::CreateTexture(AnmTexture *tex, int width, int height, int format)
 {
