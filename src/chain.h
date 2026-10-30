@@ -61,6 +61,10 @@ public:
     int AddToDrawChain(ChainElem *elem, int priority);
     // Allocates an element that runs `callback` (0x42b300).
     ChainElem *CreateElem(ChainCallback callback);
+    // Unlinks `elem` from its chain, for a caller that holds critical
+    // section 0, which it leaves while the element is deleted or its
+    // deleted callback runs (0x42b350).
+    void RemoveLocked(ChainElem *elem);
 
     ChainElem calcChain;
     ChainElem drawChain;
