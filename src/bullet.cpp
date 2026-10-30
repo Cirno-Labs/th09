@@ -2,11 +2,6 @@
 #include "enemy.h"
 #include "gamemanager.h"
 
-void BulletManager::Unknown405650()
-{
-    this->Unknown412590(1);
-}
-
 void BulletManager::ClearUnknown25e198()
 {
     this->unknown25e198[0] = this->unknown25e198[1] = this->unknown25e198[2] = this->unknown25e198[3] =
@@ -54,6 +49,10 @@ void BulletManager::Reset()
     this->bullets[0xaf].state = 6;
     this->bullets2[0x168].state = 6;
     this->clearItemType = 5;
+}
+
+void BulletManager::Unknown412590(int arg)
+{
 }
 
 int BulletManager::LoadAnm()

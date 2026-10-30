@@ -1,5 +1,11 @@
+#include "bullet.h"
 #include "enemy.h"
 #include "unsorted.h"
+
+void BulletManager::Unknown405650()
+{
+    this->Unknown412590(1);
+}
 
 int EclManager::Load(char *path)
 {
