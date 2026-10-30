@@ -830,7 +830,7 @@ address,size,name,symbol
 0x0043c4c0,330,SpriteEngine::CreateTextureFromImage,?CreateTextureFromImage@SpriteEngine@@QAEHPAUAnmTexture@@PAUAnmImage@@H@Z
 0x0043c610,390,SpriteEngine::PreloadAnmFile,?PreloadAnmFile@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
 0x0043c7a0,90,SpriteEngine::PreloadAnm,?PreloadAnm@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
-0x0043c800,558,Func43c800,
+0x0043c800,558,SpriteEngine::LoadAnmSprites,?LoadAnmSprites@SpriteEngine@@QAEHPAVAnmLoaded@@HHHPAUAnmFile@@@Z
 0x0043ca30,163,SpriteEngine::ReleaseAnm,?ReleaseAnm@SpriteEngine@@QAEXH@Z
 0x0043cae0,486,Func43cae0,
 0x0043ccd0,102,Func43ccd0,
