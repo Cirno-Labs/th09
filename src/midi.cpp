@@ -319,3 +319,20 @@ MidiPlayer::~MidiPlayer()
         this->UnloadFile(i);
     }
 }
+
+int MidiPlayer::LoadFile(int slot, char *path)
+{
+    if (this->playingSlot == slot)
+    {
+        this->Stop();
+    }
+    this->UnloadFile(slot);
+    this->fileData[slot] = OpenPath(path, NULL, 0);
+    if (this->fileData[slot] == NULL)
+    {
+        // "\rv\r\n" in the original.
+        LogPrintf(&g_Log, "error : MIDI File が読み込めない %s \rv\r\n", path);
+        return -1;
+    }
+    return 0;
+}
