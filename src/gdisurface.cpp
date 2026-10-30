@@ -24,3 +24,8 @@ int GdiSurface::GetWidthBytes()
 {
     return this->widthBytes;
 }
+
+int GdiSurface::GetWidth()
+{
+    return this->width;
+}
