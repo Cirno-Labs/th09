@@ -301,6 +301,8 @@ public:
     // back buffer, as th08's (0x43c2d0).
     void CopyBackBufferToSurface(int surface, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
                                  int dstTop, int dstWidth, int dstHeight);
+    // Runs `count` sprites from `vms` a frame, as th08's (0x439560).
+    void StepSprites(Sprite *vms, int count);
     // Empties the quad batch, as th08's (0x439680).
     void BeginQuadBatch();
     // Draws the sprites batched so far (0x4396a0).

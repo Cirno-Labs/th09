@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.99% (326)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">69.01% (726)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.08% (327)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">68.92% (725)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="231.48" height="6" x="0" y="0" class="named"/>
-<rect width="515.52" height="6" x="231.48" y="0" class="todo"/>
+<rect width="232.19" height="6" x="0" y="0" class="named"/>
+<rect width="514.81" height="6" x="232.19" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -852,7 +852,7 @@
 <rect width="12" height="12" x="480" y="225" class="todo"><title>0x00436de0 Func436de0 (63 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="225" class="todo"><title>0x00436e30 Func436e30 (203 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="225" class="todo"><title>0x00436f30 SpriteEngine::Step (9352 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="225" class="todo"><title>0x00439560 Func439560 (53 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="225" class="named"><title>0x00439560 SpriteEngine::StepSprites (53 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="225" class="named"><title>0x004395a0 AnmLoaded::SetScript (143 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="225" class="todo"><title>0x00439630 Func439630 (66 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="225" class="named"><title>0x00439680 SpriteEngine::BeginQuadBatch (29 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.85%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.15%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.86%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.14%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="81.02" height="6" x="0" y="0" class="named"/>
-<rect width="665.98" height="6" x="81.02" y="0" class="todo"/>
+<rect width="81.15" height="6" x="0" y="0" class="named"/>
+<rect width="665.85" height="6" x="81.15" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1823,7 +1823,7 @@
 <rect width="3.75" height="3.88" x="656.77" y="246.71" class="todo"><title>0x0043e130 Func43e130 (54 bytes)</title></rect>
 <rect width="3.75" height="3.88" x="656.77" y="253.59" class="todo"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
 <rect width="3.75" height="3.76" x="656.77" y="260.47" class="named"><title>0x0042fcf0 App::PlayBgm (53 bytes)</title></rect>
-<rect width="3.75" height="3.76" x="656.77" y="267.23" class="todo"><title>0x00439560 Func439560 (53 bytes)</title></rect>
+<rect width="3.75" height="3.76" x="656.77" y="267.23" class="named"><title>0x00439560 SpriteEngine::StepSprites (53 bytes)</title></rect>
 <rect width="3.75" height="3.63" x="656.77" y="273.98" class="todo"><title>0x00401180 Func401180 (52 bytes)</title></rect>
 <rect width="3.75" height="3.63" x="656.77" y="280.61" class="named"><title>0x00414180 BulletManager::RemoveChain (52 bytes)</title></rect>
 <rect width="3.75" height="3.63" x="656.77" y="287.24" class="named"><title>0x00435c60 AsciiText::OnDraw2 (52 bytes)</title></rect>

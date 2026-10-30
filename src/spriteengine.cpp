@@ -73,6 +73,19 @@ void SpriteEngine::ClearLastCameraSetupFlag()
     this->lastCameraSetupFlag = 0xff;
 }
 
+void SpriteEngine::StepSprites(Sprite *vms, int count)
+{
+    while (count != 0)
+    {
+        if (vms->scriptIndex >= 0)
+        {
+            g_SpriteEngine->Step(vms);
+        }
+        vms++;
+        count--;
+    }
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)
