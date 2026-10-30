@@ -266,6 +266,9 @@ public:
     void RenderText(Sprite *sprite, D3DCOLOR textColor, D3DCOLOR shadowColor, char *fmt, ...);
     // RenderText, centred in the sprite, as th08's (0x43be50).
     void RenderTextCentered(Sprite *vm, D3DCOLOR color, D3DCOLOR shadowColor, char *fmt, ...);
+    // Releases surface `surface`, its backup and its file, as th08's
+    // (0x43bf30).
+    void ReleaseSurface(int surface);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).

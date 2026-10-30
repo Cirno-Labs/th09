@@ -175,3 +175,22 @@ void SpriteEngine::RenderTextCentered(Sprite *vm, D3DCOLOR color, D3DCOLOR shado
                                    vm->spriteData->scaleY);
     vm->flags |= 1;
 }
+
+void SpriteEngine::ReleaseSurface(int surface)
+{
+    if (this->surfaces[surface] != NULL)
+    {
+        this->surfaces[surface]->Release();
+        this->surfaces[surface] = NULL;
+    }
+    if (this->surfacesBackup[surface] != NULL)
+    {
+        this->surfacesBackup[surface]->Release();
+        this->surfacesBackup[surface] = NULL;
+    }
+    if (this->surfaceFiles[surface] != NULL)
+    {
+        g_MemoryManager.Free(this->surfaceFiles[surface]);
+    }
+    this->surfaceFiles[surface] = NULL;
+}
