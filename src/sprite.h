@@ -142,6 +142,8 @@ public:
     // color modulation and stops the shake, as th08's App::OnUpdate does
     // every frame (0x42f770).
     void ResetFrameState();
+    // Frees ANM slot `slot`, as th08's (0x43ca30).
+    void ReleaseAnm(int slot);
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
     // Draws the sprites batched so far (0x4396a0).

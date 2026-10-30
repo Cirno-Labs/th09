@@ -371,9 +371,9 @@ address,size,name,symbol
 0x0041cc80,320,Func41cc80,
 0x0041cdc0,31,Func41cdc0,
 0x0041cde0,114,Func41cde0,
-0x0041ce60,75,Func41ce60,
+0x0041ce60,75,FreeResources,
 0x0041ceb0,28,Func41ceb0,
-0x0041ced0,86,Func41ced0,
+0x0041ced0,86,Player::RemoveChain,?RemoveChain@Player@@SIXPAV1@@Z
 0x0041cf30,110,Func41cf30,
 0x0041cfa0,55,Func41cfa0,
 0x0041cfe0,43,Func41cfe0,
@@ -819,7 +819,7 @@ address,size,name,symbol
 0x0043c610,390,Func43c610,
 0x0043c7a0,90,Func43c7a0,
 0x0043c800,558,Func43c800,
-0x0043ca30,163,Func43ca30,
+0x0043ca30,163,SpriteEngine::ReleaseAnm,?ReleaseAnm@SpriteEngine@@QAEXH@Z
 0x0043cae0,486,Func43cae0,
 0x0043ccd0,102,Func43ccd0,
 0x0043cd40,141,Func43cd40,
@@ -2205,6 +2205,7 @@ address,size,name,symbol
 0x004a7d90,,g_GameManager,?g_GameManager@@3VGameManager@@A
 0x004a8120,,g_GameManagerCalcChain,?g_GameManagerCalcChain@@3UChainElem@@A
 0x004a8140,,g_GameManagerDrawChain,?g_GameManagerDrawChain@@3UChainElem@@A
+0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAXA
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
 0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
