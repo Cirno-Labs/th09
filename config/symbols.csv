@@ -161,7 +161,7 @@ address,size,name,symbol
 0x0040e130,60,Func40e130,
 0x0040e170,287,Func40e170,
 0x0040e2b0,17,PlayerInput::IsHeld,?IsHeld@PlayerInput@@QAEGG@Z
-0x0040e2d0,18,Func40e2d0,
+0x0040e2d0,18,PlayerInput::IsJustPressed,?IsJustPressed@PlayerInput@@QAEGG@Z
 0x0040e2f0,115,Func40e2f0,
 0x0040e370,8,SpriteEngine::ClearBlendMode,?ClearBlendMode@SpriteEngine@@QAEXXZ
 0x0040e380,8,SpriteEngine::ClearVertexFormat,?ClearVertexFormat@SpriteEngine@@QAEXXZ

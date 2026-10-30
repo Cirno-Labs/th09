@@ -234,6 +234,7 @@ struct PlayerInput
     // same for the second set, unknown2c and unknown32 (0x415cb0,
     // 0x415cd0).
     WORD IsHeld(WORD mask);
+    WORD IsJustPressed(WORD mask);
 
     WORD unknown0;
     unsigned char pad_2[0x2];

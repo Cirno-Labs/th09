@@ -65,6 +65,11 @@ WORD PlayerInput::IsHeld(WORD mask)
     return this->unknown0 & mask;
 }
 
+WORD PlayerInput::IsJustPressed(WORD mask)
+{
+    return this->unknown6 & mask;
+}
+
 void PlayRecord::AddClear(char character, int difficulty)
 {
     int *clears = &this->clearFlags[character][difficulty];
