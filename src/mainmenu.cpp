@@ -234,6 +234,27 @@ void AsciiText::SetScale(float x, float y)
     this->scaleY = y;
 }
 
+int MainMenu::DrawState12()
+{
+    if (this->subState == 1)
+    {
+        int idx = this->unknown11b74 + 0x9f;
+        D3DXVECTOR3 savedPos = this->sprites[idx].pos;
+        D3DCOLOR savedColor = this->sprites[idx].color;
+        this->sprites[idx].color = 0xffffffff;
+        this->sprites[idx].pos.x = 208.0f;
+        this->sprites[idx].pos.y = 293.0f;
+        g_SpriteEngine->DrawUnrotated(&this->sprites[idx]);
+        this->sprites[idx].pos = savedPos;
+        this->sprites[idx].color = savedColor;
+        for (int i = 0; i < 8; i++)
+        {
+            g_SpriteEngine->DrawUnrotated(&this->unknown19d04[i]);
+        }
+    }
+    return 1;
+}
+
 int MainMenu::MoveCursor(int count)
 {
     if (count == 0)

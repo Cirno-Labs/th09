@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.21% (499)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">52.79% (558)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.30% (500)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">52.70% (557)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="352.65" height="6" x="0" y="0" class="named"/>
-<rect width="394.35" height="6" x="352.65" y="0" class="todo"/>
+<rect width="353.36" height="6" x="0" y="0" class="named"/>
+<rect width="393.64" height="6" x="353.36" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -558,7 +558,7 @@
 <rect width="12" height="12" x="570" y="135" class="todo"><title>0x004234f6 Func4234f6 (1280 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="135" class="todo"><title>0x004239f6 Func4239f6 (800 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="135" class="todo"><title>0x00423d16 Func423d16 (1939 bytes)</title></rect>
-<rect width="12" height="12" x="615" y="135" class="todo"><title>0x004244a9 Func4244a9 (209 bytes)</title></rect>
+<rect width="12" height="12" x="615" y="135" class="named"><title>0x004244a9 MainMenu::DrawState12 (209 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="135" class="named"><title>0x0042457a MainMenu::MoveCursor (135 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="135" class="named"><title>0x00424601 MainMenu::MoveCursorLR (112 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="135" class="named"><title>0x00424671 MainMenu::MoveCursor4 (217 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.10%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">75.90%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.17%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">75.83%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="179.99" height="6" x="0" y="0" class="named"/>
-<rect width="567.01" height="6" x="179.99" y="0" class="todo"/>
+<rect width="180.53" height="6" x="0" y="0" class="named"/>
+<rect width="566.47" height="6" x="180.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1474,7 +1474,7 @@
 <rect width="10.78" height="10.10" x="535.65" y="267.69" class="todo"><title>0x0040d520 Func40d520 (210 bytes)</title></rect>
 <rect width="10.78" height="10.10" x="535.65" y="280.79" class="named"><title>0x0042c4e0 WriteToFile (210 bytes)</title></rect>
 <rect width="10.78" height="10.04" x="535.65" y="293.89" class="todo"><title>0x0041bee0 Func41bee0 (209 bytes)</title></rect>
-<rect width="10.78" height="10.04" x="535.65" y="306.93" class="todo"><title>0x004244a9 Func4244a9 (209 bytes)</title></rect>
+<rect width="10.78" height="10.04" x="535.65" y="306.93" class="named"><title>0x004244a9 MainMenu::DrawState12 (209 bytes)</title></rect>
 <rect width="10.78" height="10.04" x="535.65" y="319.96" class="todo"><title>0x00443a30 Func443a30 (209 bytes)</title></rect>
 <rect width="10.62" height="10.12" x="549.43" y="120.10" class="todo"><title>0x00421800 Func421800 (208 bytes)</title></rect>
 <rect width="10.62" height="10.12" x="563.06" y="120.10" class="todo"><title>0x0043e1f0 SoundPlayer::FindTrackIndex (208 bytes)</title></rect>

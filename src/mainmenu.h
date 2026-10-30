@@ -42,6 +42,18 @@ public:
     // and the five from 148: 0xc3 for a full one, 0xc4 for a half, 0xc5
     // for an empty one. Not called (0x423182).
     void ShowHalves(int left, int right);
+    // What OnDraw draws on top in states 11, 15, 13 and 14, and 12
+    // (0x4234f6, 0x4239f6, 0x423d16, 0x4244a9).
+    int DrawState11();
+    int DrawState15();
+    int DrawState13();
+    int DrawState12();
+    // States 3, 5 and 7 draw nothing more, but OnDraw's switch has
+    // cases for them: they call something that compiles to nothing.
+    int DrawNothing()
+    {
+        return 1;
+    }
 
     // Moves cursor by up and down among `count` entries, wrapping, as
     // th08's MoveMenuCursor; returns -1, 1, or 0 when it did not move
@@ -57,6 +69,9 @@ public:
     int MovePlayerCursor(int idx, int count);
     // The same on cursors[idx] with player `player`'s input (0x4247f1).
     int MovePlayerCursor2(int player, int idx, int count);
+    // Draws the menu's sprites, then the state's own, as th08's
+    // (0x424898).
+    static int OnDraw(MainMenu *menu);
 
     int cursor;
     unsigned char pad_4[0x10 - 0x4];
@@ -69,13 +84,23 @@ public:
     int prevState;
     unsigned char pad_88[0xc910 - 0x88];
     int unknownC910;
-    unsigned char pad_c914[0x11b90 - 0xc914];
+    unsigned char pad_c914[0x11b74 - 0xc914];
+    int unknown11b74;
+    unsigned char pad_11b78[0x11b90 - 0x11b78];
     // The title's ANM file.
     AnmLoaded *anm;
     unsigned char pad_11b94[0x11b98 - 0x11b94];
+    // spriteCount sprites, drawn by OnDraw.
     Sprite *sprites;
-    unsigned char pad_11b9c[0x1b228 - 0x11b9c];
+    // Drawn after them when set.
+    Sprite *helpSprite;
+    unsigned char pad_11ba0[0x19d04 - 0x11ba0];
+    Sprite unknown19d04[8];
+    int spriteCount;
     int state;
     unsigned char pad_1b22c[0x1b230 - 0x1b22c];
     int unknown1b230;
+    unsigned char pad_1b234[0x1b238 - 0x1b234];
+    // While nonzero, OnDraw draws nothing.
+    int loadingState;
 };

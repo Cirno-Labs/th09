@@ -646,8 +646,8 @@ public:
     // The ANM file in slot `slot`, as th08's (0x401660).
     AnmLoaded *GetAnm(int slot);
     // Whether `vm` shows a sprite whose ANM file has its textures
-    // loaded, as th08's. Inline; the copy at 0x423469 is in an /O1
-    // object.
+    // loaded, as th08's. Inline; the copy at 0x423469 is the one
+    // MainMenu::OnDraw's /O1 object emits.
     BOOL HasTexture(Sprite *vm)
     {
         if (vm->spriteData == NULL)
