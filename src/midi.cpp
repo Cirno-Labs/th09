@@ -180,3 +180,8 @@ void MidiTimer::OnTimer()
 {
     QueryPerformanceCounter(&g_MidiTimerLastCounter);
 }
+
+void MidiTimer::StopTimer()
+{
+    this->Stop();
+}
