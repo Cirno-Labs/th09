@@ -160,6 +160,9 @@ struct App
     int LoadBgm(int id);
     // Plays the music loaded last. Returns 0 (0x42fcf0).
     int PlayBgm();
+    // Stops the music, as th08's StopMusic. Returns 0, or -1 without
+    // music (0x42fd30).
+    int StopBgm();
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
