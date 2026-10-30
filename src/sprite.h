@@ -104,6 +104,18 @@ public:
     BYTE fontHeight;
     unsigned char pad_29a[0xa];
 
+    // `value`, or the variable it names when it is 10000 to 10009, as
+    // th08's (0x436b80).
+    int ResolveIntArgument(int value);
+    // The variable `*value` names, when bit `bit` of `mask` marks it as
+    // one, else `value`, as th08's: the float variables 10004 to 10007
+    // (0x436c40), and the int ones (0x436cd0).
+    float *ResolveFloatArgumentPtr(float *value, WORD mask, int bit);
+    int *ResolveIntArgumentPtr(int *value, WORD mask, int bit);
+    // ResolveIntArgument for floats; 10010 to 10012 are random numbers
+    // (0x436e30).
+    float ResolveFloatArgument(float value);
+
     // Sets pendingInterrupt. Inline; the copy is 0x406790.
     void SetPendingInterrupt(short interrupt)
     {

@@ -777,7 +777,7 @@ address,size,name,symbol
 0x00436aa0,15,Acos,?Acos@@YIMM@Z
 0x00436ab0,14,Atan,?Atan@@YIMM@Z
 0x00436ac0,189,AnmLoaded::SetSprite,?SetSprite@AnmLoaded@@QAEHPAVSprite@@H@Z
-0x00436b80,144,Func436b80,
+0x00436b80,144,Sprite::ResolveIntArgument,?ResolveIntArgument@Sprite@@QAEHH@Z
 0x00436c40,116,Func436c40,
 0x00436cd0,106,Func436cd0,
 0x00436d70,84,Func436d70,
@@ -2219,7 +2219,10 @@ address,size,name,symbol
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
 0x00490f08,,g_SeekOrigins,?g_SeekOrigins@@3QBKB
+0x00490f58,,g_TextureFormats,?g_TextureFormats@@3QBW4_D3DFORMAT@@B
+0x00490f70,,g_TextureFormatSizes,?g_TextureFormatSizes@@3QBHB
 0x004952e0,,IID_IDirectSoundNotify,_IID_IDirectSoundNotify
+0x004953d0,,GUID_NULL,_GUID_NULL
 0x004a1128,,g_Unknown4a1128,?g_Unknown4a1128@@3PAHA
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
@@ -2247,9 +2250,6 @@ address,size,name,symbol
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b1020,,g_Log,?g_Log@@3VLog@@A
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
-0x00490f58,,g_TextureFormats,?g_TextureFormats@@3QBW4_D3DFORMAT@@B
-0x00490f70,,g_TextureFormatSizes,?g_TextureFormatSizes@@3QBHB
-0x004953d0,,GUID_NULL,_GUID_NULL
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
 0x004b4420,,g_LzssTree,?g_LzssTree@@3PAULzssNode@@A
