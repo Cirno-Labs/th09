@@ -10,6 +10,11 @@ void AnmLoaded::StartScriptAtOrigin(Sprite *vm, int script)
     this->SetScript(vm, this->scripts[script]);
 }
 
+void SpriteEngine::ClearTexture()
+{
+    this->currentTexture = NULL;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)

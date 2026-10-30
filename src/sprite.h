@@ -74,11 +74,33 @@ public:
 class SpriteEngine
 {
 public:
+    // Forgets the texture last set, so that the next sprite sets it
+    // again (0x4015f0).
+    void ClearTexture();
+    // Sets lastCameraSetupFlag (0x401600).
+    void SetLastCameraSetupFlag(BYTE value);
+    // Stops modulating sprites by a color (0x401610).
+    void ResetColorModulation();
+    // Modulates sprites by `color` (0x401620).
+    void SetColorModulation(D3DCOLOR color);
+    // Forgets the blend mode last set, as ClearTexture (0x40e370).
+    void ClearBlendMode();
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
 
-    unsigned char pad_0[0xc];
+    D3DCOLOR modulateColor;
+    int modulateColorEnabled;
+    unsigned char pad_8[0x4];
     // How many scripts SetScript started.
     int scriptStartCount;
+    unsigned char pad_10[0x12880 - 0x10];
+    // The render state last set, so that sprites only change it when
+    // they need to.
+    IDirect3DTexture8 *currentTexture;
+    BYTE blendMode;
+    BYTE colorOp;
+    BYTE vertexFormat;
+    BYTE zWriteDisabled;
+    BYTE lastCameraSetupFlag;
 };
 extern SpriteEngine *g_SpriteEngine;
