@@ -406,7 +406,7 @@ address,size,name,symbol
 0x0041f070,243,Func41f070,
 0x0041f170,328,Func41f170,
 0x0041f2c0,55,Func41f2c0,
-0x0041f300,9,Func41f300,
+0x0041f300,9,Timer::operator-=,??ZTimer@@QAEXH@Z
 0x0041f310,51,Func41f310,
 0x0041f350,309,Func41f350,
 0x0041f490,37,Func41f490,

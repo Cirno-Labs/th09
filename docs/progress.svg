@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">2.60% (27)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">97.40% (1011)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">2.70% (28)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">97.30% (1010)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="19.43" height="6" x="0" y="0" class="named"/>
-<rect width="727.57" height="6" x="19.43" y="0" class="todo"/>
+<rect width="20.15" height="6" x="0" y="0" class="named"/>
+<rect width="726.85" height="6" x="20.15" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -474,7 +474,7 @@
 <rect width="12" height="12" x="60" y="120" class="todo"><title>0x0041f070 Func41f070 (243 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="120" class="todo"><title>0x0041f170 Func41f170 (328 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="120" class="todo"><title>0x0041f2c0 Func41f2c0 (55 bytes)</title></rect>
-<rect width="12" height="12" x="105" y="120" class="todo"><title>0x0041f300 Func41f300 (9 bytes)</title></rect>
+<rect width="12" height="12" x="105" y="120" class="named"><title>0x0041f300 Timer::operator-= (9 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="120" class="todo"><title>0x0041f310 Func41f310 (51 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="120" class="todo"><title>0x0041f350 Func41f350 (309 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="120" class="todo"><title>0x0041f490 Func41f490 (37 bytes)</title></rect>
@@ -1109,10 +1109,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.19%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.81%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.20%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.80%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="1.45" height="6" x="0" y="0" class="named"/>
-<rect width="745.55" height="6" x="1.45" y="0" class="todo"/>
+<rect width="1.47" height="6" x="0" y="0" class="named"/>
+<rect width="745.53" height="6" x="1.47" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.75" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2117,7 +2117,7 @@
 <rect width="0.10" height="0.10" x="742.22" y="301.98" class="named"><title>0x00406640 Timer::operator+= (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="744.81" y="301.98" class="named"><title>0x00406650 Timer::operator+= (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.41" y="301.98" class="named"><title>0x00406660 Timer::operator-= (9 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="736.75" y="304.85" class="todo"><title>0x0041f300 Func41f300 (9 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="736.75" y="304.85" class="named"><title>0x0041f300 Timer::operator-= (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="736.75" y="307.60" class="todo"><title>0x00433130 Func433130 (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="736.75" y="310.36" class="todo"><title>0x004338f0 Func4338f0 (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="736.75" y="313.11" class="named"><title>0x00401510 Timer::operator++ (8 bytes)</title></rect>

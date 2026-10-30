@@ -107,3 +107,8 @@ int Timer::operator%(int n)
 {
     return this->current % n;
 }
+
+void Timer::operator-=(int frames)
+{
+    this->Sub(frames);
+}
