@@ -109,6 +109,13 @@ struct PlayerUnknown30410
     void AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d);
     // Sets timer20, count and unknown38 to 0 (0x40f8c0).
     void ResetCombo();
+    // Runs the two timers down: when timer20 runs out the count is
+    // reset, and when timer14 does the combo ends as in EndCombo
+    // (0x41d760).
+    void Update();
+    // Resets the count, adds bonus to the side's score and clears it
+    // (0x41d7e0).
+    void EndCombo();
 
     Player *player;
     // The hits counted, and the most of them.

@@ -389,7 +389,7 @@ address,size,name,symbol
 0x0041d110,49,Func41d110,
 0x0041d150,1516,PlayerUnknown30410::AddCombo,?AddCombo@PlayerUnknown30410@@QAEXPAUD3DXVECTOR3@@HHHH@Z
 0x0041d760,126,Func41d760,
-0x0041d7e0,41,Func41d7e0,
+0x0041d7e0,41,PlayerUnknown30410::EndCombo,?EndCombo@PlayerUnknown30410@@QAEXXZ
 0x0041d810,602,Func41d810,
 0x0041da70,279,Func41da70,
 0x0041db90,138,Func41db90,

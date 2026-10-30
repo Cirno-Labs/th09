@@ -63,6 +63,15 @@ void Player::RemoveChain(Player *player)
     }
 }
 
+void PlayerUnknown30410::EndCombo()
+{
+    this->ResetCombo();
+    this->player->side->AddScore(this->bonus);
+    this->bonus = 0;
+    this->unknownC = 0;
+    this->timer14 = 0;
+}
+
 Player::Player()
 {
 }

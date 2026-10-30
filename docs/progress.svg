@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59% (626)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">41% (435)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.10% (627)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.90% (434)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="440.74" height="6" x="0" y="0" class="named"/>
-<rect width="306.26" height="6" x="440.74" y="0" class="todo"/>
+<rect width="441.44" height="6" x="0" y="0" class="named"/>
+<rect width="305.56" height="6" x="441.44" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -457,7 +457,7 @@
 <rect width="12" height="12" x="555" y="105" class="todo"><title>0x0041d110 Func41d110 (49 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="105" class="todo"><title>0x0041d150 PlayerUnknown30410::AddCombo (1516 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="105" class="todo"><title>0x0041d760 Func41d760 (126 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="105" class="todo"><title>0x0041d7e0 Func41d7e0 (41 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="105" class="named"><title>0x0041d7e0 PlayerUnknown30410::EndCombo (41 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="105" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="105" class="todo"><title>0x0041da70 Func41da70 (279 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="105" class="todo"><title>0x0041db90 Func41db90 (138 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.87%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.13%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.88%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.12%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="230.57" height="6" x="0" y="0" class="named"/>
-<rect width="516.43" height="6" x="230.57" y="0" class="todo"/>
+<rect width="230.67" height="6" x="0" y="0" class="named"/>
+<rect width="516.33" height="6" x="230.67" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1894,7 +1894,7 @@
 <rect width="2.78" height="3.08" x="669.82" y="314.76" class="named"><title>0x004048b0 Rng::GetRandomU16InRange (41 bytes)</title></rect>
 <rect width="2.78" height="3.08" x="669.82" y="320.84" class="todo"><title>0x0040c390 Func40c390 (41 bytes)</title></rect>
 <rect width="2.78" height="3.08" x="669.82" y="326.92" class="named"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>
-<rect width="3" height="2.86" x="675.60" y="258.70" class="todo"><title>0x0041d7e0 Func41d7e0 (41 bytes)</title></rect>
+<rect width="3" height="2.86" x="675.60" y="258.70" class="named"><title>0x0041d7e0 PlayerUnknown30410::EndCombo (41 bytes)</title></rect>
 <rect width="3" height="2.86" x="675.60" y="264.56" class="named"><title>0x0042aea0 Rng::GetRandomF32MinusOneToOne (41 bytes)</title></rect>
 <rect width="3" height="2.86" x="675.60" y="270.42" class="named"><title>0x0043d0c0 MmTimer::Stop (41 bytes)</title></rect>
 <rect width="3" height="2.72" x="675.60" y="276.28" class="named"><title>0x00401290 D3DXVec3Length (40 bytes)</title></rect>
