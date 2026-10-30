@@ -22,7 +22,7 @@ functions = "build/functions_150a.csv"
 bin = 'C:\msvc71\bin'
 include = ['C:\dx8\include', 'C:\msvc71\include', 'C:\psdk\Include']
 lib = ['C:\dx8\lib', 'C:\msvc71\lib', 'C:\psdk\Lib']
-cflags = ["/O2", "/Oy-", "/Gz", "/GX"]
+cflags = ["/O2", "/Ob0", "/Oy-", "/Gz", "/GX"]
 
 [exe]
 obj_dir = "build/obj"

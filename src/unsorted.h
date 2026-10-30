@@ -7,7 +7,9 @@
 #include "common.h"
 
 // cosf, a single x87 instruction under /Oi, as an out-of-line function
-// (0x401060). Sin and Sqrt follow it.
+// (0x401060). Sin and Sqrt follow it. Written with the double cos(),
+// which /Oi makes intrinsic: math.h's inline cosf() would be a call
+// under /Ob0.
 float Cos(float angle);
 float Sin(float angle);
 float Sqrt(float x);

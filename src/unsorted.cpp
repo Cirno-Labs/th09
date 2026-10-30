@@ -2,17 +2,17 @@
 
 float Cos(float angle)
 {
-    return cosf(angle);
+    return (float)cos((double)angle);
 }
 
 float Sin(float angle)
 {
-    return sinf(angle);
+    return (float)sin((double)angle);
 }
 
 float Sqrt(float x)
 {
-    return sqrtf(x);
+    return (float)sqrt((double)x);
 }
 
 void Vector2::SetPolar(float angle, float radius)
