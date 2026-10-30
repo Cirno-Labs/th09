@@ -858,7 +858,7 @@ address,size,name,symbol
 0x0043d2d0,69,MidiDevice::Open,?Open@MidiDevice@@QAEHI@Z
 0x0043d320,26,MmTimer::~MmTimer,??1MmTimer@@QAE@XZ
 0x0043d340,85,MmTimer::Start,?Start@MmTimer@@QAEIIP6GXIIKKK@ZK@Z
-0x0043d3a0,423,Func43d3a0,
+0x0043d3a0,423,MidiPlayer::MidiPlayer,??0MidiPlayer@@QAE@XZ
 0x0043d550,45,MidiPlayer::UnloadFile,?UnloadFile@MidiPlayer@@QAEXH@Z
 0x0043d580,89,MidiPlayer::FreeTracks,?FreeTracks@MidiPlayer@@QAEXXZ
 0x0043d5e0,358,Func43d5e0,

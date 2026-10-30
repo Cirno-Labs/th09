@@ -230,6 +230,35 @@ UINT MmTimer::Start(UINT delay, LPTIMECALLBACK callback, DWORD_PTR user)
     return this->timerId;
 }
 
+MidiPlayer::MidiPlayer()
+{
+    int i;
+    int j;
+
+    this->tracks = NULL;
+    this->division = 0;
+    this->tempo = 0;
+    this->trackCount = 0;
+    this->transpose = 0;
+    this->volumeScale = 0.0f;
+    this->lastVolume = 0;
+    this->unusedAfterConstruct2d0 = 0;
+    this->suppressVolume = 0;
+    this->unusedAfterConstruct2d8 = 0;
+    this->framesSinceRewind = 0;
+    this->fading = 0;
+    for (i = 0; i < 0x20; i++)
+    {
+        this->fileData[i] = NULL;
+    }
+    for (j = 0; j < 0x20; j++)
+    {
+        this->headers[j] = NULL;
+    }
+    this->nextHeader = 0;
+    this->playingSlot = -1;
+}
+
 void MidiPlayer::UnloadFile(int slot)
 {
     g_MemoryManager.Free(this->fileData[slot]);
