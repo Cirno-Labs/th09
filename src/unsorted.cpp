@@ -49,20 +49,6 @@ float Rng::GetRandomF32SignedInRange(float range)
     return this->GetRandomF32MinusOneToOne() * range;
 }
 
-void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
-{
-    __asm
-    {
-        mov eax, this
-        fld angle
-        fsincos
-        fmul radiusX
-        fstp [eax]
-        fmul radiusY
-        fstp [eax+4]
-    }
-}
-
 int Gui::GetUnknown11ea8()
 {
     return this->unknown11ea8;
@@ -966,16 +952,3 @@ float Atan(float x)
     return (float)atan((double)x);
 }
 
-void Vector2::SetPolar(float angle, float radius)
-{
-    __asm
-    {
-        mov eax, this
-        fld angle
-        fsincos
-        fmul radius
-        fstp [eax]
-        fmul radius
-        fstp [eax+4]
-    }
-}

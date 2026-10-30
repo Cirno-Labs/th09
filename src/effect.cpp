@@ -254,6 +254,37 @@ int EffectUpdate40d470(Effect *effect)
     return 1;
 }
 
+void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
+{
+    __asm
+    {
+        mov eax, this
+        fld angle
+        fsincos
+        fmul radiusX
+        fstp [eax]
+        fmul radiusY
+        fstp [eax+4]
+    }
+}
+
+// The original's copy is at 0x441890, away from the effect object, but
+// EffectDrawRing does not reload ecx after calling it, so the compiler
+// had seen its body in this file.
+void Vector2::SetPolar(float angle, float radius)
+{
+    __asm
+    {
+        mov eax, this
+        fld angle
+        fsincos
+        fmul radius
+        fstp [eax]
+        fmul radius
+        fstp [eax+4]
+    }
+}
+
 int EffectInit40d520(Effect *effect)
 {
     effect->unknown54 = effect->pos;
@@ -445,6 +476,120 @@ int EffectInit40dbb0(Effect *effect)
     effect->unknownC9 = 1;
     effect->unknown8c = 0x18;
     return 0;
+}
+
+int EffectDrawRing(Effect *effect)
+{
+    float outer;
+    float delta;
+    VertexTex1DiffuseXyzrwh *vtx;
+    float inner;
+    int i;
+
+    if (effect->unknownC9)
+    {
+        delta = 6.2831855f / effect->unknown8c;
+        outer = effect->unknown88 / sinf((3.1415927f - delta) / 2.0f);
+        vtx = effect->vertices;
+        g_SpriteEngine->FillVerticalStripVertices(effect->sprites, effect->vertices, effect->unknown8c * 2 + 2);
+        if (effect->unknown94 == 0.0f)
+        {
+            float angle = effect->unknown80;
+
+            inner = effect->unknown7c - outer;
+            outer += effect->unknown7c;
+            for (i = effect->unknown8c + 1; i > 0; i--)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                vtx->pos.z = 0.0f;
+                ((Vector2 *)&vtx->pos)->SetPolar(angle, outer);
+                vtx->pos += effect->unknown48;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx++;
+                vtx->pos.z = 0.0f;
+                ((Vector2 *)&vtx->pos)->SetPolar(angle, inner);
+                vtx->pos += effect->unknown48;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx++;
+                angle += delta;
+            }
+        }
+        else if (effect->unknown9c == 0.0f)
+        {
+            float angle = 0.0f;
+            D3DXVECTOR3 pos;
+            Vector2 *ppos = (Vector2 *)&pos;
+            float outerY;
+            float ryInner;
+
+            outerY = outer + effect->unknown94;
+            ryInner = effect->unknown94 - outer;
+            inner = effect->unknown7c - outer;
+            outer += effect->unknown7c;
+            for (i = effect->unknown8c + 1; i > 0; i--)
+            {
+                ppos->SetPolarEllipse(angle, outer, outerY);
+                Rotate2D(&vtx->pos, (D3DXVECTOR3 *)ppos, effect->unknown98);
+                vtx->pos += effect->unknown48;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->pos.z = 0.0f;
+                vtx++;
+                ppos->SetPolarEllipse(angle, inner, ryInner);
+                Rotate2D(&vtx->pos, (D3DXVECTOR3 *)ppos, effect->unknown98);
+                vtx->pos += effect->unknown48;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->pos.z = 0.0f;
+                vtx++;
+                angle += delta;
+            }
+        }
+        else
+        {
+            float wobbleAngle = effect->unknown98;
+            float angle = effect->unknown80;
+            float phaseStep = 6.2831855f * effect->unknown9c / effect->unknown8c;
+            float wobble;
+
+            inner = effect->unknown7c - outer;
+            outer += effect->unknown7c;
+            for (i = effect->unknown8c + 1; i > 0; i--)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                if (wobbleAngle >= 3.1415927f)
+                {
+                    wobbleAngle -= 6.2831855f;
+                }
+                wobble = cosf(wobbleAngle) * effect->unknown94;
+                ((Vector2 *)&vtx->pos)->SetPolar(angle, outer + wobble);
+                vtx->pos += effect->unknown48;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->pos.z = 0.0f;
+                vtx++;
+                ((Vector2 *)&vtx->pos)->SetPolar(angle, inner + wobble);
+                vtx->pos += effect->unknown48;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->pos.z = 0.0f;
+                vtx++;
+                angle += delta;
+                wobbleAngle += phaseStep;
+            }
+        }
+        effect->unknownC9 = 0;
+    }
+    g_SpriteEngine->DrawVertexStrip(effect->sprites, effect->vertices, effect->unknown8c * 2 + 2);
+    return 1;
 }
 
 int EffectInit40e080(Effect *effect)

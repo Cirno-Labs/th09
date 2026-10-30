@@ -165,7 +165,7 @@ address,size,name,symbol
 0x0040d910,200,EffectInit40d910,?EffectInit40d910@@YIHPAUEffect@@@Z
 0x0040d9e0,464,EffectUpdate40d9e0,?EffectUpdate40d9e0@@YIHPAUEffect@@@Z
 0x0040dbb0,184,EffectInit40dbb0,?EffectInit40dbb0@@YIHPAUEffect@@@Z
-0x0040dc70,1028,Func40dc70,
+0x0040dc70,1028,EffectDrawRing,?EffectDrawRing@@YIHPAUEffect@@@Z
 0x0040e080,71,EffectInit40e080,?EffectInit40e080@@YIHPAUEffect@@@Z
 0x0040e0d0,84,Ending::ReadInt,?ReadInt@Ending@@QAEHXZ
 0x0040e130,60,Ending::DrawFade,?DrawFade@Ending@@QAEXXZ

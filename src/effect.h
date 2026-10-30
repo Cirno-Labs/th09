@@ -221,3 +221,10 @@ int EffectUpdate40d9e0(Effect *effect);
 // curve for unknown9c, then fires a bullet at its velocity on the other
 // side. Returns 1 while waiting or moving, else 0 (0x40d600).
 int EffectUpdate40d600(Effect *effect);
+
+// The draw callback of the ring effects, as th08's EffectDrawRing: when
+// unknownC9 is set, rebuilds the ring of unknown8c segments, unknown88
+// wide, at radius unknown7c from angle unknown80 around unknown48 (an
+// ellipse of y radius unknown94 turned by unknown98, or with unknown9c
+// waves of unknown94 if those are set). Returns 1 (0x40dc70).
+int EffectDrawRing(Effect *effect);
