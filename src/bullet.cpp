@@ -1,4 +1,5 @@
 #include "bullet.h"
+#include "enemy.h"
 #include "gamemanager.h"
 
 void BulletManager::Initialize()
@@ -76,6 +77,15 @@ void Bullet::SetSpriteCommand(int i, int concurrent, int type, int color)
 
     cmd->frames = type;
     cmd->maxTurns = color;
+}
+
+void EnemyShooter::SetAngleAccelCommand(int i, int concurrent, int frames, float arg1, float arg0)
+{
+    BulletCommand *cmd = this->SetCommand(i, concurrent, 0x20);
+
+    cmd->frames = frames;
+    cmd->arg0 = arg0;
+    cmd->arg1 = arg1;
 }
 
 void BulletManager::RemoveChain(BulletManager *mgr)

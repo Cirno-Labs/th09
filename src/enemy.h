@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "bullet.h"
 #include "chain.h"
 #include "sprite.h"
 #include "timer.h"
@@ -101,7 +102,19 @@ struct EnemyShooter
         this->bulletSound = -1;
     }
 
-    unsigned char pad_0[0x200];
+    // Sets command `i` to `flag`, running with the others if `concurrent`,
+    // and adds the flag to flags. Returns the command (0x412650).
+    BulletCommand *SetCommand(int i, int concurrent, DWORD flag);
+    // Sets command `i` to flag 0x20, as th08's: turning by `arg0`
+    // towards `arg1` for `frames` (0x412700).
+    void SetAngleAccelCommand(int i, int concurrent, int frames, float arg1, float arg0);
+
+    unsigned char pad_0[0x20];
+    // Copied into each bullet.
+    BulletCommand commands[18];
+    unsigned char pad_1d0[0x1fc - 0x1d0];
+    // The flags of the commands it has.
+    DWORD flags;
     // The sounds of shooting and of the bullets, as th08's.
     int sound;
     int bulletSound;
