@@ -358,7 +358,7 @@ address,size,name,symbol
 0x0041bb70,101,Func41bb70,
 0x0041bbe0,163,Func41bbe0,
 0x0041bc90,162,Func41bc90,
-0x0041bd40,19,Func41bd40,
+0x0041bd40,19,Sprite::SetBlendMode1,?SetBlendMode1@Sprite@@QAEXXZ
 0x0041bd60,8,Func41bd60,
 0x0041bd70,19,Func41bd70,
 0x0041bd90,5,Func41bd90,
@@ -499,9 +499,9 @@ address,size,name,symbol
 0x00424898,329,MainMenu::OnDraw,?OnDraw@MainMenu@@SIHPAV1@@Z
 0x004249e1,534,MainMenu::LoadingThread,?LoadingThread@MainMenu@@SIXPAV1@@Z
 0x00424bf7,335,MainMenu::InitTitleScene,?InitTitleScene@MainMenu@@QAEHXZ
+0x00424d46,5,MainMenu::AddedCallback,?AddedCallback@MainMenu@@SIHPAV1@@Z
 0x00424d4b,84,MainMenu::ReleaseTitleScene,?ReleaseTitleScene@MainMenu@@QAEHXZ
 0x00424d9f,96,MainMenu::DeletedCallback,?DeletedCallback@MainMenu@@SIHPAV1@@Z
-0x00424d46,5,MainMenu::AddedCallback,?AddedCallback@MainMenu@@SIHPAV1@@Z
 0x00424dff,150,MainMenu::SelectEntry,?SelectEntry@MainMenu@@QAEXHHH@Z
 0x00424e95,72,MainMenu::ShowEntryFrame,?ShowEntryFrame@MainMenu@@QAEXHH@Z
 0x00424edd,211,MainMenu::SelectEntryStep,?SelectEntryStep@MainMenu@@QAEXHHHH@Z
@@ -2262,9 +2262,9 @@ address,size,name,symbol
 0x004a8140,,g_GameManagerDrawChain,?g_GameManagerDrawChain@@3UChainElem@@A
 0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAXA
 0x004a8168,,g_Lsnm,?g_Lsnm@@3ULsnm@@A
+0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
-0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
 0x004a8380,,g_HighScores,?g_HighScores@@3PAY144UHscr@@A
 0x004ac840,,g_ScoreDatHeader,?g_ScoreDatHeader@@3UScoreDat@@A
 0x004ac858,,g_Hscr,?g_Hscr@@3UHscr@@A

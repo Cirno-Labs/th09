@@ -211,6 +211,9 @@ public:
         this->pendingInterrupt = interrupt;
     }
 
+    // Sets blendMode to 1 (0x41bd40).
+    void SetBlendMode1();
+
     // Bit 0 of flags, as th08's. Inline; the copy is at 0x434370.
     BOOL IsShown()
     {
