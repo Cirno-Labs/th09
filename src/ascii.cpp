@@ -8,6 +8,11 @@
 #include "player.h"
 #include "unsorted.h"
 
+void AsciiText::SetUnknown17c4Interrupt(int i, short interrupt)
+{
+    this->unknown17c4[i].SetPendingInterrupt(interrupt);
+}
+
 int AsciiText::DeletedCallback(AsciiText *text)
 {
     g_SpriteEngine->ReleaseAnm(1);

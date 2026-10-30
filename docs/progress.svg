@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.05% (669)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36.95% (392)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.15% (670)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36.85% (391)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="471.01" height="6" x="0" y="0" class="named"/>
-<rect width="275.99" height="6" x="471.01" y="0" class="todo"/>
+<rect width="471.72" height="6" x="0" y="0" class="named"/>
+<rect width="275.28" height="6" x="471.72" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -172,7 +172,7 @@
 <rect width="12" height="12" x="30" y="30" class="todo"><title>0x00406740 Func406740 (80 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="30" class="named"><title>0x00406790 Sprite::SetPendingInterrupt (18 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="30" class="named"><title>0x004067b0 Stage::StartSpellCard (21 bytes)</title></rect>
-<rect width="12" height="12" x="75" y="30" class="todo"><title>0x004067d0 Func4067d0 (32 bytes)</title></rect>
+<rect width="12" height="12" x="75" y="30" class="named"><title>0x004067d0 AsciiText::SetUnknown17c4Interrupt (32 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="30" class="todo"><title>0x004067f0 Func4067f0 (42 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="30" class="todo"><title>0x00406820 Func406820 (16 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="30" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.67%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.33%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.68%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.32%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="244.04" height="6" x="0" y="0" class="named"/>
-<rect width="502.96" height="6" x="244.04" y="0" class="todo"/>
+<rect width="244.12" height="6" x="0" y="0" class="named"/>
+<rect width="502.88" height="6" x="244.12" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1963,7 +1963,7 @@
 <rect width="2.27" height="2.37" x="723.98" y="270.06" class="named"><title>0x00440620 CWaveFile::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="2.27" height="2.37" x="729.25" y="270.06" class="named"><title>0x00440c20 CSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="2.27" height="2.37" x="734.52" y="270.06" class="named"><title>0x00440c50 CStreamingSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
-<rect width="2.11" height="2.37" x="739.78" y="270.06" class="todo"><title>0x004067d0 Func4067d0 (32 bytes)</title></rect>
+<rect width="2.11" height="2.37" x="739.78" y="270.06" class="named"><title>0x004067d0 AsciiText::SetUnknown17c4Interrupt (32 bytes)</title></rect>
 <rect width="2.11" height="2.37" x="744.89" y="270.06" class="named"><title>0x0040d4d0 Vector2::SetPolarEllipse (32 bytes)</title></rect>
 <rect width="2.15" height="2.32" x="692.37" y="275.43" class="named"><title>0x00433940 File::File (32 bytes)</title></rect>
 <rect width="2.15" height="2.32" x="692.37" y="280.75" class="named"><title>0x0043d0a0 MmTimer::MmTimer (32 bytes)</title></rect>

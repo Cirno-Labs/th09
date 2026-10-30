@@ -136,6 +136,9 @@ public:
     // Shows `value` at `pos` in `color` for a while, among side
     // `side`'s popups, as th08's (0x4346a0).
     void AddPopup(int side, D3DXVECTOR3 *pos, int value, D3DCOLOR color);
+    // Sets the pending interrupt of unknown17c4[`i`]. Called by the ECL
+    // interpreter; the copy is at 0x4067d0.
+    void SetUnknown17c4Interrupt(int i, short interrupt);
 
     // Empties the queue of strings. Inline, as th08's; the copy is at
     // 0x430220.
