@@ -442,7 +442,7 @@ address,size,name,symbol
 0x00421140,1323,ReplayManager::AddedCallbackMode0,?AddedCallbackMode0@ReplayManager@@SIHPAV1@@Z
 0x00421670,361,ReplayManager::RegisterChain,?RegisterChain@ReplayManager@@SIPAV1@HPAD@Z
 0x004217e0,21,ReplayManager::RunAddedCallback,?RunAddedCallback@ReplayManager@@SIXPAV1@H@Z
-0x00421800,208,Func421800,
+0x00421800,216,InsertHighScore,?InsertHighScore@@YIHPAUHscr@@@Z
 0x004218e0,441,LoadHscrChunks,?LoadHscrChunks@@YIHPAUScoreDat@@@Z
 0x00421aa0,215,LoadLsnmChunk,?LoadLsnmChunk@@YIHPAUScoreDat@@@Z
 0x00421b80,178,LoadPlstChunk,?LoadPlstChunk@@YIHPAUScoreDat@@@Z

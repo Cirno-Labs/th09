@@ -71,6 +71,9 @@ extern Lsnm g_Lsnm;
 // Reads the score file at `path`, decrypted and unpacked, as th08's
 // LoadScoreDat (0x421c80).
 ScoreDat *LoadScoreDat(char *path);
+// Puts `entry` in its high score table, moving the lower entries down.
+// Returns its rank, or 99 if it is not high enough (0x421800).
+int InsertHighScore(struct Hscr *entry);
 // Reads the high scores from `dat`'s "HSCR" chunks (0x4218e0).
 int LoadHscrChunks(ScoreDat *dat);
 // Sets g_Lsnm to blanks, then reads it from `dat`'s chunk; returns

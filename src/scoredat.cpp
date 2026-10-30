@@ -1,9 +1,36 @@
-// The score file's functions, from 0x421aa0, as th08's scoredat.cpp.
+// The score file's functions, from 0x421800, as th08's scoredat.cpp.
 
 #include "scoredat.h"
 #include "lzss.h"
 #include "unsorted.h"
 #include "gamemanager.h"
+
+int InsertHighScore(Hscr *entry)
+{
+    int rank;
+    int i;
+
+    for (rank = 0; rank < 5; rank++)
+    {
+        if (entry->score >= g_HighScores[entry->character][entry->difficulty][rank].score)
+        {
+            break;
+        }
+    }
+    if (rank < 5)
+    {
+        for (i = 4; i > rank; i--)
+        {
+            g_HighScores[entry->character][entry->difficulty][i] =
+                g_HighScores[entry->character][entry->difficulty][i - 1];
+            g_HighScores[entry->character][entry->difficulty][i].rank = i;
+        }
+        g_HighScores[entry->character][entry->difficulty][rank] = *entry;
+        g_HighScores[entry->character][entry->difficulty][rank].rank = rank;
+        return rank;
+    }
+    return 99;
+}
 
 int LoadHscrChunks(ScoreDat *dat)
 {
