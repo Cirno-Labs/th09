@@ -50,29 +50,25 @@ struct GameConfigFlags
 // The object that runs the game (th08's App), at 0x4b3100.
 struct App
 {
-    // The config's options, as th08's getters (0x401460).
-    int GetNoFog();
     // Bit 3 of stateFlags, as th08's GetNoScore (0x420180).
     int GetNoScore();
-    // (0x42d2b0)
+    // The config's options, as th08's getters, out of line (0x401460,
+    // 0x42d2b0, 0x42d2c0, 0x42d2d0, 0x42ed30, 0x42ed40, 0x42ed50,
+    // 0x42ed60).
+    int GetNoFog();
     int GetForce16BitTextures();
-    // (0x42d2c0)
     int GetReferenceRasterizer();
-    // (0x42d2d0)
     int GetWindowed();
-    // (0x42ed30)
     int GetNoDirectInput();
-    // (0x42ed40)
     int GetPreloadBgm();
-    // (0x42ed50)
     int GetNoVsync();
-    // (0x42ed60)
     int GetNoTextRenderDetect();
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
 
     unsigned char pad_0[0x439];
+    // Whether the game runs in a window.
     BYTE windowed;
     unsigned char pad_43a[0x450 - 0x43a];
     GameConfigFlags flags;
