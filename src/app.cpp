@@ -1,3 +1,4 @@
+#include "archive.h"
 #include "ascii.h"
 #include "chain.h"
 #include "gdisurface.h"
@@ -130,6 +131,30 @@ int App::OnDrawLoading(App *app)
         g_LoadingSprites[i].pos -= g_LoadingSprites[i].posOffset;
     }
     return 1;
+}
+
+int OpenGameArchive()
+{
+    char path[0x80];
+    int size;
+
+    if (g_Archive.Open("th09.dat"))
+    {
+        sprintf(path, "th09_%.4x%c.ver", 0x150, 'a');
+        g_App.verFile = (char *)OpenPath(path, &size, 0);
+        g_App.verFileSize = size;
+        if (g_App.verFile == NULL)
+        {
+            LogError(&g_Log, "error : データのバージョンが違います\r\n");
+            return -1;
+        }
+    }
+    else
+    {
+        LogError(&g_Log, "error : データファイルが存在しません\r\n");
+        return -1;
+    }
+    return 0;
 }
 
 int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight,

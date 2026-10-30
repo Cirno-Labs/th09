@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.13% (542)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.87% (518)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.23% (543)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.77% (517)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="381.96" height="6" x="0" y="0" class="named"/>
-<rect width="365.04" height="6" x="381.96" y="0" class="todo"/>
+<rect width="382.66" height="6" x="0" y="0" class="named"/>
+<rect width="364.34" height="6" x="382.66" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -692,7 +692,7 @@
 <rect width="12" height="12" x="330" y="180" class="todo"><title>0x0042ee30 Func42ee30 (94 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="180" class="todo"><title>0x0042ee90 Func42ee90 (94 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="180" class="todo"><title>0x0042eef0 Func42eef0 (517 bytes)</title></rect>
-<rect width="12" height="12" x="375" y="180" class="todo"><title>0x0042f100 OpenGameArchive (145 bytes)</title></rect>
+<rect width="12" height="12" x="375" y="180" class="named"><title>0x0042f100 OpenGameArchive (145 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="180" class="todo"><title>0x0042f1a0 MeasureRefreshRate (517 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="180" class="todo"><title>0x0042f3b0 Func42f3b0 (18 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="180" class="todo"><title>0x0042f3d0 Func42f3d0 (31 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.01%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.99%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.06%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.94%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="201.75" height="6" x="0" y="0" class="named"/>
-<rect width="545.25" height="6" x="201.75" y="0" class="todo"/>
+<rect width="202.12" height="6" x="0" y="0" class="named"/>
+<rect width="544.88" height="6" x="202.12" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1576,7 +1576,7 @@
 <rect width="8.10" height="8.38" x="630.48" y="157.89" class="todo"><title>0x00406680 Func406680 (147 bytes)</title></rect>
 <rect width="8.02" height="8.38" x="641.58" y="157.89" class="named"><title>0x004337d0 File::ReadAll (146 bytes)</title></rect>
 <rect width="7.95" height="8.38" x="652.60" y="157.89" class="todo"><title>0x0040d070 EffectManager::OnDraw2 (145 bytes)</title></rect>
-<rect width="7.95" height="8.38" x="663.55" y="157.89" class="todo"><title>0x0042f100 OpenGameArchive (145 bytes)</title></rect>
+<rect width="7.95" height="8.38" x="663.55" y="157.89" class="named"><title>0x0042f100 OpenGameArchive (145 bytes)</title></rect>
 <rect width="7.87" height="8.38" x="674.50" y="157.89" class="named"><title>0x00436b80 Sprite::ResolveIntArgument (144 bytes)</title></rect>
 <rect width="7.80" height="8.38" x="685.37" y="157.89" class="named"><title>0x004187b0 Gui::Gui (143 bytes)</title></rect>
 <rect width="7.80" height="8.38" x="696.17" y="157.89" class="named"><title>0x0042b1e0 Chain::AddToCalcChain (143 bytes)</title></rect>
