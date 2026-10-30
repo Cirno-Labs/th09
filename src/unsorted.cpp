@@ -84,6 +84,19 @@ ChainElem::ChainElem()
     this->allocated = 0;
 }
 
+ChainElem::~ChainElem()
+{
+    if (this->deletedCallback != NULL)
+    {
+        this->deletedCallback(this->arg);
+    }
+    this->prev = NULL;
+    this->next = NULL;
+    this->callback = NULL;
+    this->addedCallback = NULL;
+    this->deletedCallback = NULL;
+}
+
 WORD Rng::GetRandomU16()
 {
     WORD a;
