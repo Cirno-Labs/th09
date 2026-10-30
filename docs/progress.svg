@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">54.25% (575)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">45.75% (485)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">54.34% (576)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">45.66% (484)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="405.21" height="6" x="0" y="0" class="named"/>
-<rect width="341.79" height="6" x="405.21" y="0" class="todo"/>
+<rect width="405.92" height="6" x="0" y="0" class="named"/>
+<rect width="341.08" height="6" x="405.92" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -745,7 +745,7 @@
 <rect width="12" height="12" x="375" y="195" class="todo"><title>0x00432240 Func432240 (240 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="195" class="named"><title>0x00432340 Network::ReleaseInterfaces (97 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="195" class="todo"><title>0x004323b0 Func4323b0 (95 bytes)</title></rect>
-<rect width="12" height="12" x="420" y="195" class="todo"><title>0x00432410 Func432410 (164 bytes)</title></rect>
+<rect width="12" height="12" x="420" y="195" class="named"><title>0x00432410 LogNetworkError (164 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="195" class="todo"><title>0x004324c0 Network::Init (679 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="195" class="todo"><title>0x00432770 Func432770 (199 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="195" class="named"><title>0x00432840 Network::CreateDeviceAddress (165 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.84%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.16%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.90%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.10%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="215.44" height="6" x="0" y="0" class="named"/>
-<rect width="531.56" height="6" x="215.44" y="0" class="todo"/>
+<rect width="215.86" height="6" x="0" y="0" class="named"/>
+<rect width="531.14" height="6" x="215.86" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1549,7 +1549,7 @@
 <rect width="8.71" height="9.11" x="657.03" y="145.84" class="named"><title>0x00432840 Network::CreateDeviceAddress (165 bytes)</title></rect>
 <rect width="8.71" height="9.11" x="668.74" y="145.84" class="named"><title>0x00439730 SpriteEngine::AddQuadToBatch (165 bytes)</title></rect>
 <rect width="8.64" height="9.11" x="680.45" y="145.84" class="todo"><title>0x0041f760 Func41f760 (164 bytes)</title></rect>
-<rect width="8.64" height="9.11" x="692.09" y="145.84" class="todo"><title>0x00432410 Func432410 (164 bytes)</title></rect>
+<rect width="8.64" height="9.11" x="692.09" y="145.84" class="named"><title>0x00432410 LogNetworkError (164 bytes)</title></rect>
 <rect width="8.57" height="9.11" x="703.73" y="145.84" class="todo"><title>0x0041bbe0 Func41bbe0 (163 bytes)</title></rect>
 <rect width="8.57" height="9.11" x="715.29" y="145.84" class="todo"><title>0x004225b0 Func4225b0 (163 bytes)</title></rect>
 <rect width="8.57" height="9.11" x="726.86" y="145.84" class="named"><title>0x0043b5c0 SpriteEngine::DrawVertexQuad (163 bytes)</title></rect>

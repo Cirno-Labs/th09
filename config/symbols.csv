@@ -677,7 +677,7 @@ address,size,name,symbol
 0x00432240,240,Func432240,
 0x00432340,97,Network::ReleaseInterfaces,?ReleaseInterfaces@Network@@QAEXXZ
 0x004323b0,95,Func4323b0,
-0x00432410,164,Func432410,
+0x00432410,164,LogNetworkError,?LogNetworkError@@YIXJ@Z
 0x004324c0,679,Network::Init,?Init@Network@@QAEXXZ
 0x00432770,199,Func432770,
 0x00432840,165,Network::CreateDeviceAddress,?CreateDeviceAddress@Network@@QAEJXZ
@@ -1986,7 +1986,7 @@ address,size,name,symbol
 0x0048a782,43,Func48a782,
 0x0048a7ad,43,__strdup,
 0x0048a7d8,123,__mbschr,
-0x0048a853,8943,Func48a853,
+0x0048a853,8943,DXGetErrorString8A,_DXGetErrorString8A@4
 0x0048d210,11,Unwind@0048d210,
 0x0048d230,11,Unwind@0048d230,
 0x0048d250,11,Unwind@0048d250,

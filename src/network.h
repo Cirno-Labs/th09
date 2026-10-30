@@ -63,6 +63,9 @@ struct Network
 };
 ASSERT_SIZE(Network, 0xd4);
 extern Network *g_Network;
+// Logs the system's message for `hr`, else DirectX's name of it
+// (0x432410).
+void LogNetworkError(HRESULT hr);
 // The DirectPlay message handler: hands the message to g_Network
 // (0x432ea0).
 HRESULT WINAPI NetworkMessageHandler(PVOID context, DWORD type, PVOID message);

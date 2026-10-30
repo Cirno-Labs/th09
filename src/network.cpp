@@ -1,6 +1,30 @@
 #include "network.h"
 #include "unsorted.h"
 
+// The SDK's header declares it without C linkage.
+extern "C"
+{
+#include <dxerr8.h>
+}
+
+void LogNetworkError(HRESULT hr)
+{
+    char text[0x800];
+    LPSTR message;
+
+    FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_FROM_SYSTEM, NULL,
+                   hr, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&message, 0, NULL);
+    if (message != NULL)
+    {
+        LogError(&g_Log, message);
+        LocalFree(message);
+        return;
+    }
+    strcpy(text, DXGetErrorString8A(hr));
+    strcat(text, "\r\n");
+    LogError(&g_Log, text);
+}
+
 void Network::ReleaseInterfaces()
 {
     if (this->peer != NULL)
