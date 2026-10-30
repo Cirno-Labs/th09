@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">43.61% (461)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">56.39% (596)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">43.71% (462)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">56.29% (595)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="325.80" height="6" x="0" y="0" class="named"/>
-<rect width="421.20" height="6" x="325.80" y="0" class="todo"/>
+<rect width="326.50" height="6" x="0" y="0" class="named"/>
+<rect width="420.50" height="6" x="326.50" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -879,7 +879,7 @@
 <rect width="12" height="12" x="135" y="240" class="named"><title>0x0043b5c0 SpriteEngine::DrawVertexQuad (163 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="240" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="240" class="named"><title>0x0043b7b0 SpriteEngine::DrawColoredFan (318 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="240" class="todo"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="240" class="named"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="240" class="todo"><title>0x0043b9c0 Func43b9c0 (472 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="240" class="named"><title>0x0043bba0 SpriteEngine::CreateTexture (50 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="240" class="named"><title>0x0043bbe0 SpriteEngine::PreloadAnmTexture (150 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.17%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.83%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.23%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.77%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="143.17" height="6" x="0" y="0" class="named"/>
-<rect width="603.83" height="6" x="143.17" y="0" class="todo"/>
+<rect width="143.68" height="6" x="0" y="0" class="named"/>
+<rect width="603.32" height="6" x="143.68" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1492,7 +1492,7 @@
 <rect width="10.10" height="10.12" x="723.80" y="120.10" class="todo"><title>0x004130f0 Func4130f0 (200 bytes)</title></rect>
 <rect width="10.10" height="10.12" x="736.90" y="120.10" class="todo"><title>0x004131c0 Func4131c0 (200 bytes)</title></rect>
 <rect width="9.65" height="10.59" x="549.43" y="133.22" class="todo"><title>0x00432f70 Func432f70 (200 bytes)</title></rect>
-<rect width="9.65" height="10.59" x="549.43" y="146.81" class="todo"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
+<rect width="9.65" height="10.59" x="549.43" y="146.81" class="named"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
 <rect width="9.65" height="10.59" x="549.43" y="160.40" class="named"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.43" y="173.99" class="todo"><title>0x00413700 Func413700 (199 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.43" y="187.51" class="named"><title>0x00430150 App::CheckVersionFile (199 bytes)</title></rect>

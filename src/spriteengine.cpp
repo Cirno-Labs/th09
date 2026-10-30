@@ -1263,6 +1263,30 @@ int SpriteEngine::DrawColoredFan(Sprite *vm, VertexDiffuseXyzrwh *vertices, int 
     return 0;
 }
 
+int SpriteEngine::DrawVertexFan(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count)
+{
+    if (this->batchQuadCount != 0)
+    {
+        this->FlushQuadBatch();
+    }
+    if (this->vertexFormat != 3)
+    {
+        g_App.d3dDevice->SetVertexShader(D3DFVF_XYZRHW | D3DFVF_DIFFUSE | D3DFVF_TEX1);
+        this->vertexFormat = 3;
+    }
+    this->SetBlendModeForSprite(vm);
+    if (this->currentTexture != vm->spriteData->texture)
+    {
+        this->currentTexture = vm->spriteData->texture;
+        g_App.d3dDevice->SetTexture(0, this->currentTexture);
+    }
+    g_App.SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+    g_App.d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, count - 2, vertices, sizeof(vertices[0]));
+    return 0;
+}
+
 // 0x43bba0
 int SpriteEngine::CreateTexture(AnmTexture *tex, int width, int height, int format)
 {
