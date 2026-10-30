@@ -16,6 +16,11 @@ AnmFile *SpriteEngine::GetAnmFile(int slot)
     return this->GetAnm(slot)->file;
 }
 
+void PlayerHitArea::Deactivate()
+{
+    this->active = 0;
+}
+
 // Unloads the player's ANM file and frees its shot file if the game frees
 // its resources. Returns 0. Static, with the player in esi (0x41ce60).
 static int FreeResources(Player *player)

@@ -4,6 +4,104 @@
 
 #include "chain.h"
 #include "gamemanager.h"
+#include "sprite.h"
+#include "timer.h"
+
+// One of the player's hit areas (0x44 bytes), th08's PlayerBombHitbox
+// grown. Placeholder name; only the fields known so far.
+struct PlayerHitArea
+{
+    // Zeroes it, then sets unknown34 to 1, as th08's Reset (0x41bda0).
+    void Reset();
+    // Clears active, as th08's (0x41bd90).
+    void Deactivate();
+
+    unsigned char pad_0[0x34];
+    int unknown34;
+    unsigned char pad_38[0x3c - 0x38];
+    BYTE active;
+    unsigned char pad_3d[0x44 - 0x3d];
+};
+ASSERT_SIZE(PlayerHitArea, 0x44);
+
+// A part of the player at +0x24 with three timers (0x78 bytes).
+// Placeholder name.
+struct PlayerUnknown24
+{
+    // Sets timer5c and timer68 to 0 and clears the low two flags
+    // (0x41bdc0).
+    void Reset();
+
+    Timer timer0;
+    unsigned char pad_c[0x5c - 0xc];
+    Timer timer5c;
+    Timer timer68;
+    DWORD flags;
+};
+ASSERT_SIZE(PlayerUnknown24, 0x78);
+
+// A part of the player at +0x36c: the player and 0x80 points.
+// Placeholder name.
+struct PlayerUnknown36c
+{
+    Player *player;
+    D3DXVECTOR3 points[0x80];
+};
+ASSERT_SIZE(PlayerUnknown36c, 0x604);
+
+// One of the player's options (0x2f4 bytes), the size and timer of
+// th08's PlayerOption. Only the fields known so far.
+struct PlayerOption
+{
+    Sprite sprite;
+    unsigned char pad_2a4[0x2e0 - 0x2a4];
+    Timer timer;
+    unsigned char pad_2ec[0x2f4 - 0x2ec];
+};
+ASSERT_SIZE(PlayerOption, 0x2f4);
+
+// One of the player's bullets (0x484 bytes), the layout of th08's
+// PlayerBullet. Only the fields known so far.
+struct PlayerBullet
+{
+    Sprite sprite;
+    D3DXVECTOR3 pos;
+    D3DXVECTOR3 trail[0x20];
+    unsigned char pad_430[0x454 - 0x430];
+    Timer timer;
+    unsigned char pad_460[0x484 - 0x460];
+};
+ASSERT_SIZE(PlayerBullet, 0x484);
+
+// A part of the player at +0x3031c with a timer (0x1c bytes). Its
+// constructor folds with BulletEx's. Placeholder name.
+struct PlayerUnknown3031c
+{
+    Timer timer;
+    unsigned char pad_c[0x1c - 0xc];
+};
+ASSERT_SIZE(PlayerUnknown3031c, 0x1c);
+
+// A part of the player at +0x30410, which points back to it (0x40
+// bytes). Placeholder name.
+struct PlayerUnknown30410
+{
+    Player *player;
+    unsigned char pad_4[0x14 - 0x4];
+    Timer timer14;
+    Timer timer20;
+    unsigned char pad_2c[0x40 - 0x2c];
+};
+ASSERT_SIZE(PlayerUnknown30410, 0x40);
+
+// One of four sprites of the player at +0x30454 (0x2c4 bytes).
+// Placeholder name.
+struct PlayerUnknown30454
+{
+    unsigned char pad_0[0x20];
+    Sprite sprite;
+};
+ASSERT_SIZE(PlayerUnknown30454, 0x2c4);
 
 // A side's player (0x30f70 bytes). Only the fields known so far.
 class Player
@@ -14,26 +112,61 @@ public:
     static void RemoveChain(Player *player);
     // Resets the player for a new round (0x41ebc0).
     void Reset();
+    // Sets registerChainArg (0x41bde0).
+    void SetRegisterChainArg(BYTE arg);
     // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
     void SubUnknown30388(float amount);
 
-    unsigned char pad_0[0x8];
+    unsigned char pad_0[0x4];
+    // RegisterChain's first argument.
+    BYTE registerChainArg;
+    unsigned char pad_5[0x8 - 0x5];
     // The side, 0 or 1.
     int sideIdx;
     GameSide *side;
-    unsigned char pad_10[0x14 - 0x10];
+    GameSide *otherSide;
     ChainElem *calcElem;
     ChainElem *drawElem;
     ChainElem *drawElem2;
-    unsigned char pad_20[0x1b88 - 0x20];
+    int unknown20;
+    PlayerUnknown24 unknown24;
+    unsigned char pad_9c[0xbc - 0x9c];
+    // The character's ANM, in slot sideIdx + 5.
+    AnmLoaded *anm;
+    Sprite sprite;
+    unsigned char pad_364[0x36c - 0x364];
+    PlayerUnknown36c unknown36c;
+    unsigned char pad_970[0x1b74 - 0x970];
+    Timer unknown1b74;
+    unsigned char pad_1b80[0x1b88 - 0x1b80];
     D3DXVECTOR3 pos;
-    unsigned char pad_1b94[0x30338 - 0x1b94];
+    unsigned char pad_1b94[0x1ba0 - 0x1b94];
+    // The player's last positions, as th08's.
+    D3DXVECTOR3 posHistory[0x10];
+    unsigned char pad_1c60[0x1cec - 0x1c60];
+    PlayerOption options[4];
+    unsigned char pad_28bc[0xc11c - 0x28bc];
+    PlayerBullet bullets[0x80];
+    PlayerUnknown3031c unknown3031c;
     // The character's shot file (plXX.sht).
     void *shtFile;
     unsigned char pad_3033c[0x30388 - 0x3033c];
     // Lowered by SubUnknown30388, down to 1.
     float unknown30388;
+    Timer unknown3038c;
+    Timer unknown30398;
+    Timer unknown303a4;
+    Timer unknown303b0;
+    Timer unknown303bc;
+    Timer unknown303c8;
+    Timer unknown303d4;
+    unsigned char pad_303e0[0x30410 - 0x303e0];
+    PlayerUnknown30410 unknown30410;
+    unsigned char pad_30450[0x30454 - 0x30450];
+    PlayerUnknown30454 unknown30454[4];
+    unsigned char pad_30f64[0x30f70 - 0x30f64];
 };
+ASSERT_SIZE(Player, 0x30f70);
 
 // Each side's shot file, kept while the side keeps its character
 // (0x4a8160).

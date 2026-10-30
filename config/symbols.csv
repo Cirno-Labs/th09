@@ -361,7 +361,7 @@ address,size,name,symbol
 0x0041bd40,19,Sprite::SetBlendMode1,?SetBlendMode1@Sprite@@QAEXXZ
 0x0041bd60,8,Sprite::ClearBlendMode,?ClearBlendMode@Sprite@@QAEXXZ
 0x0041bd70,19,SpriteEngine::GetAnmFile,?GetAnmFile@SpriteEngine@@QAEPAUAnmFile@@H@Z
-0x0041bd90,5,Func41bd90,
+0x0041bd90,5,PlayerHitArea::Deactivate,?Deactivate@PlayerHitArea@@QAEXXZ
 0x0041bda0,23,Func41bda0,
 0x0041bdc0,29,Func41bdc0,
 0x0041bde0,13,Func41bde0,

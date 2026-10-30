@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">57.36% (608)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">42.64% (452)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">57.45% (609)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">42.55% (451)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="428.47" height="6" x="0" y="0" class="named"/>
-<rect width="318.53" height="6" x="428.47" y="0" class="todo"/>
+<rect width="429.17" height="6" x="0" y="0" class="named"/>
+<rect width="317.83" height="6" x="429.17" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -429,7 +429,7 @@
 <rect width="12" height="12" x="135" y="105" class="named"><title>0x0041bd40 Sprite::SetBlendMode1 (19 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="105" class="named"><title>0x0041bd60 Sprite::ClearBlendMode (8 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="105" class="named"><title>0x0041bd70 SpriteEngine::GetAnmFile (19 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="105" class="todo"><title>0x0041bd90 Func41bd90 (5 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="105" class="named"><title>0x0041bd90 PlayerHitArea::Deactivate (5 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="105" class="todo"><title>0x0041bda0 Func41bda0 (23 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="105" class="todo"><title>0x0041bdc0 Func41bdc0 (29 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="105" class="todo"><title>0x0041bde0 Func41bde0 (13 bytes)</title></rect>
@@ -1133,8 +1133,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.55%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.45%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="228.18" height="6" x="0" y="0" class="named"/>
-<rect width="518.82" height="6" x="228.18" y="0" class="todo"/>
+<rect width="228.19" height="6" x="0" y="0" class="named"/>
+<rect width="518.81" height="6" x="228.19" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2174,7 +2174,7 @@
 <rect width="0.10" height="0.10" x="737.90" y="330.70" class="named"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="740.52" y="323.48" class="todo"><title>0x0043e420 Func43e420 (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="743.41" y="323.48" class="named"><title>0x00415cf0 FreesResources (6 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="745.88" y="323.48" class="todo"><title>0x0041bd90 Func41bd90 (5 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="745.88" y="323.48" class="named"><title>0x0041bd90 PlayerHitArea::Deactivate (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.94" y="323.48" class="named"><title>0x00424d46 MainMenu::AddedCallback (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="740.52" y="325.57" class="named"><title>0x0042f3f0 MidiTimer::~MidiTimer (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="740.52" y="327.43" class="named"><title>0x004335d0 DatArchive::~DatArchive (5 bytes)</title></rect>
