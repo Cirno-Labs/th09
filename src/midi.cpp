@@ -214,3 +214,18 @@ MmTimer::~MmTimer()
     this->Stop();
     timeEndPeriod(this->caps.wPeriodMin);
 }
+
+UINT MmTimer::Start(UINT delay, LPTIMECALLBACK callback, DWORD_PTR user)
+{
+    this->Stop();
+    timeBeginPeriod(this->caps.wPeriodMin);
+    if (callback != NULL)
+    {
+        this->timerId = timeSetEvent(delay, this->caps.wPeriodMin, callback, user, TIME_PERIODIC);
+    }
+    else
+    {
+        this->timerId = timeSetEvent(delay, this->caps.wPeriodMin, DefaultCallback, (DWORD_PTR)this, TIME_PERIODIC);
+    }
+    return this->timerId;
+}
