@@ -94,7 +94,7 @@ void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t)
 
 void SendExAttack1(Enemy *enemy, EclInstr *instr)
 {
-    g_GameManager.exAttackManager->AddAttack(1, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(1, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
 void SetSidesFlag0(Enemy *enemy, EclInstr *instr)
@@ -109,27 +109,27 @@ void SetSidesFlag0(Enemy *enemy, EclInstr *instr)
 
 void SendExAttack7(Enemy *enemy, EclInstr *instr)
 {
-    g_GameManager.exAttackManager->AddAttack(7, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(7, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
 void SendExAttack8(Enemy *enemy, EclInstr *instr)
 {
-    g_GameManager.exAttackManager->AddAttack(8, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(8, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
 void SendExAttack9(Enemy *enemy, EclInstr *instr)
 {
-    g_GameManager.exAttackManager->AddAttack(9, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(9, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
 void SendExAttack23(Enemy *enemy, EclInstr *instr)
 {
-    g_GameManager.exAttackManager->AddAttack(23, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(23, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
 void SendExAttack24(Enemy *enemy, EclInstr *instr)
 {
-    g_GameManager.exAttackManager->AddAttack(24, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(24, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
 void SendExAttack10(Enemy *enemy, EclInstr *instr)
@@ -139,7 +139,7 @@ void SendExAttack10(Enemy *enemy, EclInstr *instr)
     pos.x = enemy->currentCtx->floatVars2[0];
     pos.y = enemy->currentCtx->floatVars2[1];
     pos.z = 0.0f;
-    g_GameManager.exAttackManager->AddAttack(10, &pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(10, &pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
 void SendExAttack11(Enemy *enemy, EclInstr *instr)
@@ -149,7 +149,7 @@ void SendExAttack11(Enemy *enemy, EclInstr *instr)
     pos.x = enemy->currentCtx->floatVars2[0];
     pos.y = enemy->currentCtx->floatVars2[1];
     pos.z = enemy->currentCtx->floatVars[0];
-    g_GameManager.exAttackManager->AddAttack(11, &pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(11, &pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
 void SendExAttack12(Enemy *enemy, EclInstr *instr)
@@ -159,5 +159,23 @@ void SendExAttack12(Enemy *enemy, EclInstr *instr)
     pos.x = enemy->currentCtx->floatVars2[0];
     pos.y = enemy->currentCtx->floatVars2[1];
     pos.z = enemy->currentCtx->floatVars[0];
-    g_GameManager.exAttackManager->AddAttack(12, &pos, 1 - enemy->manager->sideIdx, 0);
+    g_GameManager.exAttackManager->AddAttack(12, &pos, 1 - enemy->manager->sideIdx, NULL);
+}
+
+void SendExAttack22(Enemy *enemy, EclInstr *instr)
+{
+    D3DXVECTOR3 target;
+
+    ((Vector2 *)&target)->SetPolar(1.5707964f, 64.0f);
+    target += enemy->pos;
+    target.z = 1.5707964f;
+    g_GameManager.exAttackManager->AddAttack(22, &enemy->pos, 1 - enemy->manager->sideIdx, &target);
+    ((Vector2 *)&target)->SetPolar(1.2566371f, 64.0f);
+    target += enemy->pos;
+    target.z = 1.2566371f;
+    g_GameManager.exAttackManager->AddAttack(22, &enemy->pos, 1 - enemy->manager->sideIdx, &target);
+    ((Vector2 *)&target)->SetPolar(1.8849556f, 64.0f);
+    target += enemy->pos;
+    target.z = 1.8849556f;
+    g_GameManager.exAttackManager->AddAttack(22, &enemy->pos, 1 - enemy->manager->sideIdx, &target);
 }

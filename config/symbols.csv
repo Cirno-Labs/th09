@@ -138,7 +138,7 @@ address,size,name,symbol
 0x0040c770,70,SendExAttack10,?SendExAttack10@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c7c0,69,SendExAttack11,?SendExAttack11@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c810,69,SendExAttack12,?SendExAttack12@@YIXPAUEnemy@@PAUEclInstr@@@Z
-0x0040c860,226,Func40c860,
+0x0040c860,226,SendExAttack22,?SendExAttack22@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c950,14,EffectManager::Init,?Init@EffectManager@@QAEXXZ
 0x0040c990,194,EffectManager::Reset,?Reset@EffectManager@@QAEXXZ
 0x0040ca60,407,Func40ca60,
@@ -278,7 +278,7 @@ address,size,name,symbol
 0x00415020,34,Laser::Laser,??0Laser@@QAE@XZ
 0x00415050,121,BulletManager::BulletManager,??0BulletManager@@QAE@XZ
 0x004150d0,283,BulletManager::RegisterChain,?RegisterChain@BulletManager@@SIPAV1@H@Z
-0x004151f0,321,ExAttackManager::AddAttack,?AddAttack@ExAttackManager@@QAEHHPAUD3DXVECTOR3@@HH@Z
+0x004151f0,321,ExAttackManager::AddAttack,?AddAttack@ExAttackManager@@QAEHHPAUD3DXVECTOR3@@H0@Z
 0x00415340,279,ExAttackManager::OnUpdate,?OnUpdate@ExAttackManager@@SIHPAV1@@Z
 0x00415460,272,ExAttackManager::OnDraw,?OnDraw@ExAttackManager@@SIHPAV1@@Z
 0x00415580,190,ExAttackManager::OnDraw2,?OnDraw2@ExAttackManager@@SIHPAV1@@Z

@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.79% (692)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.64% (370)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.89% (693)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.55% (369)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="484.01" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="484.01" y="0" class="decompiled"/>
-<rect width="258.79" height="6" x="488.21" y="0" class="todo"/>
+<rect width="484.71" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="484.71" y="0" class="decompiled"/>
+<rect width="258.09" height="6" x="488.91" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -207,7 +207,7 @@
 <rect width="12" height="12" x="540" y="30" class="named"><title>0x0040c770 SendExAttack10 (70 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="30" class="named"><title>0x0040c7c0 SendExAttack11 (69 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="30" class="named"><title>0x0040c810 SendExAttack12 (69 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="30" class="todo"><title>0x0040c860 Func40c860 (226 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="30" class="named"><title>0x0040c860 SendExAttack22 (226 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="30" class="named"><title>0x0040c950 EffectManager::Init (14 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="30" class="named"><title>0x0040c990 EffectManager::Reset (194 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="30" class="todo"><title>0x0040ca60 Func40ca60 (407 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.09%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.87%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.17%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.79%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="247.21" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="247.21" y="0" class="decompiled"/>
-<rect width="499.49" height="6" x="247.51" y="0" class="todo"/>
+<rect width="247.79" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="247.79" y="0" class="decompiled"/>
+<rect width="498.91" height="6" x="248.09" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1467,7 +1467,7 @@
 <rect width="11.62" height="10.59" x="594.29" y="106.88" class="todo"><title>0x0042db50 Func42db50 (232 bytes)</title></rect>
 <rect width="11.62" height="10.59" x="608.91" y="106.88" class="named"><title>0x0043eeb0 SoundPlayer::Release (232 bytes)</title></rect>
 <rect width="11.30" height="10.59" x="623.53" y="106.88" class="named"><title>0x00435dc0 AsciiText::AsciiText (227 bytes)</title></rect>
-<rect width="11.24" height="10.59" x="637.83" y="106.88" class="todo"><title>0x0040c860 Func40c860 (226 bytes)</title></rect>
+<rect width="11.24" height="10.59" x="637.83" y="106.88" class="named"><title>0x0040c860 SendExAttack22 (226 bytes)</title></rect>
 <rect width="11.24" height="10.59" x="652.07" y="106.88" class="named"><title>0x00433980 File::Open (226 bytes)</title></rect>
 <rect width="11.18" height="10.59" x="666.31" y="106.88" class="todo"><title>0x0042d140 Func42d140 (225 bytes)</title></rect>
 <rect width="11.05" height="10.59" x="680.49" y="106.88" class="todo"><title>0x0040f080 Ending::RegisterChain (223 bytes)</title></rect>
