@@ -114,6 +114,13 @@ void ResetKeyboard()
     SetKeyboardState(keyState);
 }
 
+char *__stdcall GetDataPath(char *name)
+{
+    strcpy(g_PathBuffer, g_DataDir);
+    strcat(g_PathBuffer, name);
+    return g_PathBuffer;
+}
+
 WORD Rng::GetRandomU16()
 {
     WORD a;

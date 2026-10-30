@@ -78,6 +78,14 @@ extern JOYCAPSA g_JoyCaps[2];
 // Releases every key in the keyboard state, as th08's (0x42ad70).
 void ResetKeyboard();
 
+// The directory the game's loose files are read from (0x4acd08), and
+// where GetDataPath builds a path in it (0x4acc00).
+extern char g_DataDir[];
+extern char g_PathBuffer[0x108];
+// `name` in g_DataDir, in g_PathBuffer. __stdcall, unlike the rest of
+// the game (0x42adc0).
+char *__stdcall GetDataPath(char *name);
+
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);

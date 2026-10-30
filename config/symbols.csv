@@ -527,7 +527,7 @@ address,size,name,symbol
 0x0042acb0,47,Func42acb0,
 0x0042ace0,131,Func42ace0,
 0x0042ad70,65,ResetKeyboard,?ResetKeyboard@@YIXXZ
-0x0042adc0,81,Func42adc0,
+0x0042adc0,90,GetDataPath,?GetDataPath@@YGPADPAD@Z
 0x0042ae20,39,Rng::GetRandomU16,?GetRandomU16@Rng@@QAEGXZ
 0x0042ae50,24,Rng::GetRandomU32,?GetRandomU32@Rng@@QAEKXZ
 0x0042ae70,35,Rng::GetRandomF32ZeroToOne,?GetRandomF32ZeroToOne@Rng@@QAEMXZ
@@ -2202,6 +2202,8 @@ address,size,name,symbol
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
 0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
+0x004acc00,,g_PathBuffer,?g_PathBuffer@@3PADA
+0x004acd08,,g_DataDir,?g_DataDir@@3PADA
 0x004ace0c,,g_Rng,?g_Rng@@3VRng@@A
 0x004acfc8,,g_Chain,?g_Chain@@3VChain@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
