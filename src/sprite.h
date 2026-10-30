@@ -22,18 +22,35 @@ struct SpriteBase
     float scaleY;
     float scaleX;
     unsigned char pad_20[0x28 - 0x20];
-    // Copied from the sprite's SpriteData.
-    float unknown28;
-    unsigned char pad_2c[0x38 - 0x2c];
+    // The size of the sprite, from its SpriteData.
+    float spriteWidth;
+    float spriteHeight;
+    unsigned char pad_30[0x38 - 0x30];
     // The script's frame.
     Timer scriptTime;
     Timer waitTimer;
     // The interpolations' frames so far and their lengths, as th08's.
     Timer interpDuration[7];
     Timer interpFrame[7];
-    unsigned char pad_f8[0x130 - 0xf8];
+    unsigned char pad_f8[0x100 - 0xf8];
+    // The script's variables, as th08's: ResolveIntArgument and the
+    // others read 10000 to 10009 in arguments as these.
+    int scriptVar0;
+    int scriptVar1;
+    int scriptVar2;
+    int scriptVar3;
+    float scriptVarF0;
+    float scriptVarF1;
+    float scriptVarF2;
+    float scriptVarF3;
+    int scriptVar8;
+    int scriptVar9;
+    unsigned char pad_128[0x130 - 0x128];
+    // The sprite's size scaled down by 256; drawMatrix is a copy of it.
     D3DXMATRIX matrix;
-    unsigned char pad_170[0x1f0 - 0x170];
+    D3DXMATRIX drawMatrix;
+    // The sprite's size in the texture's size.
+    D3DXMATRIX sizeMatrix;
     union
     {
         D3DCOLOR color;
@@ -138,7 +155,7 @@ struct SpriteData
     float uvEndY;
     // Its size in pixels.
     float height;
-    // Copied to Sprite's unknown28.
+    // Copied to Sprite's spriteWidth.
     float width;
     // How much larger the texture is than the sprite's size.
     float scaleX;
@@ -222,8 +239,9 @@ public:
     // `count` sprites from `vms`, and makes their sprites their base
     // sprites, as th08's (0x439630).
     void StartSpriteSeries(Sprite *vms, int script, int count);
-    // Shows sprite `sprite` of this file on `vm` (0x436ac0).
-    void SetSprite(Sprite *vm, int sprite);
+    // Shows sprite `sprite` of this file on `vm`, as th08's. Returns 0,
+    // or -1 while the file is not loaded (0x436ac0).
+    int SetSprite(Sprite *vm, int sprite);
     // Zeroes `vm` and shows sprite `sprite` of this file on it, as
     // th08's. Inline; the copy is at 0x412800.
     void InitSprite(Sprite *vm, int sprite)

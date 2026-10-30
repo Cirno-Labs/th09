@@ -73,6 +73,27 @@ void SpriteEngine::ClearLastCameraSetupFlag()
     this->lastCameraSetupFlag = 0xff;
 }
 
+int AnmLoaded::SetSprite(Sprite *vm, int sprite)
+{
+    if (this->file == NULL || this->loadStep != 0)
+    {
+        return -1;
+    }
+    vm->anm = this;
+    vm->spriteIndex = sprite;
+    vm->spriteData = &this->sprites[sprite];
+    vm->spriteWidth = vm->spriteData->width;
+    vm->spriteHeight = vm->spriteData->height;
+    D3DXMatrixIdentity(&vm->matrix);
+    D3DXMatrixIdentity(&vm->sizeMatrix);
+    vm->matrix.m[0][0] = vm->spriteWidth / 256.0f;
+    vm->matrix.m[1][1] = vm->spriteHeight / 256.0f;
+    vm->sizeMatrix.m[0][0] = vm->spriteData->scaleX / vm->spriteData->textureWidth * vm->spriteWidth;
+    vm->sizeMatrix.m[1][1] = vm->spriteData->scaleY / vm->spriteData->textureHeight * vm->spriteHeight;
+    vm->drawMatrix = vm->matrix;
+    return 0;
+}
+
 void SpriteEngine::SendInterruptToLoadedSprites(Sprite *vms, int count, short interrupt)
 {
     while (count != 0)

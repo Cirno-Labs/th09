@@ -776,7 +776,7 @@ address,size,name,symbol
 0x004367b0,743,RenderTextToTexture,?RenderTextToTexture@@YIXHHHHHHKKPADPAUIDirect3DTexture8@@@Z
 0x00436aa0,15,Acos,?Acos@@YIMM@Z
 0x00436ab0,14,Atan,?Atan@@YIMM@Z
-0x00436ac0,189,AnmLoaded::SetSprite,?SetSprite@AnmLoaded@@QAEXPAVSprite@@H@Z
+0x00436ac0,189,AnmLoaded::SetSprite,?SetSprite@AnmLoaded@@QAEHPAVSprite@@H@Z
 0x00436b80,144,Func436b80,
 0x00436c40,116,Func436c40,
 0x00436cd0,106,Func436cd0,

@@ -291,7 +291,7 @@ void AsciiText::DrawPopups(int side)
                 this->digit.spriteData = this->anm->GetSprite(*digit + 0x61);
                 this->digit.alpha = alpha;
             }
-            this->digit.unknown28 = this->digit.spriteData->width;
+            this->digit.spriteWidth = this->digit.spriteData->width;
             g_SpriteEngine->DrawUnrotated(&this->digit);
             this->digit.pos.x += 8.0f;
         }
