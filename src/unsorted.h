@@ -270,6 +270,9 @@ struct PlayRecord
     BOOL HasCleared(char character);
     // Character `character`'s count for difficulty 5 (0x40e450).
     int GetClears5(char character);
+    // Counts one more for character `character`'s difficulty 5, up to
+    // 999999 (0x4158e0).
+    void AddClear5(char character);
     // Character `character`'s count for difficulty `difficulty`, or,
     // when it is negative, those of the first four or'ed together
     // (0x4234a7).
@@ -288,10 +291,9 @@ struct PlayRecord
     BYTE openEntries[16];
     BYTE openEntries2[16];
     BYTE openEntries3[16];
-    // Each character's clears on each difficulty; how many characters
-    // is not known.
-    int clearFlags[6][6];
-    unsigned char pad_10c[0x1fc - 0x10c];
+    // Each character's clears on each difficulty, to the end of the
+    // record.
+    int clearFlags[16][6];
 };
 ASSERT_SIZE(PlayRecord, 0x1fc);
 extern PlayRecord g_PlayRecord;

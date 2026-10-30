@@ -289,7 +289,7 @@ address,size,name,symbol
 0x004157a0,15,ExAttack::ExAttack,??0ExAttack@@QAE@XZ
 0x004157b0,28,ExAttackManager::ExAttackManager,??0ExAttackManager@@QAE@XZ
 0x004157d0,264,ExAttackManager::RegisterChain,?RegisterChain@ExAttackManager@@SIPAV1@XZ
-0x004158e0,33,Func4158e0,
+0x004158e0,33,PlayRecord::AddClear5,?AddClear5@PlayRecord@@QAEXD@Z
 0x00415910,799,Func415910,
 0x00415c30,24,Gui::LoadAnm,?LoadAnm@Gui@@SIHXZ
 0x00415c50,14,Gui::ReleaseAnm,?ReleaseAnm@Gui@@SIXXZ

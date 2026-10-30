@@ -118,6 +118,15 @@ int PlayRecord::GetClears5(char character)
     return this->clearFlags[character][5];
 }
 
+void PlayRecord::AddClear5(char character)
+{
+    int *clears = &this->clearFlags[character][5];
+    if (*clears < 999999)
+    {
+        *clears += 1;
+    }
+}
+
 BOOL GameManager::IsMode0()
 {
     return this->mode == 0;

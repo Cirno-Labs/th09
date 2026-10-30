@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.39% (709)</tspan> · <tspan class="decompiled">0.66% (7)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">32.96% (352)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.48% (710)</tspan> · <tspan class="decompiled">0.66% (7)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">32.87% (351)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="495.90" height="6" x="0" y="0" class="named"/>
-<rect width="4.90" height="6" x="495.90" y="0" class="decompiled"/>
-<rect width="246.20" height="6" x="500.80" y="0" class="todo"/>
+<rect width="496.60" height="6" x="0" y="0" class="named"/>
+<rect width="4.90" height="6" x="496.60" y="0" class="decompiled"/>
+<rect width="245.50" height="6" x="501.50" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -358,7 +358,7 @@
 <rect width="12" height="12" x="555" y="75" class="named"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="75" class="named"><title>0x004157b0 ExAttackManager::ExAttackManager (28 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="75" class="named"><title>0x004157d0 ExAttackManager::RegisterChain (264 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="75" class="todo"><title>0x004158e0 Func4158e0 (33 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="75" class="named"><title>0x004158e0 PlayRecord::AddClear5 (33 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="75" class="todo"><title>0x00415910 Func415910 (799 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="75" class="named"><title>0x00415c30 Gui::LoadAnm (24 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="75" class="named"><title>0x00415c50 Gui::ReleaseAnm (14 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.46%</tspan> · <tspan class="decompiled">0.06%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">65.47%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.48%</tspan> · <tspan class="decompiled">0.06%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">65.46%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="257.45" height="6" x="0" y="0" class="named"/>
-<rect width="0.48" height="6" x="257.45" y="0" class="decompiled"/>
-<rect width="489.07" height="6" x="257.93" y="0" class="todo"/>
+<rect width="257.53" height="6" x="0" y="0" class="named"/>
+<rect width="0.48" height="6" x="257.53" y="0" class="decompiled"/>
+<rect width="488.99" height="6" x="258.01" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.48" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1964,7 +1964,7 @@
 <rect width="2.42" height="2.22" x="686.23" y="301.71" class="named"><title>0x00404920 Timer::HasTickedEvery (33 bytes)</title></rect>
 <rect width="2.42" height="2.22" x="686.23" y="306.92" class="named"><title>0x0040f860 GameSide::AddScore (33 bytes)</title></rect>
 <rect width="2.42" height="2.22" x="686.23" y="312.14" class="named"><title>0x00412780 SinCos (33 bytes)</title></rect>
-<rect width="2.42" height="2.22" x="686.23" y="317.35" class="todo"><title>0x004158e0 Func4158e0 (33 bytes)</title></rect>
+<rect width="2.42" height="2.22" x="686.23" y="317.35" class="named"><title>0x004158e0 PlayRecord::AddClear5 (33 bytes)</title></rect>
 <rect width="2.42" height="2.22" x="686.23" y="322.57" class="named"><title>0x00423361 MidiPlayer::Restart (33 bytes)</title></rect>
 <rect width="2.42" height="2.22" x="686.23" y="327.78" class="named"><title>0x00423382 App::ClearUnknown77c (33 bytes)</title></rect>
 <rect width="2.30" height="2.33" x="691.65" y="269.46" class="named"><title>0x0042ac50 ChainElem::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
