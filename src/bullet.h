@@ -118,6 +118,8 @@ public:
     void Reset();
     // Empty; called by the ECL interpreter (0x412590).
     void Unknown412590(int arg);
+    // Empty; called by the ECL interpreter (0x4125a0).
+    void Unknown4125a0(int arg, int arg2);
     // Preloads etama.anm into ANM slot 8; returns 1 if that fails
     // (0x4125e0).
     static int LoadAnm();

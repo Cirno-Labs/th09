@@ -55,6 +55,10 @@ void BulletManager::Unknown412590(int arg)
 {
 }
 
+void BulletManager::Unknown4125a0(int arg, int arg2)
+{
+}
+
 int BulletManager::LoadAnm()
 {
     return g_SpriteEngine->PreloadAnm(8, "etama.anm") == NULL;
