@@ -535,7 +535,7 @@ address,size,name,symbol
 0x0042aed0,111,AddNormalizeAngle,?AddNormalizeAngle@@YIMMM@Z
 0x0042af40,62,Rotate2D,?Rotate2D@@YIXPAUD3DXVECTOR3@@0M@Z
 0x0042af80,142,Func42af80,
-0x0042b0d0,13,Func42b0d0,
+0x0042b0d0,13,MemoryManager::MemoryManager,??0MemoryManager@@QAE@XZ
 0x0042b110,19,Func42b110,
 0x0042b130,40,Func42b130,
 0x0042b160,40,Func42b160,

@@ -159,6 +159,11 @@ void Rotate2D(D3DXVECTOR3 *out, D3DXVECTOR3 *in, float angle)
     out->y = c * in->y + s * in->x;
 }
 
+MemoryManager::MemoryManager()
+{
+    this->freeBlocksOnExit = 0;
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);

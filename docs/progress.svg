@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.13% (74)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">92.87% (964)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.23% (75)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">92.77% (963)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="53.25" height="6" x="0" y="0" class="named"/>
-<rect width="693.75" height="6" x="53.25" y="0" class="todo"/>
+<rect width="53.97" height="6" x="0" y="0" class="named"/>
+<rect width="693.03" height="6" x="53.97" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -603,7 +603,7 @@
 <rect width="12" height="12" x="495" y="150" class="named"><title>0x0042aed0 AddNormalizeAngle (111 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="150" class="named"><title>0x0042af40 Rotate2D (62 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="150" class="todo"><title>0x0042af80 Func42af80 (142 bytes)</title></rect>
-<rect width="12" height="12" x="540" y="150" class="todo"><title>0x0042b0d0 Func42b0d0 (13 bytes)</title></rect>
+<rect width="12" height="12" x="540" y="150" class="named"><title>0x0042b0d0 MemoryManager::MemoryManager (13 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="150" class="todo"><title>0x0042b110 Func42b110 (19 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="150" class="todo"><title>0x0042b130 Func42b130 (40 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="150" class="todo"><title>0x0042b160 Func42b160 (40 bytes)</title></rect>
@@ -1109,10 +1109,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.64%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.36%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.65%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="4.81" height="6" x="0" y="0" class="named"/>
-<rect width="742.19" height="6" x="4.81" y="0" class="todo"/>
+<rect width="4.85" height="6" x="0" y="0" class="named"/>
+<rect width="742.15" height="6" x="4.85" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.75" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2078,7 +2078,7 @@
 <rect width="0.24" height="0.31" x="727.31" y="292.85" class="todo"><title>0x00415d20 Func415d20 (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="730.55" y="292.85" class="todo"><title>0x0041bde0 Func41bde0 (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="733.79" y="292.85" class="named"><title>0x00420180 App::GetNoScore (13 bytes)</title></rect>
-<rect width="0.24" height="0.31" x="737.03" y="292.85" class="todo"><title>0x0042b0d0 Func42b0d0 (13 bytes)</title></rect>
+<rect width="0.24" height="0.31" x="737.03" y="292.85" class="named"><title>0x0042b0d0 MemoryManager::MemoryManager (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="740.27" y="292.85" class="named"><title>0x0042ed30 App::GetNoDirectInput (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="743.52" y="292.85" class="named"><title>0x0042ed40 App::GetPreloadBgm (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="746.76" y="292.85" class="named"><title>0x0042ed50 App::GetNoVsync (13 bytes)</title></rect>
