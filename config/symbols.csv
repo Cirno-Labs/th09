@@ -798,9 +798,9 @@ address,size,name,symbol
 0x00439e90,411,Func439e90,
 0x0043a030,188,Func43a030,
 0x0043a0f0,1067,SpriteEngine::DrawQuad,?DrawQuad@SpriteEngine@@QAEHPAVSprite@@H@Z
-0x0043a520,1067,Func43a520,
+0x0043a520,1067,SpriteEngine::DrawQuadMirrored,?DrawQuadMirrored@SpriteEngine@@QAEHPAVSprite@@H@Z
 0x0043a950,254,SpriteEngine::DrawUnrotated,?DrawUnrotated@SpriteEngine@@QAEHPAVSprite@@@Z
-0x0043aa50,254,Func43aa50,
+0x0043aa50,254,SpriteEngine::DrawUnrotatedMirrored,?DrawUnrotatedMirrored@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043ab50,491,SpriteEngine::Draw,?Draw@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043ad40,658,SpriteEngine::DrawRotatedNoRound,?DrawRotatedNoRound@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043afe0,254,SpriteEngine::DrawNoRound,?DrawNoRound@SpriteEngine@@QAEHPAVSprite@@@Z

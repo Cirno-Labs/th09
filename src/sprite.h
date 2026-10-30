@@ -388,6 +388,8 @@ public:
     int DrawUnrotated(Sprite *vm);
     // The same, not rounding its position (0x43afe0).
     int DrawNoRound(Sprite *vm);
+    // DrawUnrotated with the texture mirrored left to right (0x43aa50).
+    int DrawUnrotatedMirrored(Sprite *vm);
     // Draws `vm` rotated, not rounding its position (0x43ad40).
     int DrawRotatedNoRound(Sprite *vm);
     // Works out the corners of `vm`'s quad on screen from its 3D
@@ -399,6 +401,8 @@ public:
     // Sets the render state for `vm` and draws the projected quad, as
     // th08's (0x43a0f0).
     int DrawQuad(Sprite *vm, int flags);
+    // DrawQuad with the texture mirrored left to right (0x43a520).
+    int DrawQuadMirrored(Sprite *vm, int flags);
     // Draws `vm` projected from its 3D position, as th08's (0x43b0e0).
     int DrawProjected(Sprite *vm);
     // Draws `vm` as a quad in 3D, as th08's (0x43b140).
