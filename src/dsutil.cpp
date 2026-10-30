@@ -175,3 +175,19 @@ LPDIRECTSOUNDBUFFER CSound::GetBuffer(DWORD dwIndex)
 
     return m_apDSBuffer[dwIndex];
 }
+
+HRESULT CSound::SetVolume(LONG lVolume)
+{
+    float scale = g_SoundPlayer.bgmVolume / 100.0f;
+
+    if (g_SoundPlayer.bgmVolume != 0)
+    {
+        scale = (scale = 1.0f - scale) * scale;
+        scale = 1.0f - scale;
+        return m_apDSBuffer[0]->SetVolume((LONG)((lVolume + 5000) * scale) - 5000);
+    }
+    else
+    {
+        return m_apDSBuffer[0]->SetVolume(DSBVOLUME_MIN);
+    }
+}
