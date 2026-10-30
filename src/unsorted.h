@@ -41,6 +41,9 @@ public:
     float GetRandomF32InRange(float range);
     float GetRandomF32SignedInRange(float range);
 
+    // Inline; the copy is the GameManager object's (0x41a89e).
+    WORD GetSeed();
+
     WORD seed;
     unsigned char pad_2[0x2];
     // How many times the generator was advanced.
@@ -169,6 +172,69 @@ struct GameConfigFlags
     unsigned int unusedBits : 25;
 };
 
+// The buttons each action is mapped to, as pad button numbers; negative
+// when unmapped, as th08's.
+struct ControllerMapping
+{
+    short shootButton;
+    short bombButton;
+    short focusButton;
+    short menuButton;
+    short upButton;
+    short downButton;
+    short leftButton;
+    short rightButton;
+    short skipButton;
+};
+ASSERT_SIZE(ControllerMapping, 0x12);
+
+// One player's input, at 0x4ace18.
+struct PlayerInput
+{
+    unsigned char pad_0[0x58];
+    // The default mappings.
+    ControllerMapping mappings[3];
+};
+ASSERT_SIZE(PlayerInput, 0x8e);
+extern PlayerInput g_PlayerInputs[2];
+
+// The config file's contents, in App (th08 kept them in App itself).
+struct GameConfig
+{
+    // Calls SetDefaults (0x41a98b).
+    GameConfig();
+    // Zeroes the config and sets the defaults (0x41a8a2).
+    void SetDefaults();
+
+    // Each player's three mappings.
+    ControllerMapping mappings[2][3];
+    unsigned char pad_6c[0xa4 - 0x6c];
+    DWORD version;
+    short padThresholdX;
+    short padThresholdY;
+    BYTE unknownAc;
+    BYTE unknownAd;
+    // 0 for no music, 1 to play waves, 2 MIDI.
+    BYTE musicMode;
+    BYTE unknownAf;
+    BYTE unknownB0;
+    // Whether the game runs in a window.
+    BYTE windowed;
+    BYTE unknownB2;
+    BYTE unknownB3;
+    BYTE unknownB4;
+    BYTE unknownB5;
+    BYTE unknownB6;
+    BYTE unknownB7;
+    BYTE unknownB8;
+    BYTE unknownB9;
+    BYTE bgmVolume;
+    BYTE seVolume;
+    unsigned char pad_bc[0xc8 - 0xbc];
+    GameConfigFlags flags;
+};
+ASSERT_SIZE(GameConfig, 0xcc);
+
 class AnmLoaded;
 class MidiPlayer;
 class Sprite;
@@ -191,6 +257,8 @@ class SoundPlayer
 public:
     // Queues a command for the sound thread (0x43ee40).
     void QueueSoundCommand(int type, int arg, char *path);
+    // Plays sound effect `idx`, as th08's (0x43e2f0).
+    void PlaySoundByIdx(int idx, int unused);
 };
 extern SoundPlayer g_SoundPlayer;
 
@@ -287,15 +355,11 @@ struct App
 
     unsigned char pad_0[0x8];
     IDirect3DDevice8 *d3dDevice;
-    unsigned char pad_c[0x436 - 0xc];
-    // 0 for no music, 1 to play waves, 2 MIDI.
-    BYTE musicMode;
-    unsigned char pad_437[0x439 - 0x437];
-    // Whether the game runs in a window.
-    BYTE windowed;
-    unsigned char pad_43a[0x450 - 0x43a];
-    GameConfigFlags flags;
-    unsigned char pad_454[0x5b8 - 0x454];
+    unsigned char pad_c[0x388 - 0xc];
+    GameConfig config;
+    unsigned char pad_454[0x590 - 0x454];
+    int scene;
+    unsigned char pad_594[0x5b8 - 0x594];
     // Below 1 when the game runs slow.
     float gameSpeed;
     MidiPlayer *midi;

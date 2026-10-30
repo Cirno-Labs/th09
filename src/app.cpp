@@ -6,7 +6,7 @@
 
 int App::GetNoFog()
 {
-    return this->flags.noFog;
+    return this->config.flags.noFog;
 }
 
 int App::GetNoScore()
@@ -16,37 +16,37 @@ int App::GetNoScore()
 
 int App::GetForce16BitTextures()
 {
-    return this->flags.force16BitTextures;
+    return this->config.flags.force16BitTextures;
 }
 
 int App::GetReferenceRasterizer()
 {
-    return this->flags.referenceRasterizer;
+    return this->config.flags.referenceRasterizer;
 }
 
 int App::GetWindowed()
 {
-    return this->windowed;
+    return this->config.windowed;
 }
 
 int App::GetNoDirectInput()
 {
-    return this->flags.noDirectInput;
+    return this->config.flags.noDirectInput;
 }
 
 int App::GetPreloadBgm()
 {
-    return this->flags.preloadBgm;
+    return this->config.flags.preloadBgm;
 }
 
 int App::GetNoVsync()
 {
-    return this->flags.noVsync;
+    return this->config.flags.noVsync;
 }
 
 int App::GetNoTextRenderDetect()
 {
-    return this->flags.noTextRenderDetect;
+    return this->config.flags.noTextRenderDetect;
 }
 
 int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight,
@@ -85,7 +85,7 @@ int App::LoadBgm(int id)
     {
         return 1;
     }
-    if (g_App.musicMode == 2)
+    if (g_App.config.musicMode == 2)
     {
         if (g_App.midi != NULL)
         {
@@ -93,7 +93,7 @@ int App::LoadBgm(int id)
         }
         return 0;
     }
-    if (g_App.musicMode == 1)
+    if (g_App.config.musicMode == 1)
     {
         strcpy(wavFile, g_BgmInfos[i].path);
         dot = strrchr(wavFile, '.');
@@ -107,14 +107,14 @@ int App::LoadBgm(int id)
 
 int App::PlayBgm()
 {
-    if (g_App.musicMode == 2)
+    if (g_App.config.musicMode == 2)
     {
         if (g_App.midi != NULL)
         {
             g_App.midi->Play();
         }
     }
-    else if (g_App.musicMode == 1)
+    else if (g_App.config.musicMode == 1)
     {
         g_SoundPlayer.QueueSoundCommand(10, 0, "dummy");
     }
@@ -123,14 +123,14 @@ int App::PlayBgm()
 
 int App::StopBgm()
 {
-    if (g_App.musicMode == 2)
+    if (g_App.config.musicMode == 2)
     {
         if (g_App.midi != NULL)
         {
             g_App.midi->Stop();
         }
     }
-    else if (g_App.musicMode == 1)
+    else if (g_App.config.musicMode == 1)
     {
         if (g_App.GetPreloadBgm())
         {
@@ -165,14 +165,14 @@ int App::UnloadBgm(int id)
         return 1;
     }
     slot = g_BgmInfos[i].id;
-    if (g_App.musicMode == 2)
+    if (g_App.config.musicMode == 2)
     {
         if (g_App.midi != NULL)
         {
             g_App.midi->UnloadFile(slot);
         }
     }
-    else if (g_App.musicMode == 1)
+    else if (g_App.config.musicMode == 1)
     {
         g_SoundPlayer.QueueSoundCommand(9, slot, "dummy");
     }
@@ -187,14 +187,14 @@ int App::FadeOutBgm(float seconds)
 {
     float duration;
 
-    if (g_App.musicMode == 2)
+    if (g_App.config.musicMode == 2)
     {
         if (g_App.midi != NULL)
         {
             g_App.midi->FadeOut(1000.0f * seconds);
         }
     }
-    else if (g_App.musicMode == 1)
+    else if (g_App.config.musicMode == 1)
     {
         if (this->gameSpeed == 0.0f)
         {
