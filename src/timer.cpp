@@ -32,3 +32,8 @@ void Timer::operator=(int frames)
 {
     this->Set(frames);
 }
+
+void Timer::operator++(int)
+{
+    this->NextTick();
+}
