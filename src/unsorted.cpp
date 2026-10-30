@@ -58,6 +58,19 @@ float Fabs(float x)
     return (float)fabs((double)x);
 }
 
+void SinCos(float *sinOut, float *cosOut, float angle)
+{
+    __asm
+    {
+        fld angle
+        fsincos
+        mov eax, cosOut
+        fstp [eax]
+        mov eax, sinOut
+        fstp [eax]
+    }
+}
+
 WORD Rng::GetRandomU16()
 {
     WORD a;

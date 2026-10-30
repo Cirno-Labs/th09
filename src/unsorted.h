@@ -51,6 +51,8 @@ extern Rng g_Rng;
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);
+// The sine and cosine of `angle`, with one fsincos (0x412780).
+void SinCos(float *sinOut, float *cosOut, float angle);
 // Rotates `in`'s x and y by `angle` into `out`'s, as th08's (0x42af40).
 void Rotate2D(D3DXVECTOR3 *out, D3DXVECTOR3 *in, float angle);
 
