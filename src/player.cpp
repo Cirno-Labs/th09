@@ -1,6 +1,7 @@
 #include "player.h"
 #include "sprite.h"
 #include "bullet.h"
+#include "effect.h"
 #include "gui.h"
 
 int Player::CallUnknown30404(D3DXVECTOR3 *pos)
@@ -598,6 +599,15 @@ Player *Player::RegisterChain(BYTE arg, int sideIdx, int unknown20)
     return player;
 }
 
+// The corners of a `size` box centred on `pos`, as th08's inline.
+static void GetBox(D3DXVECTOR3 &min, D3DXVECTOR3 &max, D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
+{
+    min.x = pos->x - size->x / 2.0f;
+    min.y = pos->y - size->y / 2.0f;
+    max.x = size->x / 2.0f + pos->x;
+    max.y = size->y / 2.0f + pos->y;
+}
+
 void Player::SubUnknown30388(float amount)
 {
     if (this->unknown30388 - amount < 1.0f)
@@ -796,4 +806,124 @@ void Player::DrawHitBullets()
         }
         g_SpriteEngine->DrawSprite(&bullet->sprite);
     }
+}
+
+int Player::CalcDamage(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, int *damageTaken, int *hitByBomb, int *kind4Damage)
+{
+    PlayerBullet *cur;
+    D3DXVECTOR3 enemyMin;
+    D3DXVECTOR3 enemyMax;
+    int idx;
+    D3DXVECTOR3 targetLo;
+    D3DXVECTOR3 targetHi;
+    float rotZ;
+    int damage;
+    PlayerHitArea **area;
+
+    damage = 0;
+    if (!this->unknown303c8.HasTicked())
+    {
+        return 0;
+    }
+    GetBox(enemyMin, enemyMax, pos, size);
+    cur = this->bullets;
+    if (hitByBomb != NULL)
+    {
+        *hitByBomb = 0;
+    }
+    for (idx = 0; idx < 0x80; idx++, cur++)
+    {
+        if (cur->state == 0 || cur->state != 1)
+        {
+            continue;
+        }
+        GetBox(targetLo, targetHi, &cur->pos, &cur->size);
+        if (targetLo.y > enemyMax.y || targetLo.x > enemyMax.x || targetHi.y < enemyMin.y || targetHi.x < enemyMin.x)
+        {
+            continue;
+        }
+        if (cur->type == 2 && cur->timer % 2 != 0)
+        {
+            continue;
+        }
+        if (cur->hit != NULL && cur->hit(this, cur, pos))
+        {
+            continue;
+        }
+        damage += cur->damage;
+        if (cur->type != 2 && cur->type != 3)
+        {
+            if (cur->state == 1)
+            {
+                rotZ = cur->sprite.rotation.z;
+                this->anm->StartScript(&cur->sprite, cur->script + 6);
+                cur->sprite.rotation.z = rotZ;
+                cur->pos[2] = 0.1f;
+            }
+            cur->state = 2;
+            cur->velocity.x /= 8.0f;
+            cur->velocity.y /= 8.0f;
+            if (cur->type == 4)
+            {
+                this->side->effectManager->SpawnReservedEffect(0x22, &this->bullets->pos, 6, 0xffffffff);
+                this->AddDamageCircle(&this->bullets->pos, 0.0f, 1.6f, 6, 0x46, 0);
+                g_SoundPlayer.PlaySoundByIdx(0x10, this->sideIdx != 0 ? 500 : -500);
+            }
+        }
+    }
+    *damageTaken = damage;
+    for (area = this->activeHitAreas; *area != NULL; area++)
+    {
+        if ((*area)->kind != 0 && (*area)->kind != 2 && (*area)->kind != 4)
+        {
+            continue;
+        }
+        if ((*area)->unknown40 > 0)
+        {
+            continue;
+        }
+        if ((*area)->framesLeft % (*area)->unknown34 != 0)
+        {
+            continue;
+        }
+        if ((*area)->radius == 0.0f)
+        {
+            if ((*area)->angle == 0.0f)
+            {
+                if ((*area)->x - (*area)->width > enemyMax.x || (*area)->width + (*area)->x < enemyMin.x ||
+                    (*area)->y - (*area)->height > enemyMax.y || (*area)->height + (*area)->y < enemyMin.y)
+                {
+                    continue;
+                }
+            }
+            else
+            {
+                targetLo.x = pos->x - (*area)->x;
+                targetLo.y = pos->y - (*area)->y;
+                Rotate2D(&targetHi, &targetLo, -(*area)->angle);
+                if (-(*area)->width > size->x / 2.0f + targetHi.x || (*area)->width < targetHi.x - size->x / 2.0f ||
+                    -(*area)->height > size->y / 2.0f + targetHi.y || (*area)->height < targetHi.y - size->y / 2.0f)
+                {
+                    continue;
+                }
+            }
+        }
+        else if ((*area)->radius * (*area)->radius <
+                 ((*area)->x - pos->x) * ((*area)->x - pos->x) + ((*area)->y - pos->y) * ((*area)->y - pos->y))
+        {
+            continue;
+        }
+        damage += (*area)->unknown28;
+        (*area)->hits += (*area)->unknown28;
+        if ((*area)->maxDamage > 0 && (*area)->maxDamage <= (*area)->hits)
+        {
+            (*area)->unknown28 = 0;
+            damage -= (*area)->hits - (*area)->maxDamage;
+        }
+        if ((*area)->kind == 4)
+        {
+            *kind4Damage += (*area)->unknown28;
+        }
+    }
+    return damage;
 }

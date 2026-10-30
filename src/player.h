@@ -24,11 +24,17 @@ struct PlayerHitArea
     // A box's size, as th08's.
     float width;
     float height;
-    unsigned char pad_18[0x24 - 0x18];
+    unsigned char pad_18[0x20 - 0x18];
+    // A box's turn, as th08's.
+    float angle;
     // Counts down, as th08's.
     int framesLeft;
+    // The damage it deals each time, what it dealt so far and the most
+    // it may deal, if positive, as th08's.
     int unknown28;
-    unsigned char pad_2c[0x34 - 0x2c];
+    int hits;
+    int maxDamage;
+    // It deals damage every unknown34 frames.
     int unknown34;
     // Its shape or kind: 0 and 1 boxes, 2 and 4 circles or boxes as the
     // adders set it.
@@ -299,6 +305,12 @@ public:
     PlayerHitArea *AddKind4Box(D3DXVECTOR3 *pos, float width, float height, int unknown28, int framesLeft, int unknown40);
     PlayerHitArea *AddKind4Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40);
     PlayerHitArea *AddKind2Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40);
+    // The damage the bullets and the hit areas deal to an enemy with a
+    // `size` box at `pos`, as th08's: the bullets' damage is stored in
+    // `damageTaken`, and the kind 4 areas' damage added to `kind4Damage`.
+    // Clears `hitByBomb` and nothing sets it. The bullets that hit stop
+    // and turn to their hit script (0x41fcd0).
+    int CalcDamage(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, int *damageTaken, int *hitByBomb, int *kind4Damage);
     // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
     void SubUnknown30388(float amount);
     // Moves the bullets and runs their update callbacks, freeing those

@@ -422,7 +422,7 @@ address,size,name,symbol
 0x0041f060,15,PlayerUnknown30454::PlayerUnknown30454,??0PlayerUnknown30454@@QAE@XZ
 0x0041f070,243,Player::Player,??0Player@@QAE@XZ
 0x0041f170,328,Player::RegisterChain,?RegisterChain@Player@@SIPAV1@EHH@Z
-0x0041f2c0,55,Func41f2c0,
+0x0041f2c0,55,GetBox,?GetBox@@YIXAAUD3DXVECTOR3@@0PAU1@1@Z
 0x0041f300,9,Timer::operator-=,??ZTimer@@QAEXH@Z
 0x0041f310,51,Player::SubUnknown30388,?SubUnknown30388@Player@@QAEXM@Z
 0x0041f350,309,FireShot,?FireShot@@YIXPAVPlayer@@PAUPlayerBullet@@PAUShotData@@@Z
@@ -432,7 +432,7 @@ address,size,name,symbol
 0x0041f680,211,Player::DrawBullets,?DrawBullets@Player@@QAEXXZ
 0x0041f760,164,Player::DrawHitBullets,?DrawHitBullets@Player@@QAEXXZ
 0x0041f810,1210,Func41f810,
-0x0041fcd0,985,Func41fcd0,
+0x0041fcd0,996,Player::CalcDamage,?CalcDamage@Player@@QAEHPAUD3DXVECTOR3@@0PAH11@Z
 0x004200c0,45,Func4200c0,
 0x004200f0,111,Func4200f0,
 0x00420160,14,Rng::SetSeed,?SetSeed@Rng@@QAEXG@Z
