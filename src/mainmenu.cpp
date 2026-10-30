@@ -356,3 +356,52 @@ int MainMenu::MoveCursor4(int count)
     }
     return 0;
 }
+
+int MainMenu::MovePlayerCursor(int idx, int count)
+{
+    if (count == 0)
+    {
+        return 0;
+    }
+    if (g_PlayerInputs[idx].IsPressed(0x40))
+    {
+        this->cursors[idx]--;
+        if (this->cursors[idx] < 0)
+        {
+            this->cursors[idx] += count;
+        }
+        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        return -1;
+    }
+    if (g_PlayerInputs[idx].IsPressed(0x80))
+    {
+        this->cursors[idx]++;
+        if (this->cursors[idx] >= count)
+        {
+            this->cursors[idx] -= count;
+        }
+        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        return 1;
+    }
+    if (g_PlayerInputs[idx].IsPressed(0x10))
+    {
+        this->cursors[idx]--;
+        if (this->cursors[idx] < 0)
+        {
+            this->cursors[idx] += count;
+        }
+        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        return -1;
+    }
+    if (g_PlayerInputs[idx].IsPressed(0x20))
+    {
+        this->cursors[idx]++;
+        if (this->cursors[idx] >= count)
+        {
+            this->cursors[idx] -= count;
+        }
+        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        return 1;
+    }
+    return 0;
+}

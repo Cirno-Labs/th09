@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.02% (497)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">52.98% (560)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.11% (498)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">52.89% (559)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="351.24" height="6" x="0" y="0" class="named"/>
-<rect width="395.76" height="6" x="351.24" y="0" class="todo"/>
+<rect width="351.95" height="6" x="0" y="0" class="named"/>
+<rect width="395.05" height="6" x="351.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -562,7 +562,7 @@
 <rect width="12" height="12" x="630" y="135" class="named"><title>0x0042457a MainMenu::MoveCursor (135 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="135" class="named"><title>0x00424601 MainMenu::MoveCursorLR (112 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="135" class="named"><title>0x00424671 MainMenu::MoveCursor4 (217 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="135" class="todo"><title>0x0042474a Func42474a (167 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="135" class="named"><title>0x0042474a MainMenu::MovePlayerCursor (167 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="135" class="todo"><title>0x004247f1 Func4247f1 (167 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="135" class="todo"><title>0x00424898 Func424898 (329 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="135" class="todo"><title>0x004249e1 Func4249e1 (534 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.98%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.02%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.04%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">75.96%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="179.14" height="6" x="0" y="0" class="named"/>
-<rect width="567.86" height="6" x="179.14" y="0" class="todo"/>
+<rect width="179.56" height="6" x="0" y="0" class="named"/>
+<rect width="567.44" height="6" x="179.56" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1538,7 +1538,7 @@
 <rect width="9.13" height="8.98" x="562.08" y="321.02" class="todo"><title>0x00431a30 Func431a30 (169 bytes)</title></rect>
 <rect width="8.91" height="9.13" x="574.21" y="145.99" class="todo"><title>0x00425163 Func425163 (168 bytes)</title></rect>
 <rect width="8.91" height="9.13" x="586.12" y="145.99" class="todo"><title>0x00432ac0 Func432ac0 (168 bytes)</title></rect>
-<rect width="8.84" height="9.13" x="598.03" y="145.99" class="todo"><title>0x0042474a Func42474a (167 bytes)</title></rect>
+<rect width="8.84" height="9.13" x="598.03" y="145.99" class="named"><title>0x0042474a MainMenu::MovePlayerCursor (167 bytes)</title></rect>
 <rect width="8.84" height="9.13" x="609.86" y="145.99" class="todo"><title>0x004247f1 Func4247f1 (167 bytes)</title></rect>
 <rect width="8.84" height="9.13" x="621.70" y="145.99" class="todo"><title>0x0042d320 Func42d320 (167 bytes)</title></rect>
 <rect width="8.84" height="9.13" x="633.54" y="145.99" class="todo"><title>0x00432a10 Func432a10 (167 bytes)</title></rect>
