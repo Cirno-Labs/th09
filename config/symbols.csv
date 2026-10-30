@@ -103,7 +103,7 @@ address,size,name,symbol
 0x00406720,20,Timer::operator<=,??NTimer@@QAEHH@Z
 0x00406740,80,Func406740,
 0x00406790,18,Sprite::SetPendingInterrupt,?SetPendingInterrupt@Sprite@@QAEXF@Z
-0x004067b0,21,Func4067b0,
+0x004067b0,21,Stage::StartSpellCard,?StartSpellCard@Stage@@QAEXXZ
 0x004067d0,32,Func4067d0,
 0x004067f0,42,Func4067f0,
 0x00406820,16,Func406820,

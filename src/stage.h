@@ -36,6 +36,9 @@ public:
     static Stage *RegisterChain(int sideIdx);
     // Draws background layer `layer` (0x4026c0).
     void DrawLayer(int layer);
+    // Sets spellCardState to 1 and clears unknownCd0. Called by the ECL
+    // interpreter; the copy is at 0x4067b0.
+    void StartSpellCard();
 
     ChainElem *calcElem;
     ChainElem *drawElem;
@@ -79,7 +82,7 @@ public:
     unsigned char pad_cc8[0xccc - 0xcc8];
     // Cleared by Reset. The layers are drawn while it is at most 1.
     int spellCardState;
-    unsigned char pad_cd0[0xcd4 - 0xcd0];
+    int unknownCd0;
     // OnDraw clears the target to black once if set.
     int clearScreenOnce;
     // Drawn by OnDraw2 once spellCardState is 1, at their posOffset in

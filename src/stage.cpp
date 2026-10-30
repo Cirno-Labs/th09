@@ -233,3 +233,9 @@ Stage *Stage::RegisterChain(int sideIdx)
     g_Chain.AddToDrawChain(stage->drawElem2, sideIdx + 8);
     return stage;
 }
+
+void Stage::StartSpellCard()
+{
+    this->spellCardState = 1;
+    this->unknownCd0 = 0;
+}
