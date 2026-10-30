@@ -26,7 +26,7 @@ address,size,name,symbol
 0x00401470,38,Func401470,
 0x004014a0,15,Timer::Initialize,?Initialize@Timer@@QAEXXZ
 0x004014b0,28,Timer::NextTick,?NextTick@Timer@@QAEHXZ
-0x004014d0,25,Func4014d0,
+0x004014d0,25,Timer::Set,?Set@Timer@@QAEXH@Z
 0x004014f0,4,Func4014f0,
 0x00401500,9,Func401500,
 0x00401510,8,Func401510,

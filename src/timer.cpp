@@ -15,3 +15,10 @@ int Timer::NextTick()
     g_App.TickTimer(&this->current, &this->currentF);
     return this->current;
 }
+
+void Timer::Set(int frames)
+{
+    this->current = frames;
+    this->previous = -999999;
+    this->currentF = (float)frames;
+}
