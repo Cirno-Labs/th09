@@ -1,3 +1,4 @@
+#include "screeneffect.h"
 #include "sprite.h"
 #include "timer.h"
 #include "unsorted.h"
@@ -185,6 +186,22 @@ void App::StartLoadingSprites(D3DXVECTOR3 *pos)
         g_LoadingSprites[0].pos = *pos;
         g_LoadingSprites[1].pos = *pos;
         g_LoadingSprites[2].pos = *pos;
+    }
+}
+
+void App::StopLoadingSprites()
+{
+    if (this->loadingState == 1)
+    {
+        g_LoadingSprites[0].SetPendingInterrupt(1);
+        g_LoadingSprites[1].SetPendingInterrupt(1);
+        g_LoadingSprites[2].SetPendingInterrupt(1);
+        this->loadingState = 0;
+    }
+    if (g_LoadingScreenEffect != NULL)
+    {
+        g_LoadingScreenEffect->Finish();
+        g_LoadingScreenEffect = NULL;
     }
 }
 

@@ -29,7 +29,10 @@ public:
     D3DCOLOR color;
     unsigned char pad_1f4[0x1f8 - 0x1f4];
     DWORD flags;
-    unsigned char pad_1fc[0x204 - 0x1fc];
+    unsigned char pad_1fc[0x1fe - 0x1fc];
+    // The interrupt label to jump to on the next Step; 0 for none.
+    short pendingInterrupt;
+    unsigned char pad_200[0x204 - 0x200];
     // The ANM file whose script runs.
     AnmLoaded *anm;
     D3DXVECTOR3 pos;
@@ -55,6 +58,12 @@ public:
     // Resets the sprite's state up to pos, as th08's: a scale of 1,
     // white, the identity matrix, flags 7. Inline; the copy is at
     // 0x4127b0.
+    // Sets pendingInterrupt. Inline; the copy is 0x406790.
+    void SetPendingInterrupt(short interrupt)
+    {
+        this->pendingInterrupt = interrupt;
+    }
+
     void Initialize()
     {
         memset(this, 0, offsetof(Sprite, pos));

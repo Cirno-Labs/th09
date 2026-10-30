@@ -126,6 +126,9 @@ struct App
     // Starts the three loading sprites at `pos` unless they show, as
     // th08's (0x4302b0).
     void StartLoadingSprites(D3DXVECTOR3 *pos);
+    // Interrupts the loading sprites with 1 if they show, and finishes
+    // g_LoadingScreenEffect, as th08's (0x430360).
+    void StopLoadingSprites();
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();
@@ -173,3 +176,6 @@ extern App g_App;
 
 // The loading sprites, at 0x4b38b0.
 extern Sprite g_LoadingSprites[3];
+class ScreenEffect;
+// The loading screen's fade, at 0x4b30f8.
+extern ScreenEffect *g_LoadingScreenEffect;
