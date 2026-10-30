@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">44.56% (471)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">55.44% (586)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">44.65% (472)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">55.35% (585)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="332.86" height="6" x="0" y="0" class="named"/>
-<rect width="414.14" height="6" x="332.86" y="0" class="todo"/>
+<rect width="333.57" height="6" x="0" y="0" class="named"/>
+<rect width="413.43" height="6" x="333.57" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -544,7 +544,7 @@
 <rect width="12" height="12" x="360" y="135" class="named"><title>0x00422fd1 MainMenu::ShowButtonDigits (124 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="135" class="named"><title>0x0042304d MainMenu::SkipClosedEntries (89 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="135" class="named"><title>0x004230a6 MainMenu::SkipClosedEntries2 (89 bytes)</title></rect>
-<rect width="12" height="12" x="405" y="135" class="todo"><title>0x004230ff Func4230ff (89 bytes)</title></rect>
+<rect width="12" height="12" x="405" y="135" class="named"><title>0x004230ff MainMenu::SkipClosedEntries3 (89 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="135" class="todo"><title>0x00423158 Func423158 (42 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="135" class="todo"><title>0x00423182 Func423182 (479 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="135" class="todo"><title>0x00423361 Func423361 (33 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.96%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.04%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.99%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.01%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="149.11" height="6" x="0" y="0" class="named"/>
-<rect width="597.89" height="6" x="149.11" y="0" class="todo"/>
+<rect width="149.34" height="6" x="0" y="0" class="named"/>
+<rect width="597.66" height="6" x="149.34" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1692,7 +1692,7 @@
 <rect width="5.96" height="5.54" x="652.07" y="199.55" class="todo"><title>0x00422b70 Func422b70 (89 bytes)</title></rect>
 <rect width="5.96" height="5.54" x="661.03" y="199.55" class="named"><title>0x0042304d MainMenu::SkipClosedEntries (89 bytes)</title></rect>
 <rect width="5.96" height="5.54" x="669.99" y="199.55" class="named"><title>0x004230a6 MainMenu::SkipClosedEntries2 (89 bytes)</title></rect>
-<rect width="5.96" height="5.54" x="678.95" y="199.55" class="todo"><title>0x004230ff Func4230ff (89 bytes)</title></rect>
+<rect width="5.96" height="5.54" x="678.95" y="199.55" class="named"><title>0x004230ff MainMenu::SkipClosedEntries3 (89 bytes)</title></rect>
 <rect width="5.96" height="5.54" x="687.90" y="199.55" class="named"><title>0x004344e0 AsciiText::AddedCallback (89 bytes)</title></rect>
 <rect width="5.96" height="5.54" x="696.86" y="199.55" class="named"><title>0x0043d580 MidiPlayer::FreeTracks (89 bytes)</title></rect>
 <rect width="5.86" height="5.54" x="705.82" y="199.55" class="named"><title>0x004156f0 ExAttackManager::Reset (88 bytes)</title></rect>
