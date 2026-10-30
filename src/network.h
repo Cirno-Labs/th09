@@ -27,6 +27,9 @@ struct Network
     // Clears unknown1c and creates the TCP/IP address on `port` to host
     // on (0x432840).
     HRESULT CreateDeviceAddress();
+    // Creates the TCP/IP address of the host to connect to, hostName on
+    // `port` (0x4328f0).
+    HRESULT CreateHostAddress();
     // Handles a DirectPlay message (0x432b70).
     HRESULT HandleMessage(PVOID context, DWORD type, PVOID message);
 

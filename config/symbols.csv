@@ -681,7 +681,7 @@ address,size,name,symbol
 0x004324c0,679,Network::Init,?Init@Network@@QAEXXZ
 0x00432770,199,Func432770,
 0x00432840,165,Network::CreateDeviceAddress,?CreateDeviceAddress@Network@@QAEJXZ
-0x004328f0,276,Func4328f0,
+0x004328f0,276,Network::CreateHostAddress,?CreateHostAddress@Network@@QAEJXZ
 0x00432a10,167,Func432a10,
 0x00432ac0,168,Func432ac0,
 0x00432b70,765,Network::HandleMessage,?HandleMessage@Network@@QAEJPAXK0@Z
@@ -1687,9 +1687,9 @@ address,size,name,symbol
 0x0047cc30,57,_strncmp,_strncmp
 0x0047cc69,86,_printf,
 0x0047ccc4,11,Func47ccc4,
-0x0047cccf,22,Func47cccf,
+0x0047cccf,22,_wcslen,_wcslen
 0x0047cce5,251,___mbstowcs_mt,
-0x0047cde0,43,_mbstowcs,
+0x0047cde0,43,_mbstowcs,_mbstowcs
 0x0047ce0b,47,__ArrayUnwind,
 0x0047ce69,72,`eh_vector_destructor_iterator',??_M@YGXPAXIHP6EX0@Z@Z
 0x0047ceb1,24,Func47ceb1,

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">54.15% (574)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">45.85% (486)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">54.25% (575)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">45.75% (485)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="404.51" height="6" x="0" y="0" class="named"/>
-<rect width="342.49" height="6" x="404.51" y="0" class="todo"/>
+<rect width="405.21" height="6" x="0" y="0" class="named"/>
+<rect width="341.79" height="6" x="405.21" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -749,7 +749,7 @@
 <rect width="12" height="12" x="435" y="195" class="todo"><title>0x004324c0 Network::Init (679 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="195" class="todo"><title>0x00432770 Func432770 (199 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="195" class="named"><title>0x00432840 Network::CreateDeviceAddress (165 bytes)</title></rect>
-<rect width="12" height="12" x="480" y="195" class="todo"><title>0x004328f0 Func4328f0 (276 bytes)</title></rect>
+<rect width="12" height="12" x="480" y="195" class="named"><title>0x004328f0 Network::CreateHostAddress (276 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="195" class="todo"><title>0x00432a10 Func432a10 (167 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="195" class="todo"><title>0x00432ac0 Func432ac0 (168 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="195" class="todo"><title>0x00432b70 Network::HandleMessage (765 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.75%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.25%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.84%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.16%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="214.73" height="6" x="0" y="0" class="named"/>
-<rect width="532.27" height="6" x="214.73" y="0" class="todo"/>
+<rect width="215.44" height="6" x="0" y="0" class="named"/>
+<rect width="531.56" height="6" x="215.44" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1413,7 +1413,7 @@
 <rect width="12.05" height="12.93" x="505.51" y="222.87" class="todo"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
 <rect width="12.05" height="12.93" x="505.51" y="238.80" class="todo"><title>0x0041da70 Func41da70 (279 bytes)</title></rect>
 <rect width="12.05" height="12.93" x="505.51" y="254.72" class="named"><title>0x00425390 MainMenu::MoveCharacterCursor2 (279 bytes)</title></rect>
-<rect width="12.05" height="12.76" x="505.51" y="270.65" class="todo"><title>0x004328f0 Func4328f0 (276 bytes)</title></rect>
+<rect width="12.05" height="12.76" x="505.51" y="270.65" class="named"><title>0x004328f0 Network::CreateHostAddress (276 bytes)</title></rect>
 <rect width="12.05" height="12.59" x="505.51" y="286.41" class="todo"><title>0x0041c8e0 Func41c8e0 (273 bytes)</title></rect>
 <rect width="12.05" height="12.53" x="505.51" y="302" class="todo"><title>0x00415460 ExAttackManager::OnDraw (272 bytes)</title></rect>
 <rect width="12.05" height="12.47" x="505.51" y="317.53" class="todo"><title>0x00417520 GuiMsg::UnloadBgm (271 bytes)</title></rect>

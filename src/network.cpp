@@ -56,6 +56,40 @@ HRESULT Network::CreateDeviceAddress()
     return hr;
 }
 
+HRESULT Network::CreateHostAddress()
+{
+    WCHAR hostName[0x100];
+    HRESULT hr;
+
+    mbstowcs(hostName, this->hostName, 0x100);
+    hr = CoCreateInstance(CLSID_DirectPlay8Address, NULL, CLSCTX_INPROC_SERVER, IID_IDirectPlay8Address,
+                          (LPVOID *)&this->hostAddress);
+    if (FAILED(hr))
+    {
+        LogError(&g_Log, "Host Address作成失敗\r\n");
+        return hr;
+    }
+    hr = this->hostAddress->SetSP(&CLSID_DP8SP_TCPIP);
+    if (FAILED(hr))
+    {
+        LogError(&g_Log, "サービスプロバイダ設定失敗:\t0x%X\r\n", hr);
+        return hr;
+    }
+    hr = this->hostAddress->AddComponent(DPNA_KEY_HOSTNAME, hostName, (wcslen(hostName) + 1) * sizeof(WCHAR),
+                                         DPNA_DATATYPE_STRING);
+    if (FAILED(hr))
+    {
+        LogError(&g_Log, "ホストアドレスIP設定失敗\r\n");
+        return hr;
+    }
+    hr = this->hostAddress->AddComponent(DPNA_KEY_PORT, &this->port, sizeof(this->port), DPNA_DATATYPE_DWORD);
+    if (FAILED(hr))
+    {
+        LogError(&g_Log, "ホストアドレスポート設定失敗\r\n");
+    }
+    return hr;
+}
+
 HRESULT WINAPI NetworkMessageHandler(PVOID context, DWORD type, PVOID message)
 {
     return g_Network->HandleMessage(context, type, message);
