@@ -107,6 +107,16 @@ public:
     // Starts `script` on `vm`, or zeroes `vm` if there is no script or
     // the file is still loading (0x4395a0).
     void SetScript(Sprite *vm, void *script);
+    // Shows sprite `sprite` of this file on `vm` (0x436ac0).
+    void SetSprite(Sprite *vm, int sprite);
+    // Zeroes `vm` and shows sprite `sprite` of this file on it, as
+    // th08's. Inline; the copy is at 0x412800.
+    void InitSprite(Sprite *vm, int sprite)
+    {
+        vm->Initialize();
+        vm->anm = this;
+        this->SetSprite(vm, sprite);
+    }
 
     // Its slot in SpriteEngine's files.
     int slot;
@@ -164,6 +174,9 @@ public:
     // color modulation and stops the shake, as th08's App::OnUpdate does
     // every frame (0x42f770).
     void ResetFrameState();
+    // Loads `path` into ANM slot `slot`, as th08's, waiting for the
+    // loading thread. Returns it, or NULL on failure (0x43c7a0).
+    AnmLoaded *PreloadAnm(int slot, char *path);
     // Frees ANM slot `slot`, as th08's (0x43ca30).
     void ReleaseAnm(int slot);
     // Runs `vm`'s script up to its next wait (0x436f30).

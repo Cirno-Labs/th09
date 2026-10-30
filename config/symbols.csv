@@ -244,7 +244,7 @@ address,size,name,symbol
 0x00412760,31,Func412760,
 0x00412780,33,SinCos,?SinCos@@YIXPAM0M@Z
 0x004127b0,66,Sprite::Initialize,?Initialize@Sprite@@QAEXXZ
-0x00412800,41,Func412800,
+0x00412800,41,AnmLoaded::InitSprite,?InitSprite@AnmLoaded@@QAEXPAVSprite@@H@Z
 0x00412830,245,Func412830,
 0x00412930,40,Func412930,
 0x00412960,1887,Func412960,
@@ -725,14 +725,14 @@ address,size,name,symbol
 0x00433e00,438,LzssInsertNode,?LzssInsertNode@@YIHHPAH@Z
 0x00433fc0,83,LzssDeleteNode,?LzssDeleteNode@@YIXH@Z
 0x00434020,571,LzssCompress,?LzssCompress@@YIPAXPAEHPAH@Z
-0x00434280,31,Func434280,
+0x00434280,31,AsciiText::RemoveChain,?RemoveChain@AsciiText@@SIXXZ
 0x004342a0,130,Func4342a0,
 0x00434330,55,Func434330,
 0x00434370,10,Func434370,
 0x00434380,8,Func434380,
 0x00434390,18,Func434390,
 0x004343b0,10,Func4343b0,
-0x004343c0,16,Func4343c0,
+0x004343c0,16,AsciiText::SetGlyphWidth,?SetGlyphWidth@AsciiText@@QAEXH@Z
 0x004343d0,3,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@XZ
 0x004343e0,251,AsciiText::Initialize,?Initialize@AsciiText@@QAEXXZ
 0x004344e0,89,Func4344e0,
@@ -775,7 +775,7 @@ address,size,name,symbol
 0x004367b0,743,Func4367b0,
 0x00436aa0,15,Func436aa0,
 0x00436ab0,14,Atan,?Atan@@YIMM@Z
-0x00436ac0,189,Func436ac0,
+0x00436ac0,189,AnmLoaded::SetSprite,?SetSprite@AnmLoaded@@QAEXPAVSprite@@H@Z
 0x00436b80,144,Func436b80,
 0x00436c40,116,Func436c40,
 0x00436cd0,106,Func436cd0,
@@ -828,7 +828,7 @@ address,size,name,symbol
 0x0043c470,75,Func43c470,
 0x0043c4c0,327,Func43c4c0,
 0x0043c610,390,Func43c610,
-0x0043c7a0,90,Func43c7a0,
+0x0043c7a0,90,SpriteEngine::PreloadAnm,?PreloadAnm@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
 0x0043c800,558,Func43c800,
 0x0043ca30,163,SpriteEngine::ReleaseAnm,?ReleaseAnm@SpriteEngine@@QAEXH@Z
 0x0043cae0,486,Func43cae0,
@@ -2240,7 +2240,9 @@ address,size,name,symbol
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
 0x004b4420,,g_LzssTree,?g_LzssTree@@3PAULzssNode@@A
 0x004cc430,,g_LzssWindow,?g_LzssWindow@@3PAEA
+0x004ce438,,g_AsciiTextElemDraw,?g_AsciiTextElemDraw@@3UChainElem@@A
 0x004ce458,,g_AsciiText,?g_AsciiText@@3VAsciiText@@A
 0x004d9698,,g_Unknown4d9698,?g_Unknown4d9698@@3PAEA
+0x004dc504,,g_AsciiCalcChain,?g_AsciiCalcChain@@3UChainElem@@A
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A
