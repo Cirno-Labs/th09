@@ -145,6 +145,11 @@ void App::ResetSubThread()
     this->unknown6b8 = 0;
 }
 
+int GameManager::IsDemo()
+{
+    return this->stateFlags >> 1 & 1;
+}
+
 int GameManager::RegisterChain()
 {
     GameManager *mgr = &g_GameManager;
