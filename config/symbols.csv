@@ -17,7 +17,7 @@ address,size,name,symbol
 0x00401300,57,Func401300,
 0x00401340,19,MemoryManager::Alloc,?Alloc@MemoryManager@@QAEPAXHPBD@Z
 0x00401360,19,MemoryManager::Free,?Free@MemoryManager@@QAEXPAX@Z
-0x00401380,10,Func401380,
+0x00401380,10,MemoryManager::Register,?Register@MemoryManager@@QAEPAXPAXHPBD@Z
 0x00401390,71,Func401390,
 0x004013e0,42,Func4013e0,
 0x00401410,42,Func401410,
