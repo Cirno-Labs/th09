@@ -768,7 +768,7 @@ address,size,name,symbol
 0x00435fe0,469,GdiSurface::CreateInFormat,?CreateInFormat@GdiSurface@@QAE_NHHH@Z
 0x004361c0,242,GdiSurface::CopyToSurface,?CopyToSurface@GdiSurface@@QAE_NPAUIDirect3DSurface8@@@Z
 0x004362c0,26,CreateTextSurface,?CreateTextSurface@@YIXXZ
-0x004362e0,26,Func4362e0,
+0x004362e0,26,ReleaseTextSurface,?ReleaseTextSurface@@YIXXZ
 0x00436300,5,Func436300,
 0x00436310,315,Func436310,
 0x00436450,101,Func436450,
