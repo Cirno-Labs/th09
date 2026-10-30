@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">60.13% (638)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">39.87% (423)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">60.23% (639)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">39.77% (422)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="449.19" height="6" x="0" y="0" class="named"/>
-<rect width="297.81" height="6" x="449.19" y="0" class="todo"/>
+<rect width="449.89" height="6" x="0" y="0" class="named"/>
+<rect width="297.11" height="6" x="449.89" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -217,7 +217,7 @@
 <rect width="12" height="12" x="705" y="30" class="named"><title>0x0040d2e0 EffectManager::EffectManager (61 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="30" class="named"><title>0x0040d320 EffectManager::RegisterChain (327 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="30" class="named"><title>0x0040d4d0 Vector2::SetPolarEllipse (32 bytes)</title></rect>
-<rect width="12" height="12" x="0" y="45" class="todo"><title>0x0040d4f0 Func40d4f0 (7 bytes)</title></rect>
+<rect width="12" height="12" x="0" y="45" class="named"><title>0x0040d4f0 Gui::GetUnknown11ea8 (7 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="45" class="named"><title>0x0040d500 EnemyShooter::EnemyShooter (28 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="45" class="todo"><title>0x0040d520 Func40d520 (210 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="45" class="todo"><title>0x0040d600 Func40d600 (775 bytes)</title></rect>
@@ -1134,8 +1134,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.14%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.86%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="232.60" height="6" x="0" y="0" class="named"/>
-<rect width="514.40" height="6" x="232.60" y="0" class="todo"/>
+<rect width="232.62" height="6" x="0" y="0" class="named"/>
+<rect width="514.38" height="6" x="232.62" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2171,7 +2171,7 @@
 <rect width="0.10" height="0.10" x="745.17" y="320.65" class="named"><title>0x0042d2d0 App::GetWindowed (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.58" y="320.65" class="named"><title>0x0042d2e0 SpriteEngine::ClearLastCameraSetupFlag (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="737.92" y="323.49" class="todo"><title>0x00434380 Func434380 (8 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="737.92" y="326.11" class="todo"><title>0x0040d4f0 Func40d4f0 (7 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="737.92" y="326.11" class="named"><title>0x0040d4f0 Gui::GetUnknown11ea8 (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="737.92" y="328.41" class="named"><title>0x0040f160 EclManager::GetTimelineCount (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="737.92" y="330.70" class="named"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="740.54" y="323.49" class="todo"><title>0x0043e420 Func43e420 (7 bytes)</title></rect>

@@ -74,6 +74,8 @@ public:
     static void RemoveChain(Gui *gui);
     // Resets the front for a new round (0x4181e0).
     void Reset();
+    // Returns unknown11ea8 (0x40d4f0).
+    int GetUnknown11ea8();
     // Whether a dialogue script runs, or is about to (-2), as th08's.
     // Inline; the copy is at 0x404980.
     int IsMsgRunning()
@@ -92,7 +94,9 @@ public:
     Sprite unknown106b4;
     unsigned char pad_10958[0x10968 - 0x10958];
     Sprite unknown10968[8];
-    unsigned char pad_11e88[0x11eac - 0x11e88];
+    unsigned char pad_11e88[0x11ea8 - 0x11e88];
+    // Nonzero stops the player's combo from counting hits.
+    int unknown11ea8;
     Sprite unknown11eac[2];
     Sprite unknown123f4[2];
 };

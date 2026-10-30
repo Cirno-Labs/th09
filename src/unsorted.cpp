@@ -2,6 +2,7 @@
 
 #include "archive.h"
 #include "gamemanager.h"
+#include "gui.h"
 #include "player.h"
 #include "chain.h"
 #include "timer.h"
@@ -60,6 +61,11 @@ void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
         fmul radiusY
         fstp [eax+4]
     }
+}
+
+int Gui::GetUnknown11ea8()
+{
+    return this->unknown11ea8;
 }
 
 WORD PlayerInput::IsHeld(WORD mask)
