@@ -57,8 +57,8 @@ address,size,name,symbol
 0x00403a10,45,Sprite::Sprite,??0Sprite@@QAE@XZ
 0x00403a40,160,Stage::Stage,??0Stage@@QAE@XZ
 0x00403ae0,307,Stage::RegisterChain,?RegisterChain@Stage@@SIPAV1@H@Z
-0x00403c20,12,Func403c20,
-0x00403c30,91,Func403c30,
+0x00403c20,12,Player::SetUnknown0,?SetUnknown0@Player@@QAEXH@Z
+0x00403c30,91,Player::StartClearCircle1,?StartClearCircle1@Player@@QAEXXZ
 0x00403c90,91,Func403c90,
 0x00403cf0,100,Func403cf0,
 0x00403d60,31,RunEndCallbacks,?RunEndCallbacks@@YIHPAVSpellCard@@@Z
@@ -135,7 +135,7 @@ address,size,name,symbol
 0x0040c950,14,EffectManager::Init,?Init@EffectManager@@QAEXXZ
 0x0040c990,194,EffectManager::Reset,?Reset@EffectManager@@QAEXXZ
 0x0040ca60,407,Func40ca60,
-0x0040cc00,184,Func40cc00,
+0x0040cc00,184,EffectManager::SpawnParticles,?SpawnParticles@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@HK@Z
 0x0040ccc0,175,Func40ccc0,
 0x0040cd70,85,Func40cd70,
 0x0040cdd0,475,EffectManager::OnUpdate,?OnUpdate@EffectManager@@SIHPAV1@@Z

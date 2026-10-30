@@ -1,6 +1,17 @@
 #include "spellcard.h"
+#include "effect.h"
 #include "gamemanager.h"
 #include "gui.h"
+#include "player.h"
+
+void Player::StartClearCircle1()
+{
+    this->AddHitCircle(&this->pos, 0.0f, 4.0f, 0x30, 0);
+    this->AddKind4Circle(&this->pos, 0.0f, 4.0f, 2, 0x30, 0);
+    this->SetUnknown0(3);
+    this->unknown303c8 = 0x30;
+    this->side->effectManager->SpawnParticles(0xd, &this->pos, 1, 0xffffffff);
+}
 
 // Calls the spell card's callbacks unknown1330 and unknown133c, if set.
 // Returns 0. Static, with the spell card in esi (0x403d60).

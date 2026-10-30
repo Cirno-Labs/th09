@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <d3dx8.h>
+
 #include "chain.h"
 #include "timer.h"
 
@@ -52,6 +54,9 @@ public:
     static void RemoveChain(EffectManager *mgr);
     // Resets the effects for a new round (0x40c990).
     void Reset();
+    // Spawns `count` of effect `effectIdx` at `pos` in `color`, as th08's
+    // (0x40cc00).
+    Effect *SpawnParticles(int effectIdx, D3DXVECTOR3 *pos, int count, D3DCOLOR color);
     // The update and draw chain callbacks; the third side's draws with
     // OnDraw2 (0x40cdd0, 0x40cfb0, 0x40d070).
     static int OnUpdate(EffectManager *mgr);

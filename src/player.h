@@ -260,6 +260,15 @@ public:
     // Whether a `size` box at `pos` touches grazeTestMin-Max while
     // unknown0 is 0 or 3, as th08's (0x41bee0).
     int TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size);
+    // Sets unknown0. Inline; the copy is at 0x403c20.
+    void SetUnknown0(int value)
+    {
+        this->unknown0 = value;
+    }
+    // Start a circle that clears around the player, growing from 0 by 4
+    // a frame for 0x30 frames, with effect 0xd, and set unknown0 to 3
+    // and unknown303c8 to the frames (0x403c30).
+    void StartClearCircle1();
     // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
     int GetUnknown0()
