@@ -626,7 +626,7 @@ address,size,name,symbol
 0x0042f7c0,1054,App::LoadConfig,
 0x0042fbe0,54,Func42fbe0,
 0x0042fc20,207,App::LoadBgm,?LoadBgm@App@@QAEHH@Z
-0x0042fcf0,53,Func42fcf0,
+0x0042fcf0,53,App::PlayBgm,?PlayBgm@App@@QAEHXZ
 0x0042fd30,81,Func42fd30,
 0x0042fd90,130,Func42fd90,
 0x0042fe20,148,Func42fe20,
@@ -846,7 +846,7 @@ address,size,name,symbol
 0x0043d550,45,Func43d550,
 0x0043d580,89,Func43d580,
 0x0043d5e0,358,Func43d5e0,
-0x0043d750,55,Func43d750,
+0x0043d750,55,MidiPlayer::Play,?Play@MidiPlayer@@QAEHXZ
 0x0043d790,92,Func43d790,
 0x0043d7f0,1216,Func43d7f0,
 0x0043de20,12,Func43de20,

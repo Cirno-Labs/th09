@@ -105,6 +105,22 @@ int App::LoadBgm(int id)
     return 1;
 }
 
+int App::PlayBgm()
+{
+    if (g_App.musicMode == 2)
+    {
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->Play();
+        }
+    }
+    else if (g_App.musicMode == 1)
+    {
+        g_SoundPlayer.QueueSoundCommand(10, 0, "dummy");
+    }
+    return 0;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;

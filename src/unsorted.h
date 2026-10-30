@@ -158,6 +158,8 @@ struct App
     // or queues the wave file of the same name, as th08's LoadMidi.
     // Returns 0 for MIDI, else 1 (0x42fc20).
     int LoadBgm(int id);
+    // Plays the music loaded last. Returns 0 (0x42fcf0).
+    int PlayBgm();
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
