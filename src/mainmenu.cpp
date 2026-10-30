@@ -79,3 +79,24 @@ int MainMenu::ShowButtonDigits(Sprite *vm, short value)
     }
     return 0;
 }
+
+void MainMenu::SkipClosedEntries(int idx, int delta, char *entries, int count)
+{
+    if (g_Network->unknownA8 != 0)
+    {
+        return;
+    }
+    int *cursor = &this->cursors[idx];
+    while (!g_OpenEntries[entries[*cursor]])
+    {
+        *cursor += delta;
+        if (*cursor < 0)
+        {
+            *cursor += count;
+        }
+        if (*cursor >= count)
+        {
+            *cursor -= count;
+        }
+    }
+}
