@@ -911,6 +911,42 @@ int App::PlayMusic(int id, int arg)
     return 0;
 }
 
+int App::PlayMusicFile(char *path, int heard)
+{
+    char *dot;
+    char wavFile[0x100];
+
+    if (g_App.config.musicMode == 2)
+    {
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->PlayFile(path);
+        }
+        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
+        {
+            g_PlayRecord.bgmHeard[heard] = 1;
+        }
+    }
+    else if (g_App.config.musicMode == 1)
+    {
+        strcpy(wavFile, path);
+        dot = strrchr(wavFile, '.');
+        dot[1] = 'w';
+        dot[2] = 'a';
+        dot[3] = 'v';
+        g_SoundPlayer.QueueSoundCommand(2, -1, wavFile);
+        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
+        {
+            g_PlayRecord.bgmHeard[heard] = 1;
+        }
+    }
+    else
+    {
+        return -1;
+    }
+    return 0;
+}
+
 int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
 {
     this->CloseSubThread();

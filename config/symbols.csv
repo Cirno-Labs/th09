@@ -611,7 +611,7 @@ address,size,name,symbol
 0x0042e9e0,213,App::AddRecord,?AddRecord@App@@QAEXHHGG@Z
 0x0042eac0,188,Func42eac0,
 0x0042eb80,119,Func42eb80,
-0x0042ec00,34,Func42ec00,
+0x0042ec00,34,MidiPlayer::PlayFile,?PlayFile@MidiPlayer@@QAEXPAD@Z
 0x0042ec30,177,App::ResetRun,?ResetRun@App@@QAEXXZ
 0x0042ecf0,49,Func42ecf0,
 0x0042ed30,13,App::GetNoDirectInput,?GetNoDirectInput@App@@QAEHXZ
@@ -667,7 +667,7 @@ address,size,name,symbol
 0x00431680,33,Func431680,
 0x004316b0,633,DrawFps,?DrawFps@@YIXH@Z
 0x00431930,254,App::PlayMusic,?PlayMusic@App@@QAEHHH@Z
-0x00431a30,169,Func431a30,
+0x00431a30,169,App::PlayMusicFile,?PlayMusicFile@App@@QAEHPADH@Z
 0x00431ae0,69,App::StartSubThread,?StartSubThread@App@@QAEHP6GKPAX@Z0@Z
 0x00431b30,59,App::OnDraw,?OnDraw@App@@SIHPAU1@@Z
 0x00431b70,405,App::DeletedCallback,?DeletedCallback@App@@SIHPAU1@@Z

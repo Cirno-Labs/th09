@@ -179,6 +179,14 @@ public:
     // Loads and parses a MIDI file through the scratch slot 31. Returns -1
     // if it cannot be loaded, otherwise 0 (0x43e130).
     int Load(char *path);
+    // Stops, loads and plays the MIDI file `path`. Inline; the copy is
+    // App's object's, at 0x42ec00.
+    void PlayFile(char *path)
+    {
+        this->Stop();
+        this->Load(path);
+        this->Play();
+    }
     // Handles the next event of a track and reads the time of the one
     // after.
     void ProcessEvent(MidiTrack *track);
