@@ -179,6 +179,8 @@ ASSERT_SIZE(EnemyUnknown1c, 0x1c);
 // shows it. Only the fields known so far.
 struct Enemy
 {
+    // Resets the rank speeds and counts, as th08's inline (0x40f180).
+    void ResetRankSpeeds();
     // Frees the blocks of unknown33d8 (0x4100e0).
     void FreeUnknown33d8();
 
@@ -216,7 +218,10 @@ struct Enemy
     // The range the bullet speed is scaled by with the rank, as th08's.
     float rankSpeedLow;
     float rankSpeedHigh;
-    unsigned char pad_2e40[0x2e48 - 0x2e40];
+    short rankCount1Low;
+    short rankCount1High;
+    short rankCount2Low;
+    short rankCount2High;
     int life;
     unsigned char pad_2e4c[0x2e54 - 0x2e4c];
     int score;

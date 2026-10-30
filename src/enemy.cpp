@@ -5,6 +5,16 @@
 #include "sprite.h"
 #include "unsorted.h"
 
+void Enemy::ResetRankSpeeds()
+{
+    this->rankSpeedLow = -0.5f;
+    this->rankSpeedHigh = 0.5f;
+    this->rankCount1Low = 0;
+    this->rankCount1High = 0;
+    this->rankCount2Low = 0;
+    this->rankCount2High = 0;
+}
+
 void EnemyManager::Initialize()
 {
     int i;

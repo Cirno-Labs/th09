@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.98% (694)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.46% (368)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.07% (695)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.36% (367)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="485.41" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="485.41" y="0" class="decompiled"/>
-<rect width="257.39" height="6" x="489.61" y="0" class="todo"/>
+<rect width="486.11" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="486.11" y="0" class="decompiled"/>
+<rect width="256.69" height="6" x="490.31" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -258,7 +258,7 @@
 <rect width="12" height="12" x="555" y="45" class="todo"><title>0x0040f080 Ending::RegisterChain (223 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="45" class="named"><title>0x0040f160 EclManager::GetTimelineCount (7 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="45" class="named"><title>0x0040f170 EclManager::GetTimeline (16 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="45" class="todo"><title>0x0040f180 Func40f180 (51 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="45" class="named"><title>0x0040f180 Enemy::ResetRankSpeeds (51 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="45" class="named"><title>0x0040f1c0 Fabs (12 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="45" class="todo"><title>0x0040f1d0 Func40f1d0 (364 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="45" class="todo"><title>0x0040f340 Func40f340 (373 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.18%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.78%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.20%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.76%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="247.84" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="247.84" y="0" class="decompiled"/>
-<rect width="498.86" height="6" x="248.14" y="0" class="todo"/>
+<rect width="247.97" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="247.97" y="0" class="decompiled"/>
+<rect width="498.73" height="6" x="248.27" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1852,7 +1852,7 @@
 <rect width="3.60" height="3.62" x="717" y="238.52" class="named"><title>0x00404570 SpellCard::RemoveChain (51 bytes)</title></rect>
 <rect width="3.60" height="3.62" x="723.60" y="238.52" class="todo"><title>0x0040d1c0 EffectManager::AddedCallback (51 bytes)</title></rect>
 <rect width="3.60" height="3.62" x="730.20" y="238.52" class="named"><title>0x0040d280 EffectManager::RemoveChain (51 bytes)</title></rect>
-<rect width="3.60" height="3.62" x="736.80" y="238.52" class="todo"><title>0x0040f180 Func40f180 (51 bytes)</title></rect>
+<rect width="3.60" height="3.62" x="736.80" y="238.52" class="named"><title>0x0040f180 Enemy::ResetRankSpeeds (51 bytes)</title></rect>
 <rect width="3.60" height="3.62" x="743.40" y="238.52" class="named"><title>0x0041a230 GuiSide::Reset (51 bytes)</title></rect>
 <rect width="3.45" height="3.77" x="662.39" y="245.14" class="named"><title>0x0041f310 Player::SubUnknown30388 (51 bytes)</title></rect>
 <rect width="3.45" height="3.77" x="668.83" y="245.14" class="named"><title>0x0043fc10 CSound::ResumeBuffer (51 bytes)</title></rect>
