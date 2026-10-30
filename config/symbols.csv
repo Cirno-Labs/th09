@@ -359,7 +359,7 @@ address,size,name,symbol
 0x0041bbe0,163,Func41bbe0,
 0x0041bc90,162,Func41bc90,
 0x0041bd40,19,Sprite::SetBlendMode1,?SetBlendMode1@Sprite@@QAEXXZ
-0x0041bd60,8,Func41bd60,
+0x0041bd60,8,Sprite::ClearBlendMode,?ClearBlendMode@Sprite@@QAEXXZ
 0x0041bd70,19,Func41bd70,
 0x0041bd90,5,Func41bd90,
 0x0041bda0,23,Func41bda0,

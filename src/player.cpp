@@ -6,6 +6,11 @@ void Sprite::SetBlendMode1()
     this->blendMode = 1;
 }
 
+void Sprite::ClearBlendMode()
+{
+    this->blendMode = 0;
+}
+
 // Unloads the player's ANM file and frees its shot file if the game frees
 // its resources. Returns 0. Static, with the player in esi (0x41ce60).
 static int FreeResources(Player *player)
