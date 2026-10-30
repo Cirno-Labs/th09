@@ -18,11 +18,12 @@ functions = "build/functions_150a.csv"
 # Visual C++ .NET 2003 (MSVC 7.1; the original is cl 13.10.3077, this
 # is th10's SP1, 13.10.6030), the Platform SDK for Windows XP SP2 and
 # the DirectX 8 SDK. The game code is optimized but keeps its frame
-# pointer, and its functions are __stdcall by default.
+# pointer, and, as th08's, its functions are __fastcall by default
+# (/Gr). Nothing is inlined (/Ob0).
 bin = 'C:\msvc71\bin'
 include = ['C:\dx8\include', 'C:\msvc71\include', 'C:\psdk\Include']
 lib = ['C:\dx8\lib', 'C:\msvc71\lib', 'C:\psdk\Lib']
-cflags = ["/O2", "/Ob0", "/Oy-", "/Gz", "/GX"]
+cflags = ["/O2", "/Ob0", "/Oy-", "/Gr", "/GX"]
 
 [exe]
 obj_dir = "build/obj"
