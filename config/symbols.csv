@@ -2262,5 +2262,6 @@ address,size,name,symbol
 0x004dc544,,g_TextSurface,?g_TextSurface@@3PAUIDirect3DSurface8@@A
 0x004dc548,,g_TextOutlineColor,?g_TextOutlineColor@@3KA
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
+0x004dc558,,g_DiffuseQuad,?g_DiffuseQuad@@3PAUVertexTex1DiffuseXyzrwh@@A
 0x004dc688,,g_MidiTimerLastCounter,?g_MidiTimerLastCounter@@3T_LARGE_INTEGER@@A
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A

@@ -558,6 +558,10 @@ public:
 };
 extern SpriteEngine *g_SpriteEngine;
 
+// The screen corners of the quad the draw functions build, as th08's
+// (0x4dc558).
+extern VertexTex1DiffuseXyzrwh g_DiffuseQuad[4];
+
 // The Direct3D formats of ANM images, by index (0x490f58).
 extern const D3DFORMAT g_TextureFormats[];
 // The bytes per pixel of each of g_TextureFormats (0x490f70).
