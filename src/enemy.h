@@ -81,7 +81,13 @@ struct EnemyUnknown22c
     void *code;
     // The frame of the subroutine, and of a wait.
     Timer timer;
-    unsigned char pad_14[0x94 - 0x14];
+    unsigned char pad_14[0x1c - 0x14];
+    // The script's variables, by their place in th08's.
+    int intVars[8];
+    float floatVars[8];
+    int intVars2[4];
+    float floatVars2[2];
+    unsigned char pad_74[0x94 - 0x74];
     Timer waitTimer;
     EnemyUnknown30 unknownA0[8];
     unsigned char pad_220[0x228 - 0x220];
@@ -152,7 +158,9 @@ struct Enemy
     Sprite sprites[2];
     EnemyUnknown22c unknown7f4;
     EnemyUnknown22c unknownA20[0x10];
-    unsigned char pad_2ce0[0x2d2a - 0x2ce0];
+    // The context running, as th08's currentCtx.
+    EnemyUnknown22c *currentCtx;
+    unsigned char pad_2ce4[0x2d2a - 0x2ce4];
     short stackDepth;
     unsigned char pad_2d2c[0x2d2e - 0x2d2c];
     short deathSub;

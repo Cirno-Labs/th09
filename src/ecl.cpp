@@ -1,5 +1,7 @@
 #include "bullet.h"
 #include "enemy.h"
+#include "exattack.h"
+#include "gamemanager.h"
 #include "unsorted.h"
 
 void BulletManager::Unknown405650()
@@ -55,4 +57,14 @@ int EclManager::StartSub(EnemyUnknown22c *ctx, short sub)
     ctx->sub = sub;
     ctx->ecl = this;
     return 0;
+}
+
+void SendExAttackA(Enemy *enemy, void *instr)
+{
+    D3DXVECTOR3 pos;
+
+    pos.x = enemy->currentCtx->floatVars2[0];
+    pos.y = enemy->currentCtx->floatVars2[1];
+    pos.z = 0.0f;
+    g_GameManager.exAttackManager->AddAttack(10, &pos, 1 - enemy->manager->sideIdx, 0);
 }

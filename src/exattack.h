@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <d3dx8math.h>
+
 #include "chain.h"
 #include "timer.h"
 
@@ -28,6 +30,9 @@ ASSERT_SIZE(ExAttack, 0x4c);
 class ExAttackManager
 {
 public:
+    // Starts an attack of type `type` at `pos` against side `side`
+    // (0x4151f0).
+    int AddAttack(int type, D3DXVECTOR3 *pos, int side, int arg);
     // Frees the attacks, removes the manager's chain elements and deletes
     // it, if any (0x4156a0).
     static void RemoveChain(ExAttackManager *mgr);

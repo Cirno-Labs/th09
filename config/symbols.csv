@@ -128,7 +128,7 @@ address,size,name,symbol
 0x004086c0,14777,Func4086c0,
 0x0040c390,41,Func40c390,
 0x0040c530,563,Func40c530,
-0x0040c770,70,Func40c770,
+0x0040c770,70,SendExAttackA,?SendExAttackA@@YIXPAUEnemy@@PAX@Z
 0x0040c7c0,69,Func40c7c0,
 0x0040c810,69,Func40c810,
 0x0040c860,226,Func40c860,
@@ -271,7 +271,7 @@ address,size,name,symbol
 0x00415020,34,Laser::Laser,??0Laser@@QAE@XZ
 0x00415050,121,BulletManager::BulletManager,??0BulletManager@@QAE@XZ
 0x004150d0,283,BulletManager::RegisterChain,?RegisterChain@BulletManager@@SIPAV1@H@Z
-0x004151f0,321,Func4151f0,
+0x004151f0,321,ExAttackManager::AddAttack,?AddAttack@ExAttackManager@@QAEHHPAUD3DXVECTOR3@@HH@Z
 0x00415340,279,ExAttackManager::OnUpdate,?OnUpdate@ExAttackManager@@SIHPAV1@@Z
 0x00415460,272,ExAttackManager::OnDraw,?OnDraw@ExAttackManager@@SIHPAV1@@Z
 0x00415580,190,ExAttackManager::OnDraw2,?OnDraw2@ExAttackManager@@SIHPAV1@@Z
