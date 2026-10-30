@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.17% (696)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.27% (366)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.26% (697)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.18% (365)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="486.81" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="486.81" y="0" class="decompiled"/>
-<rect width="255.99" height="6" x="491.01" y="0" class="todo"/>
+<rect width="487.51" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="487.51" y="0" class="decompiled"/>
+<rect width="255.29" height="6" x="491.71" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -363,7 +363,7 @@
 <rect width="12" height="12" x="630" y="75" class="named"><title>0x00415c30 Gui::LoadAnm (24 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="75" class="named"><title>0x00415c50 Gui::ReleaseAnm (14 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="75" class="todo"><title>0x00415c60 Func415c60 (39 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="75" class="todo"><title>0x00415c90 Func415c90 (23 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="75" class="named"><title>0x00415c90 GuiMsg::Clear (23 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="75" class="named"><title>0x00415cb0 PlayerInput::IsHeld2 (18 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="75" class="named"><title>0x00415cd0 PlayerInput::IsJustPressed2 (18 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="75" class="named"><title>0x00415cf0 FreesResources (6 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.22%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.74%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.23%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.74%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="248.13" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="248.13" y="0" class="decompiled"/>
-<rect width="498.57" height="6" x="248.43" y="0" class="todo"/>
+<rect width="248.19" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="248.19" y="0" class="decompiled"/>
+<rect width="498.51" height="6" x="248.49" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2032,7 +2032,7 @@
 <rect width="1.80" height="1.28" x="701.45" y="324.43" class="named"><title>0x00415d50 GuiSide::StartUnknownAbcc (24 bytes)</title></rect>
 <rect width="1.80" height="1.28" x="701.45" y="328.72" class="named"><title>0x0042ae50 Rng::GetRandomU32 (24 bytes)</title></rect>
 <rect width="1.61" height="1.46" x="706.25" y="284.62" class="named"><title>0x00433140 DatArchiveEntry::~DatArchiveEntry (24 bytes)</title></rect>
-<rect width="1.41" height="1.46" x="710.85" y="284.62" class="todo"><title>0x00415c90 Func415c90 (23 bytes)</title></rect>
+<rect width="1.41" height="1.46" x="710.85" y="284.62" class="named"><title>0x00415c90 GuiMsg::Clear (23 bytes)</title></rect>
 <rect width="1.41" height="1.46" x="715.27" y="284.62" class="named"><title>0x0041bda0 PlayerHitArea::Reset (23 bytes)</title></rect>
 <rect width="1.41" height="1.46" x="719.68" y="284.62" class="named"><title>0x0041ee30 PlayerUnknown30410::PlayerUnknown30410 (23 bytes)</title></rect>
 <rect width="1.41" height="1.46" x="724.09" y="284.62" class="named"><title>0x0041f010 PlayerOption::PlayerOption (23 bytes)</title></rect>

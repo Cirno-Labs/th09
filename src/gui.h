@@ -13,6 +13,8 @@ struct GuiMsg
     // Unloads the music the scripts from `firstScript` on, ten of them,
     // play with opcode 7 (0x417520).
     void UnloadBgm(int firstScript);
+    // Zeroes the state, with no script running (0x415c90).
+    void Clear();
 
     void *msgFile;
     // The instruction being run.

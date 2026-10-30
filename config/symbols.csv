@@ -294,7 +294,7 @@ address,size,name,symbol
 0x00415c30,24,Gui::LoadAnm,?LoadAnm@Gui@@SIHXZ
 0x00415c50,14,Gui::ReleaseAnm,?ReleaseAnm@Gui@@SIXXZ
 0x00415c60,39,Func415c60,
-0x00415c90,23,Func415c90,
+0x00415c90,23,GuiMsg::Clear,?Clear@GuiMsg@@QAEXXZ
 0x00415cb0,18,PlayerInput::IsHeld2,?IsHeld2@PlayerInput@@QAEGG@Z
 0x00415cd0,18,PlayerInput::IsJustPressed2,?IsJustPressed2@PlayerInput@@QAEGG@Z
 0x00415cf0,6,FreesResources,?FreesResources@@YIHXZ

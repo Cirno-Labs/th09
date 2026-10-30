@@ -12,6 +12,12 @@ void Gui::ReleaseAnm()
     g_SpriteEngine->ReleaseAnm(10);
 }
 
+void GuiMsg::Clear()
+{
+    memset(this, 0, sizeof(GuiMsg));
+    this->scriptIndex = -1;
+}
+
 WORD PlayerInput::IsHeld2(WORD mask)
 {
     return this->unknown2c & mask;
