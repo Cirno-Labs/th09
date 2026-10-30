@@ -635,3 +635,20 @@ void MainMenu::SelectEntryInterrupts(int cursor, int first, int count)
     }
     this->sprites[cursor + first].pendingInterrupt = 7;
 }
+
+void MainMenu::FlashHalves(int left, int right)
+{
+    this->sprites[141].pendingInterrupt = 9;
+    this->sprites[147].pendingInterrupt = 9;
+    this->sprites[142].pendingInterrupt = 9;
+    this->sprites[143].pendingInterrupt = 9;
+    this->sprites[144].pendingInterrupt = 9;
+    this->sprites[145].pendingInterrupt = 9;
+    this->sprites[146].pendingInterrupt = 9;
+    this->sprites[148].pendingInterrupt = 9;
+    this->sprites[149].pendingInterrupt = 9;
+    this->sprites[150].pendingInterrupt = 9;
+    this->sprites[151].pendingInterrupt = 9;
+    this->sprites[152].pendingInterrupt = 9;
+    this->ShowHalves(left, right);
+}
