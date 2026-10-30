@@ -43,7 +43,23 @@ public:
     // for an empty one. Not called (0x423182).
     void ShowHalves(int left, int right);
 
-    unsigned char pad_0[0x10];
+    // Moves cursor by up and down among `count` entries, wrapping, as
+    // th08's MoveMenuCursor; returns -1, 1, or 0 when it did not move
+    // (0x42457a).
+    int MoveCursor(int count);
+    // The same with left and right (0x424601).
+    int MoveCursorLR(int count);
+    // The same with all four directions, left and right first
+    // (0x424671).
+    int MoveCursor4(int count);
+    // MoveCursorLR, up and down as left and right, on cursors[idx] with
+    // player `idx`'s input (0x42474a).
+    int MovePlayerCursor(int idx, int count);
+    // The same on cursors[idx] with player `player`'s input (0x4247f1).
+    int MovePlayerCursor2(int player, int idx, int count);
+
+    int cursor;
+    unsigned char pad_4[0x10 - 0x4];
     int cursors[6];
     int subState;
     // Counts the frames in the current state.

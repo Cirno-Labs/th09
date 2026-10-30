@@ -165,11 +165,6 @@ void MainMenu::ShowHalves(int left, int right)
     this->anm->SetSprite(&this->sprites[152], n <= 0 ? 0xc5 : n == 1 ? 0xc4 : 0xc3);
 }
 
-BOOL PlayerInput::IsPressed(WORD mask)
-{
-    return (WORD)(this->unknown6 & mask) != 0 || (WORD)(this->unknown4 & mask) != 0;
-}
-
 void MidiPlayer::Restart(int slot)
 {
     this->Stop();
@@ -237,4 +232,41 @@ void AsciiText::SetScale(float x, float y)
 {
     this->scaleX = x;
     this->scaleY = y;
+}
+
+int MainMenu::MoveCursor(int count)
+{
+    if (count == 0)
+    {
+        return 0;
+    }
+    if (g_PlayerInputs[2].IsPressed(0x10))
+    {
+        this->cursor--;
+        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        if (this->cursor < 0)
+        {
+            this->cursor = count - 1;
+        }
+        if (this->cursor >= count)
+        {
+            this->cursor = 0;
+        }
+        return -1;
+    }
+    if (g_PlayerInputs[2].IsPressed(0x20))
+    {
+        this->cursor++;
+        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        if (this->cursor < 0)
+        {
+            this->cursor = count - 1;
+        }
+        if (this->cursor >= count)
+        {
+            this->cursor = 0;
+        }
+        return 1;
+    }
+    return 0;
 }

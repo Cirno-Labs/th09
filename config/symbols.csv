@@ -477,7 +477,7 @@ address,size,name,symbol
 0x0042304d,89,MainMenu::SkipClosedEntries,?SkipClosedEntries@MainMenu@@QAEXHHPADH@Z
 0x004230a6,89,MainMenu::SkipClosedEntries2,?SkipClosedEntries2@MainMenu@@QAEXHHPADH@Z
 0x004230ff,89,MainMenu::SkipClosedEntries3,?SkipClosedEntries3@MainMenu@@QAEXHHPADH@Z
-0x00423158,42,PlayerInput::IsPressed,?IsPressed@PlayerInput@@QAEHG@Z
+0x00423158,42,PlayerInput::IsPressed,?IsPressed@PlayerInput@@QAEGG@Z
 0x00423182,479,MainMenu::ShowHalves,?ShowHalves@MainMenu@@QAEXHH@Z
 0x00423361,33,MidiPlayer::Restart,?Restart@MidiPlayer@@QAEXH@Z
 0x00423382,33,App::ClearUnknown77c,?ClearUnknown77c@App@@QAEXXZ
@@ -491,7 +491,7 @@ address,size,name,symbol
 0x004239f6,800,Func4239f6,
 0x00423d16,1939,Func423d16,
 0x004244a9,209,Func4244a9,
-0x0042457a,135,Func42457a,
+0x0042457a,135,MainMenu::MoveCursor,?MoveCursor@MainMenu@@QAEHH@Z
 0x00424601,112,Func424601,
 0x00424671,217,Func424671,
 0x0042474a,167,Func42474a,

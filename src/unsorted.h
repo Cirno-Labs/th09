@@ -199,7 +199,10 @@ struct PlayerInput
 {
     // Whether a button of `mask` is down in either of the masks at 4
     // and 6 (0x423158).
-    BOOL IsPressed(WORD mask);
+    WORD IsPressed(WORD mask)
+    {
+        return (WORD)(this->unknown6 & mask) != 0 || (WORD)(this->unknown4 & mask) != 0;
+    }
 
     unsigned char pad_0[0x4];
     WORD unknown4;
