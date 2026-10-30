@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.55% (258)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">75.45% (793)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.83% (261)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">75.17% (790)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="183.37" height="6" x="0" y="0" class="named"/>
-<rect width="563.63" height="6" x="183.37" y="0" class="todo"/>
+<rect width="185.51" height="6" x="0" y="0" class="named"/>
+<rect width="561.49" height="6" x="185.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -312,7 +312,7 @@
 <rect width="12" height="12" x="630" y="60" class="todo"><title>0x00412760 Func412760 (31 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="60" class="named"><title>0x00412780 SinCos (33 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="60" class="named"><title>0x004127b0 Sprite::Initialize (66 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="60" class="todo"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="60" class="named"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="60" class="todo"><title>0x00412830 Func412830 (245 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="60" class="todo"><title>0x00412930 Func412930 (40 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="60" class="todo"><title>0x00412960 Func412960 (1887 bytes)</title></rect>
@@ -800,9 +800,9 @@
 <rect width="12" height="12" x="450" y="210" class="todo"><title>0x00434380 Func434380 (8 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="210" class="todo"><title>0x00434390 Func434390 (18 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="210" class="todo"><title>0x004343b0 Func4343b0 (10 bytes)</title></rect>
-<rect width="12" height="12" x="495" y="210" class="todo"><title>0x004343c0 AsciiText::SetGlyphWidth (16 bytes)</title></rect>
+<rect width="12" height="12" x="495" y="210" class="named"><title>0x004343c0 AsciiText::SetGlyphWidth (16 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="210" class="named"><title>0x004343d0 D3DXVECTOR3::D3DXVECTOR3 (3 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="210" class="todo"><title>0x004343e0 AsciiText::Initialize (251 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="210" class="named"><title>0x004343e0 AsciiText::Initialize (251 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="210" class="todo"><title>0x004344e0 Func4344e0 (89 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="210" class="todo"><title>0x00434540 Func434540 (341 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="210" class="todo"><title>0x004346a0 Func4346a0 (154 bytes)</title></rect>
@@ -1122,10 +1122,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.57%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.43%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.67%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.33%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="56.51" height="6" x="0" y="0" class="named"/>
-<rect width="690.49" height="6" x="56.51" y="0" class="todo"/>
+<rect width="57.30" height="6" x="0" y="0" class="named"/>
+<rect width="689.70" height="6" x="57.30" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.79" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1425,7 +1425,7 @@
 <rect width="12.01" height="11.56" x="734.99" y="91.89" class="todo"><title>0x0043afe0 Func43afe0 (254 bytes)</title></rect>
 <rect width="11.94" height="11.56" x="520.93" y="106.44" class="todo"><title>0x00435b00 Func435b00 (253 bytes)</title></rect>
 <rect width="11.94" height="11.51" x="520.93" y="121" class="todo"><title>0x0043efa0 Func43efa0 (252 bytes)</title></rect>
-<rect width="11.94" height="11.45" x="520.93" y="135.51" class="todo"><title>0x004343e0 AsciiText::Initialize (251 bytes)</title></rect>
+<rect width="11.94" height="11.45" x="520.93" y="135.51" class="named"><title>0x004343e0 AsciiText::Initialize (251 bytes)</title></rect>
 <rect width="11.94" height="11.33" x="520.93" y="149.96" class="todo"><title>0x0042d3d0 Func42d3d0 (249 bytes)</title></rect>
 <rect width="11.94" height="11.33" x="520.93" y="164.29" class="todo"><title>0x00443930 Func443930 (249 bytes)</title></rect>
 <rect width="11.94" height="11.33" x="520.93" y="178.62" class="todo"><title>0x00443b10 Func443b10 (249 bytes)</title></rect>
@@ -1881,7 +1881,7 @@
 <rect width="3.05" height="2.83" x="719.76" y="253.41" class="todo"><title>0x00403e00 Func403e00 (41 bytes)</title></rect>
 <rect width="3.05" height="2.83" x="725.81" y="253.41" class="todo"><title>0x004048b0 Func4048b0 (41 bytes)</title></rect>
 <rect width="3.05" height="2.83" x="731.85" y="253.41" class="todo"><title>0x0040c390 Func40c390 (41 bytes)</title></rect>
-<rect width="3.05" height="2.83" x="737.90" y="253.41" class="todo"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>
+<rect width="3.05" height="2.83" x="737.90" y="253.41" class="named"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>
 <rect width="3.05" height="2.83" x="743.95" y="253.41" class="todo"><title>0x0041d7e0 Func41d7e0 (41 bytes)</title></rect>
 <rect width="2.83" height="3.05" x="676.38" y="259.24" class="named"><title>0x0042aea0 Rng::GetRandomF32MinusOneToOne (41 bytes)</title></rect>
 <rect width="2.83" height="3.05" x="682.21" y="259.24" class="todo"><title>0x0043d0c0 Func43d0c0 (41 bytes)</title></rect>
@@ -2066,7 +2066,7 @@
 <rect width="0.49" height="0.95" x="715.58" y="302.17" class="todo"><title>0x004124d0 Func4124d0 (16 bytes)</title></rect>
 <rect width="0.49" height="0.95" x="715.58" y="306.11" class="todo"><title>0x004302a0 Func4302a0 (16 bytes)</title></rect>
 <rect width="0.49" height="0.95" x="715.58" y="310.06" class="named"><title>0x00433040 DatArchive::DatArchive (16 bytes)</title></rect>
-<rect width="0.49" height="0.95" x="715.58" y="314.01" class="todo"><title>0x004343c0 AsciiText::SetGlyphWidth (16 bytes)</title></rect>
+<rect width="0.49" height="0.95" x="715.58" y="314.01" class="named"><title>0x004343c0 AsciiText::SetGlyphWidth (16 bytes)</title></rect>
 <rect width="0.49" height="0.95" x="715.58" y="317.95" class="todo"><title>0x0043cfd0 Func43cfd0 (16 bytes)</title></rect>
 <rect width="0.49" height="0.70" x="715.58" y="321.90" class="named"><title>0x004014a0 Timer::Initialize (15 bytes)</title></rect>
 <rect width="0.49" height="0.70" x="715.58" y="325.60" class="named"><title>0x00404910 Rng::GetRandomF32InRange (15 bytes)</title></rect>
