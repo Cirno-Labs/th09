@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include <windows.h>
 #include <math.h>
 
 #include "common.h"
@@ -23,3 +24,18 @@ struct Vector2
     float x;
     float y;
 };
+
+// The object that runs the game (th08's App), at 0x4b3100.
+struct App
+{
+    // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
+    // fractions while the game runs slow (0x42f4f0).
+    void TickTimer(int *frames, float *subFrame);
+
+    unsigned char pad_0[0x5b8];
+    // Below 1 when the game runs slow.
+    float gameSpeed;
+    unsigned char pad_5bc[0x5d4 - 0x5bc];
+    DWORD flags;
+};
+extern App g_App;

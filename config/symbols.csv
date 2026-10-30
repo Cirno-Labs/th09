@@ -25,7 +25,7 @@ address,size,name,symbol
 0x00401460,13,Func401460,
 0x00401470,38,Func401470,
 0x004014a0,15,Timer::Initialize,?Initialize@Timer@@QAEXXZ
-0x004014b0,28,Func4014b0,
+0x004014b0,28,Timer::NextTick,?NextTick@Timer@@QAEHXZ
 0x004014d0,25,Func4014d0,
 0x004014f0,4,Func4014f0,
 0x00401500,9,Func401500,
@@ -618,7 +618,7 @@ address,size,name,symbol
 0x0042f400,17,Func42f400,
 0x0042f420,101,Func42f420,
 0x0042f490,93,Func42f490,
-0x0042f4f0,71,Func42f4f0,
+0x0042f4f0,71,App::TickTimer,?TickTimer@App@@QAEXPAHPAM@Z
 0x0042f540,543,Func42f540,
 0x0042f760,15,Func42f760,
 0x0042f770,74,Func42f770,
@@ -2196,3 +2196,4 @@ address,size,name,symbol
 0x0048e284,4,CoInitialize,__imp__CoInitialize@4
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
+0x004b3100,,g_App,?g_App@@3UApp@@A

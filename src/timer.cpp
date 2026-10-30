@@ -8,3 +8,10 @@ void Timer::Initialize()
     this->previous = -999999;
     this->currentF = 0.0f;
 }
+
+int Timer::NextTick()
+{
+    this->previous = this->current;
+    g_App.TickTimer(&this->current, &this->currentF);
+    return this->current;
+}
