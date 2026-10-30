@@ -56,6 +56,8 @@ struct App
     int GetNoScore();
     // (0x42d2b0)
     int GetForce16BitTextures();
+    // (0x42d2c0)
+    int GetReferenceRasterizer();
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
