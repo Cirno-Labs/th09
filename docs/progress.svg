@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">57.64% (611)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">42.36% (449)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">57.74% (612)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">42.26% (448)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="430.58" height="6" x="0" y="0" class="named"/>
-<rect width="316.42" height="6" x="430.58" y="0" class="todo"/>
+<rect width="431.29" height="6" x="0" y="0" class="named"/>
+<rect width="315.71" height="6" x="431.29" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -432,7 +432,7 @@
 <rect width="12" height="12" x="180" y="105" class="named"><title>0x0041bd90 PlayerHitArea::Deactivate (5 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="105" class="named"><title>0x0041bda0 PlayerHitArea::Reset (23 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="105" class="named"><title>0x0041bdc0 PlayerUnknown24::Reset (29 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="105" class="todo"><title>0x0041bde0 Func41bde0 (13 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="105" class="named"><title>0x0041bde0 Player::SetRegisterChainArg (13 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="105" class="todo"><title>0x0041bdf0 Func41bdf0 (121 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="105" class="todo"><title>0x0041be70 Func41be70 (106 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="105" class="todo"><title>0x0041bee0 Func41bee0 (209 bytes)</title></rect>
@@ -1133,8 +1133,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.57%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.43%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="228.32" height="6" x="0" y="0" class="named"/>
-<rect width="518.68" height="6" x="228.32" y="0" class="todo"/>
+<rect width="228.36" height="6" x="0" y="0" class="named"/>
+<rect width="518.64" height="6" x="228.36" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2112,7 +2112,7 @@
 <rect width="0.39" height="0.55" x="746.61" y="305.57" class="named"><title>0x0043d0f0 MmTimer::DefaultCallback (14 bytes)</title></rect>
 <rect width="0.27" height="0.41" x="722.87" y="309.12" class="named"><title>0x00401460 App::GetNoFog (13 bytes)</title></rect>
 <rect width="0.27" height="0.41" x="722.87" y="312.53" class="named"><title>0x00415d20 GameManager::IsReplay (13 bytes)</title></rect>
-<rect width="0.27" height="0.41" x="722.87" y="315.94" class="todo"><title>0x0041bde0 Func41bde0 (13 bytes)</title></rect>
+<rect width="0.27" height="0.41" x="722.87" y="315.94" class="named"><title>0x0041bde0 Player::SetRegisterChainArg (13 bytes)</title></rect>
 <rect width="0.27" height="0.41" x="722.87" y="319.36" class="named"><title>0x00420180 App::GetNoScore (13 bytes)</title></rect>
 <rect width="0.27" height="0.41" x="722.87" y="322.77" class="named"><title>0x0042b0d0 MemoryManager::MemoryManager (13 bytes)</title></rect>
 <rect width="0.27" height="0.41" x="722.87" y="326.18" class="named"><title>0x0042ed30 App::GetNoDirectInput (13 bytes)</title></rect>

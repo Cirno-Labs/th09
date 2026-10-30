@@ -364,7 +364,7 @@ address,size,name,symbol
 0x0041bd90,5,PlayerHitArea::Deactivate,?Deactivate@PlayerHitArea@@QAEXXZ
 0x0041bda0,23,PlayerHitArea::Reset,?Reset@PlayerHitArea@@QAEXXZ
 0x0041bdc0,29,PlayerUnknown24::Reset,?Reset@PlayerUnknown24@@QAEXXZ
-0x0041bde0,13,Func41bde0,
+0x0041bde0,13,Player::SetRegisterChainArg,?SetRegisterChainArg@Player@@QAEXE@Z
 0x0041bdf0,121,Func41bdf0,
 0x0041be70,106,Func41be70,
 0x0041bee0,209,Func41bee0,

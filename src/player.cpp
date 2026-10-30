@@ -34,6 +34,11 @@ void PlayerUnknown24::Reset()
     this->flags &= ~3;
 }
 
+void Player::SetRegisterChainArg(BYTE arg)
+{
+    this->registerChainArg = arg;
+}
+
 // Unloads the player's ANM file and frees its shot file if the game frees
 // its resources. Returns 0. Static, with the player in esi (0x41ce60).
 static int FreeResources(Player *player)
