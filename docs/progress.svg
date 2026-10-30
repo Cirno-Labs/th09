@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.79% (410)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.21% (647)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.88% (411)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.12% (646)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="289.75" height="6" x="0" y="0" class="named"/>
-<rect width="457.25" height="6" x="289.75" y="0" class="todo"/>
+<rect width="290.46" height="6" x="0" y="0" class="named"/>
+<rect width="456.54" height="6" x="290.46" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -980,7 +980,7 @@
 <rect width="12" height="12" x="150" y="270" class="named"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="270" class="named"><title>0x0043fda0 CWaveFile::CWaveFile (19 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="270" class="named"><title>0x0043fdc0 CWaveFile::OpenFromMemory (60 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="270" class="todo"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="270" class="named"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="270" class="todo"><title>0x0043fe10 CWaveFile::ResetFile (215 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="270" class="todo"><title>0x0043fef0 CWaveFile::Read (218 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="270" class="todo"><title>0x0043ffd0 CWaveFile::Close (36 bytes)</title></rect>
@@ -1130,8 +1130,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.97%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.03%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="111.80" height="6" x="0" y="0" class="named"/>
-<rect width="635.20" height="6" x="111.80" y="0" class="todo"/>
+<rect width="111.81" height="6" x="0" y="0" class="named"/>
+<rect width="635.19" height="6" x="111.81" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2184,7 +2184,7 @@
 <rect width="0.10" height="0.10" x="744.82" y="327.69" class="named"><title>0x00435ef0 GdiSurface::GetWidth (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.55" y="327.69" class="named"><title>0x00435f00 GdiSurface::GetHeight (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.27" y="327.69" class="named"><title>0x0043e430 CSound::GetWaveFile (4 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="744.82" y="329.68" class="todo"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="744.82" y="329.68" class="named"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="744.82" y="331.58" class="todo"><title>0x00412590 Func412590 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.64" y="329.68" class="todo"><title>0x004125a0 Func4125a0 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.64" y="331.34" class="named"><title>0x004343d0 D3DXVECTOR3::D3DXVECTOR3 (3 bytes)</title></rect>

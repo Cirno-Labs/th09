@@ -351,3 +351,8 @@ HRESULT CWaveFile::OpenFromMemory(BYTE *pbData, ULONG ulDataSize, BgmFormat *for
 
     return S_OK;
 }
+
+DWORD CWaveFile::GetSize()
+{
+    return m_dwSize;
+}
