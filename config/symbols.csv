@@ -893,7 +893,7 @@ address,size,name,symbol
 0x0043ee40,105,SoundPlayer::QueueSoundCommand,?QueueSoundCommand@SoundPlayer@@QAEXHHPAD@Z
 0x0043eeb0,232,SoundPlayer::Release,?Release@SoundPlayer@@QAEHXZ
 0x0043efa0,252,SoundPlayer::LoadBgm,?LoadBgm@SoundPlayer@@QAEHPAD@Z
-0x0043f0a0,327,Func43f0a0,
+0x0043f0a0,327,SoundPlayer::PlayPreloadedBgm,?PlayPreloadedBgm@SoundPlayer@@QAEHH@Z
 0x0043f1f0,1416,SoundPlayer::PlayQueuedSounds,?PlayQueuedSounds@SoundPlayer@@QAEHXZ
 0x0043f7a0,23,CSoundManager::~CSoundManager,??1CSoundManager@@QAE@XZ
 0x0043f7c0,200,Func43f7c0,
