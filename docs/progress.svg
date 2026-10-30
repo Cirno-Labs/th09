@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.69% (409)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.31% (648)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.79% (410)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.21% (647)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="289.05" height="6" x="0" y="0" class="named"/>
-<rect width="457.95" height="6" x="289.05" y="0" class="todo"/>
+<rect width="289.75" height="6" x="0" y="0" class="named"/>
+<rect width="457.25" height="6" x="289.75" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -979,7 +979,7 @@
 <rect width="12" height="12" x="135" y="270" class="named"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="270" class="named"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="270" class="named"><title>0x0043fda0 CWaveFile::CWaveFile (19 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="270" class="todo"><title>0x0043fdc0 CWaveFile::OpenFromMemory (60 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="270" class="named"><title>0x0043fdc0 CWaveFile::OpenFromMemory (60 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="270" class="todo"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="270" class="todo"><title>0x0043fe10 CWaveFile::ResetFile (215 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="270" class="todo"><title>0x0043fef0 CWaveFile::Read (218 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.95%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.05%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.97%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.03%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="111.65" height="6" x="0" y="0" class="named"/>
-<rect width="635.35" height="6" x="111.65" y="0" class="todo"/>
+<rect width="111.80" height="6" x="0" y="0" class="named"/>
+<rect width="635.20" height="6" x="111.80" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1800,7 +1800,7 @@
 <rect width="4.06" height="4.43" x="742.94" y="232.07" class="named"><title>0x004333b0 DatArchive::Release (61 bytes)</title></rect>
 <rect width="4.03" height="4.46" x="649.32" y="239.50" class="named"><title>0x004336d0 File::Read (61 bytes)</title></rect>
 <rect width="4.03" height="4.33" x="649.32" y="246.96" class="todo"><title>0x0040e130 Func40e130 (60 bytes)</title></rect>
-<rect width="4.03" height="4.33" x="649.32" y="254.29" class="todo"><title>0x0043fdc0 CWaveFile::OpenFromMemory (60 bytes)</title></rect>
+<rect width="4.03" height="4.33" x="649.32" y="254.29" class="named"><title>0x0043fdc0 CWaveFile::OpenFromMemory (60 bytes)</title></rect>
 <rect width="4.03" height="4.33" x="649.32" y="261.62" class="todo"><title>0x00440750 CStreamingSound::CStreamingSound (60 bytes)</title></rect>
 <rect width="4.03" height="4.21" x="649.32" y="268.96" class="named"><title>0x00402530 Stage::RemoveChain (59 bytes)</title></rect>
 <rect width="4.03" height="4.21" x="649.32" y="276.17" class="named"><title>0x0041a1d0 GuiSide::RemoveChain (59 bytes)</title></rect>
