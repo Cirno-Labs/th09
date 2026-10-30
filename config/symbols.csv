@@ -888,7 +888,7 @@ address,size,name,symbol
 0x0043e9e0,72,SoundPlayer::SwitchBgmTrack,?SwitchBgmTrack@SoundPlayer@@QAEHPAD@Z
 0x0043ea30,388,SoundPlayer::PreloadBgm,?PreloadBgm@SoundPlayer@@QAEHHPAD@Z
 0x0043ebc0,177,SoundPlayer::StopBgm,?StopBgm@SoundPlayer@@QAEXXZ
-0x0043ec80,245,Func43ec80,
+0x0043ec80,245,SoundPlayer::LoadSounds,?LoadSounds@SoundPlayer@@QAEHXZ
 0x0043ed80,181,Func43ed80,
 0x0043ee40,105,SoundPlayer::QueueSoundCommand,?QueueSoundCommand@SoundPlayer@@QAEXHHPAD@Z
 0x0043eeb0,232,Func43eeb0,
