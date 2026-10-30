@@ -11,3 +11,13 @@
 float Cos(float angle);
 float Sin(float angle);
 float Sqrt(float x);
+
+// A 2D vector, as th08's.
+struct Vector2
+{
+    // Sets x and y to `radius` along `angle`, with one fsincos (0x441890).
+    void SetPolar(float angle, float radius);
+
+    float x;
+    float y;
+};
