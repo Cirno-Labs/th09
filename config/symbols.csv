@@ -418,8 +418,8 @@ address,size,name,symbol
 0x0041f350,309,FireShot,?FireShot@@YIXPAVPlayer@@PAUPlayerBullet@@PAUShotData@@@Z
 0x0041f490,37,TryFireShot,?TryFireShot@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x0041f4c0,190,FireShots,?FireShots@@YIXPAVPlayer@@HH@Z
-0x0041f580,242,Func41f580,
-0x0041f680,205,Func41f680,
+0x0041f580,251,Player::UpdateBullets,?UpdateBullets@Player@@QAEXXZ
+0x0041f680,211,Func41f680,
 0x0041f760,164,Player::DrawHitBullets,?DrawHitBullets@Player@@QAEXXZ
 0x0041f810,1210,Func41f810,
 0x0041fcd0,985,Func41fcd0,

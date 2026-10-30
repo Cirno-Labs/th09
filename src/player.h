@@ -231,6 +231,10 @@ public:
     PlayerHitArea *AddKind2Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40);
     // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
     void SubUnknown30388(float amount);
+    // Moves the bullets and runs their update callbacks, freeing those
+    // that leave the play area or end, unless the side is frozen
+    // (flags bit 0), as th08's UpdateBullets (0x41f580).
+    void UpdateBullets();
     // Draws the bullets that hit (state 2) at their positions on the
     // side's screen, turned to their angle when they rotate, blue while
     // unknown46e is set, as th08's DrawHitBullets (0x41f760).

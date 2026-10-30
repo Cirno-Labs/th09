@@ -350,6 +350,43 @@ void FireShots(Player *player, int frame, int table)
     }
 }
 
+void Player::UpdateBullets()
+{
+    int i;
+    PlayerBullet *bullet;
+
+    if (this->side->flags & 1)
+    {
+        return;
+    }
+    bullet = this->bullets;
+    for (i = 0; i < 0x80; i++, bullet++)
+    {
+        if (bullet->state == 0)
+        {
+            continue;
+        }
+        if (bullet->update != NULL && bullet->update(this, bullet))
+        {
+            bullet->state = 0;
+            continue;
+        }
+        bullet->pos[0] += g_App.gameSpeed * bullet->velocity.x;
+        bullet->pos[1] += g_App.gameSpeed * bullet->velocity.y;
+        if (bullet->type != 2 &&
+            !g_GameManager.IsInPlayArea(bullet->pos[0], bullet->pos[1], bullet->sprite.spriteData->width,
+                                        bullet->sprite.spriteData->height))
+        {
+            bullet->state = 0;
+        }
+        if (g_SpriteEngine->Step(&bullet->sprite))
+        {
+            bullet->state = 0;
+        }
+        bullet->timer++;
+    }
+}
+
 void Player::DrawHitBullets()
 {
     PlayerBullet *bullet = this->bullets;
