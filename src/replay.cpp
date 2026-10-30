@@ -2,6 +2,35 @@
 #include "gamemanager.h"
 #include "gui.h"
 
+void PlayerInput::UpdateRepeat2()
+{
+    WORD buttons = this->unknown2c;
+    int i;
+    WORD *held;
+
+    this->unknown4 = 0;
+    held = this->heldFrames2;
+    for (i = 0; i < 16; i++, held++)
+    {
+        if (buttons & 1)
+        {
+            (*held)++;
+            if (*held >= 26)
+            {
+                this->unknown30 |= 1;
+                *held -= 8;
+            }
+        }
+        else
+        {
+            *held = 0;
+        }
+        buttons >>= 1;
+    }
+    this->unknown32 = (this->unknown2c ^ this->unknown2e) & this->unknown2c;
+    this->unknown34 = ~this->unknown2c & (this->unknown2c ^ this->unknown2e);
+}
+
 void Rng::SetSeed(WORD seed)
 {
     this->seed = seed;

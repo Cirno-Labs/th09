@@ -434,7 +434,7 @@ address,size,name,symbol
 0x0041f810,1210,Func41f810,
 0x0041fcd0,996,Player::CalcDamage,?CalcDamage@Player@@QAEHPAUD3DXVECTOR3@@0PAH11@Z
 0x004200c0,45,Func4200c0,
-0x004200f0,111,Func4200f0,
+0x004200f0,111,PlayerInput::UpdateRepeat2,?UpdateRepeat2@PlayerInput@@QAEXXZ
 0x00420160,14,Rng::SetSeed,?SetSeed@Rng@@QAEXG@Z
 0x00420170,8,Rng::ResetGenerated,?ResetGenerated@Rng@@QAEXXZ
 0x00420180,13,App::GetNoScore,?GetNoScore@App@@QAEHXZ

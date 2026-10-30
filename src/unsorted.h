@@ -237,6 +237,12 @@ struct PlayerInput
     WORD IsJustPressed(WORD mask);
     WORD IsHeld2(WORD mask);
     WORD IsJustPressed2(WORD mask);
+    // Clears unknown4 and updates the second set from unknown2c and
+    // unknown2e: counts how long each button is held, setting bit 0 of
+    // unknown30 every 8 frames from the 26th, and takes the buttons just
+    // pressed into unknown32 and just released into unknown34
+    // (0x4200f0).
+    void UpdateRepeat2();
 
     WORD unknown0;
     unsigned char pad_2[0x2];
@@ -244,9 +250,13 @@ struct PlayerInput
     WORD unknown6;
     unsigned char pad_8[0x2c - 0x8];
     WORD unknown2c;
-    unsigned char pad_2e[0x32 - 0x2e];
+    WORD unknown2e;
+    WORD unknown30;
     WORD unknown32;
-    unsigned char pad_34[0x58 - 0x34];
+    WORD unknown34;
+    unsigned char pad_36[0x38 - 0x36];
+    // How long each button of unknown2c has been held.
+    WORD heldFrames2[16];
     // The default mappings.
     ControllerMapping mappings[3];
 };

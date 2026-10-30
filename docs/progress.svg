@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.13% (719)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31.65% (339)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.23% (720)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31.56% (338)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="501.49" height="6" x="0" y="0" class="named"/>
-<rect width="9.07" height="6" x="501.49" y="0" class="decompiled"/>
-<rect width="236.45" height="6" x="510.55" y="0" class="todo"/>
+<rect width="502.18" height="6" x="0" y="0" class="named"/>
+<rect width="9.07" height="6" x="502.18" y="0" class="decompiled"/>
+<rect width="235.75" height="6" x="511.25" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -503,7 +503,7 @@
 <rect width="12" height="12" x="480" y="120" class="todo"><title>0x0041f810 Func41f810 (1210 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="120" class="named"><title>0x0041fcd0 Player::CalcDamage (996 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="120" class="todo"><title>0x004200c0 Func4200c0 (45 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="120" class="todo"><title>0x004200f0 Func4200f0 (111 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="120" class="named"><title>0x004200f0 PlayerInput::UpdateRepeat2 (111 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="120" class="named"><title>0x00420160 Rng::SetSeed (14 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="120" class="named"><title>0x00420170 Rng::ResetGenerated (8 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="120" class="named"><title>0x00420180 App::GetNoScore (13 bytes)</title></rect>
@@ -1143,11 +1143,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.56%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.71%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.60%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.68%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="265.66" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="265.66" y="0" class="decompiled"/>
-<rect width="475.95" height="6" x="271.05" y="0" class="todo"/>
+<rect width="265.95" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="265.95" y="0" class="decompiled"/>
+<rect width="475.67" height="6" x="271.33" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.39" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1651,7 +1651,7 @@
 <rect width="6.80" height="6.86" x="644.51" y="179.33" class="todo"><title>0x00413a70 Func413a70 (113 bytes)</title></rect>
 <rect width="6.80" height="6.86" x="654.31" y="179.33" class="todo"><title>0x00422c50 Func422c50 (113 bytes)</title></rect>
 <rect width="6.72" height="6.86" x="664.11" y="179.33" class="named"><title>0x00424601 MainMenu::MoveCursorLR (112 bytes)</title></rect>
-<rect width="6.63" height="6.86" x="673.83" y="179.33" class="todo"><title>0x004200f0 Func4200f0 (111 bytes)</title></rect>
+<rect width="6.63" height="6.86" x="673.83" y="179.33" class="named"><title>0x004200f0 PlayerInput::UpdateRepeat2 (111 bytes)</title></rect>
 <rect width="6.63" height="6.86" x="683.46" y="179.33" class="named"><title>0x0042aed0 AddNormalizeAngle (111 bytes)</title></rect>
 <rect width="6.54" height="6.86" x="693.09" y="179.33" class="todo"><title>0x00413460 Func413460 (110 bytes)</title></rect>
 <rect width="6.54" height="6.86" x="702.63" y="179.33" class="named"><title>0x0041cf30 Player::AllocHitArea (110 bytes)</title></rect>
