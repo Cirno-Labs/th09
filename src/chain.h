@@ -59,6 +59,8 @@ public:
     int AddToCalcChain(ChainElem *elem, int priority);
     // Like AddToCalcChain, for the draw chain (0x42b270).
     int AddToDrawChain(ChainElem *elem, int priority);
+    // Allocates an element that runs `callback` (0x42b300).
+    ChainElem *CreateElem(ChainCallback callback);
 
     ChainElem calcChain;
     ChainElem drawChain;

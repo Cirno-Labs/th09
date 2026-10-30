@@ -283,6 +283,14 @@ int Chain::AddToDrawChain(ChainElem *elem, int priority)
     return result;
 }
 
+ChainElem *Chain::CreateElem(ChainCallback callback)
+{
+    ChainElem *elem = (ChainElem *)g_MemoryManager.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
+    elem->SetCallback(callback);
+    elem->allocated = 1;
+    return elem;
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);

@@ -543,7 +543,7 @@ address,size,name,symbol
 0x0042b190,75,Chain::~Chain,??1Chain@@QAE@XZ
 0x0042b1e0,143,Chain::AddToCalcChain,?AddToCalcChain@Chain@@QAEHPAUChainElem@@H@Z
 0x0042b270,143,Chain::AddToDrawChain,?AddToDrawChain@Chain@@QAEHPAUChainElem@@H@Z
-0x0042b300,71,Func42b300,
+0x0042b300,71,Chain::CreateElem,?CreateElem@Chain@@QAEPAUChainElem@@P6IHPAX@Z@Z
 0x0042b350,188,Func42b350,
 0x0042b410,808,Func42b410,
 0x0042b740,259,Func42b740,
@@ -1606,7 +1606,7 @@ address,size,name,symbol
 0x0047b163,104,_free,_free
 0x0047b1b6,9,Func47b1b6,
 0x0047b1d4,117,_ftol2,__ftol2
-0x0047b24e,14,operator_new,
+0x0047b24e,14,operator new,??2@YAPAXI@Z
 0x0047b25c,43,_JumpToContinuation,
 0x0047b28c,7,FID_conflict:_CallMemberFunction1,
 0x0047b293,82,_UnwindNestedFrames,
