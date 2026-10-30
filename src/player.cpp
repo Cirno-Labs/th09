@@ -88,6 +88,16 @@ PlayerHitArea *Player::AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unknow
     return area;
 }
 
+PlayerHitArea *Player::AddHitBox(D3DXVECTOR3 *pos, float width, float height, int framesLeft, int unknown40)
+{
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+
+    area->width = width * 0.5f;
+    area->height = height * 0.5f;
+    area->kind = 1;
+    return area;
+}
+
 void PlayerUnknown30410::Update()
 {
     if (this->timer20 > 0)

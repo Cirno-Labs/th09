@@ -186,6 +186,10 @@ public:
     // when one is left, resets it and starts it at `pos` with
     // `framesLeft` and `unknown40` (0x41cf30).
     PlayerHitArea *AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unknown40);
+    // AllocHitArea, then a box (width and height halved) or a circle,
+    // with unknown28 for some and kind 1, 0, 4 or 2 (0x41cfa0, 0x41cfe0,
+    // 0x41d010, 0x41d050, 0x41d090, 0x41d0d0, 0x41d110).
+    PlayerHitArea *AddHitBox(D3DXVECTOR3 *pos, float width, float height, int framesLeft, int unknown40);
     // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
     void SubUnknown30388(float amount);
     // Draws the bullets that hit (state 2) at their positions on the

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.28% (629)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.72% (432)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.38% (630)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.62% (431)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="442.85" height="6" x="0" y="0" class="named"/>
-<rect width="304.15" height="6" x="442.85" y="0" class="todo"/>
+<rect width="443.55" height="6" x="0" y="0" class="named"/>
+<rect width="303.45" height="6" x="443.55" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -448,7 +448,7 @@
 <rect width="12" height="12" x="420" y="105" class="named"><title>0x0041ceb0 PlayerUnknown36c::PlayerUnknown36c (28 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="105" class="named"><title>0x0041ced0 Player::RemoveChain (86 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="105" class="named"><title>0x0041cf30 Player::AllocHitArea (110 bytes)</title></rect>
-<rect width="12" height="12" x="465" y="105" class="todo"><title>0x0041cfa0 Func41cfa0 (55 bytes)</title></rect>
+<rect width="12" height="12" x="465" y="105" class="named"><title>0x0041cfa0 Player::AddHitBox (55 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="105" class="todo"><title>0x0041cfe0 Func41cfe0 (43 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="105" class="todo"><title>0x0041d010 Func41d010 (61 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="105" class="todo"><title>0x0041d050 Func41d050 (49 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.96%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.04%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.98%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.02%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="231.28" height="6" x="0" y="0" class="named"/>
-<rect width="515.72" height="6" x="231.28" y="0" class="todo"/>
+<rect width="231.42" height="6" x="0" y="0" class="named"/>
+<rect width="515.58" height="6" x="231.42" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1822,7 +1822,7 @@
 <rect width="4.06" height="3.80" x="656.22" y="259.74" class="named"><title>0x0042fec0 App::EnableFog (56 bytes)</title></rect>
 <rect width="4.06" height="3.80" x="656.22" y="266.55" class="named"><title>0x0042ff00 App::DisableFog (56 bytes)</title></rect>
 <rect width="4.06" height="3.68" x="656.22" y="273.35" class="named"><title>0x0041a75f GameManager::OnDraw (55 bytes)</title></rect>
-<rect width="4.06" height="3.68" x="656.22" y="280.03" class="todo"><title>0x0041cfa0 Func41cfa0 (55 bytes)</title></rect>
+<rect width="4.06" height="3.68" x="656.22" y="280.03" class="named"><title>0x0041cfa0 Player::AddHitBox (55 bytes)</title></rect>
 <rect width="4.06" height="3.68" x="656.22" y="286.71" class="todo"><title>0x0041f2c0 Func41f2c0 (55 bytes)</title></rect>
 <rect width="4.06" height="3.68" x="656.22" y="293.40" class="named"><title>0x00434330 AsciiText::AddFormat (55 bytes)</title></rect>
 <rect width="4.06" height="3.68" x="656.22" y="300.08" class="named"><title>0x0043d750 MidiPlayer::Play (55 bytes)</title></rect>
