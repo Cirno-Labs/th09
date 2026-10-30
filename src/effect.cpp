@@ -152,6 +152,16 @@ Effect *EffectManager::SpawnParticlesWithVelocity(int effectIdx, D3DXVECTOR3 *po
     return tries >= this->unknown34 ? &this->effects[this->unknown38 + this->unknown34] : effect;
 }
 
+Effect *EffectManager::SpawnReservedEffect(int effectIdx, D3DXVECTOR3 *pos, int slot, D3DCOLOR color)
+{
+    Effect *effect = &this->effects[this->unknown34 + slot];
+    D3DXVECTOR3 velocity(0.0f, 0.0f, 0.0f);
+
+    this->StartEffect(effect, effectIdx, pos, color, &velocity);
+    effect->reservedSlot = slot;
+    return effect;
+}
+
 int EffectManager::FreeEffects(EffectManager *mgr)
 {
     int i;

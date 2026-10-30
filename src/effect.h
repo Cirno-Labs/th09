@@ -24,7 +24,10 @@ struct Effect
     D3DXVECTOR3 pos;
     // As spawned; some types' init callbacks take an angle in x.
     D3DXVECTOR3 velocity;
-    unsigned char pad_24[0xac - 0x24];
+    unsigned char pad_24[0x90 - 0x24];
+    // The reserved slot it was started in, by SpawnReservedEffect.
+    int reservedSlot;
+    unsigned char pad_94[0xac - 0x94];
     Timer unknownAc;
     unsigned char pad_b8[0xbc - 0xb8];
     // From the effect's EffectInfo.
@@ -103,6 +106,10 @@ public:
     // (0x40ccc0).
     Effect *SpawnParticlesWithVelocity(int effectIdx, D3DXVECTOR3 *pos, D3DXVECTOR3 *velocity, int count,
                                        D3DCOLOR color);
+    // Starts effect `effectIdx` at `pos` in `color`, standing still, in
+    // reserved slot `slot`, after the first unknown34 effects, as th08's
+    // SpawnReservedEffect. Returns it (0x40cd70).
+    Effect *SpawnReservedEffect(int effectIdx, D3DXVECTOR3 *pos, int slot, D3DCOLOR color);
     // The update and draw chain callbacks; the third side's draws with
     // OnDraw2 (0x40cdd0, 0x40cfb0, 0x40d070).
     static int OnUpdate(EffectManager *mgr);

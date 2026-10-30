@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.88% (715)</tspan> · <tspan class="decompiled">0.65% (7)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">32.46% (347)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.98% (716)</tspan> · <tspan class="decompiled">0.65% (7)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">32.37% (346)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="499.63" height="6" x="0" y="0" class="named"/>
-<rect width="4.89" height="6" x="499.63" y="0" class="decompiled"/>
-<rect width="242.48" height="6" x="504.52" y="0" class="todo"/>
+<rect width="500.33" height="6" x="0" y="0" class="named"/>
+<rect width="4.89" height="6" x="500.33" y="0" class="decompiled"/>
+<rect width="241.78" height="6" x="505.22" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -214,7 +214,7 @@
 <rect width="12" height="12" x="645" y="30" class="named"><title>0x0040ca60 EffectManager::StartEffect (407 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="30" class="named"><title>0x0040cc00 EffectManager::SpawnParticles (184 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="30" class="named"><title>0x0040ccc0 EffectManager::SpawnParticlesWithVelocity (175 bytes)</title></rect>
-<rect width="12" height="12" x="690" y="30" class="todo"><title>0x0040cd70 Func40cd70 (85 bytes)</title></rect>
+<rect width="12" height="12" x="690" y="30" class="named"><title>0x0040cd70 EffectManager::SpawnReservedEffect (85 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="30" class="todo"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="30" class="todo"><title>0x0040cfb0 EffectManager::OnDraw (183 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="30" class="todo"><title>0x0040d070 EffectManager::OnDraw2 (145 bytes)</title></rect>
@@ -1141,11 +1141,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.86%</tspan> · <tspan class="decompiled">0.06%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">65.08%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.89%</tspan> · <tspan class="decompiled">0.06%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">65.05%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="260.38" height="6" x="0" y="0" class="named"/>
-<rect width="0.48" height="6" x="260.38" y="0" class="decompiled"/>
-<rect width="486.15" height="6" x="260.85" y="0" class="todo"/>
+<rect width="260.59" height="6" x="0" y="0" class="named"/>
+<rect width="0.48" height="6" x="260.59" y="0" class="decompiled"/>
+<rect width="485.93" height="6" x="261.07" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.47" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1721,7 +1721,7 @@
 <rect width="5.69" height="5.47" x="623.55" y="224.31" class="todo"><title>0x004432a0 Func4432a0 (86 bytes)</title></rect>
 <rect width="5.69" height="5.47" x="623.55" y="232.78" class="todo"><title>0x004446a0 Func4446a0 (86 bytes)</title></rect>
 <rect width="5.69" height="5.38" x="623.55" y="241.26" class="named"><title>0x004024d0 Stage::DeletedCallback (85 bytes)</title></rect>
-<rect width="5.69" height="5.38" x="623.55" y="249.63" class="todo"><title>0x0040cd70 Func40cd70 (85 bytes)</title></rect>
+<rect width="5.69" height="5.38" x="623.55" y="249.63" class="named"><title>0x0040cd70 EffectManager::SpawnReservedEffect (85 bytes)</title></rect>
 <rect width="5.69" height="5.38" x="623.55" y="258.01" class="named"><title>0x00418750 GuiMsg::GuiMsg (85 bytes)</title></rect>
 <rect width="5.69" height="5.38" x="623.55" y="266.38" class="named"><title>0x0042510e MainMenu::SelectEntryInterrupts (85 bytes)</title></rect>
 <rect width="5.69" height="5.38" x="623.55" y="274.76" class="named"><title>0x00430360 App::StopLoadingSprites (85 bytes)</title></rect>
