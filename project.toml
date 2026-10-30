@@ -1,0 +1,28 @@
+# th09: 東方花映塚 ~ Phantasmagoria of Flower View, 1.50a
+
+[game]
+name = "th09"
+title = "東方花映塚 1.50a"
+window_title = "東方花映塚"
+dir = "orig/th09_150a"
+exe = "th09.exe"
+checksums = "orig/th09_150a.sha1"
+original = "build/th09_150a.exe"
+# The end of .text until the analysis shows where the game code ends
+game_end = 0x48DADA
+
+[ghidra]
+project = "th09_150a"
+functions = "build/functions_150a.csv"
+
+[build]
+cflags = ["/Od", "/Gr", "/GX", "/Oi"]
+
+[exe]
+obj_dir = "build/obj"
+link_order = "median"
+libs = ["libcmt.lib", "d3dx8.lib", "d3d8.lib", "dsound.lib", "dinput8.lib", "dxguid.lib",
+        "winmm.lib", "kernel32.lib", "user32.lib", "gdi32.lib", "advapi32.lib", "ole32.lib"]
+
+[hooks]
+progress = true
