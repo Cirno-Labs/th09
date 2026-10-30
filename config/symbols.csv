@@ -682,8 +682,8 @@ address,size,name,symbol
 0x00432770,199,Network::IsServiceProviderValid,?IsServiceProviderValid@Network@@QAEHPBU_GUID@@@Z
 0x00432840,165,Network::CreateDeviceAddress,?CreateDeviceAddress@Network@@QAEJXZ
 0x004328f0,276,Network::CreateHostAddress,?CreateHostAddress@Network@@QAEJXZ
-0x00432a10,167,Func432a10,
-0x00432ac0,168,Func432ac0,
+0x00432a10,167,Network::Host,?Host@Network@@QAEJXZ
+0x00432ac0,168,Network::Connect,?Connect@Network@@QAEJXZ
 0x00432b70,765,Network::HandleMessage,?HandleMessage@Network@@QAEJPAXK0@Z
 0x00432ea0,15,NetworkMessageHandler,?NetworkMessageHandler@@YGJPAXK0@Z
 0x00432eb0,183,Func432eb0,

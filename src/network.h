@@ -36,6 +36,11 @@ struct Network
     // Creates the TCP/IP address of the host to connect to, hostName on
     // `port` (0x4328f0).
     HRESULT CreateHostAddress();
+    // Hosts the session on deviceAddress (0x432a10).
+    HRESULT Host();
+    // Starts connecting to the session at hostAddress through
+    // deviceAddress, into connectHandle (0x432ac0).
+    HRESULT Connect();
     // Handles a DirectPlay message (0x432b70).
     HRESULT HandleMessage(PVOID context, DWORD type, PVOID message);
 

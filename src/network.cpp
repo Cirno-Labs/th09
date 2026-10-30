@@ -7,6 +7,9 @@ extern "C"
 #include <dxerr8.h>
 }
 
+// The application GUID of the game's DirectPlay sessions (0x490c3c).
+static const GUID g_SessionGuid = {0x9fd5ec50, 0x740a, 0x4fdb, {0x90, 0x9d, 0x2f, 0x24, 0xe1, 0x52, 0x82, 0xea}};
+
 void LogNetworkError(HRESULT hr)
 {
     char text[0x800];
@@ -160,6 +163,46 @@ HRESULT Network::CreateHostAddress()
     if (FAILED(hr))
     {
         LogError(&g_Log, "ホストアドレスポート設定失敗\r\n");
+    }
+    return hr;
+}
+
+HRESULT Network::Host()
+{
+    WCHAR sessionName[0x80];
+    DPN_APPLICATION_DESC desc;
+    HRESULT hr;
+
+    mbstowcs(sessionName, "TH09YoukaiMatch", 0x80);
+    ZeroMemory(&desc, sizeof(desc));
+    desc.dwSize = sizeof(desc);
+    desc.guidApplication = g_SessionGuid;
+    desc.pwszSessionName = sessionName;
+    hr = this->peer->Host(&desc, &this->deviceAddress, 1, NULL, NULL, NULL, DPNHOST_OKTOQUERYFORADDRESSING);
+    if (FAILED(hr))
+    {
+        LogError(&g_Log, "新しいセッション作成失敗:\t 0x%X\r\n", hr);
+        LogNetworkError(hr);
+    }
+    return hr;
+}
+
+HRESULT Network::Connect()
+{
+    WCHAR sessionName[0x80];
+    DPN_APPLICATION_DESC desc;
+    HRESULT hr;
+
+    mbstowcs(sessionName, "TH09YoukaiMatch", 0x80);
+    ZeroMemory(&desc, sizeof(desc));
+    desc.dwSize = sizeof(desc);
+    desc.guidApplication = g_SessionGuid;
+    desc.pwszSessionName = sessionName;
+    hr = this->peer->Connect(&desc, this->hostAddress, this->deviceAddress, NULL, NULL, NULL, 0, NULL, NULL,
+                             &this->connectHandle, DPNCONNECT_OKTOQUERYFORADDRESSING);
+    if (hr != DPNSUCCESS_PENDING && hr != DPN_OK)
+    {
+        LogNetworkError(hr);
     }
     return hr;
 }
