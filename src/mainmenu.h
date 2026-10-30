@@ -23,11 +23,18 @@ struct Network
     void ClearUnknownA8();
     // Closes the connection and releases its interfaces (0x432f70).
     void Close();
+    // The entry of unknown1c for the side unknownAc is not (0x42e980).
+    int GetOtherUnknown1c();
 
-    unsigned char pad_0[0xa8];
+    unsigned char pad_0[0x1c];
+    // One per side.
+    int unknown1c[2];
+    unsigned char pad_24[0xa8 - 0x24];
     // While set, the menus do not skip the entries that are not open.
     int unknownA8;
-    unsigned char pad_ac[0xb8 - 0xac];
+    // The local side, 0 or 1, so it seems.
+    int unknownAc;
+    unsigned char pad_b0[0xb8 - 0xb0];
     // Cleared by App::ResetRun.
     int unknownB8;
 };

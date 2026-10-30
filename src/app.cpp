@@ -38,6 +38,11 @@ int App::GetWindowed()
     return this->config.windowed;
 }
 
+int Network::GetOtherUnknown1c()
+{
+    return this->unknown1c[1 - this->unknownAc];
+}
+
 void Network::SetUnknownA8()
 {
     this->unknownA8 = 1;

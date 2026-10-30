@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">53.77% (570)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">46.23% (490)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">53.87% (571)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">46.13% (489)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="401.69" height="6" x="0" y="0" class="named"/>
-<rect width="345.31" height="6" x="401.69" y="0" class="todo"/>
+<rect width="402.39" height="6" x="0" y="0" class="named"/>
+<rect width="344.61" height="6" x="402.39" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -671,7 +671,7 @@
 <rect width="12" height="12" x="15" y="180" class="named"><title>0x0042e900 Tan (14 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="180" class="named"><title>0x0042e910 tan (14 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="180" class="named"><title>0x0042e920 D3DXVec3Cross (83 bytes)</title></rect>
-<rect width="12" height="12" x="60" y="180" class="todo"><title>0x0042e980 Func42e980 (17 bytes)</title></rect>
+<rect width="12" height="12" x="60" y="180" class="named"><title>0x0042e980 Network::GetOtherUnknown1c (17 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="180" class="named"><title>0x0042e9a0 Network::SetUnknownA8 (11 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="180" class="named"><title>0x0042e9b0 Network::ClearUnknownA8 (11 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="180" class="named"><title>0x0042e9c0 ReadInputs (27 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.64%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.36%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.65%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="213.97" height="6" x="0" y="0" class="named"/>
-<rect width="533.03" height="6" x="213.97" y="0" class="todo"/>
+<rect width="214.02" height="6" x="0" y="0" class="named"/>
+<rect width="532.98" height="6" x="214.02" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2066,7 +2066,7 @@
 <rect width="0.92" height="0.94" x="711.52" y="317.90" class="named"><title>0x0043d100 SwapBytes16 (18 bytes)</title></rect>
 <rect width="0.92" height="0.72" x="711.52" y="321.84" class="todo"><title>0x0040e2b0 Func40e2b0 (17 bytes)</title></rect>
 <rect width="0.92" height="0.72" x="711.52" y="325.56" class="named"><title>0x0040f810 Timer::HasTicked (17 bytes)</title></rect>
-<rect width="0.92" height="0.72" x="711.52" y="329.28" class="todo"><title>0x0042e980 Func42e980 (17 bytes)</title></rect>
+<rect width="0.92" height="0.72" x="711.52" y="329.28" class="named"><title>0x0042e980 Network::GetOtherUnknown1c (17 bytes)</title></rect>
 <rect width="1.05" height="0.60" x="715.44" y="298.19" class="named"><title>0x0042f400 SpriteEngine::GetSurface (17 bytes)</title></rect>
 <rect width="0.81" height="0.60" x="719.49" y="298.19" class="named"><title>0x00401600 SpriteEngine::SetLastCameraSetupFlag (16 bytes)</title></rect>
 <rect width="0.81" height="0.60" x="723.31" y="298.19" class="todo"><title>0x00406820 Func406820 (16 bytes)</title></rect>
