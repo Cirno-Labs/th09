@@ -98,6 +98,9 @@ int FileExists(char *path);
 // -2 if not all was written (0x42c4e0).
 int WriteToFile(char *path, void *data, int size);
 
+// Prints to the debug log in th08; empty in this build (0x43d2b0).
+void DebugPrint(const char *fmt, ...);
+
 // Decrypts `size` bytes of `data` into a new block, as th08's
 // (0x42c180).
 BYTE *DecryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int limit);
