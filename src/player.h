@@ -106,11 +106,7 @@ struct PlayerUnknown30410
     // Counts a hit and scores it; `pos` is where (0x41d150).
     void AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d);
     // AddCombo, counting unknown38 too (0x40f8b0).
-    void AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d)
-    {
-        this->unknown38++;
-        this->AddCombo(pos, a, b, c, d);
-    }
+    void AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d);
     // Sets timer20, count and unknown38 to 0 (0x40f8c0).
     void ResetCombo();
 

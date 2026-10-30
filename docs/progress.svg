@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">58.91% (625)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">41.09% (436)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59% (626)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">41% (435)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="440.03" height="6" x="0" y="0" class="named"/>
-<rect width="306.97" height="6" x="440.03" y="0" class="todo"/>
+<rect width="440.74" height="6" x="0" y="0" class="named"/>
+<rect width="306.26" height="6" x="440.74" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -265,7 +265,7 @@
 <rect width="12" height="12" x="675" y="45" class="named"><title>0x0040f840 Sprite::SetRotationZ (20 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="45" class="named"><title>0x0040f860 GameSide::AddScore (33 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="45" class="todo"><title>0x0040f890 Func40f890 (20 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="45" class="todo"><title>0x0040f8b0 Func40f8b0 (12 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="45" class="named"><title>0x0040f8b0 PlayerUnknown30410::AddComboCounted (12 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="45" class="named"><title>0x0040f8c0 PlayerUnknown30410::ResetCombo (29 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="60" class="todo"><title>0x0040f8e0 Func40f8e0 (205 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="60" class="todo"><title>0x0040f9b0 Func40f9b0 (188 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.86%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.14%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.87%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.13%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="230.53" height="6" x="0" y="0" class="named"/>
-<rect width="516.47" height="6" x="230.53" y="0" class="todo"/>
+<rect width="230.57" height="6" x="0" y="0" class="named"/>
+<rect width="516.43" height="6" x="230.57" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2128,7 +2128,7 @@
 <rect width="0.32" height="0.10" x="746.68" y="309.13" class="todo"><title>0x00403c20 Func403c20 (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="726.18" y="312.23" class="named"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="726.18" y="315.69" class="named"><title>0x0040f1c0 Fabs (12 bytes)</title></rect>
-<rect width="0.10" height="0.46" x="726.18" y="319.15" class="todo"><title>0x0040f8b0 Func40f8b0 (12 bytes)</title></rect>
+<rect width="0.10" height="0.46" x="726.18" y="319.15" class="named"><title>0x0040f8b0 PlayerUnknown30410::AddComboCounted (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="726.18" y="322.61" class="named"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="726.18" y="326.08" class="named"><title>0x0041a9ac GameManager::IsDemo (12 bytes)</title></rect>
 <rect width="0.10" height="0.46" x="726.18" y="329.54" class="named"><title>0x0041ee20 BulletEx::BulletEx (12 bytes)</title></rect>

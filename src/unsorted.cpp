@@ -127,6 +127,12 @@ void GameSide::AddScore(int points)
     this->stats->score += points / 10;
 }
 
+void PlayerUnknown30410::AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d)
+{
+    this->unknown38++;
+    this->AddCombo(pos, a, b, c, d);
+}
+
 void PlayerUnknown30410::ResetCombo()
 {
     this->timer20 = 0;

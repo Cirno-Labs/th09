@@ -197,7 +197,7 @@ address,size,name,symbol
 0x0040f840,20,Sprite::SetRotationZ,?SetRotationZ@Sprite@@QAEXM@Z
 0x0040f860,33,GameSide::AddScore,?AddScore@GameSide@@QAEXH@Z
 0x0040f890,20,Func40f890,
-0x0040f8b0,12,Func40f8b0,
+0x0040f8b0,12,PlayerUnknown30410::AddComboCounted,?AddComboCounted@PlayerUnknown30410@@QAEXPAUD3DXVECTOR3@@HHHH@Z
 0x0040f8c0,29,PlayerUnknown30410::ResetCombo,?ResetCombo@PlayerUnknown30410@@QAEXXZ
 0x0040f8e0,205,Func40f8e0,
 0x0040f9b0,188,Func40f9b0,
