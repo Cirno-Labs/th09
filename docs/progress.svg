@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.10% (157)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">84.90% (883)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.19% (158)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">84.81% (882)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="112.77" height="6" x="0" y="0" class="named"/>
-<rect width="634.23" height="6" x="112.77" y="0" class="todo"/>
+<rect width="113.49" height="6" x="0" y="0" class="named"/>
+<rect width="633.51" height="6" x="113.49" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -494,9 +494,9 @@
 <rect width="12" height="12" x="360" y="120" class="todo"><title>0x004205e0 Func4205e0 (591 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="120" class="todo"><title>0x00420830 Func420830 (15 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="120" class="todo"><title>0x00420840 Func420840 (540 bytes)</title></rect>
-<rect width="12" height="12" x="405" y="120" class="todo"><title>0x00420a60 Func420a60 (104 bytes)</title></rect>
+<rect width="12" height="12" x="405" y="120" class="todo"><title>0x00420a60 FreeResources (104 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="120" class="todo"><title>0x00420ad0 Func420ad0 (318 bytes)</title></rect>
-<rect width="12" height="12" x="435" y="120" class="todo"><title>0x00420c10 Func420c10 (42 bytes)</title></rect>
+<rect width="12" height="12" x="435" y="120" class="named"><title>0x00420c10 ReplayManager::RemoveChain (42 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="120" class="todo"><title>0x00420c40 Func420c40 (18 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="120" class="todo"><title>0x00420c60 Func420c60 (1227 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="120" class="todo"><title>0x00421140 Func421140 (1323 bytes)</title></rect>
@@ -1111,10 +1111,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.63%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">96.37%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.65%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">96.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="27.15" height="6" x="0" y="0" class="named"/>
-<rect width="719.85" height="6" x="27.15" y="0" class="todo"/>
+<rect width="27.26" height="6" x="0" y="0" class="named"/>
+<rect width="719.74" height="6" x="27.26" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1626,7 +1626,7 @@
 <rect width="6.09" height="6.62" x="722.89" y="172.70" class="todo"><title>0x00447f40 Func447f40 (106 bytes)</title></rect>
 <rect width="6.01" height="6.62" x="731.99" y="172.70" class="todo"><title>0x0043ee40 SoundPlayer::QueueSoundCommand (105 bytes)</title></rect>
 <rect width="6.01" height="6.62" x="740.99" y="172.70" class="todo"><title>0x004406e0 Func4406e0 (105 bytes)</title></rect>
-<rect width="6.21" height="6.32" x="610.78" y="182.33" class="todo"><title>0x00420a60 Func420a60 (104 bytes)</title></rect>
+<rect width="6.21" height="6.32" x="610.78" y="182.33" class="todo"><title>0x00420a60 FreeResources (104 bytes)</title></rect>
 <rect width="6.21" height="6.23" x="610.78" y="191.65" class="todo"><title>0x004222c0 Func4222c0 (103 bytes)</title></rect>
 <rect width="6.21" height="6.14" x="610.78" y="200.88" class="todo"><title>0x0043ccd0 Func43ccd0 (102 bytes)</title></rect>
 <rect width="6.21" height="6.05" x="610.78" y="210.02" class="todo"><title>0x0040e480 Func40e480 (101 bytes)</title></rect>
@@ -1856,7 +1856,7 @@
 <rect width="3.15" height="2.64" x="672.12" y="289.81" class="todo"><title>0x004013e0 Func4013e0 (42 bytes)</title></rect>
 <rect width="3.15" height="2.64" x="672.12" y="295.45" class="todo"><title>0x00401410 Func401410 (42 bytes)</title></rect>
 <rect width="3.15" height="2.64" x="672.12" y="301.08" class="todo"><title>0x004067f0 Func4067f0 (42 bytes)</title></rect>
-<rect width="3.15" height="2.64" x="672.12" y="306.72" class="todo"><title>0x00420c10 Func420c10 (42 bytes)</title></rect>
+<rect width="3.15" height="2.64" x="672.12" y="306.72" class="named"><title>0x00420c10 ReplayManager::RemoveChain (42 bytes)</title></rect>
 <rect width="3.15" height="2.64" x="672.12" y="312.36" class="todo"><title>0x00423158 Func423158 (42 bytes)</title></rect>
 <rect width="3.14" height="2.65" x="678.27" y="242.68" class="named"><title>0x0042ff40 App::SetRenderState (42 bytes)</title></rect>
 <rect width="3.14" height="2.65" x="684.40" y="242.68" class="todo"><title>0x00433cb0 Func433cb0 (42 bytes)</title></rect>

@@ -28,6 +28,7 @@ class SpellCard;
 class GuiSide;
 class Gui;
 class ExAttackManager;
+class ReplayManager;
 
 // One side of the game (the third is used for little).
 struct GameSide
@@ -114,7 +115,7 @@ public:
     int unknownC0;
     unsigned char pad_c4[0xd0 - 0xc4];
     int unknownD0;
-    void *unknownD4;
+    ReplayManager *replayManager;
     unsigned char pad_d8[0x110 - 0xd8];
     int unknown110;
     unsigned char pad_114[0x4];

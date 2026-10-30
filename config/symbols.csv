@@ -426,9 +426,9 @@ address,size,name,symbol
 0x004205e0,591,Func4205e0,
 0x00420830,15,Func420830,
 0x00420840,540,Func420840,
-0x00420a60,104,Func420a60,
+0x00420a60,104,FreeResources,
 0x00420ad0,318,Func420ad0,
-0x00420c10,42,Func420c10,
+0x00420c10,42,ReplayManager::RemoveChain,?RemoveChain@ReplayManager@@SIXPAV1@@Z
 0x00420c40,18,Func420c40,
 0x00420c60,1227,Func420c60,
 0x00421140,1323,Func421140,
