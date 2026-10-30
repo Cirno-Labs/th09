@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.51% (481)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.49% (576)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.60% (482)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.40% (575)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="339.93" height="6" x="0" y="0" class="named"/>
-<rect width="407.07" height="6" x="339.93" y="0" class="todo"/>
+<rect width="340.64" height="6" x="0" y="0" class="named"/>
+<rect width="406.36" height="6" x="340.64" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -546,7 +546,7 @@
 <rect width="12" height="12" x="390" y="135" class="named"><title>0x004230a6 MainMenu::SkipClosedEntries2 (89 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="135" class="named"><title>0x004230ff MainMenu::SkipClosedEntries3 (89 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="135" class="named"><title>0x00423158 PlayerInput::IsPressed (42 bytes)</title></rect>
-<rect width="12" height="12" x="435" y="135" class="todo"><title>0x00423182 Func423182 (479 bytes)</title></rect>
+<rect width="12" height="12" x="435" y="135" class="named"><title>0x00423182 MainMenu::ShowHalves (479 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="135" class="named"><title>0x00423361 MidiPlayer::Restart (33 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="135" class="named"><title>0x00423382 App::ClearUnknown77c (33 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="135" class="named"><title>0x004233a3 Sprite::SetMoveInterp (81 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.35%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.65%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.52%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.48%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="174.43" height="6" x="0" y="0" class="named"/>
-<rect width="572.57" height="6" x="174.43" y="0" class="todo"/>
+<rect width="175.66" height="6" x="0" y="0" class="named"/>
+<rect width="571.34" height="6" x="175.66" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1280,7 +1280,7 @@
 <rect width="16.81" height="18.09" x="432.34" y="84.97" class="named"><title>0x0043cae0 SpriteEngine::LoadSurface (486 bytes)</title></rect>
 <rect width="16.81" height="18.05" x="432.34" y="106.06" class="todo"><title>0x004266b5 Func4266b5 (485 bytes)</title></rect>
 <rect width="16.81" height="17.87" x="432.34" y="127.10" class="todo"><title>0x00445740 Func445740 (481 bytes)</title></rect>
-<rect width="16.81" height="17.79" x="432.34" y="147.97" class="todo"><title>0x00423182 Func423182 (479 bytes)</title></rect>
+<rect width="16.81" height="17.79" x="432.34" y="147.97" class="named"><title>0x00423182 MainMenu::ShowHalves (479 bytes)</title></rect>
 <rect width="16.81" height="17.61" x="432.34" y="168.76" class="todo"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
 <rect width="16.81" height="17.61" x="432.34" y="189.37" class="todo"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
 <rect width="16.81" height="17.61" x="432.34" y="209.98" class="todo"><title>0x00441100 Func441100 (475 bytes)</title></rect>

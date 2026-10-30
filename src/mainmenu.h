@@ -59,6 +59,10 @@ public:
     void SkipClosedEntries(int idx, int delta, char *entries, int count);
     void SkipClosedEntries2(int idx, int delta, char *entries, int count);
     void SkipClosedEntries3(int idx, int delta, char *entries, int count);
+    // Shows `left` and `right` in halves on the five sprites from 142
+    // and the five from 148: 0xc3 for a full one, 0xc4 for a half, 0xc5
+    // for an empty one. Not called (0x423182).
+    void ShowHalves(int left, int right);
 
     unsigned char pad_0[0x10];
     int cursors[6];
@@ -73,7 +77,9 @@ public:
     unsigned char pad_c914[0x11b90 - 0xc914];
     // The title's ANM file.
     AnmLoaded *anm;
-    unsigned char pad_11b94[0x1b228 - 0x11b94];
+    unsigned char pad_11b94[0x11b98 - 0x11b94];
+    Sprite *sprites;
+    unsigned char pad_11b9c[0x1b228 - 0x11b9c];
     int state;
     unsigned char pad_1b22c[0x1b230 - 0x1b22c];
     int unknown1b230;

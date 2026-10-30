@@ -478,7 +478,7 @@ address,size,name,symbol
 0x004230a6,89,MainMenu::SkipClosedEntries2,?SkipClosedEntries2@MainMenu@@QAEXHHPADH@Z
 0x004230ff,89,MainMenu::SkipClosedEntries3,?SkipClosedEntries3@MainMenu@@QAEXHHPADH@Z
 0x00423158,42,PlayerInput::IsPressed,?IsPressed@PlayerInput@@QAEHG@Z
-0x00423182,479,Func423182,
+0x00423182,479,MainMenu::ShowHalves,?ShowHalves@MainMenu@@QAEXHH@Z
 0x00423361,33,MidiPlayer::Restart,?Restart@MidiPlayer@@QAEXH@Z
 0x00423382,33,App::ClearUnknown77c,?ClearUnknown77c@App@@QAEXXZ
 0x004233a3,81,Sprite::SetMoveInterp,?SetMoveInterp@Sprite@@QAEXHEPAUD3DXVECTOR3@@0@Z
