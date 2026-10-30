@@ -480,7 +480,7 @@ address,size,name,symbol
 0x00423158,42,PlayerInput::IsPressed,?IsPressed@PlayerInput@@QAEHG@Z
 0x00423182,479,Func423182,
 0x00423361,33,MidiPlayer::Restart,?Restart@MidiPlayer@@QAEXH@Z
-0x00423382,33,Func423382,
+0x00423382,33,App::ClearUnknown77c,?ClearUnknown77c@App@@QAEXXZ
 0x004233a3,81,Func4233a3,
 0x004233f4,117,Func4233f4,
 0x00423469,47,SpriteEngine::HasTexture,

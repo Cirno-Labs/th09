@@ -154,3 +154,12 @@ void MidiPlayer::Restart(int slot)
     this->ParseFile(slot);
     this->Play();
 }
+
+void App::ClearUnknown77c()
+{
+    this->unknown77c = 0;
+    this->unknown784 = 0;
+    this->unknown790 = 0;
+    this->unknown788 = 0;
+    this->unknown78c = 0;
+}
