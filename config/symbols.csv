@@ -289,7 +289,7 @@ address,size,name,symbol
 0x00415c60,39,Func415c60,
 0x00415c90,23,Func415c90,
 0x00415cb0,18,PlayerInput::IsHeld2,?IsHeld2@PlayerInput@@QAEGG@Z
-0x00415cd0,18,Func415cd0,
+0x00415cd0,18,PlayerInput::IsJustPressed2,?IsJustPressed2@PlayerInput@@QAEGG@Z
 0x00415cf0,6,FreesResources,?FreesResources@@YIHXZ
 0x00415d00,8,SpriteEngine::ClearColorOp,?ClearColorOp@SpriteEngine@@QAEXXZ
 0x00415d10,8,SpriteEngine::ClearZWrite,?ClearZWrite@SpriteEngine@@QAEXXZ

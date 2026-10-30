@@ -17,6 +17,11 @@ WORD PlayerInput::IsHeld2(WORD mask)
     return this->unknown2c & mask;
 }
 
+WORD PlayerInput::IsJustPressed2(WORD mask)
+{
+    return this->unknown32 & mask;
+}
+
 int FreesResources()
 {
     return g_App.freesResources;

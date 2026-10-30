@@ -236,6 +236,7 @@ struct PlayerInput
     WORD IsHeld(WORD mask);
     WORD IsJustPressed(WORD mask);
     WORD IsHeld2(WORD mask);
+    WORD IsJustPressed2(WORD mask);
 
     WORD unknown0;
     unsigned char pad_2[0x2];
