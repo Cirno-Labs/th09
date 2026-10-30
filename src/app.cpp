@@ -41,6 +41,11 @@ int App::GetNoVsync()
     return this->flags.noVsync;
 }
 
+int App::GetNoTextRenderDetect()
+{
+    return this->flags.noTextRenderDetect;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;
