@@ -92,3 +92,8 @@ void Timer::operator--(int)
 {
     this->Sub(1);
 }
+
+BOOL Timer::operator<=(int frames)
+{
+    return this->current <= frames;
+}

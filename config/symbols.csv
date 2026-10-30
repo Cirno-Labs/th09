@@ -99,7 +99,7 @@ address,size,name,symbol
 0x00406660,9,Timer::operator-=,??ZTimer@@QAEXM@Z
 0x00406670,10,Timer::operator--,??FTimer@@QAEXH@Z
 0x00406680,147,Func406680,
-0x00406720,20,Func406720,
+0x00406720,20,Timer::operator<=,??NTimer@@QAEHH@Z
 0x00406740,80,Func406740,
 0x00406790,18,Func406790,
 0x004067b0,21,Func4067b0,
