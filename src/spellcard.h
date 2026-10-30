@@ -21,7 +21,9 @@ public:
     unsigned char pad_0[0xc];
     ChainElem *calcElem;
     ChainElem *drawElem;
-    unsigned char pad_14[0x1330 - 0x14];
+    // Gui::unknown08, as Reset copies it.
+    int unknown14;
+    unsigned char pad_18[0x1330 - 0x18];
     SpellCardCallback unknown1330;
     unsigned char pad_1334[0x133c - 0x1334];
     SpellCardCallback unknown133c;

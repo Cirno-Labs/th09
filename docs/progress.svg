@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.48% (161)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">84.52% (879)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.58% (162)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">84.42% (878)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="115.64" height="6" x="0" y="0" class="named"/>
-<rect width="631.36" height="6" x="115.64" y="0" class="todo"/>
+<rect width="116.36" height="6" x="0" y="0" class="named"/>
+<rect width="630.64" height="6" x="116.36" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -130,7 +130,7 @@
 <rect width="12" height="12" x="150" y="15" class="todo"><title>0x00403c90 Func403c90 (91 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="15" class="todo"><title>0x00403cf0 Func403cf0 (100 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="15" class="todo"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="15" class="todo"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="15" class="named"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="15" class="todo"><title>0x00403d90 Func403d90 (71 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="15" class="named"><title>0x00403de0 Timer::operator&gt; (20 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="15" class="todo"><title>0x00403e00 Func403e00 (41 bytes)</title></rect>
@@ -1113,8 +1113,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.95%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">96.05%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="29.48" height="6" x="0" y="0" class="named"/>
-<rect width="717.52" height="6" x="29.48" y="0" class="todo"/>
+<rect width="29.51" height="6" x="0" y="0" class="named"/>
+<rect width="717.49" height="6" x="29.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2092,7 +2092,7 @@
 <rect width="0.20" height="0.10" x="727.23" y="308.70" class="named"><title>0x00401080 Sqrt (12 bytes)</title></rect>
 <rect width="0.20" height="0.10" x="727.23" y="311.80" class="named"><title>0x00403390 Timer::Timer (12 bytes)</title></rect>
 <rect width="0.20" height="0.10" x="727.23" y="314.90" class="todo"><title>0x00403c20 Func403c20 (12 bytes)</title></rect>
-<rect width="0.26" height="0.10" x="730.42" y="295.78" class="todo"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>
+<rect width="0.26" height="0.10" x="730.42" y="295.78" class="named"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>
 <rect width="0.26" height="0.10" x="733.68" y="295.78" class="named"><title>0x0040f1c0 Fabs (12 bytes)</title></rect>
 <rect width="0.26" height="0.10" x="736.95" y="295.78" class="todo"><title>0x0040f8b0 Func40f8b0 (12 bytes)</title></rect>
 <rect width="0.26" height="0.10" x="740.21" y="295.78" class="named"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>

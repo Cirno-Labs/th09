@@ -31,7 +31,9 @@ public:
 
     ChainElem *calcElem;
     ChainElem *drawElem;
-    unsigned char pad_8[0xe944 - 0x8];
+    // SpellCard::Reset copies it.
+    int unknown08;
+    unsigned char pad_c[0xe944 - 0xc];
     GuiMsg msg;
 };
 

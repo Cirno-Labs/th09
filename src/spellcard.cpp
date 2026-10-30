@@ -1,4 +1,6 @@
 #include "spellcard.h"
+#include "gamemanager.h"
+#include "gui.h"
 
 // Calls the spell card's callbacks unknown1330 and unknown133c, if set.
 // Returns 0. Static, with the spell card in esi (0x403d60).
@@ -13,6 +15,11 @@ static int RunEndCallbacks(SpellCard *card)
         card->unknown133c(card);
     }
     return 0;
+}
+
+void SpellCard::Reset()
+{
+    this->unknown14 = g_GameManager.gui->unknown08;
 }
 
 void SpellCard::RemoveChain(SpellCard *card)
