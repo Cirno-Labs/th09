@@ -1,3 +1,4 @@
+#include "gdisurface.h"
 #include "sprite.h"
 
 void AnmLoaded::StartScriptAtOrigin(Sprite *vm, int script)
@@ -85,5 +86,28 @@ void AnmLoaded::SetScript(Sprite *vm, void *script)
         vm->flags &= ~1;
         g_SpriteEngine->Step(vm);
         g_SpriteEngine->scriptStartCount++;
+    }
+}
+
+void SpriteEngine::RenderTextToTextureIndex(IDirect3DTexture8 *texture, int x, int y, int width, int unused,
+                                            int fontHeight, int destHeight, D3DCOLOR textColor, D3DCOLOR shadowColor,
+                                            char *text, float scaleX, float scaleY)
+{
+    if (fontHeight <= 0)
+    {
+        fontHeight = 15;
+    }
+    if (destHeight <= 0)
+    {
+        destHeight = 15;
+    }
+    if (fontHeight > 8)
+    {
+        RenderTextToTextureLarge(x, y, width, unused, fontHeight * scaleX, destHeight * scaleY, textColor,
+                                 shadowColor, text, texture);
+    }
+    else
+    {
+        RenderTextToTexture(x, y, width, unused, 8, 8, textColor, shadowColor, text, texture);
     }
 }

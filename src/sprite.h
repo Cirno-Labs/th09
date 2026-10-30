@@ -115,13 +115,34 @@ public:
 ASSERT_SIZE(Sprite, 0x2a4);
 
 // An ANM file, its sprites and its scripts, as th08's.
-// A sprite of an ANM file (0x44 bytes). Only its size is known so far.
+// A sprite of an ANM file, as th08's.
 struct SpriteData
 {
-    unsigned char pad_0[0x34];
+    // The slot of the ANM file the sprite comes from.
+    int sourceFileIndex;
+    // The texture it is drawn from.
+    IDirect3DTexture8 *texture;
+    // The sprite's rectangle in the texture, in pixels.
+    float startX;
+    float startY;
+    float endX;
+    float endY;
+    // The texture's size.
+    float textureHeight;
+    float textureWidth;
+    // The rectangle in texture coordinates.
+    float uvStartX;
+    float uvStartY;
+    float uvEndX;
+    float uvEndY;
+    // Its size in pixels.
+    float height;
     // Copied to Sprite's unknown28.
-    float unknown34;
-    unsigned char pad_38[0x44 - 0x38];
+    float width;
+    // How much larger the texture is than the sprite's size.
+    float scaleX;
+    float scaleY;
+    int unusedInt40;
 };
 ASSERT_SIZE(SpriteData, 0x44);
 
@@ -218,6 +239,13 @@ public:
     int DrawUnrotated(Sprite *vm);
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
+    // Renders `text` into `texture`, its font sizes 15 when not
+    // positive and scaled by `scaleX` and `scaleY`, as th08's; fonts of
+    // 8 pixels or less are drawn 8 by 8 with RenderTextToTexture
+    // (0x43bd40).
+    void RenderTextToTextureIndex(IDirect3DTexture8 *texture, int x, int y, int width, int unused, int fontHeight,
+                                  int destHeight, D3DCOLOR textColor, D3DCOLOR shadowColor, char *text, float scaleX,
+                                  float scaleY);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).

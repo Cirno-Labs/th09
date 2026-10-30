@@ -817,7 +817,7 @@ address,size,name,symbol
 0x0043bbe0,150,Func43bbe0,
 0x0043bc80,48,Func43bc80,
 0x0043bcb0,138,Func43bcb0,
-0x0043bd40,127,Func43bd40,
+0x0043bd40,127,SpriteEngine::RenderTextToTextureIndex,?RenderTextToTextureIndex@SpriteEngine@@QAEXPAUIDirect3DTexture8@@HHHHHHKKPADMM@Z
 0x0043bdc0,139,Func43bdc0,
 0x0043be50,217,Func43be50,
 0x0043bf30,97,Func43bf30,
