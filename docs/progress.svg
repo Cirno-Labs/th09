@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.41% (406)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.59% (651)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.51% (407)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.49% (650)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="286.93" height="6" x="0" y="0" class="named"/>
-<rect width="460.07" height="6" x="286.93" y="0" class="todo"/>
+<rect width="287.63" height="6" x="0" y="0" class="named"/>
+<rect width="459.37" height="6" x="287.63" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -976,7 +976,7 @@
 <rect width="12" height="12" x="90" y="270" class="named"><title>0x0043fc50 CSound::Reset (62 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="270" class="named"><title>0x0043fc90 CStreamingSound::UpdateFade (65 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="270" class="named"><title>0x0043fce0 CStreamingSound::UpdateFadeIn (49 bytes)</title></rect>
-<rect width="12" height="12" x="135" y="270" class="todo"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
+<rect width="12" height="12" x="135" y="270" class="named"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="270" class="todo"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="270" class="todo"><title>0x0043fda0 CWaveFile::CWaveFile (19 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="270" class="todo"><title>0x0043fdc0 CWaveFile::OpenFromMemory (60 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.90%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.10%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.92%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.08%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="111.33" height="6" x="0" y="0" class="named"/>
-<rect width="635.67" height="6" x="111.33" y="0" class="todo"/>
+<rect width="111.46" height="6" x="0" y="0" class="named"/>
+<rect width="635.54" height="6" x="111.46" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1851,7 +1851,7 @@
 <rect width="3.59" height="3.39" x="730.24" y="246.22" class="named"><title>0x004397e0 SpriteEngine::RotatePoint (49 bytes)</title></rect>
 <rect width="3.59" height="3.39" x="736.83" y="246.22" class="named"><title>0x0043e4a0 SoundPlayer::FreePreloadedBgm (49 bytes)</title></rect>
 <rect width="3.59" height="3.39" x="743.41" y="246.22" class="named"><title>0x0043fce0 CStreamingSound::UpdateFadeIn (49 bytes)</title></rect>
-<rect width="3.53" height="3.45" x="663.42" y="252.62" class="todo"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
+<rect width="3.53" height="3.45" x="663.42" y="252.62" class="named"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
 <rect width="3.53" height="3.31" x="663.42" y="259.06" class="named"><title>0x004100e0 Enemy::FreeUnknown33d8 (48 bytes)</title></rect>
 <rect width="3.53" height="3.31" x="663.42" y="265.38" class="named"><title>0x0043bc80 SpriteEngine::ReleaseTexture (48 bytes)</title></rect>
 <rect width="3.53" height="3.18" x="663.42" y="271.69" class="named"><title>0x004120d0 EnemyUnknown22c::EnemyUnknown22c (47 bytes)</title></rect>
