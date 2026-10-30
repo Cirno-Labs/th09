@@ -226,3 +226,16 @@ HRESULT CSound::PauseBuffer()
 
     return hr;
 }
+
+HRESULT CSound::ResumeBuffer()
+{
+    if (m_apDSBuffer == NULL)
+        return CO_E_NOTINITIALIZED;
+    if (!this->played)
+        return S_OK;
+
+    LPDIRECTSOUNDBUFFER pDSB = m_apDSBuffer[0];
+
+    this->isPlaying = 1;
+    return pDSB->Play(0, this->dwPlayPriority, this->dwPlayFlags);
+}

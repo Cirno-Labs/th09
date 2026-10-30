@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.03% (402)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.97% (655)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.13% (403)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.87% (654)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="284.10" height="6" x="0" y="0" class="named"/>
-<rect width="462.90" height="6" x="284.10" y="0" class="todo"/>
+<rect width="284.81" height="6" x="0" y="0" class="named"/>
+<rect width="462.19" height="6" x="284.81" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -972,7 +972,7 @@
 <rect width="12" height="12" x="30" y="270" class="named"><title>0x0043fb10 CSound::SetVolume (107 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="270" class="named"><title>0x0043fb80 CSound::Stop (86 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="270" class="named"><title>0x0043fbe0 CSound::PauseBuffer (39 bytes)</title></rect>
-<rect width="12" height="12" x="75" y="270" class="todo"><title>0x0043fc10 CSound::ResumeBuffer (51 bytes)</title></rect>
+<rect width="12" height="12" x="75" y="270" class="named"><title>0x0043fc10 CSound::ResumeBuffer (51 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="270" class="todo"><title>0x0043fc50 CSound::Reset (62 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="270" class="todo"><title>0x0043fc90 CStreamingSound::UpdateFade (65 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="270" class="todo"><title>0x0043fce0 CStreamingSound::UpdateFadeIn (49 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.83%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.17%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.84%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.16%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="110.75" height="6" x="0" y="0" class="named"/>
-<rect width="636.25" height="6" x="110.75" y="0" class="todo"/>
+<rect width="110.88" height="6" x="0" y="0" class="named"/>
+<rect width="636.12" height="6" x="110.88" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1839,7 +1839,7 @@
 <rect width="3.52" height="3.72" x="736.96" y="239.50" class="todo"><title>0x0040f180 Func40f180 (51 bytes)</title></rect>
 <rect width="3.52" height="3.72" x="743.48" y="239.50" class="named"><title>0x0041a230 GuiSide::Reset (51 bytes)</title></rect>
 <rect width="3.86" height="3.39" x="663.42" y="246.22" class="todo"><title>0x0041f310 Func41f310 (51 bytes)</title></rect>
-<rect width="3.86" height="3.39" x="670.28" y="246.22" class="todo"><title>0x0043fc10 CSound::ResumeBuffer (51 bytes)</title></rect>
+<rect width="3.86" height="3.39" x="670.28" y="246.22" class="named"><title>0x0043fc10 CSound::ResumeBuffer (51 bytes)</title></rect>
 <rect width="3.72" height="3.39" x="677.14" y="246.22" class="named"><title>0x004182a0 Gui::RemoveChain (50 bytes)</title></rect>
 <rect width="3.72" height="3.39" x="683.86" y="246.22" class="named"><title>0x0043bba0 SpriteEngine::CreateTexture (50 bytes)</title></rect>
 <rect width="3.72" height="3.39" x="690.58" y="246.22" class="named"><title>0x0043c430 AdjustTextureFormat (50 bytes)</title></rect>
