@@ -24,6 +24,11 @@ Timer::Timer()
     this->Initialize();
 }
 
+float Atan2(float y, float x)
+{
+    return (float)atan2((double)y, (double)x);
+}
+
 void Vector2::SetPolar(float angle, float radius)
 {
     __asm

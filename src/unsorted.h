@@ -14,6 +14,13 @@
 float Cos(float angle);
 float Sin(float angle);
 float Sqrt(float x);
+// More of them: atan2f (0x405700), fmodf through _CIfmod (0x405710),
+// fabsf (0x40f1c0), tanf (0x42e900) and atanf (0x436ab0).
+float Atan2(float y, float x);
+float Fmod(float x, float y);
+float Fabs(float x);
+float Tan(float angle);
+float Atan(float x);
 
 // A 2D vector, as th08's.
 struct Vector2
