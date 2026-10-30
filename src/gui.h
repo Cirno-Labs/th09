@@ -133,6 +133,8 @@ public:
     static void RemoveChain(GuiSide *side);
     // Resets the side's front for a new round (0x41a230).
     void Reset();
+    // Sets unknownAbcc and restarts timerAbd0 (0x415d50).
+    void StartUnknownAbcc();
     // Creates side `sideIdx`'s front, zeroed, and adds its update element
     // (priority 0x17 + `sideIdx`) and draw element (0x1a + `sideIdx`).
     // Returns it, or NULL if adding fails (0x41a5d0).

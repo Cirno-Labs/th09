@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">56.79% (602)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">43.21% (458)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">56.89% (603)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">43.11% (457)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="424.24" height="6" x="0" y="0" class="named"/>
-<rect width="322.76" height="6" x="424.24" y="0" class="todo"/>
+<rect width="424.94" height="6" x="0" y="0" class="named"/>
+<rect width="322.06" height="6" x="424.94" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -364,7 +364,7 @@
 <rect width="12" height="12" x="660" y="75" class="named"><title>0x00415d20 GameManager::IsReplay (13 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="75" class="named"><title>0x00415d30 GameManager::IsMode2 (15 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="75" class="named"><title>0x00415d40 Gui::Init (14 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="75" class="todo"><title>0x00415d50 Func415d50 (24 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="75" class="named"><title>0x00415d50 GuiSide::StartUnknownAbcc (24 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="75" class="todo"><title>0x00415d70 Func415d70 (222 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="75" class="todo"><title>0x00415e50 Func415e50 (553 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="90" class="todo"><title>0x00416080 Func416080 (213 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.51%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.49%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.52%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.48%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="227.89" height="6" x="0" y="0" class="named"/>
-<rect width="519.11" height="6" x="227.89" y="0" class="todo"/>
+<rect width="227.95" height="6" x="0" y="0" class="named"/>
+<rect width="519.05" height="6" x="227.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2011,7 +2011,7 @@
 <rect width="1.74" height="1.35" x="702.49" y="290.23" class="named"><title>0x00404980 Gui::IsMsgRunning (24 bytes)</title></rect>
 <rect width="1.74" height="1.35" x="702.49" y="294.58" class="named"><title>0x004125e0 BulletManager::LoadAnm (24 bytes)</title></rect>
 <rect width="1.74" height="1.35" x="702.49" y="298.93" class="named"><title>0x00415c30 Gui::LoadAnm (24 bytes)</title></rect>
-<rect width="1.74" height="1.35" x="702.49" y="303.28" class="todo"><title>0x00415d50 Func415d50 (24 bytes)</title></rect>
+<rect width="1.74" height="1.35" x="702.49" y="303.28" class="named"><title>0x00415d50 GuiSide::StartUnknownAbcc (24 bytes)</title></rect>
 <rect width="1.74" height="1.35" x="702.49" y="307.63" class="named"><title>0x0042ae50 Rng::GetRandomU32 (24 bytes)</title></rect>
 <rect width="1.74" height="1.35" x="702.49" y="311.98" class="named"><title>0x00433140 DatArchiveEntry::~DatArchiveEntry (24 bytes)</title></rect>
 <rect width="1.74" height="1.17" x="702.49" y="316.33" class="todo"><title>0x00415c90 Func415c90 (23 bytes)</title></rect>

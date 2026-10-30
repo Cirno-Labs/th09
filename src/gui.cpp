@@ -32,6 +32,12 @@ BOOL GameManager::IsMode2()
     return this->mode == 2;
 }
 
+void GuiSide::StartUnknownAbcc()
+{
+    this->unknownAbcc = 1;
+    this->timerAbd0 = 0;
+}
+
 int Gui::FreeResources(Gui *gui)
 {
     if (FreesResources())
