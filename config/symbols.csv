@@ -435,7 +435,7 @@ address,size,name,symbol
 0x00420830,15,ReplayInfo::ReplayInfo,??0ReplayInfo@@QAE@XZ
 0x00420840,540,ReplayManager::AddedCallbackMode1,?AddedCallbackMode1@ReplayManager@@SIHPAV1@@Z
 0x00420a60,104,FreeResources,?FreeResources@@YIHPAVReplayManager@@@Z
-0x00420ad0,318,Func420ad0,
+0x00420ad0,318,ReplayManager::Release,?Release@ReplayManager@@SIXPAV1@@Z
 0x00420c10,42,ReplayManager::RemoveChain,?RemoveChain@ReplayManager@@SIXPAV1@@Z
 0x00420c40,18,ReplayHeader::ReplayHeader,??0ReplayHeader@@QAE@XZ
 0x00420c60,1227,Func420c60,
@@ -666,7 +666,7 @@ address,size,name,symbol
 0x00431540,312,Func431540,
 0x00431680,33,Func431680,
 0x004316b0,633,Func4316b0,
-0x00431930,254,Func431930,
+0x00431930,254,App::PlayMusic,?PlayMusic@App@@QAEHHH@Z
 0x00431a30,169,Func431a30,
 0x00431ae0,69,App::StartSubThread,?StartSubThread@App@@QAEHP6GKPAX@Z0@Z
 0x00431b30,59,Func431b30,
@@ -1672,7 +1672,7 @@ address,size,name,symbol
 0x0047c390,96,_memset,_memset
 0x0047c3f0,139,_strlen,
 0x0047c47b,88,_sprintf,
-0x0047c4e0,7,Func47c4e0,
+0x0047c4e0,7,strcpy,_strcpy
 0x0047c4f0,232,Func47c4f0,
 0x0047c5d8,273,__chdir,
 0x0047c71b,44,Func47c71b,
@@ -2235,6 +2235,8 @@ address,size,name,symbol
 0x004953d0,,GUID_NULL,_GUID_NULL
 0x004a1128,,g_Unknown4a1128,?g_Unknown4a1128@@3PAHA
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
+0x004a1ce8,,g_DemoReplayPaths,?g_DemoReplayPaths@@3PAPADA
+0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA
 0x004a1ec8,,g_FileModes,?g_FileModes@@3PAPADA

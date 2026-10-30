@@ -1030,6 +1030,235 @@ int MainMenu::OnUpdate(MainMenu *menu)
     return ret;
 }
 
+int MainMenu::UpdateState1()
+{
+    int delta;
+
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            if (this->prevState == 0 || this->prevState == 14 || this->prevState == 12 || this->prevState == 15)
+            {
+                g_App.PlayMusic(0, 0);
+            }
+            if ((this->prevState == 0 || this->prevState == 13 || this->prevState == 14 || this->prevState == 11 ||
+                 this->prevState == 15 || this->prevState == 12 || this->prevState == 2 || this->prevState == 4 ||
+                 this->prevState == 7 || this->prevState == 6) &&
+                g_SpriteEngine->LoadSurface(0, "title/title00.png") != 0)
+            {
+                return 0;
+            }
+            ReplayManager::Release(g_GameManager.replayManager);
+            g_GameManager.replayManager = NULL;
+            if (this->spriteCount == 0)
+            {
+                this->spriteCount = 0xdf;
+                this->sprites = new Sprite[this->spriteCount];
+                this->anm->StartSpriteSeries(this->sprites, 0, this->spriteCount);
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 2);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            if (!g_PlayRecord.openEntries3[12])
+            {
+                this->sprites[2].color = 0x30908040;
+            }
+            if (this->unknown1b23c != 0)
+            {
+                g_GameManager.stateFlags &= ~8;
+                this->cursor = g_GameManager.unknown114;
+                this->SetState(6);
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
+                return 1;
+            }
+            this->entryFirst = 1;
+            this->entryCount = 8;
+            this->SelectCursorEntry();
+            if (g_GameManager.stateFlags & 8)
+            {
+                this->SetState(11);
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
+                return 1;
+            }
+            g_GameManager.stateFlags &= ~2;
+        }
+        if (this->unknown1b230 < ARRAY_SIZE(g_TitleHelpTexts))
+        {
+            g_SpriteEngine->RenderTextCentered(&this->helpSprites[this->unknown1b230], 0xfff0e0, 0x300000,
+                                               g_TitleHelpTexts[this->unknown1b230]);
+            this->unknown1b230++;
+            return 1;
+        }
+        this->prevCursor = -1;
+        this->unknown1b230 = 0;
+        this->stateFrames = 0;
+        this->subState = 1;
+        this->idleFrames = 0;
+    case 1:
+        delta = this->MoveCursor(8);
+        if (delta != 0)
+        {
+            if (!g_PlayRecord.openEntries3[12] && this->cursor == 1)
+            {
+                this->cursor += delta;
+            }
+            this->SelectCursorEntry();
+        }
+        if (this->prevCursor != this->cursor)
+        {
+            this->helpSprite = &this->helpSprites[this->cursor];
+            this->helpSprite->SetPendingInterrupt(1);
+        }
+        this->prevCursor = this->cursor;
+        if (!g_PlayRecord.openEntries3[12])
+        {
+            this->sprites[2].color = 0xb0b0b040;
+        }
+        if (this->unknown1b230 < 10)
+        {
+            break;
+        }
+        if (g_PlayerInputs[2].unknown0 != 0)
+        {
+            this->idleFrames = 0;
+        }
+        this->idleFrames++;
+        if (this->idleFrames > 1500)
+        {
+            g_GameManager.stateFlags |= 2;
+            strcpy(g_GameManager.replayFile, g_DemoReplayPaths[g_GameManager.demoIndex]);
+            g_GameManager.demoIndex++;
+            g_GameManager.demoIndex %= 3;
+            g_GameManager.stateFlags |= 8;
+            g_GameManager.unknownFc = 9;
+            g_GameManager.difficulty = 3;
+            g_GameManager.sides[0].unknown28 = 0;
+            g_GameManager.sides[1].unknown28 = 1;
+            g_App.scene = 2;
+            g_GameManager.mode = 2;
+            return 0;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            switch (this->cursor)
+            {
+            case 0:
+                g_GameManager.stateFlags &= ~8;
+                this->PlaySoundNow(10, 0);
+                if (this->cursor >= 4)
+                {
+                    this->cursor = 2;
+                }
+                this->SetState(2);
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
+                g_GameManager.unknown378 = 10;
+                g_GameManager.unknown37c = 10;
+                return 1;
+            case 1:
+                if (g_PlayRecord.openEntries3[12])
+                {
+                    g_GameManager.stateFlags &= ~8;
+                    this->PlaySoundNow(10, 0);
+                    if (this->cursor >= 4)
+                    {
+                        this->cursor = 2;
+                    }
+                    this->SetState(4);
+                    g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
+                    g_GameManager.unknown378 = 10;
+                    g_GameManager.unknown37c = 10;
+                    return 1;
+                }
+                this->PlaySoundNow(0x27, 0);
+                return 1;
+            case 2:
+                g_GameManager.stateFlags &= ~8;
+                this->PlaySoundNow(10, 0);
+                this->cursor = g_GameManager.unknown114;
+                this->SetState(6);
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
+                g_GameManager.unknown378 = 10;
+                g_GameManager.unknown37c = 10;
+                return 1;
+            case 3:
+                this->PlaySoundNow(10, 0);
+                this->SetState(11);
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
+                this->helpSprite->SetPendingInterrupt(2);
+                return 1;
+            case 5:
+                this->PlaySoundNow(10, 0);
+                this->SetState(12);
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
+                this->helpSprite->SetPendingInterrupt(2);
+                return 1;
+            case 4:
+                this->PlaySoundNow(10, 0);
+                this->SetState(13);
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
+                return 1;
+            case 6:
+                this->PlaySoundNow(10, 0);
+                this->subState = 0;
+                this->cursor = 0;
+                this->unknown1b230 = 0;
+                this->stateFrames = 0;
+                this->UpdateState9();
+                this->SelectEntry(g_App.config.unknownAc, 0x12, 5);
+                this->SelectEntry(g_App.config.unknownAd, 0x15, 2);
+                this->SelectEntry(g_App.config.musicMode, 0x17, 3);
+                this->SelectEntry(g_App.config.windowed, 0x22, 2);
+                this->subState = 3;
+                this->stateFrames = 0;
+                this->unknownC920 = 0;
+                this->cursor = 0;
+                break;
+            case 7:
+                this->subState = 2;
+                this->stateFrames = 0;
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 1);
+                if (g_App.config.musicMode == 2)
+                {
+                    g_App.midi->Restart(30);
+                }
+                break;
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 10)
+        {
+            this->anm->SetSprite(&this->sprites[this->cursor + 1], this->sprites[this->cursor + 1].baseSpriteIndex + 1);
+            this->cursor = 7;
+            this->anm->SetSprite(&this->sprites[this->cursor + 1], this->sprites[this->cursor + 1].baseSpriteIndex);
+            this->PlaySoundNow(11, 0);
+        }
+        break;
+    case 2:
+        if (this->stateFrames >= 60)
+        {
+            delete[] this->sprites;
+            this->sprites = NULL;
+            this->spriteCount = 0;
+            this->unknown1b230 = 0;
+            g_App.scene = -1;
+            return 0;
+        }
+        break;
+    case 3:
+        if (this->stateFrames >= 30)
+        {
+            this->SetState(9);
+            this->cursor = 0;
+            this->config = g_App.config;
+            return 1;
+        }
+    }
+    this->unknownC910++;
+    this->stateFrames++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState2()
 {
     switch (this->subState)

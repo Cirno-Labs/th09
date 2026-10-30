@@ -47,7 +47,8 @@ struct GameSide
     // shot file while unknown24, the last game's, is the same.
     int character;
     int unknown24;
-    unsigned char pad_28[0x34 - 0x28];
+    int unknown28;
+    unsigned char pad_2c[0x34 - 0x2c];
     DWORD flags;
 };
 ASSERT_SIZE(GameSide, 0x38);
@@ -170,8 +171,12 @@ public:
     BYTE isInContinueMenu;
     // Whether AsciiText's unknownMenu is up.
     BYTE unknown13e;
-    BYTE unknown13f;
-    unsigned char pad_140[0x348 - 0x140];
+    // The demo the title plays next.
+    BYTE demoIndex;
+    unsigned char pad_140[0x145 - 0x140];
+    // The replay to play.
+    char replayFile[0x200];
+    unsigned char pad_345[0x348 - 0x345];
     int frames;
     unsigned char pad_34c[0x350 - 0x34c];
     float arena[4];

@@ -58,6 +58,9 @@ public:
     // Removes the manager's chain elements, frees its blocks and deletes
     // it, if any (0x420c10).
     static void RemoveChain(ReplayManager *mgr);
+    // Frees the manager's blocks and resources, removes its update
+    // element and deletes it, if any (0x420ad0).
+    static void Release(ReplayManager *mgr);
 
     // OnUpdateMode1b returns 6 while a dialogue runs unless it is 2
     // modulo 3.

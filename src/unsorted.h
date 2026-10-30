@@ -204,7 +204,8 @@ struct PlayerInput
         return (WORD)(this->unknown6 & mask) != 0 || (WORD)(this->unknown4 & mask) != 0;
     }
 
-    unsigned char pad_0[0x4];
+    WORD unknown0;
+    unsigned char pad_2[0x2];
     WORD unknown4;
     WORD unknown6;
     unsigned char pad_8[0x58 - 0x8];
@@ -605,6 +606,9 @@ struct App
     // wave fade is stretched while the game runs slow. Returns 0, or -1
     // without music (0x42fe20).
     int FadeOutBgm(float seconds);
+    // Plays the piece `id` of the table at 0x4a21d0; what `arg` does is
+    // not known. Returns 1 for an unknown id (0x431930).
+    int PlayMusic(int id, int arg);
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);

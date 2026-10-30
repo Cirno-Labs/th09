@@ -30,6 +30,11 @@ struct Network
 };
 extern Network *g_Network;
 
+// The help lines of the title's eight entries (0x4a1e3c).
+extern char *g_TitleHelpTexts[8];
+// The demo replays the title plays in turn (0x4a1ce8).
+extern char *g_DemoReplayPaths[3];
+
 // Cleared by the title (0x4ac884).
 extern int g_Unknown4ac884;
 
@@ -192,7 +197,9 @@ public:
 
     int cursor;
     unsigned char pad_4[0x10 - 0x4];
-    int cursors[6];
+    int cursors[5];
+    // The entry whose help UpdateState1 last showed.
+    int prevCursor;
     int subState;
     // Counts the frames in the current state.
     int stateFrames;
@@ -210,7 +217,9 @@ public:
     int unknownC910;
     unsigned char pad_c914[0xc918 - 0xc914];
     int unknownC918;
-    unsigned char pad_c91c[0xc934 - 0xc91c];
+    unsigned char pad_c91c[0xc920 - 0xc91c];
+    int unknownC920;
+    unsigned char pad_c924[0xc934 - 0xc924];
     // The music room's tunes.
     MusicTune tunes[32];
     int unknown11b74;
@@ -233,7 +242,8 @@ public:
     // 1 makes InitTitleScene start in state 14.
     int unknown1b22c;
     int unknown1b230;
-    unsigned char pad_1b234[0x1b238 - 0x1b234];
+    // The frames without input on the title; at 1500 a demo plays.
+    int idleFrames;
     // While nonzero, OnDraw draws nothing: 1 while LoadingThread loads,
     // 2 if it failed.
     int loadingState;
