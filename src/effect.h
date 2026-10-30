@@ -24,10 +24,21 @@ struct Effect
     D3DXVECTOR3 pos;
     // As spawned; some types' init callbacks take an angle in x.
     D3DXVECTOR3 velocity;
-    unsigned char pad_24[0x90 - 0x24];
+    unsigned char pad_24[0x7c - 0x24];
+    // Taken from the first sprite by EffectUpdate40d470: its posOffset.x,
+    // rotation.z, scaleY, scriptVar0, posOffset.y, rotation.y and
+    // scriptVar1.
+    float unknown7c;
+    float unknown80;
+    unsigned char pad_84[0x88 - 0x84];
+    float unknown88;
+    int unknown8c;
     // The reserved slot it was started in, by SpawnReservedEffect.
     int reservedSlot;
-    unsigned char pad_94[0xac - 0x94];
+    float unknown94;
+    float unknown98;
+    float unknown9c;
+    unsigned char pad_a0[0xac - 0xa0];
     Timer unknownAc;
     unsigned char pad_b8[0xbc - 0xb8];
     // From the effect's EffectInfo.
@@ -39,7 +50,9 @@ struct Effect
     BYTE type;
     // Set to have the effect fade out, as th08's.
     BYTE fadeOut;
-    unsigned char pad_c7[0xcc - 0xc7];
+    unsigned char pad_c7[0xc9 - 0xc7];
+    BYTE unknownC9;
+    unsigned char pad_ca[0xcc - 0xca];
     void *unknownCc;
     unsigned char pad_d0[0xd4 - 0xd0];
     // The next effect of a list.
@@ -157,3 +170,8 @@ int EffectInit40e080(Effect *effect);
 // side's player, as th08's EffectUpdateFollowPlayer. Returns 1
 // (0x40c960).
 int EffectUpdateFollowPlayer(Effect *effect);
+
+// An effect update callback of the effect table: takes the first
+// sprite's offset, rotation, y scale and script variables into the
+// effect and sets unknownC9. Returns 1 (0x40d470).
+int EffectUpdate40d470(Effect *effect);

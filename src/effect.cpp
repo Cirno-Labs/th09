@@ -239,6 +239,19 @@ EffectManager *EffectManager::RegisterChain(int sideIdx, int count34, int count3
     return mgr;
 }
 
+int EffectUpdate40d470(Effect *effect)
+{
+    effect->unknown8c = effect->sprites->scriptVar0;
+    effect->unknown9c = effect->sprites->scriptVar1;
+    effect->unknown88 = effect->sprites->scaleY;
+    effect->unknown7c = effect->sprites->posOffset.x;
+    effect->unknown94 = effect->sprites->posOffset.y;
+    effect->unknown80 = effect->sprites->rotation.z;
+    effect->unknown98 = effect->sprites->rotation.y;
+    effect->unknownC9 = 1;
+    return 1;
+}
+
 int EffectInit40e080(Effect *effect)
 {
     D3DXVECTOR3 offset;
