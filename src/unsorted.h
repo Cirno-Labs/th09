@@ -123,7 +123,8 @@ struct App
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();
-    // Waits for the sub thread to end and closes it (0x430230).
+    // Asks the sub thread to close (closeSubThread) and waits for it,
+    // as th08's (0x430230).
     void CloseSubThread();
 
     unsigned char pad_0[0x439];
@@ -136,7 +137,13 @@ struct App
     float gameSpeed;
     unsigned char pad_5bc[0x5d4 - 0x5bc];
     DWORD stateFlags;
-    unsigned char pad_5d8[0x6c0 - 0x5d8];
+    unsigned char pad_5d8[0x6ac - 0x5d8];
+    // The loading thread, as th08's.
+    HANDLE subThread;
+    DWORD subThreadId;
+    // Set to ask the sub thread to end.
+    int closeSubThread;
+    unsigned char pad_6b8[0x6c0 - 0x6b8];
     CRITICAL_SECTION criticalSections[5];
     // How deep each of criticalSections is entered.
     BYTE criticalSectionDepths[5];

@@ -79,6 +79,21 @@ void App::TickTimer(int *frames, float *subFrame)
     }
 }
 
+void App::CloseSubThread()
+{
+    if (this->subThread != NULL)
+    {
+        this->closeSubThread = 1;
+        while (WaitForSingleObject(this->subThread, 1000) == WAIT_TIMEOUT)
+        {
+            Sleep(1);
+        }
+        CloseHandle(this->subThread);
+        this->subThread = NULL;
+        this->closeSubThread = 0;
+    }
+}
+
 void App::InitCriticalSections()
 {
     DWORD i;
