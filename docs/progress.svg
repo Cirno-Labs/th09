@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">56.70% (601)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">43.30% (459)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">56.79% (602)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">43.21% (458)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="423.53" height="6" x="0" y="0" class="named"/>
-<rect width="323.47" height="6" x="423.53" y="0" class="todo"/>
+<rect width="424.24" height="6" x="0" y="0" class="named"/>
+<rect width="322.76" height="6" x="424.24" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -362,7 +362,7 @@
 <rect width="12" height="12" x="630" y="75" class="named"><title>0x00415d00 SpriteEngine::ClearColorOp (8 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="75" class="named"><title>0x00415d10 SpriteEngine::ClearZWrite (8 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="75" class="named"><title>0x00415d20 GameManager::IsReplay (13 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="75" class="todo"><title>0x00415d30 Func415d30 (15 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="75" class="named"><title>0x00415d30 GameManager::IsMode2 (15 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="75" class="named"><title>0x00415d40 Gui::Init (14 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="75" class="todo"><title>0x00415d50 Func415d50 (24 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="75" class="todo"><title>0x00415d70 Func415d70 (222 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.50%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.50%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.51%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.49%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="227.85" height="6" x="0" y="0" class="named"/>
-<rect width="519.15" height="6" x="227.85" y="0" class="todo"/>
+<rect width="227.89" height="6" x="0" y="0" class="named"/>
+<rect width="519.11" height="6" x="227.89" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2088,7 +2088,7 @@
 <rect width="0.41" height="0.77" x="719.27" y="301.80" class="named"><title>0x00412090 EclManager::EclManager (15 bytes)</title></rect>
 <rect width="0.41" height="0.77" x="722.68" y="301.80" class="named"><title>0x004120c0 EnemyUnknown30::EnemyUnknown30 (15 bytes)</title></rect>
 <rect width="0.41" height="0.77" x="726.10" y="301.80" class="named"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
-<rect width="0.41" height="0.77" x="729.51" y="301.80" class="todo"><title>0x00415d30 Func415d30 (15 bytes)</title></rect>
+<rect width="0.41" height="0.77" x="729.51" y="301.80" class="named"><title>0x00415d30 GameManager::IsMode2 (15 bytes)</title></rect>
 <rect width="0.41" height="0.77" x="732.93" y="301.80" class="todo"><title>0x0041f060 Func41f060 (15 bytes)</title></rect>
 <rect width="0.41" height="0.77" x="736.34" y="301.80" class="named"><title>0x00420830 ReplayInfo::ReplayInfo (15 bytes)</title></rect>
 <rect width="0.41" height="0.77" x="739.76" y="301.80" class="todo"><title>0x00422950 Func422950 (15 bytes)</title></rect>

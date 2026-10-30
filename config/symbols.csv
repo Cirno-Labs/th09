@@ -294,7 +294,7 @@ address,size,name,symbol
 0x00415d00,8,SpriteEngine::ClearColorOp,?ClearColorOp@SpriteEngine@@QAEXXZ
 0x00415d10,8,SpriteEngine::ClearZWrite,?ClearZWrite@SpriteEngine@@QAEXXZ
 0x00415d20,13,GameManager::IsReplay,?IsReplay@GameManager@@QAEHXZ
-0x00415d30,15,Func415d30,
+0x00415d30,15,GameManager::IsMode2,?IsMode2@GameManager@@QAEHXZ
 0x00415d40,14,Gui::Init,?Init@Gui@@QAEXXZ
 0x00415d50,24,Func415d50,
 0x00415d70,222,Func415d70,

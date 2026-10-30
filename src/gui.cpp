@@ -27,6 +27,11 @@ int FreesResources()
     return g_App.freesResources;
 }
 
+BOOL GameManager::IsMode2()
+{
+    return this->mode == 2;
+}
+
 int Gui::FreeResources(Gui *gui)
 {
     if (FreesResources())

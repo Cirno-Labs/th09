@@ -105,6 +105,8 @@ public:
     {
         return this->stateFlags >> 3 & 1;
     }
+    // Whether mode is 2 (0x415d30).
+    BOOL IsMode2();
     // Resets the state, the ASCII text and every object for a new round,
     // and sets unknownB4, unknownC4 and unknownC8 by difficulty
     // (0x41b5c6).
