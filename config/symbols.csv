@@ -871,7 +871,7 @@ address,size,name,symbol
 0x0043e090,58,MidiPlayer::~MidiPlayer,??1MidiPlayer@@QAE@XZ
 0x0043e0d0,94,MidiPlayer::LoadFile,?LoadFile@MidiPlayer@@QAEHHPAD@Z
 0x0043e130,54,MidiPlayer::Load,?Load@MidiPlayer@@QAEHPAD@Z
-0x0043e170,33,Func43e170,
+0x0043e170,33,CSoundManager::`scalar deleting destructor',??_GCSoundManager@@QAEPAXI@Z
 0x0043e1a0,74,Func43e1a0,
 0x0043e1f0,208,Func43e1f0,
 0x0043e2c0,39,SoundPlayer::LoadBgmFormat,?LoadBgmFormat@SoundPlayer@@QAEHPAD@Z
@@ -883,7 +883,7 @@ address,size,name,symbol
 0x0043e470,34,SoundPlayer::SoundPlayer,??0SoundPlayer@@QAE@XZ
 0x0043e4a0,49,Func43e4a0,
 0x0043e4e0,23,Func43e4e0,
-0x0043e500,613,Func43e500,
+0x0043e500,613,SoundPlayer::Initialize,?Initialize@SoundPlayer@@QAEHPAUHWND__@@@Z
 0x0043e770,614,Func43e770,
 0x0043e9e0,72,Func43e9e0,
 0x0043ea30,388,Func43ea30,
