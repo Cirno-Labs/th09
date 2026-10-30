@@ -724,7 +724,7 @@ address,size,name,symbol
 0x00433dc0,49,LzssPredecessor,?LzssPredecessor@@YIHH@Z
 0x00433e00,438,LzssInsertNode,?LzssInsertNode@@YIHHPAH@Z
 0x00433fc0,83,LzssDeleteNode,?LzssDeleteNode@@YIXH@Z
-0x00434020,568,Func434020,
+0x00434020,571,LzssCompress,?LzssCompress@@YIPAXPAEHPAH@Z
 0x00434280,31,Func434280,
 0x004342a0,130,Func4342a0,
 0x00434330,55,Func434330,
