@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">5.59% (58)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">94.41% (980)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">5.68% (59)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">94.32% (979)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="41.74" height="6" x="0" y="0" class="named"/>
-<rect width="705.26" height="6" x="41.74" y="0" class="todo"/>
+<rect width="42.46" height="6" x="0" y="0" class="named"/>
+<rect width="704.54" height="6" x="42.46" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -671,7 +671,7 @@
 <rect width="12" height="12" x="15" y="180" class="todo"><title>0x0042ecf0 Func42ecf0 (49 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="180" class="named"><title>0x0042ed30 App::GetNoDirectInput (13 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="180" class="named"><title>0x0042ed40 App::GetPreloadBgm (13 bytes)</title></rect>
-<rect width="12" height="12" x="60" y="180" class="todo"><title>0x0042ed50 Func42ed50 (13 bytes)</title></rect>
+<rect width="12" height="12" x="60" y="180" class="named"><title>0x0042ed50 App::GetNoVsync (13 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="180" class="todo"><title>0x0042ed60 Func42ed60 (13 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="180" class="todo"><title>0x0042ed70 Func42ed70 (14 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="180" class="todo"><title>0x0042ed80 Func42ed80 (71 bytes)</title></rect>
@@ -1109,10 +1109,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.45%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.55%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.46%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.54%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="3.39" height="6" x="0" y="0" class="named"/>
-<rect width="743.61" height="6" x="3.39" y="0" class="todo"/>
+<rect width="3.42" height="6" x="0" y="0" class="named"/>
+<rect width="743.58" height="6" x="3.42" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.75" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2081,7 +2081,7 @@
 <rect width="0.24" height="0.31" x="737.03" y="292.85" class="todo"><title>0x0042b0d0 Func42b0d0 (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="740.27" y="292.85" class="named"><title>0x0042ed30 App::GetNoDirectInput (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="743.52" y="292.85" class="named"><title>0x0042ed40 App::GetPreloadBgm (13 bytes)</title></rect>
-<rect width="0.24" height="0.31" x="746.76" y="292.85" class="todo"><title>0x0042ed50 Func42ed50 (13 bytes)</title></rect>
+<rect width="0.24" height="0.31" x="746.76" y="292.85" class="named"><title>0x0042ed50 App::GetNoVsync (13 bytes)</title></rect>
 <rect width="0.21" height="0.34" x="727.31" y="296.16" class="todo"><title>0x0042ed60 Func42ed60 (13 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="299.50" class="named"><title>0x00401060 Cos (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="302.58" class="named"><title>0x00401070 Sin (12 bytes)</title></rect>

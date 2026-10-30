@@ -36,6 +36,11 @@ int App::GetPreloadBgm()
     return this->flags.preloadBgm;
 }
 
+int App::GetNoVsync()
+{
+    return this->flags.noVsync;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;

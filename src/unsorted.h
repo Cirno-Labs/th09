@@ -64,6 +64,8 @@ struct App
     int GetNoDirectInput();
     // (0x42ed40)
     int GetPreloadBgm();
+    // (0x42ed50)
+    int GetNoVsync();
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
