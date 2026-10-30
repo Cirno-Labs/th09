@@ -53,3 +53,30 @@ void BulletManager::RemoveChain(BulletManager *mgr)
         delete mgr;
     }
 }
+
+BulletManager::BulletManager()
+{
+    this->Initialize();
+}
+
+BulletManager *BulletManager::RegisterChain(int sideIdx)
+{
+    BulletManager *mgr =
+        (BulletManager *)g_MemoryManager.Register(new BulletManager(), sizeof(BulletManager), "EtamaCtrlInf");
+
+    mgr->Initialize();
+    mgr->sideIdx = sideIdx;
+    mgr->side = &g_GameManager.sides[sideIdx];
+    mgr->otherSide = &g_GameManager.sides[1 - sideIdx];
+    mgr->calcElem = g_Chain.CreateElem((ChainCallback)BulletManager::OnUpdate);
+    mgr->calcElem->arg = mgr;
+    mgr->calcElem->addedCallback = (ChainCallback)BulletManager::AddedCallback;
+    if (g_Chain.AddToCalcChain(mgr->calcElem, sideIdx + 0xc) != 0)
+    {
+        return NULL;
+    }
+    mgr->drawElem = g_Chain.CreateElem((ChainCallback)BulletManager::OnDraw);
+    mgr->drawElem->arg = mgr;
+    g_Chain.AddToDrawChain(mgr->drawElem, sideIdx + 0x15);
+    return mgr;
+}
