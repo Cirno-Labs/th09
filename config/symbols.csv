@@ -562,7 +562,7 @@ address,size,name,symbol
 0x0042be40,819,Func42be40,
 0x0042c180,259,DecryptData,?DecryptData@@YIPAEPAEHEEHH@Z
 0x0042c290,220,DecryptFileData,?DecryptFileData@@YIPAEPAEPAHH@Z
-0x0042c370,267,Func42c370,
+0x0042c370,267,EncryptData,?EncryptData@@YIPAEPAEHEEHH@Z
 0x0042c480,92,FileExists,?FileExists@@YIHPAD@Z
 0x0042c4e0,210,WriteToFile,?WriteToFile@@YIHPADPAXH@Z
 0x0042c5c0,153,LogPrintf,?LogPrintf@@YAHPAVLog@@PBDZZ

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.85% (592)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">44.15% (468)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.94% (593)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">44.06% (467)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="417.19" height="6" x="0" y="0" class="named"/>
-<rect width="329.81" height="6" x="417.19" y="0" class="todo"/>
+<rect width="417.90" height="6" x="0" y="0" class="named"/>
+<rect width="329.10" height="6" x="417.90" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -630,7 +630,7 @@
 <rect width="12" height="12" x="150" y="165" class="todo"><title>0x0042be40 Func42be40 (819 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="165" class="named"><title>0x0042c180 DecryptData (259 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="165" class="named"><title>0x0042c290 DecryptFileData (220 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="165" class="todo"><title>0x0042c370 Func42c370 (267 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="165" class="named"><title>0x0042c370 EncryptData (267 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="165" class="named"><title>0x0042c480 FileExists (92 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="165" class="named"><title>0x0042c4e0 WriteToFile (210 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="165" class="named"><title>0x0042c5c0 LogPrintf (153 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.11%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.89%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.20%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.80%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="224.90" height="6" x="0" y="0" class="named"/>
-<rect width="522.10" height="6" x="224.90" y="0" class="todo"/>
+<rect width="225.59" height="6" x="0" y="0" class="named"/>
+<rect width="521.41" height="6" x="225.59" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1417,7 +1417,7 @@
 <rect width="12.05" height="12.59" x="505.48" y="286.41" class="todo"><title>0x0041c8e0 Func41c8e0 (273 bytes)</title></rect>
 <rect width="12.05" height="12.53" x="505.48" y="302" class="todo"><title>0x00415460 ExAttackManager::OnDraw (272 bytes)</title></rect>
 <rect width="12.05" height="12.47" x="505.48" y="317.53" class="todo"><title>0x00417520 GuiMsg::UnloadBgm (271 bytes)</title></rect>
-<rect width="12.80" height="11.51" x="520.53" y="91.73" class="todo"><title>0x0042c370 Func42c370 (267 bytes)</title></rect>
+<rect width="12.80" height="11.51" x="520.53" y="91.73" class="named"><title>0x0042c370 EncryptData (267 bytes)</title></rect>
 <rect width="12.63" height="11.51" x="536.33" y="91.73" class="named"><title>0x00404600 SpellCard::RegisterChain (264 bytes)</title></rect>
 <rect width="12.63" height="11.51" x="551.96" y="91.73" class="named"><title>0x004157d0 ExAttackManager::RegisterChain (264 bytes)</title></rect>
 <rect width="12.63" height="11.51" x="567.59" y="91.73" class="named"><title>0x0042a9cb MainMenu::OnUpdate (264 bytes)</title></rect>

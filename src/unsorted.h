@@ -128,6 +128,10 @@ void DebugPrint(const char *fmt, ...);
 // (0x42c180).
 BYTE *DecryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int limit);
 
+// Encrypts `size` bytes of `data` into a new block, the reverse of
+// DecryptData, as th08's (0x42c370).
+BYTE *EncryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int limit);
+
 // The DecryptData parameters for one kind of data file, as th08's.
 struct CryptParams
 {
