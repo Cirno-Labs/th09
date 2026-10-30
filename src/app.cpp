@@ -26,6 +26,11 @@ int App::GetWindowed()
     return this->windowed;
 }
 
+int App::GetNoDirectInput()
+{
+    return this->flags.noDirectInput;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;

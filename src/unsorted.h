@@ -60,6 +60,8 @@ struct App
     int GetReferenceRasterizer();
     // (0x42d2d0)
     int GetWindowed();
+    // (0x42ed30)
+    int GetNoDirectInput();
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
