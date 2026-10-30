@@ -6,6 +6,11 @@ int App::GetNoFog()
     return this->flags.noFog;
 }
 
+int App::GetNoScore()
+{
+    return this->stateFlags >> 3 & 1;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;
