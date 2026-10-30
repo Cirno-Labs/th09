@@ -286,3 +286,24 @@ void MidiTimer::StartTimer()
 {
     this->Start(16, NULL, 0);
 }
+
+int MidiPlayer::Stop()
+{
+    int i;
+
+    if (this->tracks == NULL)
+    {
+        return -1;
+    }
+    for (i = 0; i < 0x20; i++)
+    {
+        if (this->headers[i] != NULL)
+        {
+            this->ReleaseHeader(this->headers[i]);
+        }
+    }
+    MmTimer::Stop();
+    this->device.Close();
+    this->playingSlot = -1;
+    return 0;
+}
