@@ -22,3 +22,8 @@ void Timer::Set(int frames)
     this->previous = -999999;
     this->currentF = (float)frames;
 }
+
+float Timer::AsFloat()
+{
+    return this->currentF;
+}
