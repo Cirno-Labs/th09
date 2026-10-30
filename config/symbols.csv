@@ -787,7 +787,7 @@ address,size,name,symbol
 0x00439560,53,Func439560,
 0x004395a0,143,AnmLoaded::SetScript,?SetScript@AnmLoaded@@QAEXPAVSprite@@PAX@Z
 0x00439630,66,Func439630,
-0x00439680,29,Func439680,
+0x00439680,29,SpriteEngine::BeginQuadBatch,?BeginQuadBatch@SpriteEngine@@QAEXXZ
 0x004396a0,137,SpriteEngine::FlushQuadBatch,?FlushQuadBatch@SpriteEngine@@QAEXXZ
 0x00439730,165,Func439730,
 0x004397e0,49,SpriteEngine::RotatePoint,?RotatePoint@SpriteEngine@@QAEXPAMMMMMMM@Z

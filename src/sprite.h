@@ -198,6 +198,20 @@ public:
 };
 ASSERT_SIZE(AnmLoaded, 0x120);
 
+// A vertex with a transformed position, a color and texture
+// coordinates, as th08's.
+struct VertexTex1DiffuseXyzrwh
+{
+    D3DXVECTOR3 pos;
+    float w;
+    D3DCOLOR diffuse;
+    struct
+    {
+        float x;
+        float y;
+    } uv;
+};
+
 // Runs every sprite's script (th08's name), at *0x4dc550.
 class SpriteEngine
 {
@@ -287,6 +301,8 @@ public:
     // back buffer, as th08's (0x43c2d0).
     void CopyBackBufferToSurface(int surface, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
                                  int dstTop, int dstWidth, int dstHeight);
+    // Empties the quad batch, as th08's (0x439680).
+    void BeginQuadBatch();
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).
@@ -344,7 +360,15 @@ public:
     unsigned char pad_12889[0x1288c - 0x12889];
     // The sprite data last drawn.
     void *currentSpriteData;
-    unsigned char pad_12890[0x2b2914 - 0x12890];
+    unsigned char pad_12890[0x128e4 - 0x12890];
+    // The number of quads batched to draw with FlushQuadBatch.
+    int batchQuadCount;
+    // The batched quads, two triangles each.
+    VertexTex1DiffuseXyzrwh batchVertices[0x18000];
+    // Where the next quad goes, and the first one not drawn yet.
+    VertexTex1DiffuseXyzrwh *batchCursor;
+    VertexTex1DiffuseXyzrwh *batchStart;
+    unsigned char pad_2b28f0[0x2b2914 - 0x2b28f0];
     int pendingCopySrcLeft;
     int pendingCopySrcTop;
     int pendingCopySrcWidth;

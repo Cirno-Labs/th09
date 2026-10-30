@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.80% (324)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">69.20% (728)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.89% (325)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">69.11% (727)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="230.06" height="6" x="0" y="0" class="named"/>
-<rect width="516.94" height="6" x="230.06" y="0" class="todo"/>
+<rect width="230.77" height="6" x="0" y="0" class="named"/>
+<rect width="516.23" height="6" x="230.77" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -855,7 +855,7 @@
 <rect width="12" height="12" x="525" y="225" class="todo"><title>0x00439560 Func439560 (53 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="225" class="named"><title>0x004395a0 AnmLoaded::SetScript (143 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="225" class="todo"><title>0x00439630 Func439630 (66 bytes)</title></rect>
-<rect width="12" height="12" x="570" y="225" class="todo"><title>0x00439680 Func439680 (29 bytes)</title></rect>
+<rect width="12" height="12" x="570" y="225" class="named"><title>0x00439680 SpriteEngine::BeginQuadBatch (29 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="225" class="todo"><title>0x004396a0 SpriteEngine::FlushQuadBatch (137 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="225" class="todo"><title>0x00439730 Func439730 (165 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="225" class="named"><title>0x004397e0 SpriteEngine::RotatePoint (49 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.79%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.21%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.80%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.20%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="80.59" height="6" x="0" y="0" class="named"/>
-<rect width="666.41" height="6" x="80.59" y="0" class="todo"/>
+<rect width="80.66" height="6" x="0" y="0" class="named"/>
+<rect width="666.34" height="6" x="80.66" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1973,7 +1973,7 @@
 <rect width="1.82" height="2.17" x="693.14" y="302.32" class="named"><title>0x00433290 DatArchive::GetEntrySize (29 bytes)</title></rect>
 <rect width="1.82" height="2.17" x="693.14" y="307.49" class="named"><title>0x00434260 AsciiText::DeletedCallback (29 bytes)</title></rect>
 <rect width="1.82" height="2.17" x="693.14" y="312.67" class="named"><title>0x00435f20 GdiSurface::GdiSurface (29 bytes)</title></rect>
-<rect width="1.82" height="2.17" x="693.14" y="317.84" class="todo"><title>0x00439680 Func439680 (29 bytes)</title></rect>
+<rect width="1.82" height="2.17" x="693.14" y="317.84" class="named"><title>0x00439680 SpriteEngine::BeginQuadBatch (29 bytes)</title></rect>
 <rect width="1.82" height="1.99" x="693.14" y="323.01" class="named"><title>0x004014b0 Timer::NextTick (28 bytes)</title></rect>
 <rect width="1.82" height="1.99" x="693.14" y="328.01" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
 <rect width="2.02" height="1.80" x="697.97" y="281.10" class="named"><title>0x0040d500 EnemyShooter::EnemyShooter (28 bytes)</title></rect>

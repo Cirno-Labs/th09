@@ -94,6 +94,13 @@ void AnmLoaded::SetScript(Sprite *vm, void *script)
     }
 }
 
+void SpriteEngine::BeginQuadBatch()
+{
+    this->batchQuadCount = 0;
+    this->batchCursor = this->batchVertices;
+    this->batchStart = this->batchCursor;
+}
+
 void SpriteEngine::RotatePoint(float *out, float x, float y, float sine, float cosine, float cx, float cy)
 {
     out[0] = x * cosine - y * sine + cx;
