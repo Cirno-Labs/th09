@@ -180,7 +180,7 @@ address,size,name,symbol
 0x0040e400,75,PlayRecord::HasCleared,?HasCleared@PlayRecord@@QAEHD@Z
 0x0040e450,20,PlayRecord::GetClears5,?GetClears5@PlayRecord@@QAEHD@Z
 0x0040e470,14,GameManager::IsMode0,?IsMode0@GameManager@@QAEHXZ
-0x0040e480,101,Func40e480,
+0x0040e480,101,Ending::OnDraw,?OnDraw@Ending@@SIHPAV1@@Z
 0x0040e4f0,133,Func40e4f0,
 0x0040e580,773,Func40e580,
 0x0040e8a0,1483,Func40e8a0,

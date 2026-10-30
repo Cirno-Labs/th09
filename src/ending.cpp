@@ -18,3 +18,16 @@ void Ending::DrawFade()
         DrawColorRect(rect, this->fadeColor);
     }
 }
+
+int Ending::OnDraw(Ending *ending)
+{
+    int i;
+
+    g_SpriteEngine->CopySurfaceRectToBackBuffer(0, 0, 0, ending->scrollX, ending->scrollY, 640, 480);
+    for (i = 0; i < 0xf; i++)
+    {
+        g_SpriteEngine->Draw(&ending->sprites[i]);
+    }
+    ending->DrawFade();
+    return 1;
+}

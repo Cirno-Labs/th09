@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.45% (699)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.99% (363)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.54% (700)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.90% (362)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="488.91" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="488.91" y="0" class="decompiled"/>
-<rect width="253.90" height="6" x="493.10" y="0" class="todo"/>
+<rect width="489.61" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="489.61" y="0" class="decompiled"/>
+<rect width="253.20" height="6" x="493.80" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -249,7 +249,7 @@
 <rect width="12" height="12" x="420" y="45" class="named"><title>0x0040e400 PlayRecord::HasCleared (75 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="45" class="named"><title>0x0040e450 PlayRecord::GetClears5 (20 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="45" class="named"><title>0x0040e470 GameManager::IsMode0 (14 bytes)</title></rect>
-<rect width="12" height="12" x="465" y="45" class="todo"><title>0x0040e480 Func40e480 (101 bytes)</title></rect>
+<rect width="12" height="12" x="465" y="45" class="named"><title>0x0040e480 Ending::OnDraw (101 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="45" class="todo"><title>0x0040e4f0 Func40e4f0 (133 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="45" class="todo"><title>0x0040e580 Func40e580 (773 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="45" class="todo"><title>0x0040e8a0 Func40e8a0 (1483 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.27%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.69%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.30%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.66%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="248.51" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="248.51" y="0" class="decompiled"/>
-<rect width="498.20" height="6" x="248.80" y="0" class="todo"/>
+<rect width="248.77" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="248.77" y="0" class="decompiled"/>
+<rect width="497.94" height="6" x="249.06" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1664,7 +1664,7 @@
 <rect width="6.23" height="6.65" x="605.53" y="238.72" class="named"><title>0x00420a60 FreeResources (104 bytes)</title></rect>
 <rect width="6.23" height="6.56" x="605.53" y="248.37" class="todo"><title>0x004222c0 Func4222c0 (103 bytes)</title></rect>
 <rect width="6.23" height="6.47" x="605.53" y="257.93" class="named"><title>0x0043ccd0 SpriteEngine::PreloadSurface (102 bytes)</title></rect>
-<rect width="6.23" height="6.37" x="605.53" y="267.39" class="todo"><title>0x0040e480 Func40e480 (101 bytes)</title></rect>
+<rect width="6.23" height="6.37" x="605.53" y="267.39" class="named"><title>0x0040e480 Ending::OnDraw (101 bytes)</title></rect>
 <rect width="6.23" height="6.37" x="605.53" y="276.77" class="named"><title>0x004121d0 EnemyManager::EnemyManager (101 bytes)</title></rect>
 <rect width="6.23" height="6.37" x="605.53" y="286.14" class="named"><title>0x0041bb00 Player::AngleFromPlayer (101 bytes)</title></rect>
 <rect width="6.23" height="6.37" x="605.53" y="295.51" class="named"><title>0x0041bb70 Player::AngleToPlayer (101 bytes)</title></rect>
