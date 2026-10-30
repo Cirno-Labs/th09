@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">21.05% (221)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">78.95% (829)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">21.14% (222)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">78.86% (828)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="157.23" height="6" x="0" y="0" class="named"/>
-<rect width="589.77" height="6" x="157.23" y="0" class="todo"/>
+<rect width="157.94" height="6" x="0" y="0" class="named"/>
+<rect width="589.06" height="6" x="157.94" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -768,7 +768,7 @@
 <rect width="12" height="12" x="720" y="195" class="named"><title>0x004333f0 DatArchive::ReadTable (467 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="195" class="named"><title>0x004335d0 DatArchive::~DatArchive (5 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="210" class="named"><title>0x004335e0 DatArchive::Open (179 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="210" class="todo"><title>0x004336a0 File::Close (34 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="210" class="named"><title>0x004336a0 File::Close (34 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="210" class="todo"><title>0x004336d0 File::Read (61 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="210" class="todo"><title>0x00433710 File::Write (66 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="210" class="todo"><title>0x00433760 File::Tell (25 bytes)</title></rect>
@@ -1121,10 +1121,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.08%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93.92%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.10%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93.90%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="45.45" height="6" x="0" y="0" class="named"/>
-<rect width="701.55" height="6" x="45.45" y="0" class="todo"/>
+<rect width="45.54" height="6" x="0" y="0" class="named"/>
+<rect width="701.46" height="6" x="45.54" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.43" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1929,7 +1929,7 @@
 <rect width="2.20" height="2.38" x="714.05" y="254.89" class="todo"><title>0x00422f17 Func422f17 (34 bytes)</title></rect>
 <rect width="2.20" height="2.38" x="719.25" y="254.89" class="named"><title>0x0042cbe0 Chain::Release (34 bytes)</title></rect>
 <rect width="2.20" height="2.38" x="724.45" y="254.89" class="todo"><title>0x0042ec00 Func42ec00 (34 bytes)</title></rect>
-<rect width="2.20" height="2.38" x="729.65" y="254.89" class="todo"><title>0x004336a0 File::Close (34 bytes)</title></rect>
+<rect width="2.20" height="2.38" x="729.65" y="254.89" class="named"><title>0x004336a0 File::Close (34 bytes)</title></rect>
 <rect width="2.05" height="2.38" x="734.86" y="254.89" class="todo"><title>0x00404920 Func404920 (33 bytes)</title></rect>
 <rect width="2.05" height="2.38" x="739.90" y="254.89" class="todo"><title>0x0040f860 Func40f860 (33 bytes)</title></rect>
 <rect width="2.05" height="2.38" x="744.95" y="254.89" class="named"><title>0x00412780 SinCos (33 bytes)</title></rect>
