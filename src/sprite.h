@@ -276,6 +276,10 @@ public:
     // The same for the `width` by `height` rectangle at (`left`, `top`),
     // as th08's (0x43c0d0).
     void CopySurfaceRectToBackBuffer(int surface, int x, int y, int left, int top, int width, int height);
+    // Copies a rectangle of the back buffer to one of the first texture
+    // of the ANM file in slot `texture`, as th08's (0x43c200).
+    void CopyBackBufferToTexture(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
+                                 int dstTop, int dstWidth, int dstHeight);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).

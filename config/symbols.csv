@@ -823,7 +823,7 @@ address,size,name,symbol
 0x0043bf30,97,SpriteEngine::ReleaseSurface,?ReleaseSurface@SpriteEngine@@QAEXH@Z
 0x0043bfa0,304,SpriteEngine::CopySurfaceToBackBuffer,?CopySurfaceToBackBuffer@SpriteEngine@@QAEXHHHHH@Z
 0x0043c0d0,294,SpriteEngine::CopySurfaceRectToBackBuffer,?CopySurfaceRectToBackBuffer@SpriteEngine@@QAEXHHHHHHH@Z
-0x0043c200,193,Func43c200,
+0x0043c200,193,SpriteEngine::CopyBackBufferToTexture,?CopyBackBufferToTexture@SpriteEngine@@QAEXHHHHHHHHH@Z
 0x0043c2d0,352,Func43c2d0,
 0x0043c430,50,Func43c430,
 0x0043c470,75,Func43c470,
