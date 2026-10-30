@@ -388,6 +388,88 @@ found:
     }
 }
 
+// The original allocates in an inline from global.h, whose __FILE__ names
+// the block.
+#define GLOBAL_H "./system\\global.h"
+
+BYTE *DecryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int limit)
+{
+    int unused = 0;
+    int tail;
+    BYTE *wp;
+    BYTE *dest;
+    int i;
+    BYTE *line;
+    BYTE *p;
+
+    tail = (size % blockSize < blockSize / 4) ? size % blockSize : 0;
+    p = data;
+    dest = (BYTE *)g_MemoryManager.Alloc(size, GLOBAL_H);
+    wp = dest;
+    if (dest == NULL)
+    {
+        return data;
+    }
+    tail += size & 1;
+    size -= tail;
+    while (size > 0 && limit > 0)
+    {
+        if (size < blockSize)
+        {
+            blockSize = size;
+        }
+        line = wp;
+        wp = wp + blockSize - 1;
+        for (i = (blockSize + 1) / 2; i > 0; i--, p++)
+        {
+            *wp = *p ^ key;
+            wp -= 2;
+            key += step;
+        }
+        wp = line + blockSize - 2;
+        for (i = blockSize / 2; i > 0; i--, p++)
+        {
+            *wp = *p ^ key;
+            wp -= 2;
+            key += step;
+        }
+        size -= blockSize;
+        wp = line + blockSize;
+        limit -= blockSize;
+    }
+    size += tail;
+    if (size > 0)
+    {
+        memcpy(wp, p, size);
+    }
+    return dest;
+}
+
+BYTE *DecryptFileData(BYTE *data, int *size, int fileSize)
+{
+    DWORD j;
+    BYTE *result;
+    BYTE *p = data;
+
+    if (p[0] == g_CryptMagic[0] - 0x20 && p[1] == g_CryptMagic[1] - 0x40 && p[2] == g_CryptMagic[2] - 0x60)
+    {
+        j = 0;
+        while (p[3] != g_CryptParams[j].type - (int)(j * 16) - 0x10 && j < 8)
+        {
+            j++;
+        }
+        if (j >= 8)
+        {
+            return p;
+        }
+        result = DecryptData(p + 4, fileSize - 4, g_CryptParams[j].key, g_CryptParams[j].step,
+                             g_CryptParams[j].blockSize, g_CryptParams[j].limit);
+        g_MemoryManager.Free(data);
+        return result;
+    }
+    return p;
+}
+
 int FileExists(char *path)
 {
     HANDLE file;
@@ -478,6 +560,13 @@ int LogError(Log *log, const char *fmt, ...)
     return (int)fmt;
 }
 
+void Chain::Remove(ChainElem *elem)
+{
+    g_App.EnterCriticalSection(0);
+    this->RemoveLocked(elem);
+    g_App.LeaveCriticalSection(0);
+}
+
 WORD InitJoystick()
 {
     JOYINFOEX joyInfo;
@@ -493,88 +582,6 @@ WORD InitJoystick()
     joyGetDevCapsA(JOYSTICKID1, &g_JoyCaps[0], sizeof(g_JoyCaps[0]));
     joyGetDevCapsA(JOYSTICKID2, &g_JoyCaps[1], sizeof(g_JoyCaps[1]));
     return 0;
-}
-
-// The original allocates in an inline from global.h, whose __FILE__ names
-// the block.
-#define GLOBAL_H "./system\\global.h"
-
-BYTE *DecryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int limit)
-{
-    int unused = 0;
-    int tail;
-    BYTE *wp;
-    BYTE *dest;
-    int i;
-    BYTE *line;
-    BYTE *p;
-
-    tail = (size % blockSize < blockSize / 4) ? size % blockSize : 0;
-    p = data;
-    dest = (BYTE *)g_MemoryManager.Alloc(size, GLOBAL_H);
-    wp = dest;
-    if (dest == NULL)
-    {
-        return data;
-    }
-    tail += size & 1;
-    size -= tail;
-    while (size > 0 && limit > 0)
-    {
-        if (size < blockSize)
-        {
-            blockSize = size;
-        }
-        line = wp;
-        wp = wp + blockSize - 1;
-        for (i = (blockSize + 1) / 2; i > 0; i--, p++)
-        {
-            *wp = *p ^ key;
-            wp -= 2;
-            key += step;
-        }
-        wp = line + blockSize - 2;
-        for (i = blockSize / 2; i > 0; i--, p++)
-        {
-            *wp = *p ^ key;
-            wp -= 2;
-            key += step;
-        }
-        size -= blockSize;
-        wp = line + blockSize;
-        limit -= blockSize;
-    }
-    size += tail;
-    if (size > 0)
-    {
-        memcpy(wp, p, size);
-    }
-    return dest;
-}
-
-BYTE *DecryptFileData(BYTE *data, int *size, int fileSize)
-{
-    DWORD j;
-    BYTE *result;
-    BYTE *p = data;
-
-    if (p[0] == g_CryptMagic[0] - 0x20 && p[1] == g_CryptMagic[1] - 0x40 && p[2] == g_CryptMagic[2] - 0x60)
-    {
-        j = 0;
-        while (p[3] != g_CryptParams[j].type - (int)(j * 16) - 0x10 && j < 8)
-        {
-            j++;
-        }
-        if (j >= 8)
-        {
-            return p;
-        }
-        result = DecryptData(p + 4, fileSize - 4, g_CryptParams[j].key, g_CryptParams[j].step,
-                             g_CryptParams[j].blockSize, g_CryptParams[j].limit);
-        g_MemoryManager.Free(data);
-        return result;
-    }
-    return p;
 }
 
 void *OpenPath(char *path, int *size, int isExternal)
@@ -652,13 +659,6 @@ done:
 fail:
     g_App.LeaveCriticalSection(2);
     return NULL;
-}
-
-void Chain::Remove(ChainElem *elem)
-{
-    g_App.EnterCriticalSection(0);
-    this->RemoveLocked(elem);
-    g_App.LeaveCriticalSection(0);
 }
 
 void Chain::ReleaseList(ChainElem *root)
