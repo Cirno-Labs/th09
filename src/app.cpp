@@ -31,6 +31,11 @@ int App::GetNoDirectInput()
     return this->flags.noDirectInput;
 }
 
+int App::GetPreloadBgm()
+{
+    return this->flags.preloadBgm;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;

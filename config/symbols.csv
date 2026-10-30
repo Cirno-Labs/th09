@@ -602,7 +602,7 @@ address,size,name,symbol
 0x0042ec30,177,Func42ec30,
 0x0042ecf0,49,Func42ecf0,
 0x0042ed30,13,App::GetNoDirectInput,?GetNoDirectInput@App@@QAEHXZ
-0x0042ed40,13,Func42ed40,
+0x0042ed40,13,App::GetPreloadBgm,?GetPreloadBgm@App@@QAEHXZ
 0x0042ed50,13,Func42ed50,
 0x0042ed60,13,Func42ed60,
 0x0042ed70,14,Func42ed70,
