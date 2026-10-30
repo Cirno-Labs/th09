@@ -59,6 +59,8 @@ struct Vector2
 {
     // Sets x and y to `radius` along `angle`, with one fsincos (0x441890).
     void SetPolar(float angle, float radius);
+    // The same with radiusX for x and radiusY for y (0x40d4d0).
+    void SetPolarEllipse(float angle, float radiusX, float radiusY);
 
     float x;
     float y;

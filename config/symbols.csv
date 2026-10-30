@@ -145,7 +145,7 @@ address,size,name,symbol
 0x0040d2c0,18,Func40d2c0,
 0x0040d2e0,61,Func40d2e0,
 0x0040d320,327,Func40d320,
-0x0040d4d0,32,Func40d4d0,
+0x0040d4d0,32,Vector2::SetPolarEllipse,?SetPolarEllipse@Vector2@@QAEXMMM@Z
 0x0040d4f0,7,Func40d4f0,
 0x0040d500,28,Func40d500,
 0x0040d520,210,Func40d520,
@@ -238,7 +238,7 @@ address,size,name,symbol
 0x00412700,39,Func412700,
 0x00412730,39,Func412730,
 0x00412760,31,Func412760,
-0x00412780,33,Func412780,
+0x00412780,33,SinCos,?SinCos@@YIXPAM0M@Z
 0x004127b0,66,Sprite::Initialize,?Initialize@Sprite@@QAEXXZ
 0x00412800,41,Func412800,
 0x00412830,245,Func412830,

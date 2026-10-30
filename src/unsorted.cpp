@@ -24,11 +24,6 @@ float Rng::GetRandomF32InRange(float range)
     return this->GetRandomF32ZeroToOne() * range;
 }
 
-float Rng::GetRandomF32SignedInRange(float range)
-{
-    return this->GetRandomF32MinusOneToOne() * range;
-}
-
 float Atan2(float y, float x)
 {
     return (float)atan2((double)y, (double)x);
@@ -37,6 +32,25 @@ float Atan2(float y, float x)
 float Fmod(float x, float y)
 {
     return (float)fmod((double)x, (double)y);
+}
+
+float Rng::GetRandomF32SignedInRange(float range)
+{
+    return this->GetRandomF32MinusOneToOne() * range;
+}
+
+void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
+{
+    __asm
+    {
+        mov eax, this
+        fld angle
+        fsincos
+        fmul radiusX
+        fstp [eax]
+        fmul radiusY
+        fstp [eax+4]
+    }
 }
 
 float Fabs(float x)
