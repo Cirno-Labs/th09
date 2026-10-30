@@ -99,6 +99,10 @@ public:
     // SpawnEffectWithVelocity. Returns the last effect started, or the
     // last of all effects if not all could be (0x40cc00).
     Effect *SpawnParticles(int effectIdx, D3DXVECTOR3 *pos, int count, D3DCOLOR color);
+    // SpawnParticles with `velocity`, as th08's SpawnEffectWithVelocity
+    // (0x40ccc0).
+    Effect *SpawnParticlesWithVelocity(int effectIdx, D3DXVECTOR3 *pos, D3DXVECTOR3 *velocity, int count,
+                                       D3DCOLOR color);
     // The update and draw chain callbacks; the third side's draws with
     // OnDraw2 (0x40cdd0, 0x40cfb0, 0x40d070).
     static int OnUpdate(EffectManager *mgr);

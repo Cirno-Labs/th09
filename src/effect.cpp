@@ -118,6 +118,40 @@ Effect *EffectManager::SpawnParticles(int effectIdx, D3DXVECTOR3 *pos, int count
     return tries >= this->unknown34 ? &this->effects[this->unknown38 + this->unknown34] : effect;
 }
 
+Effect *EffectManager::SpawnParticlesWithVelocity(int effectIdx, D3DXVECTOR3 *pos, D3DXVECTOR3 *velocity, int count,
+                                                  D3DCOLOR color)
+{
+    Effect *effect = &this->effects[this->next];
+    int tries;
+
+    for (tries = 0; tries < this->unknown34; tries++)
+    {
+        this->next++;
+        if (this->next >= this->unknown34)
+        {
+            this->next = 0;
+        }
+        if (!effect->active)
+        {
+            this->StartEffect(effect, effectIdx, pos, color, velocity);
+            count--;
+            if (count == 0)
+            {
+                break;
+            }
+        }
+        if (this->next == 0)
+        {
+            effect = this->effects;
+        }
+        else
+        {
+            effect++;
+        }
+    }
+    return tries >= this->unknown34 ? &this->effects[this->unknown38 + this->unknown34] : effect;
+}
+
 int EffectManager::FreeEffects(EffectManager *mgr)
 {
     int i;

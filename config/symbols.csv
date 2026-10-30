@@ -144,7 +144,7 @@ address,size,name,symbol
 0x0040c990,194,EffectManager::Reset,?Reset@EffectManager@@QAEXXZ
 0x0040ca60,407,EffectManager::StartEffect,?StartEffect@EffectManager@@QAEPAUEffect@@PAU2@HPAUD3DXVECTOR3@@K1@Z
 0x0040cc00,184,EffectManager::SpawnParticles,?SpawnParticles@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@HK@Z
-0x0040ccc0,175,Func40ccc0,
+0x0040ccc0,175,EffectManager::SpawnParticlesWithVelocity,?SpawnParticlesWithVelocity@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@0HK@Z
 0x0040cd70,85,Func40cd70,
 0x0040cdd0,475,EffectManager::OnUpdate,?OnUpdate@EffectManager@@SIHPAV1@@Z
 0x0040cfb0,183,EffectManager::OnDraw,?OnDraw@EffectManager@@SIHPAV1@@Z
