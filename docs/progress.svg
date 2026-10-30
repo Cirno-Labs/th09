@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.47% (631)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.53% (430)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.57% (632)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.43% (429)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="444.26" height="6" x="0" y="0" class="named"/>
-<rect width="302.74" height="6" x="444.26" y="0" class="todo"/>
+<rect width="444.96" height="6" x="0" y="0" class="named"/>
+<rect width="302.04" height="6" x="444.96" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -450,7 +450,7 @@
 <rect width="12" height="12" x="450" y="105" class="named"><title>0x0041cf30 Player::AllocHitArea (110 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="105" class="named"><title>0x0041cfa0 Player::AddHitBox (55 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="105" class="named"><title>0x0041cfe0 Player::AddHitCircle (43 bytes)</title></rect>
-<rect width="12" height="12" x="495" y="105" class="todo"><title>0x0041d010 Func41d010 (61 bytes)</title></rect>
+<rect width="12" height="12" x="495" y="105" class="named"><title>0x0041d010 Player::AddDamageBox (61 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="105" class="todo"><title>0x0041d050 Func41d050 (49 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="105" class="todo"><title>0x0041d090 Func41d090 (61 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="105" class="todo"><title>0x0041d0d0 Func41d0d0 (49 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.99%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.01%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.02%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.98%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="231.53" height="6" x="0" y="0" class="named"/>
-<rect width="515.47" height="6" x="231.53" y="0" class="todo"/>
+<rect width="231.68" height="6" x="0" y="0" class="named"/>
+<rect width="515.32" height="6" x="231.68" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1801,7 +1801,7 @@
 <rect width="4.46" height="4.13" x="648.76" y="297.71" class="named"><title>0x0042af40 Rotate2D (62 bytes)</title></rect>
 <rect width="4.46" height="4.13" x="648.76" y="304.83" class="named"><title>0x0043fc50 CSound::Reset (62 bytes)</title></rect>
 <rect width="4.46" height="4.01" x="648.76" y="311.96" class="named"><title>0x0040d2e0 EffectManager::EffectManager (61 bytes)</title></rect>
-<rect width="4.46" height="4.01" x="648.76" y="318.97" class="todo"><title>0x0041d010 Func41d010 (61 bytes)</title></rect>
+<rect width="4.46" height="4.01" x="648.76" y="318.97" class="named"><title>0x0041d010 Player::AddDamageBox (61 bytes)</title></rect>
 <rect width="4.46" height="4.01" x="648.76" y="325.99" class="todo"><title>0x0041d090 Func41d090 (61 bytes)</title></rect>
 <rect width="4.43" height="4.04" x="656.22" y="232.29" class="named"><title>0x004333b0 DatArchive::Release (61 bytes)</title></rect>
 <rect width="4.43" height="4.04" x="663.65" y="232.29" class="named"><title>0x004336d0 File::Read (61 bytes)</title></rect>
