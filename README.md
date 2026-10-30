@@ -23,7 +23,7 @@ functions match.
 
 Ghidra finds 2042 functions. Unlike th06–th08, the game code is
 optimized (`/O2`) but keeps its frame pointer (`/Oy-`), and functions
-default to `__stdcall` (`/Gz`). That puts the game code at
+default to `__fastcall` (`/Gr`), as th08's. That puts the game code at
 `0x401000`–`0x44cb5c`: 1038 functions, about 289 KB. D3DX8's tables
 follow it, then D3DX8 and the CRT from `0x47b08c`.
 
@@ -81,7 +81,17 @@ matched so far, but the standalone exe's Rich header will differ.
 .wine/drive_c/dx8/      include/, lib/ (DirectX 8 SDK)
 ```
 
-The game code is compiled with `/O2 /Oy- /Gz /GX`.
+The game code is compiled with `/O2 /Ob0 /Oy- /Gr /GX`: optimized,
+frame pointers kept, nothing inlined, and functions `__fastcall` unless
+declared otherwise. Methods stay `__thiscall`; functions with only float
+arguments look like `__stdcall` ones, since fastcall passes floats on
+the stack. D3DX's and math.h's inline helpers, which declare no
+convention, follow `/Gr` too, and under `/Ob0` they are emitted out of
+line (`D3DXMatrixIdentity` at `0x401300` takes its pointer in `ecx`).
+There is no `/GL` (the Rich header lists no LTCG objects), but `/O2`
+still gives a file's `static` functions custom register conventions:
+`0x401090` takes bytes in `al` and `cl`. `just compare` only sees
+external symbols, so such functions can't be compared yet.
 
 ## Workflow
 
