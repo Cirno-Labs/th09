@@ -649,3 +649,20 @@ AnmLoaded *SpriteEngine::PreloadAnmFile(int slot, char *path)
     }
     return anm;
 }
+
+AnmLoaded *SpriteEngine::PreloadAnm(int slot, char *path)
+{
+    AnmLoaded *anm;
+
+    anm = this->PreloadAnmFile(slot, path);
+    if (anm == NULL)
+    {
+        return NULL;
+    }
+    anm->loadStep = 1;
+    while (anm->loadStep != 0 && !g_App.closeSubThread)
+    {
+        Sleep(1);
+    }
+    return g_App.closeSubThread ? NULL : anm;
+}
