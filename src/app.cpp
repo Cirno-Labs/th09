@@ -148,6 +148,41 @@ int App::StopBgm()
     return 0;
 }
 
+int App::UnloadBgm(int id)
+{
+    DWORD i;
+    int slot;
+
+    for (i = 0; i < ARRAY_SIZE(g_BgmInfos); i++)
+    {
+        if (g_BgmInfos[i].id == id)
+        {
+            break;
+        }
+    }
+    if (i >= ARRAY_SIZE(g_BgmInfos))
+    {
+        return 1;
+    }
+    slot = g_BgmInfos[i].id;
+    if (g_App.musicMode == 2)
+    {
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->UnloadFile(slot);
+        }
+    }
+    else if (g_App.musicMode == 1)
+    {
+        g_SoundPlayer.QueueSoundCommand(9, slot, "dummy");
+    }
+    else
+    {
+        return -1;
+    }
+    return 0;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;

@@ -15,6 +15,8 @@ public:
     // Plays the file parsed last; returns -1 without one, else 0
     // (0x43d750).
     int Play();
+    // Frees the file loaded into `slot` (0x43d550).
+    void UnloadFile(int slot);
     // Stops playing; returns -1 without a file, else 0 (0x43de30).
     int Stop();
 };

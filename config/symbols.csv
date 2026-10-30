@@ -628,7 +628,7 @@ address,size,name,symbol
 0x0042fc20,207,App::LoadBgm,?LoadBgm@App@@QAEHH@Z
 0x0042fcf0,53,App::PlayBgm,?PlayBgm@App@@QAEHXZ
 0x0042fd30,81,App::StopBgm,?StopBgm@App@@QAEHXZ
-0x0042fd90,130,Func42fd90,
+0x0042fd90,130,App::UnloadBgm,?UnloadBgm@App@@QAEHH@Z
 0x0042fe20,148,Func42fe20,
 0x0042fec0,56,App::EnableFog,?EnableFog@App@@QAEHXZ
 0x0042ff00,56,App::DisableFog,?DisableFog@App@@QAEHXZ
@@ -843,7 +843,7 @@ address,size,name,symbol
 0x0043d320,26,Func43d320,
 0x0043d340,85,Func43d340,
 0x0043d3a0,423,Func43d3a0,
-0x0043d550,45,Func43d550,
+0x0043d550,45,MidiPlayer::UnloadFile,?UnloadFile@MidiPlayer@@QAEXH@Z
 0x0043d580,89,Func43d580,
 0x0043d5e0,358,Func43d5e0,
 0x0043d750,55,MidiPlayer::Play,?Play@MidiPlayer@@QAEHXZ
