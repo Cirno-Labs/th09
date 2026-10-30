@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.90% (678)</tspan> · <tspan class="decompiled">0.09% (1)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36% (382)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.90% (678)</tspan> · <tspan class="decompiled">0.19% (2)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">35.91% (381)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="477.35" height="6" x="0" y="0" class="named"/>
-<rect width="0.70" height="6" x="477.35" y="0" class="decompiled"/>
-<rect width="268.95" height="6" x="478.05" y="0" class="todo"/>
+<rect width="1.41" height="6" x="477.35" y="0" class="decompiled"/>
+<rect width="268.24" height="6" x="478.76" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -310,7 +310,7 @@
 <rect width="12" height="12" x="585" y="60" class="named"><title>0x004126d0 Bullet::SetSpriteCommand (37 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="60" class="named"><title>0x00412700 EnemyShooter::SetAngleAccelCommand (39 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="60" class="named"><title>0x00412730 EnemyShooter::SetAccelCommand (39 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="60" class="todo"><title>0x00412760 Func412760 (31 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="60" class="decompiled"><title>0x00412760 EnemyShooter::SetCommand20000 (31 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="60" class="named"><title>0x00412780 SinCos (33 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="60" class="named"><title>0x004127b0 Sprite::Initialize (66 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="60" class="named"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>
@@ -1133,11 +1133,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.83%</tspan> · <tspan class="decompiled">0.01%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.16%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.83%</tspan> · <tspan class="decompiled">0.02%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.15%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="245.25" height="6" x="0" y="0" class="named"/>
-<rect width="0.10" height="6" x="245.25" y="0" class="decompiled"/>
-<rect width="501.67" height="6" x="245.33" y="0" class="todo"/>
+<rect width="0.16" height="6" x="245.25" y="0" class="decompiled"/>
+<rect width="501.59" height="6" x="245.41" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1975,7 +1975,7 @@
 <rect width="2.15" height="2.16" x="692.37" y="302.05" class="todo"><title>0x004012c0 Func4012c0 (31 bytes)</title></rect>
 <rect width="2.15" height="2.16" x="692.37" y="307.21" class="named"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
 <rect width="2.15" height="2.16" x="692.37" y="312.37" class="decompiled"><title>0x004126b0 Bullet::SetCommand20000 (31 bytes)</title></rect>
-<rect width="2.15" height="2.16" x="692.37" y="317.53" class="todo"><title>0x00412760 Func412760 (31 bytes)</title></rect>
+<rect width="2.15" height="2.16" x="692.37" y="317.53" class="decompiled"><title>0x00412760 EnemyShooter::SetCommand20000 (31 bytes)</title></rect>
 <rect width="2.15" height="2.16" x="692.37" y="322.68" class="named"><title>0x0041cdc0 Player::OnDraw2 (31 bytes)</title></rect>
 <rect width="2.15" height="2.16" x="692.37" y="327.84" class="named"><title>0x0042f3d0 SpriteEngine::ReleaseVertexBuffer (31 bytes)</title></rect>
 <rect width="2.53" height="1.80" x="697.53" y="275.43" class="named"><title>0x00434280 AsciiText::RemoveChain (31 bytes)</title></rect>

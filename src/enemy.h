@@ -110,6 +110,8 @@ struct EnemyShooter
     void SetAngleAccelCommand(int i, int concurrent, int frames, float arg1, float arg0);
     // Bullet::SetAccelCommand for the shooter (0x412730).
     void SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1);
+    // Bullet::SetCommand20000 for the shooter (0x412760).
+    void SetCommand20000(int i, int concurrent, int frames);
 
     unsigned char pad_0[0x20];
     // Copied into each bullet.
