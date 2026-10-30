@@ -574,3 +574,14 @@ int MainMenu::DeletedCallback(MainMenu *menu)
     delete menu;
     return 0;
 }
+
+void MainMenu::SelectEntry(int cursor, int first, int count)
+{
+    for (int i = first; i < first + count; i++)
+    {
+        this->anm->SetSprite(&this->sprites[i], this->sprites[i].baseSpriteIndex + 1);
+        this->sprites[i].pendingInterrupt = 8;
+    }
+    this->anm->SetSprite(&this->sprites[cursor + first], this->sprites[cursor + first].baseSpriteIndex);
+    this->sprites[cursor + first].pendingInterrupt = 7;
+}
