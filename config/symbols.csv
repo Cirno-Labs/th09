@@ -383,7 +383,7 @@ address,size,name,symbol
 0x0041cfa0,55,Player::AddHitBox,?AddHitBox@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHH@Z
 0x0041cfe0,43,Player::AddHitCircle,?AddHitCircle@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHH@Z
 0x0041d010,61,Player::AddDamageBox,?AddDamageBox@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHHH@Z
-0x0041d050,49,Func41d050,
+0x0041d050,49,Player::AddDamageCircle,?AddDamageCircle@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHHH@Z
 0x0041d090,61,Func41d090,
 0x0041d0d0,49,Func41d0d0,
 0x0041d110,49,Func41d110,

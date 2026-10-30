@@ -192,6 +192,7 @@ public:
     PlayerHitArea *AddHitBox(D3DXVECTOR3 *pos, float width, float height, int framesLeft, int unknown40);
     PlayerHitArea *AddHitCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int framesLeft, int unknown40);
     PlayerHitArea *AddDamageBox(D3DXVECTOR3 *pos, float width, float height, int unknown28, int framesLeft, int unknown40);
+    PlayerHitArea *AddDamageCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40);
     // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
     void SubUnknown30388(float amount);
     // Draws the bullets that hit (state 2) at their positions on the
