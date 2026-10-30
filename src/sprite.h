@@ -449,6 +449,9 @@ public:
     // `vm`'s texture, as th08's. Returns 0, or -1 if `vm` is hidden
     // (0x43b4d0).
     int DrawVertexStrip(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count);
+    // Draws `vm` in 3D with the vertex buffer's quad, as th08's
+    // (0x43b1a0).
+    int Draw3D(Sprite *vm);
     // Batches `quad`, set up by the caller, with `vm`'s texture, as
     // th08's (0x43b5c0).
     int DrawVertexQuad(Sprite *vm, VertexTex1DiffuseXyzrwh *quad);
@@ -618,7 +621,7 @@ public:
     BYTE lastCameraSetupFlag;
     unsigned char pad_12889[0x1288c - 0x12889];
     // The sprite data last drawn.
-    void *currentSpriteData;
+    SpriteData *currentSpriteData;
     // Holds quad, for drawing sprites in 3D.
     IDirect3DVertexBuffer8 *vertexBuffer;
     // The quad of a sprite 256 pixels across, as th08's.

@@ -1140,6 +1140,101 @@ int SpriteEngine::DrawProjected3D(Sprite *vm)
     return this->DrawQuad(vm, 0);
 }
 
+int SpriteEngine::Draw3D(Sprite *vm)
+{
+    D3DXMATRIX rotationMatrix;
+    D3DXMATRIX worldMatrix;
+    D3DMATRIX textureMatrix;
+    DWORD anchor;
+
+    if (!vm->IsShown())
+    {
+        return -1;
+    }
+    if ((vm->flags >> 1 & 1) == 0)
+    {
+        return -1;
+    }
+    if (vm->alpha == 0)
+    {
+        return -1;
+    }
+    if (this->batchQuadCount != 0)
+    {
+        this->FlushQuadBatch();
+    }
+    if ((vm->flags >> 16 & 1) == 0 && ((vm->flags >> 3 & 1) != 0 || (vm->flags >> 2 & 1) != 0))
+    {
+        vm->drawMatrix = vm->matrix;
+        vm->drawMatrix._11 *= vm->scaleY;
+        vm->drawMatrix._22 *= vm->scaleX;
+        vm->flags &= ~8;
+        if (vm->rotation.x != 0.0)
+        {
+            D3DXMatrixRotationX(&rotationMatrix, vm->rotation.x);
+            D3DXMatrixMultiply(&vm->drawMatrix, &vm->drawMatrix, &rotationMatrix);
+        }
+        if (vm->rotation.y != 0.0)
+        {
+            D3DXMatrixRotationY(&rotationMatrix, vm->rotation.y);
+            D3DXMatrixMultiply(&vm->drawMatrix, &vm->drawMatrix, &rotationMatrix);
+        }
+        if (vm->rotation.z != 0.0)
+        {
+            D3DXMatrixRotationZ(&rotationMatrix, vm->rotation.z);
+            D3DXMatrixMultiply(&vm->drawMatrix, &vm->drawMatrix, &rotationMatrix);
+        }
+        vm->flags &= ~4;
+    }
+    worldMatrix = vm->drawMatrix;
+    anchor = vm->flags >> 11;
+    if ((anchor & 1) == 0)
+    {
+        worldMatrix._41 = vm->pos.x;
+    }
+    else
+    {
+        worldMatrix._41 = Fabs(vm->spriteWidth * vm->scaleY / 2.0f) + vm->pos.x;
+    }
+    if ((anchor & 2) == 0)
+    {
+        worldMatrix._42 = vm->pos.y;
+    }
+    else
+    {
+        worldMatrix._42 = Fabs(vm->spriteHeight * vm->scaleX / 2.0f) + vm->pos.y;
+    }
+    worldMatrix._41 += this->shakeX;
+    worldMatrix._42 += this->shakeY;
+    this->SetRenderStateForSprite(vm);
+    worldMatrix._43 = vm->pos.z;
+    g_App.d3dDevice->SetTransform(D3DTS_WORLD, &worldMatrix);
+    // As th08's, tests uvScrollX twice, never uvScrollY.
+    if (this->currentSpriteData != vm->spriteData || vm->uvScrollX != 0.0f || vm->uvScrollX != 0.0f)
+    {
+        this->currentSpriteData = vm->spriteData;
+        textureMatrix = vm->sizeMatrix;
+        textureMatrix._31 = vm->spriteData->uvStartX + vm->uvScrollX;
+        textureMatrix._32 = vm->spriteData->uvStartY + vm->uvScrollY;
+        g_App.d3dDevice->SetTransform(D3DTS_TEXTURE0, &textureMatrix);
+    }
+    if (this->currentTexture != vm->spriteData->texture)
+    {
+        this->currentTexture = vm->spriteData->texture;
+        g_App.d3dDevice->SetTexture(0, this->currentTexture);
+    }
+    if (this->vertexFormat != 2)
+    {
+        g_App.d3dDevice->SetVertexShader(D3DFVF_XYZ | D3DFVF_TEX1);
+        g_App.d3dDevice->SetStreamSource(0, this->vertexBuffer, sizeof(VertexTex1Xyz));
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_TFACTOR);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_TFACTOR);
+        this->vertexFormat = 2;
+    }
+    g_App.d3dDevice->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, 2);
+    return 0;
+}
+
 int SpriteEngine::DrawVertexStrip(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count)
 {
     if (!vm->IsShown())
