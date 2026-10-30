@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">40.59% (429)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">59.41% (628)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">40.68% (430)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">59.32% (627)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="303.18" height="6" x="0" y="0" class="named"/>
-<rect width="443.82" height="6" x="303.18" y="0" class="todo"/>
+<rect width="303.89" height="6" x="0" y="0" class="named"/>
+<rect width="443.11" height="6" x="303.89" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -997,7 +997,7 @@
 <rect width="12" height="12" x="405" y="270" class="named"><title>0x004406e0 CSound::~CSound (105 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="270" class="named"><title>0x00440750 CStreamingSound::CStreamingSound (60 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="270" class="named"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>
-<rect width="12" height="12" x="450" y="270" class="todo"><title>0x004407a0 CSoundManager::CreateStreaming (578 bytes)</title></rect>
+<rect width="12" height="12" x="450" y="270" class="named"><title>0x004407a0 CSoundManager::CreateStreaming (578 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="270" class="todo"><title>0x004409f0 CSoundManager::CreateStreamingFromMemory (546 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="270" class="named"><title>0x00440c20 CSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="270" class="named"><title>0x00440c50 CStreamingSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.79%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.21%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.99%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.01%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="117.96" height="6" x="0" y="0" class="named"/>
-<rect width="629.04" height="6" x="117.96" y="0" class="todo"/>
+<rect width="119.44" height="6" x="0" y="0" class="named"/>
+<rect width="627.56" height="6" x="119.44" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1251,7 +1251,7 @@
 <rect width="19.31" height="19.93" x="410.04" y="92.09" class="todo"><title>0x00439a90 Func439a90 (595 bytes)</title></rect>
 <rect width="19.31" height="19.77" x="410.04" y="115.02" class="todo"><title>0x00413be0 BulletManager::OnDraw (591 bytes)</title></rect>
 <rect width="19.31" height="19.77" x="410.04" y="137.79" class="todo"><title>0x004205e0 Func4205e0 (591 bytes)</title></rect>
-<rect width="19.31" height="19.27" x="410.04" y="160.57" class="todo"><title>0x004407a0 CSoundManager::CreateStreaming (578 bytes)</title></rect>
+<rect width="19.31" height="19.27" x="410.04" y="160.57" class="named"><title>0x004407a0 CSoundManager::CreateStreaming (578 bytes)</title></rect>
 <rect width="19.31" height="19" x="410.04" y="182.84" class="named"><title>0x00434020 LzssCompress (571 bytes)</title></rect>
 <rect width="19.31" height="18.69" x="410.04" y="204.84" class="todo"><title>0x0040c530 Func40c530 (563 bytes)</title></rect>
 <rect width="19.31" height="18.50" x="410.04" y="226.53" class="named"><title>0x0043c800 SpriteEngine::LoadAnmSprites (558 bytes)</title></rect>
