@@ -52,7 +52,9 @@ struct GameSide
     int character;
     int unknown24;
     int unknown28;
-    unsigned char pad_2c[0x34 - 0x2c];
+    unsigned char pad_2c[0x30 - 0x2c];
+    // Picks the character's second ANM (plXXb.anm) when set.
+    int unknown30;
     DWORD flags;
 };
 ASSERT_SIZE(GameSide, 0x38);

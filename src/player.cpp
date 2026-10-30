@@ -31,6 +31,28 @@ int Player::OnDraw2(Player *player)
     return 1;
 }
 
+int Player::LoadAnms()
+{
+    int i;
+    SpriteEngine *se = g_SpriteEngine;
+
+    for (i = 0; i < 2; i++)
+    {
+        if (se->GetAnmFile(i + 5) != NULL &&
+            g_GameManager.sides[i].character == g_GameManager.sides[i].unknown24)
+        {
+            continue;
+        }
+        if (se->PreloadAnm(i + 5, g_CharacterFiles[g_GameManager.sides[i].character]
+                                                  [g_GameManager.sides[i].unknown30 != 0 ? 5 : 1]) == NULL)
+        {
+            return -1;
+        }
+        se = g_SpriteEngine;
+    }
+    return 0;
+}
+
 // Unloads the player's ANM file and frees its shot file if the game frees
 // its resources. Returns 0. Static, with the player in esi (0x41ce60).
 static int FreeResources(Player *player)

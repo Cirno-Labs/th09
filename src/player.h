@@ -175,6 +175,11 @@ public:
     static int OnDraw(Player *player);
     static int OnDraw2(Player *player);
     static int AddedCallback(Player *player);
+    // Loads each side's character ANM into slot side + 5 (its second
+    // one while GameSide::unknown30 is set), unless it is loaded and the
+    // character is the last game's. Returns 0, or -1 if one does not
+    // load (0x41cde0).
+    static int LoadAnms();
     // Frees the player's resources, removes its chain elements and
     // deletes it, if any (0x41ced0).
     static void RemoveChain(Player *player);
@@ -261,6 +266,10 @@ public:
     unsigned char pad_30f64[0x30f70 - 0x30f64];
 };
 ASSERT_SIZE(Player, 0x30f70);
+
+// Each character's files: its shot file, ANM, ECL, MSG, match MSG and
+// second ANM (0x4a1238).
+extern char *g_CharacterFiles[][6];
 
 // Each side's shot file, kept while the side keeps its character
 // (0x4a8160).

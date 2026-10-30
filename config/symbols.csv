@@ -375,7 +375,7 @@ address,size,name,symbol
 0x0041cb50,293,Func41cb50,
 0x0041cc80,320,Func41cc80,
 0x0041cdc0,31,Player::OnDraw2,?OnDraw2@Player@@SIHPAV1@@Z
-0x0041cde0,114,Func41cde0,
+0x0041cde0,114,Player::LoadAnms,?LoadAnms@Player@@SIHXZ
 0x0041ce60,75,FreeResources,?FreeResources@@YIHPAVPlayer@@@Z
 0x0041ceb0,28,PlayerUnknown36c::PlayerUnknown36c,??0PlayerUnknown36c@@QAE@XZ
 0x0041ced0,86,Player::RemoveChain,?RemoveChain@Player@@SIXPAV1@@Z
@@ -2299,3 +2299,4 @@ address,size,name,symbol
 0x004dc688,,g_MidiTimerLastCounter,?g_MidiTimerLastCounter@@3T_LARGE_INTEGER@@A
 0x004dc690,,g_BgmUnknown08,?g_BgmUnknown08@@3HA
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A
+0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
