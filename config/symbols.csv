@@ -675,7 +675,7 @@ address,size,name,symbol
 0x00432090,238,App::AddedCallback,?AddedCallback@App@@SIHPAU1@@Z
 0x00432180,182,App::RegisterChain,?RegisterChain@App@@SIHXZ
 0x00432240,240,Func432240,
-0x00432340,97,Func432340,
+0x00432340,97,Network::ReleaseInterfaces,?ReleaseInterfaces@Network@@QAEXXZ
 0x004323b0,95,Func4323b0,
 0x00432410,164,Func432410,
 0x004324c0,679,Network::Init,?Init@Network@@QAEXXZ
@@ -1655,6 +1655,7 @@ address,size,name,symbol
 0x0047b70e,24,Func47b70e,
 0x0047b73a,10,_CIfmod,__CIfmod
 0x0047b762,136,_atol,
+0x0047b7ea,5,_atoi,_atoi
 0x0047b7ef,32,__store_str,
 0x0047b80f,121,__store_num,
 0x0047b888,614,__expandtime,
