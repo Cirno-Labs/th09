@@ -142,7 +142,7 @@ address,size,name,symbol
 0x0040c950,14,EffectManager::Init,?Init@EffectManager@@QAEXXZ
 0x0040c960,38,EffectUpdateFollowPlayer,?EffectUpdateFollowPlayer@@YIHPAUEffect@@@Z
 0x0040c990,194,EffectManager::Reset,?Reset@EffectManager@@QAEXXZ
-0x0040ca60,407,EffectManager::StartEffect,?StartEffect@EffectManager@@QAEXPAUEffect@@HPAUD3DXVECTOR3@@K1@Z
+0x0040ca60,407,EffectManager::StartEffect,?StartEffect@EffectManager@@QAEPAUEffect@@PAU2@HPAUD3DXVECTOR3@@K1@Z
 0x0040cc00,184,EffectManager::SpawnParticles,?SpawnParticles@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@HK@Z
 0x0040ccc0,175,Func40ccc0,
 0x0040cd70,85,Func40cd70,
@@ -164,7 +164,7 @@ address,size,name,symbol
 0x0040d910,200,Func40d910,
 0x0040d9e0,464,Func40d9e0,
 0x0040dc70,1028,Func40dc70,
-0x0040e080,71,EffectUpdate40e080,?EffectUpdate40e080@@YIHPAUEffect@@@Z
+0x0040e080,71,EffectInit40e080,?EffectInit40e080@@YIHPAUEffect@@@Z
 0x0040e0d0,84,Ending::ReadInt,?ReadInt@Ending@@QAEHXZ
 0x0040e130,60,Ending::DrawFade,?DrawFade@Ending@@QAEXXZ
 0x0040e170,287,Ending::UpdateFade,?UpdateFade@Ending@@QAEXXZ
@@ -2253,6 +2253,7 @@ address,size,name,symbol
 0x004952f0,,GUID_SysKeyboard,_GUID_SysKeyboard
 0x00495390,,IID_IDirectInput8A,_IID_IDirectInput8A
 0x004953d0,,GUID_NULL,_GUID_NULL
+0x004a0b48,,g_EffectInfos,?g_EffectInfos@@3PAUEffectInfo@@A
 0x004a0ed8,,g_EndingFiles,?g_EndingFiles@@3PAPADA
 0x004a1128,,g_Unknown4a1128,?g_Unknown4a1128@@3PAHA
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA

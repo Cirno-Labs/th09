@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.70% (713)</tspan> · <tspan class="decompiled">0.65% (7)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">32.65% (349)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.79% (714)</tspan> · <tspan class="decompiled">0.65% (7)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">32.55% (348)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="498.23" height="6" x="0" y="0" class="named"/>
-<rect width="4.89" height="6" x="498.23" y="0" class="decompiled"/>
-<rect width="243.88" height="6" x="503.12" y="0" class="todo"/>
+<rect width="498.93" height="6" x="0" y="0" class="named"/>
+<rect width="4.89" height="6" x="498.93" y="0" class="decompiled"/>
+<rect width="243.18" height="6" x="503.82" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -211,7 +211,7 @@
 <rect width="12" height="12" x="600" y="30" class="named"><title>0x0040c950 EffectManager::Init (14 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="30" class="named"><title>0x0040c960 EffectUpdateFollowPlayer (38 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="30" class="named"><title>0x0040c990 EffectManager::Reset (194 bytes)</title></rect>
-<rect width="12" height="12" x="645" y="30" class="todo"><title>0x0040ca60 EffectManager::StartEffect (407 bytes)</title></rect>
+<rect width="12" height="12" x="645" y="30" class="named"><title>0x0040ca60 EffectManager::StartEffect (407 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="30" class="named"><title>0x0040cc00 EffectManager::SpawnParticles (184 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="30" class="todo"><title>0x0040ccc0 Func40ccc0 (175 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="30" class="todo"><title>0x0040cd70 Func40cd70 (85 bytes)</title></rect>
@@ -233,7 +233,7 @@
 <rect width="12" height="12" x="180" y="45" class="todo"><title>0x0040d910 Func40d910 (200 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="45" class="todo"><title>0x0040d9e0 Func40d9e0 (464 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="45" class="todo"><title>0x0040dc70 Func40dc70 (1028 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="45" class="decompiled"><title>0x0040e080 EffectUpdate40e080 (71 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="45" class="decompiled"><title>0x0040e080 EffectInit40e080 (71 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="45" class="named"><title>0x0040e0d0 Ending::ReadInt (84 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="45" class="named"><title>0x0040e130 Ending::DrawFade (60 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="45" class="named"><title>0x0040e170 Ending::UpdateFade (287 bytes)</title></rect>
@@ -1141,11 +1141,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.66%</tspan> · <tspan class="decompiled">0.06%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">65.28%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.80%</tspan> · <tspan class="decompiled">0.06%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">65.14%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="258.89" height="6" x="0" y="0" class="named"/>
-<rect width="0.48" height="6" x="258.89" y="0" class="decompiled"/>
-<rect width="487.64" height="6" x="259.36" y="0" class="todo"/>
+<rect width="259.93" height="6" x="0" y="0" class="named"/>
+<rect width="0.48" height="6" x="259.93" y="0" class="decompiled"/>
+<rect width="486.60" height="6" x="260.40" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.47" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1325,7 +1325,7 @@
 <rect width="16.15" height="15.82" x="450.70" y="115.64" class="named"><title>0x00403680 Stage::OnDraw2 (421 bytes)</title></rect>
 <rect width="16.15" height="15.78" x="450.70" y="134.46" class="todo"><title>0x00448490 Func448490 (420 bytes)</title></rect>
 <rect width="16.15" height="15.37" x="450.70" y="153.24" class="named"><title>0x00439e90 SpriteEngine::SetRenderStateForSprite (411 bytes)</title></rect>
-<rect width="16.15" height="15.20" x="450.70" y="171.61" class="todo"><title>0x0040ca60 EffectManager::StartEffect (407 bytes)</title></rect>
+<rect width="16.15" height="15.20" x="450.70" y="171.61" class="named"><title>0x0040ca60 EffectManager::StartEffect (407 bytes)</title></rect>
 <rect width="16.15" height="15.20" x="450.70" y="189.81" class="todo"><title>0x00445190 Func445190 (407 bytes)</title></rect>
 <rect width="16.15" height="15.20" x="450.70" y="208" class="todo"><title>0x00445ec0 Func445ec0 (407 bytes)</title></rect>
 <rect width="16.15" height="15.11" x="450.70" y="226.20" class="named"><title>0x00431b70 App::DeletedCallback (405 bytes)</title></rect>
@@ -1775,7 +1775,7 @@
 <rect width="4.71" height="5" x="734.69" y="215.72" class="todo"><title>0x00445cb0 Func445cb0 (72 bytes)</title></rect>
 <rect width="4.60" height="5" x="742.40" y="215.72" class="named"><title>0x00401390 App::SetView (71 bytes)</title></rect>
 <rect width="4.72" height="4.88" x="640.61" y="223.72" class="named"><title>0x00403d90 App::SetView2D (71 bytes)</title></rect>
-<rect width="4.72" height="4.88" x="640.61" y="231.60" class="decompiled"><title>0x0040e080 EffectUpdate40e080 (71 bytes)</title></rect>
+<rect width="4.72" height="4.88" x="640.61" y="231.60" class="decompiled"><title>0x0040e080 EffectInit40e080 (71 bytes)</title></rect>
 <rect width="4.72" height="4.88" x="640.61" y="239.47" class="named"><title>0x0042b300 Chain::CreateElem (71 bytes)</title></rect>
 <rect width="4.72" height="4.88" x="640.61" y="247.35" class="named"><title>0x0042ed80 App::OnDrawLoading (71 bytes)</title></rect>
 <rect width="4.72" height="4.88" x="640.61" y="255.23" class="named"><title>0x0042f4f0 App::TickTimer (71 bytes)</title></rect>

@@ -10,24 +10,30 @@
 struct GameSide;
 class AnmLoaded;
 class EffectManager;
+class Sprite;
 
 // An effect (0xd8 bytes). Only the fields known so far.
 struct Effect
 {
     // The effect's manager.
     EffectManager *mgr;
-    // A block of the effect's own; EffectUpdate40e080 turns its float at
-    // 8 (a Sprite's rotation.z?) with the effect.
-    float *unknown04;
-    unsigned char pad_8[0xc - 0x8];
+    // The effect's own sprites, spriteCount of them, allocated by
+    // StartEffect.
+    Sprite *sprites;
+    int spriteCount;
     D3DXVECTOR3 pos;
-    float angle;
-    unsigned char pad_1c[0xac - 0x1c];
+    // As spawned; some types' init callbacks take an angle in x.
+    D3DXVECTOR3 velocity;
+    unsigned char pad_24[0xac - 0x24];
     Timer unknownAc;
-    unsigned char pad_b8[0xc4 - 0xb8];
+    unsigned char pad_b8[0xbc - 0xb8];
+    // From the effect's EffectInfo.
+    int (*update)(Effect *effect);
+    int (*draw)(Effect *effect);
     // Whether the effect runs.
     BYTE active;
-    unsigned char pad_c5[0x1];
+    // The type it was started as.
+    BYTE type;
     // Set to have the effect fade out, as th08's.
     BYTE fadeOut;
     unsigned char pad_c7[0xcc - 0xc7];
@@ -37,6 +43,23 @@ struct Effect
     Effect *next;
 };
 ASSERT_SIZE(Effect, 0xd8);
+
+// An entry of the effect table (0x4a0b48), by effect type, as th08's
+// EffectInfo.
+struct EffectInfo
+{
+    // The script of the first sprite, and how far the next sprite's is.
+    int script;
+    int scriptStep;
+    int spriteCount;
+    // Called once the effect is started; it is stopped unless this
+    // returns 0.
+    int (*init)(Effect *effect);
+    int (*update)(Effect *effect);
+    int (*draw)(Effect *effect);
+};
+ASSERT_SIZE(EffectInfo, 0x18);
+extern EffectInfo g_EffectInfos[];
 
 // A side's effect manager (0x2dc bytes); the third side has one too. Only
 // the fields known so far.
@@ -67,9 +90,10 @@ public:
     static void RemoveChain(EffectManager *mgr);
     // Resets the effects for a new round (0x40c990).
     void Reset();
-    // Starts `effect` as effect `effectIdx` at `pos` in `color`, moving
-    // by `velocity` (0x40ca60).
-    void StartEffect(Effect *effect, int effectIdx, D3DXVECTOR3 *pos, D3DCOLOR color, D3DXVECTOR3 *velocity);
+    // Frees `effect`'s blocks and starts it as effect `effectIdx` at
+    // `pos`, with `velocity`, its sprites from g_EffectInfos in `color`.
+    // Returns it (0x40ca60).
+    Effect *StartEffect(Effect *effect, int effectIdx, D3DXVECTOR3 *pos, D3DCOLOR color, D3DXVECTOR3 *velocity);
     // Spawns `count` of effect `effectIdx` at `pos` in `color`, standing
     // still, in the first unknown34 effects, as th08's
     // SpawnEffectWithVelocity. Returns the last effect started, or the
@@ -113,10 +137,10 @@ public:
 };
 ASSERT_SIZE(EffectManager, 0x2dc);
 
-// An effect update callback of the effect table (0x4a0b48): moves the
-// effect 256 along its angle and turns unknown04[2] to the angle plus
-// pi/2. Returns 0 (0x40e080).
-int EffectUpdate40e080(Effect *effect);
+// An effect init callback of the effect table: moves the effect 256
+// along the angle in velocity.x and turns its first sprite to the angle
+// plus pi/2. Returns 0 (0x40e080).
+int EffectInit40e080(Effect *effect);
 
 // An effect update callback of the effect table: puts the effect on its
 // side's player, as th08's EffectUpdateFollowPlayer. Returns 1
