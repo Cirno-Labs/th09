@@ -179,7 +179,7 @@ address,size,name,symbol
 0x0040e8a0,1483,Func40e8a0,
 0x0040ef60,119,Func40ef60,
 0x0040efe0,139,Func40efe0,
-0x0040f080,223,Func40f080,
+0x0040f080,223,Ending::RegisterChain,?RegisterChain@Ending@@SIHXZ
 0x0040f160,7,EclManager::GetTimelineCount,?GetTimelineCount@EclManager@@QAEHXZ
 0x0040f170,16,EclManager::GetTimeline,?GetTimeline@EclManager@@QAEPAXH@Z
 0x0040f180,51,Func40f180,
@@ -661,7 +661,7 @@ address,size,name,symbol
 0x00430590,285,App::SetupCamera,?SetupCamera@App@@QAEXPAUCamera@@@Z
 0x004306b0,257,App::SetupCamera3D,?SetupCamera3D@App@@QAEXPAUCamera@@@Z
 0x004307c0,736,Func4307c0,
-0x00430aa0,1633,Func430aa0,
+0x00430aa0,1633,App::UpdateNetPlay,?UpdateNetPlay@App@@QAEHXZ
 0x00431110,844,App::OnUpdate,?OnUpdate@App@@SIHPAU1@@Z
 0x00431540,312,App::OnDrawLogo,?OnDrawLogo@App@@SIHPAU1@@Z
 0x00431680,33,Func431680,
@@ -687,7 +687,7 @@ address,size,name,symbol
 0x00432b70,765,Func432b70,
 0x00432ea0,15,Func432ea0,
 0x00432eb0,183,Func432eb0,
-0x00432f70,200,Func432f70,
+0x00432f70,200,Network::Close,?Close@Network@@QAEXXZ
 0x00433040,16,DatArchive::DatArchive,??0DatArchive@@QAE@XZ
 0x00433050,74,DatArchive::FindEntry,?FindEntry@DatArchive@@QAEPAUDatArchiveEntry@@PAD@Z
 0x004330a0,64,DatArchive::DuplicateString,?DuplicateString@DatArchive@@QAEPADPAD@Z

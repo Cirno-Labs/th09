@@ -21,6 +21,8 @@ struct Network
     // Sets and clears unknownA8 (0x42e9a0, 0x42e9b0).
     void SetUnknownA8();
     void ClearUnknownA8();
+    // Closes the connection and releases its interfaces (0x432f70).
+    void Close();
 
     unsigned char pad_0[0xa8];
     // While set, the menus do not skip the entries that are not open.

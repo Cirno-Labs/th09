@@ -604,8 +604,12 @@ struct App
     int GetPreloadBgm();
     int GetNoVsync();
     int GetNoTextRenderDetect();
-    // Whether subThread is set, as th08's (0x42ed70).
-    BOOL HasSubThread();
+    // Whether subThread is set, as th08's. Inline; the copy the others
+    // call is at 0x42ed70.
+    BOOL HasSubThread()
+    {
+        return this->subThread != NULL;
+    }
     // Enters and leaves criticalSections[idx], counting the depth in
     // criticalSectionDepths, as th08's (0x42b130, 0x42b160).
     void EnterCriticalSection(int idx);
@@ -706,6 +710,9 @@ struct App
     static int RegisterChain();
     // Loads the game's resources in the sub thread, as th08's (0x431d10).
     static void LoadingThread(App *app);
+    // Runs a frame of network play; 1 to run another, 2 to skip the
+    // frame, 3 when it ended and 4 when it failed (0x430aa0).
+    int UpdateNetPlay();
     // Clears subThread, closeSubThread and unknown6b8 (0x41a997).
     void ResetSubThread();
     // Zeroes unknown77c to unknown790 (0x423382).
@@ -751,7 +758,9 @@ struct App
     // Set when the game ends, unless it goes on to scene 3, 10 or 12:
     // the game's objects then free their resources, as th08's.
     int freesResources;
-    unsigned char pad_59c[0x5a8 - 0x59c];
+    // Set when the game restarts, as th08's isRestarting.
+    int unknown59c;
+    unsigned char pad_5a0[0x5a8 - 0x5a0];
     // Set while the frame rate is not shown, as th08's.
     int hideFps;
     // Set when the config turns vertical sync off.
@@ -803,7 +812,10 @@ struct App
     // timeGetTime() when AddPlayTime and AddTotalPlayTime last ran.
     DWORD lastPlayTimeTick;
     DWORD lastTotalPlayTimeTick;
-    unsigned char pad_7a0[0x7a8 - 0x7a0];
+    // The executable's checksum and size, for CheckVersionFile, as
+    // th08's.
+    DWORD exeChecksum;
+    DWORD exeSize;
     // The contents of the version file, as th08's: lines of a version,
     // a size and a checksum.
     DWORD verFileSize;
@@ -816,6 +828,14 @@ int FreesResources();
 
 // The loading sprites, at 0x4b38b0.
 extern Sprite g_LoadingSprites[3];
+// The ending ("EndingInf").
+class Ending
+{
+public:
+    // Creates the ending and adds it to the chains (0x40f080).
+    static int RegisterChain();
+};
+
 class ScreenEffect;
 // The loading screen's fade, at 0x4b30f8.
 extern ScreenEffect *g_LoadingScreenEffect;

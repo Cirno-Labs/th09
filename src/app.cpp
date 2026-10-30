@@ -1,6 +1,7 @@
 #include "archive.h"
 #include "ascii.h"
 #include "chain.h"
+#include "gamemanager.h"
 #include "gdisurface.h"
 #include "mainmenu.h"
 #include "midi.h"
@@ -118,11 +119,6 @@ int App::GetNoVsync()
 int App::GetNoTextRenderDetect()
 {
     return this->config.flags.noTextRenderDetect;
-}
-
-BOOL App::HasSubThread()
-{
-    return this->subThread != NULL;
 }
 
 int App::OnDrawLoading(App *app)
@@ -958,6 +954,229 @@ int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
     this->subThread = CreateThread(NULL, 0, proc, arg, 0, &this->subThreadId);
     this->unknown6b8 = 1;
     return this->subThread != NULL ? 0 : -1;
+}
+
+int App::OnUpdate(App *app)
+{
+    app->unknown478 = 0;
+    if (g_Network->unknownA8 == 0)
+    {
+        ReadInputs();
+    }
+    else if (!app->HasSubThread())
+    {
+        for (;;)
+        {
+            switch (app->UpdateNetPlay())
+            {
+            case 1:
+                continue;
+            case 2:
+                return 3;
+            case 3:
+                g_Network->Close();
+                g_Network->ClearUnknownA8();
+                g_Network->unknownB8 = 0;
+                app->scene = 1;
+                break;
+            case 4:
+                g_Network->Close();
+                return 4;
+            }
+            break;
+        }
+    }
+    if ((app->stateFlags >> 7 & 1) && !app->HasSubThread())
+    {
+        return 4;
+    }
+    g_App.fogState = 0xff;
+    g_SpriteEngine->ResetFrameState();
+    g_App.cameras[0].shakeX = 0.0f;
+    g_App.cameras[0].shakeY = 0.0f;
+    g_App.cameras[1].shakeX = 0.0f;
+    g_App.cameras[1].shakeY = 0.0f;
+    g_App.cameras[2].shakeX = 0.0f;
+    g_App.cameras[2].shakeY = 0.0f;
+    g_SpriteEngine->StepSprites(g_LoadingSprites, 3);
+    if (g_SpriteEngine->StepAnmLoading() != 0)
+    {
+        return 4;
+    }
+    if (app->loadingThreadState != 0)
+    {
+        if (app->loadingThreadState == 2)
+        {
+            return 4;
+        }
+        if (app->unknown6b8 != 0)
+        {
+            return 1;
+        }
+        app->loadingThreadState = 0;
+    }
+    g_SoundPlayer.UpdateBgmFades();
+    if (app->curScene != app->scene)
+    {
+        app->prevScene = app->curScene;
+        switch (app->curScene)
+        {
+        case 0:
+        title:
+            app->scene = 1;
+            g_App.d3dDevice->ResourceManagerDiscardBytes(0);
+            if (SetUpTitleScene(0) != 0)
+            {
+                return 4;
+            }
+            break;
+        case 1:
+            switch (app->scene)
+            {
+            case -1:
+                return 4;
+            case 2:
+                if (GameManager::RegisterChain() != 0)
+                {
+                    return 4;
+                }
+                break;
+            case 4:
+                return 5;
+            case 6:
+                app->scene = 1;
+                g_App.d3dDevice->ResourceManagerDiscardBytes(0);
+                if (SetUpTitleScene(1) != 0)
+                {
+                    return 4;
+                }
+                break;
+            case 9:
+                if (Ending::RegisterChain() != 0)
+                {
+                    return 4;
+                }
+                break;
+            }
+            break;
+        case 5:
+        case 6:
+        case 8:
+            switch (app->scene)
+            {
+            case -1:
+                return 4;
+            case 1:
+                app->scene = 0;
+                goto title;
+            }
+            break;
+        case 2:
+            switch (app->scene)
+            {
+            case -1:
+                return 4;
+            case 1:
+                RemoveGameManagerChain();
+                app->scene = 0;
+                goto title;
+            case 6:
+                RemoveGameManagerChain();
+                app->scene = 1;
+                g_App.d3dDevice->ResourceManagerDiscardBytes(0);
+                if (SetUpTitleScene(1) != 0)
+                {
+                    return 4;
+                }
+                break;
+            case 10:
+            case 13:
+                RemoveGameManagerChain();
+                if (GameManager::RegisterChain() != 0)
+                {
+                    return 4;
+                }
+                app->scene = 2;
+                break;
+            case 11:
+                g_App.unknown59c = 1;
+                RemoveGameManagerChain();
+                if (GameManager::RegisterChain() != 0)
+                {
+                    return 4;
+                }
+                app->scene = 2;
+                break;
+            case 12:
+                g_App.scene = 3;
+                RemoveGameManagerChain();
+                if (GameManager::RegisterChain() != 0)
+                {
+                    return 4;
+                }
+                app->scene = 2;
+                break;
+            case 3:
+                RemoveGameManagerChain();
+                if (GameManager::RegisterChain() != 0)
+                {
+                    return 4;
+                }
+                app->scene = 2;
+                break;
+            case 7:
+                RemoveGameManagerChain();
+                app->scene = 0;
+                app->scene = 1;
+                g_App.d3dDevice->ResourceManagerDiscardBytes(0);
+                if (SetUpTitleScene(1) != 0)
+                {
+                    return 4;
+                }
+                break;
+            case 9:
+                RemoveGameManagerChain();
+                if (Ending::RegisterChain() != 0)
+                {
+                    return 4;
+                }
+                break;
+            }
+            break;
+        case 9:
+            switch (app->scene)
+            {
+            case -1:
+                return 4;
+            case 1:
+                app->scene = 0;
+                goto title;
+            case 6:
+                app->scene = 1;
+                g_App.d3dDevice->ResourceManagerDiscardBytes(0);
+                if (SetUpTitleScene(1) != 0)
+                {
+                    return 4;
+                }
+                break;
+            }
+            break;
+        }
+    }
+    app->curScene = app->scene;
+    app->frames++;
+    if (app->frames % 4000 == 3999)
+    {
+        if (g_App.CheckVersionFile("0150a", g_App.exeSize, g_App.exeChecksum) != 0)
+        {
+            return 4;
+        }
+    }
+    if (g_Unknown4ac884 != 0)
+    {
+        g_Unknown4ac884--;
+    }
+    return 1;
 }
 
 int App::OnDrawLogo(App *app)
