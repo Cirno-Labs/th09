@@ -28,6 +28,8 @@ class Rng
 public:
     // Advances the generator and returns 16 random bits (0x42ae20).
     WORD GetRandomU16();
+    // 32 random bits, from two GetRandomU16 calls (0x42ae50).
+    DWORD GetRandomU32();
 
     WORD seed;
     unsigned char pad_2[0x2];

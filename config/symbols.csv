@@ -529,7 +529,7 @@ address,size,name,symbol
 0x0042ad70,59,Func42ad70,
 0x0042adc0,81,Func42adc0,
 0x0042ae20,39,Rng::GetRandomU16,?GetRandomU16@Rng@@QAEGXZ
-0x0042ae50,24,Func42ae50,
+0x0042ae50,24,Rng::GetRandomU32,?GetRandomU32@Rng@@QAEKXZ
 0x0042ae70,35,Func42ae70,
 0x0042aea0,41,Func42aea0,
 0x0042aed0,99,Func42aed0,

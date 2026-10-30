@@ -49,6 +49,11 @@ WORD Rng::GetRandomU16()
     return this->seed;
 }
 
+DWORD Rng::GetRandomU32()
+{
+    return (this->GetRandomU16() << 16) | this->GetRandomU16();
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);
