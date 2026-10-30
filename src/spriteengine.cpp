@@ -412,6 +412,49 @@ int SpriteEngine::DrawUnrotatedMirrored(Sprite *vm)
     return this->DrawQuadMirrored(vm, 1);
 }
 
+int SpriteEngine::DrawNoRound(Sprite *vm)
+{
+    float w;
+    float h;
+
+    if (!vm->IsShown())
+    {
+        return -1;
+    }
+    if ((vm->flags >> 1 & 1) == 0)
+    {
+        return -1;
+    }
+    if (vm->alpha == 0)
+    {
+        return -1;
+    }
+    w = vm->spriteWidth * vm->scaleY / 2.0f;
+    h = vm->spriteHeight * vm->scaleX / 2.0f;
+    if (((vm->flags >> 11 & 3) & 1) == 0)
+    {
+        g_DiffuseQuad[0].pos.x = g_DiffuseQuad[2].pos.x = vm->pos.x - w;
+        g_DiffuseQuad[1].pos.x = g_DiffuseQuad[3].pos.x = w + vm->pos.x;
+    }
+    else
+    {
+        g_DiffuseQuad[0].pos.x = g_DiffuseQuad[2].pos.x = vm->pos.x;
+        g_DiffuseQuad[1].pos.x = g_DiffuseQuad[3].pos.x = w + w + vm->pos.x;
+    }
+    if (((vm->flags >> 11 & 3) & 2) == 0)
+    {
+        g_DiffuseQuad[0].pos.y = g_DiffuseQuad[1].pos.y = vm->pos.y - h;
+        g_DiffuseQuad[2].pos.y = g_DiffuseQuad[3].pos.y = h + vm->pos.y;
+    }
+    else
+    {
+        g_DiffuseQuad[0].pos.y = g_DiffuseQuad[1].pos.y = vm->pos.y;
+        g_DiffuseQuad[2].pos.y = g_DiffuseQuad[3].pos.y = h + h + vm->pos.y;
+    }
+    g_DiffuseQuad[0].pos.z = g_DiffuseQuad[1].pos.z = g_DiffuseQuad[2].pos.z = g_DiffuseQuad[3].pos.z = vm->pos.z;
+    return this->DrawQuad(vm, 0);
+}
+
 int SpriteEngine::DrawProjected(Sprite *vm)
 {
     if (!vm->IsShown())

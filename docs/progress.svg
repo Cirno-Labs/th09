@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">41.91% (443)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">58.09% (614)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.01% (444)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">57.99% (613)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="313.08" height="6" x="0" y="0" class="named"/>
-<rect width="433.92" height="6" x="313.08" y="0" class="todo"/>
+<rect width="313.78" height="6" x="0" y="0" class="named"/>
+<rect width="433.22" height="6" x="313.78" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -871,7 +871,7 @@
 <rect width="12" height="12" x="15" y="240" class="named"><title>0x0043aa50 SpriteEngine::DrawUnrotatedMirrored (254 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="240" class="todo"><title>0x0043ab50 SpriteEngine::Draw (491 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="240" class="todo"><title>0x0043ad40 SpriteEngine::DrawRotatedNoRound (658 bytes)</title></rect>
-<rect width="12" height="12" x="60" y="240" class="todo"><title>0x0043afe0 SpriteEngine::DrawNoRound (254 bytes)</title></rect>
+<rect width="12" height="12" x="60" y="240" class="named"><title>0x0043afe0 SpriteEngine::DrawNoRound (254 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="240" class="named"><title>0x0043b0e0 SpriteEngine::DrawProjected (88 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="240" class="named"><title>0x0043b140 SpriteEngine::DrawProjected3D (84 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="240" class="todo"><title>0x0043b1a0 Func43b1a0 (811 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">16.78%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">83.22%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">16.87%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">83.13%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="125.37" height="6" x="0" y="0" class="named"/>
-<rect width="621.63" height="6" x="125.37" y="0" class="todo"/>
+<rect width="126.02" height="6" x="0" y="0" class="named"/>
+<rect width="620.98" height="6" x="126.02" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1428,7 +1428,7 @@
 <rect width="12.02" height="11.53" x="689.92" y="91.81" class="named"><title>0x004332b0 DatArchive::BuildEntryTable (254 bytes)</title></rect>
 <rect width="12.02" height="11.53" x="704.94" y="91.81" class="named"><title>0x0043a950 SpriteEngine::DrawUnrotated (254 bytes)</title></rect>
 <rect width="12.02" height="11.53" x="719.96" y="91.81" class="named"><title>0x0043aa50 SpriteEngine::DrawUnrotatedMirrored (254 bytes)</title></rect>
-<rect width="12.02" height="11.53" x="734.98" y="91.81" class="todo"><title>0x0043afe0 SpriteEngine::DrawNoRound (254 bytes)</title></rect>
+<rect width="12.02" height="11.53" x="734.98" y="91.81" class="named"><title>0x0043afe0 SpriteEngine::DrawNoRound (254 bytes)</title></rect>
 <rect width="11.93" height="11.57" x="520.72" y="106.34" class="named"><title>0x00435b00 AsciiText::OnUpdate (253 bytes)</title></rect>
 <rect width="11.93" height="11.51" x="520.72" y="120.91" class="named"><title>0x0043efa0 SoundPlayer::LoadBgm (252 bytes)</title></rect>
 <rect width="11.93" height="11.45" x="520.72" y="135.42" class="named"><title>0x004343e0 AsciiText::Initialize (251 bytes)</title></rect>
