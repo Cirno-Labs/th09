@@ -95,6 +95,14 @@ int FileExists(char *path);
 // -2 if not all was written (0x42c4e0).
 int WriteToFile(char *path, void *data, int size);
 
+// Decrypts a file's data if it is encrypted, as th08's (0x42c290).
+BYTE *DecryptFileData(BYTE *data, int *size, int fileSize);
+// Reads the file at `path`, from the archive unless `isExternal` is set,
+// else from g_DataDir, decrypted, into a new block, inside critical
+// section 2, as th08's LoadFileData. Stores its size in `size` unless
+// NULL. Returns the data, or NULL (0x42c970).
+void *OpenPath(char *path, int *size, int isExternal);
+
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);

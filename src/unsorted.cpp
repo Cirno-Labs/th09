@@ -1,5 +1,6 @@
 #include "unsorted.h"
 
+#include "archive.h"
 #include "chain.h"
 #include "timer.h"
 
@@ -492,6 +493,83 @@ WORD InitJoystick()
     joyGetDevCapsA(JOYSTICKID1, &g_JoyCaps[0], sizeof(g_JoyCaps[0]));
     joyGetDevCapsA(JOYSTICKID2, &g_JoyCaps[1], sizeof(g_JoyCaps[1]));
     return 0;
+}
+
+void *OpenPath(char *path, int *size, int isExternal)
+{
+    char *name;
+    DWORD dataSize;
+    void *buffer;
+    HANDLE handle;
+
+    g_App.EnterCriticalSection(2);
+    if (isExternal == 0)
+    {
+        name = strrchr(path, '\\');
+        if (name == NULL)
+        {
+            name = path;
+        }
+        else
+        {
+            name++;
+        }
+        name = strrchr(name, '/');
+        if (name == NULL)
+        {
+            name = path;
+        }
+        else
+        {
+            name++;
+        }
+        dataSize = g_Archive.GetEntrySize(name);
+        if (size != NULL)
+        {
+            *size = dataSize;
+        }
+        if (dataSize == 0)
+        {
+            LogError(&g_Log, "error : %s is not found in arcfile.\r\n", name);
+            g_App.LeaveCriticalSection(2);
+            return NULL;
+        }
+        buffer = g_MemoryManager.Alloc(dataSize, path);
+        if (buffer == NULL)
+        {
+            goto fail;
+        }
+        g_Archive.Decode(name, buffer);
+        buffer = DecryptFileData((BYTE *)buffer, size, dataSize);
+        goto done;
+    }
+    path = GetDataPath(path);
+    handle = CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
+                         FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+    if (handle == INVALID_HANDLE_VALUE)
+    {
+        goto fail;
+    }
+    dataSize = GetFileSize(handle, NULL);
+    buffer = g_MemoryManager.Alloc(dataSize, path);
+    if (buffer == NULL)
+    {
+        CloseHandle(handle);
+        goto fail;
+    }
+    ReadFile(handle, buffer, dataSize, &dataSize, NULL);
+    if (size != NULL)
+    {
+        *size = dataSize;
+    }
+    CloseHandle(handle);
+    buffer = DecryptFileData((BYTE *)buffer, size, dataSize);
+done:
+    g_App.LeaveCriticalSection(2);
+    return buffer;
+fail:
+    g_App.LeaveCriticalSection(2);
+    return NULL;
 }
 
 void Chain::Remove(ChainElem *elem)

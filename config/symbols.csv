@@ -550,7 +550,7 @@ address,size,name,symbol
 0x0042b850,1507,Func42b850,
 0x0042be40,819,Func42be40,
 0x0042c180,259,Func42c180,
-0x0042c290,220,Func42c290,
+0x0042c290,220,DecryptFileData,?DecryptFileData@@YIPAEPAEPAHH@Z
 0x0042c370,267,Func42c370,
 0x0042c480,92,FileExists,?FileExists@@YIHPAD@Z
 0x0042c4e0,210,WriteToFile,?WriteToFile@@YIHPADPAXH@Z
@@ -560,7 +560,7 @@ address,size,name,symbol
 0x0042c7e0,186,Func42c7e0,
 0x0042c8c0,46,Chain::Remove,?Remove@Chain@@QAEXPAUChainElem@@@Z
 0x0042c8f0,120,InitJoystick,?InitJoystick@@YIGXZ
-0x0042c970,355,Func42c970,
+0x0042c970,355,OpenPath,?OpenPath@@YIPAXPADPAHH@Z
 0x0042cae0,241,Chain::ReleaseList,?ReleaseList@Chain@@QAEXPAUChainElem@@@Z
 0x0042cbe0,34,Chain::Release,?Release@Chain@@QAEXXZ
 0x0042cc10,25,Func42cc10,
@@ -685,8 +685,8 @@ address,size,name,symbol
 0x00433130,9,Func433130,
 0x00433140,24,Func433140,
 0x00433160,88,Func433160,
-0x004331c0,193,Func4331c0,
-0x00433290,29,Func433290,
+0x004331c0,193,DatArchive::Decode,?Decode@DatArchive@@QAEPAXPADPAX@Z
+0x00433290,29,DatArchive::GetEntrySize,?GetEntrySize@DatArchive@@QAEKPAD@Z
 0x004332b0,254,Func4332b0,
 0x004333b0,61,Func4333b0,
 0x004333f0,467,Func4333f0,
@@ -2206,6 +2206,7 @@ address,size,name,symbol
 0x004acd08,,g_DataDir,?g_DataDir@@3PADA
 0x004ace0c,,g_Rng,?g_Rng@@3VRng@@A
 0x004acfc8,,g_Chain,?g_Chain@@3VChain@@A
+0x004ad008,,g_Archive,?g_Archive@@3VDatArchive@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b1020,,g_Log,?g_Log@@3VLog@@A
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
