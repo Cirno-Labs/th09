@@ -98,6 +98,13 @@ public:
 ASSERT_SIZE(Sprite, 0x2a4);
 
 // An ANM file, its sprites and its scripts, as th08's.
+// A sprite of an ANM file (0x44 bytes). Only its size is known so far.
+struct SpriteData
+{
+    unsigned char pad_0[0x44];
+};
+ASSERT_SIZE(SpriteData, 0x44);
+
 class AnmLoaded
 {
 public:
@@ -118,11 +125,18 @@ public:
         this->SetSprite(vm, sprite);
     }
 
+    // Sprite `sprite` of this file, as th08's. Inline; the copy is at
+    // 0x434390.
+    SpriteData *GetSprite(int sprite)
+    {
+        return &this->sprites[sprite];
+    }
+
     // Its slot in SpriteEngine's files.
     int slot;
     void *file;
     int anmCount;
-    void *sprites;
+    SpriteData *sprites;
     void **scripts;
     void *textures;
     // Nonzero while the textures are still being created.
@@ -179,6 +193,9 @@ public:
     AnmLoaded *PreloadAnm(int slot, char *path);
     // Frees ANM slot `slot`, as th08's (0x43ca30).
     void ReleaseAnm(int slot);
+    // Draws `vm` at its position without rotating it, as th08's
+    // (0x43a950).
+    int DrawUnrotated(Sprite *vm);
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
     // Draws the sprites batched so far (0x4396a0).

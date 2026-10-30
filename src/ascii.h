@@ -58,6 +58,11 @@ public:
     // capture.anm (slot 3) and initializes. Returns 0, or -1 if loading
     // fails (0x4344e0).
     static int AddedCallback(AsciiText *text);
+    // Draws the queued strings, a glyph at a time (0x434540).
+    void DrawStrings();
+    // Shows `value` at `pos` in `color` for a while, among side
+    // `side`'s popups, as th08's (0x4346a0).
+    void AddPopup(int side, D3DXVECTOR3 *pos, int value, D3DCOLOR color);
 
     // Inline, as th08's; the copy is at 0x4343c0.
     void SetGlyphWidth(int width)

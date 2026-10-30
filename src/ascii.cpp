@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "ascii.h"
+#include "unsorted.h"
 
 void AsciiText::RemoveChain()
 {
@@ -83,4 +84,63 @@ int AsciiText::AddedCallback(AsciiText *text)
     }
     text->Initialize();
     return 0;
+}
+
+void AsciiText::DrawStrings()
+{
+    float advance;
+    int idx;
+    AsciiString *string;
+    BYTE *c;
+    int clipped = 1;
+
+    string = this->strings;
+    this->glyph.flags |= 1;
+    this->glyph.flags |= 0x1800;
+    for (idx = 0; idx < this->stringCount; idx++, string++)
+    {
+        this->glyph.pos = string->pos;
+        c = (BYTE *)string->text;
+        this->glyph.scaleY = string->scaleX;
+        this->glyph.scaleX = string->scaleY;
+        advance = this->glyphWidth * string->scaleX;
+        if (clipped != string->inArena)
+        {
+            clipped = string->inArena;
+            g_SpriteEngine->FlushQuadBatch();
+            if (clipped != 0)
+            {
+                g_App.SetView(0);
+            }
+            else
+            {
+                g_App.SetView(2);
+            }
+        }
+        while (*c != 0)
+        {
+            if (*c == '\n')
+            {
+                this->glyph.pos.y += 14.0f * string->scaleY;
+                this->glyph.pos.x = string->pos.x;
+            }
+            else if (*c != ' ')
+            {
+                this->glyph.spriteData = this->anm->GetSprite(*c - 0x20);
+                this->glyph.color = string->color;
+                g_SpriteEngine->DrawUnrotated(&this->glyph);
+                this->glyph.pos.x += advance;
+            }
+            else
+            {
+                this->glyph.pos.x += advance;
+            }
+            c++;
+        }
+    }
+    if (clipped != 0)
+    {
+        g_SpriteEngine->FlushQuadBatch();
+        g_App.SetView(2);
+    }
 }

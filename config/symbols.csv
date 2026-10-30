@@ -18,7 +18,7 @@ address,size,name,symbol
 0x00401340,19,MemoryManager::Alloc,?Alloc@MemoryManager@@QAEPAXHPBD@Z
 0x00401360,19,MemoryManager::Free,?Free@MemoryManager@@QAEXPAX@Z
 0x00401380,10,MemoryManager::Register,?Register@MemoryManager@@QAEPAXPAXHPBD@Z
-0x00401390,71,Func401390,
+0x00401390,71,App::SetView,?SetView@App@@QAEXH@Z
 0x004013e0,42,Func4013e0,
 0x00401410,42,Func401410,
 0x00401440,26,Func401440,
@@ -730,13 +730,13 @@ address,size,name,symbol
 0x00434330,55,AsciiText::AddFormat,?AddFormat@AsciiText@@QAAXPAUD3DXVECTOR3@@PADZZ
 0x00434370,10,Func434370,
 0x00434380,8,Func434380,
-0x00434390,18,Func434390,
+0x00434390,18,AnmLoaded::GetSprite,?GetSprite@AnmLoaded@@QAEPAUSpriteData@@H@Z
 0x004343b0,10,Func4343b0,
 0x004343c0,16,AsciiText::SetGlyphWidth,?SetGlyphWidth@AsciiText@@QAEXH@Z
 0x004343d0,3,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@XZ
 0x004343e0,251,AsciiText::Initialize,?Initialize@AsciiText@@QAEXXZ
 0x004344e0,89,AsciiText::AddedCallback,?AddedCallback@AsciiText@@SIHPAV1@@Z
-0x00434540,341,Func434540,
+0x00434540,341,AsciiText::DrawStrings,?DrawStrings@AsciiText@@QAEXXZ
 0x004346a0,154,Func4346a0,
 0x00434740,1716,Func434740,
 0x00434e30,83,Func434e30,
@@ -798,7 +798,7 @@ address,size,name,symbol
 0x0043a030,188,Func43a030,
 0x0043a0f0,1067,Func43a0f0,
 0x0043a520,1067,Func43a520,
-0x0043a950,254,Func43a950,
+0x0043a950,254,SpriteEngine::DrawUnrotated,?DrawUnrotated@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043aa50,254,Func43aa50,
 0x0043ab50,491,Func43ab50,
 0x0043ad40,658,Func43ad40,

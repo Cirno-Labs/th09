@@ -312,6 +312,9 @@ extern PlayTime g_PlayTime;
 // The object that runs the game (th08's App), at 0x4b3100.
 struct App
 {
+    // Sets up view `view`, its camera and viewport: 0 the play area, 2
+    // the whole screen (0x401390).
+    void SetView(int view);
     // Bit 3 of stateFlags, as th08's GetNoScore (0x420180).
     int GetNoScore();
     // The config's options, as th08's getters, out of line (0x401460,
