@@ -47,6 +47,11 @@ void SpriteEngine::ClearSpriteData()
     this->currentSpriteData = NULL;
 }
 
+void SpriteEngine::ClearColorOp()
+{
+    this->colorOp = 0xff;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)

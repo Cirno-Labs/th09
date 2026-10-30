@@ -109,6 +109,8 @@ public:
     void ClearVertexFormat();
     // The same for the sprite data (0x40e390).
     void ClearSpriteData();
+    // The same for the color operation (0x415d00).
+    void ClearColorOp();
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
 
