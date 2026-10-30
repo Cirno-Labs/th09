@@ -118,9 +118,9 @@ int PlayRecord::GetClears5(char character)
     return this->clearFlags[character][5];
 }
 
-BOOL PlayRecord::IsUnknown118Zero()
+BOOL GameManager::IsMode0()
 {
-    return this->unknown118 == 0;
+    return this->mode == 0;
 }
 
 float Fabs(float x)

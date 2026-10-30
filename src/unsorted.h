@@ -270,8 +270,6 @@ struct PlayRecord
     BOOL HasCleared(char character);
     // Character `character`'s count for difficulty 5 (0x40e450).
     int GetClears5(char character);
-    // Whether unknown118 is 0 (0x40e470).
-    BOOL IsUnknown118Zero();
     // Character `character`'s count for difficulty `difficulty`, or,
     // when it is negative, those of the first four or'ed together
     // (0x4234a7).
@@ -293,9 +291,7 @@ struct PlayRecord
     // Each character's clears on each difficulty; how many characters
     // is not known.
     int clearFlags[6][6];
-    unsigned char pad_10c[0x118 - 0x10c];
-    int unknown118;
-    unsigned char pad_11c[0x1fc - 0x11c];
+    unsigned char pad_10c[0x1fc - 0x10c];
 };
 ASSERT_SIZE(PlayRecord, 0x1fc);
 extern PlayRecord g_PlayRecord;

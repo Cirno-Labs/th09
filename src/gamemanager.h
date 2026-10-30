@@ -135,6 +135,8 @@ public:
     // extend; past the last (8 extends in mode 1, else 5) there are no
     // more (0x41aa07).
     void AddExtend();
+    // Whether mode is 0 (0x40e470).
+    BOOL IsMode0();
 
     GameSide sides[3];
     Gui *gui;
