@@ -1,0 +1,84 @@
+// Sprites run by ANM scripts, and the ANM files they come from. The
+// layout follows th08's as far as th09's code shows it so far.
+
+#pragma once
+
+#include <d3dx8.h>
+
+#include "common.h"
+#include "timer.h"
+
+class AnmLoaded;
+
+// One sprite and the state of the ANM script that drives it, as th08's.
+class Sprite
+{
+public:
+    unsigned char pad_0[0x38];
+    // The script's frame.
+    Timer scriptTime;
+    unsigned char pad_44[0x1f8 - 0x44];
+    DWORD flags;
+    unsigned char pad_1fc[0x204 - 0x1fc];
+    // The ANM file whose script runs.
+    AnmLoaded *anm;
+    D3DXVECTOR3 pos;
+    short spriteIndex;
+    // The slot of the ANM file whose script runs.
+    short anmSlot;
+    short baseSpriteIndex;
+    // The script AnmLoaded::StartScriptAtOrigin started.
+    short scriptIndex;
+    // The script SetScript started, and the instruction Step runs next.
+    void *scriptStart;
+    void *scriptPos;
+    unsigned char pad_224[0x288 - 0x224];
+    // Added to pos when it is drawn.
+    D3DXVECTOR3 posOffset;
+    int spriteTime;
+    // The size of the characters text drawing uses; 15 from
+    // AnmLoaded::StartScriptAtOrigin.
+    BYTE fontWidth;
+    BYTE fontHeight;
+    unsigned char pad_29a[0xa];
+
+    // Zeroes the sprite's first 0x208 bytes, then sets its scales, color,
+    // matrix, flags and script timer (0x4127b0).
+    void Initialize();
+};
+ASSERT_SIZE(Sprite, 0x2a4);
+
+// An ANM file, its sprites and its scripts, as th08's.
+class AnmLoaded
+{
+public:
+    // Starts script `script` of this file on `vm`, at the origin with no
+    // offset (0x401560).
+    void StartScriptAtOrigin(Sprite *vm, int script);
+    // Starts `script` on `vm`, or zeroes `vm` if there is no script or
+    // the file is still loading (0x4395a0).
+    void SetScript(Sprite *vm, void *script);
+
+    // Its slot in SpriteEngine's files.
+    int slot;
+    void *file;
+    int anmCount;
+    void *sprites;
+    void **scripts;
+    void *textures;
+    // Nonzero while the textures are still being created.
+    int loadStep;
+};
+
+// Runs every sprite's script (th08's name), at *0x4dc550.
+class SpriteEngine
+{
+public:
+    // Runs `vm`'s script up to its next wait (0x436f30).
+    void Step(Sprite *vm);
+
+    unsigned char pad_0[0xc];
+    // How many scripts SetScript started.
+    int scriptStartCount;
+};
+extern SpriteEngine *g_SpriteEngine;
