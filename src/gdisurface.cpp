@@ -69,3 +69,8 @@ bool GdiSurface::Release()
     }
     return false;
 }
+
+void CreateTextSurface()
+{
+    g_App.d3dDevice->CreateImageSurface(1024, 64, D3DFMT_A1R5G5B5, &g_TextSurface);
+}
