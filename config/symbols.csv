@@ -741,7 +741,7 @@ address,size,name,symbol
 0x00434740,1716,Func434740,
 0x00434e30,83,PauseMenu::DrawPauseMenu,?DrawPauseMenu@PauseMenu@@QAEXXZ
 0x00434e90,1198,Func434e90,
-0x00435370,117,Func435370,
+0x00435370,117,ContinueMenu::DrawContinueMenu,?DrawContinueMenu@ContinueMenu@@QAEXXZ
 0x004353f0,497,Func4353f0,
 0x004355f0,1144,Func4355f0,
 0x00435a90,83,Func435a90,

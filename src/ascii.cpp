@@ -201,3 +201,25 @@ void PauseMenu::DrawPauseMenu()
         }
     }
 }
+
+void ContinueMenu::DrawContinueMenu()
+{
+    int i;
+
+    if (g_GameManager.isInContinueMenu)
+    {
+        g_SpriteEngine->FlushQuadBatch();
+        g_App.SetView(2);
+        if ((g_App.stateFlags >> 1) & 1 && (this->state != 0 || this->stateFrames > 2))
+        {
+            g_SpriteEngine->DrawUnrotated(&this->background);
+        }
+        for (i = 0; i < ARRAY_SIZE(this->sprites); i++)
+        {
+            if (this->sprites[i].IsShown())
+            {
+                g_SpriteEngine->DrawUnrotated(&this->sprites[i]);
+            }
+        }
+    }
+}
