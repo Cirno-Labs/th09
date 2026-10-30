@@ -122,3 +122,9 @@ void MakeFullPath(char *dst, char *path)
         strcat(dst, path);
     }
 }
+
+File::File()
+{
+    this->handle = INVALID_HANDLE_VALUE;
+    this->access = 0;
+}

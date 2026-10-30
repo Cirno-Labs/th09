@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">21.81% (229)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">78.19% (821)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">22.29% (234)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">77.71% (816)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="162.92" height="6" x="0" y="0" class="named"/>
-<rect width="584.08" height="6" x="162.92" y="0" class="todo"/>
+<rect width="166.47" height="6" x="0" y="0" class="named"/>
+<rect width="580.53" height="6" x="166.47" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -776,13 +776,13 @@
 <rect width="12" height="12" x="90" y="210" class="named"><title>0x004337a0 File::Seek (40 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="210" class="named"><title>0x004337d0 File::ReadAll (146 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="210" class="named"><title>0x00433870 MakeFullPath (121 bytes)</title></rect>
-<rect width="12" height="12" x="135" y="210" class="todo"><title>0x004338f0 FileBase::FileBase (9 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="210" class="todo"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="210" class="todo"><title>0x00433910 FileBase::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="210" class="todo"><title>0x00433940 File::File (32 bytes)</title></rect>
+<rect width="12" height="12" x="135" y="210" class="named"><title>0x004338f0 FileBase::FileBase (9 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="210" class="named"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="210" class="named"><title>0x00433910 FileBase::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="210" class="named"><title>0x00433940 File::File (32 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="210" class="todo"><title>0x00433960 File::~File (22 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="210" class="todo"><title>0x00433980 File::Open (226 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="210" class="todo"><title>0x00433a70 File::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="210" class="named"><title>0x00433a70 File::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="210" class="todo"><title>0x00433aa0 LzssDecompress (464 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="210" class="todo"><title>0x00433c80 Func433c80 (37 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="210" class="todo"><title>0x00433cb0 Func433cb0 (42 bytes)</title></rect>
@@ -1121,10 +1121,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.26%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93.74%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.30%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93.70%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="46.78" height="6" x="0" y="0" class="named"/>
-<rect width="700.22" height="6" x="46.78" y="0" class="todo"/>
+<rect width="47.07" height="6" x="0" y="0" class="named"/>
+<rect width="699.93" height="6" x="47.07" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.43" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1942,8 +1942,8 @@
 <rect width="2.17" height="2.25" x="687.74" y="291.76" class="named"><title>0x00430530 App::InitCriticalSections (33 bytes)</title></rect>
 <rect width="2.17" height="2.25" x="687.74" y="297.01" class="named"><title>0x00430560 App::DeleteCriticalSections (33 bytes)</title></rect>
 <rect width="2.17" height="2.25" x="687.74" y="302.26" class="todo"><title>0x00431680 Func431680 (33 bytes)</title></rect>
-<rect width="2.17" height="2.25" x="687.74" y="307.50" class="todo"><title>0x00433910 FileBase::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
-<rect width="2.17" height="2.25" x="687.74" y="312.75" class="todo"><title>0x00433a70 File::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
+<rect width="2.17" height="2.25" x="687.74" y="307.50" class="named"><title>0x00433910 FileBase::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
+<rect width="2.17" height="2.25" x="687.74" y="312.75" class="named"><title>0x00433a70 File::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="2.29" height="2.13" x="692.91" y="260.27" class="todo"><title>0x0043e170 Func43e170 (33 bytes)</title></rect>
 <rect width="2.29" height="2.13" x="698.20" y="260.27" class="todo"><title>0x00440620 Func440620 (33 bytes)</title></rect>
 <rect width="2.29" height="2.13" x="703.49" y="260.27" class="todo"><title>0x00440c20 Func440c20 (33 bytes)</title></rect>
@@ -1951,7 +1951,7 @@
 <rect width="2.13" height="2.13" x="714.08" y="260.27" class="todo"><title>0x004067d0 Func4067d0 (32 bytes)</title></rect>
 <rect width="2.13" height="2.13" x="719.21" y="260.27" class="named"><title>0x0040d4d0 Vector2::SetPolarEllipse (32 bytes)</title></rect>
 <rect width="2.13" height="2.13" x="724.34" y="260.27" class="todo"><title>0x00421f10 Func421f10 (32 bytes)</title></rect>
-<rect width="2.13" height="2.13" x="729.47" y="260.27" class="todo"><title>0x00433940 File::File (32 bytes)</title></rect>
+<rect width="2.13" height="2.13" x="729.47" y="260.27" class="named"><title>0x00433940 File::File (32 bytes)</title></rect>
 <rect width="2.13" height="2.13" x="734.60" y="260.27" class="todo"><title>0x0043d0a0 Func43d0a0 (32 bytes)</title></rect>
 <rect width="2.13" height="2.13" x="739.74" y="260.27" class="todo"><title>0x0043d150 Func43d150 (32 bytes)</title></rect>
 <rect width="2.13" height="2.13" x="744.87" y="260.27" class="named"><title>0x00441890 Vector2::SetPolar (32 bytes)</title></rect>
@@ -2141,7 +2141,7 @@
 <rect width="0.10" height="0.10" x="734.98" y="315.11" class="named"><title>0x00406660 Timer::operator-= (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="737.54" y="303.22" class="named"><title>0x0041f300 Timer::operator-= (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="740.15" y="303.22" class="named"><title>0x00433130 DatArchiveEntry::DatArchiveEntry (9 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="742.76" y="303.22" class="todo"><title>0x004338f0 FileBase::FileBase (9 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="742.76" y="303.22" class="named"><title>0x004338f0 FileBase::FileBase (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="745.36" y="303.22" class="named"><title>0x00401510 Timer::operator++ (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.68" y="303.22" class="named"><title>0x00404560 SpellCard::AddedCallback (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="737.54" y="306.05" class="todo"><title>0x00405650 Func405650 (8 bytes)</title></rect>
@@ -2156,7 +2156,7 @@
 <rect width="0.10" height="0.10" x="740.29" y="308.77" class="todo"><title>0x00434380 Func434380 (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="740.29" y="311.31" class="todo"><title>0x0040d4f0 Func40d4f0 (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="740.29" y="313.54" class="named"><title>0x0040f160 EclManager::GetTimelineCount (7 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="740.29" y="315.77" class="todo"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="740.29" y="315.77" class="named"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="742.88" y="308.77" class="todo"><title>0x0043e420 Func43e420 (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="745.65" y="308.77" class="named"><title>0x00415cf0 FreesResources (6 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.02" y="308.77" class="todo"><title>0x0041bd90 Func41bd90 (5 bytes)</title></rect>
