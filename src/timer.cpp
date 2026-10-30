@@ -87,3 +87,8 @@ void Timer::operator-=(float frames)
 {
     this->Sub(frames);
 }
+
+void Timer::operator--(int)
+{
+    this->Sub(1);
+}

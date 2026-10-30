@@ -97,7 +97,7 @@ address,size,name,symbol
 0x00406640,9,Timer::operator+=,??YTimer@@QAEXH@Z
 0x00406650,9,Timer::operator+=,??YTimer@@QAEXM@Z
 0x00406660,9,Timer::operator-=,??ZTimer@@QAEXM@Z
-0x00406670,10,Func406670,
+0x00406670,10,Timer::operator--,??FTimer@@QAEXH@Z
 0x00406680,147,Func406680,
 0x00406720,20,Func406720,
 0x00406740,80,Func406740,
