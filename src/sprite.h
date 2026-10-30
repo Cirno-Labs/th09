@@ -14,6 +14,9 @@ class AnmLoaded;
 class Sprite
 {
 public:
+    // (0x403a10)
+    Sprite();
+
     // The sprite's rotations about x, y and z, and their speeds.
     D3DXVECTOR3 rotation;
     D3DXVECTOR3 rotationSpeed;

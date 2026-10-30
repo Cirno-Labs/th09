@@ -22,6 +22,12 @@ void SpellCard::Reset()
     this->unknown14 = g_GameManager.gui->unknown08;
 }
 
+int SpellCard::AddedCallback(SpellCard *card)
+{
+    card->Reset();
+    return 0;
+}
+
 void SpellCard::RemoveChain(SpellCard *card)
 {
     if (card != NULL)

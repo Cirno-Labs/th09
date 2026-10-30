@@ -23,7 +23,7 @@ address,size,name,symbol
 0x00401410,42,Func401410,
 0x00401440,26,Func401440,
 0x00401460,13,App::GetNoFog,?GetNoFog@App@@QAEHXZ
-0x00401470,38,Func401470,
+0x00401470,38,VectorConstructorIterator,??_H@YGXPAXIHP6EX0@Z@Z
 0x004014a0,15,Timer::Initialize,?Initialize@Timer@@QAEXXZ
 0x004014b0,28,Timer::NextTick,?NextTick@Timer@@QAEHXZ
 0x004014d0,25,Timer::Set,?Set@Timer@@QAEXH@Z
@@ -54,7 +54,7 @@ address,size,name,symbol
 0x004033e0,671,Func4033e0,
 0x00403680,421,Func403680,
 0x00403830,475,Func403830,
-0x00403a10,45,Func403a10,
+0x00403a10,45,Sprite::Sprite,??0Sprite@@QAE@XZ
 0x00403a40,160,Func403a40,
 0x00403ae0,307,Func403ae0,
 0x00403c20,12,Func403c20,
@@ -68,11 +68,12 @@ address,size,name,symbol
 0x00403e00,41,Func403e00,
 0x00403e30,27,Func403e30,
 0x00403e50,923,Func403e50,
-0x004041f0,536,Func4041f0,
-0x00404410,334,Func404410,
+0x004041f0,536,SpellCard::OnUpdate,?OnUpdate@SpellCard@@SIHPAV1@@Z
+0x00404410,334,SpellCard::OnDraw,?OnDraw@SpellCard@@SIHPAV1@@Z
+0x00404560,8,SpellCard::AddedCallback,?AddedCallback@SpellCard@@SIHPAV1@@Z
 0x00404570,51,SpellCard::RemoveChain,?RemoveChain@SpellCard@@SIXPAV1@@Z
-0x004045b0,66,Func4045b0,
-0x00404600,264,Func404600,
+0x004045b0,66,SpellCard::SpellCard,??0SpellCard@@QAE@XZ
+0x00404600,264,SpellCard::RegisterChain,?RegisterChain@SpellCard@@SIPAV1@H@Z
 0x00404710,346,Func404710,
 0x004048b0,41,Func4048b0,
 0x004048e0,34,Rng::GetRandomU32InRange,?GetRandomU32InRange@Rng@@QAEKK@Z
