@@ -386,7 +386,7 @@ address,size,name,symbol
 0x0041d050,49,Player::AddDamageCircle,?AddDamageCircle@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHHH@Z
 0x0041d090,61,Player::AddKind4Box,?AddKind4Box@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHHH@Z
 0x0041d0d0,49,Player::AddKind4Circle,?AddKind4Circle@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHHH@Z
-0x0041d110,49,Func41d110,
+0x0041d110,49,Player::AddKind2Circle,?AddKind2Circle@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHHH@Z
 0x0041d150,1516,PlayerUnknown30410::AddCombo,?AddCombo@PlayerUnknown30410@@QAEXPAUD3DXVECTOR3@@HHHH@Z
 0x0041d760,126,PlayerUnknown30410::Update,?Update@PlayerUnknown30410@@QAEXXZ
 0x0041d7e0,41,PlayerUnknown30410::EndCombo,?EndCombo@PlayerUnknown30410@@QAEXXZ
