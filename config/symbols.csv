@@ -1604,7 +1604,7 @@ address,size,name,symbol
 0x0047b151,18,_malloc,
 0x0047b163,104,_free,
 0x0047b1b6,9,Func47b1b6,
-0x0047b1d4,117,Func47b1d4,
+0x0047b1d4,117,_ftol2,__ftol2
 0x0047b24e,14,operator_new,
 0x0047b25c,43,_JumpToContinuation,
 0x0047b28c,7,FID_conflict:_CallMemberFunction1,
