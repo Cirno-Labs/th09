@@ -540,3 +540,42 @@ HRESULT CSound::FillBufferWithSound(LPDIRECTSOUNDBUFFER pDSB, BOOL bRepeatWavIfB
 
     return S_OK;
 }
+
+HRESULT CSound::Play(DWORD dwPriority, DWORD dwFlags)
+{
+    HRESULT hr;
+    BOOL bRestored;
+
+    if (m_apDSBuffer == NULL)
+        return CO_E_NOTINITIALIZED;
+
+    LPDIRECTSOUNDBUFFER pDSB = GetFreeBuffer();
+
+    if (pDSB == NULL)
+        return DXTRACE_ERR(TEXT("GetFreeBuffer"), E_FAIL);
+
+    // Restore the buffer if it was lost
+    if (FAILED(hr = RestoreBuffer(pDSB, &bRestored)))
+        return DXTRACE_ERR(TEXT("RestoreBuffer"), hr);
+
+    if (bRestored)
+    {
+        // The buffer was restored, so we need to fill it with new data
+        if (FAILED(hr = FillBufferWithSound(pDSB, FALSE)))
+            return DXTRACE_ERR(TEXT("FillBufferWithSound"), hr);
+
+        // Make DirectSound do pre-processing on sound effects
+        Reset();
+    }
+
+    this->fading = 0;
+    this->fadeFrames = 0;
+    this->fadeTotal = 0;
+    SetVolume(0);
+    this->isPlaying = 1;
+    this->dwPlayPriority = dwPriority;
+    this->dwPlayFlags = dwFlags;
+    this->clearedOnPlay = 0;
+    this->played = 1;
+    return pDSB->Play(0, dwPriority, dwFlags);
+}
