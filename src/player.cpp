@@ -75,6 +75,32 @@ Player::Player()
 {
 }
 
+Player *Player::RegisterChain(BYTE arg, int sideIdx, int unknown20)
+{
+    Player *player = (Player *)g_MemoryManager.Register(new Player(), sizeof(Player), "PlayerInf");
+
+    memset(player, 0, sizeof(Player));
+    player->unknown303c8 = 0;
+    player->SetRegisterChainArg(arg);
+    player->side = &g_GameManager.sides[sideIdx];
+    player->sideIdx = sideIdx;
+    player->otherSide = &g_GameManager.sides[1 - sideIdx];
+    player->unknown20 = unknown20;
+    player->calcElem = g_Chain.CreateElem((ChainCallback)Player::OnUpdate);
+    player->calcElem->arg = player;
+    player->calcElem->addedCallback = (ChainCallback)Player::AddedCallback;
+    if (g_Chain.AddToCalcChain(player->calcElem, sideIdx + 0xf) == 0)
+    {
+        player->drawElem = g_Chain.CreateElem((ChainCallback)Player::OnDraw);
+        player->drawElem2 = g_Chain.CreateElem((ChainCallback)Player::OnDraw2);
+        player->drawElem->arg = player;
+        player->drawElem2->arg = player;
+        g_Chain.AddToDrawChain(player->drawElem, sideIdx + 0xc);
+        g_Chain.AddToDrawChain(player->drawElem2, sideIdx + 0xe);
+    }
+    return player;
+}
+
 void Player::SubUnknown30388(float amount)
 {
     if (this->unknown30388 - amount < 1.0f)

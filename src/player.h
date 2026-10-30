@@ -121,6 +121,16 @@ public:
     // 0x41ceb0, 0x41f010, 0x41f030, 0x41ee20, 0x41ee30, 0x41f060).
     Player();
 
+    // Allocates and zeroes a player for side `sideIdx`, keeping `arg` in
+    // registerChainArg and `unknown20`, and adds it to the chains (update
+    // priority sideIdx + 0xf, draw sideIdx + 0xc and sideIdx + 0xe).
+    // Returns it, even if adding fails (0x41f170).
+    static Player *RegisterChain(BYTE arg, int sideIdx, int unknown20);
+    // The chain callbacks (0x41e900, 0x41eb10, 0x41cdc0, 0x41ee50).
+    static int OnUpdate(Player *player);
+    static int OnDraw(Player *player);
+    static int OnDraw2(Player *player);
+    static int AddedCallback(Player *player);
     // Frees the player's resources, removes its chain elements and
     // deletes it, if any (0x41ced0).
     static void RemoveChain(Player *player);
