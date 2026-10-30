@@ -38,7 +38,8 @@ struct ChainElem
     ChainCallback deletedCallback;
     ChainElem *prev;
     ChainElem *next;
-    // Points to the element itself.
+    // Points to the element itself; in ReleaseList's copy of a list, to
+    // the element copied.
     ChainElem *self;
     void *arg;
 };
@@ -67,6 +68,9 @@ public:
     void RemoveLocked(ChainElem *elem);
     // Like RemoveLocked, inside critical section 0 (0x42c8c0).
     void Remove(ChainElem *elem);
+    // Removes the elements of the list that starts at `root`, going
+    // through a copy of the list it allocates (0x42cae0).
+    void ReleaseList(ChainElem *root);
 
     ChainElem calcChain;
     ChainElem drawChain;

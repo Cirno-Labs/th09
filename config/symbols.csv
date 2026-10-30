@@ -561,7 +561,7 @@ address,size,name,symbol
 0x0042c8c0,46,Chain::Remove,?Remove@Chain@@QAEXPAUChainElem@@@Z
 0x0042c8f0,120,Func42c8f0,
 0x0042c970,355,Func42c970,
-0x0042cae0,241,Func42cae0,
+0x0042cae0,241,Chain::ReleaseList,?ReleaseList@Chain@@QAEXPAUChainElem@@@Z
 0x0042cbe0,34,Func42cbe0,
 0x0042cc10,25,Func42cc10,
 0x0042cc30,33,Func42cc30,

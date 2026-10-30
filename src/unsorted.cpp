@@ -356,6 +356,39 @@ void Chain::Remove(ChainElem *elem)
     g_App.LeaveCriticalSection(0);
 }
 
+void Chain::ReleaseList(ChainElem *root)
+{
+    ChainElem list;
+    ChainElem *tail;
+    ChainElem *tmp;
+    ChainElem *cur;
+
+    tail = (ChainElem *)g_MemoryManager.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
+    list.next = tail;
+    cur = root;
+    while (cur != NULL)
+    {
+        tail->self = cur;
+        tail->next = (ChainElem *)g_MemoryManager.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
+        tail = tail->next;
+        cur = cur->next;
+    }
+    cur = &list;
+    while (cur != NULL)
+    {
+        this->Remove(cur->self);
+        cur = cur->next;
+    }
+    tail = list.next;
+    while (tail != NULL)
+    {
+        tmp = tail->next;
+        delete tail;
+        tail = NULL;
+        tail = tmp;
+    }
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);
