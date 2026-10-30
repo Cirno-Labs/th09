@@ -271,8 +271,8 @@ address,size,name,symbol
 0x00415340,279,Func415340,
 0x00415460,272,Func415460,
 0x00415580,190,Func415580,
-0x00415650,70,Func415650,
-0x004156a0,66,Func4156a0,
+0x00415650,70,FreeAttacks,
+0x004156a0,66,ExAttackManager::RemoveChain,?RemoveChain@ExAttackManager@@SIXPAV1@@Z
 0x004156f0,88,Func4156f0,
 0x004157a0,15,Func4157a0,
 0x004157b0,28,Func4157b0,
