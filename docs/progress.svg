@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.45% (652)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.55% (409)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.55% (653)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.45% (408)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="459.04" height="6" x="0" y="0" class="named"/>
-<rect width="287.96" height="6" x="459.04" y="0" class="todo"/>
+<rect width="459.75" height="6" x="0" y="0" class="named"/>
+<rect width="287.25" height="6" x="459.75" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -385,7 +385,7 @@
 <rect width="12" height="12" x="225" y="90" class="named"><title>0x00418840 Gui::RegisterChain (220 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="90" class="named"><title>0x00418920 GuiSide::Init (14 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="90" class="named"><title>0x00418930 FreeResources (26 bytes)</title></rect>
-<rect width="12" height="12" x="270" y="90" class="todo"><title>0x00418950 Func418950 (319 bytes)</title></rect>
+<rect width="12" height="12" x="270" y="90" class="todo"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="90" class="todo"><title>0x00418a90 GuiSide::OnUpdate (2367 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="90" class="todo"><title>0x004193e0 GuiSide::OnDraw (3074 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="90" class="todo"><title>0x0041a000 GuiSide::AddedCallback (448 bytes)</title></rect>
@@ -397,7 +397,7 @@
 <rect width="12" height="12" x="405" y="90" class="named"><title>0x0041a320 GuiSide::StartUnknown66fc (92 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="90" class="named"><title>0x0041a380 GuiSide::StartUnknown6ee8 (56 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="90" class="named"><title>0x0041a3c0 GuiSide::StartUnknown7430 (21 bytes)</title></rect>
-<rect width="12" height="12" x="450" y="90" class="todo"><title>0x0041a3e0 Func41a3e0 (142 bytes)</title></rect>
+<rect width="12" height="12" x="450" y="90" class="named"><title>0x0041a3e0 GuiSide::StartUnknown76d4 (142 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="90" class="named"><title>0x0041a470 GuiSideA678::GuiSideA678 (28 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="90" class="named"><title>0x0041a490 GuiSide::GuiSide (307 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="90" class="named"><title>0x0041a5d0 GuiSide::RegisterChain (283 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.91%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.09%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.96%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.04%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="238.39" height="6" x="0" y="0" class="named"/>
-<rect width="508.61" height="6" x="238.39" y="0" class="todo"/>
+<rect width="238.76" height="6" x="0" y="0" class="named"/>
+<rect width="508.24" height="6" x="238.76" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1375,7 +1375,7 @@
 <rect width="13.90" height="13.34" x="487.89" y="75.63" class="todo"><title>0x00444f00 Func444f00 (322 bytes)</title></rect>
 <rect width="13.90" height="13.29" x="487.89" y="91.97" class="todo"><title>0x004151f0 Func4151f0 (321 bytes)</title></rect>
 <rect width="13.90" height="13.24" x="487.89" y="108.26" class="todo"><title>0x0041cc80 Func41cc80 (320 bytes)</title></rect>
-<rect width="13.90" height="13.19" x="487.89" y="124.50" class="todo"><title>0x00418950 Func418950 (319 bytes)</title></rect>
+<rect width="13.90" height="13.19" x="487.89" y="124.50" class="todo"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>
 <rect width="13.90" height="13.14" x="487.89" y="140.68" class="todo"><title>0x00420ad0 ReplayManager::Release (318 bytes)</title></rect>
 <rect width="13.90" height="13.14" x="487.89" y="156.82" class="todo"><title>0x00422330 Func422330 (318 bytes)</title></rect>
 <rect width="13.90" height="13.14" x="487.89" y="172.96" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>
@@ -1584,7 +1584,7 @@
 <rect width="7.82" height="8.33" x="706.80" y="158.68" class="named"><title>0x0042b1e0 Chain::AddToCalcChain (143 bytes)</title></rect>
 <rect width="7.82" height="8.33" x="717.62" y="158.68" class="named"><title>0x0042b270 Chain::AddToDrawChain (143 bytes)</title></rect>
 <rect width="7.82" height="8.33" x="728.44" y="158.68" class="named"><title>0x004395a0 AnmLoaded::SetScript (143 bytes)</title></rect>
-<rect width="7.74" height="8.33" x="739.26" y="158.68" class="todo"><title>0x0041a3e0 Func41a3e0 (142 bytes)</title></rect>
+<rect width="7.74" height="8.33" x="739.26" y="158.68" class="named"><title>0x0041a3e0 GuiSide::StartUnknown76d4 (142 bytes)</title></rect>
 <rect width="7.87" height="8.20" x="584.37" y="170.02" class="named"><title>0x0042af80 HermiteInterpolate (142 bytes)</title></rect>
 <rect width="7.87" height="8.12" x="584.37" y="181.22" class="named"><title>0x0043cd40 SpriteEngine::PostloadAnm (141 bytes)</title></rect>
 <rect width="7.87" height="8.04" x="584.37" y="192.34" class="named"><title>0x0043e2f0 SoundPlayer::PlaySoundByIdx (140 bytes)</title></rect>

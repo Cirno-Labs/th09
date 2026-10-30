@@ -317,7 +317,7 @@ address,size,name,symbol
 0x00418840,220,Gui::RegisterChain,?RegisterChain@Gui@@SIPAV1@XZ
 0x00418920,14,GuiSide::Init,?Init@GuiSide@@QAEXXZ
 0x00418930,26,FreeResources,?FreeResources@@YIHPAVGuiSide@@@Z
-0x00418950,319,Func418950,
+0x00418950,319,GuiSide::SetUnknown76d4Time,?SetUnknown76d4Time@GuiSide@@QAEXH@Z
 0x00418a90,2367,GuiSide::OnUpdate,?OnUpdate@GuiSide@@SIHPAV1@@Z
 0x004193e0,3074,GuiSide::OnDraw,?OnDraw@GuiSide@@SIHPAV1@@Z
 0x0041a000,448,GuiSide::AddedCallback,?AddedCallback@GuiSide@@SIHPAV1@@Z
@@ -329,7 +329,7 @@ address,size,name,symbol
 0x0041a320,92,GuiSide::StartUnknown66fc,?StartUnknown66fc@GuiSide@@QAEXH@Z
 0x0041a380,56,GuiSide::StartUnknown6ee8,?StartUnknown6ee8@GuiSide@@QAEXH@Z
 0x0041a3c0,21,GuiSide::StartUnknown7430,?StartUnknown7430@GuiSide@@QAEXXZ
-0x0041a3e0,142,Func41a3e0,
+0x0041a3e0,142,GuiSide::StartUnknown76d4,?StartUnknown76d4@GuiSide@@QAEXH@Z
 0x0041a470,28,GuiSideA678::GuiSideA678,??0GuiSideA678@@QAE@XZ
 0x0041a490,307,GuiSide::GuiSide,??0GuiSide@@QAE@XZ
 0x0041a5d0,283,GuiSide::RegisterChain,?RegisterChain@GuiSide@@SIPAV1@H@Z

@@ -132,6 +132,17 @@ void GuiSide::StartUnknown7430()
     this->anm->StartScriptAtOrigin(&this->unknown7430, 0x4e);
 }
 
+void GuiSide::StartUnknown76d4(int frames)
+{
+    this->anm->StartScriptAtOrigin(&this->unknown76d4[0], 0x4f);
+    this->anm->StartScriptAtOrigin(&this->unknown76d4[1], 0x50);
+    this->anm->StartScriptAtOrigin(&this->unknown76d4[2], 0x51);
+    this->anm->StartScriptAtOrigin(&this->unknown76d4[3], 0x52);
+    this->anm->StartScriptAtOrigin(&this->unknown76d4[4], 0x53);
+    this->anm->StartScriptAtOrigin(&this->unknown76d4[5], 0x54);
+    this->SetUnknown76d4Time(frames);
+}
+
 GuiSide *GuiSide::RegisterChain(int sideIdx)
 {
     GuiSide *side = (GuiSide *)g_MemoryManager.Register(new GuiSide(), sizeof(GuiSide), "FrontSideInf");

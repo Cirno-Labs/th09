@@ -154,6 +154,12 @@ public:
     void StartUnknown6ee8(int idx);
     // Starts script 0x4e on unknown7430 (0x41a3c0).
     void StartUnknown7430();
+    // Starts scripts 0x4f-0x54 on unknown76d4 and shows `frames` on them
+    // with SetUnknown76d4Time (0x41a3e0).
+    void StartUnknown76d4(int frames);
+    // Shows `frames` as a time on unknown76d4's digits, clearing them
+    // when it is negative (0x418950).
+    void SetUnknown76d4Time(int frames);
     // Creates side `sideIdx`'s front, zeroed, and adds its update element
     // (priority 0x17 + `sideIdx`) and draw element (0x1a + `sideIdx`).
     // Returns it, or NULL if adding fails (0x41a5d0).
