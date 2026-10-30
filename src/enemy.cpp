@@ -55,9 +55,9 @@ void EnemyManager::Reset()
     for (i = 0; i < 0x80; i++, enemy++)
     {
         enemy->FreeUnknown33d8();
-        enemy->unknown337c &= ~1;
+        enemy->active = 0;
     }
-    if (this->unknown31c == 0)
+    if (this->sideIdx == 0)
     {
         for (i = 0; i < 0x100; i++)
         {
@@ -67,6 +67,12 @@ void EnemyManager::Reset()
     }
     this->unknown2ac3d4 = 0;
     this->timeline = this->ecl.GetTimeline(g_TimelineOrder[0] & 0x7f);
-    this->unknown2ac3ec = 200;
-    this->unknown2ac3e0 = 0;
+    this->timelineTimers.unknownC = 200;
+    this->timelineTimers.unknown0 = 0;
 }
+
+EnemyManager::EnemyManager()
+{
+    this->Initialize();
+}
+
