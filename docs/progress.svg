@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.10% (627)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.90% (434)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.19% (628)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.81% (433)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="441.44" height="6" x="0" y="0" class="named"/>
-<rect width="305.56" height="6" x="441.44" y="0" class="todo"/>
+<rect width="442.15" height="6" x="0" y="0" class="named"/>
+<rect width="304.85" height="6" x="442.15" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -456,7 +456,7 @@
 <rect width="12" height="12" x="540" y="105" class="todo"><title>0x0041d0d0 Func41d0d0 (49 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="105" class="todo"><title>0x0041d110 Func41d110 (49 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="105" class="todo"><title>0x0041d150 PlayerUnknown30410::AddCombo (1516 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="105" class="todo"><title>0x0041d760 Func41d760 (126 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="105" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="105" class="named"><title>0x0041d7e0 PlayerUnknown30410::EndCombo (41 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="105" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="105" class="todo"><title>0x0041da70 Func41da70 (279 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.88%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.12%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.92%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.08%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="230.67" height="6" x="0" y="0" class="named"/>
-<rect width="516.33" height="6" x="230.67" y="0" class="todo"/>
+<rect width="230.99" height="6" x="0" y="0" class="named"/>
+<rect width="516.01" height="6" x="230.99" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1608,7 +1608,7 @@
 <rect width="7.38" height="7.50" x="638.38" y="170.05" class="todo"><title>0x004101d0 Func4101d0 (127 bytes)</title></rect>
 <rect width="7.38" height="7.50" x="648.76" y="170.05" class="named"><title>0x0041b9d0 GameManager::RegisterChain (127 bytes)</title></rect>
 <rect width="7.38" height="7.50" x="659.14" y="170.05" class="named"><title>0x0043bd40 SpriteEngine::RenderTextToTextureIndex (127 bytes)</title></rect>
-<rect width="7.30" height="7.50" x="669.52" y="170.05" class="todo"><title>0x0041d760 Func41d760 (126 bytes)</title></rect>
+<rect width="7.30" height="7.50" x="669.52" y="170.05" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
 <rect width="7.13" height="7.50" x="679.81" y="170.05" class="named"><title>0x00422fd1 MainMenu::ShowButtonDigits (124 bytes)</title></rect>
 <rect width="7.13" height="7.50" x="689.94" y="170.05" class="todo"><title>0x0042d0c0 Func42d0c0 (124 bytes)</title></rect>
 <rect width="7.05" height="7.50" x="700.08" y="170.05" class="named"><title>0x0040d200 EffectManager::FreeEffects (123 bytes)</title></rect>
