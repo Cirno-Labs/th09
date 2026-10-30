@@ -211,7 +211,7 @@ address,size,name,symbol
 0x00411d50,35,Func411d50,
 0x00411d80,38,Func411d80,
 0x00411f30,68,FreeResources,
-0x00411f80,74,Func411f80,
+0x00411f80,74,EnemyManager::RemoveChain,?RemoveChain@EnemyManager@@SIXPAV1@@Z
 0x00411fd0,177,Func411fd0,
 0x00412090,15,Func412090,
 0x004120a0,20,Func4120a0,

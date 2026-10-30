@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.71% (153)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">85.29% (887)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.81% (154)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">85.19% (886)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="109.90" height="6" x="0" y="0" class="named"/>
-<rect width="637.10" height="6" x="109.90" y="0" class="todo"/>
+<rect width="110.61" height="6" x="0" y="0" class="named"/>
+<rect width="636.39" height="6" x="110.61" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -279,7 +279,7 @@
 <rect width="12" height="12" x="135" y="60" class="todo"><title>0x00411d50 Func411d50 (35 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="60" class="todo"><title>0x00411d80 Func411d80 (38 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="60" class="todo"><title>0x00411f30 FreeResources (68 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="60" class="todo"><title>0x00411f80 Func411f80 (74 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="60" class="named"><title>0x00411f80 EnemyManager::RemoveChain (74 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="60" class="todo"><title>0x00411fd0 Func411fd0 (177 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="60" class="todo"><title>0x00412090 Func412090 (15 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="60" class="todo"><title>0x004120a0 Func4120a0 (20 bytes)</title></rect>
@@ -1111,10 +1111,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.56%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">96.44%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.58%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">96.42%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="26.56" height="6" x="0" y="0" class="named"/>
-<rect width="720.44" height="6" x="26.56" y="0" class="todo"/>
+<rect width="26.75" height="6" x="0" y="0" class="named"/>
+<rect width="720.25" height="6" x="26.75" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1723,7 +1723,7 @@
 <rect width="4.87" height="4.87" x="637.11" y="263.44" class="todo"><title>0x00441b70 Func441b70 (75 bytes)</title></rect>
 <rect width="4.87" height="4.87" x="637.11" y="271.31" class="todo"><title>0x00441be0 Func441be0 (75 bytes)</title></rect>
 <rect width="4.87" height="4.76" x="637.11" y="279.18" class="todo"><title>0x00407450 Func407450 (74 bytes)</title></rect>
-<rect width="4.87" height="4.76" x="637.11" y="286.94" class="todo"><title>0x00411f80 Func411f80 (74 bytes)</title></rect>
+<rect width="4.87" height="4.76" x="637.11" y="286.94" class="named"><title>0x00411f80 EnemyManager::RemoveChain (74 bytes)</title></rect>
 <rect width="4.87" height="4.76" x="637.11" y="294.71" class="todo"><title>0x0041e8b0 Func41e8b0 (74 bytes)</title></rect>
 <rect width="4.87" height="4.76" x="637.11" y="302.47" class="todo"><title>0x0042cd40 Func42cd40 (74 bytes)</title></rect>
 <rect width="4.87" height="4.76" x="637.11" y="310.24" class="named"><title>0x0042f770 SpriteEngine::ResetFrameState (74 bytes)</title></rect>
