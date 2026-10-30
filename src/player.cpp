@@ -130,6 +130,17 @@ PlayerHitArea *Player::AddDamageCircle(D3DXVECTOR3 *pos, float radius, float rad
     return area;
 }
 
+PlayerHitArea *Player::AddKind4Box(D3DXVECTOR3 *pos, float width, float height, int unknown28, int framesLeft, int unknown40)
+{
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+
+    area->width = width * 0.5f;
+    area->height = height * 0.5f;
+    area->unknown28 = unknown28;
+    area->kind = 4;
+    return area;
+}
+
 void PlayerUnknown30410::Update()
 {
     if (this->timer20 > 0)
