@@ -617,7 +617,7 @@ address,size,name,symbol
 0x0042f3d0,31,Func42f3d0,
 0x0042f400,17,Func42f400,
 0x0042f420,101,Func42f420,
-0x0042f490,93,Func42f490,
+0x0042f490,93,Timer::Add,?Add@Timer@@QAEXM@Z
 0x0042f4f0,71,App::TickTimer,?TickTimer@App@@QAEXPAHPAM@Z
 0x0042f540,543,Func42f540,
 0x0042f760,15,Func42f760,
