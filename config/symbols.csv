@@ -632,7 +632,7 @@ address,size,name,symbol
 0x0042fe20,148,Func42fe20,
 0x0042fec0,56,App::EnableFog,?EnableFog@App@@QAEHXZ
 0x0042ff00,56,App::DisableFog,?DisableFog@App@@QAEHXZ
-0x0042ff40,42,Func42ff40,
+0x0042ff40,42,App::SetRenderState,?SetRenderState@App@@QAEHW4_D3DRENDERSTATETYPE@@K@Z
 0x0042ff70,233,Func42ff70,
 0x00430060,237,Func430060,
 0x00430150,199,App::CheckVersionFile,?CheckVersionFile@App@@QAEHPADKK@Z

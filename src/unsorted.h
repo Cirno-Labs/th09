@@ -146,6 +146,9 @@ struct App
     int EnableFog();
     // The same, turning fog off if fogState is set (0x42ff00).
     int DisableFog();
+    // Flushes the sprites and sets render state `state` to `value`
+    // (0x42ff40).
+    int SetRenderState(D3DRENDERSTATETYPE state, DWORD value);
     // Returns 0 if verFile lists `version` with `size` and `checksum`,
     // or if `version` is "debug", and -1 otherwise, as th08's
     // (0x430150).
