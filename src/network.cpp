@@ -10,24 +10,6 @@ extern "C"
 // The application GUID of the game's DirectPlay sessions (0x490c3c).
 static const GUID g_SessionGuid = {0x9fd5ec50, 0x740a, 0x4fdb, {0x90, 0x9d, 0x2f, 0x24, 0xe1, 0x52, 0x82, 0xea}};
 
-void LogNetworkError(HRESULT hr)
-{
-    char text[0x800];
-    LPSTR message;
-
-    FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_FROM_SYSTEM, NULL,
-                   hr, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&message, 0, NULL);
-    if (message != NULL)
-    {
-        LogError(&g_Log, message);
-        LocalFree(message);
-        return;
-    }
-    strcpy(text, DXGetErrorString8A(hr));
-    strcat(text, "\r\n");
-    LogError(&g_Log, text);
-}
-
 void Network::ReleaseInterfaces()
 {
     if (this->peer != NULL)
@@ -73,6 +55,24 @@ HRESULT Network::Send(void *data, DWORD size)
     return this->peer->SendTo(this->unknown1c[1 - this->unknownAc], &desc, 1, 0, NULL, &this->sendHandle,
                               DPNSEND_PRIORITY_HIGH | DPNSEND_NONSEQUENTIAL | DPNSEND_GUARANTEED |
                                   DPNSEND_COMPLETEONPROCESS);
+}
+
+void LogNetworkError(HRESULT hr)
+{
+    char text[0x800];
+    LPSTR message;
+
+    FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS | FORMAT_MESSAGE_FROM_SYSTEM, NULL,
+                   hr, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&message, 0, NULL);
+    if (message != NULL)
+    {
+        LogError(&g_Log, message);
+        LocalFree(message);
+        return;
+    }
+    strcpy(text, DXGetErrorString8A(hr));
+    strcat(text, "\r\n");
+    LogError(&g_Log, text);
 }
 
 BOOL Network::IsServiceProviderValid(const GUID *serviceProvider)
