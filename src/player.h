@@ -98,6 +98,7 @@ struct PlayerOption
 };
 ASSERT_SIZE(PlayerOption, 0x2f4);
 
+struct Bullet;
 struct PlayerBullet;
 struct ShtFile;
 
@@ -291,6 +292,13 @@ public:
     // their draw callback if they have one, as th08's DrawBullets
     // (0x41f680).
     void DrawBullets();
+    // Tests the hit areas against a bullet (0x41dff0).
+    int CheckHitAreas(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet);
+    // Returns 2 if the hit areas take the bullet, else whether a `size`
+    // box at `pos`, grown by 60 each way, touches grazeMin-Max, as
+    // th08's CheckGraze without its state test or Graze call
+    // (0x41e350).
+    int CheckGraze(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet);
     // Starts the first free entry of unknown30454 at `pos` with script
     // 0x46 + `script` of the side's bullet ANM, unless the front's
     // unknown1095c is set (0x41db90).
@@ -344,7 +352,8 @@ public:
     // th08's.
     D3DXVECTOR3 hitboxMin;
     D3DXVECTOR3 hitboxMax;
-    unsigned char pad_1c78[0x1c90 - 0x1c78];
+    D3DXVECTOR3 grazeMin;
+    D3DXVECTOR3 grazeMax;
     D3DXVECTOR3 grazeTestMin;
     D3DXVECTOR3 grazeTestMax;
     // Half the shot file's sizes, square, with a z of 5, as th08's.

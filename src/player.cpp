@@ -472,6 +472,27 @@ void Player::DrawUnknown30454()
     }
 }
 
+int Player::CheckGraze(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet)
+{
+    D3DXVECTOR3 start;
+    D3DXVECTOR3 end;
+
+    if (this->CheckHitAreas(pos, size, bullet))
+    {
+        return 2;
+    }
+    start.x = pos->x - size->x / 2.0f - 60.0f;
+    start.y = pos->y - size->y / 2.0f - 60.0f;
+    end.x = size->x / 2.0f + pos->x + 60.0f;
+    end.y = size->y / 2.0f + pos->y + 60.0f;
+    if (this->grazeMin.x > end.x || this->grazeMax.x < start.x || this->grazeMin.y > end.y ||
+        this->grazeMax.y < start.y)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 int Player::OnDraw(Player *player)
 {
     g_App.SetView2D(player->sideIdx);
