@@ -27,11 +27,11 @@ void Gui::RemoveChain(Gui *gui)
     }
 }
 
-// Unloads ANM slot 7 if the side's front has unknownA67c set. Returns 0.
+// Unloads ANM slot 7 if the side's front has unknownA678.unknown4 set. Returns 0.
 // Static, with the side in eax (0x418930).
 static int FreeResources(GuiSide *side)
 {
-    if (side->unknownA67c != 0)
+    if (side->unknownA678.unknown4 != 0)
     {
         g_SpriteEngine->ReleaseAnm(7);
     }
@@ -57,4 +57,25 @@ void GuiSide::Reset()
         this->unknownAbcc = 2;
         this->timerAbd0 = 30;
     }
+}
+
+GuiSide *GuiSide::RegisterChain(int sideIdx)
+{
+    GuiSide *side = (GuiSide *)g_MemoryManager.Register(new GuiSide(), sizeof(GuiSide), "FrontSideInf");
+
+    side->Init();
+    side->sideIdx = sideIdx;
+    side->side = &g_GameManager.sides[sideIdx];
+    side->otherSide = &g_GameManager.sides[1 - sideIdx];
+    side->calcElem = g_Chain.CreateElem((ChainCallback)GuiSide::OnUpdate);
+    side->calcElem->arg = side;
+    side->calcElem->addedCallback = (ChainCallback)GuiSide::AddedCallback;
+    if (g_Chain.AddToCalcChain(side->calcElem, sideIdx + 0x17) != 0)
+    {
+        return NULL;
+    }
+    side->drawElem = g_Chain.CreateElem((ChainCallback)GuiSide::OnDraw);
+    side->drawElem->arg = side;
+    g_Chain.AddToDrawChain(side->drawElem, sideIdx + 0x1a);
+    return side;
 }
