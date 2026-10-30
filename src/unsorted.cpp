@@ -159,6 +159,24 @@ void Rotate2D(D3DXVECTOR3 *out, D3DXVECTOR3 *in, float angle)
     out->y = c * in->y + s * in->x;
 }
 
+void HermiteInterpolate(D3DXVECTOR3 *out, D3DXVECTOR3 *p1, D3DXVECTOR3 *p0, D3DXVECTOR3 *m1, D3DXVECTOR3 *m0,
+                        float time, float duration)
+{
+    float t;
+    float f00;
+    float f01;
+    float f10;
+    float f11;
+
+    t = time / duration;
+    f00 = (2.0f * t + 1.0f) * (t - 1.0f) * (t - 1.0f);
+    f01 = (3.0f - 2.0f * t) * t * t;
+    f10 = (1.0f - t) * (1.0f - t) * t;
+    f11 = (t - 1.0f) * t * t;
+    out->x = f00 * p0->x + f01 * p1->x + f10 * m0->x + f11 * m1->x;
+    out->y = f00 * p0->y + f01 * p1->y + f10 * m0->y + f11 * m1->y;
+}
+
 MemoryManager::MemoryManager()
 {
     this->freeBlocksOnExit = 0;

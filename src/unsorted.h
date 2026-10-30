@@ -70,6 +70,12 @@ void SinCos(float *sinOut, float *cosOut, float angle);
 // Rotates `in`'s x and y by `angle` into `out`'s, as th08's (0x42af40).
 void Rotate2D(D3DXVECTOR3 *out, D3DXVECTOR3 *in, float angle);
 
+// The x and y of the cubic Hermite curve from p0 to p1, with tangents
+// m0 and m1, at `time` out of `duration`, as th08's HermiteInterpolate
+// does for one coordinate (0x42af80).
+void HermiteInterpolate(D3DXVECTOR3 *out, D3DXVECTOR3 *p1, D3DXVECTOR3 *p0, D3DXVECTOR3 *m1, D3DXVECTOR3 *m0,
+                        float time, float duration);
+
 // A 2D vector, as th08's.
 struct Vector2
 {
