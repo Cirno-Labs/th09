@@ -194,7 +194,7 @@ address,size,name,symbol
 0x0040f1d0,364,Func40f1d0,
 0x0040f340,373,Func40f340,
 0x0040f4c0,151,Func40f4c0,
-0x0040f560,64,Func40f560,
+0x0040f560,64,Enemy::ReleaseEffects,?ReleaseEffects@Enemy@@QAEXXZ
 0x0040f5a0,56,D3DXVECTOR3::operator/,??KD3DXVECTOR3@@QBE?AU0@M@Z
 0x0040f5e0,91,Func40f5e0,
 0x0040f640,385,Func40f640,

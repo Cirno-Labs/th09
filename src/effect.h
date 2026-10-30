@@ -17,7 +17,10 @@ struct Effect
     void *unknown04;
     unsigned char pad_8[0xac - 0x8];
     Timer unknownAc;
-    unsigned char pad_b8[0xcc - 0xb8];
+    unsigned char pad_b8[0xc6 - 0xb8];
+    // Set to have the effect fade out, as th08's.
+    BYTE fadeOut;
+    unsigned char pad_c7[0xcc - 0xc7];
     void *unknownCc;
     unsigned char pad_d0[0xd4 - 0xd0];
     // The next effect of a list.

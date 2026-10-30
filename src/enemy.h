@@ -181,6 +181,9 @@ struct Enemy
 {
     // Resets the rank speeds and counts, as th08's inline (0x40f180).
     void ResetRankSpeeds();
+    // Fades out and forgets the effects, as th08's ReleaseEnemyEffects
+    // (0x40f560).
+    void ReleaseEffects();
     // Frees the blocks of unknown33d8 (0x4100e0).
     void FreeUnknown33d8();
 
@@ -292,7 +295,8 @@ struct Enemy
     EnemyUnknown1c unknown3e68[0xc2];
     unsigned char pad_53a0[0x53a8 - 0x53a0];
     Timer unknown53a8;
-    unsigned char pad_53b4[0x5414 - 0x53b4];
+    // Effects that follow it, as th08's.
+    struct Effect *effects[0x18];
     int effectCount;
     unsigned char pad_5418[0x5424 - 0x5418];
     Timer unknown5424;

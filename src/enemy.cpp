@@ -1,5 +1,6 @@
 #include <string.h>
 
+#include "effect.h"
 #include "enemy.h"
 #include "gamemanager.h"
 #include "sprite.h"
@@ -13,6 +14,22 @@ void Enemy::ResetRankSpeeds()
     this->rankCount1High = 0;
     this->rankCount2Low = 0;
     this->rankCount2High = 0;
+}
+
+void Enemy::ReleaseEffects()
+{
+    int i;
+
+    for (i = 0; i < this->effectCount; i++)
+    {
+        if (this->effects[i] == NULL)
+        {
+            continue;
+        }
+        this->effects[i]->fadeOut = 1;
+        this->effects[i] = NULL;
+    }
+    this->effectCount = 0;
 }
 
 Enemy *EnemyManager::FindByUnknownType(int type)
