@@ -22,7 +22,7 @@ address,size,name,symbol
 0x004013e0,42,Func4013e0,
 0x00401410,42,Func401410,
 0x00401440,26,Func401440,
-0x00401460,13,Func401460,
+0x00401460,13,App::GetNoFog,?GetNoFog@App@@QAEHXZ
 0x00401470,38,Func401470,
 0x004014a0,15,Timer::Initialize,?Initialize@Timer@@QAEXXZ
 0x004014b0,28,Timer::NextTick,?NextTick@Timer@@QAEHXZ
@@ -553,7 +553,7 @@ address,size,name,symbol
 0x0042c370,267,Func42c370,
 0x0042c480,92,Func42c480,
 0x0042c4e0,210,Func42c4e0,
-0x0042c5c0,153,Func42c5c0,
+0x0042c5c0,153,Log::Printf,
 0x0042c660,153,Func42c660,
 0x0042c700,179,Func42c700,
 0x0042c7e0,186,Func42c7e0,
@@ -622,7 +622,7 @@ address,size,name,symbol
 0x0042f540,543,Func42f540,
 0x0042f760,15,Func42f760,
 0x0042f770,74,Func42f770,
-0x0042f7c0,1054,Func42f7c0,
+0x0042f7c0,1054,App::LoadConfig,
 0x0042fbe0,54,Func42fbe0,
 0x0042fc20,207,Func42fc20,
 0x0042fcf0,53,Func42fcf0,

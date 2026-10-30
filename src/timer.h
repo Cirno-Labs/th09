@@ -19,7 +19,7 @@ struct Timer
     // Sets the count to `frames`, with no previous count (0x4014d0).
     void Set(int frames);
     // Advances by `frames`, scaled by gameSpeed while the game runs slow;
-    // while bit 0x20 of g_App.flags is set, adds the count to the float
+    // while bit 0x20 of g_App.stateFlags is set, adds the count to the float
     // once more and forgets the previous count (0x42f490).
     void Add(float frames);
     // Add, from a whole number of frames (0x406600).
