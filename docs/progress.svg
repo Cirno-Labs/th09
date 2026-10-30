@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.61% (322)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">69.39% (730)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.70% (323)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">69.30% (729)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="228.64" height="6" x="0" y="0" class="named"/>
-<rect width="518.36" height="6" x="228.64" y="0" class="todo"/>
+<rect width="229.35" height="6" x="0" y="0" class="named"/>
+<rect width="517.65" height="6" x="229.35" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -842,7 +842,7 @@
 <rect width="12" height="12" x="330" y="225" class="named"><title>0x00436450 GdiSurface::Create (101 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="225" class="named"><title>0x004364c0 RenderTextToTextureLarge (751 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="225" class="named"><title>0x004367b0 RenderTextToTexture (743 bytes)</title></rect>
-<rect width="12" height="12" x="375" y="225" class="todo"><title>0x00436aa0 Func436aa0 (15 bytes)</title></rect>
+<rect width="12" height="12" x="375" y="225" class="named"><title>0x00436aa0 Acos (15 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="225" class="named"><title>0x00436ab0 Atan (14 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="225" class="todo"><title>0x00436ac0 AnmLoaded::SetSprite (189 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="225" class="todo"><title>0x00436b80 Func436b80 (144 bytes)</title></rect>
@@ -1125,8 +1125,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.77%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.23%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="80.42" height="6" x="0" y="0" class="named"/>
-<rect width="666.58" height="6" x="80.42" y="0" class="todo"/>
+<rect width="80.46" height="6" x="0" y="0" class="named"/>
+<rect width="666.54" height="6" x="80.46" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2086,7 +2086,7 @@
 <rect width="0.48" height="0.70" x="729.57" y="301.95" class="named"><title>0x0042f760 SpriteEngine::ClearDrawStats (15 bytes)</title></rect>
 <rect width="0.48" height="0.70" x="733.06" y="301.95" class="todo"><title>0x00432ea0 Func432ea0 (15 bytes)</title></rect>
 <rect width="0.48" height="0.70" x="736.54" y="301.95" class="named"><title>0x00435af0 AsciiPopup::AsciiPopup (15 bytes)</title></rect>
-<rect width="0.48" height="0.70" x="740.02" y="301.95" class="todo"><title>0x00436aa0 Func436aa0 (15 bytes)</title></rect>
+<rect width="0.48" height="0.70" x="740.02" y="301.95" class="named"><title>0x00436aa0 Acos (15 bytes)</title></rect>
 <rect width="0.25" height="0.70" x="743.50" y="301.95" class="named"><title>0x00401610 SpriteEngine::ResetColorModulation (14 bytes)</title></rect>
 <rect width="0.25" height="0.70" x="746.75" y="301.95" class="named"><title>0x0040c950 EffectManager::Init (14 bytes)</title></rect>
 <rect width="0.52" height="0.42" x="722.61" y="305.66" class="todo"><title>0x0040e470 Func40e470 (14 bytes)</title></rect>

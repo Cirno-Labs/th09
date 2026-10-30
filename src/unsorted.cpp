@@ -803,6 +803,11 @@ float Tan(float angle)
     return (float)tan((double)angle);
 }
 
+float Acos(float x)
+{
+    return (float)acos((double)x);
+}
+
 float Atan(float x)
 {
     return (float)atan((double)x);

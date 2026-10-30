@@ -14,11 +14,13 @@
 // the rest are named wrappers: sqrtf (0x401080), as Sqrt.
 float Sqrt(float x);
 // More of them: atan2f (0x405700), fmodf through _CIfmod (0x405710),
-// fabsf (0x40f1c0), tanf (0x42e900) and atanf (0x436ab0).
+// fabsf (0x40f1c0), tanf (0x42e900), acosf through _CIacos (0x436aa0)
+// and atanf (0x436ab0).
 float Atan2(float y, float x);
 float Fmod(float x, float y);
 float Fabs(float x);
 float Tan(float angle);
+float Acos(float x);
 float Atan(float x);
 
 // The game's random number generator, as th08's, at 0x4ace0c.

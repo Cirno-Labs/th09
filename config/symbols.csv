@@ -774,7 +774,7 @@ address,size,name,symbol
 0x00436450,101,GdiSurface::Create,?Create@GdiSurface@@QAE_NHHH@Z
 0x004364c0,751,RenderTextToTextureLarge,?RenderTextToTextureLarge@@YIXHHHHHHKKPADPAUIDirect3DTexture8@@@Z
 0x004367b0,743,RenderTextToTexture,?RenderTextToTexture@@YIXHHHHHHKKPADPAUIDirect3DTexture8@@@Z
-0x00436aa0,15,Func436aa0,
+0x00436aa0,15,Acos,?Acos@@YIMM@Z
 0x00436ab0,14,Atan,?Atan@@YIMM@Z
 0x00436ac0,189,AnmLoaded::SetSprite,?SetSprite@AnmLoaded@@QAEXPAVSprite@@H@Z
 0x00436b80,144,Func436b80,
@@ -1680,7 +1680,7 @@ address,size,name,symbol
 0x0047cf13,24,Func47cf13,
 0x0047cf2b,21,_purecall,__purecall
 0x0047cf40,672,_memmove,
-0x0047d280,20,Func47d280,
+0x0047d280,20,_CIacos,__CIacos
 0x0047d29d,174,Func47d29d,
 0x0047d350,104,__aulldiv,
 0x0047d3c0,52,__allmul,
