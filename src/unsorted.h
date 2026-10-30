@@ -86,6 +86,10 @@ extern char g_PathBuffer[0x108];
 // the game (0x42adc0).
 char *__stdcall GetDataPath(char *name);
 
+// Whether `path` in g_DataDir can be opened, inside critical section
+// 2, as th08's (0x42c480).
+int FileExists(char *path);
+
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);

@@ -387,6 +387,23 @@ found:
     }
 }
 
+int FileExists(char *path)
+{
+    HANDLE file;
+
+    g_App.EnterCriticalSection(2);
+    file = CreateFileA(GetDataPath(path), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
+                       FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+    if (file != INVALID_HANDLE_VALUE)
+    {
+        CloseHandle(file);
+        g_App.LeaveCriticalSection(2);
+        return 1;
+    }
+    g_App.LeaveCriticalSection(2);
+    return 0;
+}
+
 int LogPrintf(Log *log, const char *fmt, ...)
 {
     int len2;
