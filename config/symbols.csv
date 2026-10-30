@@ -3,7 +3,7 @@ address,size,name,symbol
 0x00401060,12,cosf,@cosf@4
 0x00401070,12,sinf,@sinf@4
 0x00401080,12,Sqrt,?Sqrt@@YIMM@Z
-0x00401090,25,Func401090,
+0x00401090,25,ModulateChannel,?ModulateChannel@@YIEEE@Z
 0x004010b0,26,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@MMM@Z
 0x004010d0,38,Func4010d0,
 0x00401100,54,Func401100,
@@ -37,7 +37,7 @@ address,size,name,symbol
 0x00401600,16,SpriteEngine::SetLastCameraSetupFlag,?SetLastCameraSetupFlag@SpriteEngine@@QAEXE@Z
 0x00401610,14,SpriteEngine::ResetColorModulation,?ResetColorModulation@SpriteEngine@@QAEXXZ
 0x00401620,19,SpriteEngine::SetColorModulation,?SetColorModulation@SpriteEngine@@QAEXK@Z
-0x00401640,27,Func401640,
+0x00401640,27,SpriteEngine::DrawAndFlush,?DrawAndFlush@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00401660,20,SpriteEngine::GetAnm,?GetAnm@SpriteEngine@@QAEPAVAnmLoaded@@H@Z
 0x00401680,46,GameManager::ArenaToScreenX,?ArenaToScreenX@GameManager@@QAEMM@Z
 0x004016b0,46,GameManager::ArenaToScreenY,?ArenaToScreenY@GameManager@@QAEMM@Z
@@ -48,7 +48,7 @@ address,size,name,symbol
 0x004024d0,85,Stage::DeletedCallback,?DeletedCallback@Stage@@SIHPAV1@@Z
 0x00402530,59,Stage::RemoveChain,?RemoveChain@Stage@@SIXPAV1@@Z
 0x00402570,314,Func402570,
-0x004026c0,3274,Func4026c0,
+0x004026c0,3274,Stage::DrawLayer,?DrawLayer@Stage@@QAEXH@Z
 0x00403390,12,Timer::Timer,??0Timer@@QAE@XZ
 0x004033a0,62,SpriteBase::SpriteBase,??0SpriteBase@@QAE@XZ
 0x004033e0,671,Stage::OnDraw,?OnDraw@Stage@@SIHPAV1@@Z
@@ -463,7 +463,7 @@ address,size,name,symbol
 0x00422900,47,ScreenEffect::DeletedCallback,?DeletedCallback@ScreenEffect@@SIHPAV1@@Z
 0x00422930,18,ScreenEffect::Finish,?Finish@ScreenEffect@@QAEXXZ
 0x00422950,15,Func422950,
-0x00422960,527,Func422960,
+0x00422960,527,DrawColorRect,?DrawColorRect@@YIXPAMK@Z
 0x00422b70,89,Func422b70,
 0x00422bd0,62,Func422bd0,
 0x00422c10,62,Func422c10,
@@ -801,7 +801,7 @@ address,size,name,symbol
 0x0043a520,1067,Func43a520,
 0x0043a950,254,SpriteEngine::DrawUnrotated,?DrawUnrotated@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043aa50,254,Func43aa50,
-0x0043ab50,491,Func43ab50,
+0x0043ab50,491,SpriteEngine::Draw,?Draw@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043ad40,658,Func43ad40,
 0x0043afe0,254,Func43afe0,
 0x0043b0e0,88,Func43b0e0,

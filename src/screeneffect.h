@@ -32,3 +32,7 @@ public:
     Timer timer;
 };
 ASSERT_SIZE(ScreenEffect, 0x38);
+
+// Fills `rect` (left, top, right, bottom) with `color`, as th08's
+// (0x422960).
+void DrawColorRect(float *rect, DWORD color);

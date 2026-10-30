@@ -220,6 +220,15 @@ public:
     void Step(Sprite *vm);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
+    // Draws `vm`, as th08's (0x43ab50).
+    int Draw(Sprite *vm);
+    // Draws `vm`, then the batched quads, as th08's. Inline; the copy is
+    // at 0x401640.
+    void DrawAndFlush(Sprite *vm)
+    {
+        this->Draw(vm);
+        this->FlushQuadBatch();
+    }
     // The ANM file in slot `slot`, as th08's (0x401660).
     AnmLoaded *GetAnm(int slot);
     // The image loaded as surface `surface`, as th08's. Inline in th08;
