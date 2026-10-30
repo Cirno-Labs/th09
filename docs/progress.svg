@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.19% (628)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.81% (433)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.28% (629)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.72% (432)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="442.15" height="6" x="0" y="0" class="named"/>
-<rect width="304.85" height="6" x="442.15" y="0" class="todo"/>
+<rect width="442.85" height="6" x="0" y="0" class="named"/>
+<rect width="304.15" height="6" x="442.85" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -447,7 +447,7 @@
 <rect width="12" height="12" x="405" y="105" class="named"><title>0x0041ce60 FreeResources (75 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="105" class="named"><title>0x0041ceb0 PlayerUnknown36c::PlayerUnknown36c (28 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="105" class="named"><title>0x0041ced0 Player::RemoveChain (86 bytes)</title></rect>
-<rect width="12" height="12" x="450" y="105" class="todo"><title>0x0041cf30 Func41cf30 (110 bytes)</title></rect>
+<rect width="12" height="12" x="450" y="105" class="named"><title>0x0041cf30 Player::AllocHitArea (110 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="105" class="todo"><title>0x0041cfa0 Func41cfa0 (55 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="105" class="todo"><title>0x0041cfe0 Func41cfe0 (43 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="105" class="todo"><title>0x0041d010 Func41d010 (61 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.92%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.08%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.96%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.04%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="230.99" height="6" x="0" y="0" class="named"/>
-<rect width="516.01" height="6" x="230.99" y="0" class="todo"/>
+<rect width="231.28" height="6" x="0" y="0" class="named"/>
+<rect width="515.72" height="6" x="231.28" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1641,7 +1641,7 @@
 <rect width="6.56" height="6.95" x="674.36" y="180.55" class="todo"><title>0x004200f0 Func4200f0 (111 bytes)</title></rect>
 <rect width="6.56" height="6.95" x="683.92" y="180.55" class="named"><title>0x0042aed0 AddNormalizeAngle (111 bytes)</title></rect>
 <rect width="6.48" height="6.95" x="693.48" y="180.55" class="todo"><title>0x00413460 Func413460 (110 bytes)</title></rect>
-<rect width="6.48" height="6.95" x="702.96" y="180.55" class="todo"><title>0x0041cf30 Func41cf30 (110 bytes)</title></rect>
+<rect width="6.48" height="6.95" x="702.96" y="180.55" class="named"><title>0x0041cf30 Player::AllocHitArea (110 bytes)</title></rect>
 <rect width="6.48" height="6.95" x="712.44" y="180.55" class="named"><title>0x0043d170 MidiPlayer::Rewind (110 bytes)</title></rect>
 <rect width="6.48" height="6.95" x="721.91" y="180.55" class="todo"><title>0x00441d30 Func441d30 (110 bytes)</title></rect>
 <rect width="6.30" height="6.95" x="731.39" y="180.55" class="named"><title>0x00430230 App::CloseSubThread (108 bytes)</title></rect>

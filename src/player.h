@@ -16,11 +16,26 @@ struct PlayerHitArea
     // Clears active, as th08's (0x41bd90).
     void Deactivate();
 
-    unsigned char pad_0[0x34];
+    float x;
+    float y;
+    // A circle's radius, and what it grows by, as th08's.
+    float radius;
+    float radiusGrowth;
+    // A box's size, as th08's.
+    float width;
+    float height;
+    unsigned char pad_18[0x24 - 0x18];
+    // Counts down, as th08's.
+    int framesLeft;
+    int unknown28;
+    unsigned char pad_2c[0x34 - 0x2c];
     int unknown34;
-    unsigned char pad_38[0x3c - 0x38];
+    // Its shape or kind: 0 and 1 boxes, 2 and 4 circles or boxes as the
+    // adders set it.
+    int kind;
     BYTE active;
-    unsigned char pad_3d[0x44 - 0x3d];
+    unsigned char pad_3d[0x40 - 0x3d];
+    int unknown40;
 };
 ASSERT_SIZE(PlayerHitArea, 0x44);
 
@@ -167,6 +182,10 @@ public:
     void Reset();
     // Sets registerChainArg (0x41bde0).
     void SetRegisterChainArg(BYTE arg);
+    // Takes a free hit area (the last of the free list), or the spare
+    // when one is left, resets it and starts it at `pos` with
+    // `framesLeft` and `unknown40` (0x41cf30).
+    PlayerHitArea *AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unknown40);
     // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
     void SubUnknown30388(float amount);
     // Draws the bullets that hit (state 2) at their positions on the
@@ -202,7 +221,15 @@ public:
     D3DXVECTOR3 posHistory[0x10];
     unsigned char pad_1c60[0x1cec - 0x1c60];
     PlayerOption options[4];
-    unsigned char pad_28bc[0xc11c - 0x28bc];
+    // The hit areas; the last is the spare AllocHitArea hands out when
+    // none is free.
+    PlayerHitArea hitAreas[0x201];
+    // The hit areas in use and the free ones, and how many of each.
+    PlayerHitArea *activeHitAreas[0x202];
+    PlayerHitArea *freeHitAreas[0x202];
+    int activeHitAreaCount;
+    int freeHitAreaCount;
+    unsigned char pad_c118[0xc11c - 0xc118];
     PlayerBullet bullets[0x80];
     PlayerUnknown3031c unknown3031c;
     // The character's shot file (plXX.sht).

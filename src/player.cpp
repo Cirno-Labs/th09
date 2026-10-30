@@ -63,6 +63,31 @@ void Player::RemoveChain(Player *player)
     }
 }
 
+PlayerHitArea *Player::AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unknown40)
+{
+    PlayerHitArea *area;
+
+    if (this->freeHitAreaCount <= 1)
+    {
+        area = &this->hitAreas[0x200];
+    }
+    else
+    {
+        this->freeHitAreaCount--;
+        area = this->freeHitAreas[this->freeHitAreaCount];
+        this->freeHitAreas[this->freeHitAreaCount] = NULL;
+        this->activeHitAreas[this->activeHitAreaCount] = area;
+        this->activeHitAreaCount++;
+    }
+    area->Reset();
+    area->active = 1;
+    area->x = pos->x;
+    area->y = pos->y;
+    area->framesLeft = framesLeft;
+    area->unknown40 = unknown40;
+    return area;
+}
+
 void PlayerUnknown30410::Update()
 {
     if (this->timer20 > 0)
