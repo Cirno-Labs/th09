@@ -50,10 +50,16 @@ public:
     // (bits 5-6 of stateFlags) 1 (0x41a75f).
     static int OnDraw(GameManager *mgr);
     // The update chain callback and its added and deleted callbacks
-    // (0x41aa5f, 0x41b76f, 0x41b82a).
+    // (0x41aa5f, 0x41b76f, 0x41b82a). The added callback, as th08's,
+    // sets App::loadsResources by the scene, sets loadingThreadState,
+    // starts the loading sprites (and, coming from the title, the loading
+    // screen effect), turns the result screen's mode 2 and 3 into 1 and
+    // runs LoadingThread in the sub thread. Returns 0.
     static int OnUpdate(GameManager *mgr);
     static int AddedCallback(GameManager *mgr);
     static int DeletedCallback(GameManager *mgr);
+    // The rest of the added callback, run in the sub thread (0x41af2d).
+    static void LoadingThread(GameManager *arg);
     // Sets up and adds the update and draw chain elements, with
     // priorities 2 and 5, as th08's RegisterGameManagerChain. Returns 0,
     // or -1 if the update element's added callback failed (0x41b9d0).
@@ -101,11 +107,22 @@ public:
     unsigned char pad_114[0x4];
     int mode;
     unsigned char pad_11c[0x124 - 0x11c];
-    int unknown124;
+    // Set while LoadingThread runs, as th08's.
+    int loadingThreadState;
     int unknown128;
     int unknown12c;
     int unknown130;
-    DWORD stateFlags;
+    union
+    {
+        DWORD stateFlags;
+        struct
+        {
+            unsigned int unusedBits134_0 : 5;
+            // The result screen's mode, as th08's: OnDraw returns 3 in
+            // mode 1, and AddedCallback turns 2 and 3 into 1.
+            unsigned int stageEndState : 2;
+        };
+    };
     unsigned char pad_138[0x13c - 0x138];
     // 1 once paused, 2 once the pause was drawn.
     BYTE isPaused;

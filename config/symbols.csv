@@ -342,7 +342,7 @@ address,size,name,symbol
 0x0041a9b8,79,GameManager::SetPlayArea,?SetPlayArea@GameManager@@QAEXXZ
 0x0041aa07,88,GameManager::AddExtend,?AddExtend@GameManager@@QAEXXZ
 0x0041aa5f,1230,GameManager::OnUpdate,?OnUpdate@GameManager@@SIHPAV1@@Z
-0x0041af2d,1689,Func41af2d,
+0x0041af2d,1689,GameManager::LoadingThread,?LoadingThread@GameManager@@SIXPAV1@@Z
 0x0041b5c6,425,Func41b5c6,
 0x0041b76f,187,GameManager::AddedCallback,?AddedCallback@GameManager@@SIHPAV1@@Z
 0x0041b82a,422,GameManager::DeletedCallback,?DeletedCallback@GameManager@@SIHPAV1@@Z
@@ -657,7 +657,7 @@ address,size,name,symbol
 0x004316b0,633,Func4316b0,
 0x00431930,254,Func431930,
 0x00431a30,169,Func431a30,
-0x00431ae0,69,Func431ae0,
+0x00431ae0,69,App::StartSubThread,?StartSubThread@App@@QAEHP6GKPAX@Z0@Z
 0x00431b30,59,Func431b30,
 0x00431b70,405,Func431b70,
 0x00431d10,882,Func431d10,

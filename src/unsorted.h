@@ -352,6 +352,8 @@ struct App
     // Asks the sub thread to close (closeSubThread) and waits for it,
     // as th08's (0x430230).
     void CloseSubThread();
+    // Runs `proc` with `arg` in the sub thread, as th08's (0x431ae0).
+    int StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg);
     // Clears subThread, closeSubThread and unknown6b8 (0x41a997).
     void ResetSubThread();
 
@@ -361,14 +363,24 @@ struct App
     GameConfig config;
     unsigned char pad_454[0x590 - 0x454];
     int scene;
-    unsigned char pad_594[0x5b8 - 0x594];
+    int prevScene;
+    unsigned char pad_598[0x5b8 - 0x598];
     // Below 1 when the game runs slow.
     float gameSpeed;
     MidiPlayer *midi;
     unsigned char pad_5c0[0x5d0 - 0x5c0];
     // The ANM file of the loading sprites.
     AnmLoaded *loadingAnm;
-    DWORD stateFlags;
+    union
+    {
+        DWORD stateFlags;
+        struct
+        {
+            unsigned int unusedBits5d4_0 : 9;
+            // Whether the scene's objects load their resources, as th08's.
+            unsigned int loadsResources : 1;
+        };
+    };
     unsigned char pad_5d8[0x6ac - 0x5d8];
     // The loading thread, as th08's.
     HANDLE subThread;

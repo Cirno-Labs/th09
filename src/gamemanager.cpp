@@ -43,7 +43,7 @@ int GameManager::OnDraw(GameManager *mgr)
     {
         return 3;
     }
-    if (mgr->unknown124 != 0)
+    if (mgr->loadingThreadState != 0)
     {
         return 3;
     }
@@ -169,6 +169,38 @@ void GameManager::AddExtend()
     {
         g_GameManager.sides[0].stats->extendsGiven = 99999;
     }
+}
+
+int GameManager::AddedCallback(GameManager *mgr)
+{
+    if (g_App.scene != 3 && g_App.scene != 12 && g_App.scene != 10)
+    {
+        g_App.loadsResources = 1;
+    }
+    else
+    {
+        g_App.loadsResources = 0;
+    }
+    g_GameManager.loadingThreadState = 1;
+    if (g_App.prevScene == 1)
+    {
+        D3DXVECTOR3 pos(500.0f, 440.0f, 0.0f);
+        g_App.StartLoadingSpritesOverScreen(&pos);
+        g_App.StartLoadingScreenEffect(0);
+    }
+    else
+    {
+        D3DXVECTOR3 pos(280.0f, 430.0f, 0.0f);
+        g_App.StartLoadingSpritesOverScreen(&pos);
+    }
+    if (mgr->stageEndState >= 2)
+    {
+        mgr->stageEndState = 1;
+    }
+    g_App.StartSubThread((LPTHREAD_START_ROUTINE)GameManager::LoadingThread, NULL);
+    g_App.AddTotalPlayTime();
+    g_App.AddPlayTime();
+    return 0;
 }
 
 int GameManager::RegisterChain()
