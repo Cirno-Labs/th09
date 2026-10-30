@@ -329,3 +329,11 @@ int CStreamingSound::UpdateFadeDown()
     }
     return 0;
 }
+
+CWaveFile::CWaveFile()
+{
+    this->format = NULL;
+    m_pwfx = NULL;
+    m_dwSize = 0;
+    m_bIsReadingFromMemory = FALSE;
+}
