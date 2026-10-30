@@ -608,6 +608,55 @@ end:
     return updateCount;
 }
 
+int Chain::RunDrawChain()
+{
+    ChainElem *current;
+    int updateCount;
+    ChainElem *cut;
+    int result;
+
+    updateCount = 0;
+    current = &this->drawChain;
+    g_App.EnterCriticalSection(0);
+    while (current != NULL)
+    {
+        if (current->callback != NULL)
+        {
+        again:
+            g_App.LeaveCriticalSection(0);
+            result = current->callback(current->arg);
+            g_App.EnterCriticalSection(0);
+            switch (result)
+            {
+            case 0:
+                cut = current;
+                current = current->next;
+                this->RemoveLocked(cut);
+                updateCount++;
+                continue;
+            case 2:
+                goto again;
+            case 4:
+                updateCount = 0;
+                goto end;
+            case 3:
+                updateCount = 1;
+                goto end;
+            case 5:
+                updateCount = -1;
+                goto end;
+            default:
+                updateCount++;
+                break;
+            }
+        }
+        current = current->next;
+    }
+end:
+    g_App.LeaveCriticalSection(0);
+    return updateCount;
+}
+
 void Chain::Remove(ChainElem *elem)
 {
     g_App.EnterCriticalSection(0);
