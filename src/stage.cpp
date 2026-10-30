@@ -1,5 +1,10 @@
 #include "stage.h"
 
+void Stage::Reset()
+{
+    this->unknownCcc = 0;
+}
+
 void Stage::RemoveChain(Stage *stage)
 {
     if (stage != NULL)

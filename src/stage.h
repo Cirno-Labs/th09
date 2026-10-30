@@ -18,4 +18,7 @@ public:
     ChainElem *drawElem;
     // A second draw element.
     ChainElem *drawElem2;
+    unsigned char pad_c[0xccc - 0xc];
+    // Cleared by Reset.
+    int unknownCcc;
 };
