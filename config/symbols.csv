@@ -761,7 +761,7 @@ address,size,name,symbol
 0x00435ee0,4,GdiSurface::GetWidthBytes,?GetWidthBytes@GdiSurface@@QAEHXZ
 0x00435ef0,4,GdiSurface::GetWidth,?GetWidth@GdiSurface@@QAEHXZ
 0x00435f00,4,GdiSurface::GetHeight,?GetHeight@GdiSurface@@QAEHXZ
-0x00435f10,11,Func435f10,
+0x00435f10,11,GdiSurface::IsCreated,?IsCreated@GdiSurface@@QAE_NXZ
 0x00435f20,29,Func435f20,
 0x00435f40,78,Func435f40,
 0x00435f90,66,GdiSurface::FindFormat,?FindFormat@GdiSurface@@QAEPAUFormatInfo@@H@Z

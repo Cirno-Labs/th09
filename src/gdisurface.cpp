@@ -34,3 +34,8 @@ int GdiSurface::GetHeight()
 {
     return this->height;
 }
+
+bool GdiSurface::IsCreated()
+{
+    return this->bitmap != NULL;
+}
