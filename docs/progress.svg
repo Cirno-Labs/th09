@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.64% (701)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.80% (361)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.73% (702)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.71% (360)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="490.31" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="490.31" y="0" class="decompiled"/>
-<rect width="252.50" height="6" x="494.50" y="0" class="todo"/>
+<rect width="491.01" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="491.01" y="0" class="decompiled"/>
+<rect width="251.80" height="6" x="495.20" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -235,7 +235,7 @@
 <rect width="12" height="12" x="210" y="45" class="todo"><title>0x0040e080 Func40e080 (71 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="45" class="named"><title>0x0040e0d0 Ending::ReadInt (84 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="45" class="named"><title>0x0040e130 Ending::DrawFade (60 bytes)</title></rect>
-<rect width="12" height="12" x="255" y="45" class="todo"><title>0x0040e170 Func40e170 (287 bytes)</title></rect>
+<rect width="12" height="12" x="255" y="45" class="named"><title>0x0040e170 Ending::UpdateFade (287 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="45" class="named"><title>0x0040e2b0 PlayerInput::IsHeld (17 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="45" class="named"><title>0x0040e2d0 PlayerInput::IsJustPressed (18 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="45" class="todo"><title>0x0040e2f0 Func40e2f0 (115 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.33%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.63%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.43%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.53%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="248.98" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="248.98" y="0" class="decompiled"/>
-<rect width="497.72" height="6" x="249.28" y="0" class="todo"/>
+<rect width="249.72" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="249.72" y="0" class="decompiled"/>
+<rect width="496.99" height="6" x="250.01" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1416,7 +1416,7 @@
 <rect width="13.03" height="12.66" x="504.20" y="107.19" class="todo"><title>0x0041cb50 Func41cb50 (293 bytes)</title></rect>
 <rect width="13.03" height="12.66" x="504.20" y="122.85" class="todo"><title>0x00443300 Func443300 (293 bytes)</title></rect>
 <rect width="13.03" height="12.39" x="504.20" y="138.50" class="todo"><title>0x00407200 Func407200 (288 bytes)</title></rect>
-<rect width="13.03" height="12.34" x="504.20" y="153.89" class="todo"><title>0x0040e170 Func40e170 (287 bytes)</title></rect>
+<rect width="13.03" height="12.34" x="504.20" y="153.89" class="named"><title>0x0040e170 Ending::UpdateFade (287 bytes)</title></rect>
 <rect width="13.03" height="12.23" x="504.20" y="169.23" class="todo"><title>0x0042d4d0 Func42d4d0 (285 bytes)</title></rect>
 <rect width="13.03" height="12.23" x="504.20" y="184.45" class="named"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
 <rect width="13.03" height="12.12" x="504.20" y="199.68" class="named"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>

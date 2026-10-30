@@ -21,6 +21,9 @@ public:
     // Draws the fade over the screen, if it shows. Where th08 stepped the
     // fade here, this only draws it (0x40e130).
     void DrawFade();
+    // Steps the fade, as th08's DrawFade did before drawing it
+    // (0x40e170).
+    void UpdateFade();
     // The draw chain element's callback: draws the background, the
     // sprites and the fade, as th08's. Returns 1 (0x40e480).
     static int OnDraw(Ending *ending);

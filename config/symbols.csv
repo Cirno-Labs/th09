@@ -166,7 +166,7 @@ address,size,name,symbol
 0x0040e080,71,Func40e080,
 0x0040e0d0,84,Ending::ReadInt,?ReadInt@Ending@@QAEHXZ
 0x0040e130,60,Ending::DrawFade,?DrawFade@Ending@@QAEXXZ
-0x0040e170,287,Func40e170,
+0x0040e170,287,Ending::UpdateFade,?UpdateFade@Ending@@QAEXXZ
 0x0040e2b0,17,PlayerInput::IsHeld,?IsHeld@PlayerInput@@QAEGG@Z
 0x0040e2d0,18,PlayerInput::IsJustPressed,?IsJustPressed@PlayerInput@@QAEGG@Z
 0x0040e2f0,115,Func40e2f0,

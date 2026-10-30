@@ -37,6 +37,60 @@ void Ending::DrawFade()
     }
 }
 
+void Ending::UpdateFade()
+{
+    int a;
+
+    switch (this->fadeType)
+    {
+    case 1:
+        if (this->fadeTimer >= this->fadeDuration)
+        {
+            this->fadeType = 0;
+            this->fadeColor = 0;
+            break;
+        }
+        a = 0xff - this->fadeTimer * 0xff / this->fadeDuration;
+        this->fadeColor = a << 24;
+        this->fadeTimer++;
+        break;
+    case 2:
+        if (this->fadeTimer >= this->fadeDuration)
+        {
+            this->fadeColor = 0xff000000;
+            break;
+        }
+        a = this->fadeTimer * 0xff / this->fadeDuration;
+        this->fadeColor = a << 24;
+        this->fadeTimer++;
+        break;
+    case 3:
+        if (this->fadeTimer >= this->fadeDuration)
+        {
+            this->fadeType = 0;
+            this->fadeColor = 0;
+            break;
+        }
+        a = 0xff - this->fadeTimer * 0xff / this->fadeDuration;
+        this->fadeColor = a << 24 | 0xffffff;
+        this->fadeTimer++;
+        break;
+    case 4:
+        if (this->fadeTimer >= this->fadeDuration)
+        {
+            this->fadeColor = 0xffffffff;
+            break;
+        }
+        a = this->fadeTimer * 0xff / this->fadeDuration;
+        this->fadeColor = a << 24 | 0xffffff;
+        this->fadeTimer++;
+        break;
+    case 0:
+        this->fadeColor = 0;
+        break;
+    }
+}
+
 int Ending::OnDraw(Ending *ending)
 {
     int i;
