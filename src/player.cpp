@@ -138,6 +138,25 @@ int Player::CheckHitCircle(D3DXVECTOR3 *pos, float radius)
     return 1;
 }
 
+int Player::TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
+{
+    D3DXVECTOR3 start;
+    D3DXVECTOR3 end;
+
+    if (this->unknown0 != 0 && this->unknown0 != 3)
+    {
+        return 0;
+    }
+    start = *pos - *size / 2.0f;
+    end = *pos + *size / 2.0f;
+    if (this->grazeTestMin.x > end.x || this->grazeTestMax.x < start.x || this->grazeTestMin.y > end.y ||
+        this->grazeTestMax.y < start.y)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 int Player::OnDraw2(Player *player)
 {
     g_App.SetView(player->sideIdx);

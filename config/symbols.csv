@@ -367,7 +367,7 @@ address,size,name,symbol
 0x0041bde0,13,Player::SetRegisterChainArg,?SetRegisterChainArg@Player@@QAEXE@Z
 0x0041bdf0,121,Player::CheckHitBox,?CheckHitBox@Player@@QAEHPAUD3DXVECTOR3@@0@Z
 0x0041be70,106,Player::CheckHitCircle,?CheckHitCircle@Player@@QAEHPAUD3DXVECTOR3@@M@Z
-0x0041bee0,209,Func41bee0,
+0x0041bee0,209,Player::TouchesGrazeBox,?TouchesGrazeBox@Player@@QAEHPAUD3DXVECTOR3@@0@Z
 0x0041bfc0,422,Func41bfc0,
 0x0041c170,1832,Func41c170,
 0x0041c8e0,273,Func41c8e0,

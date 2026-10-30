@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.83% (656)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.17% (405)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.02% (658)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.98% (403)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="461.86" height="6" x="0" y="0" class="named"/>
-<rect width="285.14" height="6" x="461.86" y="0" class="todo"/>
+<rect width="463.27" height="6" x="0" y="0" class="named"/>
+<rect width="283.73" height="6" x="463.27" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -256,7 +256,7 @@
 <rect width="12" height="12" x="540" y="45" class="todo"><title>0x0040f340 Func40f340 (373 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="45" class="todo"><title>0x0040f4c0 Func40f4c0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="45" class="todo"><title>0x0040f560 Func40f560 (64 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="45" class="todo"><title>0x0040f5a0 D3DXVECTOR3::operator/ (56 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="45" class="named"><title>0x0040f5a0 D3DXVECTOR3::operator/ (56 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="45" class="todo"><title>0x0040f5e0 Func40f5e0 (91 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="45" class="todo"><title>0x0040f640 Func40f640 (385 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="45" class="todo"><title>0x0040f7d0 Func40f7d0 (62 bytes)</title></rect>
@@ -435,7 +435,7 @@
 <rect width="12" height="12" x="225" y="105" class="named"><title>0x0041bde0 Player::SetRegisterChainArg (13 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="105" class="named"><title>0x0041bdf0 Player::CheckHitBox (121 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="105" class="named"><title>0x0041be70 Player::CheckHitCircle (106 bytes)</title></rect>
-<rect width="12" height="12" x="270" y="105" class="todo"><title>0x0041bee0 Func41bee0 (209 bytes)</title></rect>
+<rect width="12" height="12" x="270" y="105" class="named"><title>0x0041bee0 Player::TouchesGrazeBox (209 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="105" class="todo"><title>0x0041bfc0 Func41bfc0 (422 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="105" class="todo"><title>0x0041c170 Func41c170 (1832 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="105" class="todo"><title>0x0041c8e0 Func41c8e0 (273 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.10%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.90%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.19%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.81%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="239.75" height="6" x="0" y="0" class="named"/>
-<rect width="507.25" height="6" x="239.75" y="0" class="todo"/>
+<rect width="240.43" height="6" x="0" y="0" class="named"/>
+<rect width="506.57" height="6" x="240.43" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1480,7 +1480,7 @@
 <rect width="10.88" height="10.04" x="533.97" y="294.01" class="named"><title>0x00424edd MainMenu::SelectEntryStep (211 bytes)</title></rect>
 <rect width="10.88" height="9.97" x="533.97" y="307.05" class="todo"><title>0x0040d520 Func40d520 (210 bytes)</title></rect>
 <rect width="10.88" height="9.97" x="533.97" y="320.03" class="named"><title>0x0042c4e0 WriteToFile (210 bytes)</title></rect>
-<rect width="10.74" height="10.05" x="547.85" y="120.90" class="todo"><title>0x0041bee0 Func41bee0 (209 bytes)</title></rect>
+<rect width="10.74" height="10.05" x="547.85" y="120.90" class="named"><title>0x0041bee0 Player::TouchesGrazeBox (209 bytes)</title></rect>
 <rect width="10.74" height="10.05" x="561.59" y="120.90" class="named"><title>0x004244a9 MainMenu::DrawState12 (209 bytes)</title></rect>
 <rect width="10.74" height="10.05" x="575.32" y="120.90" class="todo"><title>0x00443a30 Func443a30 (209 bytes)</title></rect>
 <rect width="10.67" height="10.05" x="589.06" y="120.90" class="todo"><title>0x0043e1f0 SoundPlayer::FindTrackIndex (208 bytes)</title></rect>
@@ -1816,7 +1816,7 @@
 <rect width="4.06" height="4.04" x="735.88" y="232.22" class="named"><title>0x00414fe0 Bullet::Bullet (58 bytes)</title></rect>
 <rect width="4.06" height="4.04" x="742.94" y="232.22" class="named"><title>0x0043e090 MidiPlayer::~MidiPlayer (58 bytes)</title></rect>
 <rect width="4.08" height="3.90" x="655.78" y="239.26" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>
-<rect width="4.08" height="3.78" x="655.78" y="246.16" class="todo"><title>0x0040f5a0 D3DXVECTOR3::operator/ (56 bytes)</title></rect>
+<rect width="4.08" height="3.78" x="655.78" y="246.16" class="named"><title>0x0040f5a0 D3DXVECTOR3::operator/ (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="252.95" class="named"><title>0x00414fa0 BulletTypeSprites::BulletTypeSprites (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="259.73" class="named"><title>0x0041a380 GuiSide::StartUnknown6ee8 (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="266.51" class="named"><title>0x0042fec0 App::EnableFog (56 bytes)</title></rect>
