@@ -264,6 +264,8 @@ public:
     // Renders printf-style text into `sprite`'s texture, as th08's
     // (0x43bdc0).
     void RenderText(Sprite *sprite, D3DCOLOR textColor, D3DCOLOR shadowColor, char *fmt, ...);
+    // RenderText, centred in the sprite, as th08's (0x43be50).
+    void RenderTextCentered(Sprite *vm, D3DCOLOR color, D3DCOLOR shadowColor, char *fmt, ...);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).

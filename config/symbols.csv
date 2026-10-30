@@ -819,7 +819,7 @@ address,size,name,symbol
 0x0043bcb0,138,AnmLoaded::LoadSprite,?LoadSprite@AnmLoaded@@QAEXHPAUSpriteData@@@Z
 0x0043bd40,127,SpriteEngine::RenderTextToTextureIndex,?RenderTextToTextureIndex@SpriteEngine@@QAEXPAUIDirect3DTexture8@@HHHHHHKKPADMM@Z
 0x0043bdc0,139,SpriteEngine::RenderText,?RenderText@SpriteEngine@@QAAXPAVSprite@@KKPADZZ
-0x0043be50,217,Func43be50,
+0x0043be50,217,SpriteEngine::RenderTextCentered,?RenderTextCentered@SpriteEngine@@QAAXPAVSprite@@KKPADZZ
 0x0043bf30,97,Func43bf30,
 0x0043bfa0,304,Func43bfa0,
 0x0043c0d0,294,Func43c0d0,
