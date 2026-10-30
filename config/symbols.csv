@@ -61,7 +61,7 @@ address,size,name,symbol
 0x00403c30,91,Func403c30,
 0x00403c90,91,Func403c90,
 0x00403cf0,100,Func403cf0,
-0x00403d60,31,RunEndCallbacks,
+0x00403d60,31,RunEndCallbacks,?RunEndCallbacks@@YIHPAVSpellCard@@@Z
 0x00403d80,12,SpellCard::Reset,?Reset@SpellCard@@QAEXXZ
 0x00403d90,71,Func403d90,
 0x00403de0,20,Timer::operator>,??OTimer@@QAEHH@Z
@@ -214,7 +214,7 @@ address,size,name,symbol
 0x00411d50,35,EnemyManager::OnDraw,?OnDraw@EnemyManager@@SIHPAV1@@Z
 0x00411d80,38,EnemyManager::OnDraw2,?OnDraw2@EnemyManager@@SIHPAV1@@Z
 0x00411db0,372,EnemyManager::AddedCallback,?AddedCallback@EnemyManager@@SIHPAV1@@Z
-0x00411f30,68,FreeResources,
+0x00411f30,68,FreeResources,?FreeResources@@YIHPAVEnemyManager@@@Z
 0x00411f80,74,EnemyManager::RemoveChain,?RemoveChain@EnemyManager@@SIXPAV1@@Z
 0x00411fd0,177,EnemyManager::Reset,?Reset@EnemyManager@@QAEXXZ
 0x00412090,15,EclManager::EclManager,??0EclManager@@QAE@XZ
@@ -275,7 +275,7 @@ address,size,name,symbol
 0x00415340,279,ExAttackManager::OnUpdate,?OnUpdate@ExAttackManager@@SIHPAV1@@Z
 0x00415460,272,ExAttackManager::OnDraw,?OnDraw@ExAttackManager@@SIHPAV1@@Z
 0x00415580,190,ExAttackManager::OnDraw2,?OnDraw2@ExAttackManager@@SIHPAV1@@Z
-0x00415650,70,FreeAttacks,
+0x00415650,70,FreeAttacks,?FreeAttacks@@YIHPAVExAttackManager@@@Z
 0x004156a0,66,ExAttackManager::RemoveChain,?RemoveChain@ExAttackManager@@SIXPAV1@@Z
 0x004156f0,88,ExAttackManager::Reset,?Reset@ExAttackManager@@QAEXXZ
 0x00415750,66,ExAttackManager::AddedCallback,?AddedCallback@ExAttackManager@@SIHPAV1@@Z
@@ -316,7 +316,7 @@ address,size,name,symbol
 0x004187b0,143,Gui::Gui,??0Gui@@QAE@XZ
 0x00418840,220,Gui::RegisterChain,?RegisterChain@Gui@@SIPAV1@XZ
 0x00418920,14,GuiSide::Init,?Init@GuiSide@@QAEXXZ
-0x00418930,26,FreeResources,
+0x00418930,26,FreeResources,?FreeResources@@YIHPAVGuiSide@@@Z
 0x00418950,319,Func418950,
 0x00418a90,2367,GuiSide::OnUpdate,?OnUpdate@GuiSide@@SIHPAV1@@Z
 0x004193e0,3074,GuiSide::OnDraw,?OnDraw@GuiSide@@SIHPAV1@@Z
@@ -376,7 +376,7 @@ address,size,name,symbol
 0x0041cc80,320,Func41cc80,
 0x0041cdc0,31,Func41cdc0,
 0x0041cde0,114,Func41cde0,
-0x0041ce60,75,FreeResources,
+0x0041ce60,75,FreeResources,?FreeResources@@YIHPAVPlayer@@@Z
 0x0041ceb0,28,Func41ceb0,
 0x0041ced0,86,Player::RemoveChain,?RemoveChain@Player@@SIXPAV1@@Z
 0x0041cf30,110,Func41cf30,
@@ -434,7 +434,7 @@ address,size,name,symbol
 0x004205e0,591,Func4205e0,
 0x00420830,15,Func420830,
 0x00420840,540,ReplayManager::AddedCallbackMode1,?AddedCallbackMode1@ReplayManager@@SIHPAV1@@Z
-0x00420a60,104,FreeResources,
+0x00420a60,104,FreeResources,?FreeResources@@YIHPAVReplayManager@@@Z
 0x00420ad0,318,Func420ad0,
 0x00420c10,42,ReplayManager::RemoveChain,?RemoveChain@ReplayManager@@SIXPAV1@@Z
 0x00420c40,18,Func420c40,
