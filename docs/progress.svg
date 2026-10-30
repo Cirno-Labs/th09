@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">29.85% (314)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">70.15% (738)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">29.94% (315)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">70.06% (737)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="222.96" height="6" x="0" y="0" class="named"/>
-<rect width="524.04" height="6" x="222.96" y="0" class="todo"/>
+<rect width="223.67" height="6" x="0" y="0" class="named"/>
+<rect width="523.33" height="6" x="223.67" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -883,7 +883,7 @@
 <rect width="12" height="12" x="195" y="240" class="todo"><title>0x0043b9c0 Func43b9c0 (472 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="240" class="todo"><title>0x0043bba0 Func43bba0 (50 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="240" class="todo"><title>0x0043bbe0 Func43bbe0 (150 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="240" class="todo"><title>0x0043bc80 Func43bc80 (48 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="240" class="named"><title>0x0043bc80 SpriteEngine::ReleaseTexture (48 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="240" class="todo"><title>0x0043bcb0 Func43bcb0 (138 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="240" class="named"><title>0x0043bd40 SpriteEngine::RenderTextToTextureIndex (127 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="240" class="named"><title>0x0043bdc0 SpriteEngine::RenderText (139 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.20%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.80%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.22%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">89.78%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="76.20" height="6" x="0" y="0" class="named"/>
-<rect width="670.80" height="6" x="76.20" y="0" class="todo"/>
+<rect width="76.32" height="6" x="0" y="0" class="named"/>
+<rect width="670.68" height="6" x="76.32" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1848,7 +1848,7 @@
 <rect width="3.42" height="3.57" x="663.52" y="326.43" class="todo"><title>0x0043fce0 CStreamingSound::UpdateFadeIn (49 bytes)</title></rect>
 <rect width="3.42" height="3.56" x="669.94" y="246.71" class="todo"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
 <rect width="3.29" height="3.56" x="676.36" y="246.71" class="named"><title>0x004100e0 Enemy::FreeUnknown33d8 (48 bytes)</title></rect>
-<rect width="3.29" height="3.56" x="682.65" y="246.71" class="todo"><title>0x0043bc80 Func43bc80 (48 bytes)</title></rect>
+<rect width="3.29" height="3.56" x="682.65" y="246.71" class="named"><title>0x0043bc80 SpriteEngine::ReleaseTexture (48 bytes)</title></rect>
 <rect width="3.16" height="3.56" x="688.94" y="246.71" class="named"><title>0x004120d0 EnemyUnknown22c::EnemyUnknown22c (47 bytes)</title></rect>
 <rect width="3.16" height="3.56" x="695.10" y="246.71" class="named"><title>0x0041ba4f GameManager::Init (47 bytes)</title></rect>
 <rect width="3.16" height="3.56" x="701.25" y="246.71" class="named"><title>0x00422900 ScreenEffect::DeletedCallback (47 bytes)</title></rect>

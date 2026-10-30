@@ -248,6 +248,9 @@ public:
     int DrawUnrotated(Sprite *vm);
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
+    // Releases `tex`'s texture and frees its image, as th08's
+    // (0x43bc80).
+    void ReleaseTexture(AnmTexture *tex);
     // Renders `text` into `texture`, its font sizes 15 when not
     // positive and scaled by `scaleX` and `scaleY`, as th08's; fonts of
     // 8 pixels or less are drawn 8 by 8 with RenderTextToTexture

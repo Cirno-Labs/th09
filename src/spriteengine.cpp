@@ -93,6 +93,19 @@ void AnmLoaded::SetScript(Sprite *vm, void *script)
     }
 }
 
+void SpriteEngine::ReleaseTexture(AnmTexture *tex)
+{
+    if (tex->texture != NULL)
+    {
+        tex->texture->Release();
+        tex->texture = NULL;
+    }
+    if (tex->data != NULL)
+    {
+        g_MemoryManager.Free(tex->data);
+    }
+}
+
 void SpriteEngine::RenderTextToTextureIndex(IDirect3DTexture8 *texture, int x, int y, int width, int unused,
                                             int fontHeight, int destHeight, D3DCOLOR textColor, D3DCOLOR shadowColor,
                                             char *text, float scaleX, float scaleY)
