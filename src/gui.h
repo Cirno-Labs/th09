@@ -7,7 +7,7 @@
 #include "sprite.h"
 #include "timer.h"
 
-// The dialogue state. Only the fields known so far.
+// The dialogue state (0x1d70 bytes). Only the fields known so far.
 struct GuiMsg
 {
     // Unloads the music the scripts from `firstScript` on, ten of them,
@@ -15,6 +15,27 @@ struct GuiMsg
     void UnloadBgm(int firstScript);
 
     void *msgFile;
+    unsigned char pad_4[0x14 - 0x4];
+    Sprite portraits[8];
+    Sprite unknown1534[2];
+    Sprite unknown1a7c;
+    unsigned char pad_1d20[0x1d40 - 0x1d20];
+    Timer unknown1d40;
+    unsigned char pad_1d4c[0x1d58 - 0x1d4c];
+    Timer unknown1d58;
+    unsigned char pad_1d64[0x1d70 - 0x1d64];
+};
+ASSERT_SIZE(GuiMsg, 0x1d70);
+
+// Something of 0x14 bytes with an empty constructor; the linker folded
+// it with D3DXVECTOR3's (0x4343d0).
+struct GuiUnknownE86c
+{
+    GuiUnknownE86c()
+    {
+    }
+
+    unsigned char pad_0[0x14];
 };
 
 // The front (0x1293c bytes), at GameManager::unknownA8. Only the fields
@@ -22,6 +43,20 @@ struct GuiMsg
 class Gui
 {
 public:
+    // Zeroes the front. Inline; the copy is at 0x415d40.
+    void Init()
+    {
+        memset(this, 0, sizeof(Gui));
+    }
+    // The update chain callback and its added callback, and the draw
+    // chain callback (0x417630, 0x418480, 0x417c10).
+    static int OnUpdate(Gui *gui);
+    static int AddedCallback(Gui *gui);
+    static int OnDraw(Gui *gui);
+    // Creates the front, zeroed, and adds its update element (priority
+    // 0x16) and draw element (0x1c). Returns it, or NULL if adding fails
+    // (0x418840).
+    static Gui *RegisterChain();
     // Has the dialogue unload its music if the game frees its resources.
     // Returns 0 (0x418270).
     static int FreeResources(Gui *gui);
@@ -35,9 +70,18 @@ public:
     ChainElem *drawElem;
     // SpellCard::Reset copies it.
     int unknown08;
-    unsigned char pad_c[0xe944 - 0xc];
+    Sprite unknownC[0x58];
+    GuiUnknownE86c unknownE86c[10];
+    unsigned char pad_e934[0xe944 - 0xe934];
     GuiMsg msg;
+    Sprite unknown106b4;
+    unsigned char pad_10958[0x10968 - 0x10958];
+    Sprite unknown10968[8];
+    unsigned char pad_11e88[0x11eac - 0x11e88];
+    Sprite unknown11eac[2];
+    Sprite unknown123f4[2];
 };
+ASSERT_SIZE(Gui, 0x1293c);
 
 struct GameSide;
 

@@ -27,6 +27,24 @@ void Gui::RemoveChain(Gui *gui)
     }
 }
 
+Gui *Gui::RegisterChain()
+{
+    Gui *gui = (Gui *)g_MemoryManager.Register(new Gui(), sizeof(Gui), "FrontInf");
+
+    gui->Init();
+    gui->calcElem = g_Chain.CreateElem((ChainCallback)Gui::OnUpdate);
+    gui->calcElem->arg = gui;
+    gui->calcElem->addedCallback = (ChainCallback)Gui::AddedCallback;
+    if (g_Chain.AddToCalcChain(gui->calcElem, 0x16) != 0)
+    {
+        return NULL;
+    }
+    gui->drawElem = g_Chain.CreateElem((ChainCallback)Gui::OnDraw);
+    gui->drawElem->arg = gui;
+    g_Chain.AddToDrawChain(gui->drawElem, 0x1c);
+    return gui;
+}
+
 // Unloads ANM slot 7 if the side's front has unknownA678.unknown4 set. Returns 0.
 // Static, with the side in eax (0x418930).
 static int FreeResources(GuiSide *side)
