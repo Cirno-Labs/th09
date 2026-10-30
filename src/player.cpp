@@ -262,6 +262,39 @@ void Player::SubUnknown30388(float amount)
     }
 }
 
+void FireShot(Player *player, PlayerBullet *bullet, ShotData *sd)
+{
+    if (sd->option == 0)
+    {
+        bullet->pos = player->pos;
+    }
+    else
+    {
+        bullet->pos = player->options[sd->option - 1].pos;
+    }
+    bullet->pos[0] += sd->offsetX;
+    bullet->pos[1] += sd->offsetY;
+    bullet->pos[2] = 0.495f;
+    bullet->size.x = sd->sizeX;
+    bullet->size.y = sd->sizeY;
+    bullet->size.z = 1.0f;
+    bullet->angle = sd->angle;
+    bullet->speed = sd->speed;
+    bullet->velocity.x = cosf(sd->angle) * sd->speed;
+    bullet->velocity.y = sinf(sd->angle) * sd->speed;
+    bullet->timer = 0;
+    bullet->unknown470 = 0;
+    bullet->type = sd->type;
+    bullet->damage = sd->damage;
+    bullet->script = sd->script;
+    if (sd->sound >= 0)
+    {
+        g_SoundPlayer.QueueSoundPanned(sd->sound, player->pos.x);
+    }
+    player->anm->StartScript(&bullet->sprite, sd->script + 5);
+    bullet->unknown46e = 0;
+}
+
 int TryFireShot(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
     if (frame == sd->frame)

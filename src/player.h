@@ -78,7 +78,8 @@ ASSERT_SIZE(PlayerUnknown36c, 0x1804);
 struct PlayerOption
 {
     Sprite sprite;
-    unsigned char pad_2a4[0x2e0 - 0x2a4];
+    D3DXVECTOR3 pos;
+    unsigned char pad_2b0[0x2e0 - 0x2b0];
     Timer timer;
     unsigned char pad_2ec[0x2f4 - 0x2ec];
 };
@@ -91,17 +92,29 @@ struct PlayerBullet
     Sprite sprite;
     D3DXVECTOR3 pos;
     D3DXVECTOR3 trail[0x20];
-    unsigned char pad_430[0x450 - 0x430];
+    D3DXVECTOR3 size;
+    // D3DVECTOR, as th08's.
+    D3DVECTOR velocity;
+    unsigned char pad_448[0x44c - 0x448];
+    float speed;
     // The direction it flies in.
     float angle;
     Timer timer;
     short damage;
     // 0 unused, 1 flying, 2 hit, as th08's.
     short state;
-    unsigned char pad_464[0x46e - 0x464];
-    // Drawn blue while it is hit.
+    // ShotData::type.
+    short type;
+    unsigned char pad_466[0x46c - 0x466];
+    // Its script, from 5.
+    short script;
+    // Drawn blue while it is hit; cleared when fired, where th08 set
+    // its red flag.
     BYTE unknown46e;
-    unsigned char pad_46f[0x484 - 0x46f];
+    unsigned char pad_46f[0x470 - 0x46f];
+    // Cleared when fired, where th08 copied the player's focus.
+    short unknown470;
+    unsigned char pad_472[0x484 - 0x472];
 };
 ASSERT_SIZE(PlayerBullet, 0x484);
 
@@ -267,11 +280,29 @@ public:
 };
 ASSERT_SIZE(Player, 0x30f70);
 
-// One shot of a shot file. Only the fields known so far.
+// One shot of a shot file, th08's ShotData with the frame it fires
+// on in place of its interval. Only the fields known so far.
 struct ShotData
 {
     // The frame it fires on.
     short frame;
+    unsigned char pad_2[0x4 - 0x2];
+    // Where it starts, from the player or its option.
+    float offsetX;
+    float offsetY;
+    float sizeX;
+    float sizeY;
+    float angle;
+    float speed;
+    short damage;
+    unsigned char pad_1e[0x20 - 0x1e];
+    // 0 for the player, else the option, from 1.
+    short option;
+    // PlayerBullet::type.
+    short type;
+    // Its script, from 5, and its sound or -1.
+    short script;
+    short sound;
 };
 
 // Fills `bullet` with shot `sd` and starts it, as th08's (0x41f350).
