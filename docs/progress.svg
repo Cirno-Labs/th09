@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.23% (543)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.77% (517)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.32% (544)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.68% (516)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="382.66" height="6" x="0" y="0" class="named"/>
-<rect width="364.34" height="6" x="382.66" y="0" class="todo"/>
+<rect width="383.37" height="6" x="0" y="0" class="named"/>
+<rect width="363.63" height="6" x="383.37" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -693,7 +693,7 @@
 <rect width="12" height="12" x="345" y="180" class="todo"><title>0x0042ee90 Func42ee90 (94 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="180" class="todo"><title>0x0042eef0 Func42eef0 (517 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="180" class="named"><title>0x0042f100 OpenGameArchive (145 bytes)</title></rect>
-<rect width="12" height="12" x="390" y="180" class="todo"><title>0x0042f1a0 MeasureRefreshRate (517 bytes)</title></rect>
+<rect width="12" height="12" x="390" y="180" class="named"><title>0x0042f1a0 MeasureRefreshRate (517 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="180" class="todo"><title>0x0042f3b0 Func42f3b0 (18 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="180" class="todo"><title>0x0042f3d0 Func42f3d0 (31 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="180" class="named"><title>0x0042f400 SpriteEngine::GetSurface (17 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.06%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.94%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.24%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.76%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="202.12" height="6" x="0" y="0" class="named"/>
-<rect width="544.88" height="6" x="202.12" y="0" class="todo"/>
+<rect width="203.45" height="6" x="0" y="0" class="named"/>
+<rect width="543.55" height="6" x="203.45" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1269,7 +1269,7 @@
 <rect width="18.53" height="18.03" x="520.13" y="0" class="todo"><title>0x00422960 DrawColorRect (527 bytes)</title></rect>
 <rect width="18.37" height="18.03" x="541.66" y="0" class="todo"><title>0x00421c80 Func421c80 (523 bytes)</title></rect>
 <rect width="18.12" height="18.03" x="563.03" y="0" class="todo"><title>0x0042eef0 Func42eef0 (517 bytes)</title></rect>
-<rect width="18.12" height="18.03" x="584.15" y="0" class="todo"><title>0x0042f1a0 MeasureRefreshRate (517 bytes)</title></rect>
+<rect width="18.12" height="18.03" x="584.15" y="0" class="named"><title>0x0042f1a0 MeasureRefreshRate (517 bytes)</title></rect>
 <rect width="18.08" height="18.03" x="605.28" y="0" class="todo"><title>0x00407e30 Func407e30 (516 bytes)</title></rect>
 <rect width="17.84" height="18.03" x="626.36" y="0" class="todo"><title>0x00407c30 Func407c30 (510 bytes)</title></rect>
 <rect width="17.67" height="18.03" x="647.20" y="0" class="named"><title>0x0042a7d1 MainMenu::UpdateState6 (506 bytes)</title></rect>

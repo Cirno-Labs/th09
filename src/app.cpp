@@ -157,6 +157,90 @@ int OpenGameArchive()
     return 0;
 }
 
+int MeasureRefreshRate()
+{
+    int count;
+    int before;
+    int ticks;
+    float values[30];
+    int validCount;
+    float fpsRate;
+    int interval;
+    int nowTime;
+    float sum;
+    int k;
+
+    count = 0;
+    ticks = 0;
+    validCount = 0;
+    timeBeginPeriod(1);
+    before = timeGetTime();
+    timeEndPeriod(1);
+    while (count < 600 && validCount < 4)
+    {
+        g_App.d3dDevice->BeginScene();
+        g_SpriteEngine->CopySurfaceToBackBuffer(8, 0, 0, 0, 0);
+        g_App.d3dDevice->EndScene();
+        if (FAILED(g_App.d3dDevice->Present(NULL, NULL, NULL, NULL)))
+        {
+            g_App.d3dDevice->Reset(&g_App.presentParams);
+        }
+        count++;
+        timeBeginPeriod(1);
+        nowTime = timeGetTime();
+        timeEndPeriod(1);
+        ticks++;
+        interval = nowTime - before;
+        if (interval >= 700)
+        {
+            before = nowTime;
+            ticks = 0;
+        }
+        else if (interval >= 500)
+        {
+            fpsRate = ticks * 1000.0f / interval;
+            if (fpsRate >= 57.0f)
+            {
+                values[validCount] = fpsRate;
+                validCount++;
+            }
+            before = nowTime;
+            ticks = 0;
+        }
+    }
+    if (!g_App.GetNoVsync())
+    {
+        sum = 0.0f;
+        if (validCount >= 2)
+        {
+            for (k = 0; k < validCount; k++)
+            {
+                sum += values[k];
+            }
+            sum /= k;
+        }
+        else
+        {
+            sum = 1000.0f;
+        }
+        if (sum > 160.0f)
+        {
+            LogPrintf(&g_Log, "垂直同期が取れてないか、リフレッシュレートが高すぎます\r\n");
+            LogPrintf(&g_Log, "強制６０フレームモードで動作します\r\n");
+            g_App.noVsync = 1;
+            return -2;
+        }
+        else if (sum >= 65.0f)
+        {
+            LogPrintf(&g_Log, "垂直同期が取れてないか、リフレッシュレートが高すぎます。\r\n");
+            LogPrintf(&g_Log, "強制６０フレームモードで動作します\r\n");
+            g_App.noVsync = 1;
+            return -2;
+        }
+    }
+    return 0;
+}
+
 int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight,
                                         int dstLeft, int dstTop, int dstWidth, int dstHeight)
 {
