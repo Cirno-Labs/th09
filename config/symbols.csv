@@ -493,7 +493,7 @@ address,size,name,symbol
 0x004244a9,209,Func4244a9,
 0x0042457a,135,MainMenu::MoveCursor,?MoveCursor@MainMenu@@QAEHH@Z
 0x00424601,112,MainMenu::MoveCursorLR,?MoveCursorLR@MainMenu@@QAEHH@Z
-0x00424671,217,Func424671,
+0x00424671,217,MainMenu::MoveCursor4,?MoveCursor4@MainMenu@@QAEHH@Z
 0x0042474a,167,Func42474a,
 0x004247f1,167,Func4247f1,
 0x00424898,329,Func424898,
