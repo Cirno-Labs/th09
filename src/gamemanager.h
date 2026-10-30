@@ -81,8 +81,12 @@ public:
     // or -1 if the update element's added callback failed (0x41b9d0).
     static int RegisterChain();
     // The screen position of `x` or `y` in the play area of the view
-    // App::SetView set last (0x401680, 0x4016b0).
-    float ArenaToScreenX(float x);
+    // App::SetView set last. Inline; the copies are the stage's object's
+    // (0x401680, 0x4016b0).
+    float ArenaToScreenX(float x)
+    {
+        return g_App.camera->viewport.X + x - this->arena[0];
+    }
     float ArenaToScreenY(float y);
     // Whether a `width` by `height` box centred on (`x`, `y`) touches the
     // play area, as th08's; th09's is centred on x = 0 (0x41a6eb).

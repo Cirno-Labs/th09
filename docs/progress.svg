@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.42% (545)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.58% (515)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.51% (546)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.49% (514)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="384.07" height="6" x="0" y="0" class="named"/>
-<rect width="362.93" height="6" x="384.07" y="0" class="todo"/>
+<rect width="384.78" height="6" x="0" y="0" class="named"/>
+<rect width="362.22" height="6" x="384.78" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -107,7 +107,7 @@
 <rect width="12" height="12" x="555" y="0" class="named"><title>0x00401620 SpriteEngine::SetColorModulation (19 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="0" class="named"><title>0x00401640 SpriteEngine::DrawAndFlush (27 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="0" class="named"><title>0x00401660 SpriteEngine::GetAnm (20 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="0" class="todo"><title>0x00401680 GameManager::ArenaToScreenX (46 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="0" class="named"><title>0x00401680 GameManager::ArenaToScreenX (46 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="0" class="todo"><title>0x004016b0 GameManager::ArenaToScreenY (46 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="0" class="todo"><title>0x004016e0 Func4016e0 (423 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="0" class="todo"><title>0x004018a0 Func4018a0 (79 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.25%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.75%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.26%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.74%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="203.53" height="6" x="0" y="0" class="named"/>
-<rect width="543.47" height="6" x="203.53" y="0" class="todo"/>
+<rect width="203.65" height="6" x="0" y="0" class="named"/>
+<rect width="543.35" height="6" x="203.65" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1864,7 +1864,7 @@
 <rect width="3.54" height="3.18" x="663.01" y="296.32" class="named"><title>0x00423469 SpriteEngine::HasTexture (47 bytes)</title></rect>
 <rect width="3.54" height="3.18" x="663.01" y="302.50" class="todo"><title>0x0042acb0 Func42acb0 (47 bytes)</title></rect>
 <rect width="3.54" height="3.18" x="663.01" y="308.68" class="named"><title>0x00430500 App::StartLoadingScreenEffect (47 bytes)</title></rect>
-<rect width="3.54" height="3.05" x="663.01" y="314.86" class="todo"><title>0x00401680 GameManager::ArenaToScreenX (46 bytes)</title></rect>
+<rect width="3.54" height="3.05" x="663.01" y="314.86" class="named"><title>0x00401680 GameManager::ArenaToScreenX (46 bytes)</title></rect>
 <rect width="3.54" height="3.05" x="663.01" y="320.90" class="todo"><title>0x004016b0 GameManager::ArenaToScreenY (46 bytes)</title></rect>
 <rect width="3.54" height="3.05" x="663.01" y="326.95" class="named"><title>0x00422f39 MainMenu::SetState (46 bytes)</title></rect>
 <rect width="3.33" height="3.25" x="669.54" y="252.28" class="named"><title>0x0042c8c0 Chain::Remove (46 bytes)</title></rect>
