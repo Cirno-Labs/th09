@@ -880,6 +880,7 @@ address,size,name,symbol
 0x0043e420,7,Func43e420,
 0x0043e430,4,Func43e430,
 0x0043e440,38,Func43e440,
+0x0043e470,34,SoundPlayer::SoundPlayer,??0SoundPlayer@@QAE@XZ
 0x0043e4a0,49,Func43e4a0,
 0x0043e4e0,23,Func43e4e0,
 0x0043e500,613,Func43e500,

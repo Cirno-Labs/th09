@@ -79,3 +79,14 @@ void SoundPlayer::QueueSoundPanned(int idx, float x)
     this->queueArgs[i][0] = pan;
     this->queueArgCounts[i]++;
 }
+
+SoundPlayer::SoundPlayer()
+{
+    int i;
+
+    memset(this, 0, sizeof(*this));
+    for (i = 0; i < 0x80; i++)
+    {
+        this->queuedSound[i] = -1;
+    }
+}
