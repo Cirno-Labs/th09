@@ -97,6 +97,9 @@ float *ResolveFloatOperand(Enemy *enemy, float *operand, WORD mask, int bit);
 // The interpolation loops' linear function, as th08's: sets args[8] to
 // t of the way from args[4] to args[5] (0x407450).
 void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t);
+// The Hermite one, from args[4] to args[5] with the slopes args[6] and
+// args[7], as th08's (0x4074a0).
+void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t);
 
 // The state of an enemy's ECL script, as th08's EnemyScriptState (0x22c
 // bytes). Only the fields known so far; its implicit constructor is at

@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.70% (691)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.74% (371)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.79% (692)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.64% (370)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="483.31" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="483.31" y="0" class="decompiled"/>
-<rect width="259.49" height="6" x="487.51" y="0" class="todo"/>
+<rect width="484.01" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="484.01" y="0" class="decompiled"/>
+<rect width="258.79" height="6" x="488.21" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -183,7 +183,7 @@
 <rect width="12" height="12" x="180" y="30" class="todo"><title>0x00407200 Func407200 (288 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="30" class="todo"><title>0x00407320 Func407320 (296 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="30" class="named"><title>0x00407450 ScriptMoveLinear (74 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="30" class="todo"><title>0x004074a0 Func4074a0 (188 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="30" class="named"><title>0x004074a0 ScriptMoveHermite (188 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="30" class="todo"><title>0x00407560 Func407560 (157 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="30" class="todo"><title>0x00407600 Func407600 (255 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="30" class="todo"><title>0x00407700 Func407700 (842 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.03%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.93%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.09%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.87%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="246.73" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="246.73" y="0" class="decompiled"/>
-<rect width="499.97" height="6" x="247.03" y="0" class="todo"/>
+<rect width="247.21" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="247.21" y="0" class="decompiled"/>
+<rect width="499.49" height="6" x="247.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1522,7 +1522,7 @@
 <rect width="9.58" height="9.93" x="548.87" y="307.13" class="todo"><title>0x00415580 ExAttackManager::OnDraw2 (190 bytes)</title></rect>
 <rect width="9.58" height="9.93" x="548.87" y="320.07" class="named"><title>0x0041f4c0 FireShots (190 bytes)</title></rect>
 <rect width="9.79" height="9.66" x="561.45" y="133.49" class="named"><title>0x00436ac0 AnmLoaded::SetSprite (189 bytes)</title></rect>
-<rect width="9.72" height="9.66" x="574.24" y="133.49" class="todo"><title>0x004074a0 Func4074a0 (188 bytes)</title></rect>
+<rect width="9.72" height="9.66" x="574.24" y="133.49" class="named"><title>0x004074a0 ScriptMoveHermite (188 bytes)</title></rect>
 <rect width="9.72" height="9.66" x="586.97" y="133.49" class="todo"><title>0x0040f9b0 Func40f9b0 (188 bytes)</title></rect>
 <rect width="9.72" height="9.66" x="599.69" y="133.49" class="named"><title>0x0042b350 Chain::RemoveLocked (188 bytes)</title></rect>
 <rect width="9.72" height="9.66" x="612.41" y="133.49" class="named"><title>0x0042c7e0 Chain::RunDrawChain (188 bytes)</title></rect>

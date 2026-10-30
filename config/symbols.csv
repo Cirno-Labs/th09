@@ -114,7 +114,7 @@ address,size,name,symbol
 0x00407200,288,Func407200,
 0x00407320,296,Func407320,
 0x00407450,74,ScriptMoveLinear,?ScriptMoveLinear@@YIXPAUEnemy@@PAUEclInstr@@M@Z
-0x004074a0,188,Func4074a0,
+0x004074a0,188,ScriptMoveHermite,?ScriptMoveHermite@@YIXPAUEnemy@@PAUEclInstr@@M@Z
 0x00407560,157,Func407560,
 0x00407600,255,Func407600,
 0x00407700,842,Func407700,
