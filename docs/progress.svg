@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.60% (131)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">87.40% (909)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.69% (132)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">87.31% (908)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="94.09" height="6" x="0" y="0" class="named"/>
-<rect width="652.91" height="6" x="94.09" y="0" class="todo"/>
+<rect width="94.81" height="6" x="0" y="0" class="named"/>
+<rect width="652.19" height="6" x="94.81" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -404,7 +404,7 @@
 <rect width="12" height="12" x="510" y="90" class="named"><title>0x0041a889 ChainElem::SetCallback (21 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="90" class="named"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="90" class="named"><title>0x0041a8a2 GameConfig::SetDefaults (233 bytes)</title></rect>
-<rect width="12" height="12" x="555" y="90" class="todo"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
+<rect width="12" height="12" x="555" y="90" class="named"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="90" class="todo"><title>0x0041a997 Func41a997 (21 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="90" class="todo"><title>0x0041a9ac Func41a9ac (12 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="90" class="todo"><title>0x0041a9b8 Func41a9b8 (79 bytes)</title></rect>
@@ -1113,8 +1113,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">2.76%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">97.24%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="20.60" height="6" x="0" y="0" class="named"/>
-<rect width="726.40" height="6" x="20.60" y="0" class="todo"/>
+<rect width="20.63" height="6" x="0" y="0" class="named"/>
+<rect width="726.37" height="6" x="20.63" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2095,7 +2095,7 @@
 <rect width="0.26" height="0.10" x="730.42" y="295.78" class="todo"><title>0x00403d80 Func403d80 (12 bytes)</title></rect>
 <rect width="0.26" height="0.10" x="733.68" y="295.78" class="named"><title>0x0040f1c0 Fabs (12 bytes)</title></rect>
 <rect width="0.26" height="0.10" x="736.95" y="295.78" class="todo"><title>0x0040f8b0 Func40f8b0 (12 bytes)</title></rect>
-<rect width="0.26" height="0.10" x="740.21" y="295.78" class="todo"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
+<rect width="0.26" height="0.10" x="740.21" y="295.78" class="named"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
 <rect width="0.26" height="0.10" x="743.47" y="295.78" class="todo"><title>0x0041a9ac Func41a9ac (12 bytes)</title></rect>
 <rect width="0.26" height="0.10" x="746.74" y="295.78" class="todo"><title>0x0041ee20 Func41ee20 (12 bytes)</title></rect>
 <rect width="0.10" height="0.24" x="730.42" y="298.82" class="todo"><title>0x00421e90 Func421e90 (12 bytes)</title></rect>

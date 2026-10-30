@@ -138,3 +138,8 @@ void GameConfig::SetDefaults()
     this->unknownB8 = 1;
     this->unknownB9 = 2;
 }
+
+GameConfig::GameConfig()
+{
+    this->SetDefaults();
+}
