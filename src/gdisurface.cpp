@@ -14,3 +14,8 @@ int GdiSurface::GetFormat()
 {
     return this->format;
 }
+
+HDC GdiSurface::GetHdc()
+{
+    return this->hdc;
+}

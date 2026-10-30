@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.90% (283)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.10% (769)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27% (284)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73% (768)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="200.95" height="6" x="0" y="0" class="named"/>
-<rect width="546.05" height="6" x="200.95" y="0" class="todo"/>
+<rect width="201.66" height="6" x="0" y="0" class="named"/>
+<rect width="545.34" height="6" x="201.66" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -825,7 +825,7 @@
 <rect width="12" height="12" x="75" y="225" class="named"><title>0x00435dc0 AsciiText::AsciiText (227 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="225" class="named"><title>0x00435eb0 GdiSurface::GetBits (4 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="225" class="named"><title>0x00435ec0 GdiSurface::GetFormat (3 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="225" class="todo"><title>0x00435ed0 Func435ed0 (4 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="225" class="named"><title>0x00435ed0 GdiSurface::GetHdc (4 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="225" class="todo"><title>0x00435ee0 Func435ee0 (4 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="225" class="todo"><title>0x00435ef0 Func435ef0 (4 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="225" class="todo"><title>0x00435f00 Func435f00 (4 bytes)</title></rect>
@@ -1125,8 +1125,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.48%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.52%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="63.31" height="6" x="0" y="0" class="named"/>
-<rect width="683.69" height="6" x="63.31" y="0" class="todo"/>
+<rect width="63.32" height="6" x="0" y="0" class="named"/>
+<rect width="683.68" height="6" x="63.32" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2169,7 +2169,7 @@
 <rect width="0.10" height="0.10" x="742.95" y="328.10" class="named"><title>0x004014f0 Timer::AsFloat (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="742.95" y="329.73" class="named"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="742.95" y="331.37" class="named"><title>0x00435eb0 GdiSurface::GetBits (4 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="745.05" y="326.05" class="todo"><title>0x00435ed0 Func435ed0 (4 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="745.05" y="326.05" class="named"><title>0x00435ed0 GdiSurface::GetHdc (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.70" y="326.05" class="todo"><title>0x00435ee0 Func435ee0 (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.35" y="326.05" class="todo"><title>0x00435ef0 Func435ef0 (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="745.05" y="328.14" class="todo"><title>0x00435f00 Func435f00 (4 bytes)</title></rect>
