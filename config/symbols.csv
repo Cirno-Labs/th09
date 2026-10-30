@@ -621,7 +621,7 @@ address,size,name,symbol
 0x0042ed70,14,App::HasSubThread,?HasSubThread@App@@QAEHXZ
 0x0042ed80,71,App::OnDrawLoading,?OnDrawLoading@App@@SIHPAU1@@Z
 0x0042edd0,93,EnumJoysticksCallback,?EnumJoysticksCallback@@YGHPBUDIDEVICEINSTANCEA@@PAX@Z
-0x0042ee30,94,Func42ee30,
+0x0042ee30,94,EnumAxesCallback,?EnumAxesCallback@@YGHPBUDIDEVICEOBJECTINSTANCEA@@PAX@Z
 0x0042ee90,94,Func42ee90,
 0x0042eef0,517,Func42eef0,
 0x0042f100,145,OpenGameArchive,?OpenGameArchive@@YIHXZ
