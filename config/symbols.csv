@@ -504,7 +504,7 @@ address,size,name,symbol
 0x00424dff,150,MainMenu::SelectEntry,?SelectEntry@MainMenu@@QAEXHHH@Z
 0x00424e95,72,MainMenu::ShowEntryFrame,?ShowEntryFrame@MainMenu@@QAEXHH@Z
 0x00424edd,211,MainMenu::SelectEntryStep,?SelectEntryStep@MainMenu@@QAEXHHHH@Z
-0x00424fb0,175,Func424fb0,
+0x00424fb0,175,MainMenu::SelectEntry2,?SelectEntry2@MainMenu@@QAEXHHHH@Z
 0x0042505f,175,Func42505f,
 0x0042510e,85,Func42510e,
 0x00425163,168,Func425163,
