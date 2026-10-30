@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.40% (129)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">87.60% (911)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.50% (130)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">87.50% (910)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="92.66" height="6" x="0" y="0" class="named"/>
-<rect width="654.34" height="6" x="92.66" y="0" class="todo"/>
+<rect width="93.38" height="6" x="0" y="0" class="named"/>
+<rect width="653.62" height="6" x="93.38" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -402,7 +402,7 @@
 <rect width="12" height="12" x="480" y="90" class="named"><title>0x0041a7c3 GameManager::ResetState (100 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="90" class="named"><title>0x0041a827 RemoveGameManagerChain (98 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="90" class="named"><title>0x0041a889 ChainElem::SetCallback (21 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="90" class="todo"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="90" class="named"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="90" class="todo"><title>0x0041a8a2 GameConfig::SetDefaults (233 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="90" class="todo"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="90" class="todo"><title>0x0041a997 Func41a997 (21 bytes)</title></rect>
@@ -1113,8 +1113,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">2.68%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">97.32%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="19.99" height="6" x="0" y="0" class="named"/>
-<rect width="727.01" height="6" x="19.99" y="0" class="todo"/>
+<rect width="20" height="6" x="0" y="0" class="named"/>
+<rect width="727" height="6" x="20" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2143,7 +2143,7 @@
 <rect width="0.10" height="0.10" x="741.87" y="311.71" class="todo"><title>0x0041bd90 Func41bd90 (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="741.87" y="313.95" class="todo"><title>0x00436300 Func436300 (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="741.87" y="316.20" class="named"><title>0x004014f0 Timer::AsFloat (4 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="743.70" y="311.71" class="todo"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="743.70" y="311.71" class="named"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="743.70" y="313.80" class="todo"><title>0x00435eb0 Func435eb0 (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="743.70" y="315.90" class="todo"><title>0x00435ed0 Func435ed0 (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="745.28" y="311.71" class="todo"><title>0x00435ee0 Func435ee0 (4 bytes)</title></rect>

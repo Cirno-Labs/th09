@@ -103,3 +103,8 @@ void ChainElem::SetCallback(ChainCallback callback)
     this->addedCallback = NULL;
     this->deletedCallback = NULL;
 }
+
+WORD Rng::GetSeed()
+{
+    return this->seed;
+}
