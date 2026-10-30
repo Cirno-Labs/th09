@@ -117,6 +117,19 @@ int App::GetNoTextRenderDetect()
     return this->config.flags.noTextRenderDetect;
 }
 
+int App::OnDrawLoading(App *app)
+{
+    DWORD i;
+
+    for (i = 0; i < 3; i++)
+    {
+        g_LoadingSprites[i].pos += g_LoadingSprites[i].posOffset;
+        g_SpriteEngine->Draw(&g_LoadingSprites[i]);
+        g_LoadingSprites[i].pos -= g_LoadingSprites[i].posOffset;
+    }
+    return 1;
+}
+
 IDirect3DSurface8 *SpriteEngine::GetSurface(int surface)
 {
     return this->surfaces[surface];
