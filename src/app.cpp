@@ -746,6 +746,17 @@ int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
     return this->subThread != NULL ? 0 : -1;
 }
 
+int App::OnDraw(App *app)
+{
+    DrawFps(1);
+    if (app->unknown478 != 0)
+    {
+        g_App.SetView(2);
+        g_SpriteEngine->DrawUnrotated(g_App.unknown584);
+    }
+    return 1;
+}
+
 int App::RegisterChain()
 {
     App *app = &g_App;

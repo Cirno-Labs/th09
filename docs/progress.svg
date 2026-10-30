@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.57% (536)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">49.43% (524)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.66% (537)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">49.34% (523)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="377.73" height="6" x="0" y="0" class="named"/>
-<rect width="369.27" height="6" x="377.73" y="0" class="todo"/>
+<rect width="378.43" height="6" x="0" y="0" class="named"/>
+<rect width="368.57" height="6" x="378.43" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -733,11 +733,11 @@
 <rect width="12" height="12" x="195" y="195" class="todo"><title>0x00431110 App::OnUpdate (844 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="195" class="todo"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="195" class="todo"><title>0x00431680 Func431680 (33 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="195" class="todo"><title>0x004316b0 Func4316b0 (633 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="195" class="todo"><title>0x004316b0 DrawFps (633 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="195" class="todo"><title>0x00431930 App::PlayMusic (254 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="195" class="todo"><title>0x00431a30 Func431a30 (169 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="195" class="named"><title>0x00431ae0 App::StartSubThread (69 bytes)</title></rect>
-<rect width="12" height="12" x="300" y="195" class="todo"><title>0x00431b30 App::OnDraw (59 bytes)</title></rect>
+<rect width="12" height="12" x="300" y="195" class="named"><title>0x00431b30 App::OnDraw (59 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="195" class="todo"><title>0x00431b70 App::DeletedCallback (405 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="195" class="todo"><title>0x00431d10 Func431d10 (882 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="195" class="todo"><title>0x00432090 App::AddedCallback (238 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.76%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">73.24%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.78%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">73.22%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="199.87" height="6" x="0" y="0" class="named"/>
-<rect width="547.13" height="6" x="199.87" y="0" class="todo"/>
+<rect width="200.02" height="6" x="0" y="0" class="named"/>
+<rect width="546.98" height="6" x="200.02" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1242,7 +1242,7 @@
 <rect width="20.80" height="21.22" x="386.06" y="150.74" class="named"><title>0x004033e0 Stage::OnDraw (671 bytes)</title></rect>
 <rect width="20.80" height="20.75" x="386.06" y="174.96" class="named"><title>0x0043ad40 SpriteEngine::DrawRotatedNoRound (658 bytes)</title></rect>
 <rect width="20.80" height="19.96" x="386.06" y="198.72" class="todo"><title>0x00441f90 Func441f90 (636 bytes)</title></rect>
-<rect width="20.80" height="19.85" x="386.06" y="221.68" class="todo"><title>0x004316b0 Func4316b0 (633 bytes)</title></rect>
+<rect width="20.80" height="19.85" x="386.06" y="221.68" class="todo"><title>0x004316b0 DrawFps (633 bytes)</title></rect>
 <rect width="20.80" height="19.45" x="386.06" y="244.52" class="named"><title>0x00439820 SpriteEngine::ProjectSprite (622 bytes)</title></rect>
 <rect width="20.80" height="19.16" x="386.06" y="266.98" class="named"><title>0x0043e770 SoundPlayer::LoadSound (614 bytes)</title></rect>
 <rect width="20.80" height="19.13" x="386.06" y="289.14" class="named"><title>0x0043e500 SoundPlayer::Initialize (613 bytes)</title></rect>
@@ -1809,7 +1809,7 @@
 <rect width="4.05" height="4.19" x="648.90" y="275.98" class="named"><title>0x00402530 Stage::RemoveChain (59 bytes)</title></rect>
 <rect width="4.05" height="4.19" x="648.90" y="283.17" class="named"><title>0x0041a1d0 GuiSide::RemoveChain (59 bytes)</title></rect>
 <rect width="4.05" height="4.19" x="648.90" y="290.36" class="named"><title>0x00420470 ReplayManager::OnUpdateMode1b (59 bytes)</title></rect>
-<rect width="4.05" height="4.19" x="648.90" y="297.54" class="todo"><title>0x00431b30 App::OnDraw (59 bytes)</title></rect>
+<rect width="4.05" height="4.19" x="648.90" y="297.54" class="named"><title>0x00431b30 App::OnDraw (59 bytes)</title></rect>
 <rect width="4.05" height="4.19" x="648.90" y="304.73" class="named"><title>0x0043cf90 SpriteEngine::LoadAnm (59 bytes)</title></rect>
 <rect width="4.05" height="4.07" x="648.90" y="311.92" class="named"><title>0x00414fe0 Bullet::Bullet (58 bytes)</title></rect>
 <rect width="4.05" height="4.07" x="648.90" y="318.99" class="named"><title>0x0043e090 MidiPlayer::~MidiPlayer (58 bytes)</title></rect>

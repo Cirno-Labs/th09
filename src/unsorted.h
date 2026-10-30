@@ -83,6 +83,9 @@ extern JOYCAPSA g_JoyCaps[2];
 
 // Releases every key in the keyboard state, as th08's (0x42ad70).
 void ResetKeyboard();
+// Counts the frame and, every half second, measures the frame rate, as
+// th08's; shows it if `draw` is set (0x4316b0).
+void DrawFps(int draw);
 // Reads player `player`'s keyboard and pad buttons into
 // g_PlayerInputs[player] and returns them (0x42b850).
 WORD ReadInput(int player);
@@ -709,7 +712,9 @@ struct App
     // Each side's ten records, ordered by value, and its last one.
     RunRecord records[2][10];
     RunRecord lastRecords[2];
-    unsigned char pad_584[0x58c - 0x584];
+    // Drawn by OnDraw while unknown478 is set.
+    Sprite *unknown584;
+    unsigned char pad_588[0x58c - 0x588];
     // The scene running, as th08's.
     int curScene;
     // The scene to go to.

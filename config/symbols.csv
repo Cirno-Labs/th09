@@ -665,7 +665,7 @@ address,size,name,symbol
 0x00431110,844,App::OnUpdate,?OnUpdate@App@@SIHPAU1@@Z
 0x00431540,312,App::OnDrawLogo,?OnDrawLogo@App@@SIHPAU1@@Z
 0x00431680,33,Func431680,
-0x004316b0,633,Func4316b0,
+0x004316b0,633,DrawFps,?DrawFps@@YIXH@Z
 0x00431930,254,App::PlayMusic,?PlayMusic@App@@QAEHHH@Z
 0x00431a30,169,Func431a30,
 0x00431ae0,69,App::StartSubThread,?StartSubThread@App@@QAEHP6GKPAX@Z0@Z
