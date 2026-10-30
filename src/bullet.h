@@ -53,6 +53,9 @@ struct Bullet
     // Sets command `i` to flag 0x10, as th08's: speeding up by `arg0`
     // towards `arg1` for `frames` (0x412680).
     void SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1);
+    // Sets command `i` to flag 0x20000, which runs for `frames`, as
+    // th08's (0x4126b0).
+    void SetCommand20000(int i, int concurrent, int frames);
 
     unsigned char pad_0[0x4];
     BulletTypeSprites sprites;
