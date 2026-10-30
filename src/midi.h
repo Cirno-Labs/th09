@@ -174,7 +174,7 @@ public:
     // empty, otherwise 0.
     int ParseFile(int slot);
     // Loads and parses a MIDI file through the scratch slot 31. Returns -1
-    // if it cannot be loaded, otherwise 0.
+    // if it cannot be loaded, otherwise 0 (0x43e130).
     int Load(char *path);
     // Handles the next event of a track and reads the time of the one
     // after.

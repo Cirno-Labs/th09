@@ -870,7 +870,7 @@ address,size,name,symbol
 0x0043de90,505,MidiPlayer::OnTimer,?OnTimer@MidiPlayer@@UAEXXZ
 0x0043e090,58,MidiPlayer::~MidiPlayer,??1MidiPlayer@@QAE@XZ
 0x0043e0d0,94,MidiPlayer::LoadFile,?LoadFile@MidiPlayer@@QAEHHPAD@Z
-0x0043e130,54,Func43e130,
+0x0043e130,54,MidiPlayer::Load,?Load@MidiPlayer@@QAEHPAD@Z
 0x0043e170,33,Func43e170,
 0x0043e1a0,74,Func43e1a0,
 0x0043e1f0,208,Func43e1f0,
