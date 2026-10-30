@@ -47,6 +47,37 @@ void ReadInputs()
     ReadInput(2);
 }
 
+void App::AddRecord(int side, int value, WORD unknown, WORD seed)
+{
+    int i;
+    int j;
+
+    this->lastRecords[side].value = value;
+    this->lastRecords[side].unknown0 = unknown;
+    this->lastRecords[side].seed = seed;
+    for (i = 0; i < 10; i++)
+    {
+        if (this->records[side][i].value == 0 || this->records[side][i].value > value)
+        {
+            break;
+        }
+    }
+    if (this->records[side][i].value != 0 && i < 9)
+    {
+        for (j = 9; j > i; j--)
+        {
+            this->records[side][j].unknown0 = this->records[side][j - 1].unknown0;
+            this->records[side][j].seed = this->records[side][j - 1].seed;
+            this->records[side][j].value = this->records[side][j - 1].value;
+            this->records[side][j].unknown8 = this->records[side][j - 1].unknown8;
+        }
+    }
+    this->records[side][i].unknown0 = unknown;
+    this->records[side][i].value = value;
+    this->records[side][i].seed = seed;
+    this->records[side][i].unknown8 = 0;
+}
+
 void App::ResetRun()
 {
     this->unknown458 = 0;
