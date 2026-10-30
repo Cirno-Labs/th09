@@ -115,6 +115,17 @@ void SpriteEngine::ResetFrameState()
     this->shakeX = 0.0f;
 }
 
+int App::EnableFog()
+{
+    g_SpriteEngine->FlushQuadBatch();
+    if (this->fogState != 1)
+    {
+        this->fogState = 1;
+        return this->d3dDevice->SetRenderState(D3DRS_FOGENABLE, TRUE);
+    }
+    return 0;
+}
+
 int App::CheckVersionFile(char *version, DWORD size, DWORD checksum)
 {
     DWORD size2;

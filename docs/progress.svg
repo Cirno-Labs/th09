@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">9.91% (103)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">90.09% (936)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">10.01% (104)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">89.99% (935)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="74.05" height="6" x="0" y="0" class="named"/>
-<rect width="672.95" height="6" x="74.05" y="0" class="todo"/>
+<rect width="74.77" height="6" x="0" y="0" class="named"/>
+<rect width="672.23" height="6" x="74.77" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -698,7 +698,7 @@
 <rect width="12" height="12" x="420" y="180" class="todo"><title>0x0042fd30 Func42fd30 (81 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="180" class="todo"><title>0x0042fd90 Func42fd90 (130 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="180" class="todo"><title>0x0042fe20 Func42fe20 (148 bytes)</title></rect>
-<rect width="12" height="12" x="465" y="180" class="todo"><title>0x0042fec0 Func42fec0 (56 bytes)</title></rect>
+<rect width="12" height="12" x="465" y="180" class="named"><title>0x0042fec0 App::EnableFog (56 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="180" class="todo"><title>0x0042ff00 Func42ff00 (56 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="180" class="todo"><title>0x0042ff40 Func42ff40 (42 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="180" class="todo"><title>0x0042ff70 Func42ff70 (233 bytes)</title></rect>
@@ -843,7 +843,7 @@
 <rect width="12" height="12" x="345" y="225" class="named"><title>0x004395a0 AnmLoaded::SetScript (143 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="225" class="todo"><title>0x00439630 Func439630 (66 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="225" class="todo"><title>0x00439680 Func439680 (29 bytes)</title></rect>
-<rect width="12" height="12" x="390" y="225" class="todo"><title>0x004396a0 Func4396a0 (137 bytes)</title></rect>
+<rect width="12" height="12" x="390" y="225" class="todo"><title>0x004396a0 SpriteEngine::FlushQuadBatch (137 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="225" class="todo"><title>0x00439730 Func439730 (165 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="225" class="todo"><title>0x004397e0 Func4397e0 (49 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="225" class="todo"><title>0x00439820 Func439820 (622 bytes)</title></rect>
@@ -1110,10 +1110,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">1.46%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">98.54%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">1.48%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">98.52%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="10.90" height="6" x="0" y="0" class="named"/>
-<rect width="736.10" height="6" x="10.90" y="0" class="todo"/>
+<rect width="11.05" height="6" x="0" y="0" class="named"/>
+<rect width="735.95" height="6" x="11.05" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.74" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1567,7 +1567,7 @@
 <rect width="7.42" height="8.02" x="739.58" y="151.68" class="todo"><title>0x0044ab90 Func44ab90 (139 bytes)</title></rect>
 <rect width="7.60" height="7.75" x="590.52" y="162.70" class="todo"><title>0x0041db90 Func41db90 (138 bytes)</title></rect>
 <rect width="7.60" height="7.75" x="590.52" y="173.44" class="todo"><title>0x0043bcb0 Func43bcb0 (138 bytes)</title></rect>
-<rect width="7.60" height="7.67" x="590.52" y="184.19" class="todo"><title>0x004396a0 Func4396a0 (137 bytes)</title></rect>
+<rect width="7.60" height="7.67" x="590.52" y="184.19" class="todo"><title>0x004396a0 SpriteEngine::FlushQuadBatch (137 bytes)</title></rect>
 <rect width="7.60" height="7.67" x="590.52" y="194.86" class="todo"><title>0x00441a70 Func441a70 (137 bytes)</title></rect>
 <rect width="7.60" height="7.51" x="590.52" y="205.53" class="todo"><title>0x0042457a Func42457a (135 bytes)</title></rect>
 <rect width="7.60" height="7.51" x="590.52" y="216.05" class="todo"><title>0x00440650 Func440650 (135 bytes)</title></rect>
@@ -1789,7 +1789,7 @@
 <rect width="3.82" height="3.78" x="709.22" y="223.27" class="todo"><title>0x0040f5a0 Func40f5a0 (56 bytes)</title></rect>
 <rect width="3.82" height="3.78" x="716.04" y="223.27" class="todo"><title>0x00414fa0 Func414fa0 (56 bytes)</title></rect>
 <rect width="3.82" height="3.78" x="722.85" y="223.27" class="todo"><title>0x0041a380 Func41a380 (56 bytes)</title></rect>
-<rect width="3.82" height="3.78" x="729.67" y="223.27" class="todo"><title>0x0042fec0 Func42fec0 (56 bytes)</title></rect>
+<rect width="3.82" height="3.78" x="729.67" y="223.27" class="named"><title>0x0042fec0 App::EnableFog (56 bytes)</title></rect>
 <rect width="3.82" height="3.78" x="736.49" y="223.27" class="todo"><title>0x0042ff00 Func42ff00 (56 bytes)</title></rect>
 <rect width="3.70" height="3.78" x="743.30" y="223.27" class="todo"><title>0x0041cfa0 Func41cfa0 (55 bytes)</title></rect>
 <rect width="3.58" height="3.90" x="659.43" y="230.05" class="todo"><title>0x0041f2c0 Func41f2c0 (55 bytes)</title></rect>

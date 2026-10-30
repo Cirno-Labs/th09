@@ -141,6 +141,9 @@ struct App
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();
+    // Flushes the sprites and turns fog on unless fogState is 1 already,
+    // as th08's; returns SetRenderState's result, or 0 (0x42fec0).
+    int EnableFog();
     // Returns 0 if verFile lists `version` with `size` and `checksum`,
     // or if `version` is "debug", and -1 otherwise, as th08's
     // (0x430150).
@@ -149,7 +152,9 @@ struct App
     // as th08's (0x430230).
     void CloseSubThread();
 
-    unsigned char pad_0[0x439];
+    unsigned char pad_0[0x8];
+    IDirect3DDevice8 *d3dDevice;
+    unsigned char pad_c[0x439 - 0xc];
     // Whether the game runs in a window.
     BYTE windowed;
     unsigned char pad_43a[0x450 - 0x43a];
@@ -175,7 +180,10 @@ struct App
     // 0 while the loading sprites are hidden, 1 while they show, 2 once
     // they are finishing.
     int loadingState;
-    unsigned char pad_744[0x7a8 - 0x744];
+    unsigned char pad_744[0x794 - 0x744];
+    // Whether fog is on, as EnableFog and DisableFog last set it.
+    DWORD fogState;
+    unsigned char pad_798[0x7a8 - 0x798];
     // The contents of the version file, as th08's: lines of a version,
     // a size and a checksum.
     DWORD verFileSize;

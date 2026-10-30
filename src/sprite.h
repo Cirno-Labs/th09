@@ -144,6 +144,8 @@ public:
     void ResetFrameState();
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
+    // Draws the sprites batched so far (0x4396a0).
+    void FlushQuadBatch();
 
     D3DCOLOR modulateColor;
     int modulateColorEnabled;
