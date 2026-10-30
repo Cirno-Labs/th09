@@ -755,7 +755,7 @@ address,size,name,symbol
 0x00435d70,39,ContinueMenu::ContinueMenu,??0ContinueMenu@@QAE@XZ
 0x00435da0,28,UnknownMenu::UnknownMenu,??0UnknownMenu@@QAE@XZ
 0x00435dc0,227,AsciiText::AsciiText,??0AsciiText@@QAE@XZ
-0x00435eb0,4,Func435eb0,
+0x00435eb0,4,GdiSurface::GetBits,?GetBits@GdiSurface@@QAEPAXXZ
 0x00435ec0,3,Func435ec0,
 0x00435ed0,4,Func435ed0,
 0x00435ee0,4,Func435ee0,
@@ -764,9 +764,9 @@ address,size,name,symbol
 0x00435f10,11,Func435f10,
 0x00435f20,29,Func435f20,
 0x00435f40,78,Func435f40,
-0x00435f90,66,Func435f90,
-0x00435fe0,469,Func435fe0,
-0x004361c0,242,Func4361c0,
+0x00435f90,66,GdiSurface::FindFormat,?FindFormat@GdiSurface@@QAEPAUFormatInfo@@H@Z
+0x00435fe0,469,GdiSurface::CreateInFormat,?CreateInFormat@GdiSurface@@QAE_NHHH@Z
+0x004361c0,242,GdiSurface::CopyToSurface,?CopyToSurface@GdiSurface@@QAE_NPAUIDirect3DSurface8@@@Z
 0x004362c0,26,Func4362c0,
 0x004362e0,26,Func4362e0,
 0x00436300,5,Func436300,
@@ -2218,6 +2218,7 @@ address,size,name,symbol
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA
 0x004a1ec8,,g_FileModes,?g_FileModes@@3PAPADA
+0x004a1ed8,,g_FormatInfos,?g_FormatInfos@@3PAUFormatInfo@@A
 0x004a21d0,,g_BgmInfos,?g_BgmInfos@@3PAUBgmInfo@@A
 0x004a7c88,,g_TimelineOrder,?g_TimelineOrder@@3PAEA
 0x004a7d90,,g_GameManager,?g_GameManager@@3VGameManager@@A
@@ -2246,5 +2247,6 @@ address,size,name,symbol
 0x004d9698,,g_Unknown4d9698,?g_Unknown4d9698@@3PAEA
 0x004dc504,,g_AsciiCalcChain,?g_AsciiCalcChain@@3UChainElem@@A
 0x004dc524,,g_AsciiDrawChain2,?g_AsciiDrawChain2@@3UChainElem@@A
+0x004dc544,,g_TextSurface,?g_TextSurface@@3PAUIDirect3DSurface8@@A
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.71% (281)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.29% (771)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.81% (282)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.19% (770)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="199.53" height="6" x="0" y="0" class="named"/>
-<rect width="547.47" height="6" x="199.53" y="0" class="todo"/>
+<rect width="200.24" height="6" x="0" y="0" class="named"/>
+<rect width="546.76" height="6" x="200.24" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -823,7 +823,7 @@
 <rect width="12" height="12" x="45" y="225" class="named"><title>0x00435d70 ContinueMenu::ContinueMenu (39 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="225" class="named"><title>0x00435da0 UnknownMenu::UnknownMenu (28 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="225" class="named"><title>0x00435dc0 AsciiText::AsciiText (227 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="225" class="todo"><title>0x00435eb0 Func435eb0 (4 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="225" class="named"><title>0x00435eb0 GdiSurface::GetBits (4 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="225" class="todo"><title>0x00435ec0 Func435ec0 (3 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="225" class="todo"><title>0x00435ed0 Func435ed0 (4 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="225" class="todo"><title>0x00435ee0 Func435ee0 (4 bytes)</title></rect>
@@ -832,9 +832,9 @@
 <rect width="12" height="12" x="180" y="225" class="todo"><title>0x00435f10 Func435f10 (11 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="225" class="todo"><title>0x00435f20 Func435f20 (29 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="225" class="todo"><title>0x00435f40 Func435f40 (78 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="225" class="todo"><title>0x00435f90 Func435f90 (66 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="225" class="todo"><title>0x00435fe0 Func435fe0 (469 bytes)</title></rect>
-<rect width="12" height="12" x="255" y="225" class="todo"><title>0x004361c0 Func4361c0 (242 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="225" class="todo"><title>0x00435f90 GdiSurface::FindFormat (66 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="225" class="todo"><title>0x00435fe0 GdiSurface::CreateInFormat (469 bytes)</title></rect>
+<rect width="12" height="12" x="255" y="225" class="todo"><title>0x004361c0 GdiSurface::CopyToSurface (242 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="225" class="todo"><title>0x004362c0 Func4362c0 (26 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="225" class="todo"><title>0x004362e0 Func4362e0 (26 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="225" class="todo"><title>0x00436300 Func436300 (5 bytes)</title></rect>
@@ -1125,8 +1125,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.47%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.53%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="63.29" height="6" x="0" y="0" class="named"/>
-<rect width="683.71" height="6" x="63.29" y="0" class="todo"/>
+<rect width="63.30" height="6" x="0" y="0" class="named"/>
+<rect width="683.70" height="6" x="63.30" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1283,7 +1283,7 @@
 <rect width="16.81" height="17.49" x="432.45" y="251.30" class="todo"><title>0x0043b9c0 Func43b9c0 (472 bytes)</title></rect>
 <rect width="16.81" height="17.45" x="432.45" y="271.79" class="todo"><title>0x004415e0 Func4415e0 (471 bytes)</title></rect>
 <rect width="16.81" height="17.40" x="432.45" y="292.24" class="named"><title>0x00433aa0 LzssDecompress (470 bytes)</title></rect>
-<rect width="16.81" height="17.36" x="432.45" y="312.64" class="todo"><title>0x00435fe0 Func435fe0 (469 bytes)</title></rect>
+<rect width="16.81" height="17.36" x="432.45" y="312.64" class="todo"><title>0x00435fe0 GdiSurface::CreateInFormat (469 bytes)</title></rect>
 <rect width="17.91" height="16.21" x="452.25" y="21.06" class="named"><title>0x004333f0 DatArchive::ReadTable (467 bytes)</title></rect>
 <rect width="17.77" height="16.21" x="473.16" y="21.06" class="todo"><title>0x0040d9e0 Func40d9e0 (464 bytes)</title></rect>
 <rect width="17.59" height="16.21" x="493.93" y="21.06" class="todo"><title>0x004202a0 ReplayManager::OnUpdateMode0 (460 bytes)</title></rect>
@@ -1436,7 +1436,7 @@
 <rect width="11.94" height="11.10" x="520.87" y="235.66" class="todo"><title>0x0043ec80 Func43ec80 (245 bytes)</title></rect>
 <rect width="11.94" height="10.99" x="520.87" y="249.76" class="todo"><title>0x0041f070 Func41f070 (243 bytes)</title></rect>
 <rect width="11.94" height="10.93" x="520.87" y="263.75" class="todo"><title>0x0041f580 Func41f580 (242 bytes)</title></rect>
-<rect width="11.94" height="10.93" x="520.87" y="277.68" class="todo"><title>0x004361c0 Func4361c0 (242 bytes)</title></rect>
+<rect width="11.94" height="10.93" x="520.87" y="277.68" class="todo"><title>0x004361c0 GdiSurface::CopyToSurface (242 bytes)</title></rect>
 <rect width="11.94" height="10.87" x="520.87" y="291.61" class="named"><title>0x0042cae0 Chain::ReleaseList (241 bytes)</title></rect>
 <rect width="11.94" height="10.82" x="520.87" y="305.48" class="todo"><title>0x00432240 Func432240 (240 bytes)</title></rect>
 <rect width="11.94" height="10.70" x="520.87" y="319.30" class="todo"><title>0x00432090 Func432090 (238 bytes)</title></rect>
@@ -1775,7 +1775,7 @@
 <rect width="4.39" height="4.68" x="641.94" y="279.46" class="named"><title>0x004156a0 ExAttackManager::RemoveChain (66 bytes)</title></rect>
 <rect width="4.39" height="4.68" x="641.94" y="287.14" class="named"><title>0x00415750 ExAttackManager::AddedCallback (66 bytes)</title></rect>
 <rect width="4.39" height="4.68" x="641.94" y="294.82" class="named"><title>0x00433710 File::Write (66 bytes)</title></rect>
-<rect width="4.39" height="4.68" x="641.94" y="302.51" class="todo"><title>0x00435f90 Func435f90 (66 bytes)</title></rect>
+<rect width="4.39" height="4.68" x="641.94" y="302.51" class="todo"><title>0x00435f90 GdiSurface::FindFormat (66 bytes)</title></rect>
 <rect width="4.39" height="4.68" x="641.94" y="310.19" class="todo"><title>0x00439630 Func439630 (66 bytes)</title></rect>
 <rect width="4.39" height="4.57" x="641.94" y="317.87" class="named"><title>0x0042ad70 ResetKeyboard (65 bytes)</title></rect>
 <rect width="4.39" height="4.57" x="641.94" y="325.43" class="todo"><title>0x0043fc90 CStreamingSound::UpdateFade (65 bytes)</title></rect>
@@ -2168,7 +2168,7 @@
 <rect width="0.10" height="0.10" x="742.95" y="326.05" class="todo"><title>0x00436300 Func436300 (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="742.95" y="328.10" class="named"><title>0x004014f0 Timer::AsFloat (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="742.95" y="329.73" class="named"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="742.95" y="331.37" class="todo"><title>0x00435eb0 Func435eb0 (4 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="742.95" y="331.37" class="named"><title>0x00435eb0 GdiSurface::GetBits (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="745.05" y="326.05" class="todo"><title>0x00435ed0 Func435ed0 (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.70" y="326.05" class="todo"><title>0x00435ee0 Func435ee0 (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.35" y="326.05" class="todo"><title>0x00435ef0 Func435ef0 (4 bytes)</title></rect>
