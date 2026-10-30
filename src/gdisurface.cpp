@@ -39,3 +39,14 @@ bool GdiSurface::IsCreated()
 {
     return this->bitmap != NULL;
 }
+
+GdiSurface::GdiSurface()
+{
+    this->format = -1;
+    this->width = 0;
+    this->height = 0;
+    this->hdc = NULL;
+    this->bitmap = NULL;
+    this->oldObject = NULL;
+    this->bits = NULL;
+}

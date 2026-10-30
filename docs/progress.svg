@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.38% (288)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">72.62% (764)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.47% (289)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">72.53% (763)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="204.50" height="6" x="0" y="0" class="named"/>
-<rect width="542.50" height="6" x="204.50" y="0" class="todo"/>
+<rect width="205.21" height="6" x="0" y="0" class="named"/>
+<rect width="541.79" height="6" x="205.21" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -830,7 +830,7 @@
 <rect width="12" height="12" x="150" y="225" class="named"><title>0x00435ef0 GdiSurface::GetWidth (4 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="225" class="named"><title>0x00435f00 GdiSurface::GetHeight (4 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="225" class="named"><title>0x00435f10 GdiSurface::IsCreated (11 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="225" class="todo"><title>0x00435f20 Func435f20 (29 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="225" class="named"><title>0x00435f20 GdiSurface::GdiSurface (29 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="225" class="todo"><title>0x00435f40 Func435f40 (78 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="225" class="todo"><title>0x00435f90 GdiSurface::FindFormat (66 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="225" class="todo"><title>0x00435fe0 GdiSurface::CreateInFormat (469 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.48%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.52%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.49%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.51%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="63.38" height="6" x="0" y="0" class="named"/>
-<rect width="683.62" height="6" x="63.38" y="0" class="todo"/>
+<rect width="63.45" height="6" x="0" y="0" class="named"/>
+<rect width="683.55" height="6" x="63.45" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1972,7 +1972,7 @@
 <rect width="1.82" height="2.17" x="693.15" y="297.15" class="todo"><title>0x0041bdc0 Func41bdc0 (29 bytes)</title></rect>
 <rect width="1.82" height="2.17" x="693.15" y="302.32" class="named"><title>0x00433290 DatArchive::GetEntrySize (29 bytes)</title></rect>
 <rect width="1.82" height="2.17" x="693.15" y="307.49" class="named"><title>0x00434260 AsciiText::DeletedCallback (29 bytes)</title></rect>
-<rect width="1.82" height="2.17" x="693.15" y="312.67" class="todo"><title>0x00435f20 Func435f20 (29 bytes)</title></rect>
+<rect width="1.82" height="2.17" x="693.15" y="312.67" class="named"><title>0x00435f20 GdiSurface::GdiSurface (29 bytes)</title></rect>
 <rect width="1.82" height="2.17" x="693.15" y="317.84" class="todo"><title>0x00439680 Func439680 (29 bytes)</title></rect>
 <rect width="1.82" height="1.99" x="693.15" y="323.01" class="named"><title>0x004014b0 Timer::NextTick (28 bytes)</title></rect>
 <rect width="1.82" height="1.99" x="693.15" y="328.01" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
