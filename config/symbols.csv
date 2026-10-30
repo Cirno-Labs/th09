@@ -763,7 +763,7 @@ address,size,name,symbol
 0x00435f00,4,GdiSurface::GetHeight,?GetHeight@GdiSurface@@QAEHXZ
 0x00435f10,11,GdiSurface::IsCreated,?IsCreated@GdiSurface@@QAE_NXZ
 0x00435f20,29,GdiSurface::GdiSurface,??0GdiSurface@@QAE@XZ
-0x00435f40,78,Func435f40,
+0x00435f40,78,GdiSurface::Release,?Release@GdiSurface@@QAE_NXZ
 0x00435f90,66,GdiSurface::FindFormat,?FindFormat@GdiSurface@@QAEPAUFormatInfo@@H@Z
 0x00435fe0,469,GdiSurface::CreateInFormat,?CreateInFormat@GdiSurface@@QAE_NHHH@Z
 0x004361c0,242,GdiSurface::CopyToSurface,?CopyToSurface@GdiSurface@@QAE_NPAUIDirect3DSurface8@@@Z
