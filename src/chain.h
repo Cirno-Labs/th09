@@ -71,6 +71,15 @@ public:
     // section 0, which it leaves while the element is deleted or its
     // deleted callback runs (0x42b350).
     void RemoveLocked(ChainElem *elem);
+    // Runs the update chain's callbacks in order, removing each element
+    // whose callback returns 0. A callback returns 2 to run again, 3, 4 or
+    // 5 to stop with 1, 0 or -1, and 6 to start over. Returns how many
+    // ran. Holds critical section 0 except while a callback runs
+    // (0x42c700).
+    int RunCalcChain();
+    // Like RunCalcChain for the draw chain, without starting over
+    // (0x42c7e0).
+    int RunDrawChain();
     // Like RemoveLocked, inside critical section 0 (0x42c8c0).
     void Remove(ChainElem *elem);
     // Removes the elements of the list that starts at `root`, going

@@ -565,7 +565,7 @@ address,size,name,symbol
 0x0042c4e0,210,WriteToFile,?WriteToFile@@YIHPADPAXH@Z
 0x0042c5c0,153,LogPrintf,?LogPrintf@@YAHPAVLog@@PBDZZ
 0x0042c660,153,LogError,?LogError@@YAHPAVLog@@PBDZZ
-0x0042c700,179,Func42c700,
+0x0042c700,184,Chain::RunCalcChain,?RunCalcChain@Chain@@QAEHXZ
 0x0042c7e0,186,Func42c7e0,
 0x0042c8c0,46,Chain::Remove,?Remove@Chain@@QAEXPAUChainElem@@@Z
 0x0042c8f0,120,InitJoystick,?InitJoystick@@YIGXZ
