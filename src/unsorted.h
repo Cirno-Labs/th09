@@ -75,6 +75,9 @@ WORD InitJoystick();
 // The joysticks' capabilities, from joyGetDevCaps (0x4ac8d8).
 extern JOYCAPSA g_JoyCaps[2];
 
+// Releases every key in the keyboard state, as th08's (0x42ad70).
+void ResetKeyboard();
+
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);

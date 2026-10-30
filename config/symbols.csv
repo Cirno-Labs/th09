@@ -526,7 +526,7 @@ address,size,name,symbol
 0x0042ac80,37,Func42ac80,
 0x0042acb0,47,Func42acb0,
 0x0042ace0,131,Func42ace0,
-0x0042ad70,59,Func42ad70,
+0x0042ad70,65,ResetKeyboard,?ResetKeyboard@@YIXXZ
 0x0042adc0,81,Func42adc0,
 0x0042ae20,39,Rng::GetRandomU16,?GetRandomU16@Rng@@QAEGXZ
 0x0042ae50,24,Rng::GetRandomU32,?GetRandomU32@Rng@@QAEKXZ
