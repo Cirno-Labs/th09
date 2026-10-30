@@ -132,6 +132,9 @@ struct App
     // StartLoadingSprites, then has the screen copied to surface 8, as
     // th08's (0x4303c0).
     void StartLoadingSpritesOverScreen(D3DXVECTOR3 *pos);
+    // Like StopLoadingSprites, with interrupt 2 and loadingState 2, as
+    // th08's (0x4304a0).
+    void FinishLoadingSprites();
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();
