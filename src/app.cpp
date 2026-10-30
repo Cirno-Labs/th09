@@ -88,3 +88,13 @@ void App::InitCriticalSections()
         InitializeCriticalSection(&this->criticalSections[i]);
     }
 }
+
+void App::DeleteCriticalSections()
+{
+    DWORD i;
+
+    for (i = 0; i < ARRAY_SIZE(this->criticalSections); i++)
+    {
+        DeleteCriticalSection(&this->criticalSections[i]);
+    }
+}

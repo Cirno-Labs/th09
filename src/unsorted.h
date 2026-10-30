@@ -120,8 +120,9 @@ struct App
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
-    // Initializes criticalSections (0x430530).
+    // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
+    void DeleteCriticalSections();
 
     unsigned char pad_0[0x439];
     // Whether the game runs in a window.

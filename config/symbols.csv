@@ -645,7 +645,7 @@ address,size,name,symbol
 0x004304a0,85,Func4304a0,
 0x00430500,47,Func430500,
 0x00430530,33,App::InitCriticalSections,?InitCriticalSections@App@@QAEXXZ
-0x00430560,33,Func430560,
+0x00430560,33,App::DeleteCriticalSections,?DeleteCriticalSections@App@@QAEXXZ
 0x00430590,285,Func430590,
 0x004306b0,257,Func4306b0,
 0x004307c0,736,Func4307c0,
