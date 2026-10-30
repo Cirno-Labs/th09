@@ -16,6 +16,13 @@ project = "th09_150a"
 functions = "build/functions_150a.csv"
 
 [build]
+# Visual C++ .NET 2003 (MSVC 7.1; the original is cl 13.10.3077, this
+# is th10's SP1, 13.10.6030), the Platform SDK for Windows XP SP2 and
+# the DirectX 8 SDK. The flags are still th08's until the first
+# functions show which.
+bin = 'C:\msvc71\bin'
+include = ['C:\dx8\include', 'C:\msvc71\include', 'C:\psdk\Include']
+lib = ['C:\dx8\lib', 'C:\msvc71\lib', 'C:\psdk\Lib']
 cflags = ["/Od", "/Gr", "/GX", "/Oi"]
 
 [exe]

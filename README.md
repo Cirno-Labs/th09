@@ -18,8 +18,9 @@ our own analysis or, for library code, from the libraries themselves.
 
 ## Status
 
-Scaffolding only: the layout and tools are taken from the th08 project.
-The toolchain is not set up yet, and nothing is analyzed or decompiled.
+Scaffolding: the layout and tools are taken from the th08 project, and
+the toolchain builds the hook DLL. Nothing is analyzed or decompiled
+yet.
 
 ## Target
 
@@ -36,7 +37,7 @@ official update:
 
 ## Toolchain
 
-Read from the Rich header (`tools/peinfo.py`):
+Read from the Rich header (`tools/peinfo.py`), as identified in th10:
 
 | Tool | Build | Objects | Probably |
 | --- | --- | --- | --- |
@@ -54,6 +55,17 @@ Unlike th06–th08, this is Visual C++ .NET 2003 (MSVC 7.1, `cl`
 13.10.3077), with the Platform SDK for Windows XP SP2 (import libraries
 build 4035) and still the DirectX 8 SDK: D3DX8 is a 13.00 build like
 th08's. No object was compiled with `/GL`, unlike th10.
+
+The build uses th10's toolchain, Visual C++ .NET 2003 SP1 (`cl`
+13.10.6030), not the original's RTM build: it should generate the same
+code, but the standalone exe's Rich header will differ.
+`project.toml` expects, in the Wine prefix:
+
+```
+.wine/drive_c/msvc71/   bin/, include/, lib/ (VS .NET 2003 SP1)
+.wine/drive_c/psdk/     Include/, Lib/ (Platform SDK for XP SP2)
+.wine/drive_c/dx8/      include/, lib/ (DirectX 8 SDK)
+```
 
 ## Workflow
 
@@ -122,8 +134,8 @@ build/    outputs; build/game/ is a runnable copy of the patched game
 - For `just run`: Xvfb, xdotool, ImageMagick, 32-bit Mesa OpenGL
   (`libgl1-mesa-dri:i386`, `libglx-mesa0:i386`) and the `ja_JP.UTF-8`
   locale
-- The toolchain in the Wine prefix at `.wine/` (bring your own
-  copies)
+- The toolchain in the Wine prefix at `.wine/`, see above (bring your
+  own copies)
 - Ghidra (for analysis, optional)
 
 ## Legal
