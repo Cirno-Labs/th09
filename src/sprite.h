@@ -668,6 +668,8 @@ public:
     {
         return this->surfaces[surface];
     }
+    // Releases vertexBuffer, as th08's (0x42f3d0).
+    void ReleaseVertexBuffer();
 
     D3DCOLOR modulateColor;
     int modulateColorEnabled;

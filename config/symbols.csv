@@ -627,7 +627,7 @@ address,size,name,symbol
 0x0042f100,145,OpenGameArchive,?OpenGameArchive@@YIHXZ
 0x0042f1a0,517,MeasureRefreshRate,?MeasureRefreshRate@@YIHXZ
 0x0042f3b0,18,Func42f3b0,
-0x0042f3d0,31,Func42f3d0,
+0x0042f3d0,31,SpriteEngine::ReleaseVertexBuffer,?ReleaseVertexBuffer@SpriteEngine@@QAEXXZ
 0x0042f400,17,SpriteEngine::GetSurface,?GetSurface@SpriteEngine@@QAEPAUIDirect3DSurface8@@H@Z
 0x0042f420,101,SpriteEngine::SetPendingSurfaceCopy,?SetPendingSurfaceCopy@SpriteEngine@@QAEHHHHHHHHHH@Z
 0x0042f490,93,Timer::Add,?Add@Timer@@QAEXM@Z

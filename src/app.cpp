@@ -241,6 +241,15 @@ int MeasureRefreshRate()
     return 0;
 }
 
+void SpriteEngine::ReleaseVertexBuffer()
+{
+    if (this->vertexBuffer != NULL)
+    {
+        this->vertexBuffer->Release();
+        this->vertexBuffer = NULL;
+    }
+}
+
 int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight,
                                         int dstLeft, int dstTop, int dstWidth, int dstHeight)
 {

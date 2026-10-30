@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.32% (544)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.68% (516)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.42% (545)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.58% (515)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="383.37" height="6" x="0" y="0" class="named"/>
-<rect width="363.63" height="6" x="383.37" y="0" class="todo"/>
+<rect width="384.07" height="6" x="0" y="0" class="named"/>
+<rect width="362.93" height="6" x="384.07" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -695,7 +695,7 @@
 <rect width="12" height="12" x="375" y="180" class="named"><title>0x0042f100 OpenGameArchive (145 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="180" class="named"><title>0x0042f1a0 MeasureRefreshRate (517 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="180" class="todo"><title>0x0042f3b0 Func42f3b0 (18 bytes)</title></rect>
-<rect width="12" height="12" x="420" y="180" class="todo"><title>0x0042f3d0 Func42f3d0 (31 bytes)</title></rect>
+<rect width="12" height="12" x="420" y="180" class="named"><title>0x0042f3d0 SpriteEngine::ReleaseVertexBuffer (31 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="180" class="named"><title>0x0042f400 SpriteEngine::GetSurface (17 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="180" class="named"><title>0x0042f420 SpriteEngine::SetPendingSurfaceCopy (101 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="180" class="named"><title>0x0042f490 Timer::Add (93 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.24%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.76%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.25%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.75%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="203.45" height="6" x="0" y="0" class="named"/>
-<rect width="543.55" height="6" x="203.45" y="0" class="todo"/>
+<rect width="203.53" height="6" x="0" y="0" class="named"/>
+<rect width="543.47" height="6" x="203.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1974,7 +1974,7 @@
 <rect width="2.16" height="2.16" x="729.35" y="275.38" class="todo"><title>0x004126b0 Func4126b0 (31 bytes)</title></rect>
 <rect width="2.16" height="2.16" x="734.51" y="275.38" class="todo"><title>0x00412760 Func412760 (31 bytes)</title></rect>
 <rect width="2.16" height="2.16" x="739.68" y="275.38" class="todo"><title>0x0041cdc0 Func41cdc0 (31 bytes)</title></rect>
-<rect width="2.16" height="2.16" x="744.84" y="275.38" class="todo"><title>0x0042f3d0 Func42f3d0 (31 bytes)</title></rect>
+<rect width="2.16" height="2.16" x="744.84" y="275.38" class="named"><title>0x0042f3d0 SpriteEngine::ReleaseVertexBuffer (31 bytes)</title></rect>
 <rect width="1.81" height="2.53" x="692.39" y="280.54" class="named"><title>0x00434280 AsciiText::RemoveChain (31 bytes)</title></rect>
 <rect width="1.81" height="2.53" x="692.39" y="286.07" class="named"><title>0x0043faf0 CSound::GetBuffer (31 bytes)</title></rect>
 <rect width="1.81" height="2.35" x="692.39" y="291.60" class="named"><title>0x0042abe0 ChainElem::ChainElem (30 bytes)</title></rect>
