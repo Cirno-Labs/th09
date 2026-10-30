@@ -155,6 +155,45 @@ int SpriteEngine::CreateTexture(AnmTexture *tex, int width, int height, int form
     return 0;
 }
 
+// 0x43bbe0
+int SpriteEngine::PreloadAnmTexture(AnmLoaded *anm, int index, int *spriteIndex, int *scriptIndex, AnmFile *file)
+{
+    void *data;
+    int size;
+    char *name;
+    AnmFile *anmHeader;
+    int highest;
+
+    highest = 0;
+    if (file == NULL)
+    {
+        LogError(&g_Log, "アニメが読み込めません。データが失われてるか壊れています\r\n");
+        return -1;
+    }
+    anmHeader = file;
+    if (anmHeader->version != 3)
+    {
+        LogError(&g_Log, "アニメのバージョンが違います\r\n");
+        return -1;
+    }
+    if (!anmHeader->hasImage)
+    {
+        name = (char *)anmHeader + anmHeader->nameOffset;
+        if (*name != '@')
+        {
+            data = OpenPath(name, &size, 1);
+            if (data == NULL)
+            {
+                LogError(&g_Log, "テクスチャ %s が読み込めません。データが失われてるか壊れています\r\n", name);
+                return -1;
+            }
+            anm->textures[index].size = size;
+            anm->textures[index].data = data;
+        }
+    }
+    return highest + 1;
+}
+
 void SpriteEngine::ReleaseTexture(AnmTexture *tex)
 {
     if (tex->texture != NULL)

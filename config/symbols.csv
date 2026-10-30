@@ -814,7 +814,7 @@ address,size,name,symbol
 0x0043b8f0,200,Func43b8f0,
 0x0043b9c0,472,Func43b9c0,
 0x0043bba0,50,SpriteEngine::CreateTexture,?CreateTexture@SpriteEngine@@QAEHPAUAnmTexture@@HHH@Z
-0x0043bbe0,150,Func43bbe0,
+0x0043bbe0,150,SpriteEngine::PreloadAnmTexture,?PreloadAnmTexture@SpriteEngine@@QAEHPAVAnmLoaded@@HPAH1PAUAnmFile@@@Z
 0x0043bc80,48,SpriteEngine::ReleaseTexture,?ReleaseTexture@SpriteEngine@@QAEXPAUAnmTexture@@@Z
 0x0043bcb0,138,AnmLoaded::LoadSprite,?LoadSprite@AnmLoaded@@QAEXHPAUSpriteData@@@Z
 0x0043bd40,127,SpriteEngine::RenderTextToTextureIndex,?RenderTextToTextureIndex@SpriteEngine@@QAEXPAUIDirect3DTexture8@@HHHHHHKKPADMM@Z
