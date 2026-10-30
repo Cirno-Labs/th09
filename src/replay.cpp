@@ -94,3 +94,16 @@ ReplayManager *ReplayManager::RegisterChain(int mode, char *path)
     }
     return mgr;
 }
+
+void ReplayManager::RunAddedCallback(ReplayManager *mgr, int mode)
+{
+    switch (mode)
+    {
+    case 0:
+        ReplayManager::AddedCallbackMode0(mgr);
+        break;
+    case 1:
+        ReplayManager::AddedCallbackMode1(mgr);
+        break;
+    }
+}

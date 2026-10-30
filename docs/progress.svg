@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.57% (589)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">44.43% (471)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.66% (590)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">44.34% (470)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="415.08" height="6" x="0" y="0" class="named"/>
-<rect width="331.92" height="6" x="415.08" y="0" class="todo"/>
+<rect width="415.78" height="6" x="0" y="0" class="named"/>
+<rect width="331.22" height="6" x="415.78" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -509,7 +509,7 @@
 <rect width="12" height="12" x="585" y="120" class="todo"><title>0x00420c60 Func420c60 (1227 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="120" class="todo"><title>0x00421140 ReplayManager::AddedCallbackMode0 (1323 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="120" class="named"><title>0x00421670 ReplayManager::RegisterChain (361 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="120" class="todo"><title>0x004217e0 Func4217e0 (21 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="120" class="named"><title>0x004217e0 ReplayManager::RunAddedCallback (21 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="120" class="todo"><title>0x00421800 Func421800 (208 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="120" class="named"><title>0x004218e0 LoadHscrChunks (441 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="120" class="named"><title>0x00421aa0 LoadLsnmChunk (215 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.01%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.99%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.02%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.98%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="224.19" height="6" x="0" y="0" class="named"/>
-<rect width="522.81" height="6" x="224.19" y="0" class="todo"/>
+<rect width="224.25" height="6" x="0" y="0" class="named"/>
+<rect width="522.75" height="6" x="224.25" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2029,7 +2029,7 @@
 <rect width="1.14" height="1.36" x="741.72" y="285.70" class="todo"><title>0x0041a3c0 Func41a3c0 (21 bytes)</title></rect>
 <rect width="1.14" height="1.36" x="745.86" y="285.70" class="named"><title>0x0041a889 ChainElem::SetCallback (21 bytes)</title></rect>
 <rect width="1.42" height="1.08" x="707.23" y="290.06" class="named"><title>0x0041a997 App::ResetSubThread (21 bytes)</title></rect>
-<rect width="1.42" height="1.08" x="711.65" y="290.06" class="todo"><title>0x004217e0 Func4217e0 (21 bytes)</title></rect>
+<rect width="1.42" height="1.08" x="711.65" y="290.06" class="named"><title>0x004217e0 ReplayManager::RunAddedCallback (21 bytes)</title></rect>
 <rect width="1.42" height="1.08" x="716.08" y="290.06" class="named"><title>0x00433780 File::GetSize (21 bytes)</title></rect>
 <rect width="1.21" height="1.08" x="720.50" y="290.06" class="named"><title>0x00401520 Timer::operator&gt;= (20 bytes)</title></rect>
 <rect width="1.21" height="1.08" x="724.72" y="290.06" class="named"><title>0x00401540 Timer::operator&lt; (20 bytes)</title></rect>

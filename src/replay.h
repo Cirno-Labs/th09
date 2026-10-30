@@ -55,6 +55,8 @@ public:
     // unknownElem158 (0x1b). Returns it, or NULL if adding calcElem
     // fails (0x421670).
     static ReplayManager *RegisterChain(int mode, char *path);
+    // Runs the added callback of `mode`, 0 or 1, on `mgr` (0x4217e0).
+    static void RunAddedCallback(ReplayManager *mgr, int mode);
     // Removes the manager's chain elements, frees its blocks and deletes
     // it, if any (0x420c10).
     static void RemoveChain(ReplayManager *mgr);
