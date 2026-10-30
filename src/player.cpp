@@ -107,6 +107,23 @@ void Player::SetRegisterChainArg(BYTE arg)
     this->registerChainArg = arg;
 }
 
+int Player::CheckHitBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
+{
+    D3DXVECTOR3 start;
+    D3DXVECTOR3 end;
+
+    start.x = pos->x - size->x;
+    start.y = pos->y - size->y;
+    end.x = pos->x + size->x;
+    end.y = size->y + pos->y;
+    if (this->hitboxMin.x > end.x || this->hitboxMin.y > end.y || this->hitboxMax.x < start.x ||
+        this->hitboxMax.y < start.y)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 int Player::OnDraw2(Player *player)
 {
     g_App.SetView(player->sideIdx);

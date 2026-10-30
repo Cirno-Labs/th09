@@ -230,6 +230,9 @@ public:
     // more), capped at 400, and starts the front's unknown66fc when its
     // hundreds change (0x41bc90).
     void AddUnknown30388(float amount);
+    // Whether a box `size` from `pos` each way touches the hitbox
+    // (0x41bdf0).
+    int CheckHitBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size);
     // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
     int GetUnknown0()
