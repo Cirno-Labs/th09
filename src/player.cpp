@@ -21,6 +21,12 @@ void PlayerHitArea::Deactivate()
     this->active = 0;
 }
 
+void PlayerHitArea::Reset()
+{
+    memset(this, 0, sizeof(PlayerHitArea));
+    this->unknown34 = 1;
+}
+
 // Unloads the player's ANM file and frees its shot file if the game frees
 // its resources. Returns 0. Static, with the player in esi (0x41ce60).
 static int FreeResources(Player *player)
