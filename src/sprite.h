@@ -10,13 +10,10 @@
 
 class AnmLoaded;
 
-// One sprite and the state of the ANM script that drives it, as th08's.
-class Sprite
+// The part of Sprite up to pos, as th08's. Its implicit constructor
+// (0x4033a0) constructs the Timers; Sprite's calls it.
+struct SpriteBase
 {
-public:
-    // (0x403a10)
-    Sprite();
-
     // The sprite's rotations about x, y and z, and their speeds.
     D3DXVECTOR3 rotation;
     D3DXVECTOR3 rotationSpeed;
@@ -26,7 +23,11 @@ public:
     unsigned char pad_20[0x38 - 0x20];
     // The script's frame.
     Timer scriptTime;
-    unsigned char pad_44[0x130 - 0x44];
+    Timer waitTimer;
+    // The interpolations' frames so far and their lengths, as th08's.
+    Timer interpDuration[7];
+    Timer interpFrame[7];
+    unsigned char pad_f8[0x130 - 0xf8];
     D3DXMATRIX matrix;
     unsigned char pad_170[0x1f0 - 0x170];
     D3DCOLOR color;
@@ -38,6 +39,20 @@ public:
     unsigned char pad_200[0x204 - 0x200];
     // The ANM file whose script runs.
     AnmLoaded *anm;
+};
+ASSERT_SIZE(SpriteBase, 0x208);
+
+// One sprite and the state of the ANM script that drives it, as th08's.
+class Sprite : public SpriteBase
+{
+public:
+    // Inline, as th08's; the copy is at 0x403a10.
+    Sprite()
+    {
+        memset(this, 0, sizeof(Sprite));
+        this->spriteIndex = -1;
+    }
+
     D3DXVECTOR3 pos;
     short spriteIndex;
     // The slot of the ANM file whose script runs.
@@ -48,7 +63,9 @@ public:
     // The script SetScript started, and the instruction Step runs next.
     void *scriptStart;
     void *scriptPos;
-    unsigned char pad_224[0x288 - 0x224];
+    void *spriteData;
+    Timer interruptReturnTime;
+    unsigned char pad_234[0x288 - 0x234];
     // Added to pos when it is drawn.
     D3DXVECTOR3 posOffset;
     int spriteTime;
@@ -69,7 +86,7 @@ public:
     // 0x4127b0.
     void Initialize()
     {
-        memset(this, 0, offsetof(Sprite, pos));
+        memset(this, 0, sizeof(SpriteBase));
         this->scaleY = 1.0f;
         this->scaleX = 1.0f;
         this->color = 0xffffffff;

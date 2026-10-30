@@ -50,7 +50,7 @@ address,size,name,symbol
 0x00402570,314,Func402570,
 0x004026c0,3274,Func4026c0,
 0x00403390,12,Timer::Timer,??0Timer@@QAE@XZ
-0x004033a0,62,Func4033a0,
+0x004033a0,62,SpriteBase::SpriteBase,??0SpriteBase@@QAE@XZ
 0x004033e0,671,Stage::OnDraw,?OnDraw@Stage@@SIHPAV1@@Z
 0x00403680,421,Stage::OnDraw2,?OnDraw2@Stage@@SIHPAV1@@Z
 0x00403830,475,Stage::AddedCallback,?AddedCallback@Stage@@SIHPAV1@@Z
