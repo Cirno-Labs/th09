@@ -591,3 +591,16 @@ void MainMenu::ShowEntryFrame(int frame, int idx)
     this->anm->SetSprite(&this->sprites[idx], this->sprites[idx].baseSpriteIndex + frame * 2);
     this->sprites[idx].pendingInterrupt = 7;
 }
+
+void MainMenu::SelectEntryStep(int cursor, int first, int count, int stride)
+{
+    for (int i = first; i < first + count * stride; i += stride)
+    {
+        this->anm->SetSprite(&this->sprites[i], this->sprites[i].baseSpriteIndex + 1);
+        this->sprites[i].pendingInterrupt = 8;
+        g_SpriteEngine->Step(&this->sprites[i]);
+    }
+    this->anm->SetSprite(&this->sprites[cursor * stride + first], this->sprites[cursor * stride + first].baseSpriteIndex);
+    this->sprites[cursor * stride + first].pendingInterrupt = 7;
+    g_SpriteEngine->Step(&this->sprites[cursor * stride + first]);
+}
