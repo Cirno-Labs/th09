@@ -16,6 +16,11 @@ Timer::Timer()
     this->Initialize();
 }
 
+WORD Rng::GetRandomU16InRange(WORD range)
+{
+    return range != 0 ? this->GetRandomU16() % range : 0;
+}
+
 DWORD Rng::GetRandomU32InRange(DWORD range)
 {
     return range != 0 ? this->GetRandomU32() % range : 0;
