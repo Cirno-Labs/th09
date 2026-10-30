@@ -80,7 +80,7 @@ address,size,name,symbol
 0x00404910,15,Rng::GetRandomF32InRange,?GetRandomF32InRange@Rng@@QAEMM@Z
 0x00404920,33,Timer::HasTickedEvery,?HasTickedEvery@Timer@@QAEHH@Z
 0x00404950,20,Timer::operator==,??8Timer@@QAEHH@Z
-0x00404970,15,Func404970,
+0x00404970,15,GameManager::IsMode1,?IsMode1@GameManager@@QAEHXZ
 0x00404980,24,Gui::IsMsgRunning,?IsMsgRunning@Gui@@QAEHXZ
 0x004049a0,3231,Func4049a0,
 0x00405650,8,Func405650,

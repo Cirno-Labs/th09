@@ -137,6 +137,8 @@ public:
     void AddExtend();
     // Whether mode is 0 (0x40e470).
     BOOL IsMode0();
+    // Whether mode is 1 (0x404970).
+    BOOL IsMode1();
 
     GameSide sides[3];
     Gui *gui;

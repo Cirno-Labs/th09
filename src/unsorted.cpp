@@ -123,6 +123,11 @@ BOOL GameManager::IsMode0()
     return this->mode == 0;
 }
 
+BOOL GameManager::IsMode1()
+{
+    return this->mode == 1;
+}
+
 float Fabs(float x)
 {
     return (float)fabs((double)x);
