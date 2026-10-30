@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.18% (681)</tspan> · <tspan class="decompiled">0.57% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">35.25% (374)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.28% (682)</tspan> · <tspan class="decompiled">0.57% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">35.16% (373)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="479.46" height="6" x="0" y="0" class="named"/>
-<rect width="4.22" height="6" x="479.46" y="0" class="decompiled"/>
-<rect width="263.32" height="6" x="483.68" y="0" class="todo"/>
+<rect width="480.16" height="6" x="0" y="0" class="named"/>
+<rect width="4.22" height="6" x="480.16" y="0" class="decompiled"/>
+<rect width="262.61" height="6" x="484.39" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -199,7 +199,7 @@
 <rect width="12" height="12" x="420" y="30" class="todo"><title>0x0040c530 Func40c530 (563 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="30" class="named"><title>0x0040c770 SendExAttackA (70 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="30" class="named"><title>0x0040c7c0 SendExAttackB (69 bytes)</title></rect>
-<rect width="12" height="12" x="465" y="30" class="todo"><title>0x0040c810 Func40c810 (69 bytes)</title></rect>
+<rect width="12" height="12" x="465" y="30" class="named"><title>0x0040c810 SendExAttackC (69 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="30" class="todo"><title>0x0040c860 Func40c860 (226 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="30" class="named"><title>0x0040c950 EffectManager::Init (14 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="30" class="named"><title>0x0040c990 EffectManager::Reset (194 bytes)</title></rect>
@@ -1133,11 +1133,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.89%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.07%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.92%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.04%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="245.71" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="245.71" y="0" class="decompiled"/>
-<rect width="501" height="6" x="246" y="0" class="todo"/>
+<rect width="245.88" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="245.88" y="0" class="decompiled"/>
+<rect width="500.82" height="6" x="246.18" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1777,7 +1777,7 @@
 <rect width="4.85" height="4.65" x="640.44" y="310.17" class="named"><title>0x00415650 FreeAttacks (70 bytes)</title></rect>
 <rect width="4.85" height="4.65" x="640.44" y="317.82" class="named"><title>0x0043d010 MidiDevice::SendLongMsg (70 bytes)</title></rect>
 <rect width="4.85" height="4.54" x="640.44" y="325.46" class="named"><title>0x0040c7c0 SendExAttackB (69 bytes)</title></rect>
-<rect width="5.03" height="4.37" x="648.28" y="224.85" class="todo"><title>0x0040c810 Func40c810 (69 bytes)</title></rect>
+<rect width="5.03" height="4.37" x="648.28" y="224.85" class="named"><title>0x0040c810 SendExAttackC (69 bytes)</title></rect>
 <rect width="5.03" height="4.37" x="656.31" y="224.85" class="named"><title>0x00431ae0 App::StartSubThread (69 bytes)</title></rect>
 <rect width="5.03" height="4.37" x="664.35" y="224.85" class="named"><title>0x0043d2d0 MidiDevice::Open (69 bytes)</title></rect>
 <rect width="4.91" height="4.37" x="672.38" y="224.85" class="named"><title>0x00411f30 FreeResources (68 bytes)</title></rect>

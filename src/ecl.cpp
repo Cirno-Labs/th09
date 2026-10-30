@@ -78,3 +78,13 @@ void SendExAttackB(Enemy *enemy, void *instr)
     pos.z = enemy->currentCtx->floatVars[0];
     g_GameManager.exAttackManager->AddAttack(11, &pos, 1 - enemy->manager->sideIdx, 0);
 }
+
+void SendExAttackC(Enemy *enemy, void *instr)
+{
+    D3DXVECTOR3 pos;
+
+    pos.x = enemy->currentCtx->floatVars2[0];
+    pos.y = enemy->currentCtx->floatVars2[1];
+    pos.z = enemy->currentCtx->floatVars[0];
+    g_GameManager.exAttackManager->AddAttack(12, &pos, 1 - enemy->manager->sideIdx, 0);
+}
