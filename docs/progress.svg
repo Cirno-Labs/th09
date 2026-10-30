@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.17% (349)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">66.83% (703)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.27% (350)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">66.73% (702)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="247.82" height="6" x="0" y="0" class="named"/>
-<rect width="499.18" height="6" x="247.82" y="0" class="todo"/>
+<rect width="248.53" height="6" x="0" y="0" class="named"/>
+<rect width="498.47" height="6" x="248.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -913,7 +913,7 @@
 <rect width="12" height="12" x="645" y="240" class="named"><title>0x0043d0a0 MmTimer::MmTimer (32 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="240" class="named"><title>0x0043d0c0 MmTimer::Stop (41 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="240" class="named"><title>0x0043d0f0 MmTimer::DefaultCallback (14 bytes)</title></rect>
-<rect width="12" height="12" x="690" y="240" class="todo"><title>0x0043d100 Func43d100 (18 bytes)</title></rect>
+<rect width="12" height="12" x="690" y="240" class="named"><title>0x0043d100 SwapBytes16 (18 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="240" class="todo"><title>0x0043d120 Func43d120 (38 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="240" class="todo"><title>0x0043d150 Func43d150 (32 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="240" class="todo"><title>0x0043d170 Func43d170 (110 bytes)</title></rect>
@@ -1125,8 +1125,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">11.92%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">88.08%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="89.03" height="6" x="0" y="0" class="named"/>
-<rect width="657.97" height="6" x="89.03" y="0" class="todo"/>
+<rect width="89.07" height="6" x="0" y="0" class="named"/>
+<rect width="657.93" height="6" x="89.07" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2053,7 +2053,7 @@
 <rect width="0.87" height="1" x="730.86" y="294.30" class="todo"><title>0x0042f3b0 Func42f3b0 (18 bytes)</title></rect>
 <rect width="0.87" height="1" x="734.73" y="294.30" class="named"><title>0x004330e0 File::ReadDword (18 bytes)</title></rect>
 <rect width="0.87" height="1" x="738.60" y="294.30" class="named"><title>0x00434390 AnmLoaded::GetSprite (18 bytes)</title></rect>
-<rect width="0.87" height="1" x="742.47" y="294.30" class="todo"><title>0x0043d100 Func43d100 (18 bytes)</title></rect>
+<rect width="0.87" height="1" x="742.47" y="294.30" class="named"><title>0x0043d100 SwapBytes16 (18 bytes)</title></rect>
 <rect width="0.66" height="1" x="746.34" y="294.30" class="todo"><title>0x0040e2b0 Func40e2b0 (17 bytes)</title></rect>
 <rect width="1" height="0.65" x="715.38" y="298.30" class="named"><title>0x0040f810 Timer::HasTicked (17 bytes)</title></rect>
 <rect width="1" height="0.65" x="719.38" y="298.30" class="todo"><title>0x0042e980 Func42e980 (17 bytes)</title></rect>

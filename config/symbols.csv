@@ -845,7 +845,7 @@ address,size,name,symbol
 0x0043d0a0,32,MmTimer::MmTimer,??0MmTimer@@QAE@XZ
 0x0043d0c0,41,MmTimer::Stop,?Stop@MmTimer@@QAEHXZ
 0x0043d0f0,14,MmTimer::DefaultCallback,?DefaultCallback@MmTimer@@SGXIIKKK@Z
-0x0043d100,18,Func43d100,
+0x0043d100,18,SwapBytes16,?SwapBytes16@@YIGG@Z
 0x0043d120,38,Func43d120,
 0x0043d150,32,Func43d150,
 0x0043d170,110,Func43d170,
