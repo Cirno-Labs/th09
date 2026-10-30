@@ -135,6 +135,9 @@ struct App
     // Like StopLoadingSprites, with interrupt 2 and loadingState 2, as
     // th08's (0x4304a0).
     void FinishLoadingSprites();
+    // Starts g_LoadingScreenEffect, a ScreenEffect of type `type` + 5,
+    // unless one runs, as th08's (0x430500).
+    void StartLoadingScreenEffect(int type);
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();

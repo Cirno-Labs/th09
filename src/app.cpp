@@ -236,6 +236,14 @@ void App::FinishLoadingSprites()
     }
 }
 
+void App::StartLoadingScreenEffect(int type)
+{
+    if (g_LoadingScreenEffect == NULL)
+    {
+        g_LoadingScreenEffect = ScreenEffect::StartEffect(type + 5, 60, 0, 0, 0, 1, 2);
+    }
+}
+
 void App::InitCriticalSections()
 {
     DWORD i;
