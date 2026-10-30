@@ -501,6 +501,7 @@ address,size,name,symbol
 0x00424bf7,335,MainMenu::InitTitleScene,?InitTitleScene@MainMenu@@QAEHXZ
 0x00424d4b,84,MainMenu::ReleaseTitleScene,?ReleaseTitleScene@MainMenu@@QAEHXZ
 0x00424d9f,96,MainMenu::DeletedCallback,?DeletedCallback@MainMenu@@SIHPAV1@@Z
+0x00424d46,5,MainMenu::AddedCallback,?AddedCallback@MainMenu@@SIHPAV1@@Z
 0x00424dff,150,MainMenu::SelectEntry,?SelectEntry@MainMenu@@QAEXHHH@Z
 0x00424e95,72,MainMenu::ShowEntryFrame,?ShowEntryFrame@MainMenu@@QAEXHH@Z
 0x00424edd,211,MainMenu::SelectEntryStep,?SelectEntryStep@MainMenu@@QAEXHHHH@Z

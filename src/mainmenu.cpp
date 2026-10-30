@@ -643,6 +643,11 @@ int MainMenu::InitTitleScene()
     return 0;
 }
 
+int MainMenu::AddedCallback(MainMenu *menu)
+{
+    return menu->InitTitleScene();
+}
+
 void MainMenu::SelectEntry(int cursor, int first, int count)
 {
     for (int i = first; i < first + count; i++)
