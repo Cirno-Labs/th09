@@ -444,7 +444,7 @@ address,size,name,symbol
 0x004217e0,21,Func4217e0,
 0x00421800,208,Func421800,
 0x004218e0,432,Func4218e0,
-0x00421aa0,215,Func421aa0,
+0x00421aa0,215,LoadLsnmChunk,?LoadLsnmChunk@@YIHPAUScoreDat@@@Z
 0x00421b80,178,Func421b80,
 0x00421c80,523,Func421c80,
 0x00421e90,12,Func421e90,
@@ -2261,6 +2261,7 @@ address,size,name,symbol
 0x004a8120,,g_GameManagerCalcChain,?g_GameManagerCalcChain@@3UChainElem@@A
 0x004a8140,,g_GameManagerDrawChain,?g_GameManagerDrawChain@@3UChainElem@@A
 0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAXA
+0x004a8168,,g_Lsnm,?g_Lsnm@@3ULsnm@@A
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
 0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
