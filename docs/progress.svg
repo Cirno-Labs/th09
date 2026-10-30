@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.79% (133)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">87.21% (907)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.88% (134)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">87.12% (906)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="95.53" height="6" x="0" y="0" class="named"/>
-<rect width="651.47" height="6" x="95.53" y="0" class="todo"/>
+<rect width="96.25" height="6" x="0" y="0" class="named"/>
+<rect width="650.75" height="6" x="96.25" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -405,7 +405,7 @@
 <rect width="12" height="12" x="525" y="90" class="named"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="90" class="named"><title>0x0041a8a2 GameConfig::SetDefaults (233 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="90" class="named"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
-<rect width="12" height="12" x="570" y="90" class="todo"><title>0x0041a997 App::ResetSubThread (21 bytes)</title></rect>
+<rect width="12" height="12" x="570" y="90" class="named"><title>0x0041a997 App::ResetSubThread (21 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="90" class="todo"><title>0x0041a9ac GameManager::IsDemo (12 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="90" class="todo"><title>0x0041a9b8 GameManager::SetPlayArea (79 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="90" class="todo"><title>0x0041aa07 GameManager::AddExtend (88 bytes)</title></rect>
@@ -1113,8 +1113,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">2.81%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">97.19%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="20.96" height="6" x="0" y="0" class="named"/>
-<rect width="726.04" height="6" x="20.96" y="0" class="todo"/>
+<rect width="21.02" height="6" x="0" y="0" class="named"/>
+<rect width="725.98" height="6" x="21.02" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1997,7 +1997,7 @@
 <rect width="1.13" height="1.20" x="725.44" y="273.67" class="todo"><title>0x0041a210 Func41a210 (21 bytes)</title></rect>
 <rect width="1.13" height="1.20" x="729.57" y="273.67" class="todo"><title>0x0041a3c0 Func41a3c0 (21 bytes)</title></rect>
 <rect width="1.13" height="1.20" x="733.69" y="273.67" class="named"><title>0x0041a889 ChainElem::SetCallback (21 bytes)</title></rect>
-<rect width="1.13" height="1.20" x="737.82" y="273.67" class="todo"><title>0x0041a997 App::ResetSubThread (21 bytes)</title></rect>
+<rect width="1.13" height="1.20" x="737.82" y="273.67" class="named"><title>0x0041a997 App::ResetSubThread (21 bytes)</title></rect>
 <rect width="1.13" height="1.20" x="741.95" y="273.67" class="todo"><title>0x004217e0 Func4217e0 (21 bytes)</title></rect>
 <rect width="0.93" height="1.20" x="746.07" y="273.67" class="named"><title>0x00401520 Timer::operator&gt;= (20 bytes)</title></rect>
 <rect width="1.12" height="1.01" x="708.75" y="277.88" class="named"><title>0x00401540 Timer::operator&lt; (20 bytes)</title></rect>

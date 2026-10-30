@@ -138,6 +138,13 @@ GameConfig::GameConfig()
     this->SetDefaults();
 }
 
+void App::ResetSubThread()
+{
+    this->subThread = NULL;
+    this->closeSubThread = 0;
+    this->unknown6b8 = 0;
+}
+
 int GameManager::RegisterChain()
 {
     GameManager *mgr = &g_GameManager;
