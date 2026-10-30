@@ -126,7 +126,7 @@ address,size,name,symbol
 0x00408180,967,Func408180,
 0x00408560,349,Func408560,
 0x004086c0,14777,Func4086c0,
-0x0040c390,41,Func40c390,
+0x0040c390,41,Bullet::ClearCommands,?ClearCommands@Bullet@@QAEXXZ
 0x0040c3c0,41,SendExAttack1,?SendExAttack1@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c3f0,76,SetSidesFlag0,?SetSidesFlag0@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c440,41,SendExAttack7,?SendExAttack7@@YIXPAUEnemy@@PAUEclInstr@@@Z

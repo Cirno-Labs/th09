@@ -59,6 +59,9 @@ struct Bullet
     // Sets command `i` to flag 0x4000, which switches the bullet to
     // bullet type `type` and color `color`, as th08's (0x4126d0).
     void SetSpriteCommand(int i, int concurrent, int type, int color);
+    // Clears the commands, their flags and unknownDb4, and starts over
+    // from the first command (0x40c390).
+    void ClearCommands();
     // Frees the bullet: state 0 and both timers reset, as th08's
     // (0x412930).
     void FreeBullet();
@@ -68,7 +71,8 @@ struct Bullet
     unsigned char pad_d4c[0xd88 - 0xd4c];
     Timer timer;
     Timer grazeDelayTimer;
-    unsigned char pad_da0[0xdb8 - 0xda0];
+    unsigned char pad_da0[0xdb4 - 0xda0];
+    int unknownDb4;
     // The flags of the commands it has.
     DWORD flags;
     unsigned char pad_dbc[0xdbe - 0xdbc];

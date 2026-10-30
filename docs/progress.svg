@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.51% (689)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.93% (373)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.61% (690)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.83% (372)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="481.91" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="481.91" y="0" class="decompiled"/>
-<rect width="260.89" height="6" x="486.11" y="0" class="todo"/>
+<rect width="482.61" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="482.61" y="0" class="decompiled"/>
+<rect width="260.19" height="6" x="486.81" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -195,7 +195,7 @@
 <rect width="12" height="12" x="360" y="30" class="todo"><title>0x00408180 Func408180 (967 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="30" class="todo"><title>0x00408560 Func408560 (349 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="30" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
-<rect width="12" height="12" x="405" y="30" class="todo"><title>0x0040c390 Func40c390 (41 bytes)</title></rect>
+<rect width="12" height="12" x="405" y="30" class="named"><title>0x0040c390 Bullet::ClearCommands (41 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="30" class="named"><title>0x0040c3c0 SendExAttack1 (41 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="30" class="named"><title>0x0040c3f0 SetSidesFlag0 (76 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="30" class="named"><title>0x0040c440 SendExAttack7 (41 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.99%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.97%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.96%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="246.44" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="246.44" y="0" class="decompiled"/>
-<rect width="500.27" height="6" x="246.73" y="0" class="todo"/>
+<rect width="246.54" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="246.54" y="0" class="decompiled"/>
+<rect width="500.16" height="6" x="246.84" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1902,7 +1902,7 @@
 <rect width="2.85" height="3.15" x="704.17" y="251.92" class="named"><title>0x00433cb0 LzssClearWindow (42 bytes)</title></rect>
 <rect width="2.71" height="3.15" x="710.02" y="251.92" class="named"><title>0x00403e00 AnmLoaded::StartScript (41 bytes)</title></rect>
 <rect width="2.71" height="3.15" x="715.73" y="251.92" class="named"><title>0x004048b0 Rng::GetRandomU16InRange (41 bytes)</title></rect>
-<rect width="2.71" height="3.15" x="721.44" y="251.92" class="todo"><title>0x0040c390 Func40c390 (41 bytes)</title></rect>
+<rect width="2.71" height="3.15" x="721.44" y="251.92" class="named"><title>0x0040c390 Bullet::ClearCommands (41 bytes)</title></rect>
 <rect width="2.71" height="3.15" x="727.15" y="251.92" class="named"><title>0x0040c3c0 SendExAttack1 (41 bytes)</title></rect>
 <rect width="2.71" height="3.15" x="732.87" y="251.92" class="named"><title>0x0040c440 SendExAttack7 (41 bytes)</title></rect>
 <rect width="2.71" height="3.15" x="738.58" y="251.92" class="named"><title>0x0040c470 SendExAttack8 (41 bytes)</title></rect>

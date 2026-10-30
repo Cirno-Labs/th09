@@ -2,6 +2,19 @@
 #include "enemy.h"
 #include "gamemanager.h"
 
+void Bullet::ClearCommands()
+{
+    int i;
+
+    this->commandIndex = 0;
+    this->flags = 0;
+    this->unknownDb4 = 0;
+    for (i = 0; i < 18; i++)
+    {
+        this->commands[i].flag = 0;
+    }
+}
+
 void BulletManager::ClearUnknown25e198()
 {
     this->unknown25e198[0] = this->unknown25e198[1] = this->unknown25e198[2] = this->unknown25e198[3] =
