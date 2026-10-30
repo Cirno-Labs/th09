@@ -425,7 +425,7 @@ address,size,name,symbol
 0x004200c0,45,Func4200c0,
 0x004200f0,111,Func4200f0,
 0x00420160,14,Rng::SetSeed,?SetSeed@Rng@@QAEXG@Z
-0x00420170,8,Func420170,
+0x00420170,8,Rng::ResetGenerated,?ResetGenerated@Rng@@QAEXXZ
 0x00420180,13,App::GetNoScore,?GetNoScore@App@@QAEHXZ
 0x00420190,257,ReplayManager::OnUpdateMode0b,?OnUpdateMode0b@ReplayManager@@SIHPAV1@@Z
 0x004202a0,460,ReplayManager::OnUpdateMode0,?OnUpdateMode0@ReplayManager@@SIHPAV1@@Z

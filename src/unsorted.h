@@ -53,6 +53,8 @@ public:
     WORD GetSeed();
     // Sets the seed (0x420160).
     void SetSeed(WORD seed);
+    // Sets generated to 0 (0x420170).
+    void ResetGenerated();
 
     WORD seed;
     unsigned char pad_2[0x2];
