@@ -1,6 +1,7 @@
 // The data archive, from 0x433040.
 
 #include "archive.h"
+#include "lzss.h"
 #include "unsorted.h"
 
 DatArchive::DatArchive()

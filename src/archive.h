@@ -178,8 +178,3 @@ public:
 };
 ASSERT_SIZE(DatArchive, 0x10);
 extern DatArchive g_Archive;
-
-// Decompresses `dataSize` bytes of `data` into `out`, or a new
-// GlobalAlloc'd block if NULL, of `outSize` bytes, as th08's
-// (0x433aa0). Returns it.
-void *LzssDecompress(BYTE *data, int dataSize, BYTE *out, int outSize);
