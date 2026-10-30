@@ -437,7 +437,7 @@ address,size,name,symbol
 0x00420a60,104,FreeResources,?FreeResources@@YIHPAVReplayManager@@@Z
 0x00420ad0,318,Func420ad0,
 0x00420c10,42,ReplayManager::RemoveChain,?RemoveChain@ReplayManager@@SIXPAV1@@Z
-0x00420c40,18,Func420c40,
+0x00420c40,18,ReplayHeader::ReplayHeader,??0ReplayHeader@@QAE@XZ
 0x00420c60,1227,Func420c60,
 0x00421140,1323,ReplayManager::AddedCallbackMode0,?AddedCallbackMode0@ReplayManager@@SIHPAV1@@Z
 0x00421670,361,ReplayManager::RegisterChain,?RegisterChain@ReplayManager@@SIPAV1@HPAD@Z

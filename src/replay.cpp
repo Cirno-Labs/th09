@@ -49,6 +49,10 @@ void ReplayManager::RemoveChain(ReplayManager *mgr)
     }
 }
 
+ReplayHeader::ReplayHeader()
+{
+}
+
 ReplayManager *ReplayManager::RegisterChain(int mode, char *path)
 {
     ReplayManager *mgr =
