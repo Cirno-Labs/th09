@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">40.49% (428)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">59.51% (629)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">40.59% (429)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">59.41% (628)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="302.47" height="6" x="0" y="0" class="named"/>
-<rect width="444.53" height="6" x="302.47" y="0" class="todo"/>
+<rect width="303.18" height="6" x="0" y="0" class="named"/>
+<rect width="443.82" height="6" x="303.18" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -996,7 +996,7 @@
 <rect width="12" height="12" x="390" y="270" class="named"><title>0x00440650 CSound::CSound (135 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="270" class="named"><title>0x004406e0 CSound::~CSound (105 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="270" class="named"><title>0x00440750 CStreamingSound::CStreamingSound (60 bytes)</title></rect>
-<rect width="12" height="12" x="435" y="270" class="todo"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>
+<rect width="12" height="12" x="435" y="270" class="named"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="270" class="todo"><title>0x004407a0 CSoundManager::CreateStreaming (578 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="270" class="todo"><title>0x004409f0 CSoundManager::CreateStreamingFromMemory (546 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="270" class="named"><title>0x00440c20 CSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
@@ -1130,8 +1130,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.79%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.21%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="117.93" height="6" x="0" y="0" class="named"/>
-<rect width="629.07" height="6" x="117.93" y="0" class="todo"/>
+<rect width="117.96" height="6" x="0" y="0" class="named"/>
+<rect width="629.04" height="6" x="117.96" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2139,7 +2139,7 @@
 <rect width="0.10" height="0.21" x="747.05" y="312.19" class="todo"><title>0x0042e9b0 Func42e9b0 (11 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="732.03" y="315.40" class="named"><title>0x00430220 AsciiText::ClearStrings (11 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="732.03" y="318.47" class="named"><title>0x00435f10 GdiSurface::IsCreated (11 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="732.03" y="321.54" class="todo"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="732.03" y="321.54" class="named"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="732.03" y="324.62" class="named"><title>0x00401380 MemoryManager::Register (10 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="732.03" y="327.41" class="named"><title>0x00406670 Timer::operator-- (10 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="732.03" y="330.21" class="todo"><title>0x0042d230 Func42d230 (10 bytes)</title></rect>
