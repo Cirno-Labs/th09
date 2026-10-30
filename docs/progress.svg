@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">49.25% (522)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">50.75% (538)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">49.34% (523)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">50.66% (537)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="367.86" height="6" x="0" y="0" class="named"/>
-<rect width="379.14" height="6" x="367.86" y="0" class="todo"/>
+<rect width="368.57" height="6" x="0" y="0" class="named"/>
+<rect width="378.43" height="6" x="368.57" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -133,7 +133,7 @@
 <rect width="12" height="12" x="195" y="15" class="named"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="15" class="todo"><title>0x00403d90 Func403d90 (71 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="15" class="named"><title>0x00403de0 Timer::operator&gt; (20 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="15" class="todo"><title>0x00403e00 Func403e00 (41 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="15" class="named"><title>0x00403e00 AnmLoaded::StartScript (41 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="15" class="todo"><title>0x00403e30 Func403e30 (27 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="15" class="todo"><title>0x00403e50 Func403e50 (923 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="15" class="todo"><title>0x004041f0 SpellCard::OnUpdate (536 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">25.23%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">74.77%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">25.24%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">74.76%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="188.46" height="6" x="0" y="0" class="named"/>
-<rect width="558.54" height="6" x="188.46" y="0" class="todo"/>
+<rect width="188.57" height="6" x="0" y="0" class="named"/>
+<rect width="558.43" height="6" x="188.57" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1888,7 +1888,7 @@
 <rect width="2.78" height="3.24" x="669.54" y="289.89" class="named"><title>0x00423158 PlayerInput::IsPressed (42 bytes)</title></rect>
 <rect width="2.78" height="3.24" x="669.54" y="296.13" class="named"><title>0x0042ff40 App::SetRenderState (42 bytes)</title></rect>
 <rect width="2.78" height="3.24" x="669.54" y="302.38" class="named"><title>0x00433cb0 LzssClearWindow (42 bytes)</title></rect>
-<rect width="2.78" height="3.09" x="669.54" y="308.62" class="todo"><title>0x00403e00 Func403e00 (41 bytes)</title></rect>
+<rect width="2.78" height="3.09" x="669.54" y="308.62" class="named"><title>0x00403e00 AnmLoaded::StartScript (41 bytes)</title></rect>
 <rect width="2.78" height="3.09" x="669.54" y="314.72" class="todo"><title>0x004048b0 Func4048b0 (41 bytes)</title></rect>
 <rect width="2.78" height="3.09" x="669.54" y="320.81" class="todo"><title>0x0040c390 Func40c390 (41 bytes)</title></rect>
 <rect width="2.78" height="3.09" x="669.54" y="326.91" class="named"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>

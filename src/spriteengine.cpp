@@ -32,6 +32,13 @@ void AnmLoaded::StartScriptAtOrigin(Sprite *vm, int script)
     this->SetScript(vm, this->scripts[script]);
 }
 
+void AnmLoaded::StartScript(Sprite *vm, int script)
+{
+    vm->anm = this;
+    vm->scriptIndex = script;
+    this->SetScript(vm, this->scripts[script]);
+}
+
 void SpriteEngine::ClearTexture()
 {
     this->currentTexture = NULL;

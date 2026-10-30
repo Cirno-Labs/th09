@@ -333,6 +333,8 @@ public:
     // Starts script `script` of this file on `vm`, at the origin with no
     // offset (0x401560).
     void StartScriptAtOrigin(Sprite *vm, int script);
+    // Starts script `script` of this file on `vm`, as th08's (0x403e00).
+    void StartScript(Sprite *vm, int script);
     // Starts `script` on `vm`, or zeroes `vm` if there is no script or
     // the file is still loading (0x4395a0).
     void SetScript(Sprite *vm, void *script);
