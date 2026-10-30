@@ -164,6 +164,10 @@ public:
     // Starts `script` on `vm`, or zeroes `vm` if there is no script or
     // the file is still loading (0x4395a0).
     void SetScript(Sprite *vm, void *script);
+    // Starts script `script` + n of this file on sprite n of the
+    // `count` sprites from `vms`, and makes their sprites their base
+    // sprites, as th08's (0x439630).
+    void StartSpriteSeries(Sprite *vms, int script, int count);
     // Shows sprite `sprite` of this file on `vm` (0x436ac0).
     void SetSprite(Sprite *vm, int sprite);
     // Zeroes `vm` and shows sprite `sprite` of this file on it, as

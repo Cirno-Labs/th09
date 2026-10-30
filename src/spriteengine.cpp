@@ -107,6 +107,18 @@ void AnmLoaded::SetScript(Sprite *vm, void *script)
     }
 }
 
+void AnmLoaded::StartSpriteSeries(Sprite *vms, int script, int count)
+{
+    while (count != 0)
+    {
+        this->StartScriptAtOrigin(vms, script);
+        vms->baseSpriteIndex = vms->spriteIndex;
+        script++;
+        vms++;
+        count--;
+    }
+}
+
 void SpriteEngine::BeginQuadBatch()
 {
     this->batchQuadCount = 0;
