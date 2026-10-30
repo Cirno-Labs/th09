@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.38% (630)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.62% (431)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.47% (631)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.53% (430)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="443.55" height="6" x="0" y="0" class="named"/>
-<rect width="303.45" height="6" x="443.55" y="0" class="todo"/>
+<rect width="444.26" height="6" x="0" y="0" class="named"/>
+<rect width="302.74" height="6" x="444.26" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -449,7 +449,7 @@
 <rect width="12" height="12" x="435" y="105" class="named"><title>0x0041ced0 Player::RemoveChain (86 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="105" class="named"><title>0x0041cf30 Player::AllocHitArea (110 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="105" class="named"><title>0x0041cfa0 Player::AddHitBox (55 bytes)</title></rect>
-<rect width="12" height="12" x="480" y="105" class="todo"><title>0x0041cfe0 Func41cfe0 (43 bytes)</title></rect>
+<rect width="12" height="12" x="480" y="105" class="named"><title>0x0041cfe0 Player::AddHitCircle (43 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="105" class="todo"><title>0x0041d010 Func41d010 (61 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="105" class="todo"><title>0x0041d050 Func41d050 (49 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="105" class="todo"><title>0x0041d090 Func41d090 (61 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.98%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.02%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">30.99%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">69.01%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="231.42" height="6" x="0" y="0" class="named"/>
-<rect width="515.58" height="6" x="231.42" y="0" class="todo"/>
+<rect width="231.53" height="6" x="0" y="0" class="named"/>
+<rect width="515.47" height="6" x="231.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1881,7 +1881,7 @@
 <rect width="3.03" height="3.26" x="726.01" y="252.45" class="named"><title>0x0041f030 PlayerBullet::PlayerBullet (44 bytes)</title></rect>
 <rect width="3.03" height="3.26" x="732.04" y="252.45" class="named"><title>0x0042b0e0 MemoryManager::~MemoryManager (44 bytes)</title></rect>
 <rect width="3.03" height="3.26" x="738.08" y="252.45" class="todo"><title>0x00445530 Func445530 (44 bytes)</title></rect>
-<rect width="2.89" height="3.26" x="744.11" y="252.45" class="todo"><title>0x0041cfe0 Func41cfe0 (43 bytes)</title></rect>
+<rect width="2.89" height="3.26" x="744.11" y="252.45" class="named"><title>0x0041cfe0 Player::AddHitCircle (43 bytes)</title></rect>
 <rect width="2.78" height="3.38" x="669.82" y="258.70" class="todo"><title>0x0042d2f0 Func42d2f0 (43 bytes)</title></rect>
 <rect width="2.78" height="3.23" x="669.82" y="265.08" class="named"><title>0x004013e0 App::ResetView (42 bytes)</title></rect>
 <rect width="2.78" height="3.23" x="669.82" y="271.31" class="named"><title>0x00401410 App::ResetView3D (42 bytes)</title></rect>

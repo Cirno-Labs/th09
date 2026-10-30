@@ -381,7 +381,7 @@ address,size,name,symbol
 0x0041ced0,86,Player::RemoveChain,?RemoveChain@Player@@SIXPAV1@@Z
 0x0041cf30,110,Player::AllocHitArea,?AllocHitArea@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@HH@Z
 0x0041cfa0,55,Player::AddHitBox,?AddHitBox@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHH@Z
-0x0041cfe0,43,Func41cfe0,
+0x0041cfe0,43,Player::AddHitCircle,?AddHitCircle@Player@@QAEPAUPlayerHitArea@@PAUD3DXVECTOR3@@MMHH@Z
 0x0041d010,61,Func41d010,
 0x0041d050,49,Func41d050,
 0x0041d090,61,Func41d090,

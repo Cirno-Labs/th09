@@ -98,6 +98,16 @@ PlayerHitArea *Player::AddHitBox(D3DXVECTOR3 *pos, float width, float height, in
     return area;
 }
 
+PlayerHitArea *Player::AddHitCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int framesLeft, int unknown40)
+{
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+
+    area->radius = radius;
+    area->radiusGrowth = radiusGrowth;
+    area->kind = 1;
+    return area;
+}
+
 void PlayerUnknown30410::Update()
 {
     if (this->timer20 > 0)
