@@ -43,6 +43,9 @@ ASSERT_SIZE(ChainElem, 0x20);
 class Chain
 {
 public:
+    // Constructs the two heads (0x42ac30).
+    Chain();
+
     ChainElem calcChain;
     ChainElem drawChain;
 };

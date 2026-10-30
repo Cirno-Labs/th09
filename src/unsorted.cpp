@@ -97,6 +97,10 @@ ChainElem::~ChainElem()
     this->deletedCallback = NULL;
 }
 
+Chain::Chain()
+{
+}
+
 WORD Rng::GetRandomU16()
 {
     WORD a;

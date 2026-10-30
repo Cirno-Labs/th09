@@ -521,7 +521,7 @@ address,size,name,symbol
 0x0042ab13,201,Func42ab13,
 0x0042abe0,30,ChainElem::ChainElem,??0ChainElem@@QAE@XZ
 0x0042ac00,36,ChainElem::~ChainElem,??1ChainElem@@QAE@XZ
-0x0042ac30,18,Func42ac30,
+0x0042ac30,18,Chain::Chain,??0Chain@@QAE@XZ
 0x0042ac50,33,Func42ac50,
 0x0042ac80,37,Func42ac80,
 0x0042acb0,47,Func42acb0,
