@@ -717,7 +717,7 @@ address,size,name,symbol
 0x00433980,226,File::Open,?Open@File@@UAE_NPAD0@Z
 0x00433a70,33,File::`scalar deleting destructor',??_GFile@@UAEPAXI@Z
 0x00433aa0,470,LzssDecompress,?LzssDecompress@@YIPAXPAEH0H@Z
-0x00433c80,37,Func433c80,
+0x00433c80,37,LzssTreeInitNode,?LzssTreeInitNode@@YIXH@Z
 0x00433cb0,42,Func433cb0,
 0x00433ce0,83,Func433ce0,
 0x00433d40,115,Func433d40,
@@ -2238,6 +2238,7 @@ address,size,name,symbol
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
+0x004b4420,,g_LzssTree,?g_LzssTree@@3PAULzssNode@@A
 0x004cc430,,g_LzssWindow,?g_LzssWindow@@3PAEA
 0x004ce458,,g_AsciiText,?g_AsciiText@@3VAsciiText@@A
 0x004d9698,,g_Unknown4d9698,?g_Unknown4d9698@@3PAEA

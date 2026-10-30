@@ -1,4 +1,4 @@
-// The LZSS decoder, from 0x433aa0, as th08's lzss.cpp without the coder.
+// The LZSS coder, from 0x433aa0, as th08's lzss.cpp.
 
 #include "lzss.h"
 
@@ -126,4 +126,12 @@ void *LzssDecompress(BYTE *data, int dataSize, BYTE *out, int outSize)
         READ_BIT(bits);
     }
     return out;
+}
+
+void LzssTreeInitNode(int pos)
+{
+    g_LzssTree[0x2000].largerChild = pos;
+    g_LzssTree[pos].parent = 0x2000;
+    g_LzssTree[pos].largerChild = 0;
+    g_LzssTree[pos].smallerChild = 0;
 }

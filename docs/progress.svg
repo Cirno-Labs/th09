@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.50% (247)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">76.50% (804)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.60% (248)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">76.40% (803)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="175.56" height="6" x="0" y="0" class="named"/>
-<rect width="571.44" height="6" x="175.56" y="0" class="todo"/>
+<rect width="176.27" height="6" x="0" y="0" class="named"/>
+<rect width="570.73" height="6" x="176.27" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -785,7 +785,7 @@
 <rect width="12" height="12" x="225" y="210" class="named"><title>0x00433980 File::Open (226 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="210" class="named"><title>0x00433a70 File::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="210" class="named"><title>0x00433aa0 LzssDecompress (470 bytes)</title></rect>
-<rect width="12" height="12" x="270" y="210" class="todo"><title>0x00433c80 Func433c80 (37 bytes)</title></rect>
+<rect width="12" height="12" x="270" y="210" class="named"><title>0x00433c80 LzssTreeInitNode (37 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="210" class="todo"><title>0x00433cb0 Func433cb0 (42 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="210" class="todo"><title>0x00433ce0 Func433ce0 (83 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="210" class="todo"><title>0x00433d40 Func433d40 (115 bytes)</title></rect>
@@ -1122,10 +1122,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.02%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.98%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="52.31" height="6" x="0" y="0" class="named"/>
-<rect width="694.69" height="6" x="52.31" y="0" class="todo"/>
+<rect width="52.40" height="6" x="0" y="0" class="named"/>
+<rect width="694.60" height="6" x="52.40" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.79" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1918,7 +1918,7 @@
 <rect width="2.69" height="2.59" x="682.25" y="305.19" class="todo"><title>0x004126d0 Func4126d0 (37 bytes)</title></rect>
 <rect width="2.69" height="2.59" x="682.25" y="310.78" class="todo"><title>0x0041f490 Func41f490 (37 bytes)</title></rect>
 <rect width="2.69" height="2.59" x="682.25" y="316.37" class="todo"><title>0x0042ac80 Func42ac80 (37 bytes)</title></rect>
-<rect width="2.69" height="2.59" x="682.25" y="321.97" class="todo"><title>0x00433c80 Func433c80 (37 bytes)</title></rect>
+<rect width="2.69" height="2.59" x="682.25" y="321.97" class="named"><title>0x00433c80 LzssTreeInitNode (37 bytes)</title></rect>
 <rect width="2.69" height="2.44" x="682.25" y="327.56" class="todo"><title>0x00405730 Func405730 (36 bytes)</title></rect>
 <rect width="2.85" height="2.29" x="687.94" y="265.29" class="todo"><title>0x004125b0 Func4125b0 (36 bytes)</title></rect>
 <rect width="2.85" height="2.29" x="693.79" y="265.29" class="named"><title>0x0042ac00 ChainElem::~ChainElem (36 bytes)</title></rect>
