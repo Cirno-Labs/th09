@@ -421,7 +421,10 @@ struct App
 
     unsigned char pad_0[0x8];
     IDirect3DDevice8 *d3dDevice;
-    unsigned char pad_c[0x348 - 0xc];
+    unsigned char pad_c[0x74 - 0xc];
+    // The game's window, as th08's.
+    HWND hwnd;
+    unsigned char pad_78[0x348 - 0x78];
     // The camera of the view SetView last set up.
     Camera *camera;
     unsigned char pad_34c[0x350 - 0x34c];
