@@ -183,7 +183,7 @@ address,size,name,symbol
 0x0040e480,101,Ending::OnDraw,?OnDraw@Ending@@SIHPAV1@@Z
 0x0040e4f0,133,Ending::Load,?Load@Ending@@QAEHPAD@Z
 0x0040e580,773,Ending::AddedCallback,?AddedCallback@Ending@@SIHPAV1@@Z
-0x0040e8a0,1483,Ending::RunScript,?RunScript@Ending@@QAEHXZ
+0x0040e8a0,1499,Ending::RunScript,?RunScript@Ending@@QAEHXZ
 0x0040ef60,119,Ending::Ending,??0Ending@@QAE@XZ
 0x0040efe0,145,Ending::OnUpdate,?OnUpdate@Ending@@SIHPAV1@@Z
 0x0040f080,223,Ending::RegisterChain,?RegisterChain@Ending@@SIHXZ
