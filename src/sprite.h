@@ -273,6 +273,9 @@ public:
     // (`x`, `y`) on the back buffer, first creating it from its backup
     // if needed, as th08's (0x43bfa0).
     void CopySurfaceToBackBuffer(int surface, int left, int top, int x, int y);
+    // The same for the `width` by `height` rectangle at (`left`, `top`),
+    // as th08's (0x43c0d0).
+    void CopySurfaceRectToBackBuffer(int surface, int x, int y, int left, int top, int width, int height);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).
