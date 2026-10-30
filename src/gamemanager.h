@@ -162,7 +162,8 @@ public:
     unsigned char pad_138[0x13c - 0x138];
     // 1 once paused, 2 once the pause was drawn.
     BYTE isPaused;
-    BYTE unknown13d;
+    // Whether the continue menu is up, as th08's.
+    BYTE isInContinueMenu;
     BYTE unknown13e;
     BYTE unknown13f;
     unsigned char pad_140[0x348 - 0x140];

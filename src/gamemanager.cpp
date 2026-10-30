@@ -86,7 +86,7 @@ void GameManager::ResetState()
     this->unknown12c = 0;
     this->unknown130 = 0;
     this->isPaused = 0;
-    this->unknown13d = 0;
+    this->isInContinueMenu = 0;
     this->unknown13e = 0;
     this->unknown380 = 0;
 }

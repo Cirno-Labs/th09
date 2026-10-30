@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "ascii.h"
+#include "gamemanager.h"
 #include "unsorted.h"
 
 void AsciiText::RemoveChain()
@@ -181,4 +182,22 @@ void AsciiText::AddPopup(int side, D3DXVECTOR3 *pos, int value, D3DCOLOR color)
     popup->timer = 0;
     popup->pos = *pos;
     this->nextPopup++;
+}
+
+void PauseMenu::DrawPauseMenu()
+{
+    int i;
+
+    if (g_GameManager.isPaused)
+    {
+        g_SpriteEngine->FlushQuadBatch();
+        g_App.SetView(2);
+        for (i = 0; i < ARRAY_SIZE(this->sprites); i++)
+        {
+            if (this->sprites[i].IsShown())
+            {
+                g_SpriteEngine->DrawUnrotated(&this->sprites[i]);
+            }
+        }
+    }
 }

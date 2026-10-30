@@ -81,6 +81,12 @@ public:
         this->pendingInterrupt = interrupt;
     }
 
+    // Bit 0 of flags, as th08's. Inline; the copy is at 0x434370.
+    BOOL IsShown()
+    {
+        return this->flags & 1;
+    }
+
     // Resets the sprite's state up to pos, as th08's: a scale of 1,
     // white, the identity matrix, flags 7. Inline; the copy is at
     // 0x4127b0.

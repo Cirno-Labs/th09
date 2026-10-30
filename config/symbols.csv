@@ -728,7 +728,7 @@ address,size,name,symbol
 0x00434280,31,AsciiText::RemoveChain,?RemoveChain@AsciiText@@SIXXZ
 0x004342a0,130,AsciiText::AddString,?AddString@AsciiText@@QAEXPAUD3DXVECTOR3@@PAD@Z
 0x00434330,55,AsciiText::AddFormat,?AddFormat@AsciiText@@QAAXPAUD3DXVECTOR3@@PADZZ
-0x00434370,10,Func434370,
+0x00434370,10,Sprite::IsShown,?IsShown@Sprite@@QAEHXZ
 0x00434380,8,Func434380,
 0x00434390,18,AnmLoaded::GetSprite,?GetSprite@AnmLoaded@@QAEPAUSpriteData@@H@Z
 0x004343b0,10,Func4343b0,
@@ -739,7 +739,7 @@ address,size,name,symbol
 0x00434540,341,AsciiText::DrawStrings,?DrawStrings@AsciiText@@QAEXXZ
 0x004346a0,154,AsciiText::AddPopup,?AddPopup@AsciiText@@QAEXHPAUD3DXVECTOR3@@HK@Z
 0x00434740,1716,Func434740,
-0x00434e30,83,Func434e30,
+0x00434e30,83,PauseMenu::DrawPauseMenu,?DrawPauseMenu@PauseMenu@@QAEXXZ
 0x00434e90,1198,Func434e90,
 0x00435370,117,Func435370,
 0x004353f0,497,Func4353f0,

@@ -40,6 +40,37 @@ struct AsciiPopup
 };
 ASSERT_SIZE(AsciiPopup, 0x38);
 
+// The pause menu, AsciiText's at 0x82a0, as th08's. Only what is known
+// so far.
+class PauseMenu
+{
+public:
+    // Draws it while paused (0x434e30).
+    void DrawPauseMenu();
+
+    int state;
+    // Frames since the state changed.
+    int stateFrames;
+    Sprite sprites[7];
+    // The copy of the play area behind the menu.
+    Sprite background;
+};
+ASSERT_SIZE(PauseMenu, 0x1528);
+
+// The continue menu, AsciiText's at 0x97c8, as th08's.
+class ContinueMenu
+{
+public:
+    // Draws it while in the continue menu (0x435370).
+    void DrawContinueMenu();
+
+    int state;
+    int stateFrames;
+    Sprite sprites[5];
+    Sprite background;
+};
+ASSERT_SIZE(ContinueMenu, 0xfe0);
+
 // The ASCII text (0xe0ac bytes), at 0x4ce458. Only what is known so far.
 class AsciiText
 {
@@ -97,10 +128,8 @@ public:
     int nextPopup2;
     unsigned char pad_8298[0x829c - 0x8298];
     int unknown829c;
-    // The pause and continue menus, as th08's: two ints and 8 and 6
-    // sprites.
-    unsigned char pauseMenu[0x1528];
-    unsigned char continueMenu[0xfe0];
+    PauseMenu pauseMenu;
+    ContinueMenu continueMenu;
     unsigned char pad_a7a8[0xb240 - 0xa7a8];
     AsciiPopup popups[2][100];
     unsigned char pad_de00[0xe0ac - 0xde00];
