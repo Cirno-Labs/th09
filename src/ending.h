@@ -37,6 +37,9 @@ public:
     // Loads the script at `path` and starts it. Returns 0, or -1 after
     // logging an error, as th08's (0x40e4f0).
     int Load(char *path);
+    // The update chain element's added callback: loads the staff ANM,
+    // records the clear and loads the ending's script (0x40e580).
+    static int AddedCallback(Ending *ending);
     // Runs the script until it waits: shows text lines, runs the '@'
     // commands. Returns 0, or -1 at its end or on failure, as th08's
     // (0x40e8a0).
@@ -45,7 +48,9 @@ public:
     // the sprites, up to 9 times a frame while skipping, as th08's.
     // Returns 0 at the script's end, otherwise 1 (0x40efe0).
     static int OnUpdate(Ending *ending);
-    // Creates the ending and adds it to the chains (0x40f080).
+    // Creates the ending's chain elements: OnUpdate at priority 5 with
+    // its added and deleted callbacks, OnDraw at 4, as th08's. Returns 0,
+    // or -1 if adding fails (0x40f080).
     static int RegisterChain();
 
     ChainElem *calcChain;
