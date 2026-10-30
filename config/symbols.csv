@@ -727,7 +727,7 @@ address,size,name,symbol
 0x00434020,571,LzssCompress,?LzssCompress@@YIPAXPAEHPAH@Z
 0x00434280,31,AsciiText::RemoveChain,?RemoveChain@AsciiText@@SIXXZ
 0x004342a0,130,AsciiText::AddString,?AddString@AsciiText@@QAEXPAUD3DXVECTOR3@@PAD@Z
-0x00434330,55,Func434330,
+0x00434330,55,AsciiText::AddFormat,?AddFormat@AsciiText@@QAAXPAUD3DXVECTOR3@@PADZZ
 0x00434370,10,Func434370,
 0x00434380,8,Func434380,
 0x00434390,18,Func434390,
