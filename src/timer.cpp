@@ -97,3 +97,8 @@ BOOL Timer::operator<=(int frames)
 {
     return this->current <= frames;
 }
+
+BOOL Timer::HasTicked()
+{
+    return this->current != this->previous;
+}
