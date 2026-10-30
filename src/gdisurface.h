@@ -23,6 +23,15 @@ ASSERT_SIZE(FormatInfo, 0x18);
 // The formats, as th08's (0x4a1ed8).
 extern FormatInfo g_FormatInfos[7];
 
+// A pixel in D3DFMT_A1R5G5B5, as th08's.
+struct A1R5G5B5
+{
+    WORD b : 5;
+    WORD g : 5;
+    WORD r : 5;
+    WORD a : 1;
+};
+
 // A GDI DIB section text is drawn into before it is copied to a Direct3D
 // surface; `format` is the D3DFORMAT its pixels follow, as th08's.
 class GdiSurface
@@ -72,8 +81,10 @@ public:
     // CreateInFormat, falling back to a 32-bit format for the 16-bit
     // ones, as th08's (0x436450).
     bool Create(int width, int height, int format);
-    // Inverts the alpha of the rows from `y`, `width` by `height`; in
-    // A1R5G5B5 it also shades the text, as th08's (0x435fe0).
+    // Inverts the alpha of the rows from `y`, `width` by `height` in
+    // 16-bit pixels. In A1R5G5B5 it also clears the pixels that end up
+    // transparent and, with `lightShading`, darkens the text towards the
+    // bottom; th08 shaded it either way (0x435fe0).
     bool InvertAlpha(int x, int y, int width, int height, int lightShading);
     // Copies the pixels into `surface` when it has the same format.
     // Returns false when there is no bitmap or the surface can't be
