@@ -124,3 +124,12 @@ BulletManager *BulletManager::RegisterChain(int sideIdx)
     g_Chain.AddToDrawChain(mgr->drawElem, sideIdx + 0x15);
     return mgr;
 }
+
+void EnemyShooter::SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1)
+{
+    BulletCommand *cmd = this->SetCommand(i, concurrent, 0x10);
+
+    cmd->frames = frames;
+    cmd->arg0 = arg0;
+    cmd->arg1 = arg1;
+}

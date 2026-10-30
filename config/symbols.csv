@@ -240,7 +240,7 @@ address,size,name,symbol
 0x004126b0,31,Bullet::SetCommand20000,?SetCommand20000@Bullet@@QAEXHHH@Z
 0x004126d0,37,Bullet::SetSpriteCommand,?SetSpriteCommand@Bullet@@QAEXHHHH@Z
 0x00412700,39,EnemyShooter::SetAngleAccelCommand,?SetAngleAccelCommand@EnemyShooter@@QAEXHHHMM@Z
-0x00412730,39,Func412730,
+0x00412730,39,EnemyShooter::SetAccelCommand,?SetAccelCommand@EnemyShooter@@QAEXHHHMM@Z
 0x00412760,31,Func412760,
 0x00412780,33,SinCos,?SinCos@@YIXPAM0M@Z
 0x004127b0,66,Sprite::Initialize,?Initialize@Sprite@@QAEXXZ

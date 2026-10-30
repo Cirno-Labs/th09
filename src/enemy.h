@@ -108,6 +108,8 @@ struct EnemyShooter
     // Sets command `i` to flag 0x20, as th08's: turning by `arg0`
     // towards `arg1` for `frames` (0x412700).
     void SetAngleAccelCommand(int i, int concurrent, int frames, float arg1, float arg0);
+    // Bullet::SetAccelCommand for the shooter (0x412730).
+    void SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1);
 
     unsigned char pad_0[0x20];
     // Copied into each bullet.
