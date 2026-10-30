@@ -103,6 +103,9 @@ public:
     // Constructs the members and initializes (0x415050).
     BulletManager();
 
+    // Calls Unknown412590 with 1. Called by the ECL interpreter; the
+    // copy is at 0x405650.
+    void Unknown405650();
     // Clears unknown25e198 (0x412390).
     void ClearUnknown25e198();
     // Zeroes everything, marks the spare bullets and clears the script
@@ -113,6 +116,8 @@ public:
     static void RemoveChain(BulletManager *mgr);
     // Clears the bullets for a new round (0x412470).
     void Reset();
+    // Empty; called by the ECL interpreter (0x412590).
+    void Unknown412590(int arg);
     // Preloads etama.anm into ANM slot 8; returns 1 if that fails
     // (0x4125e0).
     static int LoadAnm();

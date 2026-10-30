@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64% (679)</tspan> · <tspan class="decompiled">0.28% (3)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">35.72% (379)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64% (679)</tspan> · <tspan class="decompiled">0.38% (4)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">35.63% (378)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="478.05" height="6" x="0" y="0" class="named"/>
-<rect width="2.11" height="6" x="478.05" y="0" class="decompiled"/>
-<rect width="266.84" height="6" x="480.16" y="0" class="todo"/>
+<rect width="2.82" height="6" x="478.05" y="0" class="decompiled"/>
+<rect width="266.13" height="6" x="480.87" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -152,7 +152,7 @@
 <rect width="12" height="12" x="465" y="15" class="named"><title>0x00404970 GameManager::IsMode1 (15 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="15" class="named"><title>0x00404980 Gui::IsMsgRunning (24 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="15" class="todo"><title>0x004049a0 Func4049a0 (3231 bytes)</title></rect>
-<rect width="12" height="12" x="510" y="15" class="todo"><title>0x00405650 Func405650 (8 bytes)</title></rect>
+<rect width="12" height="12" x="510" y="15" class="decompiled"><title>0x00405650 BulletManager::Unknown405650 (8 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="15" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="15" class="named"><title>0x00405700 Atan2 (15 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="15" class="named"><title>0x00405710 Fmod (18 bytes)</title></rect>
@@ -298,7 +298,7 @@
 <rect width="12" height="12" x="405" y="60" class="named"><title>0x00412470 BulletManager::Reset (95 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="60" class="todo"><title>0x004124d0 Func4124d0 (16 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="60" class="todo"><title>0x004124e0 Func4124e0 (161 bytes)</title></rect>
-<rect width="12" height="12" x="450" y="60" class="todo"><title>0x00412590 Func412590 (3 bytes)</title></rect>
+<rect width="12" height="12" x="450" y="60" class="todo"><title>0x00412590 BulletManager::Unknown412590 (3 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="60" class="todo"><title>0x004125a0 Func4125a0 (3 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="60" class="named"><title>0x004125b0 D3DXVECTOR3::operator-= (36 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="60" class="named"><title>0x004125e0 BulletManager::LoadAnm (24 bytes)</title></rect>
@@ -1133,11 +1133,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.84%</tspan> · <tspan class="decompiled">0.03%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.12%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.84%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.12%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="245.35" height="6" x="0" y="0" class="named"/>
-<rect width="0.26" height="6" x="245.35" y="0" class="decompiled"/>
-<rect width="501.39" height="6" x="245.61" y="0" class="todo"/>
+<rect width="0.28" height="6" x="245.35" y="0" class="decompiled"/>
+<rect width="501.37" height="6" x="245.63" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2163,7 +2163,7 @@
 <rect width="0.10" height="0.10" x="746.99" y="317.80" class="named"><title>0x004338f0 FileBase::FileBase (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="734.94" y="320.36" class="named"><title>0x00401510 Timer::operator++ (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="734.94" y="322.89" class="named"><title>0x00404560 SpellCard::AddedCallback (8 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="734.94" y="325.42" class="todo"><title>0x00405650 Func405650 (8 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="734.94" y="325.42" class="decompiled"><title>0x00405650 BulletManager::Unknown405650 (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="734.94" y="327.95" class="named"><title>0x0040e370 SpriteEngine::ClearBlendMode (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="734.94" y="330.47" class="named"><title>0x0040e380 SpriteEngine::ClearVertexFormat (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="737.65" y="320.36" class="named"><title>0x00415d00 SpriteEngine::ClearColorOp (8 bytes)</title></rect>
@@ -2195,7 +2195,7 @@
 <rect width="0.10" height="0.10" x="744.37" y="331.17" class="named"><title>0x00435f00 GdiSurface::GetHeight (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.25" y="327.51" class="named"><title>0x0043e430 CSound::GetWaveFile (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.12" y="327.51" class="named"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="746.25" y="329.34" class="todo"><title>0x00412590 Func412590 (3 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="746.25" y="329.34" class="todo"><title>0x00412590 BulletManager::Unknown412590 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.25" y="331.17" class="todo"><title>0x004125a0 Func4125a0 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.66" y="329.34" class="named"><title>0x004343d0 D3DXVECTOR3::D3DXVECTOR3 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.83" y="329.34" class="named"><title>0x00435ec0 GdiSurface::GetFormat (3 bytes)</title></rect>

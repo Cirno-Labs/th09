@@ -2,6 +2,11 @@
 #include "enemy.h"
 #include "gamemanager.h"
 
+void BulletManager::Unknown405650()
+{
+    this->Unknown412590(1);
+}
+
 void BulletManager::ClearUnknown25e198()
 {
     this->unknown25e198[0] = this->unknown25e198[1] = this->unknown25e198[2] = this->unknown25e198[3] =

@@ -83,7 +83,7 @@ address,size,name,symbol
 0x00404970,15,GameManager::IsMode1,?IsMode1@GameManager@@QAEHXZ
 0x00404980,24,Gui::IsMsgRunning,?IsMsgRunning@Gui@@QAEHXZ
 0x004049a0,3231,Func4049a0,
-0x00405650,8,Func405650,
+0x00405650,8,BulletManager::Unknown405650,?Unknown405650@BulletManager@@QAEXXZ
 0x00405660,154,EclManager::Load,?Load@EclManager@@QAEHPAD@Z
 0x00405700,15,Atan2,?Atan2@@YIMMM@Z
 0x00405710,18,Fmod,?Fmod@@YIMMM@Z
@@ -229,7 +229,7 @@ address,size,name,symbol
 0x00412470,95,BulletManager::Reset,?Reset@BulletManager@@QAEXXZ
 0x004124d0,16,Func4124d0,
 0x004124e0,161,Func4124e0,
-0x00412590,3,Func412590,
+0x00412590,3,BulletManager::Unknown412590,?Unknown412590@BulletManager@@QAEXH@Z
 0x004125a0,3,Func4125a0,
 0x004125b0,36,D3DXVECTOR3::operator-=,??ZD3DXVECTOR3@@QAEAAU0@ABU0@@Z
 0x004125e0,24,BulletManager::LoadAnm,?LoadAnm@BulletManager@@SIHXZ
