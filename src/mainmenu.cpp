@@ -652,3 +652,8 @@ void MainMenu::FlashHalves(int left, int right)
     this->sprites[152].pendingInterrupt = 9;
     this->ShowHalves(left, right);
 }
+
+void MainMenu::FlashSprite(int idx, int on)
+{
+    this->sprites[idx + 153].pendingInterrupt = on ? 9 : 10;
+}

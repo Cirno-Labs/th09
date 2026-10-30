@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">48.39% (512)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">51.61% (546)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">48.49% (513)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">51.51% (545)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="361.50" height="6" x="0" y="0" class="named"/>
-<rect width="385.50" height="6" x="361.50" y="0" class="todo"/>
+<rect width="362.20" height="6" x="0" y="0" class="named"/>
+<rect width="384.80" height="6" x="362.20" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -576,7 +576,7 @@
 <rect width="12" height="12" x="90" y="150" class="named"><title>0x0042505f MainMenu::SelectEntry3 (175 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="150" class="named"><title>0x0042510e MainMenu::SelectEntryInterrupts (85 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="150" class="named"><title>0x00425163 MainMenu::FlashHalves (168 bytes)</title></rect>
-<rect width="12" height="12" x="135" y="150" class="todo"><title>0x0042520b Func42520b (40 bytes)</title></rect>
+<rect width="12" height="12" x="135" y="150" class="named"><title>0x0042520b MainMenu::FlashSprite (40 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="150" class="todo"><title>0x00425233 Func425233 (349 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="150" class="todo"><title>0x00425390 Func425390 (279 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="150" class="todo"><title>0x004254a7 Func4254a7 (1572 bytes)</title></rect>
@@ -1129,10 +1129,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.72%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">75.28%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.73%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">75.27%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="184.66" height="6" x="0" y="0" class="named"/>
-<rect width="562.34" height="6" x="184.66" y="0" class="todo"/>
+<rect width="184.76" height="6" x="0" y="0" class="named"/>
+<rect width="562.24" height="6" x="184.76" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1895,7 +1895,7 @@
 <rect width="3.01" height="2.86" x="675.49" y="270.40" class="named"><title>0x0043d0c0 MmTimer::Stop (41 bytes)</title></rect>
 <rect width="3.01" height="2.72" x="675.49" y="276.26" class="named"><title>0x00401290 D3DXVec3Length (40 bytes)</title></rect>
 <rect width="3.01" height="2.72" x="675.49" y="281.98" class="todo"><title>0x00412930 Func412930 (40 bytes)</title></rect>
-<rect width="3.01" height="2.72" x="675.49" y="287.69" class="todo"><title>0x0042520b Func42520b (40 bytes)</title></rect>
+<rect width="3.01" height="2.72" x="675.49" y="287.69" class="named"><title>0x0042520b MainMenu::FlashSprite (40 bytes)</title></rect>
 <rect width="3.01" height="2.72" x="675.49" y="293.41" class="named"><title>0x0042b130 App::EnterCriticalSection (40 bytes)</title></rect>
 <rect width="3.01" height="2.72" x="675.49" y="299.13" class="named"><title>0x0042b160 App::LeaveCriticalSection (40 bytes)</title></rect>
 <rect width="3.01" height="2.72" x="675.49" y="304.84" class="named"><title>0x004337a0 File::Seek (40 bytes)</title></rect>
