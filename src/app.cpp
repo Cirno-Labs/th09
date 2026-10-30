@@ -178,6 +178,41 @@ void App::AddPlayTime()
     this->lastPlayTimeTick = now;
 }
 
+void App::AddTotalPlayTime()
+{
+    DWORD now = timeGetTime();
+    DWORD delta;
+
+    if (now < this->lastTotalPlayTimeTick)
+    {
+        this->lastTotalPlayTimeTick = 0;
+    }
+    delta = now - this->lastTotalPlayTimeTick;
+    g_PlayTime.hours += delta / 3600000;
+    delta %= 3600000;
+    g_PlayTime.minutes += delta / 60000;
+    delta %= 60000;
+    g_PlayTime.seconds += delta / 1000;
+    delta %= 1000;
+    g_PlayTime.milliseconds += delta;
+    if (g_PlayTime.milliseconds >= 1000)
+    {
+        g_PlayTime.seconds += g_PlayTime.milliseconds / 1000;
+        g_PlayTime.milliseconds %= 1000;
+    }
+    if (g_PlayTime.seconds >= 60)
+    {
+        g_PlayTime.minutes += g_PlayTime.seconds / 60;
+        g_PlayTime.seconds %= 60;
+    }
+    if (g_PlayTime.minutes >= 60)
+    {
+        g_PlayTime.hours += g_PlayTime.minutes / 60;
+        g_PlayTime.minutes %= 60;
+    }
+    this->lastTotalPlayTimeTick = now;
+}
+
 int App::CheckVersionFile(char *version, DWORD size, DWORD checksum)
 {
     DWORD size2;

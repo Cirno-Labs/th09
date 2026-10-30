@@ -164,6 +164,9 @@ struct App
     // Adds the time since the last call to g_RunTime, as th08's
     // (0x42ff70).
     void AddPlayTime();
+    // The same for g_PlayTime, restarting from 0 when the clock wrapped
+    // (0x430060).
+    void AddTotalPlayTime();
     // Returns 0 if verFile lists `version` with `size` and `checksum`,
     // or if `version` is "debug", and -1 otherwise, as th08's
     // (0x430150).

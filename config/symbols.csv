@@ -634,7 +634,7 @@ address,size,name,symbol
 0x0042ff00,56,App::DisableFog,?DisableFog@App@@QAEHXZ
 0x0042ff40,42,App::SetRenderState,?SetRenderState@App@@QAEHW4_D3DRENDERSTATETYPE@@K@Z
 0x0042ff70,233,App::AddPlayTime,?AddPlayTime@App@@QAEXXZ
-0x00430060,237,Func430060,
+0x00430060,237,App::AddTotalPlayTime,?AddTotalPlayTime@App@@QAEXXZ
 0x00430150,199,App::CheckVersionFile,?CheckVersionFile@App@@QAEHPADKK@Z
 0x00430220,11,Func430220,
 0x00430230,108,App::CloseSubThread,?CloseSubThread@App@@QAEXXZ
