@@ -42,28 +42,33 @@ class GameManager
 {
 public:
     // Zeroes the GameManager, sets the play area, and sets unknown378 and
-    // unknown37c to 10. Emitted where g_GameManager is defined
-    // (0x41ba4f).
-    GameManager();
+    // unknown37c to 10, as th08's constructor did (0x41ba4f).
+    void Init();
 
     // The draw chain callback, as th08's: moves isPaused on from 1 to 2.
     // Returns 1, or 3 outside scene 2 or in the result screen's mode
     // (bits 5-6 of stateFlags) 1 (0x41a75f).
     static int OnDraw(GameManager *mgr);
+    // The update chain callback and its added and deleted callbacks
+    // (0x41aa5f, 0x41b76f, 0x41b82a).
+    static int OnUpdate(GameManager *mgr);
+    static int AddedCallback(GameManager *mgr);
+    static int DeletedCallback(GameManager *mgr);
+    // Sets up and adds the update and draw chain elements, with
+    // priorities 2 and 5, as th08's RegisterGameManagerChain. Returns 0,
+    // or -1 if the update element's added callback failed (0x41b9d0).
+    static int RegisterChain();
     // Whether a `width` by `height` box centred on (`x`, `y`) touches the
     // play area, as th08's; th09's is centred on x = 0 (0x41a6eb).
     BOOL IsInPlayArea(float x, float y, float width, float height);
     // Clears bit 0 of every side's flags and resets the state of a game
     // (0x41a7c3).
     void ResetState();
-    // Whether a demo plays: bit 1 of stateFlags. Inline; the copy is at
-    // 0x41a9ac.
-    int IsDemo()
-    {
-        return this->stateFlags >> 1 & 1;
-    }
+    // Whether a demo plays: bit 1 of stateFlags (0x41a9ac).
+    int IsDemo();
     // Sets arena to the play area (-144, 0, 288, 448) and arena2 to
-    // (-136, 16, 272, 416), as th08's. Inline; the copy is at 0x41a9b8.
+    // (-136, 16, 272, 416), as th08's. Inline, but not expanded in Init,
+    // which calls the copy at 0x41a9b8.
     void SetPlayArea()
     {
         this->arena[0] = -144.0f;

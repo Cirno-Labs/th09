@@ -352,6 +352,8 @@ struct App
     // Asks the sub thread to close (closeSubThread) and waits for it,
     // as th08's (0x430230).
     void CloseSubThread();
+    // Clears subThread, closeSubThread and unknown6b8 (0x41a997).
+    void ResetSubThread();
 
     unsigned char pad_0[0x8];
     IDirect3DDevice8 *d3dDevice;
@@ -373,7 +375,8 @@ struct App
     DWORD subThreadId;
     // Set to ask the sub thread to end.
     int closeSubThread;
-    unsigned char pad_6b8[0x6c0 - 0x6b8];
+    int unknown6b8;
+    unsigned char pad_6bc[0x6c0 - 0x6bc];
     CRITICAL_SECTION criticalSections[5];
     // How deep each of criticalSections is entered.
     BYTE criticalSectionDepths[5];

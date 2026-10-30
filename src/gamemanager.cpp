@@ -1,7 +1,8 @@
-// cflags: -/O2 /O1 /Oi
+// cflags: -/O2 -/Ob0 /O1 /Ob1 /Oi
 // The GameManager object, from 0x41a6eb. It is built with /O1 rather than
 // /O2: its functions are packed without alignment padding and clear
-// memory with `and [mem], 0`.
+// memory with `and [mem], 0`. Unlike the rest of the game it expands
+// inline functions (/Ob1), and memset is an intrinsic (/Oi).
 
 #include <time.h>
 
@@ -97,13 +98,6 @@ void RemoveGameManagerChain()
     g_Chain.Remove(&g_GameManagerDrawChain);
 }
 
-void ChainElem::SetCallback(ChainCallback callback)
-{
-    this->callback = callback;
-    this->addedCallback = NULL;
-    this->deletedCallback = NULL;
-}
-
 WORD Rng::GetSeed()
 {
     return this->seed;
@@ -142,4 +136,23 @@ void GameConfig::SetDefaults()
 GameConfig::GameConfig()
 {
     this->SetDefaults();
+}
+
+int GameManager::RegisterChain()
+{
+    GameManager *mgr = &g_GameManager;
+
+    mgr->frames = 0;
+    g_GameManagerCalcChain.SetCallback((ChainCallback)GameManager::OnUpdate);
+    g_GameManagerCalcChain.addedCallback = (ChainCallback)GameManager::AddedCallback;
+    g_GameManagerCalcChain.deletedCallback = (ChainCallback)GameManager::DeletedCallback;
+    g_GameManagerCalcChain.arg = mgr;
+    if (g_Chain.AddToCalcChain(&g_GameManagerCalcChain, 2) != 0)
+    {
+        return -1;
+    }
+    g_GameManagerDrawChain.SetCallback((ChainCallback)GameManager::OnDraw);
+    g_GameManagerDrawChain.arg = mgr;
+    g_Chain.AddToDrawChain(&g_GameManagerDrawChain, 5);
+    return 0;
 }

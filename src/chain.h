@@ -25,7 +25,12 @@ struct ChainElem
     // Sets the callback and clears the added and deleted callbacks. An
     // inline function in th08; the copy the game calls is in an object
     // built with /O1 (0x41a889).
-    void SetCallback(ChainCallback callback);
+    void SetCallback(ChainCallback callback)
+    {
+        this->callback = callback;
+        this->addedCallback = NULL;
+        this->deletedCallback = NULL;
+    }
 
     // Lower runs first.
     short priority;
