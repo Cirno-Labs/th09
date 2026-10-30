@@ -850,7 +850,7 @@ address,size,name,symbol
 0x0043d150,32,ReadVarLen,?ReadVarLen@@YIKPAPAE@Z
 0x0043d170,110,MidiPlayer::Rewind,?Rewind@MidiPlayer@@QAEXXZ
 0x0043d1e0,46,MidiPlayer::FadeOut,?FadeOut@MidiPlayer@@QAEHH@Z
-0x0043d210,117,Func43d210,
+0x0043d210,117,MidiPlayer::SendVolume,?SendVolume@MidiPlayer@@QAEXH@Z
 0x0043d2b0,1,DebugPrint,?DebugPrint@@YAXPBDZZ
 0x0043d2d0,69,Func43d2d0,
 0x0043d320,26,Func43d320,
