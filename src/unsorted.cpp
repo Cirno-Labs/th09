@@ -29,6 +29,11 @@ float Atan2(float y, float x)
     return (float)atan2((double)y, (double)x);
 }
 
+float Fmod(float x, float y)
+{
+    return (float)fmod((double)x, (double)y);
+}
+
 void Vector2::SetPolar(float angle, float radius)
 {
     __asm

@@ -85,7 +85,7 @@ address,size,name,symbol
 0x00405650,8,Func405650,
 0x00405660,154,Func405660,
 0x00405700,15,Atan2,?Atan2@@YGMMM@Z
-0x00405710,18,Func405710,
+0x00405710,18,Fmod,?Fmod@@YGMMM@Z
 0x00405730,36,Func405730,
 0x00405760,1572,Func405760,
 0x00405f20,491,Func405f20,
@@ -1622,7 +1622,7 @@ address,size,name,symbol
 0x0047b6e2,35,__abnormal_termination,
 0x0047b705,9,__NLG_Notify1,
 0x0047b70e,24,Func47b70e,
-0x0047b73a,10,Func47b73a,
+0x0047b73a,10,_CIfmod,__CIfmod
 0x0047b762,136,_atol,
 0x0047b7ef,32,__store_str,
 0x0047b80f,121,__store_num,
