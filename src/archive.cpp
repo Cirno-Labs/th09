@@ -270,3 +270,8 @@ fail:
     }
     return false;
 }
+
+DatArchive::~DatArchive()
+{
+    this->Release();
+}
