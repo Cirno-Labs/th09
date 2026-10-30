@@ -111,6 +111,8 @@ public:
     void ClearSpriteData();
     // The same for the color operation (0x415d00).
     void ClearColorOp();
+    // The same for the z write state (0x415d10).
+    void ClearZWrite();
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
 

@@ -52,6 +52,11 @@ void SpriteEngine::ClearColorOp()
     this->colorOp = 0xff;
 }
 
+void SpriteEngine::ClearZWrite()
+{
+    this->zWriteDisabled = 0xff;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)
