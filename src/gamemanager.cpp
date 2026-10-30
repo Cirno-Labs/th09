@@ -80,6 +80,23 @@ void GameManager::ResetState()
     this->unknown380 = 0;
 }
 
+void RemoveGameManagerChain()
+{
+    if (g_GameManager.sides[0].stats->score >= 1000000000)
+    {
+        g_GameManager.sides[0].stats->score = 999999999;
+    }
+    g_GameManager.sides[0].stats->guiScore = g_GameManager.sides[0].stats->score;
+    if (g_GameManager.sides[1].stats->score >= 1000000000)
+    {
+        g_GameManager.sides[1].stats->score = 999999999;
+    }
+    g_GameManager.sides[1].stats->guiScore = g_GameManager.sides[1].stats->score;
+    g_App.gameSpeed = 1.0f;
+    g_Chain.Remove(&g_GameManagerCalcChain);
+    g_Chain.Remove(&g_GameManagerDrawChain);
+}
+
 void ChainElem::SetCallback(ChainCallback callback)
 {
     this->callback = callback;
