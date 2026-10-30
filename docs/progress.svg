@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.71% (207)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">80.29% (843)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.81% (208)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">80.19% (842)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="147.27" height="6" x="0" y="0" class="named"/>
-<rect width="599.73" height="6" x="147.27" y="0" class="todo"/>
+<rect width="147.98" height="6" x="0" y="0" class="named"/>
+<rect width="599.02" height="6" x="147.98" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -754,7 +754,7 @@
 <rect width="12" height="12" x="510" y="195" class="todo"><title>0x00432f70 Func432f70 (200 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="195" class="named"><title>0x00433040 DatArchive::DatArchive (16 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="195" class="named"><title>0x00433050 DatArchive::FindEntry (74 bytes)</title></rect>
-<rect width="12" height="12" x="555" y="195" class="todo"><title>0x004330a0 DatArchive::DuplicateString (64 bytes)</title></rect>
+<rect width="12" height="12" x="555" y="195" class="named"><title>0x004330a0 DatArchive::DuplicateString (64 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="195" class="todo"><title>0x004330e0 File::ReadDword (18 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="195" class="todo"><title>0x00433100 DatArchiveCursor::SkipDword (12 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="195" class="todo"><title>0x00433110 DatArchiveCursor::SkipString (26 bytes)</title></rect>
@@ -1121,10 +1121,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">5.59%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">94.41%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">5.61%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">94.39%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="41.77" height="6" x="0" y="0" class="named"/>
-<rect width="705.23" height="6" x="41.77" y="0" class="todo"/>
+<rect width="41.94" height="6" x="0" y="0" class="named"/>
+<rect width="705.06" height="6" x="41.94" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.43" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1777,7 +1777,7 @@
 <rect width="4.15" height="4.48" x="694.15" y="216.63" class="named"><title>0x0042ad70 ResetKeyboard (65 bytes)</title></rect>
 <rect width="4.15" height="4.48" x="701.30" y="216.63" class="todo"><title>0x0043fc90 CStreamingSound::UpdateFade (65 bytes)</title></rect>
 <rect width="4.04" height="4.48" x="708.44" y="216.63" class="todo"><title>0x0040f560 Func40f560 (64 bytes)</title></rect>
-<rect width="4.04" height="4.48" x="715.48" y="216.63" class="todo"><title>0x004330a0 DatArchive::DuplicateString (64 bytes)</title></rect>
+<rect width="4.04" height="4.48" x="715.48" y="216.63" class="named"><title>0x004330a0 DatArchive::DuplicateString (64 bytes)</title></rect>
 <rect width="3.93" height="4.48" x="722.52" y="216.63" class="todo"><title>0x00436de0 Func436de0 (63 bytes)</title></rect>
 <rect width="3.93" height="4.48" x="729.44" y="216.63" class="todo"><title>0x004405e0 Func4405e0 (63 bytes)</title></rect>
 <rect width="3.82" height="4.48" x="736.37" y="216.63" class="named"><title>0x004033a0 SpriteBase::SpriteBase (62 bytes)</title></rect>
