@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.77% (666)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.23% (395)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.87% (667)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.13% (394)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="468.90" height="6" x="0" y="0" class="named"/>
-<rect width="278.10" height="6" x="468.90" y="0" class="todo"/>
+<rect width="469.60" height="6" x="0" y="0" class="named"/>
+<rect width="277.40" height="6" x="469.60" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -128,7 +128,7 @@
 <rect width="12" height="12" x="120" y="15" class="named"><title>0x00403c20 Player::SetUnknown0 (12 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="15" class="named"><title>0x00403c30 Player::StartClearCircle1 (91 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="15" class="named"><title>0x00403c90 Player::StartClearCircle2 (91 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="15" class="todo"><title>0x00403cf0 Func403cf0 (100 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="15" class="named"><title>0x00403cf0 Player::StartClearCircle3 (100 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="15" class="named"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="15" class="named"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="15" class="named"><title>0x00403d90 App::SetView2D (71 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.62%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.38%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.66%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.34%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="243.69" height="6" x="0" y="0" class="named"/>
-<rect width="503.31" height="6" x="243.69" y="0" class="todo"/>
+<rect width="243.95" height="6" x="0" y="0" class="named"/>
+<rect width="503.05" height="6" x="243.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1663,7 +1663,7 @@
 <rect width="6.24" height="6.37" x="614.61" y="190.48" class="named"><title>0x00436450 GdiSurface::Create (101 bytes)</title></rect>
 <rect width="6.24" height="6.37" x="623.85" y="190.48" class="todo"><title>0x00449780 Func449780 (101 bytes)</title></rect>
 <rect width="6.24" height="6.37" x="633.09" y="190.48" class="todo"><title>0x0044af80 Func44af80 (101 bytes)</title></rect>
-<rect width="6.15" height="6.37" x="642.33" y="190.48" class="todo"><title>0x00403cf0 Func403cf0 (100 bytes)</title></rect>
+<rect width="6.15" height="6.37" x="642.33" y="190.48" class="named"><title>0x00403cf0 Player::StartClearCircle3 (100 bytes)</title></rect>
 <rect width="6.15" height="6.37" x="651.48" y="190.48" class="named"><title>0x0041a7c3 GameManager::ResetState (100 bytes)</title></rect>
 <rect width="6.06" height="6.37" x="660.62" y="190.48" class="named"><title>0x0041df80 Player::DrawUnknown30454 (99 bytes)</title></rect>
 <rect width="5.96" height="6.37" x="669.68" y="190.48" class="named"><title>0x0041a827 RemoveGameManagerChain (98 bytes)</title></rect>

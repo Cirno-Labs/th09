@@ -265,11 +265,13 @@ public:
     {
         this->unknown0 = value;
     }
-    // Start a circle that clears around the player, growing from 0 by 4
-    // a frame for 0x30 or 0x40 frames, with effect 0xd or 0xe, and set
-    // unknown0 to 3 and unknown303c8 to the frames (0x403c30, 0x403c90).
+    // Start a circle that clears around the player, growing from 0 by 4,
+    // 4 or 3.5 a frame for 0x30, 0x40 or 0x80 frames, with effect 0xd,
+    // 0xe or 0xf, and set unknown0 to 3 and unknown303c8 to the frames
+    // (0x403c30, 0x403c90, 0x403cf0).
     void StartClearCircle1();
     void StartClearCircle2();
+    void StartClearCircle3();
     // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
     int GetUnknown0()

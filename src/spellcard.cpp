@@ -22,6 +22,15 @@ void Player::StartClearCircle2()
     this->side->effectManager->SpawnParticles(0xe, &this->pos, 1, 0xffffffff);
 }
 
+void Player::StartClearCircle3()
+{
+    this->AddHitCircle(&this->pos, 0.0f, 3.5f, 0x80, 0);
+    this->AddKind4Circle(&this->pos, 0.0f, 3.5f, 2, 0x80, 0);
+    this->SetUnknown0(3);
+    this->unknown303c8 = 0x80;
+    this->side->effectManager->SpawnParticles(0xf, &this->pos, 1, 0xffffffff);
+}
+
 // Calls the spell card's callbacks unknown1330 and unknown133c, if set.
 // Returns 0. Static, with the spell card in esi (0x403d60).
 static int RunEndCallbacks(SpellCard *card)
