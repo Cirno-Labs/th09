@@ -475,3 +475,66 @@ int MainMenu::MovePlayerCursor2(int player, int idx, int count)
     }
     return 0;
 }
+
+int MainMenu::OnDraw(MainMenu *menu)
+{
+    int i;
+    Sprite *vm;
+
+    g_App.SetView(2);
+    if (menu->loadingState != 0)
+    {
+        return 1;
+    }
+    g_SpriteEngine->currentTexture = NULL;
+    g_SpriteEngine->CopySurfaceToBackBuffer(0, 0, 0, 0, 0);
+    vm = menu->sprites;
+    for (i = 0; i < menu->spriteCount; i++, vm++)
+    {
+        if (g_SpriteEngine->HasTexture(vm))
+        {
+            D3DXVECTOR3 savedPos = vm->pos;
+            vm->pos += vm->posOffset;
+            if (vm->rotation.z != 0.0f)
+            {
+                g_SpriteEngine->Draw(vm);
+            }
+            else
+            {
+                g_SpriteEngine->DrawUnrotated(vm);
+            }
+            vm->pos = savedPos;
+        }
+    }
+    if (menu->helpSprite != NULL)
+    {
+        g_SpriteEngine->DrawUnrotated(menu->helpSprite);
+    }
+    switch (menu->state)
+    {
+    case 3:
+        menu->DrawNothing();
+        break;
+    case 5:
+        menu->DrawNothing();
+        break;
+    case 7:
+        menu->DrawNothing();
+        break;
+    case 11:
+        menu->DrawState11();
+        break;
+    case 12:
+        menu->DrawState12();
+        break;
+    case 13:
+    case 14:
+        menu->DrawState13();
+        break;
+    case 15:
+        menu->DrawState15();
+        break;
+    }
+    g_SpriteEngine->FlushQuadBatch();
+    return 1;
+}
