@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.62% (675)</tspan> · <tspan class="decompiled">0.09% (1)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36.29% (385)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.71% (676)</tspan> · <tspan class="decompiled">0.09% (1)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36.19% (384)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="475.24" height="6" x="0" y="0" class="named"/>
-<rect width="0.70" height="6" x="475.24" y="0" class="decompiled"/>
-<rect width="271.06" height="6" x="475.94" y="0" class="todo"/>
+<rect width="475.94" height="6" x="0" y="0" class="named"/>
+<rect width="0.70" height="6" x="475.94" y="0" class="decompiled"/>
+<rect width="270.36" height="6" x="476.64" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -307,7 +307,7 @@
 <rect width="12" height="12" x="540" y="60" class="todo"><title>0x00412650 Func412650 (37 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="60" class="named"><title>0x00412680 Bullet::SetAccelCommand (39 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="60" class="decompiled"><title>0x004126b0 Bullet::SetCommand20000 (31 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="60" class="todo"><title>0x004126d0 Func4126d0 (37 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="60" class="named"><title>0x004126d0 Bullet::SetSpriteCommand (37 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="60" class="todo"><title>0x00412700 Func412700 (39 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="60" class="todo"><title>0x00412730 Func412730 (39 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="60" class="todo"><title>0x00412760 Func412760 (31 bytes)</title></rect>
@@ -1133,11 +1133,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.79%</tspan> · <tspan class="decompiled">0.01%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.20%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.80%</tspan> · <tspan class="decompiled">0.01%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.19%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="244.95" height="6" x="0" y="0" class="named"/>
-<rect width="0.10" height="6" x="244.95" y="0" class="decompiled"/>
-<rect width="501.97" height="6" x="245.03" y="0" class="todo"/>
+<rect width="245.05" height="6" x="0" y="0" class="named"/>
+<rect width="0.10" height="6" x="245.05" y="0" class="decompiled"/>
+<rect width="501.87" height="6" x="245.13" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1929,7 +1929,7 @@
 <rect width="2.63" height="2.79" x="681.31" y="299.05" class="todo"><title>0x00445c80 Func445c80 (38 bytes)</title></rect>
 <rect width="2.63" height="2.63" x="681.31" y="304.83" class="named"><title>0x0040e3a0 PlayRecord::AddClear (37 bytes)</title></rect>
 <rect width="2.63" height="2.63" x="681.31" y="310.47" class="todo"><title>0x00412650 Func412650 (37 bytes)</title></rect>
-<rect width="2.63" height="2.63" x="681.31" y="316.10" class="todo"><title>0x004126d0 Func4126d0 (37 bytes)</title></rect>
+<rect width="2.63" height="2.63" x="681.31" y="316.10" class="named"><title>0x004126d0 Bullet::SetSpriteCommand (37 bytes)</title></rect>
 <rect width="2.63" height="2.63" x="681.31" y="321.73" class="named"><title>0x0041f490 TryFireShot (37 bytes)</title></rect>
 <rect width="2.63" height="2.63" x="681.31" y="327.37" class="todo"><title>0x0042ac80 Func42ac80 (37 bytes)</title></rect>
 <rect width="2.54" height="2.72" x="686.94" y="264.33" class="named"><title>0x00433c80 LzssTreeInitNode (37 bytes)</title></rect>

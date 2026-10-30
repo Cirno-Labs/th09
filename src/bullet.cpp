@@ -70,6 +70,14 @@ void Bullet::SetCommand20000(int i, int concurrent, int frames)
     cmd->frames = frames;
 }
 
+void Bullet::SetSpriteCommand(int i, int concurrent, int type, int color)
+{
+    BulletCommand *cmd = this->SetCommand(i, concurrent, 0x4000);
+
+    cmd->frames = type;
+    cmd->maxTurns = color;
+}
+
 void BulletManager::RemoveChain(BulletManager *mgr)
 {
     if (mgr != NULL)
