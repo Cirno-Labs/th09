@@ -570,6 +570,9 @@ struct App
     // criticalSectionDepths, as th08's (0x42b130, 0x42b160).
     void EnterCriticalSection(int idx);
     void LeaveCriticalSection(int idx);
+    // Resets the run: clears the fields from 0x458, restarts the timers,
+    // and more. Only the call is known (0x42ec30).
+    void ResetRun();
     // Looks `id` up in g_BgmInfos and loads its MIDI file into slot `id`,
     // or queues the wave file of the same name, as th08's LoadMidi.
     // Returns 0 for MIDI, else 1 (0x42fc20).

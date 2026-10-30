@@ -612,7 +612,7 @@ address,size,name,symbol
 0x0042eac0,188,Func42eac0,
 0x0042eb80,119,Func42eb80,
 0x0042ec00,34,Func42ec00,
-0x0042ec30,177,Func42ec30,
+0x0042ec30,177,App::ResetRun,?ResetRun@App@@QAEXXZ
 0x0042ecf0,49,Func42ecf0,
 0x0042ed30,13,App::GetNoDirectInput,?GetNoDirectInput@App@@QAEHXZ
 0x0042ed40,13,App::GetPreloadBgm,?GetPreloadBgm@App@@QAEHXZ
@@ -678,7 +678,7 @@ address,size,name,symbol
 0x00432340,97,Func432340,
 0x004323b0,95,Func4323b0,
 0x00432410,164,Func432410,
-0x004324c0,679,Func4324c0,
+0x004324c0,679,Network::Init,?Init@Network@@QAEXXZ
 0x00432770,199,Func432770,
 0x00432840,165,Func432840,
 0x004328f0,276,Func4328f0,

@@ -16,6 +16,9 @@ class MainMenu;
 // Only what is known so far.
 struct Network
 {
+    // Sets up network play. Only the call is known (0x4324c0).
+    void Init();
+
     unsigned char pad_0[0xa8];
     // While set, the menus do not skip the entries that are not open.
     int unknownA8;
@@ -52,8 +55,18 @@ public:
     // (0x422f17).
     void PlaySoundNow(int idx, int arg);
     // Moves to state `state`, remembering the one it leaves in
-    // prevState, and resets the frame counters, as th08's (0x422f39).
-    void SetState(int state);
+    // prevState, and resets the frame counters, as th08's. Inline, but
+    // this object calls the copy at 0x422f39, and what it does to the
+    // registers is not known to the callers.
+    void SetState(int state)
+    {
+        this->prevState = this->state;
+        this->state = state;
+        this->stateFrames = 0;
+        this->unknown1b230 = 0;
+        this->subState = 0;
+        this->unknownC910 = 0;
+    }
     // Gives every button of `mapping` assigned `button` the value
     // `replacement`, as th08's. The last argument is unused (0x422f67).
     void ReassignButton(ControllerMapping *mapping, short button, short replacement, int unused);
@@ -190,7 +203,9 @@ public:
     void *unknownC8fc;
     unsigned char pad_c900[0xc910 - 0xc900];
     int unknownC910;
-    unsigned char pad_c914[0xc934 - 0xc914];
+    unsigned char pad_c914[0xc918 - 0xc914];
+    int unknownC918;
+    unsigned char pad_c91c[0xc934 - 0xc91c];
     // The music room's tunes.
     MusicTune tunes[32];
     int unknown11b74;

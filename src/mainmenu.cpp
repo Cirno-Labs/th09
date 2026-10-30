@@ -22,16 +22,6 @@ void MainMenu::PlaySoundNow(int idx, int arg)
     g_SoundPlayer.PlayQueuedSounds();
 }
 
-void MainMenu::SetState(int state)
-{
-    this->prevState = this->state;
-    this->state = state;
-    this->stateFrames = 0;
-    this->unknown1b230 = 0;
-    this->subState = 0;
-    this->unknownC910 = 0;
-}
-
 void MainMenu::ReassignButton(ControllerMapping *mapping, short button, short replacement, int unused)
 {
     if (mapping->shootButton == button)
@@ -1038,6 +1028,86 @@ int MainMenu::OnUpdate(MainMenu *menu)
         g_SpriteEngine->Step(menu->helpSprite);
     }
     return ret;
+}
+
+int MainMenu::UpdateState6()
+{
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            if (this->prevState != 7 && g_SpriteEngine->LoadSurface(0, "title/select00.png") != 0)
+            {
+                return 0;
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 11);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            if (this->unknown1b23c != 0)
+            {
+                this->SetState(7);
+                this->UpdateState2();
+                this->sprites[0x83 + g_GameManager.unknown114].pendingInterrupt = 9;
+                return 1;
+            }
+            this->cursor = g_GameManager.unknown114;
+            this->entryFirst = 0x83;
+            this->entryCount = 5;
+            this->SelectCursorEntry();
+            this->unknownC918 = 1;
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+        }
+        break;
+    case 1:
+        if (this->MoveCursor(5) != 0)
+        {
+            this->SelectCursorEntry();
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            g_GameManager.unknown114 = this->cursor;
+            if (g_GameManager.unknown114 == 4)
+            {
+                g_Network->Init();
+                g_App.ResetRun();
+                g_App.config.unknownB0 = 1;
+                g_GameManager.sides[0].character = 0;
+                g_GameManager.sides[1].character = 1;
+            }
+            this->PlaySoundNow(10, 0);
+            this->SetState(7);
+            this->UpdateState2();
+            this->sprites[0x83 + g_GameManager.unknown114].pendingInterrupt = 9;
+            return 1;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0xa)
+        {
+            g_GameManager.unknown114 = this->cursor;
+            this->PlaySoundNow(11, 0);
+            this->subState = 3;
+            this->stateFrames = 0;
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 6);
+        }
+        break;
+    case 3:
+        if (this->stateFrames >= 20)
+        {
+            this->SetState(1);
+            this->cursor = 2;
+            return 1;
+        }
+        break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
 }
 
 int SetUpTitleScene(int arg)
