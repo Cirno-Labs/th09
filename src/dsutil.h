@@ -136,9 +136,11 @@ public:
     DWORD unusedDword28;
     // Cleared by Play.
     DWORD clearedOnPlay;
-    // Set while the first buffer plays: ResumeBuffer sets it, PauseBuffer
-    // clears it. Not in th06.
-    DWORD unknown30;
+    // Set by Play and cleared by Stop; PauseBuffer and ResumeBuffer do
+    // nothing without it. Not in th08.
+    BOOL played;
+    // Set while the first buffer plays: Play and ResumeBuffer set it,
+    // Stop and PauseBuffer clear it. Not in th06.
     BOOL isPlaying;
 };
 
