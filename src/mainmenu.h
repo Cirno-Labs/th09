@@ -22,6 +22,21 @@ extern BYTE g_OpenEntries[16];
 extern BYTE g_OpenEntries2[16];
 extern BYTE g_OpenEntries3[16];
 
+// The record of what has been played, at 0x4a8180, around g_RunTime
+// and g_PlayTime (+0xc, +0x1c) and g_OpenEntries (+0x4c). Only what is
+// known so far.
+struct PlayRecord
+{
+    // Character `character`'s flags for difficulty `difficulty`, or,
+    // when it is negative, those of the first four together
+    // (0x4234a7).
+    int GetClearFlags(char character, int difficulty);
+
+    unsigned char pad_0[0x7c];
+    int clearFlags[16][6];
+};
+extern PlayRecord g_PlayRecord;
+
 class MainMenu
 {
 public:

@@ -485,7 +485,7 @@ address,size,name,symbol
 0x004233f4,117,Sprite::SetColorInterp,?SetColorInterp@Sprite@@QAEXHEKK@Z
 0x00423469,47,SpriteEngine::HasTexture,
 0x00423498,15,SoundPlayer::UnPause,?UnPause@SoundPlayer@@QAEXXZ
-0x004234a7,54,Func4234a7,
+0x004234a7,54,PlayRecord::GetClearFlags,?GetClearFlags@PlayRecord@@QAEHDH@Z
 0x004234dd,25,AsciiText::SetScale,?SetScale@AsciiText@@QAEXMM@Z
 0x004234f6,1280,Func4234f6,
 0x004239f6,800,Func4239f6,
@@ -2245,6 +2245,7 @@ address,size,name,symbol
 0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAXA
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
+0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
 0x004a81cc,,g_OpenEntries,?g_OpenEntries@@3PAEA
 0x004a81dc,,g_OpenEntries2,?g_OpenEntries2@@3PAEA
 0x004a81ec,,g_OpenEntries3,?g_OpenEntries3@@3PAEA

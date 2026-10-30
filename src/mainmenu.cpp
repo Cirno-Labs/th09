@@ -201,6 +201,16 @@ void SoundPlayer::UnPause()
     this->QueueSoundCommand(7, 0, "UnPause");
 }
 
+int PlayRecord::GetClearFlags(char character, int difficulty)
+{
+    if (difficulty >= 0)
+    {
+        return this->clearFlags[character][difficulty];
+    }
+    return this->clearFlags[character][0] | this->clearFlags[character][1] | this->clearFlags[character][2] |
+           this->clearFlags[character][3];
+}
+
 void AsciiText::SetScale(float x, float y)
 {
     this->scaleX = x;

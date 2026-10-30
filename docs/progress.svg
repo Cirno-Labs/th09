@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.41% (480)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.59% (577)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.51% (481)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.49% (576)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="339.22" height="6" x="0" y="0" class="named"/>
-<rect width="407.78" height="6" x="339.22" y="0" class="todo"/>
+<rect width="339.93" height="6" x="0" y="0" class="named"/>
+<rect width="407.07" height="6" x="339.93" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -553,7 +553,7 @@
 <rect width="12" height="12" x="495" y="135" class="named"><title>0x004233f4 Sprite::SetColorInterp (117 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="135" class="todo"><title>0x00423469 SpriteEngine::HasTexture (47 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="135" class="named"><title>0x00423498 SoundPlayer::UnPause (15 bytes)</title></rect>
-<rect width="12" height="12" x="540" y="135" class="todo"><title>0x004234a7 Func4234a7 (54 bytes)</title></rect>
+<rect width="12" height="12" x="540" y="135" class="named"><title>0x004234a7 PlayRecord::GetClearFlags (54 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="135" class="named"><title>0x004234dd AsciiText::SetScale (25 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="135" class="todo"><title>0x004234f6 Func4234f6 (1280 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="135" class="todo"><title>0x004239f6 Func4239f6 (800 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.33%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.67%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.35%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.65%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="174.29" height="6" x="0" y="0" class="named"/>
-<rect width="572.71" height="6" x="174.29" y="0" class="todo"/>
+<rect width="174.43" height="6" x="0" y="0" class="named"/>
+<rect width="572.57" height="6" x="174.43" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1823,7 +1823,7 @@
 <rect width="4.07" height="3.56" x="656.34" y="300.18" class="todo"><title>0x00401100 Func401100 (54 bytes)</title></rect>
 <rect width="4.07" height="3.56" x="656.34" y="306.74" class="named"><title>0x00401140 D3DXVECTOR3::operator- (54 bytes)</title></rect>
 <rect width="4.07" height="3.56" x="656.34" y="313.31" class="todo"><title>0x00412610 Func412610 (54 bytes)</title></rect>
-<rect width="4.07" height="3.56" x="656.34" y="319.87" class="todo"><title>0x004234a7 Func4234a7 (54 bytes)</title></rect>
+<rect width="4.07" height="3.56" x="656.34" y="319.87" class="named"><title>0x004234a7 PlayRecord::GetClearFlags (54 bytes)</title></rect>
 <rect width="4.07" height="3.56" x="656.34" y="326.44" class="named"><title>0x0042fbe0 SoundPlayer::UpdateBgmFades (54 bytes)</title></rect>
 <rect width="3.91" height="3.72" x="663.41" y="239.52" class="named"><title>0x0043e130 MidiPlayer::Load (54 bytes)</title></rect>
 <rect width="3.91" height="3.72" x="670.31" y="239.52" class="named"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
