@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.52% (151)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">85.48% (889)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.62% (152)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">85.38% (888)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="108.46" height="6" x="0" y="0" class="named"/>
-<rect width="638.54" height="6" x="108.46" y="0" class="todo"/>
+<rect width="109.18" height="6" x="0" y="0" class="named"/>
+<rect width="637.82" height="6" x="109.18" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -129,7 +129,7 @@
 <rect width="12" height="12" x="135" y="15" class="todo"><title>0x00403c30 Func403c30 (91 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="15" class="todo"><title>0x00403c90 Func403c90 (91 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="15" class="todo"><title>0x00403cf0 Func403cf0 (100 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="15" class="todo"><title>0x00403d60 Func403d60 (31 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="15" class="todo"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="15" class="todo"><title>0x00403d80 Func403d80 (12 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="15" class="todo"><title>0x00403d90 Func403d90 (71 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="15" class="named"><title>0x00403de0 Timer::operator&gt; (20 bytes)</title></rect>
@@ -138,7 +138,7 @@
 <rect width="12" height="12" x="270" y="15" class="todo"><title>0x00403e50 Func403e50 (923 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="15" class="todo"><title>0x004041f0 Func4041f0 (536 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="15" class="todo"><title>0x00404410 Func404410 (334 bytes)</title></rect>
-<rect width="12" height="12" x="315" y="15" class="todo"><title>0x00404570 Func404570 (51 bytes)</title></rect>
+<rect width="12" height="12" x="315" y="15" class="named"><title>0x00404570 SpellCard::RemoveChain (51 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="15" class="todo"><title>0x004045b0 Func4045b0 (66 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="15" class="todo"><title>0x00404600 Func404600 (264 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="15" class="todo"><title>0x00404710 Func404710 (346 bytes)</title></rect>
@@ -1111,10 +1111,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.52%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">96.48%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.54%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">96.46%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="26.31" height="6" x="0" y="0" class="named"/>
-<rect width="720.69" height="6" x="26.31" y="0" class="todo"/>
+<rect width="26.44" height="6" x="0" y="0" class="named"/>
+<rect width="720.56" height="6" x="26.44" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1810,7 +1810,7 @@
 <rect width="3.60" height="3.51" x="672.36" y="229.83" class="named"><title>0x00414180 BulletManager::RemoveChain (52 bytes)</title></rect>
 <rect width="3.60" height="3.51" x="678.95" y="229.83" class="todo"><title>0x00435c60 Func435c60 (52 bytes)</title></rect>
 <rect width="3.60" height="3.51" x="685.55" y="229.83" class="todo"><title>0x0043d060 Func43d060 (52 bytes)</title></rect>
-<rect width="3.47" height="3.51" x="692.15" y="229.83" class="todo"><title>0x00404570 Func404570 (51 bytes)</title></rect>
+<rect width="3.47" height="3.51" x="692.15" y="229.83" class="named"><title>0x00404570 SpellCard::RemoveChain (51 bytes)</title></rect>
 <rect width="3.47" height="3.51" x="698.62" y="229.83" class="named"><title>0x0040d280 EffectManager::RemoveChain (51 bytes)</title></rect>
 <rect width="3.47" height="3.51" x="705.09" y="229.83" class="todo"><title>0x0040f180 Func40f180 (51 bytes)</title></rect>
 <rect width="3.47" height="3.51" x="711.56" y="229.83" class="todo"><title>0x0041a230 Func41a230 (51 bytes)</title></rect>
@@ -1941,7 +1941,7 @@
 <rect width="1.98" height="2.31" x="745.02" y="259.13" class="named"><title>0x00441890 Vector2::SetPolar (32 bytes)</title></rect>
 <rect width="2.23" height="2.06" x="694.62" y="264.44" class="todo"><title>0x00442ec0 Func442ec0 (32 bytes)</title></rect>
 <rect width="2.23" height="1.90" x="694.62" y="269.49" class="todo"><title>0x004012c0 Func4012c0 (31 bytes)</title></rect>
-<rect width="2.23" height="1.90" x="694.62" y="274.39" class="todo"><title>0x00403d60 Func403d60 (31 bytes)</title></rect>
+<rect width="2.23" height="1.90" x="694.62" y="274.39" class="todo"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
 <rect width="2.23" height="1.90" x="694.62" y="279.29" class="todo"><title>0x004126b0 Func4126b0 (31 bytes)</title></rect>
 <rect width="2.23" height="1.90" x="694.62" y="284.19" class="todo"><title>0x00412760 Func412760 (31 bytes)</title></rect>
 <rect width="2.23" height="1.90" x="694.62" y="289.09" class="todo"><title>0x0041cdc0 Func41cdc0 (31 bytes)</title></rect>

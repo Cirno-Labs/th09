@@ -61,7 +61,7 @@ address,size,name,symbol
 0x00403c30,91,Func403c30,
 0x00403c90,91,Func403c90,
 0x00403cf0,100,Func403cf0,
-0x00403d60,31,Func403d60,
+0x00403d60,31,RunEndCallbacks,
 0x00403d80,12,Func403d80,
 0x00403d90,71,Func403d90,
 0x00403de0,20,Timer::operator>,??OTimer@@QAEHH@Z
@@ -70,7 +70,7 @@ address,size,name,symbol
 0x00403e50,923,Func403e50,
 0x004041f0,536,Func4041f0,
 0x00404410,334,Func404410,
-0x00404570,51,Func404570,
+0x00404570,51,SpellCard::RemoveChain,?RemoveChain@SpellCard@@SIXPAV1@@Z
 0x004045b0,66,Func4045b0,
 0x00404600,264,Func404600,
 0x00404710,346,Func404710,
