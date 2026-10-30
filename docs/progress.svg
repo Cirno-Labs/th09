@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">18.30% (191)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">81.70% (853)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">18.39% (192)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">81.61% (852)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="136.66" height="6" x="0" y="0" class="named"/>
-<rect width="610.34" height="6" x="136.66" y="0" class="todo"/>
+<rect width="137.38" height="6" x="0" y="0" class="named"/>
+<rect width="609.62" height="6" x="137.38" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -292,7 +292,7 @@
 <rect width="12" height="12" x="330" y="60" class="todo"><title>0x004121d0 Func4121d0 (101 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="60" class="todo"><title>0x00412240 Func412240 (328 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="60" class="todo"><title>0x00412390 Func412390 (39 bytes)</title></rect>
-<rect width="12" height="12" x="375" y="60" class="todo"><title>0x004123c0 Func4123c0 (173 bytes)</title></rect>
+<rect width="12" height="12" x="375" y="60" class="named"><title>0x004123c0 BulletManager::Initialize (173 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="60" class="named"><title>0x00412470 BulletManager::Reset (95 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="60" class="todo"><title>0x004124d0 Func4124d0 (16 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="60" class="todo"><title>0x004124e0 Func4124e0 (161 bytes)</title></rect>
@@ -328,16 +328,16 @@
 <rect width="12" height="12" x="120" y="75" class="todo"><title>0x004139f0 Func4139f0 (113 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="75" class="todo"><title>0x00413a70 Func413a70 (113 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="75" class="todo"><title>0x00413af0 Func413af0 (215 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="75" class="todo"><title>0x00413be0 Func413be0 (591 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="75" class="todo"><title>0x00413e40 Func413e40 (598 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="75" class="todo"><title>0x00413be0 BulletManager::OnDraw (591 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="75" class="todo"><title>0x00413e40 BulletManager::AddedCallback (598 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="75" class="named"><title>0x00414180 BulletManager::RemoveChain (52 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="75" class="todo"><title>0x004141c0 Func4141c0 (1233 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="75" class="todo"><title>0x004146f0 Func4146f0 (2184 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="75" class="todo"><title>0x00414fa0 Func414fa0 (56 bytes)</title></rect>
-<rect width="12" height="12" x="255" y="75" class="todo"><title>0x00414fe0 Func414fe0 (58 bytes)</title></rect>
-<rect width="12" height="12" x="270" y="75" class="todo"><title>0x00415020 Func415020 (34 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="75" class="todo"><title>0x00415050 Func415050 (121 bytes)</title></rect>
-<rect width="12" height="12" x="300" y="75" class="todo"><title>0x004150d0 Func4150d0 (283 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="75" class="todo"><title>0x004146f0 BulletManager::OnUpdate (2184 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="75" class="todo"><title>0x00414fa0 BulletTypeSprites::BulletTypeSprites (56 bytes)</title></rect>
+<rect width="12" height="12" x="255" y="75" class="todo"><title>0x00414fe0 Bullet::Bullet (58 bytes)</title></rect>
+<rect width="12" height="12" x="270" y="75" class="todo"><title>0x00415020 Laser::Laser (34 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="75" class="todo"><title>0x00415050 BulletManager::BulletManager (121 bytes)</title></rect>
+<rect width="12" height="12" x="300" y="75" class="todo"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="75" class="todo"><title>0x004151f0 Func4151f0 (321 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="75" class="todo"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="75" class="todo"><title>0x00415460 ExAttackManager::OnDraw (272 bytes)</title></rect>
@@ -470,7 +470,7 @@
 <rect width="12" height="12" x="0" y="120" class="todo"><title>0x0041eb10 Func41eb10 (166 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="120" class="todo"><title>0x0041ebc0 Player::Reset (552 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="120" class="todo"><title>0x0041ee00 Func41ee00 (28 bytes)</title></rect>
-<rect width="12" height="12" x="45" y="120" class="todo"><title>0x0041ee20 Func41ee20 (12 bytes)</title></rect>
+<rect width="12" height="12" x="45" y="120" class="todo"><title>0x0041ee20 BulletEx::BulletEx (12 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="120" class="todo"><title>0x0041ee30 Func41ee30 (23 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="120" class="todo"><title>0x0041ee50 Func41ee50 (438 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="120" class="todo"><title>0x0041f010 Func41f010 (23 bytes)</title></rect>
@@ -1115,10 +1115,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">5.10%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">94.90%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">5.16%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">94.84%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="38.07" height="6" x="0" y="0" class="named"/>
-<rect width="708.93" height="6" x="38.07" y="0" class="todo"/>
+<rect width="38.51" height="6" x="0" y="0" class="named"/>
+<rect width="708.49" height="6" x="38.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.65" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1134,7 +1134,7 @@
 <rect width="37.09" height="43.46" x="118.57" y="48.70" class="todo"><title>0x00426e05 Func426e05 (2258 bytes)</title></rect>
 <rect width="37.09" height="43.11" x="118.57" y="95.16" class="todo"><title>0x004289db Func4289db (2241 bytes)</title></rect>
 <rect width="37.09" height="42.43" x="118.57" y="141.26" class="todo"><title>0x00448750 Func448750 (2208 bytes)</title></rect>
-<rect width="37.09" height="41.93" x="118.57" y="186.69" class="todo"><title>0x004146f0 Func4146f0 (2184 bytes)</title></rect>
+<rect width="37.09" height="41.93" x="118.57" y="186.69" class="todo"><title>0x004146f0 BulletManager::OnUpdate (2184 bytes)</title></rect>
 <rect width="37.09" height="41.30" x="118.57" y="231.63" class="todo"><title>0x00425acb Func425acb (2153 bytes)</title></rect>
 <rect width="37.09" height="39.07" x="118.57" y="275.93" class="todo"><title>0x004276eb Func4276eb (2045 bytes)</title></rect>
 <rect width="34.02" height="40.20" x="158.66" y="0" class="todo"><title>0x00423d16 Func423d16 (1939 bytes)</title></rect>
@@ -1232,11 +1232,11 @@
 <rect width="19.37" height="19.60" x="398.87" y="141.36" class="todo"><title>0x0043e500 Func43e500 (613 bytes)</title></rect>
 <rect width="19.37" height="19.20" x="398.87" y="163.96" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
 <rect width="19.37" height="19.12" x="398.87" y="186.15" class="todo"><title>0x00440270 Func440270 (600 bytes)</title></rect>
-<rect width="19.37" height="19.05" x="398.87" y="208.28" class="todo"><title>0x00413e40 Func413e40 (598 bytes)</title></rect>
+<rect width="19.37" height="19.05" x="398.87" y="208.28" class="todo"><title>0x00413e40 BulletManager::AddedCallback (598 bytes)</title></rect>
 <rect width="19.37" height="18.97" x="398.87" y="230.32" class="todo"><title>0x00444700 Func444700 (596 bytes)</title></rect>
 <rect width="19.37" height="18.97" x="398.87" y="252.30" class="todo"><title>0x00447ce0 Func447ce0 (596 bytes)</title></rect>
 <rect width="19.37" height="18.94" x="398.87" y="274.27" class="todo"><title>0x00439a90 Func439a90 (595 bytes)</title></rect>
-<rect width="19.37" height="18.79" x="398.87" y="296.21" class="todo"><title>0x00413be0 Func413be0 (591 bytes)</title></rect>
+<rect width="19.37" height="18.79" x="398.87" y="296.21" class="todo"><title>0x00413be0 BulletManager::OnDraw (591 bytes)</title></rect>
 <rect width="18.44" height="19.74" x="421.24" y="0" class="todo"><title>0x004205e0 Func4205e0 (591 bytes)</title></rect>
 <rect width="18.44" height="19.24" x="421.24" y="22.74" class="todo"><title>0x004407a0 Func4407a0 (578 bytes)</title></rect>
 <rect width="18.44" height="18.85" x="421.24" y="44.97" class="todo"><title>0x00434020 Func434020 (568 bytes)</title></rect>
@@ -1389,7 +1389,7 @@
 <rect width="12.33" height="12.44" x="689.09" y="71.67" class="todo"><title>0x0040e170 Func40e170 (287 bytes)</title></rect>
 <rect width="12.23" height="12.44" x="704.42" y="71.67" class="todo"><title>0x0042d4d0 Func42d4d0 (285 bytes)</title></rect>
 <rect width="12.23" height="12.44" x="719.65" y="71.67" class="todo"><title>0x00430590 Func430590 (285 bytes)</title></rect>
-<rect width="12.12" height="12.44" x="734.88" y="71.67" class="todo"><title>0x004150d0 Func4150d0 (283 bytes)</title></rect>
+<rect width="12.12" height="12.44" x="734.88" y="71.67" class="todo"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>
 <rect width="11.47" height="13.13" x="513.09" y="87.11" class="named"><title>0x0041a5d0 GuiSide::RegisterChain (283 bytes)</title></rect>
 <rect width="11.47" height="12.91" x="513.09" y="103.24" class="todo"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
 <rect width="11.47" height="12.91" x="513.09" y="119.15" class="todo"><title>0x0041da70 Func41da70 (279 bytes)</title></rect>
@@ -1516,7 +1516,7 @@
 <rect width="8.90" height="9.13" x="566.45" y="164.62" class="todo"><title>0x0040ccc0 Func40ccc0 (175 bytes)</title></rect>
 <rect width="8.90" height="9.13" x="566.45" y="176.75" class="todo"><title>0x00424fb0 Func424fb0 (175 bytes)</title></rect>
 <rect width="8.90" height="9.13" x="566.45" y="188.88" class="todo"><title>0x0042505f Func42505f (175 bytes)</title></rect>
-<rect width="8.90" height="8.99" x="566.45" y="201.01" class="todo"><title>0x004123c0 Func4123c0 (173 bytes)</title></rect>
+<rect width="8.90" height="8.99" x="566.45" y="201.01" class="named"><title>0x004123c0 BulletManager::Initialize (173 bytes)</title></rect>
 <rect width="8.90" height="8.99" x="566.45" y="213" class="named"><title>0x004302b0 App::StartLoadingSprites (173 bytes)</title></rect>
 <rect width="8.90" height="8.71" x="566.45" y="224.99" class="todo"><title>0x0040d110 Func40d110 (169 bytes)</title></rect>
 <rect width="8.90" height="8.71" x="566.45" y="236.70" class="todo"><title>0x00431a30 Func431a30 (169 bytes)</title></rect>
@@ -1593,7 +1593,7 @@
 <rect width="7.05" height="7.09" x="641.16" y="162.74" class="named"><title>0x0040d200 EffectManager::FreeEffects (123 bytes)</title></rect>
 <rect width="7.05" height="7.09" x="651.21" y="162.74" class="todo"><title>0x00422470 Func422470 (123 bytes)</title></rect>
 <rect width="7.05" height="7.09" x="661.26" y="162.74" class="todo"><title>0x0042cc90 Func42cc90 (123 bytes)</title></rect>
-<rect width="6.89" height="7.09" x="671.31" y="162.74" class="todo"><title>0x00415050 Func415050 (121 bytes)</title></rect>
+<rect width="6.89" height="7.09" x="671.31" y="162.74" class="todo"><title>0x00415050 BulletManager::BulletManager (121 bytes)</title></rect>
 <rect width="6.89" height="7.09" x="681.20" y="162.74" class="todo"><title>0x0041ba80 Func41ba80 (121 bytes)</title></rect>
 <rect width="6.89" height="7.09" x="691.09" y="162.74" class="todo"><title>0x0041bdf0 Func41bdf0 (121 bytes)</title></rect>
 <rect width="6.89" height="7.09" x="700.97" y="162.74" class="todo"><title>0x00433870 Func433870 (121 bytes)</title></rect>
@@ -1790,11 +1790,11 @@
 <rect width="4.21" height="3.74" x="672.96" y="222.87" class="named"><title>0x0041a1d0 GuiSide::RemoveChain (59 bytes)</title></rect>
 <rect width="4.21" height="3.74" x="680.17" y="222.87" class="todo"><title>0x00431b30 Func431b30 (59 bytes)</title></rect>
 <rect width="4.21" height="3.74" x="687.39" y="222.87" class="todo"><title>0x0043cf90 Func43cf90 (59 bytes)</title></rect>
-<rect width="4.09" height="3.74" x="694.60" y="222.87" class="todo"><title>0x00414fe0 Func414fe0 (58 bytes)</title></rect>
+<rect width="4.09" height="3.74" x="694.60" y="222.87" class="todo"><title>0x00414fe0 Bullet::Bullet (58 bytes)</title></rect>
 <rect width="4.09" height="3.74" x="701.70" y="222.87" class="todo"><title>0x0043e090 Func43e090 (58 bytes)</title></rect>
 <rect width="3.97" height="3.74" x="708.79" y="222.87" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>
 <rect width="3.85" height="3.74" x="715.76" y="222.87" class="todo"><title>0x0040f5a0 Func40f5a0 (56 bytes)</title></rect>
-<rect width="3.85" height="3.74" x="722.61" y="222.87" class="todo"><title>0x00414fa0 Func414fa0 (56 bytes)</title></rect>
+<rect width="3.85" height="3.74" x="722.61" y="222.87" class="todo"><title>0x00414fa0 BulletTypeSprites::BulletTypeSprites (56 bytes)</title></rect>
 <rect width="3.85" height="3.74" x="729.46" y="222.87" class="todo"><title>0x0041a380 Func41a380 (56 bytes)</title></rect>
 <rect width="3.85" height="3.74" x="736.30" y="222.87" class="named"><title>0x0042fec0 App::EnableFog (56 bytes)</title></rect>
 <rect width="3.85" height="3.74" x="743.15" y="222.87" class="named"><title>0x0042ff00 App::DisableFog (56 bytes)</title></rect>
@@ -1915,7 +1915,7 @@
 <rect width="2.22" height="2.53" x="694.23" y="253.74" class="todo"><title>0x00411d50 Func411d50 (35 bytes)</title></rect>
 <rect width="2.22" height="2.53" x="699.45" y="253.74" class="named"><title>0x0042ae70 Rng::GetRandomF32ZeroToOne (35 bytes)</title></rect>
 <rect width="2.07" height="2.53" x="704.67" y="253.74" class="named"><title>0x004048e0 Rng::GetRandomU32InRange (34 bytes)</title></rect>
-<rect width="2.07" height="2.53" x="709.74" y="253.74" class="todo"><title>0x00415020 Func415020 (34 bytes)</title></rect>
+<rect width="2.07" height="2.53" x="709.74" y="253.74" class="todo"><title>0x00415020 Laser::Laser (34 bytes)</title></rect>
 <rect width="2.07" height="2.53" x="714.81" y="253.74" class="named"><title>0x00418270 Gui::FreeResources (34 bytes)</title></rect>
 <rect width="2.07" height="2.53" x="719.88" y="253.74" class="todo"><title>0x00422f17 Func422f17 (34 bytes)</title></rect>
 <rect width="2.07" height="2.53" x="724.95" y="253.74" class="named"><title>0x0042cbe0 Chain::Release (34 bytes)</title></rect>
@@ -2104,7 +2104,7 @@
 <rect width="0.38" height="0.10" x="736.47" y="296.26" class="todo"><title>0x0040f8b0 Func40f8b0 (12 bytes)</title></rect>
 <rect width="0.38" height="0.10" x="739.85" y="296.26" class="named"><title>0x0041a98b GameConfig::GameConfig (12 bytes)</title></rect>
 <rect width="0.38" height="0.10" x="743.23" y="296.26" class="named"><title>0x0041a9ac GameManager::IsDemo (12 bytes)</title></rect>
-<rect width="0.38" height="0.10" x="746.62" y="296.26" class="todo"><title>0x0041ee20 Func41ee20 (12 bytes)</title></rect>
+<rect width="0.38" height="0.10" x="746.62" y="296.26" class="todo"><title>0x0041ee20 BulletEx::BulletEx (12 bytes)</title></rect>
 <rect width="0.11" height="0.18" x="729.70" y="299.19" class="todo"><title>0x00421e90 Func421e90 (12 bytes)</title></rect>
 <rect width="0.11" height="0.18" x="729.70" y="302.37" class="named"><title>0x0042d2c0 App::GetReferenceRasterizer (12 bytes)</title></rect>
 <rect width="0.11" height="0.18" x="729.70" y="305.55" class="todo"><title>0x00433100 Func433100 (12 bytes)</title></rect>
