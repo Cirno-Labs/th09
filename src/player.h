@@ -76,9 +76,17 @@ struct PlayerBullet
     Sprite sprite;
     D3DXVECTOR3 pos;
     D3DXVECTOR3 trail[0x20];
-    unsigned char pad_430[0x454 - 0x430];
+    unsigned char pad_430[0x450 - 0x430];
+    // The direction it flies in.
+    float angle;
     Timer timer;
-    unsigned char pad_460[0x484 - 0x460];
+    short damage;
+    // 0 unused, 1 flying, 2 hit, as th08's.
+    short state;
+    unsigned char pad_464[0x46e - 0x464];
+    // Drawn blue while it is hit.
+    BYTE unknown46e;
+    unsigned char pad_46f[0x484 - 0x46f];
 };
 ASSERT_SIZE(PlayerBullet, 0x484);
 
