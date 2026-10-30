@@ -559,7 +559,7 @@ address,size,name,symbol
 0x0042c700,179,Func42c700,
 0x0042c7e0,186,Func42c7e0,
 0x0042c8c0,46,Chain::Remove,?Remove@Chain@@QAEXPAUChainElem@@@Z
-0x0042c8f0,120,Func42c8f0,
+0x0042c8f0,120,InitJoystick,?InitJoystick@@YIGXZ
 0x0042c970,355,Func42c970,
 0x0042cae0,241,Chain::ReleaseList,?ReleaseList@Chain@@QAEXPAUChainElem@@@Z
 0x0042cbe0,34,Chain::Release,?Release@Chain@@QAEXXZ
@@ -2201,6 +2201,7 @@ address,size,name,symbol
 0x004a21d0,,g_BgmInfos,?g_BgmInfos@@3PAUBgmInfo@@A
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
+0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
 0x004ace0c,,g_Rng,?g_Rng@@3VRng@@A
 0x004acfc8,,g_Chain,?g_Chain@@3VChain@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A

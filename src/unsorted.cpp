@@ -410,6 +410,23 @@ int LogError(Log *log, const char *fmt, ...)
     return (int)fmt;
 }
 
+WORD InitJoystick()
+{
+    JOYINFOEX joyInfo;
+
+    joyInfo.dwSize = sizeof(joyInfo);
+    joyInfo.dwFlags = JOY_RETURNALL;
+    if (joyGetPosEx(JOYSTICKID1, &joyInfo) != JOYERR_NOERROR &&
+        joyGetPosEx(JOYSTICKID2, &joyInfo) != JOYERR_NOERROR)
+    {
+        LogPrintf(&g_Log, "使えるパッドが存在しないようです、残念\r\n");
+        return 1;
+    }
+    joyGetDevCapsA(JOYSTICKID1, &g_JoyCaps[0], sizeof(g_JoyCaps[0]));
+    joyGetDevCapsA(JOYSTICKID2, &g_JoyCaps[1], sizeof(g_JoyCaps[1]));
+    return 0;
+}
+
 void Chain::Remove(ChainElem *elem)
 {
     g_App.EnterCriticalSection(0);

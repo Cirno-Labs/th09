@@ -68,6 +68,13 @@ int LogPrintf(Log *log, const char *fmt, ...);
 // The same with a smaller buffer, setting hasError (0x42c660).
 int LogError(Log *log, const char *fmt, ...);
 
+// Logs and returns 1 if neither joystick answers, else reads both
+// joysticks' capabilities into g_JoyCaps and returns 0, as th08's for
+// one (0x42c8f0).
+WORD InitJoystick();
+// The joysticks' capabilities, from joyGetDevCaps (0x4ac8d8).
+extern JOYCAPSA g_JoyCaps[2];
+
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);
