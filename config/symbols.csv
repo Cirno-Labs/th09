@@ -486,7 +486,7 @@ address,size,name,symbol
 0x00423469,47,SpriteEngine::HasTexture,
 0x00423498,15,SoundPlayer::UnPause,?UnPause@SoundPlayer@@QAEXXZ
 0x004234a7,54,Func4234a7,
-0x004234dd,25,Func4234dd,
+0x004234dd,25,AsciiText::SetScale,?SetScale@AsciiText@@QAEXMM@Z
 0x004234f6,1280,Func4234f6,
 0x004239f6,800,Func4239f6,
 0x00423d16,1939,Func423d16,

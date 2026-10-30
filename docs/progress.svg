@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.22% (478)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.78% (579)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.32% (479)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.68% (578)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="337.81" height="6" x="0" y="0" class="named"/>
-<rect width="409.19" height="6" x="337.81" y="0" class="todo"/>
+<rect width="338.52" height="6" x="0" y="0" class="named"/>
+<rect width="408.48" height="6" x="338.52" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -554,7 +554,7 @@
 <rect width="12" height="12" x="510" y="135" class="todo"><title>0x00423469 SpriteEngine::HasTexture (47 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="135" class="named"><title>0x00423498 SoundPlayer::UnPause (15 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="135" class="todo"><title>0x004234a7 Func4234a7 (54 bytes)</title></rect>
-<rect width="12" height="12" x="555" y="135" class="todo"><title>0x004234dd Func4234dd (25 bytes)</title></rect>
+<rect width="12" height="12" x="555" y="135" class="named"><title>0x004234dd AsciiText::SetScale (25 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="135" class="todo"><title>0x004234f6 Func4234f6 (1280 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="135" class="todo"><title>0x004239f6 Func4239f6 (800 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="135" class="todo"><title>0x00423d16 Func423d16 (1939 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">20.10%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">79.90%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">20.11%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">79.89%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="150.17" height="6" x="0" y="0" class="named"/>
-<rect width="596.83" height="6" x="150.17" y="0" class="todo"/>
+<rect width="150.23" height="6" x="0" y="0" class="named"/>
+<rect width="596.77" height="6" x="150.23" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2002,7 +2002,7 @@
 <rect width="1.79" height="1.67" x="731.39" y="280.99" class="todo"><title>0x00445560 Func445560 (26 bytes)</title></rect>
 <rect width="1.61" height="1.67" x="736.18" y="280.99" class="named"><title>0x00401090 ModulateChannel (25 bytes)</title></rect>
 <rect width="1.61" height="1.67" x="740.79" y="280.99" class="named"><title>0x004014d0 Timer::Set (25 bytes)</title></rect>
-<rect width="1.61" height="1.67" x="745.39" y="280.99" class="todo"><title>0x004234dd Func4234dd (25 bytes)</title></rect>
+<rect width="1.61" height="1.67" x="745.39" y="280.99" class="named"><title>0x004234dd AsciiText::SetScale (25 bytes)</title></rect>
 <rect width="1.93" height="1.36" x="702.65" y="285.65" class="todo"><title>0x0042cc10 Func42cc10 (25 bytes)</title></rect>
 <rect width="1.93" height="1.36" x="707.59" y="285.65" class="named"><title>0x00433760 File::Tell (25 bytes)</title></rect>
 <rect width="1.73" height="1.36" x="712.52" y="285.65" class="named"><title>0x00404980 Gui::IsMsgRunning (24 bytes)</title></rect>

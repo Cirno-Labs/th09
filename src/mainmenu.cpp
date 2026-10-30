@@ -200,3 +200,9 @@ void SoundPlayer::UnPause()
 {
     this->QueueSoundCommand(7, 0, "UnPause");
 }
+
+void AsciiText::SetScale(float x, float y)
+{
+    this->scaleX = x;
+    this->scaleY = y;
+}
