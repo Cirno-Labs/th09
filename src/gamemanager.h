@@ -219,15 +219,22 @@ struct Hscr
     float slowdown;
     BYTE character;
     BYTE difficulty;
-    unsigned char pad_16[0x1];
+    // The entry's place in its table, from 0.
+    BYTE rank;
     BYTE unknown17;
-    unsigned char pad_18[0x2b - 0x18];
+    char name[9];
+    // "--/--" when unset.
+    char date[6];
+    unsigned char pad_27[0x2b - 0x27];
     BYTE unknown2b;
 };
 ASSERT_SIZE(Hscr, 0x2c);
 // The entry of the game that ended, set up by GameManager's deleted
 // callback (0x4ac858).
 extern Hscr g_Hscr;
+// The high score tables: five entries for each character and
+// difficulty (0x4a8380).
+extern Hscr g_HighScores[16][5][5];
 // A block GameManager's deleted callback clears (0x4d9698).
 extern unsigned char g_Unknown4d9698[0x2bc0];
 

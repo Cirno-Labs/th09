@@ -3,6 +3,63 @@
 #include "scoredat.h"
 #include "lzss.h"
 #include "unsorted.h"
+#include "gamemanager.h"
+
+int LoadHscrChunks(ScoreDat *dat)
+{
+    int character;
+    int difficulty;
+    int rank;
+    Hscr *chunk;
+    int left;
+
+    for (character = 0; character < 16; character++)
+    {
+        for (difficulty = 0; difficulty < 5; difficulty++)
+        {
+            for (rank = 0; rank < 5; rank++)
+            {
+                g_HighScores[character][difficulty][rank].score = 100000 - rank * 20000;
+                g_HighScores[character][difficulty][rank].slowdown = 0.0f;
+                g_HighScores[character][difficulty][rank].magic = 0x52435348;
+                g_HighScores[character][difficulty][rank].character = character;
+                g_HighScores[character][difficulty][rank].difficulty = difficulty;
+                g_HighScores[character][difficulty][rank].rank = rank;
+                g_HighScores[character][difficulty][rank].version = 2;
+                g_HighScores[character][difficulty][rank].size2 = sizeof(Hscr);
+                g_HighScores[character][difficulty][rank].size = sizeof(Hscr);
+                g_HighScores[character][difficulty][rank].unknown17 = 0;
+                g_HighScores[character][difficulty][rank].isNew = 0;
+                strcpy(g_HighScores[character][difficulty][rank].name, "No Name ");
+                strcpy(g_HighScores[character][difficulty][rank].date, "--/--");
+                g_HighScores[character][difficulty][rank].unknown2b = 0;
+            }
+        }
+    }
+    chunk = (Hscr *)((BYTE *)dat + dat->dataOffset);
+    left = dat->fileSize - dat->dataOffset;
+    while (left > 0)
+    {
+        if (chunk->magic == 0x52435348 && chunk->version == 2)
+        {
+            g_HighScores[chunk->character][chunk->difficulty][chunk->rank] = *chunk;
+        }
+        left -= chunk->size;
+        chunk = (Hscr *)((BYTE *)chunk + chunk->size);
+    }
+    g_Hscr.size2 = sizeof(Hscr);
+    g_Hscr.size = sizeof(Hscr);
+    strcpy(g_Hscr.name, "No Name ");
+    g_Hscr.slowdown = 0.0f;
+    g_Hscr.character = 0;
+    g_Hscr.difficulty = 0;
+    g_Hscr.magic = 0;
+    g_Hscr.unknown17 = 0;
+    g_Hscr.version = 2;
+    g_Hscr.isNew = 0;
+    strcpy(g_Hscr.date, "--/--");
+    return 0;
+}
 
 int LoadLsnmChunk(ScoreDat *dat)
 {

@@ -443,7 +443,7 @@ address,size,name,symbol
 0x00421670,361,ReplayManager::RegisterChain,?RegisterChain@ReplayManager@@SIPAV1@HPAD@Z
 0x004217e0,21,Func4217e0,
 0x00421800,208,Func421800,
-0x004218e0,432,LoadHscrChunks,?LoadHscrChunks@@YIHPAUScoreDat@@@Z
+0x004218e0,441,LoadHscrChunks,?LoadHscrChunks@@YIHPAUScoreDat@@@Z
 0x00421aa0,215,LoadLsnmChunk,?LoadLsnmChunk@@YIHPAUScoreDat@@@Z
 0x00421b80,178,LoadPlstChunk,?LoadPlstChunk@@YIHPAUScoreDat@@@Z
 0x00421c80,523,LoadScoreDat,?LoadScoreDat@@YIPAUScoreDat@@PAD@Z
@@ -2265,6 +2265,7 @@ address,size,name,symbol
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
 0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
+0x004a8380,,g_HighScores,?g_HighScores@@3PAY144UHscr@@A
 0x004ac840,,g_ScoreDatHeader,?g_ScoreDatHeader@@3UScoreDat@@A
 0x004ac858,,g_Hscr,?g_Hscr@@3UHscr@@A
 0x004ac884,,g_Unknown4ac884,?g_Unknown4ac884@@3HA
