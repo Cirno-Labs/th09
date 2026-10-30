@@ -86,3 +86,18 @@ WORD SwapBytes16(WORD value)
     swapped.bytes[1] = ((BYTE *)&value)[0];
     return swapped.word;
 }
+
+DWORD SwapBytes32(DWORD value)
+{
+    union
+    {
+        DWORD dword;
+        BYTE bytes[4];
+    } swapped;
+
+    swapped.bytes[0] = ((BYTE *)&value)[3];
+    swapped.bytes[1] = ((BYTE *)&value)[2];
+    swapped.bytes[2] = ((BYTE *)&value)[1];
+    swapped.bytes[3] = ((BYTE *)&value)[0];
+    return swapped.dword;
+}
