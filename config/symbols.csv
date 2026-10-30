@@ -863,7 +863,7 @@ address,size,name,symbol
 0x0043d580,89,MidiPlayer::FreeTracks,?FreeTracks@MidiPlayer@@QAEXXZ
 0x0043d5e0,358,Func43d5e0,
 0x0043d750,55,MidiPlayer::Play,?Play@MidiPlayer@@QAEHXZ
-0x0043d790,92,Func43d790,
+0x0043d790,92,MidiPlayer::ReleaseHeader,?ReleaseHeader@MidiPlayer@@QAEHPAUmidihdr_tag@@@Z
 0x0043d7f0,1216,Func43d7f0,
 0x0043de20,12,Func43de20,
 0x0043de30,83,MidiPlayer::Stop,?Stop@MidiPlayer@@QAEHXZ

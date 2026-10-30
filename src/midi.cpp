@@ -260,3 +260,24 @@ int MidiPlayer::Play()
     this->Start(1, NULL, 0);
     return 0;
 }
+
+int MidiPlayer::ReleaseHeader(LPMIDIHDR header)
+{
+    int i;
+
+    for (i = 0; i < 0x20; i++)
+    {
+        if (this->headers[i] == header)
+        {
+            goto found;
+        }
+    }
+    return -1;
+
+found:
+    this->headers[i] = NULL;
+    midiOutUnprepareHeader(this->device.handle, header, sizeof(MIDIHDR));
+    g_MemoryManager.Free(header->lpData);
+    g_MemoryManager.Free(header);
+    return 0;
+}
