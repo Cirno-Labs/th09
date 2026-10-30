@@ -575,6 +575,74 @@ int MainMenu::DeletedCallback(MainMenu *menu)
     return 0;
 }
 
+int MainMenu::InitTitleScene()
+{
+    g_Unknown4ac884 = 0;
+    g_AsciiText.Initialize();
+    g_AsciiText.StartScripts();
+    g_App.gameSpeed = 1.0f;
+    if (g_GameManager.stateFlags & 8)
+    {
+        g_GameManager.sides[0].character = 0;
+        g_GameManager.sides[1].character = 1;
+    }
+    if (g_GameManager.stateFlags & 2)
+    {
+        g_GameManager.stateFlags &= ~8;
+    }
+    this->SetState(1);
+    g_App.ClearUnknown77c();
+    if (g_Network->unknownA8 != 0 && g_GameManager.mode != 2)
+    {
+        this->unknown1b23c = 2;
+        g_GameManager.unknown114 = 0;
+        g_App.config.unknownB0 = 1;
+    }
+    switch (this->unknown1b22c)
+    {
+    case 0:
+        if (g_GameManager.stateFlags & 0xa)
+        {
+            break;
+        }
+        if (g_GameManager.mode == 0)
+        {
+            this->cursor = 0;
+        }
+        else if (g_GameManager.mode == 1)
+        {
+            this->cursor = 1;
+        }
+        else if (g_GameManager.mode == 2)
+        {
+            this->unknown1b23c = 1;
+        }
+        break;
+    case 1:
+        this->state = 14;
+        break;
+    default:
+        this->cursor = 0;
+        break;
+    }
+    this->unknown88 = 0;
+    g_GameManager.stateFlags &= ~1;
+    D3DXVECTOR3 pos(500.0f, 440.0f, 0.0f);
+    if (g_App.prevScene == 2)
+    {
+        g_App.StartLoadingSpritesOverScreen(&pos);
+        g_App.StartLoadingScreenEffect(0);
+    }
+    else if (g_App.prevScene != 0)
+    {
+        g_App.StartLoadingSprites(&pos);
+    }
+    g_GameManager.stateFlags &= ~2;
+    this->loadingState = 1;
+    g_App.StartSubThread((LPTHREAD_START_ROUTINE)LoadingThread, NULL);
+    return 0;
+}
+
 void MainMenu::SelectEntry(int cursor, int first, int count)
 {
     for (int i = first; i < first + count; i++)

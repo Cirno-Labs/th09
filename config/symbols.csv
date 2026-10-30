@@ -497,8 +497,8 @@ address,size,name,symbol
 0x0042474a,167,MainMenu::MovePlayerCursor,?MovePlayerCursor@MainMenu@@QAEHHH@Z
 0x004247f1,167,MainMenu::MovePlayerCursor2,?MovePlayerCursor2@MainMenu@@QAEHHHH@Z
 0x00424898,329,MainMenu::OnDraw,?OnDraw@MainMenu@@SIHPAV1@@Z
-0x004249e1,534,Func4249e1,
-0x00424bf7,335,Func424bf7,
+0x004249e1,534,MainMenu::LoadingThread,?LoadingThread@MainMenu@@SIXPAV1@@Z
+0x00424bf7,335,MainMenu::InitTitleScene,?InitTitleScene@MainMenu@@QAEHXZ
 0x00424d4b,84,MainMenu::ReleaseTitleScene,?ReleaseTitleScene@MainMenu@@QAEHXZ
 0x00424d9f,96,MainMenu::DeletedCallback,?DeletedCallback@MainMenu@@SIHPAV1@@Z
 0x00424dff,150,MainMenu::SelectEntry,?SelectEntry@MainMenu@@QAEXHHH@Z
@@ -2249,6 +2249,7 @@ address,size,name,symbol
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
 0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
 0x004ac858,,g_Hscr,?g_Hscr@@3UHscr@@A
+0x004ac884,,g_Unknown4ac884,?g_Unknown4ac884@@3HA
 0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
 0x004acc00,,g_PathBuffer,?g_PathBuffer@@3PADA
 0x004acd08,,g_DataDir,?g_DataDir@@3PADA

@@ -418,3 +418,8 @@ int AsciiText::RegisterChain()
 AsciiText::AsciiText()
 {
 }
+
+// Empty; the linker folded it with DebugPrint (0x43d2b0).
+void AsciiText::StartScripts()
+{
+}

@@ -4,8 +4,12 @@
 
 #include "chain.h"
 #include "common.h"
+#include "gamemanager.h"
+#include "screeneffect.h"
 #include "sprite.h"
 #include "unsorted.h"
+
+class MainMenu;
 
 // The network play's state ("NetworkInf", 0xd4 bytes), at 0x4b42d0.
 // Only what is known so far.
@@ -16,6 +20,9 @@ struct Network
     int unknownA8;
 };
 extern Network *g_Network;
+
+// Cleared by the title (0x4ac884).
+extern int g_Unknown4ac884;
 
 class MainMenu
 {
@@ -73,12 +80,20 @@ public:
     // Draws the menu's sprites, then the state's own, as th08's
     // (0x424898).
     static int OnDraw(MainMenu *menu);
+    // Loads the title's ANM files and sets up its sprites, run in the
+    // sub thread, as th08's (0x4249e1).
+    static void LoadingThread(MainMenu *menu);
     // Frees the files and sprites the title scene loaded, as th08's
     // (0x424d4b).
     int ReleaseTitleScene();
     // Releases the title's ANM files and surface, unregisters the menu
     // and deletes it, as th08's (0x424d9f).
     static int DeletedCallback(MainMenu *menu);
+    // Sets up the title as th08's, then loads it in LoadingThread in the
+    // sub thread. Returns 0 (0x424bf7).
+    int InitTitleScene();
+    // The update element's added callback: InitTitleScene (0x424d46).
+    static int AddedCallback(MainMenu *menu);
     // Shows sprites first to first + count - 1 dimmed, the next frame
     // of their ANM, with interrupt 8, and the one at cursor lit with
     // interrupt 7 (0x424dff).
@@ -120,7 +135,8 @@ public:
     unsigned char pad_30[0x84 - 0x30];
     // The state before the current one.
     int prevState;
-    unsigned char pad_88[0x681c - 0x88];
+    int unknown88;
+    unsigned char pad_8c[0x681c - 0x8c];
     // Files ReleaseTitleScene frees.
     void *unknown681c[50];
     unsigned char pad_68e4[0xc8fc - 0x68e4];
@@ -130,22 +146,29 @@ public:
     unsigned char pad_c914[0x11b74 - 0xc914];
     int unknown11b74;
     unsigned char pad_11b78[0x11b90 - 0x11b78];
-    // The title's ANM file.
+    // The title's ANM file, and the result screen's text.
     AnmLoaded *anm;
-    unsigned char pad_11b94[0x11b98 - 0x11b94];
+    AnmLoaded *resultTextAnm;
     // spriteCount sprites, drawn by OnDraw.
     Sprite *sprites;
     // Drawn after them when set.
     Sprite *helpSprite;
-    unsigned char pad_11ba0[0x19d04 - 0x11ba0];
+    // Sprites of textAnm's script 5, as th08's.
+    Sprite helpSprites[14];
+    unsigned char pad_14098[0x1780c - 0x14098];
+    // Sprites 0x15 to 0x22 of textAnm, as th08's card details.
+    Sprite cardDetailSprites[14];
     Sprite unknown19d04[8];
     int spriteCount;
     int state;
-    unsigned char pad_1b22c[0x1b230 - 0x1b22c];
+    // 1 makes InitTitleScene start in state 14.
+    int unknown1b22c;
     int unknown1b230;
     unsigned char pad_1b234[0x1b238 - 0x1b234];
-    // While nonzero, OnDraw draws nothing.
+    // While nonzero, OnDraw draws nothing: 1 while LoadingThread loads,
+    // 2 if it failed.
     int loadingState;
-    unsigned char pad_1b23c[0x1b24c - 0x1b23c];
+    int unknown1b23c;
+    unsigned char pad_1b240[0x1b24c - 0x1b240];
     ChainElem *drawChain;
 };

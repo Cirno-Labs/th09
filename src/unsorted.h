@@ -663,7 +663,9 @@ struct App
     // Below 1 when the game runs slow.
     float gameSpeed;
     MidiPlayer *midi;
-    unsigned char pad_5c0[0x5d0 - 0x5c0];
+    unsigned char pad_5c0[0x5cc - 0x5c0];
+    // The ANM file of the menus' text, as th08's.
+    AnmLoaded *textAnm;
     // The ANM file of the loading sprites.
     AnmLoaded *loadingAnm;
     union

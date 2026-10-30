@@ -143,7 +143,7 @@ public:
     int unknown100;
     unsigned char pad_104[0x110 - 0x104];
     int unknown110;
-    unsigned char pad_114[0x4];
+    int unknown114;
     int mode;
     int difficulty;
     unsigned char pad_120[0x124 - 0x120];

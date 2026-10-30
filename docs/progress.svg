@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">48.68% (515)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">51.32% (543)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">48.77% (516)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">51.23% (542)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="363.62" height="6" x="0" y="0" class="named"/>
-<rect width="383.38" height="6" x="363.62" y="0" class="todo"/>
+<rect width="364.32" height="6" x="0" y="0" class="named"/>
+<rect width="382.68" height="6" x="364.32" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -565,8 +565,8 @@
 <rect width="12" height="12" x="675" y="135" class="named"><title>0x0042474a MainMenu::MovePlayerCursor (167 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="135" class="named"><title>0x004247f1 MainMenu::MovePlayerCursor2 (167 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="135" class="named"><title>0x00424898 MainMenu::OnDraw (329 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="135" class="todo"><title>0x004249e1 Func4249e1 (534 bytes)</title></rect>
-<rect width="12" height="12" x="735" y="135" class="todo"><title>0x00424bf7 Func424bf7 (335 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="135" class="todo"><title>0x004249e1 MainMenu::LoadingThread (534 bytes)</title></rect>
+<rect width="12" height="12" x="735" y="135" class="named"><title>0x00424bf7 MainMenu::InitTitleScene (335 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="150" class="named"><title>0x00424d4b MainMenu::ReleaseTitleScene (84 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="150" class="named"><title>0x00424d9f MainMenu::DeletedCallback (96 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="150" class="named"><title>0x00424dff MainMenu::SelectEntry (150 bytes)</title></rect>
@@ -1129,10 +1129,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.95%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">75.05%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">25.06%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">74.94%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="186.37" height="6" x="0" y="0" class="named"/>
-<rect width="560.63" height="6" x="186.37" y="0" class="todo"/>
+<rect width="187.23" height="6" x="0" y="0" class="named"/>
+<rect width="559.77" height="6" x="187.23" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1263,7 +1263,7 @@
 <rect width="19.18" height="18.03" x="432.20" y="0" class="todo"><title>0x0042f540 Func42f540 (543 bytes)</title></rect>
 <rect width="19.06" height="18.03" x="454.38" y="0" class="todo"><title>0x00420840 ReplayManager::AddedCallbackMode1 (540 bytes)</title></rect>
 <rect width="18.90" height="18.03" x="476.44" y="0" class="todo"><title>0x004041f0 SpellCard::OnUpdate (536 bytes)</title></rect>
-<rect width="18.82" height="18.03" x="498.34" y="0" class="todo"><title>0x004249e1 Func4249e1 (534 bytes)</title></rect>
+<rect width="18.82" height="18.03" x="498.34" y="0" class="todo"><title>0x004249e1 MainMenu::LoadingThread (534 bytes)</title></rect>
 <rect width="18.53" height="18.03" x="520.16" y="0" class="todo"><title>0x00422960 DrawColorRect (527 bytes)</title></rect>
 <rect width="18.37" height="18.03" x="541.69" y="0" class="todo"><title>0x00421c80 Func421c80 (523 bytes)</title></rect>
 <rect width="18.12" height="18.03" x="563.05" y="0" class="todo"><title>0x0042eef0 Func42eef0 (517 bytes)</title></rect>
@@ -1355,7 +1355,7 @@
 <rect width="14.46" height="13.78" x="471.12" y="316.22" class="named"><title>0x0043ce30 SpriteEngine::SpriteEngine (341 bytes)</title></rect>
 <rect width="13.70" height="14.29" x="488.58" y="58.30" class="todo"><title>0x004227a0 Func4227a0 (336 bytes)</title></rect>
 <rect width="13.65" height="14.29" x="505.28" y="58.30" class="todo"><title>0x0041ca00 Func41ca00 (335 bytes)</title></rect>
-<rect width="13.65" height="14.29" x="521.93" y="58.30" class="todo"><title>0x00424bf7 Func424bf7 (335 bytes)</title></rect>
+<rect width="13.65" height="14.29" x="521.93" y="58.30" class="named"><title>0x00424bf7 MainMenu::InitTitleScene (335 bytes)</title></rect>
 <rect width="13.60" height="14.29" x="538.57" y="58.30" class="todo"><title>0x00404410 SpellCard::OnDraw (334 bytes)</title></rect>
 <rect width="13.40" height="14.29" x="555.17" y="58.30" class="named"><title>0x0043c4c0 SpriteEngine::CreateTextureFromImage (330 bytes)</title></rect>
 <rect width="13.35" height="14.29" x="571.57" y="58.30" class="named"><title>0x00424898 MainMenu::OnDraw (329 bytes)</title></rect>

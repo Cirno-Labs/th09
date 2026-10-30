@@ -123,6 +123,10 @@ public:
     // Zeroes the sprites, strings and popups and sets them up again, as
     // th08's (0x4343e0).
     void Initialize();
+    // Called by the title after Initialize, where th08 starts the
+    // sprites' scripts; empty here, and the linker folded it with
+    // DebugPrint (0x43d2b0).
+    void StartScripts();
     // The update element's added callback: loads ascii.anm (slot 1) and
     // capture.anm (slot 3) and initializes. Returns 0, or -1 if loading
     // fails (0x4344e0).
