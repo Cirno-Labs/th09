@@ -98,6 +98,11 @@ void GuiSide::RemoveChain(GuiSide *side)
     }
 }
 
+void GuiSide::StartUnknown59c8()
+{
+    this->anm->StartScriptAtOrigin(&this->unknown59c8, 0x43);
+}
+
 void GuiSide::Reset()
 {
     this->timerAbdc = 0;

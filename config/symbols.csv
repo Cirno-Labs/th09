@@ -322,7 +322,7 @@ address,size,name,symbol
 0x004193e0,3074,GuiSide::OnDraw,?OnDraw@GuiSide@@SIHPAV1@@Z
 0x0041a000,448,GuiSide::AddedCallback,?AddedCallback@GuiSide@@SIHPAV1@@Z
 0x0041a1d0,59,GuiSide::RemoveChain,?RemoveChain@GuiSide@@SIXPAV1@@Z
-0x0041a210,21,Func41a210,
+0x0041a210,21,GuiSide::StartUnknown59c8,?StartUnknown59c8@GuiSide@@QAEXXZ
 0x0041a230,51,GuiSide::Reset,?Reset@GuiSide@@QAEXXZ
 0x0041a270,95,Func41a270,
 0x0041a2d0,67,Func41a2d0,

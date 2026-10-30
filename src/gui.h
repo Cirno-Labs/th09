@@ -135,6 +135,8 @@ public:
     void Reset();
     // Sets unknownAbcc and restarts timerAbd0 (0x415d50).
     void StartUnknownAbcc();
+    // Starts script 0x43 on unknown59c8 (0x41a210).
+    void StartUnknown59c8();
     // Creates side `sideIdx`'s front, zeroed, and adds its update element
     // (priority 0x17 + `sideIdx`) and draw element (0x1a + `sideIdx`).
     // Returns it, or NULL if adding fails (0x41a5d0).
@@ -156,7 +158,8 @@ public:
     unsigned char pad_a65c[0xa660 - 0xa65c];
     ChainElem *calcElem;
     ChainElem *drawElem;
-    unsigned char pad_a668[0xa66c - 0xa668];
+    // The side's ANM file.
+    AnmLoaded *anm;
     int sideIdx;
     // The side, and the other one.
     GameSide *side;
