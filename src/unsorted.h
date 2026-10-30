@@ -98,7 +98,29 @@ struct GameConfigFlags
 };
 
 class AnmLoaded;
+class MidiPlayer;
 class Sprite;
+
+// A piece of music.
+struct BgmInfo
+{
+    int id;
+    // The MIDI file; the wave file has the same name.
+    char *path;
+    int unknown08;
+    int unknown0c;
+};
+// The game's music, at 0x4a21d0.
+extern BgmInfo g_BgmInfos[19];
+
+// Plays the sound effects and music, as th08's (at 0x4dc698).
+class SoundPlayer
+{
+public:
+    // Queues a command for the sound thread (0x43ee40).
+    void QueueSoundCommand(int type, int arg, char *path);
+};
+extern SoundPlayer g_SoundPlayer;
 
 // A time kept in the play statistics, as th08's plst fields.
 struct PlayTime
@@ -132,6 +154,10 @@ struct App
     // criticalSectionDepths, as th08's (0x42b130, 0x42b160).
     void EnterCriticalSection(int idx);
     void LeaveCriticalSection(int idx);
+    // Looks `id` up in g_BgmInfos and loads its MIDI file into slot `id`,
+    // or queues the wave file of the same name, as th08's LoadMidi.
+    // Returns 0 for MIDI, else 1 (0x42fc20).
+    int LoadBgm(int id);
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
@@ -177,7 +203,10 @@ struct App
 
     unsigned char pad_0[0x8];
     IDirect3DDevice8 *d3dDevice;
-    unsigned char pad_c[0x439 - 0xc];
+    unsigned char pad_c[0x436 - 0xc];
+    // 0 for no music, 1 to play waves, 2 MIDI.
+    BYTE musicMode;
+    unsigned char pad_437[0x439 - 0x437];
     // Whether the game runs in a window.
     BYTE windowed;
     unsigned char pad_43a[0x450 - 0x43a];
@@ -185,7 +214,8 @@ struct App
     unsigned char pad_454[0x5b8 - 0x454];
     // Below 1 when the game runs slow.
     float gameSpeed;
-    unsigned char pad_5bc[0x5d0 - 0x5bc];
+    MidiPlayer *midi;
+    unsigned char pad_5c0[0x5d0 - 0x5c0];
     // The ANM file of the loading sprites.
     AnmLoaded *loadingAnm;
     DWORD stateFlags;

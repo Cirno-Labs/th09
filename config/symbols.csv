@@ -625,7 +625,7 @@ address,size,name,symbol
 0x0042f770,74,SpriteEngine::ResetFrameState,?ResetFrameState@SpriteEngine@@QAEXXZ
 0x0042f7c0,1054,App::LoadConfig,
 0x0042fbe0,54,Func42fbe0,
-0x0042fc20,207,Func42fc20,
+0x0042fc20,207,App::LoadBgm,?LoadBgm@App@@QAEHH@Z
 0x0042fcf0,53,Func42fcf0,
 0x0042fd30,81,Func42fd30,
 0x0042fd90,130,Func42fd90,
@@ -853,7 +853,7 @@ address,size,name,symbol
 0x0043de30,83,Func43de30,
 0x0043de90,505,Func43de90,
 0x0043e090,58,Func43e090,
-0x0043e0d0,94,Func43e0d0,
+0x0043e0d0,94,MidiPlayer::LoadFile,?LoadFile@MidiPlayer@@QAEHHPAD@Z
 0x0043e130,54,Func43e130,
 0x0043e170,33,Func43e170,
 0x0043e1a0,74,Func43e1a0,
@@ -873,7 +873,7 @@ address,size,name,symbol
 0x0043ebc0,177,Func43ebc0,
 0x0043ec80,245,Func43ec80,
 0x0043ed80,181,Func43ed80,
-0x0043ee40,105,Func43ee40,
+0x0043ee40,105,SoundPlayer::QueueSoundCommand,?QueueSoundCommand@SoundPlayer@@QAEXHHPAD@Z
 0x0043eeb0,232,Func43eeb0,
 0x0043efa0,252,Func43efa0,
 0x0043f0a0,327,Func43f0a0,
@@ -1651,7 +1651,7 @@ address,size,name,symbol
 0x0047c750,672,_memcpy,
 0x0047ca90,31,Func47ca90,
 0x0047cab0,61,__chkstk,
-0x0047caf0,45,_strrchr,
+0x0047caf0,45,_strrchr,_strrchr
 0x0047cb30,195,_strchr,_strchr
 0x0047cbee,52,_sscanf,_sscanf
 0x0047cc30,57,_strncmp,_strncmp
@@ -2198,6 +2198,7 @@ address,size,name,symbol
 0x0048e284,4,CoInitialize,__imp__CoInitialize@4
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
+0x004a21d0,,g_BgmInfos,?g_BgmInfos@@3PAUBgmInfo@@A
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
 0x004ace0c,,g_Rng,?g_Rng@@3VRng@@A
@@ -2208,3 +2209,4 @@ address,size,name,symbol
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
+0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A

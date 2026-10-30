@@ -1,3 +1,4 @@
+#include "midi.h"
 #include "screeneffect.h"
 #include "sprite.h"
 #include "timer.h"
@@ -65,6 +66,43 @@ int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, in
     this->pendingCopyDstWidth = dstWidth;
     this->pendingCopyDstHeight = dstHeight;
     return 0;
+}
+
+int App::LoadBgm(int id)
+{
+    char *dot;
+    char wavFile[0x100];
+    DWORD i;
+
+    for (i = 0; i < ARRAY_SIZE(g_BgmInfos); i++)
+    {
+        if (g_BgmInfos[i].id == id)
+        {
+            break;
+        }
+    }
+    if (i >= ARRAY_SIZE(g_BgmInfos))
+    {
+        return 1;
+    }
+    if (g_App.musicMode == 2)
+    {
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->LoadFile(g_BgmInfos[i].id, g_BgmInfos[i].path);
+        }
+        return 0;
+    }
+    if (g_App.musicMode == 1)
+    {
+        strcpy(wavFile, g_BgmInfos[i].path);
+        dot = strrchr(wavFile, '.');
+        dot[1] = 'w';
+        dot[2] = 'a';
+        dot[3] = 'v';
+        g_SoundPlayer.QueueSoundCommand(1, g_BgmInfos[i].id, wavFile);
+    }
+    return 1;
 }
 
 void Timer::Add(float frames)
