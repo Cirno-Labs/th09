@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.03% (476)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.97% (581)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.13% (477)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.87% (580)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="336.40" height="6" x="0" y="0" class="named"/>
-<rect width="410.60" height="6" x="336.40" y="0" class="todo"/>
+<rect width="337.10" height="6" x="0" y="0" class="named"/>
+<rect width="409.90" height="6" x="337.10" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -550,7 +550,7 @@
 <rect width="12" height="12" x="450" y="135" class="named"><title>0x00423361 MidiPlayer::Restart (33 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="135" class="named"><title>0x00423382 App::ClearUnknown77c (33 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="135" class="named"><title>0x004233a3 Sprite::SetMoveInterp (81 bytes)</title></rect>
-<rect width="12" height="12" x="495" y="135" class="todo"><title>0x004233f4 Func4233f4 (117 bytes)</title></rect>
+<rect width="12" height="12" x="495" y="135" class="named"><title>0x004233f4 Sprite::SetColorInterp (117 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="135" class="todo"><title>0x00423469 SpriteEngine::HasTexture (47 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="135" class="todo"><title>0x00423498 Func423498 (15 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="135" class="todo"><title>0x004234a7 Func4234a7 (54 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">20.06%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">79.94%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">20.10%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">79.90%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="149.83" height="6" x="0" y="0" class="named"/>
-<rect width="597.17" height="6" x="149.83" y="0" class="todo"/>
+<rect width="150.13" height="6" x="0" y="0" class="named"/>
+<rect width="596.87" height="6" x="150.13" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1619,7 +1619,7 @@
 <rect width="6.96" height="7.27" x="596.54" y="232.04" class="todo"><title>0x0042eb80 Func42eb80 (119 bytes)</title></rect>
 <rect width="6.96" height="7.27" x="596.54" y="242.31" class="todo"><title>0x00445d00 Func445d00 (119 bytes)</title></rect>
 <rect width="6.96" height="7.18" x="596.54" y="252.57" class="named"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
-<rect width="6.96" height="7.10" x="596.54" y="262.76" class="todo"><title>0x004233f4 Func4233f4 (117 bytes)</title></rect>
+<rect width="6.96" height="7.10" x="596.54" y="262.76" class="named"><title>0x004233f4 Sprite::SetColorInterp (117 bytes)</title></rect>
 <rect width="6.96" height="7.10" x="596.54" y="272.85" class="named"><title>0x00435370 ContinueMenu::DrawContinueMenu (117 bytes)</title></rect>
 <rect width="6.96" height="7.10" x="596.54" y="282.95" class="named"><title>0x0043d210 MidiPlayer::SendVolume (117 bytes)</title></rect>
 <rect width="6.96" height="7.01" x="596.54" y="293.05" class="named"><title>0x0041a6eb GameManager::IsInPlayArea (116 bytes)</title></rect>

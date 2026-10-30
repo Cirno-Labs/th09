@@ -177,3 +177,21 @@ void Sprite::SetMoveInterp(int frames, BYTE easing, D3DXVECTOR3 *from, D3DXVECTO
     this->moveStart = *from;
     this->moveEnd = *to;
 }
+
+void Sprite::SetColorInterp(int frames, BYTE easing, D3DCOLOR from, D3DCOLOR to)
+{
+    this->interpDuration[1].current = 0;
+    this->interpDuration[1].currentF = 0.0f;
+    this->interpDuration[1].previous = -999999;
+    Timer *frame = &this->interpFrame[1];
+    frame->current = frames;
+    frame->currentF = frames;
+    frame->previous = -999999;
+    this->colorEasing = easing;
+    ((BYTE *)&this->colorStart)[2] = from >> 16 & 0xff;
+    ((BYTE *)&this->colorStart)[1] = from >> 8 & 0xff;
+    ((BYTE *)&this->colorStart)[0] = from & 0xff;
+    ((BYTE *)&this->colorEnd)[2] = to >> 16 & 0xff;
+    ((BYTE *)&this->colorEnd)[1] = to >> 8 & 0xff;
+    ((BYTE *)&this->colorEnd)[0] = to & 0xff;
+}
