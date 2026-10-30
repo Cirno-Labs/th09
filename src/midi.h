@@ -19,4 +19,6 @@ public:
     void UnloadFile(int slot);
     // Stops playing; returns -1 without a file, else 0 (0x43de30).
     int Stop();
+    // Fades the music out over `duration` milliseconds (0x43d1e0).
+    int FadeOut(int duration);
 };

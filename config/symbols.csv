@@ -629,7 +629,7 @@ address,size,name,symbol
 0x0042fcf0,53,App::PlayBgm,?PlayBgm@App@@QAEHXZ
 0x0042fd30,81,App::StopBgm,?StopBgm@App@@QAEHXZ
 0x0042fd90,130,App::UnloadBgm,?UnloadBgm@App@@QAEHH@Z
-0x0042fe20,148,Func42fe20,
+0x0042fe20,148,App::FadeOutBgm,?FadeOutBgm@App@@QAEHM@Z
 0x0042fec0,56,App::EnableFog,?EnableFog@App@@QAEHXZ
 0x0042ff00,56,App::DisableFog,?DisableFog@App@@QAEHXZ
 0x0042ff40,42,App::SetRenderState,?SetRenderState@App@@QAEHW4_D3DRENDERSTATETYPE@@K@Z
@@ -836,7 +836,7 @@ address,size,name,symbol
 0x0043d120,38,Func43d120,
 0x0043d150,32,Func43d150,
 0x0043d170,110,Func43d170,
-0x0043d1e0,46,Func43d1e0,
+0x0043d1e0,46,MidiPlayer::FadeOut,?FadeOut@MidiPlayer@@QAEHH@Z
 0x0043d210,117,Func43d210,
 0x0043d2b0,1,Func43d2b0,
 0x0043d2d0,69,Func43d2d0,

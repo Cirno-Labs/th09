@@ -183,6 +183,40 @@ int App::UnloadBgm(int id)
     return 0;
 }
 
+int App::FadeOutBgm(float seconds)
+{
+    float duration;
+
+    if (g_App.musicMode == 2)
+    {
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->FadeOut(1000.0f * seconds);
+        }
+    }
+    else if (g_App.musicMode == 1)
+    {
+        if (this->gameSpeed == 0.0f)
+        {
+            duration = seconds;
+        }
+        else if (this->gameSpeed > 1.0f)
+        {
+            duration = seconds;
+        }
+        else
+        {
+            duration = seconds / this->gameSpeed;
+        }
+        g_SoundPlayer.QueueSoundCommand(5, duration, "");
+    }
+    else
+    {
+        return -1;
+    }
+    return 0;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;

@@ -166,6 +166,10 @@ struct App
     // Looks `id` up in g_BgmInfos and frees what LoadBgm loaded. Returns
     // 0, 1 for an unknown id, or -1 without music (0x42fd90).
     int UnloadBgm(int id);
+    // Fades the music out over `seconds`, as th08's FadeOutMusic; the
+    // wave fade is stretched while the game runs slow. Returns 0, or -1
+    // without music (0x42fe20).
+    int FadeOutBgm(float seconds);
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
