@@ -59,7 +59,7 @@ address,size,name,symbol
 0x00403ae0,307,Stage::RegisterChain,?RegisterChain@Stage@@SIPAV1@H@Z
 0x00403c20,12,Player::SetUnknown0,?SetUnknown0@Player@@QAEXH@Z
 0x00403c30,91,Player::StartClearCircle1,?StartClearCircle1@Player@@QAEXXZ
-0x00403c90,91,Func403c90,
+0x00403c90,91,Player::StartClearCircle2,?StartClearCircle2@Player@@QAEXXZ
 0x00403cf0,100,Func403cf0,
 0x00403d60,31,RunEndCallbacks,?RunEndCallbacks@@YIHPAVSpellCard@@@Z
 0x00403d80,12,SpellCard::Reset,?Reset@SpellCard@@QAEXXZ

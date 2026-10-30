@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.68% (665)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.32% (396)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.77% (666)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.23% (395)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="468.20" height="6" x="0" y="0" class="named"/>
-<rect width="278.80" height="6" x="468.20" y="0" class="todo"/>
+<rect width="468.90" height="6" x="0" y="0" class="named"/>
+<rect width="278.10" height="6" x="468.90" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -127,7 +127,7 @@
 <rect width="12" height="12" x="105" y="15" class="named"><title>0x00403ae0 Stage::RegisterChain (307 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="15" class="named"><title>0x00403c20 Player::SetUnknown0 (12 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="15" class="named"><title>0x00403c30 Player::StartClearCircle1 (91 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="15" class="todo"><title>0x00403c90 Func403c90 (91 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="15" class="named"><title>0x00403c90 Player::StartClearCircle2 (91 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="15" class="todo"><title>0x00403cf0 Func403cf0 (100 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="15" class="named"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="15" class="named"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.59%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.41%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.62%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.38%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="243.46" height="6" x="0" y="0" class="named"/>
-<rect width="503.54" height="6" x="243.46" y="0" class="todo"/>
+<rect width="243.69" height="6" x="0" y="0" class="named"/>
+<rect width="503.31" height="6" x="243.69" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1690,7 +1690,7 @@
 <rect width="6.03" height="5.74" x="614.61" y="306.98" class="named"><title>0x0043d790 MidiPlayer::ReleaseHeader (92 bytes)</title></rect>
 <rect width="6.03" height="5.64" x="614.61" y="315.72" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
 <rect width="6.03" height="5.64" x="614.61" y="324.36" class="named"><title>0x00403c30 Player::StartClearCircle1 (91 bytes)</title></rect>
-<rect width="6.19" height="5.49" x="623.64" y="199.86" class="todo"><title>0x00403c90 Func403c90 (91 bytes)</title></rect>
+<rect width="6.19" height="5.49" x="623.64" y="199.86" class="named"><title>0x00403c90 Player::StartClearCircle2 (91 bytes)</title></rect>
 <rect width="6.19" height="5.49" x="632.83" y="199.86" class="todo"><title>0x0040f5e0 Func40f5e0 (91 bytes)</title></rect>
 <rect width="6.19" height="5.49" x="642.02" y="199.86" class="todo"><title>0x00445e60 Func445e60 (91 bytes)</title></rect>
 <rect width="6.09" height="5.49" x="651.21" y="199.86" class="named"><title>0x0042adc0 GetDataPath (90 bytes)</title></rect>
