@@ -27,6 +27,13 @@ void PlayerHitArea::Reset()
     this->unknown34 = 1;
 }
 
+void PlayerUnknown24::Reset()
+{
+    this->timer5c = 0;
+    this->timer68 = 0;
+    this->flags &= ~3;
+}
+
 // Unloads the player's ANM file and frees its shot file if the game frees
 // its resources. Returns 0. Static, with the player in esi (0x41ce60).
 static int FreeResources(Player *player)
