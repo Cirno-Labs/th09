@@ -99,6 +99,21 @@ void App::TickTimer(int *frames, float *subFrame)
     }
 }
 
+void SpriteEngine::ResetFrameState()
+{
+    this->ClearVertexFormat();
+    this->ClearSpriteData();
+    this->ClearTexture();
+    this->ClearColorOp();
+    this->ClearBlendMode();
+    this->ClearZWrite();
+    this->ClearDrawStats();
+    this->ClearLastCameraSetupFlag();
+    this->ResetColorModulation();
+    this->shakeY = 0.0f;
+    this->shakeX = 0.0f;
+}
+
 int App::CheckVersionFile(char *version, DWORD size, DWORD checksum)
 {
     DWORD size2;

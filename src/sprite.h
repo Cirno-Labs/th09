@@ -120,6 +120,19 @@ public:
     // else 0. Inline in th08; this copy is 0x42f420.
     int SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
                               int dstTop, int dstWidth, int dstHeight);
+    // Clears the counters of the frame. Inline, as th08's; the copy is
+    // 0x42f760.
+    void ClearDrawStats()
+    {
+        this->stepCount = 0;
+        this->renderStateSetCount = 0;
+        this->scriptStartCount = 0;
+        this->batchDrawCount = 0;
+    }
+    // Forgets the render state last set, clears the counters and the
+    // color modulation and stops the shake, as th08's App::OnUpdate does
+    // every frame (0x42f770).
+    void ResetFrameState();
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
 

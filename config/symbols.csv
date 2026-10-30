@@ -621,8 +621,8 @@ address,size,name,symbol
 0x0042f490,93,Timer::Add,?Add@Timer@@QAEXM@Z
 0x0042f4f0,71,App::TickTimer,?TickTimer@App@@QAEXPAHPAM@Z
 0x0042f540,543,Func42f540,
-0x0042f760,15,Func42f760,
-0x0042f770,74,Func42f770,
+0x0042f760,15,SpriteEngine::ClearDrawStats,?ClearDrawStats@SpriteEngine@@QAEXXZ
+0x0042f770,74,SpriteEngine::ResetFrameState,?ResetFrameState@SpriteEngine@@QAEXXZ
 0x0042f7c0,1054,App::LoadConfig,
 0x0042fbe0,54,Func42fbe0,
 0x0042fc20,207,Func42fc20,
