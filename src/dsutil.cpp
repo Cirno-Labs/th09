@@ -210,3 +210,19 @@ HRESULT CSound::Stop()
 
     return hr;
 }
+
+HRESULT CSound::PauseBuffer()
+{
+    if (m_apDSBuffer == NULL)
+        return CO_E_NOTINITIALIZED;
+
+    if (!this->played)
+        return S_OK;
+
+    HRESULT hr = 0;
+
+    this->isPlaying = 0;
+    hr |= m_apDSBuffer[0]->Stop();
+
+    return hr;
+}

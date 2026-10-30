@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.94% (401)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">62.06% (656)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.03% (402)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.97% (655)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="283.39" height="6" x="0" y="0" class="named"/>
-<rect width="463.61" height="6" x="283.39" y="0" class="todo"/>
+<rect width="284.10" height="6" x="0" y="0" class="named"/>
+<rect width="462.90" height="6" x="284.10" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -971,7 +971,7 @@
 <rect width="12" height="12" x="15" y="270" class="named"><title>0x0043faf0 CSound::GetBuffer (31 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="270" class="named"><title>0x0043fb10 CSound::SetVolume (107 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="270" class="named"><title>0x0043fb80 CSound::Stop (86 bytes)</title></rect>
-<rect width="12" height="12" x="60" y="270" class="todo"><title>0x0043fbe0 CSound::PauseBuffer (39 bytes)</title></rect>
+<rect width="12" height="12" x="60" y="270" class="named"><title>0x0043fbe0 CSound::PauseBuffer (39 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="270" class="todo"><title>0x0043fc10 CSound::ResumeBuffer (51 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="270" class="todo"><title>0x0043fc50 CSound::Reset (62 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="270" class="todo"><title>0x0043fc90 CStreamingSound::UpdateFade (65 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.81%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.19%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.83%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.17%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="110.65" height="6" x="0" y="0" class="named"/>
-<rect width="636.35" height="6" x="110.65" y="0" class="todo"/>
+<rect width="110.75" height="6" x="0" y="0" class="named"/>
+<rect width="636.25" height="6" x="110.75" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1907,7 +1907,7 @@
 <rect width="2.76" height="2.82" x="693.27" y="258.87" class="named"><title>0x00435d40 PauseMenu::PauseMenu (39 bytes)</title></rect>
 <rect width="2.76" height="2.82" x="699.03" y="258.87" class="named"><title>0x00435d70 ContinueMenu::ContinueMenu (39 bytes)</title></rect>
 <rect width="2.76" height="2.82" x="704.80" y="258.87" class="named"><title>0x0043e2c0 SoundPlayer::LoadBgmFormat (39 bytes)</title></rect>
-<rect width="2.76" height="2.82" x="710.56" y="258.87" class="todo"><title>0x0043fbe0 CSound::PauseBuffer (39 bytes)</title></rect>
+<rect width="2.76" height="2.82" x="710.56" y="258.87" class="named"><title>0x0043fbe0 CSound::PauseBuffer (39 bytes)</title></rect>
 <rect width="2.61" height="2.82" x="716.32" y="258.87" class="todo"><title>0x004010d0 Func4010d0 (38 bytes)</title></rect>
 <rect width="2.61" height="2.82" x="721.93" y="258.87" class="todo"><title>0x00401470 VectorConstructorIterator (38 bytes)</title></rect>
 <rect width="2.61" height="2.82" x="727.55" y="258.87" class="todo"><title>0x00411d80 EnemyManager::OnDraw2 (38 bytes)</title></rect>
