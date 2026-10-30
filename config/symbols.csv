@@ -355,7 +355,7 @@ address,size,name,symbol
 0x0041ba4f,47,GameManager::Init,?Init@GameManager@@QAEXXZ
 0x0041ba80,121,Func41ba80,
 0x0041bb00,101,Player::AngleFromPlayer,?AngleFromPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
-0x0041bb70,101,Func41bb70,
+0x0041bb70,101,Player::AngleToPlayer,?AngleToPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
 0x0041bbe0,172,LoadShtFile,?LoadShtFile@@YIHPAPAUShtFile@@PAD@Z
 0x0041bc90,162,Func41bc90,
 0x0041bd40,19,Sprite::SetBlendMode1,?SetBlendMode1@Sprite@@QAEXXZ

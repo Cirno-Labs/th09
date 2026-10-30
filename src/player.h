@@ -223,6 +223,9 @@ public:
     // The angle from the player to `pos`, or pi / 2 at the player
     // (0x41bb00).
     float AngleFromPlayer(D3DXVECTOR3 *pos);
+    // The angle from `pos` to the player, or pi / 2 at the player
+    // (0x41bb70).
+    float AngleToPlayer(D3DXVECTOR3 *pos);
     // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
     int GetUnknown0()

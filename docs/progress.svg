@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.17% (649)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.83% (412)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.26% (650)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.74% (411)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="456.93" height="6" x="0" y="0" class="named"/>
-<rect width="290.07" height="6" x="456.93" y="0" class="todo"/>
+<rect width="457.63" height="6" x="0" y="0" class="named"/>
+<rect width="289.37" height="6" x="457.63" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -423,7 +423,7 @@
 <rect width="12" height="12" x="45" y="105" class="named"><title>0x0041ba4f GameManager::Init (47 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="105" class="todo"><title>0x0041ba80 Func41ba80 (121 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="105" class="named"><title>0x0041bb00 Player::AngleFromPlayer (101 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="105" class="todo"><title>0x0041bb70 Func41bb70 (101 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="105" class="named"><title>0x0041bb70 Player::AngleToPlayer (101 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="105" class="named"><title>0x0041bbe0 LoadShtFile (172 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="105" class="todo"><title>0x0041bc90 Func41bc90 (162 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="105" class="named"><title>0x0041bd40 Sprite::SetBlendMode1 (19 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.83%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.17%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.86%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.14%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="237.75" height="6" x="0" y="0" class="named"/>
-<rect width="509.25" height="6" x="237.75" y="0" class="todo"/>
+<rect width="238.01" height="6" x="0" y="0" class="named"/>
+<rect width="508.99" height="6" x="238.01" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1658,7 +1658,7 @@
 <rect width="6.37" height="6.24" x="605.24" y="286.78" class="todo"><title>0x0040e480 Func40e480 (101 bytes)</title></rect>
 <rect width="6.37" height="6.24" x="605.24" y="296.02" class="named"><title>0x004121d0 EnemyManager::EnemyManager (101 bytes)</title></rect>
 <rect width="6.37" height="6.24" x="605.24" y="305.27" class="named"><title>0x0041bb00 Player::AngleFromPlayer (101 bytes)</title></rect>
-<rect width="6.37" height="6.24" x="605.24" y="314.51" class="todo"><title>0x0041bb70 Func41bb70 (101 bytes)</title></rect>
+<rect width="6.37" height="6.24" x="605.24" y="314.51" class="named"><title>0x0041bb70 Player::AngleToPlayer (101 bytes)</title></rect>
 <rect width="6.37" height="6.24" x="605.24" y="323.76" class="named"><title>0x0042f420 SpriteEngine::SetPendingSurfaceCopy (101 bytes)</title></rect>
 <rect width="6.24" height="6.37" x="614.61" y="190.48" class="named"><title>0x00436450 GdiSurface::Create (101 bytes)</title></rect>
 <rect width="6.24" height="6.37" x="623.85" y="190.48" class="todo"><title>0x00449780 Func449780 (101 bytes)</title></rect>
