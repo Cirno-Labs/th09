@@ -29,3 +29,8 @@ int GdiSurface::GetWidth()
 {
     return this->width;
 }
+
+int GdiSurface::GetHeight()
+{
+    return this->height;
+}
