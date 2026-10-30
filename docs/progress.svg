@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">53.68% (569)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">46.32% (491)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">53.77% (570)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">46.23% (490)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="400.98" height="6" x="0" y="0" class="named"/>
-<rect width="346.02" height="6" x="400.98" y="0" class="todo"/>
+<rect width="401.69" height="6" x="0" y="0" class="named"/>
+<rect width="345.31" height="6" x="401.69" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -680,7 +680,7 @@
 <rect width="12" height="12" x="150" y="180" class="named"><title>0x0042eb80 App::PopRecord (119 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="180" class="named"><title>0x0042ec00 MidiPlayer::PlayFile (34 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="180" class="named"><title>0x0042ec30 App::ResetRun (177 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="180" class="todo"><title>0x0042ecf0 Func42ecf0 (49 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="180" class="named"><title>0x0042ecf0 App::RecordsMeet (49 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="180" class="named"><title>0x0042ed30 App::GetNoDirectInput (13 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="180" class="named"><title>0x0042ed40 App::GetPreloadBgm (13 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="180" class="named"><title>0x0042ed50 App::GetNoVsync (13 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.63%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.37%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.64%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.36%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="213.85" height="6" x="0" y="0" class="named"/>
-<rect width="533.15" height="6" x="213.85" y="0" class="todo"/>
+<rect width="213.97" height="6" x="0" y="0" class="named"/>
+<rect width="533.03" height="6" x="213.97" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1850,7 +1850,7 @@
 <rect width="3.59" height="3.39" x="703.89" y="246.03" class="todo"><title>0x0041d050 Func41d050 (49 bytes)</title></rect>
 <rect width="3.59" height="3.39" x="710.47" y="246.03" class="todo"><title>0x0041d0d0 Func41d0d0 (49 bytes)</title></rect>
 <rect width="3.59" height="3.39" x="717.06" y="246.03" class="todo"><title>0x0041d110 Func41d110 (49 bytes)</title></rect>
-<rect width="3.59" height="3.39" x="723.65" y="246.03" class="todo"><title>0x0042ecf0 Func42ecf0 (49 bytes)</title></rect>
+<rect width="3.59" height="3.39" x="723.65" y="246.03" class="named"><title>0x0042ecf0 App::RecordsMeet (49 bytes)</title></rect>
 <rect width="3.59" height="3.39" x="730.24" y="246.03" class="named"><title>0x00433dc0 LzssPredecessor (49 bytes)</title></rect>
 <rect width="3.59" height="3.39" x="736.82" y="246.03" class="named"><title>0x004397e0 SpriteEngine::RotatePoint (49 bytes)</title></rect>
 <rect width="3.59" height="3.39" x="743.41" y="246.03" class="named"><title>0x0043e4a0 SoundPlayer::FreePreloadedBgm (49 bytes)</title></rect>

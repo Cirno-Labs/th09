@@ -632,6 +632,9 @@ struct App
     // or the side's input if its unknown8 is set, and stores its seed
     // and unknown8 (0x42eb80).
     WORD PopRecord(int side, WORD *seed, int *unknown8);
+    // Whether the side has a record and both sides' first records have
+    // the same value (0x42ecf0).
+    BOOL RecordsMeet(int side);
     // Resets the run: clears the fields from 0x458 and the records,
     // restarts the timers, adds each side a record of -9999 with the
     // random seed, and sets network play's unknownA8 (0x42ec30).

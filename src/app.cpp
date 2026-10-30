@@ -157,6 +157,15 @@ void App::ResetRun()
     g_Network->unknownB8 = 0;
 }
 
+BOOL App::RecordsMeet(int side)
+{
+    if (this->records[side][0].value != 0 && this->records[1][0].value == this->records[0][0].value)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
 int App::GetPreloadBgm()
 {
     return this->config.flags.preloadBgm;
