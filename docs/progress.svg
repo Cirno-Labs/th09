@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">22.29% (234)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">77.71% (816)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">22.38% (235)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">77.62% (815)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="166.47" height="6" x="0" y="0" class="named"/>
-<rect width="580.53" height="6" x="166.47" y="0" class="todo"/>
+<rect width="167.19" height="6" x="0" y="0" class="named"/>
+<rect width="579.81" height="6" x="167.19" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -780,7 +780,7 @@
 <rect width="12" height="12" x="150" y="210" class="named"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="210" class="named"><title>0x00433910 FileBase::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="210" class="named"><title>0x00433940 File::File (32 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="210" class="todo"><title>0x00433960 File::~File (22 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="210" class="named"><title>0x00433960 File::~File (22 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="210" class="todo"><title>0x00433980 File::Open (226 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="210" class="named"><title>0x00433a70 File::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="210" class="todo"><title>0x00433aa0 LzssDecompress (464 bytes)</title></rect>
@@ -1121,10 +1121,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.30%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93.70%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.31%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93.69%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="47.07" height="6" x="0" y="0" class="named"/>
-<rect width="699.93" height="6" x="47.07" y="0" class="todo"/>
+<rect width="47.13" height="6" x="0" y="0" class="named"/>
+<rect width="699.87" height="6" x="47.13" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.43" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2007,7 +2007,7 @@
 <rect width="1.46" height="1.24" x="702.39" y="309.52" class="todo"><title>0x0041f010 Func41f010 (23 bytes)</title></rect>
 <rect width="1.46" height="1.24" x="702.39" y="313.76" class="todo"><title>0x0043e4e0 Func43e4e0 (23 bytes)</title></rect>
 <rect width="1.66" height="1.06" x="706.86" y="274.69" class="todo"><title>0x0043f7a0 Func43f7a0 (23 bytes)</title></rect>
-<rect width="1.46" height="1.06" x="711.52" y="274.69" class="todo"><title>0x00433960 File::~File (22 bytes)</title></rect>
+<rect width="1.46" height="1.06" x="711.52" y="274.69" class="named"><title>0x00433960 File::~File (22 bytes)</title></rect>
 <rect width="1.25" height="1.06" x="715.97" y="274.69" class="todo"><title>0x004012e0 Func4012e0 (21 bytes)</title></rect>
 <rect width="1.25" height="1.06" x="720.23" y="274.69" class="named"><title>0x004065e0 Timer::Sub (21 bytes)</title></rect>
 <rect width="1.25" height="1.06" x="724.48" y="274.69" class="todo"><title>0x004067b0 Func4067b0 (21 bytes)</title></rect>
