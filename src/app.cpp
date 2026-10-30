@@ -1,3 +1,4 @@
+#include "sprite.h"
 #include "timer.h"
 #include "unsorted.h"
 
@@ -44,6 +45,25 @@ int App::GetNoVsync()
 int App::GetNoTextRenderDetect()
 {
     return this->flags.noTextRenderDetect;
+}
+
+int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight,
+                                        int dstLeft, int dstTop, int dstWidth, int dstHeight)
+{
+    if (this->pendingCopyTexture >= 0)
+    {
+        return -1;
+    }
+    this->pendingCopyTexture = texture;
+    this->pendingCopySrcLeft = srcLeft;
+    this->pendingCopySrcTop = srcTop;
+    this->pendingCopySrcWidth = srcWidth;
+    this->pendingCopySrcHeight = srcHeight;
+    this->pendingCopyDstLeft = dstLeft;
+    this->pendingCopyDstTop = dstTop;
+    this->pendingCopyDstWidth = dstWidth;
+    this->pendingCopyDstHeight = dstHeight;
+    return 0;
 }
 
 void Timer::Add(float frames)

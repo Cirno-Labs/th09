@@ -115,15 +115,29 @@ public:
     void ClearZWrite();
     // The same for lastCameraSetupFlag (0x42d2e0).
     void ClearLastCameraSetupFlag();
+    // Has a copy of the back buffer to surface `texture` done after the
+    // frame is drawn, unless one is already pending: then returns -1,
+    // else 0. Inline in th08; this copy is 0x42f420.
+    int SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
+                              int dstTop, int dstWidth, int dstHeight);
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
 
     D3DCOLOR modulateColor;
     int modulateColorEnabled;
-    unsigned char pad_8[0x4];
+    // The surface SetPendingSurfaceCopy's copy goes to; negative for
+    // none. The rest of the copy's parameters are at the end.
+    int pendingCopyTexture;
     // How many scripts SetScript started.
     int scriptStartCount;
-    unsigned char pad_10[0x12880 - 0x10];
+    // Counters, cleared every frame, as th08's.
+    int stepCount;
+    int renderStateSetCount;
+    int batchDrawCount;
+    // How far the screen shakes.
+    float shakeX;
+    float shakeY;
+    unsigned char pad_24[0x12880 - 0x24];
     // The render state last set, so that sprites only change it when
     // they need to.
     IDirect3DTexture8 *currentTexture;
@@ -135,5 +149,14 @@ public:
     unsigned char pad_12889[0x1288c - 0x12889];
     // The sprite data last drawn.
     void *currentSpriteData;
+    unsigned char pad_12890[0x2b2914 - 0x12890];
+    int pendingCopySrcLeft;
+    int pendingCopySrcTop;
+    int pendingCopySrcWidth;
+    int pendingCopySrcHeight;
+    int pendingCopyDstLeft;
+    int pendingCopyDstTop;
+    int pendingCopyDstWidth;
+    int pendingCopyDstHeight;
 };
 extern SpriteEngine *g_SpriteEngine;
