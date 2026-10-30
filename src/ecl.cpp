@@ -64,6 +64,16 @@ void SendExAttack1(Enemy *enemy, EclInstr *instr)
     g_GameManager.exAttackManager->AddAttack(1, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
 }
 
+void SetSidesFlag0(Enemy *enemy, EclInstr *instr)
+{
+    enemy->manager->side->flag0 = instr->args[1];
+    enemy->manager->otherSide->flag0 = instr->args[1];
+    if (instr->args[1] != 0)
+    {
+        g_SoundPlayer.PlaySoundByIdx(0x34, 0);
+    }
+}
+
 void SendExAttack7(Enemy *enemy, EclInstr *instr)
 {
     g_GameManager.exAttackManager->AddAttack(7, &enemy->pos, 1 - enemy->manager->sideIdx, 0);

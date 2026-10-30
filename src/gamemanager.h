@@ -55,7 +55,16 @@ struct GameSide
     unsigned char pad_2c[0x30 - 0x2c];
     // Picks the character's second ANM (plXXb.anm) when set.
     int unknown30;
-    DWORD flags;
+    union
+    {
+        DWORD flags;
+        struct
+        {
+            // Set by the enemy script function SetSidesFlag0 on both
+            // sides.
+            DWORD flag0 : 1;
+        };
+    };
 };
 ASSERT_SIZE(GameSide, 0x38);
 
