@@ -148,6 +148,9 @@ public:
     void StartUnknownAbcc();
     // Starts script 0x43 on unknown59c8 (0x41a210).
     void StartUnknown59c8();
+    // Starts scripts 0x44-0x47 on unknown5c6c and sets unknownA65c
+    // (0x41a270).
+    void StartUnknown5c6c();
     // Starts scripts 0x48-0x4a on unknown66fc, the last showing digit
     // `digit` (sprite 0x35 on) (0x41a320).
     void StartUnknown66fc(int digit);
@@ -180,7 +183,8 @@ public:
     Sprite unknown76d4[6];
     Sprite unknown86ac[7];
     Sprite unknown9928[5];
-    unsigned char pad_a65c[0xa660 - 0xa65c];
+    // Set while unknown5c6c shows, by StartUnknown5c6c.
+    int unknownA65c;
     ChainElem *calcElem;
     ChainElem *drawElem;
     // The side's ANM file.

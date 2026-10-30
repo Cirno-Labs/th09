@@ -150,6 +150,15 @@ void GuiSide::Reset()
     }
 }
 
+void GuiSide::StartUnknown5c6c()
+{
+    this->anm->StartScriptAtOrigin(&this->unknown5c6c[0], 0x44);
+    this->anm->StartScriptAtOrigin(&this->unknown5c6c[1], 0x45);
+    this->anm->StartScriptAtOrigin(&this->unknown5c6c[2], 0x46);
+    this->anm->StartScriptAtOrigin(&this->unknown5c6c[3], 0x47);
+    this->unknownA65c = 1;
+}
+
 void GuiSide::StartUnknown66fc(int digit)
 {
     this->anm->StartScriptAtOrigin(&this->unknown66fc[0], 0x48);

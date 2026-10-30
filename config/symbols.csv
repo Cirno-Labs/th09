@@ -334,7 +334,7 @@ address,size,name,symbol
 0x0041a1d0,59,GuiSide::RemoveChain,?RemoveChain@GuiSide@@SIXPAV1@@Z
 0x0041a210,21,GuiSide::StartUnknown59c8,?StartUnknown59c8@GuiSide@@QAEXXZ
 0x0041a230,51,GuiSide::Reset,?Reset@GuiSide@@QAEXXZ
-0x0041a270,95,Func41a270,
+0x0041a270,95,GuiSide::StartUnknown5c6c,?StartUnknown5c6c@GuiSide@@QAEXXZ
 0x0041a2d0,67,Func41a2d0,
 0x0041a320,92,GuiSide::StartUnknown66fc,?StartUnknown66fc@GuiSide@@QAEXH@Z
 0x0041a380,56,GuiSide::StartUnknown6ee8,?StartUnknown6ee8@GuiSide@@QAEXH@Z

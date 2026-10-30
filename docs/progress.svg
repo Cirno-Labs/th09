@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.23% (720)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31.56% (338)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.32% (721)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31.47% (337)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="502.18" height="6" x="0" y="0" class="named"/>
-<rect width="9.07" height="6" x="502.18" y="0" class="decompiled"/>
-<rect width="235.75" height="6" x="511.25" y="0" class="todo"/>
+<rect width="502.88" height="6" x="0" y="0" class="named"/>
+<rect width="9.07" height="6" x="502.88" y="0" class="decompiled"/>
+<rect width="235.05" height="6" x="511.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -403,7 +403,7 @@
 <rect width="12" height="12" x="480" y="90" class="named"><title>0x0041a1d0 GuiSide::RemoveChain (59 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="90" class="named"><title>0x0041a210 GuiSide::StartUnknown59c8 (21 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="90" class="named"><title>0x0041a230 GuiSide::Reset (51 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="90" class="todo"><title>0x0041a270 Func41a270 (95 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="90" class="named"><title>0x0041a270 GuiSide::StartUnknown5c6c (95 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="90" class="todo"><title>0x0041a2d0 Func41a2d0 (67 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="90" class="named"><title>0x0041a320 GuiSide::StartUnknown66fc (92 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="90" class="named"><title>0x0041a380 GuiSide::StartUnknown6ee8 (56 bytes)</title></rect>
@@ -1143,11 +1143,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.60%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.68%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.63%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.64%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="265.95" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="265.95" y="0" class="decompiled"/>
-<rect width="475.67" height="6" x="271.33" y="0" class="todo"/>
+<rect width="266.19" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="266.19" y="0" class="decompiled"/>
+<rect width="475.42" height="6" x="271.58" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.39" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1690,7 +1690,7 @@
 <rect width="5.94" height="6.28" x="732.22" y="189.20" class="todo"><title>0x00448640 Func448640 (97 bytes)</title></rect>
 <rect width="5.85" height="6.28" x="741.15" y="189.20" class="named"><title>0x00424d9f MainMenu::DeletedCallback (96 bytes)</title></rect>
 <rect width="5.88" height="6.15" x="614.08" y="198.48" class="named"><title>0x00412470 BulletManager::Reset (95 bytes)</title></rect>
-<rect width="5.88" height="6.15" x="614.08" y="207.63" class="todo"><title>0x0041a270 Func41a270 (95 bytes)</title></rect>
+<rect width="5.88" height="6.15" x="614.08" y="207.63" class="named"><title>0x0041a270 GuiSide::StartUnknown5c6c (95 bytes)</title></rect>
 <rect width="5.88" height="6.15" x="614.08" y="216.77" class="named"><title>0x004323b0 Network::Send (95 bytes)</title></rect>
 <rect width="5.88" height="6.15" x="614.08" y="225.92" class="todo"><title>0x00440d30 Func440d30 (95 bytes)</title></rect>
 <rect width="5.88" height="6.05" x="614.08" y="235.07" class="named"><title>0x0042ee30 EnumAxesCallback (94 bytes)</title></rect>
