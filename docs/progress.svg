@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">36.36% (384)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">63.64% (672)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">36.55% (386)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">63.45% (670)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="271.64" height="6" x="0" y="0" class="named"/>
-<rect width="475.36" height="6" x="271.64" y="0" class="todo"/>
+<rect width="273.05" height="6" x="0" y="0" class="named"/>
+<rect width="473.95" height="6" x="273.05" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -949,12 +949,12 @@
 <rect width="12" height="12" x="435" y="255" class="named"><title>0x0043e430 CSound::GetWaveFile (4 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="255" class="todo"><title>0x0043e440 Func43e440 (38 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="255" class="named"><title>0x0043e470 SoundPlayer::SoundPlayer (34 bytes)</title></rect>
-<rect width="12" height="12" x="480" y="255" class="todo"><title>0x0043e4a0 Func43e4a0 (49 bytes)</title></rect>
+<rect width="12" height="12" x="480" y="255" class="named"><title>0x0043e4a0 SoundPlayer::FreePreloadedBgm (49 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="255" class="todo"><title>0x0043e4e0 Func43e4e0 (23 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="255" class="named"><title>0x0043e500 SoundPlayer::Initialize (613 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="255" class="named"><title>0x0043e770 SoundPlayer::LoadSound (614 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="255" class="named"><title>0x0043e9e0 SoundPlayer::SwitchBgmTrack (72 bytes)</title></rect>
-<rect width="12" height="12" x="555" y="255" class="todo"><title>0x0043ea30 Func43ea30 (388 bytes)</title></rect>
+<rect width="12" height="12" x="555" y="255" class="named"><title>0x0043ea30 SoundPlayer::PreloadBgm (388 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="255" class="todo"><title>0x0043ebc0 Func43ebc0 (177 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="255" class="todo"><title>0x0043ec80 Func43ec80 (245 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="255" class="todo"><title>0x0043ed80 Func43ed80 (181 bytes)</title></rect>
@@ -1127,10 +1127,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">13.79%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">86.21%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">13.94%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">86.06%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="102.98" height="6" x="0" y="0" class="named"/>
-<rect width="644.02" height="6" x="102.98" y="0" class="todo"/>
+<rect width="104.10" height="6" x="0" y="0" class="named"/>
+<rect width="642.90" height="6" x="104.10" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1318,7 +1318,7 @@
 <rect width="16.13" height="14.88" x="452.17" y="262.60" class="todo"><title>0x004182e0 Func4182e0 (398 bytes)</title></rect>
 <rect width="16.13" height="14.57" x="452.17" y="280.48" class="todo"><title>0x0042d900 Func42d900 (391 bytes)</title></rect>
 <rect width="16.13" height="14.52" x="452.17" y="298.05" class="named"><title>0x0043c610 SpriteEngine::PreloadAnmFile (390 bytes)</title></rect>
-<rect width="16.13" height="14.43" x="452.17" y="315.57" class="todo"><title>0x0043ea30 Func43ea30 (388 bytes)</title></rect>
+<rect width="16.13" height="14.43" x="452.17" y="315.57" class="named"><title>0x0043ea30 SoundPlayer::PreloadBgm (388 bytes)</title></rect>
 <rect width="15.28" height="15.11" x="471.30" y="40.25" class="todo"><title>0x0040f640 Func40f640 (385 bytes)</title></rect>
 <rect width="14.99" height="15.11" x="489.58" y="40.25" class="todo"><title>0x00446320 Func446320 (379 bytes)</title></rect>
 <rect width="14.90" height="15.11" x="507.57" y="40.25" class="todo"><title>0x00402350 Stage::OnUpdate (377 bytes)</title></rect>
@@ -1848,7 +1848,7 @@
 <rect width="3.59" height="3.40" x="717.07" y="246.24" class="todo"><title>0x0042ecf0 Func42ecf0 (49 bytes)</title></rect>
 <rect width="3.59" height="3.40" x="723.66" y="246.24" class="named"><title>0x00433dc0 LzssPredecessor (49 bytes)</title></rect>
 <rect width="3.59" height="3.40" x="730.24" y="246.24" class="named"><title>0x004397e0 SpriteEngine::RotatePoint (49 bytes)</title></rect>
-<rect width="3.59" height="3.40" x="736.83" y="246.24" class="todo"><title>0x0043e4a0 Func43e4a0 (49 bytes)</title></rect>
+<rect width="3.59" height="3.40" x="736.83" y="246.24" class="named"><title>0x0043e4a0 SoundPlayer::FreePreloadedBgm (49 bytes)</title></rect>
 <rect width="3.59" height="3.40" x="743.41" y="246.24" class="todo"><title>0x0043fce0 CStreamingSound::UpdateFadeIn (49 bytes)</title></rect>
 <rect width="3.54" height="3.44" x="663.45" y="252.64" class="todo"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
 <rect width="3.54" height="3.31" x="663.45" y="259.08" class="named"><title>0x004100e0 Enemy::FreeUnknown33d8 (48 bytes)</title></rect>
