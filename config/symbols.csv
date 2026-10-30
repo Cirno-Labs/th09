@@ -832,7 +832,7 @@ address,size,name,symbol
 0x0043c7a0,90,SpriteEngine::PreloadAnm,?PreloadAnm@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
 0x0043c800,558,SpriteEngine::LoadAnmSprites,?LoadAnmSprites@SpriteEngine@@QAEHPAVAnmLoaded@@HHHPAUAnmFile@@@Z
 0x0043ca30,163,SpriteEngine::ReleaseAnm,?ReleaseAnm@SpriteEngine@@QAEXH@Z
-0x0043cae0,486,Func43cae0,
+0x0043cae0,486,SpriteEngine::LoadSurface,?LoadSurface@SpriteEngine@@QAEHHPAD@Z
 0x0043ccd0,102,Func43ccd0,
 0x0043cd40,141,Func43cd40,
 0x0043cdd0,87,Func43cdd0,
