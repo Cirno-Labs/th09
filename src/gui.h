@@ -32,3 +32,19 @@ public:
     unsigned char pad_8[0xe944 - 0x8];
     GuiMsg msg;
 };
+
+// A side's part of the front ("FrontSideInf", 0xabe8 bytes). Only the
+// fields known so far.
+class GuiSide
+{
+public:
+    // Removes the chain elements and deletes the side's front, if any,
+    // after unloading ANM slot 7 if unknownA67c is set (0x41a1d0).
+    static void RemoveChain(GuiSide *side);
+
+    unsigned char pad_0[0xa660];
+    ChainElem *calcElem;
+    ChainElem *drawElem;
+    unsigned char pad_a668[0xa67c - 0xa668];
+    int unknownA67c;
+};
