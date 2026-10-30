@@ -626,3 +626,12 @@ void MainMenu::SelectEntry3(int cursor, int first, int count, int stride)
     this->anm->SetSprite(&this->sprites[cursor * stride + first], this->sprites[cursor * stride + first].baseSpriteIndex);
     this->sprites[cursor * stride + first].pendingInterrupt = 17;
 }
+
+void MainMenu::SelectEntryInterrupts(int cursor, int first, int count)
+{
+    for (int i = first; i < first + count; i++)
+    {
+        this->sprites[i].pendingInterrupt = 8;
+    }
+    this->sprites[cursor + first].pendingInterrupt = 7;
+}

@@ -506,7 +506,7 @@ address,size,name,symbol
 0x00424edd,211,MainMenu::SelectEntryStep,?SelectEntryStep@MainMenu@@QAEXHHHH@Z
 0x00424fb0,175,MainMenu::SelectEntry2,?SelectEntry2@MainMenu@@QAEXHHHH@Z
 0x0042505f,175,MainMenu::SelectEntry3,?SelectEntry3@MainMenu@@QAEXHHHH@Z
-0x0042510e,85,Func42510e,
+0x0042510e,85,MainMenu::SelectEntryInterrupts,?SelectEntryInterrupts@MainMenu@@QAEXHHH@Z
 0x00425163,168,Func425163,
 0x0042520b,40,Func42520b,
 0x00425233,349,Func425233,
