@@ -624,7 +624,7 @@ address,size,name,symbol
 0x0042f540,543,Func42f540,
 0x0042f760,15,SpriteEngine::ClearDrawStats,?ClearDrawStats@SpriteEngine@@QAEXXZ
 0x0042f770,74,SpriteEngine::ResetFrameState,?ResetFrameState@SpriteEngine@@QAEXXZ
-0x0042f7c0,1054,App::LoadConfig,
+0x0042f7c0,1054,App::LoadConfig,?LoadConfig@App@@QAEHPAD@Z
 0x0042fbe0,54,SoundPlayer::UpdateBgmFades,?UpdateBgmFades@SoundPlayer@@QAEXXZ
 0x0042fc20,207,App::LoadBgm,?LoadBgm@App@@QAEHH@Z
 0x0042fcf0,53,App::PlayBgm,?PlayBgm@App@@QAEHXZ

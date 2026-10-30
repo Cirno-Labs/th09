@@ -73,6 +73,105 @@ int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, in
     return 0;
 }
 
+int App::LoadConfig(char *path)
+{
+    GameConfig *file;
+    int size;
+
+    g_App.config.SetDefaults();
+    file = (GameConfig *)OpenPath(path, &size, 1);
+    if (file == NULL)
+    {
+        LogPrintf(&g_Log, "コンフィグデータが見つからないので初期化しました\r\n");
+    }
+    else
+    {
+        g_App.config = *file;
+        g_MemoryManager.Free(file);
+        if (g_App.config.unknownAc < 3 && g_App.config.unknownAd < 2 && g_App.config.musicMode < 3 &&
+            g_App.config.unknownB0 < 6 && g_App.config.unknownAf < 2 && g_App.config.windowed < 2 &&
+            g_App.config.unknownB2 < 3 && g_App.config.unknownB3 < 3 && g_App.config.version == 0x90003 &&
+            size == sizeof(GameConfig))
+        {
+            g_PlayerInputs[0].mappings[0] = g_App.config.mappings[0][0];
+            g_PlayerInputs[0].mappings[1] = g_App.config.mappings[0][1];
+            g_PlayerInputs[0].mappings[2] = g_App.config.mappings[0][2];
+            g_PlayerInputs[1].mappings[0] = g_App.config.mappings[1][0];
+            g_PlayerInputs[1].mappings[1] = g_App.config.mappings[1][1];
+            g_PlayerInputs[1].mappings[2] = g_App.config.mappings[1][2];
+            goto done;
+        }
+        LogPrintf(&g_Log, "コンフィグデータが異常でしたので再初期化しました\r\n");
+    }
+    g_App.config.SetDefaults();
+    // Wave music if thbgm.dat is there, with the right header.
+    {
+        HANDLE bgmFile;
+        DWORD read;
+        BgmDatHeader bgmHeader;
+
+        bgmFile = CreateFileA("./thbgm.dat", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
+                              FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+        if (bgmFile != INVALID_HANDLE_VALUE)
+        {
+            ReadFile(bgmFile, &bgmHeader, sizeof(BgmDatHeader), &read, NULL);
+            CloseHandle(bgmFile);
+            if (bgmHeader.magic != 'VAWZ' || bgmHeader.version != 1 || bgmHeader.gameVersion != 0x900)
+            {
+                LogError(&g_Log, "BGM データのバージョンが違います\r\n");
+                return -1;
+            }
+            g_App.config.musicMode = 1;
+        }
+        else
+        {
+            g_App.config.musicMode = 2;
+        }
+    }
+done:
+    this->noVsync = 0;
+    if (this->GetNoFog())
+    {
+        LogPrintf(&g_Log, "フォグの使用を抑制します\r\n");
+    }
+    if (this->GetForce16BitTextures())
+    {
+        LogPrintf(&g_Log, "16Bit のテクスチャの使用を強制します\r\n");
+    }
+    if (this->GetWindowed())
+    {
+        LogPrintf(&g_Log, "ウィンドウモードで起動します\r\n");
+    }
+    if (this->GetReferenceRasterizer())
+    {
+        LogPrintf(&g_Log, "リファレンスラスタライザを強制します\r\n");
+    }
+    if (this->GetNoDirectInput())
+    {
+        LogPrintf(&g_Log, "パッド、キーボードの入力に DirectInput を使用しません\r\n");
+    }
+    if (this->GetPreloadBgm())
+    {
+        LogPrintf(&g_Log, "ＢＧＭをメモリに読み込みます\r\n");
+    }
+    if (this->GetNoVsync())
+    {
+        LogPrintf(&g_Log, "垂直同期を取りません\r\n");
+        g_App.noVsync = 1;
+    }
+    if (this->GetNoTextRenderDetect())
+    {
+        LogPrintf(&g_Log, "文字描画の環境を自動検出しません\r\n");
+    }
+    if (WriteToFile(path, &g_App.config, sizeof(GameConfig)) != 0)
+    {
+        LogError(&g_Log, "ファイルが書き出せません %s\r\n", path);
+        LogError(&g_Log, "フォルダが書込み禁止属性になっているか、ディスクがいっぱいいっぱいになってませんか？\r\n");
+        return -1;
+    }
+    return 0;
+}
+
 void SoundPlayer::UpdateBgmFades()
 {
     if (this->bgm != NULL)

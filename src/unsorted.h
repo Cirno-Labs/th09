@@ -198,6 +198,17 @@ struct PlayerInput
 ASSERT_SIZE(PlayerInput, 0x8e);
 extern PlayerInput g_PlayerInputs[2];
 
+// The header of thbgm.dat, as th08's.
+struct BgmDatHeader
+{
+    // 'ZWAV'.
+    DWORD magic;
+    int version;
+    int gameVersion;
+    DWORD unknownC;
+};
+ASSERT_SIZE(BgmDatHeader, 0x10);
+
 // The config file's contents, in App (th08 kept them in App itself).
 struct GameConfig
 {
@@ -367,6 +378,12 @@ struct App
     // or if `version` is "debug", and -1 otherwise, as th08's
     // (0x430150).
     int CheckVersionFile(char *version, DWORD size, DWORD checksum);
+    // Reads the config from `path` into config, or sets the defaults if
+    // it is missing or wrong, with the music mode from whether
+    // thbgm.dat is there, as th08's; logs the options and writes the
+    // config back. Returns 0, or -1 if thbgm.dat has the wrong version or
+    // the config cannot be written (0x42f7c0).
+    int LoadConfig(char *path);
     // Asks the sub thread to close (closeSubThread) and waits for it,
     // as th08's (0x430230).
     void CloseSubThread();
@@ -382,7 +399,10 @@ struct App
     unsigned char pad_454[0x590 - 0x454];
     int scene;
     int prevScene;
-    unsigned char pad_598[0x5b8 - 0x598];
+    unsigned char pad_598[0x5ac - 0x598];
+    // Set when the config turns vertical sync off.
+    int noVsync;
+    unsigned char pad_5b0[0x5b8 - 0x5b0];
     // Below 1 when the game runs slow.
     float gameSpeed;
     MidiPlayer *midi;
