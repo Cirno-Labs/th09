@@ -168,6 +168,7 @@ public:
     BYTE isPaused;
     // Whether the continue menu is up, as th08's.
     BYTE isInContinueMenu;
+    // Whether AsciiText's unknownMenu is up.
     BYTE unknown13e;
     BYTE unknown13f;
     unsigned char pad_140[0x348 - 0x140];

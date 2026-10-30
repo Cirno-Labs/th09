@@ -8,6 +8,13 @@
 #include "player.h"
 #include "unsorted.h"
 
+int AsciiText::DeletedCallback(AsciiText *text)
+{
+    g_SpriteEngine->ReleaseAnm(1);
+    g_SpriteEngine->ReleaseAnm(3);
+    return 0;
+}
+
 void AsciiText::RemoveChain()
 {
     g_Chain.Remove(&g_AsciiCalcChain);
