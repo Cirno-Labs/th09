@@ -11,6 +11,7 @@ struct GameSide;
 class AnmLoaded;
 class EffectManager;
 class Sprite;
+struct VertexTex1DiffuseXyzrwh;
 
 // An effect (0xd8 bytes). Only the fields known so far.
 struct Effect
@@ -24,7 +25,13 @@ struct Effect
     D3DXVECTOR3 pos;
     // As spawned; some types' init callbacks take an angle in x.
     D3DXVECTOR3 velocity;
-    unsigned char pad_24[0x7c - 0x24];
+    unsigned char pad_24[0x48 - 0x24];
+    // Set by EffectInit40dbb0: the position it started at, and two
+    // directions.
+    D3DXVECTOR3 unknown48;
+    D3DXVECTOR3 unknown54;
+    D3DXVECTOR3 unknown60;
+    unsigned char pad_6c[0x7c - 0x6c];
     // Taken from the first sprite by EffectUpdate40d470: its posOffset.x,
     // rotation.z, scaleY, scriptVar0, posOffset.y, rotation.y and
     // scriptVar1.
@@ -53,7 +60,9 @@ struct Effect
     unsigned char pad_c7[0xc9 - 0xc7];
     BYTE unknownC9;
     unsigned char pad_ca[0xcc - 0xca];
-    void *unknownCc;
+    // Vertices the effect allocated, freed when its slot is reused, as
+    // th08's.
+    VertexTex1DiffuseXyzrwh *vertices;
     unsigned char pad_d0[0xd4 - 0xd0];
     // The next effect of a list.
     Effect *next;
@@ -99,7 +108,7 @@ public:
     }
 
     // Frees the blocks of each effect and the effects. Returns 0. Clears
-    // unknownCc where it should clear unknown04 (0x40d200).
+    // vertices where it should clear sprites (0x40d200).
     static int FreeEffects(EffectManager *mgr);
     // Frees the effects, removes the manager's chain elements and deletes
     // it, if any (0x40d280).
@@ -175,3 +184,9 @@ int EffectUpdateFollowPlayer(Effect *effect);
 // sprite's offset, rotation, y scale and script variables into the
 // effect and sets unknownC9. Returns 1 (0x40d470).
 int EffectUpdate40d470(Effect *effect);
+
+// The init callback of effect type 8: allocates 0x1c38 bytes of
+// vertices, filled from the first sprite, and takes the position and
+// velocity's parts into the effect. Returns 0, or -1 if the allocation
+// fails (0x40dbb0).
+int EffectInit40dbb0(Effect *effect);

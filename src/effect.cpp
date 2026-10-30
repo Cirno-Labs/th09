@@ -22,15 +22,15 @@ void EffectManager::Reset()
     effect = this->effects;
     for (i = 0; i < this->unknown34 + this->unknown38 + 1; i++, effect++)
     {
-        if (effect->unknownCc != NULL)
+        if (effect->vertices != NULL)
         {
-            g_MemoryManager.Free(effect->unknownCc);
-            effect->unknownCc = NULL;
+            g_MemoryManager.Free(effect->vertices);
+            effect->vertices = NULL;
         }
         if (effect->sprites != NULL)
         {
             g_MemoryManager.Free(effect->sprites);
-            effect->unknownCc = NULL;
+            effect->vertices = NULL;
         }
     }
     g_MemoryManager.Free(this->effects);
@@ -45,9 +45,9 @@ Effect *EffectManager::StartEffect(Effect *effect, int effectIdx, D3DXVECTOR3 *p
     int i;
     int script;
 
-    if (effect->unknownCc != NULL)
+    if (effect->vertices != NULL)
     {
-        g_MemoryManager.Free(effect->unknownCc);
+        g_MemoryManager.Free(effect->vertices);
     }
     if (effect->sprites != NULL)
     {
@@ -170,15 +170,15 @@ int EffectManager::FreeEffects(EffectManager *mgr)
     effect = mgr->effects;
     for (i = 0; i < mgr->unknown38 + mgr->unknown34 + 1; i++, effect++)
     {
-        if (effect->unknownCc != NULL)
+        if (effect->vertices != NULL)
         {
-            g_MemoryManager.Free(effect->unknownCc);
-            effect->unknownCc = NULL;
+            g_MemoryManager.Free(effect->vertices);
+            effect->vertices = NULL;
         }
         if (effect->sprites != NULL)
         {
             g_MemoryManager.Free(effect->sprites);
-            effect->unknownCc = NULL;
+            effect->vertices = NULL;
         }
     }
     g_MemoryManager.Free(mgr->effects);
@@ -250,6 +250,33 @@ int EffectUpdate40d470(Effect *effect)
     effect->unknown98 = effect->sprites->rotation.y;
     effect->unknownC9 = 1;
     return 1;
+}
+
+int EffectInit40dbb0(Effect *effect)
+{
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x1c38, "Effect");
+    if (effect->vertices == NULL)
+    {
+        return -1;
+    }
+    effect->unknown48 = effect->pos;
+    effect->unknown80 = effect->velocity.x;
+    effect->unknown8c = 3;
+    effect->unknown54.x = 0.0f;
+    effect->unknown54.y = 0.0f;
+    effect->unknown54.z = 1.0f;
+    effect->unknown60.x = 0.0f;
+    effect->unknown60.y = -1.0f;
+    effect->unknown60.z = 0.0f;
+    effect->unknown7c = effect->velocity.y;
+    effect->unknown88 = effect->velocity.z;
+    g_SpriteEngine->FillSpriteStripVertices(effect->sprites, effect->vertices, 6);
+    effect->unknown94 = 0.0f;
+    effect->unknown98 = 0.0f;
+    effect->unknown9c = 0.0f;
+    effect->unknownC9 = 1;
+    effect->unknown8c = 0x18;
+    return 0;
 }
 
 int EffectInit40e080(Effect *effect)
