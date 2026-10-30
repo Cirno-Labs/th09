@@ -356,7 +356,7 @@ address,size,name,symbol
 0x0041ba80,121,Func41ba80,
 0x0041bb00,101,Func41bb00,
 0x0041bb70,101,Func41bb70,
-0x0041bbe0,163,Func41bbe0,
+0x0041bbe0,172,LoadShtFile,?LoadShtFile@@YIHPAPAUShtFile@@PAD@Z
 0x0041bc90,162,Func41bc90,
 0x0041bd40,19,Sprite::SetBlendMode1,?SetBlendMode1@Sprite@@QAEXXZ
 0x0041bd60,8,Sprite::ClearBlendMode,?ClearBlendMode@Sprite@@QAEXXZ
@@ -2248,6 +2248,18 @@ address,size,name,symbol
 0x004a1128,,g_Unknown4a1128,?g_Unknown4a1128@@3PAHA
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
 0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
+0x004a19d0,,g_CharacterFuncs9d0,?g_CharacterFuncs9d0@@3PAP6IHPAVPlayer@@@ZA
+0x004a1a50,,g_CharacterFuncsA50,?g_CharacterFuncsA50@@3PAP6IHPAVPlayer@@@ZA
+0x004a1a90,,g_CharacterFuncsA90,?g_CharacterFuncsA90@@3PAP6IHPAVPlayer@@@ZA
+0x004a1ad0,,g_CharacterValuesAd0,?g_CharacterValuesAd0@@3PAHA
+0x004a1b10,,g_CharacterValuesB10,?g_CharacterValuesB10@@3PAHA
+0x004a1b50,,g_CharacterValuesB50,?g_CharacterValuesB50@@3PAHA
+0x004a1b90,,g_CharacterValuesB90,?g_CharacterValuesB90@@3PAHA
+0x004a1bd0,,g_CharacterValuesBd0,?g_CharacterValuesBd0@@3PAHA
+0x004a1c10,,g_ShotFireFuncs,?g_ShotFireFuncs@@3PAP6IHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@ZA
+0x004a1c34,,g_ShotUpdateFuncs,?g_ShotUpdateFuncs@@3PAP6IHPAVPlayer@@PAUPlayerBullet@@@ZA
+0x004a1c54,,g_ShotDrawFuncs,?g_ShotDrawFuncs@@3PAP6IHPAVPlayer@@PAUPlayerBullet@@@ZA
+0x004a1c64,,g_ShotHitFuncs,?g_ShotHitFuncs@@3PAP6IHPAVPlayer@@PAUPlayerBullet@@PAUD3DXVECTOR3@@@ZA
 0x004a1ce8,,g_DemoReplayPaths,?g_DemoReplayPaths@@3PAPADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A

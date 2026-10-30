@@ -2,6 +2,40 @@
 #include "sprite.h"
 #include "gui.h"
 
+// Loads the shot file at `path` into `*out`, sets its diagonal speeds,
+// and turns its tables' offsets into pointers and its shots' callback
+// indices into functions, as th08's LoadShotTypeFile. Returns 0, or -1
+// if it does not load. Static, with `out` in esi (0x41bbe0).
+static int LoadShtFile(ShtFile **out, char *path)
+{
+    int i;
+    ShotData *shot;
+    float diagonal;
+
+    *out = (ShtFile *)OpenPath(path, NULL, 0);
+    if (*out == NULL)
+    {
+        return -1;
+    }
+    diagonal = sinf(0.7853982f);
+    (*out)->speedDiagonal = diagonal * (*out)->speed;
+    (*out)->speedDiagonalFocused = diagonal * (*out)->speedFocused;
+    for (i = 0; i < (*out)->tableCount; i++)
+    {
+        (*out)->tables[i].shots = (ShotData *)((int)(*out)->tables[i].shots + (int)*out);
+        shot = (*out)->tables[i].shots;
+        while (shot->frame >= 0)
+        {
+            shot->fire = g_ShotFireFuncs[(int)shot->fire];
+            shot->update = g_ShotUpdateFuncs[(int)shot->update];
+            shot->draw = g_ShotDrawFuncs[(int)shot->draw];
+            shot->hit = g_ShotHitFuncs[(int)shot->hit];
+            shot++;
+        }
+    }
+    return 0;
+}
+
 void PlayerHitArea::Deactivate()
 {
     this->active = 0;
@@ -258,6 +292,53 @@ int Player::OnDraw(Player *player)
     }
     player->DrawUnknown30454();
     return 1;
+}
+
+int Player::AddedCallback(Player *player)
+{
+    GameSide *side;
+
+    if (g_ShtFiles[player->sideIdx] != NULL && player->side->character == player->side->unknown24)
+    {
+        player->shtFile = g_ShtFiles[player->sideIdx];
+    }
+    else
+    {
+        if (g_ShtFiles[player->sideIdx] != NULL)
+        {
+            g_MemoryManager.Free(g_ShtFiles[player->sideIdx]);
+        }
+        if (LoadShtFile(&player->shtFile, g_CharacterFiles[player->side->character][0]))
+        {
+            return -1;
+        }
+        g_ShtFiles[player->sideIdx] = player->shtFile;
+    }
+    side = player->side;
+    player->unknown303f0 = g_CharacterValuesBd0[side->character];
+    player->unknown303f4 = g_CharacterValuesB90[side->character];
+    player->unknown303f8 = g_CharacterValuesB50[side->character];
+    player->unknown303fc = g_CharacterValuesB10[side->character];
+    player->unknown30400 = g_CharacterValuesAd0[side->character];
+    player->anm = g_SpriteEngine->GetAnm(player->sideIdx + 5);
+    player->hitboxSize.x = player->hitboxSize.y = player->shtFile->hitboxSize / 2.0f;
+    player->hitboxSize.z = 5.0f;
+    player->grazeSize.x = player->grazeSize.y = player->shtFile->grazeSize / 2.0f;
+    player->grazeSize.z = 5.0f;
+    player->unknown1cc0.x = player->unknown1cc0.y = player->shtFile->unknown10 / 2.0f;
+    player->unknown1cc0.z = 5.0f;
+    player->unknown30388 = 100.0f;
+    player->unknown30410.player = player;
+    player->unknown30450 = g_CharacterFuncs9d0[side->character];
+    player->unknownA4 = player->unknownA0 = 1;
+    player->unknown9c = player;
+    player->unknown36c.player = player;
+    player->unknownAc = 2;
+    player->unknownB8 = player->unknownB4 = player->unknownB0 = 0;
+    player->unknown30404 = g_CharacterFuncsA50[side->character];
+    player->unknown30408 = g_CharacterFuncsA90[side->character];
+    player->Reset();
+    return 0;
 }
 
 Player::Player()

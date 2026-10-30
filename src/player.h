@@ -87,6 +87,9 @@ ASSERT_SIZE(PlayerOption, 0x2f4);
 
 struct PlayerBullet;
 struct ShtFile;
+
+// A character's function kept by the player. Placeholder signature.
+typedef int (*PlayerFunc)(Player *player);
 struct ShotData;
 
 // A shot's callbacks, as th08's. Under /Gr these are __fastcall.
@@ -271,11 +274,18 @@ public:
     ChainElem *drawElem2;
     int unknown20;
     PlayerUnknown24 unknown24;
-    unsigned char pad_9c[0xa8 - 0x9c];
+    // Set by AddedCallback: the player, 1, 1.
+    Player *unknown9c;
+    int unknownA0;
+    int unknownA4;
     // Draws the player whatever the front's unknown1095c and
     // unknown10960.
     int unknownA8;
-    unsigned char pad_ac[0xbc - 0xac];
+    // Set by AddedCallback: 2, 0, 0, 0.
+    int unknownAc;
+    int unknownB0;
+    int unknownB4;
+    int unknownB8;
     // The character's ANM, in slot sideIdx + 5.
     AnmLoaded *anm;
     Sprite sprite;
@@ -288,7 +298,12 @@ public:
     unsigned char pad_1b94[0x1ba0 - 0x1b94];
     // The player's last positions, as th08's.
     D3DXVECTOR3 posHistory[0x10];
-    unsigned char pad_1c60[0x1cec - 0x1c60];
+    unsigned char pad_1c60[0x1ca8 - 0x1c60];
+    // Half the shot file's sizes, square, with a z of 5, as th08's.
+    D3DXVECTOR3 hitboxSize;
+    D3DXVECTOR3 grazeSize;
+    D3DXVECTOR3 unknown1cc0;
+    unsigned char pad_1ccc[0x1cec - 0x1ccc];
     PlayerOption options[4];
     // The hit areas; the last is the spare AllocHitArea hands out when
     // none is free.
@@ -313,9 +328,22 @@ public:
     Timer unknown303bc;
     Timer unknown303c8;
     Timer unknown303d4;
-    unsigned char pad_303e0[0x30410 - 0x303e0];
+    unsigned char pad_303e0[0x303f0 - 0x303e0];
+    // The character's values from the tables at 0x4a1bd0, 0x4a1b90,
+    // 0x4a1b50, 0x4a1b10 and 0x4a1ad0.
+    int unknown303f0;
+    int unknown303f4;
+    int unknown303f8;
+    int unknown303fc;
+    int unknown30400;
+    // The character's functions from the tables at 0x4a1a50 and
+    // 0x4a1a90.
+    PlayerFunc unknown30404;
+    PlayerFunc unknown30408;
+    unsigned char pad_3040c[0x30410 - 0x3040c];
     PlayerUnknown30410 unknown30410;
-    unsigned char pad_30450[0x30454 - 0x30450];
+    // The character's function from the table at 0x4a19d0.
+    PlayerFunc unknown30450;
     PlayerUnknown30454 unknown30454[4];
     unsigned char pad_30f64[0x30f70 - 0x30f64];
 };
@@ -362,10 +390,25 @@ struct ShotTable
 };
 ASSERT_SIZE(ShotTable, 0x8);
 
-// A character's shot file (plXX.sht). Only the fields known so far.
+// A character's shot file (plXX.sht), th08's ShotTypeData
+// rearranged. Only the fields known so far.
 struct ShtFile
 {
-    unsigned char pad_0[0x42c];
+    unsigned char pad_0[0x2];
+    // How many entries tables has, as th08's.
+    WORD tableCount;
+    // The player's hitbox and graze box, both square, as th08's.
+    float hitboxSize;
+    float grazeSize;
+    unsigned char pad_c[0x10 - 0xc];
+    float unknown10;
+    // The movement speeds, straight and diagonal, as th08's; the
+    // diagonal ones are set when the file loads.
+    float speed;
+    float speedFocused;
+    float speedDiagonal;
+    float speedDiagonalFocused;
+    unsigned char pad_24[0x42c - 0x24];
     ShotTable tables[1];
 };
 
@@ -387,3 +430,22 @@ extern char *g_CharacterFiles[][6];
 // Each side's shot file, kept while the side keeps its character
 // (0x4a8160).
 extern ShtFile *g_ShtFiles[2];
+
+// The shot callbacks a shot file's indices name (0x4a1c10, 0x4a1c34,
+// 0x4a1c54, 0x4a1c64).
+extern ShotFireFunc g_ShotFireFuncs[9];
+extern ShotUpdateFunc g_ShotUpdateFuncs[8];
+extern ShotUpdateFunc g_ShotDrawFuncs[4];
+extern ShotHitFunc g_ShotHitFuncs[4];
+
+// Each character's values and functions the player keeps (0x4a19d0,
+// 0x4a1a50, 0x4a1a90, 0x4a1ad0, 0x4a1b10, 0x4a1b50, 0x4a1b90,
+// 0x4a1bd0).
+extern PlayerFunc g_CharacterFuncs9d0[16];
+extern PlayerFunc g_CharacterFuncsA50[16];
+extern PlayerFunc g_CharacterFuncsA90[16];
+extern int g_CharacterValuesAd0[16];
+extern int g_CharacterValuesB10[16];
+extern int g_CharacterValuesB50[16];
+extern int g_CharacterValuesB90[16];
+extern int g_CharacterValuesBd0[16];
