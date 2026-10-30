@@ -49,7 +49,8 @@ struct EclManager
     }
 
     EclHeader *file;
-    unsigned char pad_4[0x8 - 0x4];
+    // The subroutines, after the timelines' offsets in the file.
+    void **subs;
     EclContext context;
     unsigned char pad_188[0x188 - 0x8 - sizeof(EclContext)];
 };

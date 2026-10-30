@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.34% (672)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36.66% (389)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.43% (673)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36.57% (388)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="473.12" height="6" x="0" y="0" class="named"/>
-<rect width="273.88" height="6" x="473.12" y="0" class="todo"/>
+<rect width="473.83" height="6" x="0" y="0" class="named"/>
+<rect width="273.17" height="6" x="473.83" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -152,7 +152,7 @@
 <rect width="12" height="12" x="480" y="15" class="named"><title>0x00404980 Gui::IsMsgRunning (24 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="15" class="todo"><title>0x004049a0 Func4049a0 (3231 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="15" class="todo"><title>0x00405650 Func405650 (8 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="15" class="todo"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="15" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="15" class="named"><title>0x00405700 Atan2 (15 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="15" class="named"><title>0x00405710 Fmod (18 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="15" class="named"><title>0x00405730 D3DXVECTOR3::operator+= (36 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.70%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.30%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.75%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.25%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="244.27" height="6" x="0" y="0" class="named"/>
-<rect width="502.73" height="6" x="244.27" y="0" class="todo"/>
+<rect width="244.67" height="6" x="0" y="0" class="named"/>
+<rect width="502.33" height="6" x="244.67" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1564,7 +1564,7 @@
 <rect width="8.59" height="8.69" x="572.78" y="230.16" class="todo"><title>0x00413590 Func413590 (158 bytes)</title></rect>
 <rect width="8.59" height="8.62" x="572.78" y="241.85" class="todo"><title>0x00407560 Func407560 (157 bytes)</title></rect>
 <rect width="8.59" height="8.62" x="572.78" y="253.46" class="named"><title>0x00435ca0 AsciiText::RegisterChain (157 bytes)</title></rect>
-<rect width="8.59" height="8.39" x="572.78" y="265.08" class="todo"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
+<rect width="8.59" height="8.39" x="572.78" y="265.08" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
 <rect width="8.59" height="8.39" x="572.78" y="276.47" class="named"><title>0x004346a0 AsciiText::AddPopup (154 bytes)</title></rect>
 <rect width="8.59" height="8.32" x="572.78" y="287.87" class="named"><title>0x0042c5c0 LogPrintf (153 bytes)</title></rect>
 <rect width="8.59" height="8.32" x="572.78" y="299.19" class="named"><title>0x0042c660 LogError (153 bytes)</title></rect>

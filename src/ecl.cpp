@@ -1,4 +1,32 @@
 #include "enemy.h"
+#include "unsorted.h"
+
+int EclManager::Load(char *path)
+{
+    int i;
+
+    this->file = (EclHeader *)OpenPath(path, NULL, 0);
+    if (this->file == NULL)
+    {
+        LogPrintf(&g_Log, "敵データの読み込みに失敗しました、データが壊れてるか失われています\r\n");
+        return -1;
+    }
+    if (this->file->version != 0x900)
+    {
+        LogPrintf(&g_Log, "敵データのバージョンが違います\r\n");
+        return -1;
+    }
+    for (i = 0; i < this->file->timelineCount; i++)
+    {
+        this->file->timelines[i] = (char *)this->file->timelines[i] + (int)this->file;
+    }
+    this->subs = &this->file->timelines[this->file->timelineCount];
+    for (i = 0; i < this->file->subCount; i++)
+    {
+        this->subs[i] = (char *)this->subs[i] + (int)this->file;
+    }
+    return 0;
+}
 
 void EclManager::Unload()
 {
