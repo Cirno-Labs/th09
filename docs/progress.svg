@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.36% (256)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">75.64% (795)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.45% (257)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">75.55% (794)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="181.95" height="6" x="0" y="0" class="named"/>
-<rect width="565.05" height="6" x="181.95" y="0" class="todo"/>
+<rect width="182.66" height="6" x="0" y="0" class="named"/>
+<rect width="564.34" height="6" x="182.66" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -794,7 +794,7 @@
 <rect width="12" height="12" x="360" y="210" class="named"><title>0x00433fc0 LzssDeleteNode (83 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="210" class="named"><title>0x00434020 LzssCompress (571 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="210" class="named"><title>0x00434280 AsciiText::RemoveChain (31 bytes)</title></rect>
-<rect width="12" height="12" x="405" y="210" class="todo"><title>0x004342a0 Func4342a0 (130 bytes)</title></rect>
+<rect width="12" height="12" x="405" y="210" class="named"><title>0x004342a0 AsciiText::AddString (130 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="210" class="todo"><title>0x00434330 Func434330 (55 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="210" class="todo"><title>0x00434370 Func434370 (10 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="210" class="todo"><title>0x00434380 Func434380 (8 bytes)</title></rect>
@@ -1122,10 +1122,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.50%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.50%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.55%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.45%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="56.03" height="6" x="0" y="0" class="named"/>
-<rect width="690.97" height="6" x="56.03" y="0" class="todo"/>
+<rect width="56.37" height="6" x="0" y="0" class="named"/>
+<rect width="690.63" height="6" x="56.37" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.79" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1592,7 +1592,7 @@
 <rect width="7.83" height="7.56" x="586" y="322.44" class="todo"><title>0x004181e0 Gui::Reset (133 bytes)</title></rect>
 <rect width="7.64" height="7.59" x="596.83" y="169.70" class="todo"><title>0x0042ace0 Func42ace0 (131 bytes)</title></rect>
 <rect width="7.56" height="7.59" x="607.47" y="169.70" class="named"><title>0x0042fd90 App::UnloadBgm (130 bytes)</title></rect>
-<rect width="7.56" height="7.59" x="618.03" y="169.70" class="todo"><title>0x004342a0 Func4342a0 (130 bytes)</title></rect>
+<rect width="7.56" height="7.59" x="618.03" y="169.70" class="named"><title>0x004342a0 AsciiText::AddString (130 bytes)</title></rect>
 <rect width="7.48" height="7.59" x="628.59" y="169.70" class="todo"><title>0x004417f0 Func4417f0 (129 bytes)</title></rect>
 <rect width="7.31" height="7.59" x="639.06" y="169.70" class="todo"><title>0x004101d0 Func4101d0 (127 bytes)</title></rect>
 <rect width="7.31" height="7.59" x="649.38" y="169.70" class="named"><title>0x0041b9d0 GameManager::RegisterChain (127 bytes)</title></rect>
