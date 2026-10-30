@@ -146,6 +146,9 @@ public:
     void Step(Sprite *vm);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
+    // The ANM file in slot `slot`, as th08's. Inline in th08; this copy
+    // is 0x42f400.
+    AnmLoaded *GetAnm(int slot);
 
     D3DCOLOR modulateColor;
     int modulateColorEnabled;
@@ -161,7 +164,9 @@ public:
     // How far the screen shakes.
     float shakeX;
     float shakeY;
-    unsigned char pad_24[0x12880 - 0x24];
+    unsigned char pad_24[0x123fc - 0x24];
+    // The ANM files, by slot.
+    AnmLoaded *anmFiles[0x121];
     // The render state last set, so that sprites only change it when
     // they need to.
     IDirect3DTexture8 *currentTexture;

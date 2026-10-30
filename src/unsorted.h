@@ -251,14 +251,32 @@ struct BgmInfo
 // The game's music, at 0x4a21d0.
 extern BgmInfo g_BgmInfos[19];
 
+// The wave music's stream, as th08's (DirectX's sample code).
+class CStreamingSound
+{
+public:
+    // Steps fades 1 (out), 2 (in), 3 (up) and 4 (down) (0x43fc90,
+    // 0x43fce0, 0x43fd20, 0x43fd60).
+    int UpdateFade();
+    int UpdateFadeIn();
+    int UpdateFadeUp();
+    int UpdateFadeDown();
+};
+
 // Plays the sound effects and music, as th08's (at 0x4dc698).
 class SoundPlayer
 {
 public:
+    // Steps the wave music's fades, as th08's (0x42fbe0).
+    void UpdateBgmFades();
     // Queues a command for the sound thread (0x43ee40).
     void QueueSoundCommand(int type, int arg, char *path);
     // Plays sound effect `idx`, as th08's (0x43e2f0).
     void PlaySoundByIdx(int idx, int unused);
+
+    unsigned char pad_0[0x6208];
+    // The wave music playing; NULL when stopped.
+    CStreamingSound *bgm;
 };
 extern SoundPlayer g_SoundPlayer;
 

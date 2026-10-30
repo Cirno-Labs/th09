@@ -617,7 +617,7 @@ address,size,name,symbol
 0x0042f1a0,517,Func42f1a0,
 0x0042f3b0,18,Func42f3b0,
 0x0042f3d0,31,Func42f3d0,
-0x0042f400,17,Func42f400,
+0x0042f400,17,SpriteEngine::GetAnm,?GetAnm@SpriteEngine@@QAEPAVAnmLoaded@@H@Z
 0x0042f420,101,SpriteEngine::SetPendingSurfaceCopy,?SetPendingSurfaceCopy@SpriteEngine@@QAEHHHHHHHHHH@Z
 0x0042f490,93,Timer::Add,?Add@Timer@@QAEXM@Z
 0x0042f4f0,71,App::TickTimer,?TickTimer@App@@QAEXPAHPAM@Z
@@ -625,7 +625,7 @@ address,size,name,symbol
 0x0042f760,15,SpriteEngine::ClearDrawStats,?ClearDrawStats@SpriteEngine@@QAEXXZ
 0x0042f770,74,SpriteEngine::ResetFrameState,?ResetFrameState@SpriteEngine@@QAEXXZ
 0x0042f7c0,1054,App::LoadConfig,
-0x0042fbe0,54,Func42fbe0,
+0x0042fbe0,54,SoundPlayer::UpdateBgmFades,?UpdateBgmFades@SoundPlayer@@QAEXXZ
 0x0042fc20,207,App::LoadBgm,?LoadBgm@App@@QAEHH@Z
 0x0042fcf0,53,App::PlayBgm,?PlayBgm@App@@QAEHXZ
 0x0042fd30,81,App::StopBgm,?StopBgm@App@@QAEHXZ
@@ -890,10 +890,10 @@ address,size,name,symbol
 0x0043fbe0,39,Func43fbe0,
 0x0043fc10,51,Func43fc10,
 0x0043fc50,62,Func43fc50,
-0x0043fc90,65,Func43fc90,
-0x0043fce0,49,Func43fce0,
-0x0043fd20,49,Func43fd20,
-0x0043fd60,54,Func43fd60,
+0x0043fc90,65,CStreamingSound::UpdateFade,?UpdateFade@CStreamingSound@@QAEHXZ
+0x0043fce0,49,CStreamingSound::UpdateFadeIn,?UpdateFadeIn@CStreamingSound@@QAEHXZ
+0x0043fd20,49,CStreamingSound::UpdateFadeUp,?UpdateFadeUp@CStreamingSound@@QAEHXZ
+0x0043fd60,54,CStreamingSound::UpdateFadeDown,?UpdateFadeDown@CStreamingSound@@QAEHXZ
 0x0043fda0,19,Func43fda0,
 0x0043fdc0,60,Func43fdc0,
 0x0043fe00,4,Func43fe00,
