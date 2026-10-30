@@ -718,7 +718,7 @@ address,size,name,symbol
 0x00433a70,33,File::`scalar deleting destructor',??_GFile@@UAEPAXI@Z
 0x00433aa0,470,LzssDecompress,?LzssDecompress@@YIPAXPAEH0H@Z
 0x00433c80,37,LzssTreeInitNode,?LzssTreeInitNode@@YIXH@Z
-0x00433cb0,42,Func433cb0,
+0x00433cb0,42,LzssClearWindow,?LzssClearWindow@@YIXXZ
 0x00433ce0,83,Func433ce0,
 0x00433d40,115,Func433d40,
 0x00433dc0,43,Func433dc0,

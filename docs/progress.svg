@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.60% (248)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">76.40% (803)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.69% (249)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">76.31% (802)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="176.27" height="6" x="0" y="0" class="named"/>
-<rect width="570.73" height="6" x="176.27" y="0" class="todo"/>
+<rect width="176.98" height="6" x="0" y="0" class="named"/>
+<rect width="570.02" height="6" x="176.98" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -786,7 +786,7 @@
 <rect width="12" height="12" x="240" y="210" class="named"><title>0x00433a70 File::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="210" class="named"><title>0x00433aa0 LzssDecompress (470 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="210" class="named"><title>0x00433c80 LzssTreeInitNode (37 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="210" class="todo"><title>0x00433cb0 Func433cb0 (42 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="210" class="named"><title>0x00433cb0 LzssClearWindow (42 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="210" class="todo"><title>0x00433ce0 Func433ce0 (83 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="210" class="todo"><title>0x00433d40 Func433d40 (115 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="210" class="todo"><title>0x00433dc0 Func433dc0 (43 bytes)</title></rect>
@@ -1122,10 +1122,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.02%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.98%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.03%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.97%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="52.40" height="6" x="0" y="0" class="named"/>
-<rect width="694.60" height="6" x="52.40" y="0" class="todo"/>
+<rect width="52.51" height="6" x="0" y="0" class="named"/>
+<rect width="694.49" height="6" x="52.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.79" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1877,7 +1877,7 @@
 <rect width="3.20" height="2.83" x="694.97" y="253.41" class="named"><title>0x00420c10 ReplayManager::RemoveChain (42 bytes)</title></rect>
 <rect width="3.20" height="2.83" x="701.17" y="253.41" class="todo"><title>0x00423158 Func423158 (42 bytes)</title></rect>
 <rect width="3.20" height="2.83" x="707.36" y="253.41" class="named"><title>0x0042ff40 App::SetRenderState (42 bytes)</title></rect>
-<rect width="3.20" height="2.83" x="713.56" y="253.41" class="todo"><title>0x00433cb0 Func433cb0 (42 bytes)</title></rect>
+<rect width="3.20" height="2.83" x="713.56" y="253.41" class="named"><title>0x00433cb0 LzssClearWindow (42 bytes)</title></rect>
 <rect width="3.05" height="2.83" x="719.76" y="253.41" class="todo"><title>0x00403e00 Func403e00 (41 bytes)</title></rect>
 <rect width="3.05" height="2.83" x="725.81" y="253.41" class="todo"><title>0x004048b0 Func4048b0 (41 bytes)</title></rect>
 <rect width="3.05" height="2.83" x="731.85" y="253.41" class="todo"><title>0x0040c390 Func40c390 (41 bytes)</title></rect>
