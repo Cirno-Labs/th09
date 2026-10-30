@@ -9,3 +9,4 @@
 // cosf, a single x87 instruction under /Oi, as an out-of-line function
 // (0x401060). Sin and Sqrt follow it.
 float Cos(float angle);
+float Sin(float angle);

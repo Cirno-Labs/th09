@@ -61,15 +61,15 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.10% (1)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">99.90% (1037)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.19% (2)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">99.81% (1036)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="0.72" height="6" x="0" y="0" class="named"/>
-<rect width="746.28" height="6" x="0.72" y="0" class="todo"/>
+<rect width="1.44" height="6" x="0" y="0" class="named"/>
+<rect width="745.56" height="6" x="1.44" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="0" class="named"><title>0x00401060 Cos (12 bytes)</title></rect>
-<rect width="12" height="12" x="30" y="0" class="todo"><title>0x00401070 Func401070 (12 bytes)</title></rect>
+<rect width="12" height="12" x="30" y="0" class="named"><title>0x00401070 Sin (12 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="0" class="todo"><title>0x00401080 Func401080 (12 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="0" class="todo"><title>0x00401090 Func401090 (25 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="0" class="todo"><title>0x004010b0 Func4010b0 (26 bytes)</title></rect>
@@ -1109,10 +1109,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">100%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.01%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.99%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="0.10" height="6" x="0" y="0" class="named"/>
-<rect width="746.97" height="6" x="0.03" y="0" class="todo"/>
+<rect width="746.94" height="6" x="0.06" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.75" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2084,7 +2084,7 @@
 <rect width="0.24" height="0.31" x="746.76" y="292.85" class="todo"><title>0x0042ed50 Func42ed50 (13 bytes)</title></rect>
 <rect width="0.21" height="0.34" x="727.31" y="296.16" class="todo"><title>0x0042ed60 Func42ed60 (13 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="299.50" class="named"><title>0x00401060 Cos (12 bytes)</title></rect>
-<rect width="0.21" height="0.10" x="727.31" y="302.58" class="todo"><title>0x00401070 Func401070 (12 bytes)</title></rect>
+<rect width="0.21" height="0.10" x="727.31" y="302.58" class="named"><title>0x00401070 Sin (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="305.67" class="todo"><title>0x00401080 Func401080 (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="308.75" class="todo"><title>0x00403390 Func403390 (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="311.83" class="todo"><title>0x00403c20 Func403c20 (12 bytes)</title></rect>
