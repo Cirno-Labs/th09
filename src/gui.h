@@ -149,6 +149,9 @@ public:
     // Starts scripts 0x48-0x4a on unknown66fc, the last showing digit
     // `digit` (sprite 0x35 on) (0x41a320).
     void StartUnknown66fc(int digit);
+    // Starts script 0x4b on unknown6ee8[0] and 0x4c + `idx` on
+    // unknown6ee8[1] (0x41a380).
+    void StartUnknown6ee8(int idx);
     // Starts script 0x4e on unknown7430 (0x41a3c0).
     void StartUnknown7430();
     // Creates side `sideIdx`'s front, zeroed, and adds its update element

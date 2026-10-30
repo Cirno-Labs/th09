@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.36% (651)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.64% (410)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.45% (652)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.55% (409)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="458.34" height="6" x="0" y="0" class="named"/>
-<rect width="288.66" height="6" x="458.34" y="0" class="todo"/>
+<rect width="459.04" height="6" x="0" y="0" class="named"/>
+<rect width="287.96" height="6" x="459.04" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -395,7 +395,7 @@
 <rect width="12" height="12" x="375" y="90" class="todo"><title>0x0041a270 Func41a270 (95 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="90" class="todo"><title>0x0041a2d0 Func41a2d0 (67 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="90" class="named"><title>0x0041a320 GuiSide::StartUnknown66fc (92 bytes)</title></rect>
-<rect width="12" height="12" x="420" y="90" class="todo"><title>0x0041a380 Func41a380 (56 bytes)</title></rect>
+<rect width="12" height="12" x="420" y="90" class="named"><title>0x0041a380 GuiSide::StartUnknown6ee8 (56 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="90" class="named"><title>0x0041a3c0 GuiSide::StartUnknown7430 (21 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="90" class="todo"><title>0x0041a3e0 Func41a3e0 (142 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="90" class="named"><title>0x0041a470 GuiSideA678::GuiSideA678 (28 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.89%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.11%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.91%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.09%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="238.25" height="6" x="0" y="0" class="named"/>
-<rect width="508.75" height="6" x="238.25" y="0" class="todo"/>
+<rect width="238.39" height="6" x="0" y="0" class="named"/>
+<rect width="508.61" height="6" x="238.39" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1818,7 +1818,7 @@
 <rect width="4.08" height="3.90" x="655.78" y="239.26" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="246.16" class="todo"><title>0x0040f5a0 Func40f5a0 (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="252.95" class="named"><title>0x00414fa0 BulletTypeSprites::BulletTypeSprites (56 bytes)</title></rect>
-<rect width="4.08" height="3.78" x="655.78" y="259.73" class="todo"><title>0x0041a380 Func41a380 (56 bytes)</title></rect>
+<rect width="4.08" height="3.78" x="655.78" y="259.73" class="named"><title>0x0041a380 GuiSide::StartUnknown6ee8 (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="266.51" class="named"><title>0x0042fec0 App::EnableFog (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="273.29" class="named"><title>0x0042ff00 App::DisableFog (56 bytes)</title></rect>
 <rect width="4.08" height="3.66" x="655.78" y="280.07" class="named"><title>0x0041a75f GameManager::OnDraw (55 bytes)</title></rect>
