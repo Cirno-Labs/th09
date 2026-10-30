@@ -15,6 +15,11 @@ void SpriteEngine::ClearTexture()
     this->currentTexture = NULL;
 }
 
+void SpriteEngine::SetLastCameraSetupFlag(BYTE value)
+{
+    this->lastCameraSetupFlag = value;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)
