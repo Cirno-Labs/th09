@@ -1234,6 +1234,35 @@ int SpriteEngine::DrawColoredStrip(Sprite *vm, VertexDiffuseXyzrwh *vertices, in
     return 0;
 }
 
+int SpriteEngine::DrawColoredFan(Sprite *vm, VertexDiffuseXyzrwh *vertices, int count)
+{
+    if (this->batchQuadCount != 0)
+    {
+        this->FlushQuadBatch();
+    }
+    if (this->vertexFormat != 4)
+    {
+        g_App.d3dDevice->SetVertexShader(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
+        this->vertexFormat = 4;
+    }
+    this->SetBlendModeForSprite(vm);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_DIFFUSE);
+    g_App.SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+    g_App.d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLEFAN, count - 2, vertices, sizeof(vertices[0]));
+    g_SpriteEngine->ClearVertexFormat();
+    g_SpriteEngine->ClearColorOp();
+    g_SpriteEngine->ClearBlendMode();
+    g_SpriteEngine->ClearZWrite();
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+    return 0;
+}
+
 // 0x43bba0
 int SpriteEngine::CreateTexture(AnmTexture *tex, int width, int height, int format)
 {
