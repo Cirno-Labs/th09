@@ -144,6 +144,8 @@ struct App
     // Flushes the sprites and turns fog on unless fogState is 1 already,
     // as th08's; returns SetRenderState's result, or 0 (0x42fec0).
     int EnableFog();
+    // The same, turning fog off if fogState is set (0x42ff00).
+    int DisableFog();
     // Returns 0 if verFile lists `version` with `size` and `checksum`,
     // or if `version` is "debug", and -1 otherwise, as th08's
     // (0x430150).

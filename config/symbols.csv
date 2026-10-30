@@ -631,7 +631,7 @@ address,size,name,symbol
 0x0042fd90,130,Func42fd90,
 0x0042fe20,148,Func42fe20,
 0x0042fec0,56,App::EnableFog,?EnableFog@App@@QAEHXZ
-0x0042ff00,56,Func42ff00,
+0x0042ff00,56,App::DisableFog,?DisableFog@App@@QAEHXZ
 0x0042ff40,42,Func42ff40,
 0x0042ff70,233,Func42ff70,
 0x00430060,237,Func430060,

@@ -126,6 +126,17 @@ int App::EnableFog()
     return 0;
 }
 
+int App::DisableFog()
+{
+    g_SpriteEngine->FlushQuadBatch();
+    if (this->fogState != 0)
+    {
+        this->fogState = 0;
+        return this->d3dDevice->SetRenderState(D3DRS_FOGENABLE, FALSE);
+    }
+    return 0;
+}
+
 int App::CheckVersionFile(char *version, DWORD size, DWORD checksum)
 {
     DWORD size2;
