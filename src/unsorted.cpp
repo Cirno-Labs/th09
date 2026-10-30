@@ -199,6 +199,10 @@ void App::LeaveCriticalSection(int idx)
     this->criticalSectionDepths[idx]--;
 }
 
+Chain::~Chain()
+{
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);

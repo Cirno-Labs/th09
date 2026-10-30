@@ -540,7 +540,7 @@ address,size,name,symbol
 0x0042b110,19,Log::Log,??0Log@@QAE@XZ
 0x0042b130,40,App::EnterCriticalSection,?EnterCriticalSection@App@@QAEXH@Z
 0x0042b160,40,App::LeaveCriticalSection,?LeaveCriticalSection@App@@QAEXH@Z
-0x0042b190,75,Func42b190,
+0x0042b190,75,Chain::~Chain,??1Chain@@QAE@XZ
 0x0042b1e0,140,Func42b1e0,
 0x0042b270,143,Func42b270,
 0x0042b300,71,Func42b300,
@@ -1610,7 +1610,7 @@ address,size,name,symbol
 0x0047b25c,43,_JumpToContinuation,
 0x0047b28c,7,FID_conflict:_CallMemberFunction1,
 0x0047b293,82,_UnwindNestedFrames,
-0x0047b2e5,54,___CxxFrameHandler,
+0x0047b2e5,54,___CxxFrameHandler,___CxxFrameHandler
 0x0047b356,199,_CallSETranslator,
 0x0047b41d,175,TranslatorGuardHandler,
 0x0047b4cf,122,_GetRangeOfTrysToCheck,

@@ -45,6 +45,8 @@ class Chain
 public:
     // Constructs the two heads (0x42ac30).
     Chain();
+    // Destroys the two heads (0x42b190).
+    ~Chain();
 
     ChainElem calcChain;
     ChainElem drawChain;
