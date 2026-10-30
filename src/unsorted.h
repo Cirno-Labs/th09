@@ -4,15 +4,14 @@
 
 #include <windows.h>
 #include <math.h>
+#include <d3dx8.h>
 
 #include "common.h"
 
-// math.h's inline cosf, a single x87 instruction under /Oi, emitted
-// out of line under /Ob0 (0x401060). sinf and sqrtf follow it. Named
-// wrappers for now: math.h's copies are only emitted where code calls
-// them.
-float Cos(float angle);
-float Sin(float angle);
+// math.h's inline float functions are emitted out of line under /Ob0,
+// where code calls them: cosf (0x401060) and sinf (0x401070), a single
+// x87 instruction each under /Oi. Until their callers are decompiled,
+// the rest are named wrappers: sqrtf (0x401080), as Sqrt.
 float Sqrt(float x);
 // More of them: atan2f (0x405700), fmodf through _CIfmod (0x405710),
 // fabsf (0x40f1c0), tanf (0x42e900) and atanf (0x436ab0).
@@ -45,6 +44,8 @@ extern Rng g_Rng;
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);
+// Rotates `in`'s x and y by `angle` into `out`'s, as th08's (0x42af40).
+void Rotate2D(D3DXVECTOR3 *out, D3DXVECTOR3 *in, float angle);
 
 // A 2D vector, as th08's.
 struct Vector2

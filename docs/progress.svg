@@ -61,15 +61,15 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.26% (65)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">93.74% (973)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.36% (66)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">93.64% (972)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="46.78" height="6" x="0" y="0" class="named"/>
-<rect width="700.22" height="6" x="46.78" y="0" class="todo"/>
+<rect width="47.50" height="6" x="0" y="0" class="named"/>
+<rect width="699.50" height="6" x="47.50" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="0" class="named"><title>0x00401060 Cos (12 bytes)</title></rect>
-<rect width="12" height="12" x="30" y="0" class="named"><title>0x00401070 Sin (12 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="0" class="named"><title>0x00401060 cosf (12 bytes)</title></rect>
+<rect width="12" height="12" x="30" y="0" class="named"><title>0x00401070 sinf (12 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="0" class="named"><title>0x00401080 Sqrt (12 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="0" class="todo"><title>0x00401090 Func401090 (25 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="0" class="named"><title>0x004010b0 D3DXVECTOR3::D3DXVECTOR3 (26 bytes)</title></rect>
@@ -601,7 +601,7 @@
 <rect width="12" height="12" x="465" y="150" class="named"><title>0x0042ae70 Rng::GetRandomF32ZeroToOne (35 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="150" class="named"><title>0x0042aea0 Rng::GetRandomF32MinusOneToOne (41 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="150" class="named"><title>0x0042aed0 AddNormalizeAngle (111 bytes)</title></rect>
-<rect width="12" height="12" x="510" y="150" class="todo"><title>0x0042af40 Func42af40 (62 bytes)</title></rect>
+<rect width="12" height="12" x="510" y="150" class="named"><title>0x0042af40 Rotate2D (62 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="150" class="todo"><title>0x0042af80 Func42af80 (142 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="150" class="todo"><title>0x0042b0d0 Func42b0d0 (13 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="150" class="todo"><title>0x0042b110 Func42b110 (19 bytes)</title></rect>
@@ -1109,10 +1109,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.55%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.45%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.57%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.43%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="4.10" height="6" x="0" y="0" class="named"/>
-<rect width="742.90" height="6" x="4.10" y="0" class="todo"/>
+<rect width="4.26" height="6" x="0" y="0" class="named"/>
+<rect width="742.74" height="6" x="4.26" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.75" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1767,7 +1767,7 @@
 <rect width="4.19" height="4.12" x="742.81" y="216.32" class="todo"><title>0x0040f7d0 Func40f7d0 (62 bytes)</title></rect>
 <rect width="3.92" height="4.40" x="652.72" y="223.44" class="todo"><title>0x00422bd0 Func422bd0 (62 bytes)</title></rect>
 <rect width="3.92" height="4.40" x="652.72" y="230.84" class="todo"><title>0x00422c10 Func422c10 (62 bytes)</title></rect>
-<rect width="3.92" height="4.40" x="652.72" y="238.25" class="todo"><title>0x0042af40 Func42af40 (62 bytes)</title></rect>
+<rect width="3.92" height="4.40" x="652.72" y="238.25" class="named"><title>0x0042af40 Rotate2D (62 bytes)</title></rect>
 <rect width="3.92" height="4.40" x="652.72" y="245.65" class="todo"><title>0x0043fc50 Func43fc50 (62 bytes)</title></rect>
 <rect width="3.92" height="4.28" x="652.72" y="253.05" class="todo"><title>0x0040d2e0 Func40d2e0 (61 bytes)</title></rect>
 <rect width="3.92" height="4.28" x="652.72" y="260.33" class="todo"><title>0x0041d010 Func41d010 (61 bytes)</title></rect>
@@ -2083,8 +2083,8 @@
 <rect width="0.24" height="0.31" x="743.52" y="292.85" class="named"><title>0x0042ed40 App::GetPreloadBgm (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="746.76" y="292.85" class="named"><title>0x0042ed50 App::GetNoVsync (13 bytes)</title></rect>
 <rect width="0.21" height="0.34" x="727.31" y="296.16" class="named"><title>0x0042ed60 App::GetNoTextRenderDetect (13 bytes)</title></rect>
-<rect width="0.21" height="0.10" x="727.31" y="299.50" class="named"><title>0x00401060 Cos (12 bytes)</title></rect>
-<rect width="0.21" height="0.10" x="727.31" y="302.59" class="named"><title>0x00401070 Sin (12 bytes)</title></rect>
+<rect width="0.21" height="0.10" x="727.31" y="299.50" class="named"><title>0x00401060 cosf (12 bytes)</title></rect>
+<rect width="0.21" height="0.10" x="727.31" y="302.59" class="named"><title>0x00401070 sinf (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="305.67" class="named"><title>0x00401080 Sqrt (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="308.75" class="named"><title>0x00403390 Timer::Timer (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="311.83" class="todo"><title>0x00403c20 Func403c20 (12 bytes)</title></rect>

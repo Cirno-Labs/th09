@@ -2,16 +2,6 @@
 
 #include "timer.h"
 
-float Cos(float angle)
-{
-    return (float)cos((double)angle);
-}
-
-float Sin(float angle)
-{
-    return (float)sin((double)angle);
-}
-
 float Sqrt(float x)
 {
     return (float)sqrt((double)x);
@@ -86,6 +76,15 @@ float AddNormalizeAngle(float a, float b)
         }
     }
     return a;
+}
+
+void Rotate2D(D3DXVECTOR3 *out, D3DXVECTOR3 *in, float angle)
+{
+    float s = sinf(angle);
+    float c = cosf(angle);
+
+    out->x = c * in->x - s * in->y;
+    out->y = c * in->y + s * in->x;
 }
 
 float Tan(float angle)
