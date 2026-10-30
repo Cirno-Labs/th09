@@ -1,3 +1,4 @@
+#include "mainmenu.h"
 #include "midi.h"
 #include "screeneffect.h"
 #include "sprite.h"
@@ -27,6 +28,24 @@ int App::GetReferenceRasterizer()
 int App::GetWindowed()
 {
     return this->config.windowed;
+}
+
+void App::ResetRun()
+{
+    this->unknown458 = 0;
+    this->unknown45c = 0;
+    this->unknown460 = 0;
+    DWORD time = timeGetTime();
+    this->unknown464 = time;
+    this->unknown468 = time;
+    this->unknown474 = time;
+    this->unknown478 = 0;
+    memset(this->records, 0, sizeof(this->records));
+    memset(this->lastRecords, 0, sizeof(this->lastRecords));
+    g_App.AddRecord(0, -9999, 0, g_Rng.GetSeed());
+    g_App.AddRecord(1, -9999, 0, g_Rng.GetSeed());
+    g_Network->SetUnknownA8();
+    g_Network->unknownB8 = 0;
 }
 
 int App::GetNoDirectInput()

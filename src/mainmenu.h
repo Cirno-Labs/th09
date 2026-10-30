@@ -18,10 +18,15 @@ struct Network
 {
     // Sets up network play. Only the call is known (0x4324c0).
     void Init();
+    // Sets unknownA8 (0x42e9a0).
+    void SetUnknownA8();
 
     unsigned char pad_0[0xa8];
     // While set, the menus do not skip the entries that are not open.
     int unknownA8;
+    unsigned char pad_ac[0xb8 - 0xac];
+    // Cleared by App::ResetRun.
+    int unknownB8;
 };
 extern Network *g_Network;
 

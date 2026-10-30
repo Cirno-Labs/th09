@@ -508,6 +508,16 @@ struct PlayTime
 extern PlayTime g_RunTime;
 extern PlayTime g_PlayTime;
 
+// A record in App's lists.
+struct RunRecord
+{
+    WORD unknown0;
+    WORD seed;
+    int value;
+    int unknown8;
+};
+ASSERT_SIZE(RunRecord, 0xc);
+
 // The object that runs the game (th08's App), at 0x4b3100.
 // A camera of App's views. Only the fields known so far.
 struct Camera
@@ -571,8 +581,13 @@ struct App
     // criticalSectionDepths, as th08's (0x42b130, 0x42b160).
     void EnterCriticalSection(int idx);
     void LeaveCriticalSection(int idx);
-    // Resets the run: clears the fields from 0x458, restarts the timers,
-    // and more. Only the call is known (0x42ec30).
+    // Puts a record of `value` with `unknown` and `seed` in side `side`'s
+    // list, before the first greater one, and makes it the side's last
+    // (0x42e9e0).
+    void AddRecord(int side, int value, WORD unknown, WORD seed);
+    // Resets the run: clears the fields from 0x458 and the records,
+    // restarts the timers, adds each side a record of -9999 with the
+    // random seed, and sets network play's unknownA8 (0x42ec30).
     void ResetRun();
     // Looks `id` up in g_BgmInfos and loads its MIDI file into slot `id`,
     // or queues the wave file of the same name, as th08's LoadMidi.
@@ -658,7 +673,20 @@ struct App
     D3DPRESENT_PARAMETERS presentParams;
     unsigned char pad_384[0x388 - 0x384];
     GameConfig config;
-    unsigned char pad_454[0x590 - 0x454];
+    unsigned char pad_454[0x458 - 0x454];
+    int unknown458;
+    int unknown45c;
+    int unknown460;
+    // The time ResetRun ran.
+    DWORD unknown464;
+    DWORD unknown468;
+    unsigned char pad_46c[0x474 - 0x46c];
+    DWORD unknown474;
+    int unknown478;
+    // Each side's ten records, ordered by value, and its last one.
+    RunRecord records[2][10];
+    RunRecord lastRecords[2];
+    unsigned char pad_584[0x590 - 0x584];
     int scene;
     int prevScene;
     // Set when the game ends, unless it goes on to scene 3, 10 or 12:
