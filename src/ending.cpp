@@ -1,9 +1,27 @@
 // The ending, from 0x40e080, as th08's ending.cpp.
 
+#include <stdlib.h>
+
 #include "ending.h"
 #include "screeneffect.h"
 #include "sprite.h"
 #include "unsorted.h"
+
+int Ending::ReadInt()
+{
+    int value;
+
+    value = atoi(this->cursor);
+    while (*this->cursor != '\0')
+    {
+        this->cursor++;
+    }
+    while (*this->cursor == '\0')
+    {
+        this->cursor++;
+    }
+    return value;
+}
 
 void Ending::DrawFade()
 {

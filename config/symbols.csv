@@ -164,7 +164,7 @@ address,size,name,symbol
 0x0040d9e0,464,Func40d9e0,
 0x0040dc70,1028,Func40dc70,
 0x0040e080,71,Func40e080,
-0x0040e0d0,84,Func40e0d0,
+0x0040e0d0,84,Ending::ReadInt,?ReadInt@Ending@@QAEHXZ
 0x0040e130,60,Ending::DrawFade,?DrawFade@Ending@@QAEXXZ
 0x0040e170,287,Func40e170,
 0x0040e2b0,17,PlayerInput::IsHeld,?IsHeld@PlayerInput@@QAEGG@Z

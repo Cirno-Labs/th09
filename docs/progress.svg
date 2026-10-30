@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.54% (700)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.90% (362)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.64% (701)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">33.80% (361)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="489.61" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="489.61" y="0" class="decompiled"/>
-<rect width="253.20" height="6" x="493.80" y="0" class="todo"/>
+<rect width="490.31" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="490.31" y="0" class="decompiled"/>
+<rect width="252.50" height="6" x="494.50" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -233,7 +233,7 @@
 <rect width="12" height="12" x="180" y="45" class="todo"><title>0x0040d9e0 Func40d9e0 (464 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="45" class="todo"><title>0x0040dc70 Func40dc70 (1028 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="45" class="todo"><title>0x0040e080 Func40e080 (71 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="45" class="todo"><title>0x0040e0d0 Func40e0d0 (84 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="45" class="named"><title>0x0040e0d0 Ending::ReadInt (84 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="45" class="named"><title>0x0040e130 Ending::DrawFade (60 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="45" class="todo"><title>0x0040e170 Func40e170 (287 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="45" class="named"><title>0x0040e2b0 PlayerInput::IsHeld (17 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.30%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.66%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.33%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.63%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="248.77" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="248.77" y="0" class="decompiled"/>
-<rect width="497.94" height="6" x="249.06" y="0" class="todo"/>
+<rect width="248.98" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="248.98" y="0" class="decompiled"/>
+<rect width="497.72" height="6" x="249.28" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1726,7 +1726,7 @@
 <rect width="5.70" height="5.37" x="623.66" y="274.81" class="named"><title>0x00430360 App::StopLoadingSprites (85 bytes)</title></rect>
 <rect width="5.70" height="5.37" x="623.66" y="283.18" class="named"><title>0x004304a0 App::FinishLoadingSprites (85 bytes)</title></rect>
 <rect width="5.70" height="5.37" x="623.66" y="291.55" class="named"><title>0x0043d340 MmTimer::Start (85 bytes)</title></rect>
-<rect width="5.70" height="5.27" x="623.66" y="299.92" class="todo"><title>0x0040e0d0 Func40e0d0 (84 bytes)</title></rect>
+<rect width="5.70" height="5.27" x="623.66" y="299.92" class="named"><title>0x0040e0d0 Ending::ReadInt (84 bytes)</title></rect>
 <rect width="5.70" height="5.27" x="623.66" y="308.19" class="named"><title>0x00424d4b MainMenu::ReleaseTitleScene (84 bytes)</title></rect>
 <rect width="5.70" height="5.27" x="623.66" y="316.46" class="named"><title>0x00436d70 SpriteEngine::DrawSprite (84 bytes)</title></rect>
 <rect width="5.70" height="5.27" x="623.66" y="324.73" class="named"><title>0x0043b140 SpriteEngine::DrawProjected3D (84 bytes)</title></rect>

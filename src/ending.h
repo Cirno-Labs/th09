@@ -15,6 +15,9 @@
 class Ending
 {
 public:
+    // Reads a number at the cursor and moves the cursor past it and the
+    // NULs after it, as th08's (0x40e0d0).
+    int ReadInt();
     // Draws the fade over the screen, if it shows. Where th08 stepped the
     // fade here, this only draws it (0x40e130).
     void DrawFade();
