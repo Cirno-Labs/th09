@@ -464,6 +464,67 @@ void SpriteEngine::ProjectSprite3D(Sprite *vm)
     this->lastWorldMatrix = worldMatrix;
 }
 
+void SpriteEngine::SetRenderStateForSprite(Sprite *vm)
+{
+    D3DCOLOR color;
+
+    if (this->blendMode != (vm->flags >> 4 & 3))
+    {
+        this->FlushQuadBatch();
+        this->blendMode = vm->flags >> 4 & 3;
+        switch (this->blendMode)
+        {
+        case 0:
+            g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+            break;
+        case 1:
+            g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_ONE);
+            break;
+        }
+    }
+    color = (vm->flags >> 17 & 1) ? vm->color2 : vm->color;
+    if (this->modulateColorEnabled != 0)
+    {
+        MODULATE_CHANNEL(color, this->modulateColor, 2);
+        MODULATE_CHANNEL(color, this->modulateColor, 1);
+        MODULATE_CHANNEL(color, this->modulateColor, 0);
+        MODULATE_CHANNEL(color, this->modulateColor, 3);
+    }
+    if (this->currentColor != color)
+    {
+        this->FlushQuadBatch();
+        this->currentColor = color;
+        g_App.d3dDevice->SetRenderState(D3DRS_TEXTUREFACTOR, this->currentColor);
+    }
+    if (this->zWriteDisabled != (vm->flags >> 13 & 1))
+    {
+        this->FlushQuadBatch();
+        this->zWriteDisabled = vm->flags >> 13 & 1;
+        if (this->zWriteDisabled == 0)
+        {
+            g_App.d3dDevice->SetRenderState(D3DRS_ZWRITEENABLE, TRUE);
+        }
+        else
+        {
+            g_App.d3dDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+        }
+    }
+    if (this->lastCameraSetupFlag != (vm->flags >> 15 & 1))
+    {
+        this->FlushQuadBatch();
+        this->lastCameraSetupFlag = vm->flags >> 15 & 1;
+        if (this->lastCameraSetupFlag == 0)
+        {
+            g_App.ResetView();
+        }
+        else
+        {
+            g_App.ResetView3D();
+        }
+    }
+    this->renderStateSetCount++;
+}
+
 int SpriteEngine::FillSpriteStripVertices(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count)
 {
     float width;

@@ -412,6 +412,9 @@ public:
     // Sets the render state for `vm` and draws the projected quad, as
     // th08's (0x43a0f0).
     int DrawQuad(Sprite *vm, int flags);
+    // Sets the blend mode, the texture factor color, the z writes and the
+    // camera for `vm`, as th08's (0x439e90).
+    void SetRenderStateForSprite(Sprite *vm);
     // Sets the texture coordinates, color and w of the `count` vertices
     // of a triangle strip across `vm`'s sprite, as th08's. Returns 0, or
     // -1 for fewer than 3 (0x439cf0).

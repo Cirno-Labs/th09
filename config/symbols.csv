@@ -20,7 +20,7 @@ address,size,name,symbol
 0x00401380,10,MemoryManager::Register,?Register@MemoryManager@@QAEPAXPAXHPBD@Z
 0x00401390,71,App::SetView,?SetView@App@@QAEXH@Z
 0x004013e0,42,App::ResetView,?ResetView@App@@QAEXXZ
-0x00401410,42,Func401410,
+0x00401410,42,App::ResetView3D,?ResetView3D@App@@QAEXXZ
 0x00401440,26,Func401440,
 0x00401460,13,App::GetNoFog,?GetNoFog@App@@QAEHXZ
 0x00401470,38,VectorConstructorIterator,??_H@YGXPAXIHP6EX0@Z@Z
@@ -656,7 +656,7 @@ address,size,name,symbol
 0x00430530,33,App::InitCriticalSections,?InitCriticalSections@App@@QAEXXZ
 0x00430560,33,App::DeleteCriticalSections,?DeleteCriticalSections@App@@QAEXXZ
 0x00430590,285,App::SetupCamera,?SetupCamera@App@@QAEXPAUCamera@@@Z
-0x004306b0,257,Func4306b0,
+0x004306b0,257,App::SetupCamera3D,?SetupCamera3D@App@@QAEXPAUCamera@@@Z
 0x004307c0,736,Func4307c0,
 0x00430aa0,1633,Func430aa0,
 0x00431110,844,Func431110,
@@ -795,7 +795,7 @@ address,size,name,symbol
 0x00439a90,595,SpriteEngine::ProjectSprite3D,?ProjectSprite3D@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00439cf0,199,SpriteEngine::FillSpriteStripVertices,?FillSpriteStripVertices@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@H@Z
 0x00439dc0,199,SpriteEngine::FillVerticalStripVertices,?FillVerticalStripVertices@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@H@Z
-0x00439e90,411,Func439e90,
+0x00439e90,411,SpriteEngine::SetRenderStateForSprite,?SetRenderStateForSprite@SpriteEngine@@QAEXPAVSprite@@@Z
 0x0043a030,188,SpriteEngine::SetBlendModeForSprite,?SetBlendModeForSprite@SpriteEngine@@QAEXPAVSprite@@@Z
 0x0043a0f0,1067,SpriteEngine::DrawQuad,?DrawQuad@SpriteEngine@@QAEHPAVSprite@@H@Z
 0x0043a520,1067,SpriteEngine::DrawQuadMirrored,?DrawQuadMirrored@SpriteEngine@@QAEHPAVSprite@@H@Z

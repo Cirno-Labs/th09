@@ -480,6 +480,15 @@ struct App
         this->SetupCamera(this->camera);
         this->d3dDevice->SetViewport(&this->camera->viewport);
     }
+    // Sets up the projection of `camera` in 3D, from its eye, target
+    // and up vectors (0x4306b0).
+    void SetupCamera3D(Camera *camera);
+    // ResetView with SetupCamera3D. Inline; the copy is at 0x401410.
+    void ResetView3D()
+    {
+        this->SetupCamera3D(this->camera);
+        this->d3dDevice->SetViewport(&this->camera->viewport);
+    }
     // Bit 3 of stateFlags, as th08's GetNoScore (0x420180).
     int GetNoScore();
     // The config's options, as th08's getters, out of line (0x401460,
