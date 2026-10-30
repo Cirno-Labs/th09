@@ -791,13 +791,13 @@ address,size,name,symbol
 0x004396a0,137,SpriteEngine::FlushQuadBatch,?FlushQuadBatch@SpriteEngine@@QAEXXZ
 0x00439730,165,SpriteEngine::AddQuadToBatch,?AddQuadToBatch@SpriteEngine@@QAEHPAUVertexTex1DiffuseXyzrwh@@@Z
 0x004397e0,49,SpriteEngine::RotatePoint,?RotatePoint@SpriteEngine@@QAEXPAMMMMMMM@Z
-0x00439820,622,Func439820,
-0x00439a90,595,Func439a90,
+0x00439820,622,SpriteEngine::ProjectSprite,?ProjectSprite@SpriteEngine@@QAEHPAVSprite@@@Z
+0x00439a90,595,SpriteEngine::ProjectSprite3D,?ProjectSprite3D@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00439cf0,199,Func439cf0,
 0x00439dc0,199,Func439dc0,
 0x00439e90,411,Func439e90,
 0x0043a030,188,Func43a030,
-0x0043a0f0,1067,Func43a0f0,
+0x0043a0f0,1067,SpriteEngine::DrawQuad,?DrawQuad@SpriteEngine@@QAEHPAVSprite@@H@Z
 0x0043a520,1067,Func43a520,
 0x0043a950,254,SpriteEngine::DrawUnrotated,?DrawUnrotated@SpriteEngine@@QAEHPAVSprite@@@Z
 0x0043aa50,254,Func43aa50,

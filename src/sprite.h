@@ -390,6 +390,15 @@ public:
     int DrawNoRound(Sprite *vm);
     // Draws `vm` rotated, not rounding its position (0x43ad40).
     int DrawRotatedNoRound(Sprite *vm);
+    // Works out the corners of `vm`'s quad on screen from its 3D
+    // position, as th08's. Returns 0, or -1 if it is out of the depth
+    // range (0x439820).
+    int ProjectSprite(Sprite *vm);
+    // The same for `vm` as a quad in 3D, as th08's (0x439a90).
+    void ProjectSprite3D(Sprite *vm);
+    // Sets the render state for `vm` and draws the projected quad, as
+    // th08's (0x43a0f0).
+    int DrawQuad(Sprite *vm, int flags);
     // Draws `vm` projected from its 3D position, as th08's (0x43b0e0).
     int DrawProjected(Sprite *vm);
     // Draws `vm` as a quad in 3D, as th08's (0x43b140).

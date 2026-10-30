@@ -326,6 +326,27 @@ void SpriteEngine::RotatePoint(float *out, float x, float y, float sine, float c
     out[1] = x * sine + y * cosine + cy;
 }
 
+int SpriteEngine::DrawProjected(Sprite *vm)
+{
+    if (!vm->IsShown())
+    {
+        return -1;
+    }
+    if ((vm->flags >> 1 & 1) == 0)
+    {
+        return -1;
+    }
+    if (vm->alpha == 0)
+    {
+        return -1;
+    }
+    if (this->ProjectSprite(vm) != 0)
+    {
+        return -1;
+    }
+    return this->DrawQuad(vm, 0);
+}
+
 // 0x43bba0
 int SpriteEngine::CreateTexture(AnmTexture *tex, int width, int height, int format)
 {
