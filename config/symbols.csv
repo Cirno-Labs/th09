@@ -129,6 +129,7 @@ address,size,name,symbol
 0x0040c390,41,Func40c390,
 0x0040c3c0,41,SendExAttack1,?SendExAttack1@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c440,41,SendExAttack7,?SendExAttack7@@YIXPAUEnemy@@PAUEclInstr@@@Z
+0x0040c470,41,SendExAttack8,?SendExAttack8@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c530,563,Func40c530,
 0x0040c770,70,SendExAttack10,?SendExAttack10@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c7c0,69,SendExAttack11,?SendExAttack11@@YIXPAUEnemy@@PAUEclInstr@@@Z

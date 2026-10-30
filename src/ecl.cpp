@@ -69,6 +69,11 @@ void SendExAttack7(Enemy *enemy, EclInstr *instr)
     g_GameManager.exAttackManager->AddAttack(7, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
 }
 
+void SendExAttack8(Enemy *enemy, EclInstr *instr)
+{
+    g_GameManager.exAttackManager->AddAttack(8, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
+}
+
 void SendExAttack10(Enemy *enemy, EclInstr *instr)
 {
     D3DXVECTOR3 pos;
