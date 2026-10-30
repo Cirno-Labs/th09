@@ -30,6 +30,29 @@ ASSERT_SIZE(ScoreDat, 0x18);
 // The header of the score file last loaded (0x4ac840).
 extern ScoreDat g_ScoreDatHeader;
 
+// The header every chunk of the score file starts with.
+struct ScoreChunk
+{
+    DWORD magic;
+    WORD size;
+    WORD size2;
+    BYTE version;
+    BYTE unknown9;
+    unsigned char pad_a[0x2];
+};
+ASSERT_SIZE(ScoreChunk, 0xc);
+
+// "TH9K": the chunk with the score file's version (1).
+struct Th9k
+{
+    DWORD magic;
+    WORD size;
+    WORD size2;
+    BYTE version;
+    unsigned char pad_9[0x3];
+};
+ASSERT_SIZE(Th9k, 0xc);
+
 // "LSNM": the last name entered (version 1).
 struct Lsnm
 {

@@ -1,6 +1,7 @@
 // The score file's functions, from 0x421aa0, as th08's scoredat.cpp.
 
 #include "scoredat.h"
+#include "lzss.h"
 #include "unsorted.h"
 
 int LoadLsnmChunk(ScoreDat *dat)
@@ -64,6 +65,114 @@ int LoadPlstChunk(ScoreDat *dat)
         chunk = (PlayRecord *)((BYTE *)chunk + chunk->size);
     }
     return 0;
+}
+
+ScoreDat *LoadScoreDat(char *path)
+{
+    BOOL found;
+    Th9k *th9k;
+    int left;
+    ScoreChunk *chunk;
+    int remaining;
+    BYTE *p;
+    WORD checksum;
+    BYTE key;
+    int n;
+    BYTE *decoded;
+    ScoreDat *dat;
+    int readSize;
+    ScoreDat *unpacked;
+
+    LogPrintf(&g_Log, "info : score load\r\n");
+    dat = (ScoreDat *)OpenPath(path, &readSize, 1);
+    if (dat == NULL)
+    {
+    fail:
+        LogPrintf(&g_Log, "info : score recreate\r\n");
+        if (dat != NULL)
+        {
+            g_MemoryManager.Free(dat);
+        }
+        dat = (ScoreDat *)g_MemoryManager.Alloc(sizeof(ScoreDat), "scorefile");
+        dat->dataOffset = sizeof(ScoreDat);
+        dat->fileSize = sizeof(ScoreDat);
+        dat->version = 4;
+        goto done;
+    }
+    if (readSize < sizeof(ScoreDat))
+    {
+        LogPrintf(&g_Log, "warning : score.dat size is short\r\n");
+        g_MemoryManager.Free(dat);
+        goto fail;
+    }
+    decoded = DecryptData((BYTE *)dat, readSize, 0x3a, 0xcd, 0x100, 0xc00);
+    g_MemoryManager.Free(dat);
+    dat = (ScoreDat *)decoded;
+    remaining = readSize - 2;
+    checksum = 0;
+    key = 0;
+    n = 0;
+    p = (BYTE *)dat + 1;
+    while (remaining > 0)
+    {
+        key += *p;
+        key = ((key & 0xe0) >> 5) | ((key & 0x1f) << 3);
+        p[1] ^= key;
+        if (n >= 2)
+        {
+            checksum += p[1];
+        }
+        p++;
+        remaining--;
+        n++;
+    }
+    if (dat->checksum != checksum)
+    {
+        LogPrintf(&g_Log, "warning : score.dat chksum error\r\n");
+        goto fail;
+    }
+    if (dat->dataOffset != sizeof(ScoreDat))
+    {
+        LogPrintf(&g_Log, "warning : header size is mismatch\r\n");
+        goto fail;
+    }
+    if (dat->version != 4)
+    {
+        LogPrintf(&g_Log, "warning : score.dat version mismatch\r\n");
+        goto fail;
+    }
+    unpacked = (ScoreDat *)g_MemoryManager.Alloc(sizeof(ScoreDat) + 0xa0000, "scorefile2");
+    *unpacked = *dat;
+    LzssDecompress((BYTE *)dat + sizeof(ScoreDat), dat->packedSize, (BYTE *)unpacked + sizeof(ScoreDat),
+                   dat->dataSize);
+    g_MemoryManager.Free(dat);
+    dat = unpacked;
+    left = dat->fileSize;
+    found = FALSE;
+    chunk = (ScoreChunk *)((BYTE *)dat + dat->dataOffset);
+    left -= dat->dataOffset;
+    while (left > 0)
+    {
+        if (chunk->magic == 0x4b394854)
+        {
+            found = TRUE;
+            th9k = (Th9k *)chunk;
+        }
+        if (chunk->size == 0)
+        {
+            LogPrintf(&g_Log, "warning : score.dat chapter size is ZERO\r\n");
+            goto fail;
+        }
+        left -= chunk->size;
+        chunk = (ScoreChunk *)((BYTE *)chunk + chunk->size);
+    }
+    if (!found || th9k->version != 1)
+    {
+        LogPrintf(&g_Log, "warning : score.dat version mismatch\r\n");
+        goto fail;
+    }
+done:
+    return dat;
 }
 
 void ReleaseScoreDat(ScoreDat *dat)
