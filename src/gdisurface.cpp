@@ -83,3 +83,8 @@ void ReleaseTextSurface()
         g_TextSurface = NULL;
     }
 }
+
+GdiSurface::~GdiSurface()
+{
+    this->Release();
+}
