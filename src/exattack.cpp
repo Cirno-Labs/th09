@@ -74,3 +74,25 @@ int ExAttackManager::AddedCallback(ExAttackManager *mgr)
     mgr->Reset();
     return 0;
 }
+
+ExAttackManager *ExAttackManager::RegisterChain()
+{
+    ExAttackManager *mgr = (ExAttackManager *)g_MemoryManager.Register(new ExAttackManager(), sizeof(ExAttackManager),
+                                                                       "ExAttackCtrlInf");
+
+    memset(mgr, 0, sizeof(ExAttackManager));
+    mgr->calcElem = g_Chain.CreateElem((ChainCallback)ExAttackManager::OnUpdate);
+    mgr->calcElem->arg = mgr;
+    mgr->calcElem->addedCallback = (ChainCallback)ExAttackManager::AddedCallback;
+    if (g_Chain.AddToCalcChain(mgr->calcElem, 0xe) != 0)
+    {
+        return NULL;
+    }
+    mgr->drawElem = g_Chain.CreateElem((ChainCallback)ExAttackManager::OnDraw);
+    mgr->drawElem->arg = mgr;
+    g_Chain.AddToDrawChain(mgr->drawElem, 0x10);
+    mgr->drawElem2 = g_Chain.CreateElem((ChainCallback)ExAttackManager::OnDraw2);
+    mgr->drawElem2->arg = mgr;
+    g_Chain.AddToDrawChain(mgr->drawElem2, 0x1d);
+    return mgr;
+}

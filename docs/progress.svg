@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">16.95% (177)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">83.05% (867)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">17.24% (180)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">82.76% (864)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="126.65" height="6" x="0" y="0" class="named"/>
-<rect width="620.35" height="6" x="126.65" y="0" class="todo"/>
+<rect width="128.79" height="6" x="0" y="0" class="named"/>
+<rect width="618.21" height="6" x="128.79" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -346,9 +346,9 @@
 <rect width="12" height="12" x="390" y="75" class="named"><title>0x004156a0 ExAttackManager::RemoveChain (66 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="75" class="named"><title>0x004156f0 ExAttackManager::Reset (88 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="75" class="named"><title>0x00415750 ExAttackManager::AddedCallback (66 bytes)</title></rect>
-<rect width="12" height="12" x="435" y="75" class="todo"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
-<rect width="12" height="12" x="450" y="75" class="todo"><title>0x004157b0 ExAttackManager::ExAttackManager (28 bytes)</title></rect>
-<rect width="12" height="12" x="465" y="75" class="todo"><title>0x004157d0 ExAttackManager::RegisterChain (264 bytes)</title></rect>
+<rect width="12" height="12" x="435" y="75" class="named"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
+<rect width="12" height="12" x="450" y="75" class="named"><title>0x004157b0 ExAttackManager::ExAttackManager (28 bytes)</title></rect>
+<rect width="12" height="12" x="465" y="75" class="named"><title>0x004157d0 ExAttackManager::RegisterChain (264 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="75" class="todo"><title>0x004158e0 Func4158e0 (33 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="75" class="todo"><title>0x00415910 Func415910 (799 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="75" class="todo"><title>0x00415c30 Func415c30 (24 bytes)</title></rect>
@@ -1115,10 +1115,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">4.45%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">95.55%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">4.55%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">95.45%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="33.23" height="6" x="0" y="0" class="named"/>
-<rect width="713.77" height="6" x="33.23" y="0" class="todo"/>
+<rect width="34.03" height="6" x="0" y="0" class="named"/>
+<rect width="712.97" height="6" x="34.03" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.65" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1400,7 +1400,7 @@
 <rect width="11.47" height="12.45" x="513.09" y="197.76" class="todo"><title>0x00417520 GuiMsg::UnloadBgm (271 bytes)</title></rect>
 <rect width="11.47" height="12.22" x="513.09" y="213.21" class="todo"><title>0x0042c370 Func42c370 (267 bytes)</title></rect>
 <rect width="11.47" height="12.05" x="513.09" y="228.44" class="named"><title>0x00404600 SpellCard::RegisterChain (264 bytes)</title></rect>
-<rect width="11.47" height="12.05" x="513.09" y="243.49" class="todo"><title>0x004157d0 ExAttackManager::RegisterChain (264 bytes)</title></rect>
+<rect width="11.47" height="12.05" x="513.09" y="243.49" class="named"><title>0x004157d0 ExAttackManager::RegisterChain (264 bytes)</title></rect>
 <rect width="11.47" height="12.05" x="513.09" y="258.54" class="todo"><title>0x0042a9cb Func42a9cb (264 bytes)</title></rect>
 <rect width="11.47" height="11.88" x="513.09" y="273.59" class="todo"><title>0x00407b20 Func407b20 (261 bytes)</title></rect>
 <rect width="11.47" height="11.77" x="513.09" y="288.47" class="todo"><title>0x0042b740 Func42b740 (259 bytes)</title></rect>
@@ -1965,7 +1965,7 @@
 <rect width="1.99" height="1.63" x="730.05" y="264.52" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
 <rect width="1.99" height="1.63" x="735.04" y="264.52" class="todo"><title>0x0040d500 Func40d500 (28 bytes)</title></rect>
 <rect width="1.99" height="1.63" x="740.03" y="264.52" class="todo"><title>0x0040fca0 Func40fca0 (28 bytes)</title></rect>
-<rect width="1.99" height="1.63" x="745.01" y="264.52" class="todo"><title>0x004157b0 ExAttackManager::ExAttackManager (28 bytes)</title></rect>
+<rect width="1.99" height="1.63" x="745.01" y="264.52" class="named"><title>0x004157b0 ExAttackManager::ExAttackManager (28 bytes)</title></rect>
 <rect width="1.58" height="2.05" x="699.24" y="269.16" class="todo"><title>0x0041a470 Func41a470 (28 bytes)</title></rect>
 <rect width="1.58" height="2.05" x="699.24" y="274.20" class="todo"><title>0x0041ceb0 Func41ceb0 (28 bytes)</title></rect>
 <rect width="1.58" height="2.05" x="699.24" y="279.25" class="todo"><title>0x0041ee00 Func41ee00 (28 bytes)</title></rect>
@@ -2062,7 +2062,7 @@
 <rect width="0.32" height="0.73" x="740.05" y="285.84" class="named"><title>0x00406200 Rng::GetRandomF32SignedInRange (15 bytes)</title></rect>
 <rect width="0.32" height="0.73" x="743.37" y="285.84" class="todo"><title>0x00412090 Func412090 (15 bytes)</title></rect>
 <rect width="0.32" height="0.73" x="746.68" y="285.84" class="todo"><title>0x004120c0 Func4120c0 (15 bytes)</title></rect>
-<rect width="0.48" height="0.55" x="719.71" y="289.57" class="todo"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
+<rect width="0.48" height="0.55" x="719.71" y="289.57" class="named"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
 <rect width="0.48" height="0.55" x="719.71" y="293.12" class="todo"><title>0x00415d30 Func415d30 (15 bytes)</title></rect>
 <rect width="0.48" height="0.55" x="719.71" y="296.68" class="todo"><title>0x0041f060 Func41f060 (15 bytes)</title></rect>
 <rect width="0.48" height="0.55" x="719.71" y="300.23" class="todo"><title>0x00420830 Func420830 (15 bytes)</title></rect>
