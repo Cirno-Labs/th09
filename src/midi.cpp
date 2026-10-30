@@ -229,3 +229,9 @@ UINT MmTimer::Start(UINT delay, LPTIMECALLBACK callback, DWORD_PTR user)
     }
     return this->timerId;
 }
+
+void MidiPlayer::UnloadFile(int slot)
+{
+    g_MemoryManager.Free(this->fileData[slot]);
+    this->fileData[slot] = NULL;
+}
