@@ -624,6 +624,10 @@ struct App
     // list, before the first greater one, and makes it the side's last
     // (0x42e9e0).
     void AddRecord(int side, int value, WORD unknown, WORD seed);
+    // Puts a record of `value` with `seed` and the side's last record's
+    // unknown0 in the side's list, before the first greater one, marked
+    // with unknown8 1 (0x42eac0).
+    void InsertRecord(int side, int value, WORD seed);
     // Resets the run: clears the fields from 0x458 and the records,
     // restarts the timers, adds each side a record of -9999 with the
     // random seed, and sets network play's unknownA8 (0x42ec30).

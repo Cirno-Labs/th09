@@ -608,7 +608,7 @@ address,size,name,symbol
 0x0042e9b0,11,Network::ClearUnknownA8,?ClearUnknownA8@Network@@QAEXXZ
 0x0042e9c0,27,ReadInputs,?ReadInputs@@YIXXZ
 0x0042e9e0,213,App::AddRecord,?AddRecord@App@@QAEXHHGG@Z
-0x0042eac0,188,Func42eac0,
+0x0042eac0,191,App::InsertRecord,?InsertRecord@App@@QAEXHHG@Z
 0x0042eb80,119,Func42eb80,
 0x0042ec00,34,MidiPlayer::PlayFile,?PlayFile@MidiPlayer@@QAEXPAD@Z
 0x0042ec30,177,App::ResetRun,?ResetRun@App@@QAEXXZ
