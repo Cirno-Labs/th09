@@ -432,7 +432,7 @@ address,size,name,symbol
 0x00420470,59,ReplayManager::OnUpdateMode1b,?OnUpdateMode1b@ReplayManager@@SIHPAV1@@Z
 0x004204b0,299,ReplayManager::OnUpdateMode1,?OnUpdateMode1@ReplayManager@@SIHPAV1@@Z
 0x004205e0,591,Func4205e0,
-0x00420830,15,Func420830,
+0x00420830,15,ReplayInfo::ReplayInfo,??0ReplayInfo@@QAE@XZ
 0x00420840,540,ReplayManager::AddedCallbackMode1,?AddedCallbackMode1@ReplayManager@@SIHPAV1@@Z
 0x00420a60,104,FreeResources,?FreeResources@@YIHPAVReplayManager@@@Z
 0x00420ad0,318,Func420ad0,

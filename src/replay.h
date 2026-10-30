@@ -3,6 +3,31 @@
 #pragma once
 
 #include "chain.h"
+#include "unsorted.h"
+
+// Part of a replay's header, with a copy of the config. Only what is
+// known so far.
+struct ReplayInfo
+{
+    // Constructs the config (0x420830).
+    ReplayInfo();
+
+    unsigned char pad_0[0x1c];
+    GameConfig config;
+};
+
+// A replay's header (0x1ec bytes): ReplayManager allocates one, and the
+// title menu keeps one for each replay file. Only what is known so far.
+struct ReplayHeader
+{
+    // Constructs info (0x420c40).
+    ReplayHeader();
+
+    unsigned char pad_0[0xc0];
+    ReplayInfo info;
+    unsigned char pad_1a8[0x1ec - 0x1a8];
+};
+ASSERT_SIZE(ReplayHeader, 0x1ec);
 
 // The replay manager, at GameManager::unknownD4. Only the fields known so
 // far.

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">48.91% (518)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">51.09% (541)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">49.01% (519)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">50.99% (540)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="365.39" height="6" x="0" y="0" class="named"/>
-<rect width="381.61" height="6" x="365.39" y="0" class="todo"/>
+<rect width="366.09" height="6" x="0" y="0" class="named"/>
+<rect width="380.91" height="6" x="366.09" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -500,7 +500,7 @@
 <rect width="12" height="12" x="450" y="120" class="named"><title>0x00420470 ReplayManager::OnUpdateMode1b (59 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="120" class="todo"><title>0x004204b0 ReplayManager::OnUpdateMode1 (299 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="120" class="todo"><title>0x004205e0 Func4205e0 (591 bytes)</title></rect>
-<rect width="12" height="12" x="495" y="120" class="todo"><title>0x00420830 Func420830 (15 bytes)</title></rect>
+<rect width="12" height="12" x="495" y="120" class="named"><title>0x00420830 ReplayInfo::ReplayInfo (15 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="120" class="todo"><title>0x00420840 ReplayManager::AddedCallbackMode1 (540 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="120" class="named"><title>0x00420a60 FreeResources (104 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="120" class="todo"><title>0x00420ad0 Func420ad0 (318 bytes)</title></rect>
@@ -1132,8 +1132,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">25.16%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">74.84%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="187.92" height="6" x="0" y="0" class="named"/>
-<rect width="559.08" height="6" x="187.92" y="0" class="todo"/>
+<rect width="187.96" height="6" x="0" y="0" class="named"/>
+<rect width="559.04" height="6" x="187.96" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2089,7 +2089,7 @@
 <rect width="0.46" height="0.73" x="732.71" y="301.50" class="named"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
 <rect width="0.46" height="0.73" x="736.17" y="301.50" class="todo"><title>0x00415d30 Func415d30 (15 bytes)</title></rect>
 <rect width="0.46" height="0.73" x="739.63" y="301.50" class="todo"><title>0x0041f060 Func41f060 (15 bytes)</title></rect>
-<rect width="0.46" height="0.73" x="743.08" y="301.50" class="todo"><title>0x00420830 Func420830 (15 bytes)</title></rect>
+<rect width="0.46" height="0.73" x="743.08" y="301.50" class="named"><title>0x00420830 ReplayInfo::ReplayInfo (15 bytes)</title></rect>
 <rect width="0.46" height="0.73" x="746.54" y="301.50" class="todo"><title>0x00422950 Func422950 (15 bytes)</title></rect>
 <rect width="0.62" height="0.56" x="718.88" y="305.22" class="named"><title>0x00423498 SoundPlayer::UnPause (15 bytes)</title></rect>
 <rect width="0.62" height="0.56" x="718.88" y="308.79" class="named"><title>0x0042f760 SpriteEngine::ClearDrawStats (15 bytes)</title></rect>

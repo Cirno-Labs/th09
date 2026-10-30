@@ -12,6 +12,10 @@ int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
     return 1;
 }
 
+ReplayInfo::ReplayInfo()
+{
+}
+
 // Removes the chain elements unknownElem158 and unknownElem15c, if set,
 // and frees the blocks. Returns 0. Static, with the manager in eax
 // (0x420a60).
