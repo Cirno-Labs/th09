@@ -853,3 +853,82 @@ void MainMenu::MoveCharacterCursor2(int player, int selected, char *entries)
         }
     }
 }
+
+int MainMenu::OnUpdate(MainMenu *menu)
+{
+    int ret;
+
+    ret = 1;
+    if (menu->loadingState != 0)
+    {
+        return menu->loadingState == 2 ? 4 : 1;
+    }
+    switch (menu->state)
+    {
+    case 1:
+        ret = menu->UpdateState1();
+        break;
+    case 6:
+        ret = menu->UpdateState6();
+        break;
+    case 2:
+    case 4:
+    case 7:
+        ret = menu->UpdateState2();
+        break;
+    case 3:
+    case 5:
+        ret = menu->UpdateState3();
+        break;
+    case 8:
+        switch (g_GameManager.unknown114)
+        {
+        case 0:
+            ret = menu->UpdateState8();
+            break;
+        case 1:
+            ret = menu->UpdateState8b();
+            break;
+        case 2:
+            ret = menu->UpdateState8b();
+            break;
+        case 3:
+            ret = menu->UpdateState8b();
+            break;
+        case 4:
+            ret = menu->UpdateState8();
+            break;
+        }
+        break;
+    case 16:
+        ret = menu->UpdateState16();
+        break;
+    case 9:
+        ret = menu->UpdateState9();
+        break;
+    case 10:
+        ret = menu->UpdateState10();
+        break;
+    case 11:
+        ret = menu->UpdateState11();
+        break;
+    case 15:
+        ret = menu->UpdateState15();
+        break;
+    case 12:
+        ret = menu->UpdateState12();
+        break;
+    case 14:
+        ret = menu->UpdateState14();
+        break;
+    case 13:
+        ret = menu->UpdateState13();
+        break;
+    }
+    g_SpriteEngine->StepSprites(menu->sprites, menu->spriteCount);
+    if (menu->helpSprite != NULL)
+    {
+        g_SpriteEngine->Step(menu->helpSprite);
+    }
+    return ret;
+}

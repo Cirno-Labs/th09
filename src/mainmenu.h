@@ -126,6 +126,29 @@ public:
     // entries are always shown (0x425390).
     void MoveCharacterCursor2(int player, int selected, char *entries);
 
+    // The states' update functions, by the first state each runs in.
+    // UpdateState2 also runs states 4 and 7, UpdateState3 state 5, and
+    // state 8 runs UpdateState8b instead of UpdateState8 when
+    // g_GameManager's unknown114 is 1 to 3.
+    int UpdateState3();
+    int UpdateState8b();
+    int UpdateState16();
+    int UpdateState13();
+    int UpdateState11();
+    int UpdateState12();
+    int UpdateState9();
+    int UpdateState10();
+    int UpdateState8();
+    int UpdateState14();
+    int UpdateState15();
+    int UpdateState1();
+    int UpdateState2();
+    int UpdateState6();
+    // The update element's callback, as th08's: does nothing while the
+    // title loads (returns 4 if that failed, else 1), otherwise runs the
+    // state's function, then steps the sprites (0x42a9cb).
+    static int OnUpdate(MainMenu *menu);
+
     int cursor;
     unsigned char pad_4[0x10 - 0x4];
     int cursors[6];
