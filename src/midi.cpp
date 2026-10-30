@@ -101,3 +101,17 @@ DWORD SwapBytes32(DWORD value)
     swapped.bytes[3] = ((BYTE *)&value)[0];
     return swapped.dword;
 }
+
+DWORD ReadVarLen(BYTE **cursor)
+{
+    DWORD value = 0;
+    BYTE byte;
+
+    do
+    {
+        byte = **cursor;
+        (*cursor)++;
+        value = (value << 7) + (byte & 0x7f);
+    } while (byte & 0x80);
+    return value;
+}
