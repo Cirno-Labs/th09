@@ -129,6 +129,9 @@ struct App
     // Interrupts the loading sprites with 1 if they show, and finishes
     // g_LoadingScreenEffect, as th08's (0x430360).
     void StopLoadingSprites();
+    // StartLoadingSprites, then has the screen copied to surface 8, as
+    // th08's (0x4303c0).
+    void StartLoadingSpritesOverScreen(D3DXVECTOR3 *pos);
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();
