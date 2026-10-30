@@ -135,3 +135,13 @@ void MidiPlayer::Rewind()
         track->delta = ReadVarLen(&track->cursor);
     }
 }
+
+int MidiPlayer::FadeOut(int duration)
+{
+    this->volumeScale = 0.0f;
+    this->fadeDuration = duration;
+    this->fadeElapsed = 0;
+    this->framesSinceRewind = 0;
+    this->fading = 1;
+    return 0;
+}

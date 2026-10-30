@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.56% (353)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">66.44% (699)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.65% (354)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">66.35% (698)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="250.66" height="6" x="0" y="0" class="named"/>
-<rect width="496.34" height="6" x="250.66" y="0" class="todo"/>
+<rect width="251.37" height="6" x="0" y="0" class="named"/>
+<rect width="495.63" height="6" x="251.37" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -917,7 +917,7 @@
 <rect width="12" height="12" x="705" y="240" class="named"><title>0x0043d120 SwapBytes32 (38 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="240" class="named"><title>0x0043d150 ReadVarLen (32 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="240" class="named"><title>0x0043d170 MidiPlayer::Rewind (110 bytes)</title></rect>
-<rect width="12" height="12" x="0" y="255" class="todo"><title>0x0043d1e0 MidiPlayer::FadeOut (46 bytes)</title></rect>
+<rect width="12" height="12" x="0" y="255" class="named"><title>0x0043d1e0 MidiPlayer::FadeOut (46 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="255" class="todo"><title>0x0043d210 Func43d210 (117 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="255" class="todo"><title>0x0043d2b0 DebugPrint (1 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="255" class="todo"><title>0x0043d2d0 Func43d2d0 (69 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">11.99%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">88.01%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">88%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="89.54" height="6" x="0" y="0" class="named"/>
-<rect width="657.46" height="6" x="89.54" y="0" class="todo"/>
+<rect width="89.65" height="6" x="0" y="0" class="named"/>
+<rect width="657.35" height="6" x="89.65" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1860,7 +1860,7 @@
 <rect width="3.03" height="3.56" x="737.94" y="246.71" class="todo"><title>0x00422f39 Func422f39 (46 bytes)</title></rect>
 <rect width="3.03" height="3.56" x="743.97" y="246.71" class="named"><title>0x0042c8c0 Chain::Remove (46 bytes)</title></rect>
 <rect width="3.28" height="3.30" x="669.93" y="253.27" class="todo"><title>0x0042cd10 Func42cd10 (46 bytes)</title></rect>
-<rect width="3.28" height="3.30" x="669.93" y="259.57" class="todo"><title>0x0043d1e0 MidiPlayer::FadeOut (46 bytes)</title></rect>
+<rect width="3.28" height="3.30" x="669.93" y="259.57" class="named"><title>0x0043d1e0 MidiPlayer::FadeOut (46 bytes)</title></rect>
 <rect width="3.28" height="3.30" x="669.93" y="265.88" class="todo"><title>0x00442420 Func442420 (46 bytes)</title></rect>
 <rect width="3.28" height="3.30" x="669.93" y="272.18" class="todo"><title>0x00442450 Func442450 (46 bytes)</title></rect>
 <rect width="3.28" height="3.16" x="669.93" y="278.48" class="named"><title>0x00403a10 Sprite::Sprite (45 bytes)</title></rect>
