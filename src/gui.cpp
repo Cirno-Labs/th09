@@ -12,6 +12,11 @@ void Gui::ReleaseAnm()
     g_SpriteEngine->ReleaseAnm(10);
 }
 
+WORD PlayerInput::IsHeld2(WORD mask)
+{
+    return this->unknown2c & mask;
+}
+
 int FreesResources()
 {
     return g_App.freesResources;
