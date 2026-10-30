@@ -470,6 +470,7 @@ address,size,name,symbol
 0x00422c50,113,Func422c50,
 0x00422cd0,68,Func422cd0,
 0x00422d20,447,ScreenEffect::StartEffect,?StartEffect@ScreenEffect@@SIPAV1@HHHHHHH@Z
+0x00422f00,23,MusicTune::MusicTune,??0MusicTune@@QAE@XZ
 0x00422f17,34,MainMenu::PlaySoundNow,?PlaySoundNow@MainMenu@@QAEXHH@Z
 0x00422f39,46,MainMenu::SetState,?SetState@MainMenu@@QAEXH@Z
 0x00422f67,106,MainMenu::ReassignButton,?ReassignButton@MainMenu@@QAEXPAUControllerMapping@@FFH@Z
@@ -1668,7 +1669,7 @@ address,size,name,symbol
 0x0047c31d,6,Func47c31d,
 0x0047c323,18,_atexit,
 0x0047c335,87,_vsprintf,_vsprintf
-0x0047c390,96,_memset,
+0x0047c390,96,_memset,_memset
 0x0047c3f0,139,_strlen,
 0x0047c47b,88,_sprintf,
 0x0047c4e0,7,Func47c4e0,

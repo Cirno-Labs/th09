@@ -24,6 +24,21 @@ extern Network *g_Network;
 // Cleared by the title (0x4ac884).
 extern int g_Unknown4ac884;
 
+// A tune in the music room's list, as th08's.
+struct MusicTune
+{
+    // Zeroes the tune. Inline in th08; here its copy starts the menu's
+    // object (0x422f00).
+    MusicTune();
+
+    // The MIDI file.
+    char path[0x40];
+    char title[0x42];
+    // The comment shown for the tune.
+    char comment[8][0x42];
+};
+ASSERT_SIZE(MusicTune, 0x292);
+
 class MainMenu
 {
 public:
