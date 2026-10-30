@@ -387,6 +387,41 @@ void Player::UpdateBullets()
     }
 }
 
+void Player::DrawBullets()
+{
+    PlayerBullet *bullet = this->bullets;
+    int i;
+
+    for (i = 0; i < 0x80; i++, bullet++)
+    {
+        if (bullet->state != 1)
+        {
+            continue;
+        }
+        if (bullet->sprite.autoRotate != 0)
+        {
+            bullet->sprite.SetRotationZ(bullet->angle);
+        }
+        bullet->sprite.pos.x = g_GameManager.ArenaToScreenX(bullet->pos.x);
+        bullet->sprite.pos.y = g_GameManager.ArenaToScreenY(bullet->pos.y);
+        bullet->sprite.pos.z = 0.4f;
+        if (bullet->unknown46e)
+        {
+            bullet->sprite.colorRgb[2] = 0xff;
+            bullet->sprite.colorRgb[1] = 0x40;
+            bullet->sprite.colorRgb[0] = 0x40;
+        }
+        if (bullet->draw != NULL)
+        {
+            bullet->draw(this, bullet);
+        }
+        else
+        {
+            g_SpriteEngine->Draw(&bullet->sprite);
+        }
+    }
+}
+
 void Player::DrawHitBullets()
 {
     PlayerBullet *bullet = this->bullets;

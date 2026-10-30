@@ -235,6 +235,10 @@ public:
     // that leave the play area or end, unless the side is frozen
     // (flags bit 0), as th08's UpdateBullets (0x41f580).
     void UpdateBullets();
+    // Draws the flying bullets (state 1) as DrawHitBullets does, through
+    // their draw callback if they have one, as th08's DrawBullets
+    // (0x41f680).
+    void DrawBullets();
     // Draws the bullets that hit (state 2) at their positions on the
     // side's screen, turned to their angle when they rotate, blue while
     // unknown46e is set, as th08's DrawHitBullets (0x41f760).
