@@ -861,7 +861,7 @@ address,size,name,symbol
 0x0043d3a0,423,MidiPlayer::MidiPlayer,??0MidiPlayer@@QAE@XZ
 0x0043d550,45,MidiPlayer::UnloadFile,?UnloadFile@MidiPlayer@@QAEXH@Z
 0x0043d580,89,MidiPlayer::FreeTracks,?FreeTracks@MidiPlayer@@QAEXXZ
-0x0043d5e0,358,Func43d5e0,
+0x0043d5e0,358,MidiPlayer::ParseFile,?ParseFile@MidiPlayer@@QAEHH@Z
 0x0043d750,55,MidiPlayer::Play,?Play@MidiPlayer@@QAEHXZ
 0x0043d790,92,MidiPlayer::ReleaseHeader,?ReleaseHeader@MidiPlayer@@QAEHPAUmidihdr_tag@@@Z
 0x0043d7f0,1216,Func43d7f0,
