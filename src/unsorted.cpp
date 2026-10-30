@@ -90,6 +90,11 @@ BOOL PlayRecord::HasCleared(char character)
     return FALSE;
 }
 
+int PlayRecord::GetClears5(char character)
+{
+    return this->clearFlags[character][5];
+}
+
 float Fabs(float x)
 {
     return (float)fabs((double)x);

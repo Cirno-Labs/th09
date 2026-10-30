@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">46.07% (487)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">53.93% (570)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">46.17% (488)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">53.83% (569)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="344.17" height="6" x="0" y="0" class="named"/>
-<rect width="402.83" height="6" x="344.17" y="0" class="todo"/>
+<rect width="344.88" height="6" x="0" y="0" class="named"/>
+<rect width="402.12" height="6" x="344.88" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -239,7 +239,7 @@
 <rect width="12" height="12" x="285" y="45" class="named"><title>0x0040e3e0 PlayRecord::OpenEntry2 (16 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="45" class="named"><title>0x0040e3f0 PlayRecord::OpenEntry3 (16 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="45" class="named"><title>0x0040e400 PlayRecord::HasCleared (75 bytes)</title></rect>
-<rect width="12" height="12" x="330" y="45" class="todo"><title>0x0040e450 Func40e450 (20 bytes)</title></rect>
+<rect width="12" height="12" x="330" y="45" class="named"><title>0x0040e450 PlayRecord::GetClears5 (20 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="45" class="todo"><title>0x0040e470 Func40e470 (14 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="45" class="todo"><title>0x0040e480 Func40e480 (101 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="45" class="todo"><title>0x0040e4f0 Func40e4f0 (133 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.57%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.43%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.58%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.42%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="176.07" height="6" x="0" y="0" class="named"/>
-<rect width="570.93" height="6" x="176.07" y="0" class="todo"/>
+<rect width="176.12" height="6" x="0" y="0" class="named"/>
+<rect width="570.88" height="6" x="176.12" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2033,7 +2033,7 @@
 <rect width="1.21" height="1.08" x="737.36" y="290.01" class="named"><title>0x00403de0 Timer::operator&gt; (20 bytes)</title></rect>
 <rect width="1.21" height="1.08" x="741.58" y="290.01" class="named"><title>0x00404950 Timer::operator== (20 bytes)</title></rect>
 <rect width="1.21" height="1.08" x="745.79" y="290.01" class="named"><title>0x00406720 Timer::operator&lt;= (20 bytes)</title></rect>
-<rect width="1.31" height="0.99" x="707.03" y="294.09" class="todo"><title>0x0040e450 Func40e450 (20 bytes)</title></rect>
+<rect width="1.31" height="0.99" x="707.03" y="294.09" class="named"><title>0x0040e450 PlayRecord::GetClears5 (20 bytes)</title></rect>
 <rect width="1.31" height="0.99" x="707.03" y="298.08" class="todo"><title>0x0040f840 Func40f840 (20 bytes)</title></rect>
 <rect width="1.31" height="0.99" x="707.03" y="302.07" class="todo"><title>0x0040f890 Func40f890 (20 bytes)</title></rect>
 <rect width="1.31" height="0.99" x="707.03" y="306.06" class="named"><title>0x004120a0 EnemyTimelineTimers::EnemyTimelineTimers (20 bytes)</title></rect>
