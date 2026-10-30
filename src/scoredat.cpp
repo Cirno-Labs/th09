@@ -70,3 +70,16 @@ void ReleaseScoreDat(ScoreDat *dat)
 {
     g_MemoryManager.Free(dat);
 }
+
+int LoadScore()
+{
+    ScoreDat *dat;
+
+    dat = LoadScoreDat("score.dat");
+    g_ScoreDatHeader = *dat;
+    LoadHscrChunks(dat);
+    LoadLsnmChunk(dat);
+    LoadPlstChunk(dat);
+    ReleaseScoreDat(dat);
+    return 0;
+}
