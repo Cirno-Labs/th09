@@ -285,7 +285,7 @@ address,size,name,symbol
 0x00415c90,23,Func415c90,
 0x00415cb0,18,Func415cb0,
 0x00415cd0,18,Func415cd0,
-0x00415cf0,6,Func415cf0,
+0x00415cf0,6,FreesResources,?FreesResources@@YIHXZ
 0x00415d00,8,SpriteEngine::ClearColorOp,?ClearColorOp@SpriteEngine@@QAEXXZ
 0x00415d10,8,SpriteEngine::ClearZWrite,?ClearZWrite@SpriteEngine@@QAEXXZ
 0x00415d20,13,Func415d20,
@@ -299,7 +299,7 @@ address,size,name,symbol
 0x004162d0,693,Func4162d0,
 0x00416590,2852,Func416590,
 0x00417130,995,Func417130,
-0x00417520,271,Func417520,
+0x00417520,271,GuiMsg::UnloadBgm,?UnloadBgm@GuiMsg@@QAEXH@Z
 0x00417630,1485,Func417630,
 0x00417c10,1474,Func417c10,
 0x004181e0,133,Func4181e0,

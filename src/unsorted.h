@@ -399,7 +399,10 @@ struct App
     unsigned char pad_454[0x590 - 0x454];
     int scene;
     int prevScene;
-    unsigned char pad_598[0x5ac - 0x598];
+    // Set when the game ends, unless it goes on to scene 3, 10 or 12:
+    // the game's objects then free their resources, as th08's.
+    int freesResources;
+    unsigned char pad_59c[0x5ac - 0x59c];
     // Set when the config turns vertical sync off.
     int noVsync;
     unsigned char pad_5b0[0x5b8 - 0x5b0];
@@ -447,6 +450,9 @@ struct App
     char *verFile;
 };
 extern App g_App;
+
+// Whether the game's objects free their resources (0x415cf0).
+int FreesResources();
 
 // The loading sprites, at 0x4b38b0.
 extern Sprite g_LoadingSprites[3];
