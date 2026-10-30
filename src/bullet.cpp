@@ -54,6 +54,15 @@ void BulletManager::ReleaseAnm()
     g_SpriteEngine->ReleaseAnm(8);
 }
 
+void Bullet::SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1)
+{
+    BulletCommand *cmd = this->SetCommand(i, concurrent, 0x10);
+
+    cmd->frames = frames;
+    cmd->arg0 = arg0;
+    cmd->arg1 = arg1;
+}
+
 void BulletManager::RemoveChain(BulletManager *mgr)
 {
     if (mgr != NULL)

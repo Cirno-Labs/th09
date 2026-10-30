@@ -30,19 +30,46 @@ struct BulletEx
 };
 ASSERT_SIZE(BulletEx, 0x2c);
 
+// A step of a bullet's behavior, as th08's (0x18 bytes).
+struct BulletCommand
+{
+    float arg0;
+    float arg1;
+    // Frames, for most flags.
+    int frames;
+    int maxTurns;
+    DWORD flag;
+    int concurrentFlag;
+};
+ASSERT_SIZE(BulletCommand, 0x18);
+
 // An enemy bullet (0x10c4 bytes). Only the fields known so far.
 struct Bullet
 {
+    // Sets command `i` to `flag`, running with the others if `concurrent`,
+    // adds the flag to flags and starts over from the first command.
+    // Returns the command (0x412610).
+    BulletCommand *SetCommand(int i, int concurrent, DWORD flag);
+    // Sets command `i` to flag 0x10, as th08's: speeding up by `arg0`
+    // towards `arg1` for `frames` (0x412680).
+    void SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1);
+
     unsigned char pad_0[0x4];
     BulletTypeSprites sprites;
     unsigned char pad_d4c[0xd88 - 0xd4c];
     Timer timer;
     Timer grazeDelayTimer;
-    unsigned char pad_da0[0xdbe - 0xda0];
+    unsigned char pad_da0[0xdb8 - 0xda0];
+    // The flags of the commands it has.
+    DWORD flags;
+    unsigned char pad_dbc[0xdbe - 0xdbc];
     // 0 while the slot is free; 6 marks the spare bullet after the last,
     // as th08's.
     unsigned short state;
-    unsigned char pad_dc0[0xf88 - 0xdc0];
+    unsigned char pad_dc0[0xdd4 - 0xdc0];
+    // The command to start next, as th08's.
+    int commandIndex;
+    BulletCommand commands[18];
     BulletEx ex[7];
     unsigned char pad_10bc[0x10c4 - 0x10bc];
 };
