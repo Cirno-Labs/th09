@@ -188,7 +188,7 @@ address,size,name,symbol
 0x0040f340,373,Func40f340,
 0x0040f4c0,151,Func40f4c0,
 0x0040f560,64,Func40f560,
-0x0040f5a0,56,Func40f5a0,
+0x0040f5a0,56,D3DXVECTOR3::operator/,??KD3DXVECTOR3@@QBE?AU0@M@Z
 0x0040f5e0,91,Func40f5e0,
 0x0040f640,385,Func40f640,
 0x0040f7d0,62,Func40f7d0,
@@ -357,7 +357,7 @@ address,size,name,symbol
 0x0041bb00,101,Player::AngleFromPlayer,?AngleFromPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
 0x0041bb70,101,Player::AngleToPlayer,?AngleToPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
 0x0041bbe0,172,LoadShtFile,?LoadShtFile@@YIHPAPAUShtFile@@PAD@Z
-0x0041bc90,162,Func41bc90,
+0x0041bc90,162,Player::AddUnknown30388,?AddUnknown30388@Player@@QAEXM@Z
 0x0041bd40,19,Sprite::SetBlendMode1,?SetBlendMode1@Sprite@@QAEXXZ
 0x0041bd60,8,Sprite::ClearBlendMode,?ClearBlendMode@Sprite@@QAEXXZ
 0x0041bd70,19,SpriteEngine::GetAnmFile,?GetAnmFile@SpriteEngine@@QAEPAUAnmFile@@H@Z

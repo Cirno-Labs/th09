@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.55% (653)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.45% (408)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">61.64% (654)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">38.36% (407)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="459.75" height="6" x="0" y="0" class="named"/>
-<rect width="287.25" height="6" x="459.75" y="0" class="todo"/>
+<rect width="460.45" height="6" x="0" y="0" class="named"/>
+<rect width="286.55" height="6" x="460.45" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -256,7 +256,7 @@
 <rect width="12" height="12" x="540" y="45" class="todo"><title>0x0040f340 Func40f340 (373 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="45" class="todo"><title>0x0040f4c0 Func40f4c0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="45" class="todo"><title>0x0040f560 Func40f560 (64 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="45" class="todo"><title>0x0040f5a0 Func40f5a0 (56 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="45" class="todo"><title>0x0040f5a0 D3DXVECTOR3::operator/ (56 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="45" class="todo"><title>0x0040f5e0 Func40f5e0 (91 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="45" class="todo"><title>0x0040f640 Func40f640 (385 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="45" class="todo"><title>0x0040f7d0 Func40f7d0 (62 bytes)</title></rect>
@@ -425,7 +425,7 @@
 <rect width="12" height="12" x="75" y="105" class="named"><title>0x0041bb00 Player::AngleFromPlayer (101 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="105" class="named"><title>0x0041bb70 Player::AngleToPlayer (101 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="105" class="named"><title>0x0041bbe0 LoadShtFile (172 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="105" class="todo"><title>0x0041bc90 Func41bc90 (162 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="105" class="named"><title>0x0041bc90 Player::AddUnknown30388 (162 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="105" class="named"><title>0x0041bd40 Sprite::SetBlendMode1 (19 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="105" class="named"><title>0x0041bd60 Sprite::ClearBlendMode (8 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="105" class="named"><title>0x0041bd70 SpriteEngine::GetAnmFile (19 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.96%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.04%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.02%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.98%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="238.76" height="6" x="0" y="0" class="named"/>
-<rect width="508.24" height="6" x="238.76" y="0" class="todo"/>
+<rect width="239.17" height="6" x="0" y="0" class="named"/>
+<rect width="507.83" height="6" x="239.17" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1556,7 +1556,7 @@
 <rect width="8.59" height="9.06" x="726.82" y="146.63" class="todo"><title>0x004225b0 Func4225b0 (163 bytes)</title></rect>
 <rect width="8.59" height="9.06" x="738.41" y="146.63" class="named"><title>0x0043b5c0 SpriteEngine::DrawVertexQuad (163 bytes)</title></rect>
 <rect width="8.59" height="9.06" x="572.78" y="158.68" class="named"><title>0x0043ca30 SpriteEngine::ReleaseAnm (163 bytes)</title></rect>
-<rect width="8.59" height="8.99" x="572.78" y="170.74" class="todo"><title>0x0041bc90 Func41bc90 (162 bytes)</title></rect>
+<rect width="8.59" height="8.99" x="572.78" y="170.74" class="named"><title>0x0041bc90 Player::AddUnknown30388 (162 bytes)</title></rect>
 <rect width="8.59" height="8.91" x="572.78" y="182.73" class="todo"><title>0x004124e0 Func4124e0 (161 bytes)</title></rect>
 <rect width="8.59" height="8.84" x="572.78" y="194.64" class="named"><title>0x00403a40 Stage::Stage (160 bytes)</title></rect>
 <rect width="8.59" height="8.84" x="572.78" y="206.48" class="named"><title>0x00429d83 MainMenu::MainMenu (160 bytes)</title></rect>
@@ -1816,7 +1816,7 @@
 <rect width="4.06" height="4.04" x="735.88" y="232.22" class="named"><title>0x00414fe0 Bullet::Bullet (58 bytes)</title></rect>
 <rect width="4.06" height="4.04" x="742.94" y="232.22" class="named"><title>0x0043e090 MidiPlayer::~MidiPlayer (58 bytes)</title></rect>
 <rect width="4.08" height="3.90" x="655.78" y="239.26" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>
-<rect width="4.08" height="3.78" x="655.78" y="246.16" class="todo"><title>0x0040f5a0 Func40f5a0 (56 bytes)</title></rect>
+<rect width="4.08" height="3.78" x="655.78" y="246.16" class="todo"><title>0x0040f5a0 D3DXVECTOR3::operator/ (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="252.95" class="named"><title>0x00414fa0 BulletTypeSprites::BulletTypeSprites (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="259.73" class="named"><title>0x0041a380 GuiSide::StartUnknown6ee8 (56 bytes)</title></rect>
 <rect width="4.08" height="3.78" x="655.78" y="266.51" class="named"><title>0x0042fec0 App::EnableFog (56 bytes)</title></rect>

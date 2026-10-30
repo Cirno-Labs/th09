@@ -226,6 +226,10 @@ public:
     // The angle from `pos` to the player, or pi / 2 at the player
     // (0x41bb70).
     float AngleToPlayer(D3DXVECTOR3 *pos);
+    // Raises unknown30388 by `amount` (and character 1 by 0.15 times
+    // more), capped at 400, and starts the front's unknown66fc when its
+    // hundreds change (0x41bc90).
+    void AddUnknown30388(float amount);
     // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
     int GetUnknown0()
@@ -304,7 +308,13 @@ public:
     unsigned char pad_1b94[0x1ba0 - 0x1b94];
     // The player's last positions, as th08's.
     D3DXVECTOR3 posHistory[0x10];
-    unsigned char pad_1c60[0x1ca8 - 0x1c60];
+    // The hitbox, the graze box and the box TouchesGrazeBox tests, as
+    // th08's.
+    D3DXVECTOR3 hitboxMin;
+    D3DXVECTOR3 hitboxMax;
+    unsigned char pad_1c78[0x1c90 - 0x1c78];
+    D3DXVECTOR3 grazeTestMin;
+    D3DXVECTOR3 grazeTestMax;
     // Half the shot file's sizes, square, with a z of 5, as th08's.
     D3DXVECTOR3 hitboxSize;
     D3DXVECTOR3 grazeSize;
@@ -325,7 +335,8 @@ public:
     // The character's shot file (plXX.sht).
     ShtFile *shtFile;
     unsigned char pad_3033c[0x30388 - 0x3033c];
-    // Lowered by SubUnknown30388, down to 1.
+    // Lowered by SubUnknown30388, down to 1, and raised by
+    // AddUnknown30388, up to 400.
     float unknown30388;
     Timer unknown3038c;
     Timer unknown30398;

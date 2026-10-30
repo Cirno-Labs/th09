@@ -60,6 +60,30 @@ static int LoadShtFile(ShtFile **out, char *path)
     return 0;
 }
 
+void Player::AddUnknown30388(float amount)
+{
+    GameSide *side;
+    int before;
+    int after;
+
+    before = (int)this->unknown30388 / 100;
+    this->unknown30388 += amount;
+    side = this->side;
+    if (side->character == 1)
+    {
+        this->unknown30388 += amount * 0.15f;
+    }
+    if (this->unknown30388 >= 400.0f)
+    {
+        this->unknown30388 = 400.0f;
+    }
+    after = (int)this->unknown30388 / 100;
+    if (before != after)
+    {
+        side->gui->StartUnknown66fc(after);
+    }
+}
+
 void PlayerHitArea::Deactivate()
 {
     this->active = 0;
