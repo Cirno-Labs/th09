@@ -412,6 +412,12 @@ public:
     // Sets the render state for `vm` and draws the projected quad, as
     // th08's (0x43a0f0).
     int DrawQuad(Sprite *vm, int flags);
+    // Sets the texture coordinates, color and w of the `count` vertices
+    // of a triangle strip across `vm`'s sprite, as th08's. Returns 0, or
+    // -1 for fewer than 3 (0x439cf0).
+    int FillSpriteStripVertices(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count);
+    // The same for a strip down the sprite, as th08's (0x439dc0).
+    int FillVerticalStripVertices(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count);
     // Sets the blend mode and the z writes for `vm`, as th08's
     // (0x43a030).
     void SetBlendModeForSprite(Sprite *vm);

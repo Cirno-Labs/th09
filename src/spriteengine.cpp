@@ -464,6 +464,44 @@ void SpriteEngine::ProjectSprite3D(Sprite *vm)
     this->lastWorldMatrix = worldMatrix;
 }
 
+int SpriteEngine::FillSpriteStripVertices(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count)
+{
+    float width;
+    float step;
+    float u;
+    float u0;
+    VertexTex1DiffuseXyzrwh *cur;
+    int i;
+    float v;
+
+    if (count < 3)
+    {
+        return -1;
+    }
+    u0 = vm->spriteData->uvEndX + vm->uvScrollX;
+    width = vm->spriteData->uvEndX - vm->spriteData->uvStartX;
+    v = vm->spriteData->uvStartY + vm->uvScrollY;
+    cur = vertices;
+    step = width / ((count + 1) / 2 - 1);
+    for (i = 0, u = u0; i < count; i += 2, cur += 2, u -= step)
+    {
+        cur->uv.x = u;
+        cur->uv.y = v;
+        cur->diffuse = vm->color;
+        cur->w = 1.0f;
+    }
+    v = vm->spriteData->uvEndY + vm->uvScrollY;
+    cur = vertices + 1;
+    for (i = 1, u = u0; i < count; i += 2, cur += 2, u -= step)
+    {
+        cur->uv.x = u;
+        cur->uv.y = v;
+        cur->diffuse = vm->color;
+        cur->w = 1.0f;
+    }
+    return 0;
+}
+
 void SpriteEngine::SetBlendModeForSprite(Sprite *vm)
 {
     if (this->blendMode != (vm->flags >> 4 & 3))

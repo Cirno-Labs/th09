@@ -793,8 +793,8 @@ address,size,name,symbol
 0x004397e0,49,SpriteEngine::RotatePoint,?RotatePoint@SpriteEngine@@QAEXPAMMMMMMM@Z
 0x00439820,622,SpriteEngine::ProjectSprite,?ProjectSprite@SpriteEngine@@QAEHPAVSprite@@@Z
 0x00439a90,595,SpriteEngine::ProjectSprite3D,?ProjectSprite3D@SpriteEngine@@QAEXPAVSprite@@@Z
-0x00439cf0,199,Func439cf0,
-0x00439dc0,199,Func439dc0,
+0x00439cf0,199,SpriteEngine::FillSpriteStripVertices,?FillSpriteStripVertices@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@H@Z
+0x00439dc0,199,SpriteEngine::FillVerticalStripVertices,?FillVerticalStripVertices@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@H@Z
 0x00439e90,411,Func439e90,
 0x0043a030,188,SpriteEngine::SetBlendModeForSprite,?SetBlendModeForSprite@SpriteEngine@@QAEXPAVSprite@@@Z
 0x0043a0f0,1067,SpriteEngine::DrawQuad,?DrawQuad@SpriteEngine@@QAEHPAVSprite@@H@Z
