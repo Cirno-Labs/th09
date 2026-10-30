@@ -414,3 +414,7 @@ int AsciiText::RegisterChain()
     g_Chain.AddToDrawChain(&g_AsciiDrawChain2, 0x17);
     return 0;
 }
+
+AsciiText::AsciiText()
+{
+}

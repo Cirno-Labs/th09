@@ -734,7 +734,7 @@ address,size,name,symbol
 0x00434390,18,AnmLoaded::GetSprite,?GetSprite@AnmLoaded@@QAEPAUSpriteData@@H@Z
 0x004343b0,10,Func4343b0,
 0x004343c0,16,AsciiText::SetGlyphWidth,?SetGlyphWidth@AsciiText@@QAEXH@Z
-0x004343d0,3,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@XZ
+0x004343d0,3,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@XZ ??0AsciiString@@QAE@XZ
 0x004343e0,251,AsciiText::Initialize,?Initialize@AsciiText@@QAEXXZ
 0x004344e0,89,AsciiText::AddedCallback,?AddedCallback@AsciiText@@SIHPAV1@@Z
 0x00434540,341,AsciiText::DrawStrings,?DrawStrings@AsciiText@@QAEXXZ
@@ -746,15 +746,15 @@ address,size,name,symbol
 0x004353f0,503,AsciiText::DrawPopups,?DrawPopups@AsciiText@@QAEXH@Z
 0x004355f0,1144,UnknownMenu::UpdateUnknownMenu,?UpdateUnknownMenu@UnknownMenu@@QAEHXZ
 0x00435a90,83,UnknownMenu::DrawUnknownMenu,?DrawUnknownMenu@UnknownMenu@@QAEXXZ
-0x00435af0,15,Func435af0,
+0x00435af0,15,AsciiPopup::AsciiPopup,??0AsciiPopup@@QAE@XZ
 0x00435b00,253,AsciiText::OnUpdate,?OnUpdate@AsciiText@@SIHPAV1@@Z
 0x00435c00,83,AsciiText::OnDraw,?OnDraw@AsciiText@@SIHPAV1@@Z
 0x00435c60,52,AsciiText::OnDraw2,?OnDraw2@AsciiText@@SIHPAV1@@Z
 0x00435ca0,157,AsciiText::RegisterChain,?RegisterChain@AsciiText@@SIHXZ
-0x00435d40,39,Func435d40,
-0x00435d70,39,Func435d70,
-0x00435da0,28,Func435da0,
-0x00435dc0,227,Func435dc0,
+0x00435d40,39,PauseMenu::PauseMenu,??0PauseMenu@@QAE@XZ
+0x00435d70,39,ContinueMenu::ContinueMenu,??0ContinueMenu@@QAE@XZ
+0x00435da0,28,UnknownMenu::UnknownMenu,??0UnknownMenu@@QAE@XZ
+0x00435dc0,227,AsciiText::AsciiText,??0AsciiText@@QAE@XZ
 0x00435eb0,4,Func435eb0,
 0x00435ec0,3,Func435ec0,
 0x00435ed0,4,Func435ed0,
