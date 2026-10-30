@@ -22,6 +22,11 @@ struct ChainElem
     // callbacks (0x42ac00).
     ~ChainElem();
 
+    // Sets the callback and clears the added and deleted callbacks. An
+    // inline function in th08; the copy the game calls is in an object
+    // built with /O1 (0x41a889).
+    void SetCallback(ChainCallback callback);
+
     // Lower runs first.
     short priority;
     // Set by Chain::CreateElem: the element was allocated with new.

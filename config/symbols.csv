@@ -332,7 +332,7 @@ address,size,name,symbol
 0x0041a796,45,Func41a796,
 0x0041a7c3,100,Func41a7c3,
 0x0041a827,98,Func41a827,
-0x0041a889,21,Func41a889,
+0x0041a889,21,ChainElem::SetCallback,?SetCallback@ChainElem@@QAEXP6IHPAX@Z@Z
 0x0041a89e,4,Func41a89e,
 0x0041a8a2,233,Func41a8a2,
 0x0041a98b,12,Func41a98b,
