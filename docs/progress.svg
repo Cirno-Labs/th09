@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">52.08% (552)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">47.92% (508)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">52.17% (553)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">47.83% (507)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="389" height="6" x="0" y="0" class="named"/>
-<rect width="358" height="6" x="389" y="0" class="todo"/>
+<rect width="389.71" height="6" x="0" y="0" class="named"/>
+<rect width="357.29" height="6" x="389.71" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -686,7 +686,7 @@
 <rect width="12" height="12" x="240" y="180" class="named"><title>0x0042ed40 App::GetPreloadBgm (13 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="180" class="named"><title>0x0042ed50 App::GetNoVsync (13 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="180" class="named"><title>0x0042ed60 App::GetNoTextRenderDetect (13 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="180" class="todo"><title>0x0042ed70 Func42ed70 (14 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="180" class="named"><title>0x0042ed70 App::HasSubThread (14 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="180" class="named"><title>0x0042ed80 App::OnDrawLoading (71 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="180" class="todo"><title>0x0042edd0 Func42edd0 (93 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="180" class="todo"><title>0x0042ee30 Func42ee30 (94 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.46%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.54%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.47%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.53%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="205.15" height="6" x="0" y="0" class="named"/>
-<rect width="541.85" height="6" x="205.15" y="0" class="todo"/>
+<rect width="205.19" height="6" x="0" y="0" class="named"/>
+<rect width="541.81" height="6" x="205.19" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2108,7 +2108,7 @@
 <rect width="0.46" height="0.47" x="739.61" y="304.99" class="todo"><title>0x00420160 Func420160 (14 bytes)</title></rect>
 <rect width="0.46" height="0.47" x="743.08" y="304.99" class="named"><title>0x0042e900 Tan (14 bytes)</title></rect>
 <rect width="0.46" height="0.47" x="746.54" y="304.99" class="named"><title>0x0042e910 tan (14 bytes)</title></rect>
-<rect width="0.29" height="0.65" x="722.30" y="308.46" class="todo"><title>0x0042ed70 Func42ed70 (14 bytes)</title></rect>
+<rect width="0.29" height="0.65" x="722.30" y="308.46" class="named"><title>0x0042ed70 App::HasSubThread (14 bytes)</title></rect>
 <rect width="0.29" height="0.65" x="722.30" y="312.12" class="named"><title>0x00436ab0 Atan (14 bytes)</title></rect>
 <rect width="0.29" height="0.65" x="722.30" y="315.77" class="named"><title>0x0043d0f0 MmTimer::DefaultCallback (14 bytes)</title></rect>
 <rect width="0.29" height="0.39" x="722.30" y="319.43" class="named"><title>0x00401460 App::GetNoFog (13 bytes)</title></rect>

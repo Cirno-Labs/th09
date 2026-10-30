@@ -604,6 +604,8 @@ struct App
     int GetPreloadBgm();
     int GetNoVsync();
     int GetNoTextRenderDetect();
+    // Whether subThread is set, as th08's (0x42ed70).
+    BOOL HasSubThread();
     // Enters and leaves criticalSections[idx], counting the depth in
     // criticalSectionDepths, as th08's (0x42b130, 0x42b160).
     void EnterCriticalSection(int idx);

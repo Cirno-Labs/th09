@@ -120,6 +120,11 @@ int App::GetNoTextRenderDetect()
     return this->config.flags.noTextRenderDetect;
 }
 
+BOOL App::HasSubThread()
+{
+    return this->subThread != NULL;
+}
+
 int App::OnDrawLoading(App *app)
 {
     DWORD i;
