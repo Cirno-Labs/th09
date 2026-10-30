@@ -103,6 +103,8 @@ public:
     // Constructs the members and initializes (0x415050).
     BulletManager();
 
+    // Clears unknown25e198 (0x412390).
+    void ClearUnknown25e198();
     // Zeroes everything, marks the spare bullets and clears the script
     // index of every bullet's sprites, as th08's Reset (0x4123c0).
     void Initialize();
@@ -140,7 +142,8 @@ public:
     // The side, and the other one.
     GameSide *side;
     GameSide *otherSide;
-    unsigned char pad_25e198[0x25e1b0 - 0x25e198];
+    // Cleared by ClearUnknown25e198.
+    int unknown25e198[6];
     // Where the searches for a free bullet start, as th08's nextBullet.
     Bullet *nextBullet;
     Bullet *nextBullet2;
