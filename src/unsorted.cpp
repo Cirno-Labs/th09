@@ -164,6 +164,22 @@ MemoryManager::MemoryManager()
     this->freeBlocksOnExit = 0;
 }
 
+MemoryManager::~MemoryManager()
+{
+    int i;
+
+    if (this->freeBlocksOnExit != 0)
+    {
+        for (i = 0; i < 0x1000; i++)
+        {
+            if (this->blocks[i] != NULL)
+            {
+                free(this->blocks[i]);
+            }
+        }
+    }
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);

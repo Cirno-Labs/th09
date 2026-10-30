@@ -18,6 +18,8 @@ class MemoryManager
 public:
     // (0x42b0d0)
     MemoryManager();
+    // Frees the blocks if freeBlocksOnExit is set (0x42b0e0).
+    ~MemoryManager();
     // malloc() and free(); `name` is unused in the release build
     // (0x401340, 0x401360).
     void *Alloc(int size, const char *name);
