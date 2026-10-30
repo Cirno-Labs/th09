@@ -1072,6 +1072,46 @@ void App::SetupCamera3D(Camera *camera)
     }
 }
 
+void App::InitCameras()
+{
+    g_App.cameras[2].eye = D3DXVECTOR3(0.0f, 0.0f, 1000.0f);
+    g_App.cameras[2].at = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+    g_App.cameras[2].up = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+    g_App.cameras[2].fov = 0.5235988f;
+    g_App.cameras[2].viewport.X = 0;
+    g_App.cameras[2].viewport.Y = 0;
+    g_App.cameras[2].viewport.Width = 640;
+    g_App.cameras[2].viewport.Height = 480;
+    g_App.cameras[2].viewport.MinZ = 0.0f;
+    g_App.cameras[2].viewport.MaxZ = 1.0f;
+    g_App.cameras[2].index = 2;
+    g_App.cameras[2].offset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+    g_App.cameras[0].eye = D3DXVECTOR3(0.0f, 0.0f, 1000.0f);
+    g_App.cameras[0].at = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+    g_App.cameras[0].up = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+    g_App.cameras[0].fov = 0.5235988f;
+    g_App.cameras[0].viewport.X = 16;
+    g_App.cameras[0].viewport.Y = 16;
+    g_App.cameras[0].viewport.Width = 288;
+    g_App.cameras[0].viewport.Height = 448;
+    g_App.cameras[0].viewport.MinZ = 0.0f;
+    g_App.cameras[0].viewport.MaxZ = 1.0f;
+    g_App.cameras[0].index = 0;
+    g_App.cameras[0].offset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+    g_App.cameras[1].eye = D3DXVECTOR3(0.0f, 0.0f, 1000.0f);
+    g_App.cameras[1].at = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+    g_App.cameras[1].up = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+    g_App.cameras[1].fov = 0.5235988f;
+    g_App.cameras[1].viewport.X = 336;
+    g_App.cameras[1].viewport.Y = 16;
+    g_App.cameras[1].viewport.Width = 288;
+    g_App.cameras[1].viewport.Height = 448;
+    g_App.cameras[1].viewport.MinZ = 0.0f;
+    g_App.cameras[1].viewport.MaxZ = 1.0f;
+    g_App.cameras[1].index = 1;
+    g_App.cameras[1].offset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+}
+
 int App::PlayMusic(int id, int arg)
 {
     DWORD i;

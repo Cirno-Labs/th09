@@ -576,7 +576,8 @@ struct Camera
     D3DXMATRIX viewMatrix;
     D3DXMATRIX projectionMatrix;
     D3DVIEWPORT8 viewport;
-    unsigned char pad_e4[0xe8 - 0xe4];
+    // Its index in App::cameras.
+    int index;
     // Copied to the sprite engine's shake when the camera is set up.
     float shakeX;
     float shakeY;
@@ -607,6 +608,10 @@ struct App
     // Sets up the projection of `camera` in 3D, from its eye, target
     // and up vectors (0x4306b0).
     void SetupCamera3D(Camera *camera);
+    // Sets up the three cameras looking down from z 1000 with a field of
+    // view of pi / 6: the whole screen (2) and the two sides' play areas
+    // (0, 1) (0x4307c0).
+    void InitCameras();
     // ResetView with SetupCamera3D. Inline; the copy is at 0x401410.
     void ResetView3D()
     {

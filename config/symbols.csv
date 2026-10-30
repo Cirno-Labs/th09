@@ -660,7 +660,7 @@ address,size,name,symbol
 0x00430560,33,App::DeleteCriticalSections,?DeleteCriticalSections@App@@QAEXXZ
 0x00430590,285,App::SetupCamera,?SetupCamera@App@@QAEXPAUCamera@@@Z
 0x004306b0,257,App::SetupCamera3D,?SetupCamera3D@App@@QAEXPAUCamera@@@Z
-0x004307c0,736,Func4307c0,
+0x004307c0,736,App::InitCameras,?InitCameras@App@@QAEXXZ
 0x00430aa0,1633,App::UpdateNetPlay,?UpdateNetPlay@App@@QAEHXZ
 0x00431110,844,App::OnUpdate,?OnUpdate@App@@SIHPAU1@@Z
 0x00431540,312,App::OnDrawLogo,?OnDrawLogo@App@@SIHPAU1@@Z
