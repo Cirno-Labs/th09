@@ -122,6 +122,26 @@ int Sprite::ResolveIntArgument(int value)
     return value;
 }
 
+float *Sprite::ResolveFloatArgumentPtr(float *value, WORD mask, int bit)
+{
+    if ((mask & 1 << bit) == 0)
+    {
+        return value;
+    }
+    switch ((int)*value)
+    {
+    case 10004:
+        return &this->scriptVarF0;
+    case 10005:
+        return &this->scriptVarF1;
+    case 10006:
+        return &this->scriptVarF2;
+    case 10007:
+        return &this->scriptVarF3;
+    }
+    return value;
+}
+
 void SpriteEngine::SendInterruptToLoadedSprites(Sprite *vms, int count, short interrupt)
 {
     while (count != 0)

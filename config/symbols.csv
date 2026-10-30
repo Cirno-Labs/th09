@@ -778,7 +778,7 @@ address,size,name,symbol
 0x00436ab0,14,Atan,?Atan@@YIMM@Z
 0x00436ac0,189,AnmLoaded::SetSprite,?SetSprite@AnmLoaded@@QAEHPAVSprite@@H@Z
 0x00436b80,144,Sprite::ResolveIntArgument,?ResolveIntArgument@Sprite@@QAEHH@Z
-0x00436c40,116,Func436c40,
+0x00436c40,116,Sprite::ResolveFloatArgumentPtr,?ResolveFloatArgumentPtr@Sprite@@QAEPAMPAMGH@Z
 0x00436cd0,106,Func436cd0,
 0x00436d70,84,Func436d70,
 0x00436de0,72,SpriteEngine::SendInterruptToLoadedSprites,?SendInterruptToLoadedSprites@SpriteEngine@@QAEXPAVSprite@@HF@Z
