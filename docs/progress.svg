@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.75% (634)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.25% (427)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">59.85% (635)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">40.15% (426)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="446.37" height="6" x="0" y="0" class="named"/>
-<rect width="300.63" height="6" x="446.37" y="0" class="todo"/>
+<rect width="447.07" height="6" x="0" y="0" class="named"/>
+<rect width="299.93" height="6" x="447.07" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -453,7 +453,7 @@
 <rect width="12" height="12" x="495" y="105" class="named"><title>0x0041d010 Player::AddDamageBox (61 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="105" class="named"><title>0x0041d050 Player::AddDamageCircle (49 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="105" class="named"><title>0x0041d090 Player::AddKind4Box (61 bytes)</title></rect>
-<rect width="12" height="12" x="540" y="105" class="todo"><title>0x0041d0d0 Func41d0d0 (49 bytes)</title></rect>
+<rect width="12" height="12" x="540" y="105" class="named"><title>0x0041d0d0 Player::AddKind4Circle (49 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="105" class="todo"><title>0x0041d110 Func41d110 (49 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="105" class="todo"><title>0x0041d150 PlayerUnknown30410::AddCombo (1516 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="105" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.05%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.95%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.07%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.93%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="231.97" height="6" x="0" y="0" class="named"/>
-<rect width="515.03" height="6" x="231.97" y="0" class="todo"/>
+<rect width="232.09" height="6" x="0" y="0" class="named"/>
+<rect width="514.91" height="6" x="232.09" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1850,7 +1850,7 @@
 <rect width="3.71" height="3.39" x="690.53" y="246.06" class="named"><title>0x0043bba0 SpriteEngine::CreateTexture (50 bytes)</title></rect>
 <rect width="3.71" height="3.39" x="697.24" y="246.06" class="named"><title>0x0043c430 AdjustTextureFormat (50 bytes)</title></rect>
 <rect width="3.58" height="3.39" x="703.95" y="246.06" class="named"><title>0x0041d050 Player::AddDamageCircle (49 bytes)</title></rect>
-<rect width="3.58" height="3.39" x="710.53" y="246.06" class="todo"><title>0x0041d0d0 Func41d0d0 (49 bytes)</title></rect>
+<rect width="3.58" height="3.39" x="710.53" y="246.06" class="named"><title>0x0041d0d0 Player::AddKind4Circle (49 bytes)</title></rect>
 <rect width="3.58" height="3.39" x="717.11" y="246.06" class="todo"><title>0x0041d110 Func41d110 (49 bytes)</title></rect>
 <rect width="3.58" height="3.39" x="723.69" y="246.06" class="named"><title>0x0042ecf0 App::RecordsMeet (49 bytes)</title></rect>
 <rect width="3.58" height="3.39" x="730.27" y="246.06" class="named"><title>0x00433dc0 LzssPredecessor (49 bytes)</title></rect>
