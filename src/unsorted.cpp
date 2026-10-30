@@ -1,5 +1,7 @@
 #include "unsorted.h"
 
+#include "timer.h"
+
 float Cos(float angle)
 {
     return (float)cos((double)angle);
@@ -13,6 +15,13 @@ float Sin(float angle)
 float Sqrt(float x)
 {
     return (float)sqrt((double)x);
+}
+
+// Outside timer.cpp: there the compiler would know that Initialize leaves
+// ecx alone, and return it instead of a copy kept in esi.
+Timer::Timer()
+{
+    this->Initialize();
 }
 
 void Vector2::SetPolar(float angle, float radius)

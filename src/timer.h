@@ -8,6 +8,8 @@
 
 struct Timer
 {
+    // Calls Initialize (0x403390).
+    Timer();
     // Starts counting from 0, with no previous count (-999999)
     // (0x4014a0).
     void Initialize();
@@ -20,6 +22,20 @@ struct Timer
     // while bit 0x20 of g_App.flags is set, adds the count to the float
     // once more and forgets the previous count (0x42f490).
     void Add(float frames);
+    // Add, from a whole number of frames (0x406600).
+    void Add(int frames);
+    // Add(-frames) (0x4065e0, 0x406620).
+    void Sub(float frames);
+    void Sub(int frames);
+    // Add and Sub as operators (0x406640, 0x406650, 0x406660, 0x41f300).
+    void operator+=(int frames);
+    void operator+=(float frames);
+    void operator-=(float frames);
+    void operator-=(int frames);
+    // Sub(1), as a postfix (0x406670).
+    void operator--(int);
+    // Whether the count changed since the last Tick or Set (0x40f810).
+    BOOL HasTicked();
     // The count with its fraction (0x4014f0).
     float AsFloat();
     // Set, as an assignment (0x401500).
@@ -28,6 +44,11 @@ struct Timer
     void operator++(int);
     BOOL operator>=(int frames);
     BOOL operator<(int frames);
+    BOOL operator>(int frames);
+    BOOL operator==(int frames);
+    BOOL operator<=(int frames);
+    // The count modulo `n` (0x40f830).
+    int operator%(int n);
 
     // `current` before the last change.
     int previous;
