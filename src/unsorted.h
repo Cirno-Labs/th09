@@ -97,6 +97,9 @@ struct GameConfigFlags
     unsigned int unusedBits : 25;
 };
 
+class AnmLoaded;
+class Sprite;
+
 // The object that runs the game (th08's App), at 0x4b3100.
 struct App
 {
@@ -120,6 +123,9 @@ struct App
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
+    // Starts the three loading sprites at `pos` unless they show, as
+    // th08's (0x4302b0).
+    void StartLoadingSprites(D3DXVECTOR3 *pos);
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();
@@ -139,7 +145,9 @@ struct App
     unsigned char pad_454[0x5b8 - 0x454];
     // Below 1 when the game runs slow.
     float gameSpeed;
-    unsigned char pad_5bc[0x5d4 - 0x5bc];
+    unsigned char pad_5bc[0x5d0 - 0x5bc];
+    // The ANM file of the loading sprites.
+    AnmLoaded *loadingAnm;
     DWORD stateFlags;
     unsigned char pad_5d8[0x6ac - 0x5d8];
     // The loading thread, as th08's.
@@ -151,10 +159,17 @@ struct App
     CRITICAL_SECTION criticalSections[5];
     // How deep each of criticalSections is entered.
     BYTE criticalSectionDepths[5];
-    unsigned char pad_73d[0x7a8 - 0x73d];
+    unsigned char pad_73d[0x740 - 0x73d];
+    // 0 while the loading sprites are hidden, 1 while they show, 2 once
+    // they are finishing.
+    int loadingState;
+    unsigned char pad_744[0x7a8 - 0x744];
     // The contents of the version file, as th08's: lines of a version,
     // a size and a checksum.
     DWORD verFileSize;
     char *verFile;
 };
 extern App g_App;
+
+// The loading sprites, at 0x4b38b0.
+extern Sprite g_LoadingSprites[3];

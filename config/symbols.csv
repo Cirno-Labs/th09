@@ -639,7 +639,7 @@ address,size,name,symbol
 0x00430220,11,Func430220,
 0x00430230,108,App::CloseSubThread,?CloseSubThread@App@@QAEXXZ
 0x004302a0,16,Func4302a0,
-0x004302b0,173,Func4302b0,
+0x004302b0,173,App::StartLoadingSprites,?StartLoadingSprites@App@@QAEXPAUD3DXVECTOR3@@@Z
 0x00430360,85,Func430360,
 0x004303c0,214,Func4303c0,
 0x004304a0,85,Func4304a0,
@@ -2203,4 +2203,5 @@ address,size,name,symbol
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b1020,,g_Log,?g_Log@@3VLog@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
+0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
