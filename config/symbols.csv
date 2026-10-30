@@ -16,7 +16,7 @@ address,size,name,symbol
 0x004012e0,21,Func4012e0,
 0x00401300,57,Func401300,
 0x00401340,19,MemoryManager::Alloc,?Alloc@MemoryManager@@QAEPAXHPBD@Z
-0x00401360,19,Func401360,
+0x00401360,19,MemoryManager::Free,?Free@MemoryManager@@QAEXPAX@Z
 0x00401380,10,Func401380,
 0x00401390,71,Func401390,
 0x004013e0,42,Func4013e0,
@@ -1602,7 +1602,7 @@ address,size,name,symbol
 0x0047b11c,9,Func47b11c,
 0x0047b125,44,__nh_malloc,
 0x0047b151,18,_malloc,_malloc
-0x0047b163,104,_free,
+0x0047b163,104,_free,_free
 0x0047b1b6,9,Func47b1b6,
 0x0047b1d4,117,_ftol2,__ftol2
 0x0047b24e,14,operator_new,
