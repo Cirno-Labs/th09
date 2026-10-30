@@ -32,3 +32,15 @@ void Player::RemoveChain(Player *player)
         delete player;
     }
 }
+
+void Player::SubUnknown30388(float amount)
+{
+    if (this->unknown30388 - amount < 1.0f)
+    {
+        this->unknown30388 = 1.0f;
+    }
+    else
+    {
+        this->unknown30388 -= amount;
+    }
+}

@@ -14,6 +14,8 @@ public:
     static void RemoveChain(Player *player);
     // Resets the player for a new round (0x41ebc0).
     void Reset();
+    // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
+    void SubUnknown30388(float amount);
 
     unsigned char pad_0[0x8];
     // The side, 0 or 1.
@@ -28,6 +30,9 @@ public:
     unsigned char pad_1b94[0x30338 - 0x1b94];
     // The character's shot file (plXX.sht).
     void *shtFile;
+    unsigned char pad_3033c[0x30388 - 0x3033c];
+    // Lowered by SubUnknown30388, down to 1.
+    float unknown30388;
 };
 
 // Each side's shot file, kept while the side keeps its character
