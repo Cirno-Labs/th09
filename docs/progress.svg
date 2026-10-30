@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">43.71% (462)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">56.29% (595)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">43.80% (463)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">56.20% (594)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="326.50" height="6" x="0" y="0" class="named"/>
-<rect width="420.50" height="6" x="326.50" y="0" class="todo"/>
+<rect width="327.21" height="6" x="0" y="0" class="named"/>
+<rect width="419.79" height="6" x="327.21" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -880,7 +880,7 @@
 <rect width="12" height="12" x="150" y="240" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="240" class="named"><title>0x0043b7b0 SpriteEngine::DrawColoredFan (318 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="240" class="named"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="240" class="todo"><title>0x0043b9c0 Func43b9c0 (472 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="240" class="named"><title>0x0043b9c0 SpriteEngine::CreateQuad (472 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="240" class="named"><title>0x0043bba0 SpriteEngine::CreateTexture (50 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="240" class="named"><title>0x0043bbe0 SpriteEngine::PreloadAnmTexture (150 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="240" class="named"><title>0x0043bc80 SpriteEngine::ReleaseTexture (48 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.23%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.77%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.40%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.60%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="143.68" height="6" x="0" y="0" class="named"/>
-<rect width="603.32" height="6" x="143.68" y="0" class="todo"/>
+<rect width="144.90" height="6" x="0" y="0" class="named"/>
+<rect width="602.10" height="6" x="144.90" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1286,7 +1286,7 @@
 <rect width="16.81" height="17.61" x="432.33" y="209.98" class="todo"><title>0x00441100 Func441100 (475 bytes)</title></rect>
 <rect width="16.81" height="17.61" x="432.33" y="230.59" class="todo"><title>0x0044be40 Func44be40 (475 bytes)</title></rect>
 <rect width="16.81" height="17.48" x="432.33" y="251.20" class="named"><title>0x00435fe0 GdiSurface::InvertAlpha (472 bytes)</title></rect>
-<rect width="16.81" height="17.48" x="432.33" y="271.69" class="todo"><title>0x0043b9c0 Func43b9c0 (472 bytes)</title></rect>
+<rect width="16.81" height="17.48" x="432.33" y="271.69" class="named"><title>0x0043b9c0 SpriteEngine::CreateQuad (472 bytes)</title></rect>
 <rect width="16.81" height="17.44" x="432.33" y="292.17" class="todo"><title>0x004415e0 Func4415e0 (471 bytes)</title></rect>
 <rect width="16.81" height="17.39" x="432.33" y="312.61" class="named"><title>0x00433aa0 LzssDecompress (470 bytes)</title></rect>
 <rect width="17.91" height="16.19" x="452.14" y="21.05" class="named"><title>0x004333f0 DatArchive::ReadTable (467 bytes)</title></rect>

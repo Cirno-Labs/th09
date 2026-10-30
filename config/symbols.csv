@@ -812,7 +812,7 @@ address,size,name,symbol
 0x0043b670,318,SpriteEngine::DrawColoredStrip,?DrawColoredStrip@SpriteEngine@@QAEHPAVSprite@@PAUVertexDiffuseXyzrwh@@H@Z
 0x0043b7b0,318,SpriteEngine::DrawColoredFan,?DrawColoredFan@SpriteEngine@@QAEHPAVSprite@@PAUVertexDiffuseXyzrwh@@H@Z
 0x0043b8f0,200,SpriteEngine::DrawVertexFan,?DrawVertexFan@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@H@Z
-0x0043b9c0,472,Func43b9c0,
+0x0043b9c0,472,SpriteEngine::CreateQuad,?CreateQuad@SpriteEngine@@QAEXXZ
 0x0043bba0,50,SpriteEngine::CreateTexture,?CreateTexture@SpriteEngine@@QAEHPAUAnmTexture@@HHH@Z
 0x0043bbe0,150,SpriteEngine::PreloadAnmTexture,?PreloadAnmTexture@SpriteEngine@@QAEHPAVAnmLoaded@@HPAH1PAUAnmFile@@@Z
 0x0043bc80,48,SpriteEngine::ReleaseTexture,?ReleaseTexture@SpriteEngine@@QAEXPAUAnmTexture@@@Z
@@ -2269,5 +2269,6 @@ address,size,name,symbol
 0x004dc548,,g_TextOutlineColor,?g_TextOutlineColor@@3KA
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
 0x004dc558,,g_DiffuseQuad,?g_DiffuseQuad@@3PAUVertexTex1DiffuseXyzrwh@@A
+0x004dc628,,g_DiffuseQuadXyz,?g_DiffuseQuadXyz@@3PAUVertexTex1DiffuseXyz@@A
 0x004dc688,,g_MidiTimerLastCounter,?g_MidiTimerLastCounter@@3T_LARGE_INTEGER@@A
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A

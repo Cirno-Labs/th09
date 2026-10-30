@@ -325,6 +325,15 @@ struct VertexTex1Xyz
     D3DXVECTOR2 uv;
 };
 
+// A vertex with an untransformed position, a color and texture
+// coordinates, as th08's.
+struct VertexTex1DiffuseXyz
+{
+    D3DXVECTOR3 pos;
+    D3DCOLOR diffuse;
+    D3DXVECTOR2 uv;
+};
+
 // Runs every sprite's script (th08's name), at *0x4dc550.
 class SpriteEngine
 {
@@ -435,6 +444,9 @@ public:
     // Draws the `count` vertices of `vertices` as a triangle fan with
     // `vm`'s texture and no z writes. Returns 0 (0x43b8f0).
     int DrawVertexFan(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count);
+    // Sets up quad, g_DiffuseQuadXyz and the vertex buffer holding quad,
+    // as th08's (0x43b9c0).
+    void CreateQuad();
     // Sets the blend mode, the texture factor color, the z writes and the
     // camera for `vm`, as th08's (0x439e90).
     void SetRenderStateForSprite(Sprite *vm);
@@ -590,7 +602,8 @@ public:
     unsigned char pad_12889[0x1288c - 0x12889];
     // The sprite data last drawn.
     void *currentSpriteData;
-    unsigned char pad_12890[0x12894 - 0x12890];
+    // Holds quad, for drawing sprites in 3D.
+    IDirect3DVertexBuffer8 *vertexBuffer;
     // The quad of a sprite 256 pixels across, as th08's.
     VertexTex1Xyz quad[4];
     // The number of quads batched to draw with FlushQuadBatch.
@@ -611,6 +624,9 @@ public:
     int pendingCopyDstHeight;
 };
 extern SpriteEngine *g_SpriteEngine;
+
+// quad, with a color, as th08's (0x4dc628).
+extern VertexTex1DiffuseXyz g_DiffuseQuadXyz[4];
 
 // 0.5f, which DrawQuad's rounding subtracts (0x490f54).
 extern const float g_Half;
