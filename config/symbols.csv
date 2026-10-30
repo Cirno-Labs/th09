@@ -865,7 +865,7 @@ address,size,name,symbol
 0x0043d750,55,MidiPlayer::Play,?Play@MidiPlayer@@QAEHXZ
 0x0043d790,92,MidiPlayer::ReleaseHeader,?ReleaseHeader@MidiPlayer@@QAEHPAUmidihdr_tag@@@Z
 0x0043d7f0,1216,Func43d7f0,
-0x0043de20,12,Func43de20,
+0x0043de20,12,MidiTimer::StartTimer,?StartTimer@MidiTimer@@QAEXXZ
 0x0043de30,83,MidiPlayer::Stop,?Stop@MidiPlayer@@QAEHXZ
 0x0043de90,505,MidiPlayer::OnTimer,?OnTimer@MidiPlayer@@UAEXXZ
 0x0043e090,58,Func43e090,

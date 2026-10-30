@@ -281,3 +281,8 @@ found:
     g_MemoryManager.Free(header);
     return 0;
 }
+
+void MidiTimer::StartTimer()
+{
+    this->Start(16, NULL, 0);
+}
