@@ -107,3 +107,40 @@ DWORD DatArchive::GetEntrySize(char *name)
     }
     return 0;
 }
+
+DatArchiveEntry *DatArchive::BuildEntryTable(BYTE *table, int count, DWORD tableOffset)
+{
+    DatArchiveEntry *entries;
+    int i;
+    DatArchiveCursor p;
+
+    entries = NULL;
+    entries = new DatArchiveEntry[count + 1];
+    if (entries == NULL)
+    {
+        goto fail;
+    }
+    p.cur = table;
+    for (i = 0; i < count; i++)
+    {
+        entries[i].name = this->DuplicateString((char *)p.cur);
+        p.SkipString();
+        entries[i].offset = *(DWORD *)p.cur;
+        p.SkipDword();
+        entries[i].size = *(DWORD *)p.cur;
+        p.SkipDword();
+        entries[i].checksum = *(DWORD *)p.cur;
+        p.SkipDword();
+    }
+    entries[count].offset = tableOffset;
+    entries[count].size = 0;
+    return entries;
+
+fail:
+    if (entries != NULL)
+    {
+        delete[] entries;
+        entries = NULL;
+    }
+    return NULL;
+}

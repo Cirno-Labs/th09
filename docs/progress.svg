@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">20% (210)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">80% (840)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">20.57% (216)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">79.43% (834)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="149.40" height="6" x="0" y="0" class="named"/>
-<rect width="597.60" height="6" x="149.40" y="0" class="todo"/>
+<rect width="153.67" height="6" x="0" y="0" class="named"/>
+<rect width="593.33" height="6" x="153.67" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -756,14 +756,14 @@
 <rect width="12" height="12" x="540" y="195" class="named"><title>0x00433050 DatArchive::FindEntry (74 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="195" class="named"><title>0x004330a0 DatArchive::DuplicateString (64 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="195" class="todo"><title>0x004330e0 File::ReadDword (18 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="195" class="todo"><title>0x00433100 DatArchiveCursor::SkipDword (12 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="195" class="todo"><title>0x00433110 DatArchiveCursor::SkipString (26 bytes)</title></rect>
-<rect width="12" height="12" x="615" y="195" class="todo"><title>0x00433130 DatArchiveEntry::DatArchiveEntry (9 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="195" class="todo"><title>0x00433140 DatArchiveEntry::~DatArchiveEntry (24 bytes)</title></rect>
-<rect width="12" height="12" x="645" y="195" class="todo"><title>0x00433160 DatArchiveEntry::`vector deleting destructor&#x27; (88 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="195" class="named"><title>0x00433100 DatArchiveCursor::SkipDword (12 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="195" class="named"><title>0x00433110 DatArchiveCursor::SkipString (26 bytes)</title></rect>
+<rect width="12" height="12" x="615" y="195" class="named"><title>0x00433130 DatArchiveEntry::DatArchiveEntry (9 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="195" class="named"><title>0x00433140 DatArchiveEntry::~DatArchiveEntry (24 bytes)</title></rect>
+<rect width="12" height="12" x="645" y="195" class="named"><title>0x00433160 DatArchiveEntry::`vector deleting destructor&#x27; (88 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="195" class="named"><title>0x004331c0 DatArchive::Decode (193 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="195" class="named"><title>0x00433290 DatArchive::GetEntrySize (29 bytes)</title></rect>
-<rect width="12" height="12" x="690" y="195" class="todo"><title>0x004332b0 DatArchive::BuildEntryTable (254 bytes)</title></rect>
+<rect width="12" height="12" x="690" y="195" class="named"><title>0x004332b0 DatArchive::BuildEntryTable (254 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="195" class="todo"><title>0x004333b0 DatArchive::Release (61 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="195" class="todo"><title>0x004333f0 DatArchive::ReadTable (467 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="195" class="todo"><title>0x004335d0 DatArchive::~DatArchive (5 bytes)</title></rect>
@@ -1121,10 +1121,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">5.69%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">94.31%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">5.83%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">94.17%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="42.51" height="6" x="0" y="0" class="named"/>
-<rect width="704.49" height="6" x="42.51" y="0" class="todo"/>
+<rect width="43.57" height="6" x="0" y="0" class="named"/>
+<rect width="703.43" height="6" x="43.57" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.43" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1417,7 +1417,7 @@
 <rect width="11.19" height="11.89" x="554.83" y="87.70" class="todo"><title>0x004306b0 Func4306b0 (257 bytes)</title></rect>
 <rect width="11.08" height="11.89" x="569.02" y="87.70" class="todo"><title>0x00407600 Func407600 (255 bytes)</title></rect>
 <rect width="11.03" height="11.89" x="583.11" y="87.70" class="todo"><title>0x00431930 Func431930 (254 bytes)</title></rect>
-<rect width="11.03" height="11.89" x="597.13" y="87.70" class="todo"><title>0x004332b0 DatArchive::BuildEntryTable (254 bytes)</title></rect>
+<rect width="11.03" height="11.89" x="597.13" y="87.70" class="named"><title>0x004332b0 DatArchive::BuildEntryTable (254 bytes)</title></rect>
 <rect width="11.03" height="11.89" x="611.16" y="87.70" class="todo"><title>0x0043a950 Func43a950 (254 bytes)</title></rect>
 <rect width="11.03" height="11.89" x="625.19" y="87.70" class="todo"><title>0x0043aa50 Func43aa50 (254 bytes)</title></rect>
 <rect width="11.03" height="11.89" x="639.22" y="87.70" class="todo"><title>0x0043afe0 Func43afe0 (254 bytes)</title></rect>
@@ -1689,7 +1689,7 @@
 <rect width="5.37" height="5.74" x="643.99" y="192.10" class="todo"><title>0x0043d580 Func43d580 (89 bytes)</title></rect>
 <rect width="5.28" height="5.74" x="652.36" y="192.10" class="named"><title>0x004156f0 ExAttackManager::Reset (88 bytes)</title></rect>
 <rect width="5.28" height="5.74" x="660.64" y="192.10" class="named"><title>0x0041aa07 GameManager::AddExtend (88 bytes)</title></rect>
-<rect width="5.28" height="5.74" x="668.92" y="192.10" class="todo"><title>0x00433160 DatArchiveEntry::`vector deleting destructor&#x27; (88 bytes)</title></rect>
+<rect width="5.28" height="5.74" x="668.92" y="192.10" class="named"><title>0x00433160 DatArchiveEntry::`vector deleting destructor&#x27; (88 bytes)</title></rect>
 <rect width="5.28" height="5.74" x="677.20" y="192.10" class="todo"><title>0x0043b0e0 Func43b0e0 (88 bytes)</title></rect>
 <rect width="5.18" height="5.74" x="685.47" y="192.10" class="todo"><title>0x0043cdd0 Func43cdd0 (87 bytes)</title></rect>
 <rect width="5.09" height="5.74" x="693.66" y="192.10" class="named"><title>0x0041ced0 Player::RemoveChain (86 bytes)</title></rect>
@@ -1985,7 +1985,7 @@
 <rect width="1.64" height="1.61" x="697.75" y="299.57" class="named"><title>0x004010b0 D3DXVECTOR3::D3DXVECTOR3 (26 bytes)</title></rect>
 <rect width="1.64" height="1.61" x="697.75" y="304.18" class="todo"><title>0x00401440 Func401440 (26 bytes)</title></rect>
 <rect width="1.64" height="1.61" x="697.75" y="308.78" class="todo"><title>0x00418930 FreeResources (26 bytes)</title></rect>
-<rect width="1.64" height="1.61" x="697.75" y="313.39" class="todo"><title>0x00433110 DatArchiveCursor::SkipString (26 bytes)</title></rect>
+<rect width="1.64" height="1.61" x="697.75" y="313.39" class="named"><title>0x00433110 DatArchiveCursor::SkipString (26 bytes)</title></rect>
 <rect width="1.89" height="1.37" x="702.39" y="270.32" class="todo"><title>0x004362c0 Func4362c0 (26 bytes)</title></rect>
 <rect width="1.89" height="1.37" x="707.29" y="270.32" class="todo"><title>0x004362e0 Func4362e0 (26 bytes)</title></rect>
 <rect width="1.89" height="1.37" x="712.18" y="270.32" class="todo"><title>0x0043d320 Func43d320 (26 bytes)</title></rect>
@@ -2000,7 +2000,7 @@
 <rect width="1.46" height="1.42" x="702.39" y="279.12" class="todo"><title>0x00415c30 Func415c30 (24 bytes)</title></rect>
 <rect width="1.46" height="1.42" x="702.39" y="283.54" class="todo"><title>0x00415d50 Func415d50 (24 bytes)</title></rect>
 <rect width="1.46" height="1.42" x="702.39" y="287.96" class="named"><title>0x0042ae50 Rng::GetRandomU32 (24 bytes)</title></rect>
-<rect width="1.46" height="1.42" x="702.39" y="292.39" class="todo"><title>0x00433140 DatArchiveEntry::~DatArchiveEntry (24 bytes)</title></rect>
+<rect width="1.46" height="1.42" x="702.39" y="292.39" class="named"><title>0x00433140 DatArchiveEntry::~DatArchiveEntry (24 bytes)</title></rect>
 <rect width="1.46" height="1.24" x="702.39" y="296.81" class="todo"><title>0x00415c90 Func415c90 (23 bytes)</title></rect>
 <rect width="1.46" height="1.24" x="702.39" y="301.05" class="todo"><title>0x0041bda0 Func41bda0 (23 bytes)</title></rect>
 <rect width="1.46" height="1.24" x="702.39" y="305.28" class="todo"><title>0x0041ee30 Func41ee30 (23 bytes)</title></rect>
@@ -2118,7 +2118,7 @@
 <rect width="0.10" height="0.29" x="743.99" y="296.88" class="named"><title>0x0041ee20 BulletEx::BulletEx (12 bytes)</title></rect>
 <rect width="0.10" height="0.29" x="747" y="296.88" class="todo"><title>0x00421e90 Func421e90 (12 bytes)</title></rect>
 <rect width="0.23" height="0.10" x="728.97" y="300.17" class="named"><title>0x0042d2c0 App::GetReferenceRasterizer (12 bytes)</title></rect>
-<rect width="0.23" height="0.10" x="728.97" y="303.22" class="todo"><title>0x00433100 DatArchiveCursor::SkipDword (12 bytes)</title></rect>
+<rect width="0.23" height="0.10" x="728.97" y="303.22" class="named"><title>0x00433100 DatArchiveCursor::SkipDword (12 bytes)</title></rect>
 <rect width="0.23" height="0.10" x="728.97" y="306.28" class="todo"><title>0x0043de20 Func43de20 (12 bytes)</title></rect>
 <rect width="0.23" height="0.10" x="728.97" y="309.34" class="todo"><title>0x00440cb0 Func440cb0 (12 bytes)</title></rect>
 <rect width="0.23" height="0.10" x="728.97" y="312.40" class="named"><title>0x004011c0 Stage::Reset (11 bytes)</title></rect>
@@ -2140,7 +2140,7 @@
 <rect width="0.10" height="0.10" x="734.98" y="312.21" class="named"><title>0x00406650 Timer::operator+= (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="734.98" y="315.11" class="named"><title>0x00406660 Timer::operator-= (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="737.54" y="303.22" class="named"><title>0x0041f300 Timer::operator-= (9 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="740.15" y="303.22" class="todo"><title>0x00433130 DatArchiveEntry::DatArchiveEntry (9 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="740.15" y="303.22" class="named"><title>0x00433130 DatArchiveEntry::DatArchiveEntry (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="742.76" y="303.22" class="todo"><title>0x004338f0 FileBase::FileBase (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="745.36" y="303.22" class="named"><title>0x00401510 Timer::operator++ (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.68" y="303.22" class="named"><title>0x00404560 SpellCard::AddedCallback (8 bytes)</title></rect>
