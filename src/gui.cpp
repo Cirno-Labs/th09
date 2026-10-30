@@ -14,3 +14,14 @@ int Gui::FreeResources(Gui *gui)
     }
     return 0;
 }
+
+void Gui::RemoveChain(Gui *gui)
+{
+    if (gui != NULL)
+    {
+        FreeResources(gui);
+        g_Chain.Remove(gui->drawElem);
+        g_Chain.Remove(gui->calcElem);
+        delete gui;
+    }
+}
