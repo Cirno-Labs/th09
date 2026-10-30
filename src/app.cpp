@@ -1,8 +1,10 @@
 #include "archive.h"
+#include "bullet.h"
 #include "ascii.h"
 #include "chain.h"
 #include "gamemanager.h"
 #include "gdisurface.h"
+#include "gui.h"
 #include "mainmenu.h"
 #include "midi.h"
 #include "screeneffect.h"
@@ -101,11 +103,6 @@ void App::ResetRun()
     g_Network->unknownB8 = 0;
 }
 
-int App::GetNoDirectInput()
-{
-    return this->config.flags.noDirectInput;
-}
-
 int App::GetPreloadBgm()
 {
     return this->config.flags.preloadBgm;
@@ -191,6 +188,87 @@ BOOL CALLBACK EnumAxesCallback2(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pCon
         }
     }
     return DIENUM_CONTINUE;
+}
+
+// Sets up DirectInput, the keyboard and up to two pads, as th08's.
+// Returns 0, or -1 if DirectInput is off or fails. Static, with the App
+// in eax (0x42eef0).
+static int InitDirectInput(App *app)
+{
+    HINSTANCE hInst = (HINSTANCE)GetWindowLongA(app->hwnd, GWL_HINSTANCE);
+
+    if (app->GetNoDirectInput())
+    {
+        return -1;
+    }
+    if (FAILED(DirectInput8Create(hInst, DIRECTINPUT_VERSION, IID_IDirectInput8, (VOID **)&app->dinput, NULL)))
+    {
+        app->dinput = NULL;
+        LogPrintf(&g_Log, "DirectInput が使用できません\r\n");
+        return -1;
+    }
+    if (FAILED(app->dinput->CreateDevice(GUID_SysKeyboard, &app->keyboard, NULL)))
+    {
+        if (app->dinput)
+        {
+            app->dinput->Release();
+            app->dinput = NULL;
+        }
+        LogPrintf(&g_Log, "DirectInput が使用できません\r\n");
+        return -1;
+    }
+    if (FAILED(app->keyboard->SetDataFormat(&c_dfDIKeyboard)))
+    {
+        if (app->keyboard)
+        {
+            app->keyboard->Release();
+            app->keyboard = NULL;
+        }
+        if (app->dinput)
+        {
+            app->dinput->Release();
+            app->dinput = NULL;
+        }
+        LogPrintf(&g_Log, "DirectInput SetDataFormat が使用できません\r\n");
+        return -1;
+    }
+    if (FAILED(app->keyboard->SetCooperativeLevel(app->hwnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND | DISCL_NOWINKEY)))
+    {
+        if (app->keyboard)
+        {
+            app->keyboard->Release();
+            app->keyboard = NULL;
+        }
+        if (app->dinput)
+        {
+            app->dinput->Release();
+            app->dinput = NULL;
+        }
+        LogPrintf(&g_Log, "DirectInput SetCooperativeLevel が使用できません\r\n");
+        return -1;
+    }
+    app->keyboard->Acquire();
+    LogPrintf(&g_Log, "DirectInput は正常に初期化されました\r\n");
+    app->dinput->EnumDevices(DI8DEVCLASS_GAMECTRL, EnumJoysticksCallback, NULL, DIEDFL_ATTACHEDONLY);
+    if (app->joystick)
+    {
+        app->joystick->SetDataFormat(&c_dfDIJoystick2);
+        app->joystick->SetCooperativeLevel(app->hwnd, DISCL_NONEXCLUSIVE | DISCL_BACKGROUND);
+        g_App.joystickCaps.dwSize = sizeof(DIDEVCAPS);
+        app->joystick->GetCapabilities(&g_App.joystickCaps);
+        app->joystick->EnumObjects(EnumAxesCallback, NULL, DIDFT_ALL);
+        LogPrintf(&g_Log, "有効なパッドを発見しました\r\n");
+    }
+    if (app->joystick2)
+    {
+        app->joystick2->SetDataFormat(&c_dfDIJoystick2);
+        app->joystick2->SetCooperativeLevel(app->hwnd, DISCL_NONEXCLUSIVE | DISCL_BACKGROUND);
+        g_App.joystickCaps2.dwSize = sizeof(DIDEVCAPS);
+        app->joystick2->GetCapabilities(&g_App.joystickCaps2);
+        app->joystick2->EnumObjects(EnumAxesCallback2, NULL, DIDFT_ALL);
+        LogPrintf(&g_Log, "もひとつ有効なパッドを発見しました\r\n");
+    }
+    return 0;
 }
 
 int OpenGameArchive()
@@ -1282,6 +1360,126 @@ int App::OnDraw(App *app)
         g_SpriteEngine->DrawUnrotated(g_App.unknown584);
     }
     return 1;
+}
+
+void App::LoadingThread(App *app)
+{
+    float vol;
+
+    g_App.hideFps = 0;
+    g_App.unknown5a4 = 0;
+    g_App.lastPlayTimeTick = timeGetTime();
+    InitDirectInput(&g_App);
+    if (g_App.midi == NULL)
+    {
+        g_App.midi = (MidiPlayer *)g_MemoryManager.Register(new MidiPlayer(), sizeof(MidiPlayer), "MidiSysInf");
+    }
+    if (g_App.midi != NULL)
+    {
+        g_App.midi->LoadFile(0x1e, "bgm/init.mid");
+    }
+    g_SoundPlayer.LoadSounds();
+    g_App.textAnm = g_SpriteEngine->PreloadAnm(0, "text.anm");
+    if (g_App.textAnm == NULL)
+    {
+        goto fail;
+    }
+    g_App.unknown584 = (Sprite *)g_MemoryManager.Register(new Sprite(), sizeof(Sprite), "SprtInf");
+    g_App.textAnm->InitSprite(g_App.unknown584, 0x1f);
+    g_App.unknown584->pos.x = 320.0f;
+    g_App.unknown584->pos.y = 240.0f;
+    g_App.unknown584->pos.z = 0.0f;
+    if (AsciiText::RegisterChain() != 0)
+    {
+        if (g_App.closeSubThread)
+        {
+            return;
+        }
+        LogPrintf(&g_Log, "error : 文字の初期化に失敗しました\r\n");
+        goto fail;
+    }
+    if (BulletManager::LoadAnm())
+    {
+        if (g_App.closeSubThread)
+        {
+            return;
+        }
+        LogPrintf(&g_Log, "error : 敵弾の初期化に失敗しました\r\n");
+        goto fail;
+    }
+    if (Gui::LoadAnm())
+    {
+        if (g_App.closeSubThread)
+        {
+            return;
+        }
+        LogPrintf(&g_Log, "error : 表示物の初期化に失敗しました\r\n");
+        goto fail;
+    }
+    if (g_SoundPlayer.LoadBgmFormat("bgm/thbgm.fmt") != 0)
+    {
+        if (g_App.closeSubThread)
+        {
+            return;
+        }
+        LogPrintf(&g_Log, "error : BGM の初期化に失敗しました\r\n");
+        goto fail;
+    }
+    g_SoundPlayer.bgmVolume = g_App.config.bgmVolume;
+    g_SoundPlayer.seVolume = g_App.config.seVolume;
+    vol = g_SoundPlayer.bgmVolume / 100.0f;
+    if (g_SoundPlayer.seVolume != 0)
+    {
+        vol = (vol = (vol = 1.0f - vol) * vol) * vol;
+        vol = 1.0f - vol;
+        g_SoundPlayer.bgmBufferVolume = -5000 - (int)(vol * -5000.0f);
+    }
+    else
+    {
+        g_SoundPlayer.bgmBufferVolume = -10000;
+    }
+    if (g_SoundPlayer.bgmFileOffset == 0)
+    {
+        if (!g_App.GetPreloadBgm())
+        {
+            g_SoundPlayer.LoadBgm("thbgm.dat");
+        }
+        else
+        {
+            strcpy(g_SoundPlayer.bgmPath, "thbgm.dat");
+        }
+    }
+    else
+    {
+        if (!g_App.GetPreloadBgm())
+        {
+            g_SoundPlayer.LoadBgm("th09.dat");
+        }
+        else
+        {
+            strcpy(g_SoundPlayer.bgmPath, "th09.dat");
+        }
+    }
+    LoadScore();
+    if (g_App.stateFlags >> 6 & 1)
+    {
+        g_App.timer = (MidiTimer *)g_MemoryManager.Register(new MidiTimer(), sizeof(MidiTimer), "DummyTimerSysInf");
+        if (g_App.timer != NULL)
+        {
+            g_App.timer->StartTimer();
+        }
+    }
+    g_App.ResetSubThread();
+    g_App.loadingThreadState = 0;
+    g_App.stateFlags &= ~0x100;
+    g_GameManager.sides[0].character = 0;
+    g_GameManager.sides[1].character = 1;
+    return;
+
+fail:
+    g_App.ResetSubThread();
+    g_App.loadingThreadState = 2;
+    g_App.stateFlags |= 0x80;
 }
 
 int App::AddedCallback(App *app)

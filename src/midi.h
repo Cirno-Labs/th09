@@ -255,4 +255,7 @@ public:
     void StartTimer();
     // Stops the timer (0x43d2a0).
     void StopTimer();
+
+    int unknown10;
 };
+ASSERT_SIZE(MidiTimer, 0x14);

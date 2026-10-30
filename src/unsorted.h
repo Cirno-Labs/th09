@@ -316,8 +316,8 @@ struct GameConfig
     BYTE unknownB7;
     BYTE unknownB8;
     BYTE unknownB9;
-    BYTE bgmVolume;
-    BYTE seVolume;
+    char bgmVolume;
+    char seVolume;
     unsigned char pad_bc[0xc8 - 0xbc];
     GameConfigFlags flags;
 };
@@ -325,6 +325,7 @@ ASSERT_SIZE(GameConfig, 0xcc);
 
 class AnmLoaded;
 class MidiPlayer;
+class MidiTimer;
 class Sprite;
 
 // A piece of music.
@@ -602,7 +603,10 @@ struct App
     int GetForce16BitTextures();
     int GetReferenceRasterizer();
     int GetWindowed();
-    int GetNoDirectInput();
+    int GetNoDirectInput()
+    {
+        return this->config.flags.noDirectInput;
+    }
     int GetPreloadBgm();
     int GetNoVsync();
     int GetNoTextRenderDetect();
@@ -740,7 +744,8 @@ struct App
     int view;
     // The parameters the device is created with, as th08's.
     D3DPRESENT_PARAMETERS presentParams;
-    unsigned char pad_384[0x388 - 0x384];
+    // The 16 ms timer LoadingThread starts if stateFlags bit 6 is set.
+    MidiTimer *timer;
     GameConfig config;
     // Counts the frames, as th08's.
     int frames;
@@ -769,7 +774,9 @@ struct App
     int freesResources;
     // Set when the game restarts, as th08's isRestarting.
     int unknown59c;
-    unsigned char pad_5a0[0x5a8 - 0x5a0];
+    unsigned char pad_5a0[0x5a4 - 0x5a0];
+    // Cleared by LoadingThread, as th08's redrawFrames.
+    int unknown5a4;
     // Set while the frame rate is not shown, as th08's.
     int hideFps;
     // Set when the config turns vertical sync off.
@@ -851,6 +858,9 @@ public:
 BOOL CALLBACK EnumJoysticksCallback(const DIDEVICEINSTANCE *pdidInstance, VOID *pContext);
 BOOL CALLBACK EnumAxesCallback(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pContext);
 BOOL CALLBACK EnumAxesCallback2(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pContext);
+
+// Loads score.dat (0x421ea0).
+int LoadScore();
 
 class ScreenEffect;
 // The loading screen's fade, at 0x4b30f8.

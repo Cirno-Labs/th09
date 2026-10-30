@@ -448,7 +448,7 @@ address,size,name,symbol
 0x00421b80,178,Func421b80,
 0x00421c80,523,Func421c80,
 0x00421e90,12,Func421e90,
-0x00421ea0,98,Func421ea0,
+0x00421ea0,98,LoadScore,?LoadScore@@YIHXZ
 0x00421f10,32,Func421f10,
 0x00421f30,713,Func421f30,
 0x00422200,139,Func422200,
@@ -623,10 +623,10 @@ address,size,name,symbol
 0x0042edd0,93,EnumJoysticksCallback,?EnumJoysticksCallback@@YGHPBUDIDEVICEINSTANCEA@@PAX@Z
 0x0042ee30,94,EnumAxesCallback,?EnumAxesCallback@@YGHPBUDIDEVICEOBJECTINSTANCEA@@PAX@Z
 0x0042ee90,94,EnumAxesCallback2,?EnumAxesCallback2@@YGHPBUDIDEVICEOBJECTINSTANCEA@@PAX@Z
-0x0042eef0,517,Func42eef0,
+0x0042eef0,517,InitDirectInput,?InitDirectInput@@YIHPAUApp@@@Z
 0x0042f100,145,OpenGameArchive,?OpenGameArchive@@YIHXZ
 0x0042f1a0,517,MeasureRefreshRate,?MeasureRefreshRate@@YIHXZ
-0x0042f3b0,18,Func42f3b0,
+0x0042f3b0,18,MidiTimer::MidiTimer,??0MidiTimer@@QAE@XZ
 0x0042f3d0,31,SpriteEngine::ReleaseVertexBuffer,?ReleaseVertexBuffer@SpriteEngine@@QAEXXZ
 0x0042f400,17,SpriteEngine::GetSurface,?GetSurface@SpriteEngine@@QAEPAUIDirect3DSurface8@@H@Z
 0x0042f420,101,SpriteEngine::SetPendingSurfaceCopy,?SetPendingSurfaceCopy@SpriteEngine@@QAEHHHHHHHHHH@Z
@@ -1059,6 +1059,7 @@ address,size,name,symbol
 0x0044c350,361,Func44c350,
 0x0044c4c0,446,Func44c4c0,
 0x0044c790,972,Func44c790,
+0x0044e5a0,,DirectInput8Create,_DirectInput8Create@20
 0x0044e5a6,,DirectSoundCreate8,_DirectSoundCreate8@12
 0x0044e5b2,45,Func44e5b2,
 0x0044e5ec,42,Func44e5ec,
@@ -2231,7 +2232,11 @@ address,size,name,symbol
 0x00490f54,,g_Half,?g_Half@@3MB
 0x00490f58,,g_TextureFormats,?g_TextureFormats@@3QBW4_D3DFORMAT@@B
 0x00490f70,,g_TextureFormatSizes,?g_TextureFormatSizes@@3QBHB
+0x00491854,,c_dfDIJoystick2,_c_dfDIJoystick2
+0x00491a5c,,c_dfDIKeyboard,_c_dfDIKeyboard
 0x004952e0,,IID_IDirectSoundNotify,_IID_IDirectSoundNotify
+0x004952f0,,GUID_SysKeyboard,_GUID_SysKeyboard
+0x00495390,,IID_IDirectInput8A,_IID_IDirectInput8A
 0x004953d0,,GUID_NULL,_GUID_NULL
 0x004a1128,,g_Unknown4a1128,?g_Unknown4a1128@@3PAHA
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
