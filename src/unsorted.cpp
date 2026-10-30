@@ -367,6 +367,27 @@ found:
     }
 }
 
+int LogPrintf(Log *log, const char *fmt, ...)
+{
+    int len2;
+    char buf[0x2000];
+    va_list args;
+
+    va_start(args, fmt);
+    g_App.EnterCriticalSection(3);
+    vsprintf(buf, fmt, args);
+    len2 = strlen(buf);
+    if (log->cursor + len2 < log->buffer + sizeof(log->buffer) - 1)
+    {
+        strcpy(log->cursor, buf);
+        log->cursor += len2;
+        *log->cursor = '\0';
+    }
+    va_end(args);
+    g_App.LeaveCriticalSection(3);
+    return (int)fmt;
+}
+
 void Chain::Remove(ChainElem *elem)
 {
     g_App.EnterCriticalSection(0);

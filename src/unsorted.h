@@ -62,6 +62,10 @@ public:
 };
 extern Log g_Log;
 
+// Appends a printf-style message to `log` if it fits, inside critical
+// section 3, as th08's. Returns `fmt` (0x42c5c0).
+int LogPrintf(Log *log, const char *fmt, ...);
+
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);

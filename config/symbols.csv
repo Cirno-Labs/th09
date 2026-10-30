@@ -554,7 +554,7 @@ address,size,name,symbol
 0x0042c370,267,Func42c370,
 0x0042c480,92,Func42c480,
 0x0042c4e0,210,Func42c4e0,
-0x0042c5c0,153,LogPrintf,
+0x0042c5c0,153,LogPrintf,?LogPrintf@@YAHPAVLog@@PBDZZ
 0x0042c660,153,Func42c660,
 0x0042c700,179,Func42c700,
 0x0042c7e0,186,Func42c7e0,
@@ -1640,7 +1640,7 @@ address,size,name,symbol
 0x0047c2eb,50,__onexit,
 0x0047c31d,6,Func47c31d,
 0x0047c323,18,_atexit,
-0x0047c335,87,_vsprintf,
+0x0047c335,87,_vsprintf,_vsprintf
 0x0047c390,96,_memset,
 0x0047c3f0,139,_strlen,
 0x0047c47b,88,_sprintf,
@@ -1650,7 +1650,7 @@ address,size,name,symbol
 0x0047c71b,44,Func47c71b,
 0x0047c750,672,_memcpy,
 0x0047ca90,31,Func47ca90,
-0x0047cab0,61,__chkstk,
+0x0047cab0,61,__chkstk,__chkstk
 0x0047caf0,45,_strrchr,_strrchr
 0x0047cb30,195,_strchr,_strchr
 0x0047cbee,52,_sscanf,_sscanf
