@@ -71,6 +71,15 @@ struct EnemyUnknown30
 };
 ASSERT_SIZE(EnemyUnknown30, 0x30);
 
+// An ECL instruction. Only the fields known so far: the enemy script
+// function instruction takes the function in args[0] and passes it the
+// instruction.
+struct EclInstr
+{
+    unsigned char pad_0[0xc];
+    int args[2];
+};
+
 // The state of an enemy's ECL script, as th08's EnemyScriptState (0x22c
 // bytes). Only the fields known so far; its implicit constructor is at
 // 0x4120d0.
@@ -166,7 +175,9 @@ struct Enemy
     short deathSub;
     unsigned char pad_2d30[0x2d70 - 0x2d30];
     short pendingInterrupt;
-    unsigned char pad_2d72[0x2d8c - 0x2d72];
+    unsigned char pad_2d72[0x2d74 - 0x2d72];
+    D3DXVECTOR3 pos;
+    unsigned char pad_2d80[0x2d8c - 0x2d80];
     D3DXVECTOR3 velocity;
     unsigned char pad_2d98[0x2dbc - 0x2d98];
     D3DXVECTOR3 hitboxSize;

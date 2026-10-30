@@ -127,10 +127,11 @@ address,size,name,symbol
 0x00408560,349,Func408560,
 0x004086c0,14777,Func4086c0,
 0x0040c390,41,Func40c390,
+0x0040c3c0,41,SendExAttack1,?SendExAttack1@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c530,563,Func40c530,
-0x0040c770,70,SendExAttackA,?SendExAttackA@@YIXPAUEnemy@@PAX@Z
-0x0040c7c0,69,SendExAttackB,?SendExAttackB@@YIXPAUEnemy@@PAX@Z
-0x0040c810,69,SendExAttackC,?SendExAttackC@@YIXPAUEnemy@@PAX@Z
+0x0040c770,70,SendExAttack10,?SendExAttack10@@YIXPAUEnemy@@PAUEclInstr@@@Z
+0x0040c7c0,69,SendExAttack11,?SendExAttack11@@YIXPAUEnemy@@PAUEclInstr@@@Z
+0x0040c810,69,SendExAttack12,?SendExAttack12@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c860,226,Func40c860,
 0x0040c950,14,EffectManager::Init,?Init@EffectManager@@QAEXXZ
 0x0040c990,194,EffectManager::Reset,?Reset@EffectManager@@QAEXXZ

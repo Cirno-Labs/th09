@@ -59,7 +59,12 @@ int EclManager::StartSub(EnemyUnknown22c *ctx, short sub)
     return 0;
 }
 
-void SendExAttackA(Enemy *enemy, void *instr)
+void SendExAttack1(Enemy *enemy, EclInstr *instr)
+{
+    g_GameManager.exAttackManager->AddAttack(1, &enemy->pos, 1 - enemy->manager->sideIdx, 0);
+}
+
+void SendExAttack10(Enemy *enemy, EclInstr *instr)
 {
     D3DXVECTOR3 pos;
 
@@ -69,7 +74,7 @@ void SendExAttackA(Enemy *enemy, void *instr)
     g_GameManager.exAttackManager->AddAttack(10, &pos, 1 - enemy->manager->sideIdx, 0);
 }
 
-void SendExAttackB(Enemy *enemy, void *instr)
+void SendExAttack11(Enemy *enemy, EclInstr *instr)
 {
     D3DXVECTOR3 pos;
 
@@ -79,7 +84,7 @@ void SendExAttackB(Enemy *enemy, void *instr)
     g_GameManager.exAttackManager->AddAttack(11, &pos, 1 - enemy->manager->sideIdx, 0);
 }
 
-void SendExAttackC(Enemy *enemy, void *instr)
+void SendExAttack12(Enemy *enemy, EclInstr *instr)
 {
     D3DXVECTOR3 pos;
 
