@@ -11,6 +11,11 @@ int App::GetNoScore()
     return this->stateFlags >> 3 & 1;
 }
 
+int App::GetForce16BitTextures()
+{
+    return this->flags.force16BitTextures;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;

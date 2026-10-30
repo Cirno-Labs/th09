@@ -54,6 +54,8 @@ struct App
     int GetNoFog();
     // Bit 3 of stateFlags, as th08's GetNoScore (0x420180).
     int GetNoScore();
+    // (0x42d2b0)
+    int GetForce16BitTextures();
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);

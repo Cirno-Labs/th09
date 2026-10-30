@@ -573,7 +573,7 @@ address,size,name,symbol
 0x0042d140,225,Func42d140,
 0x0042d230,10,Func42d230,
 0x0042d240,80,Func42d240,
-0x0042d2b0,10,Func42d2b0,
+0x0042d2b0,10,App::GetForce16BitTextures,?GetForce16BitTextures@App@@QAEHXZ
 0x0042d2c0,12,Func42d2c0,
 0x0042d2d0,8,Func42d2d0,
 0x0042d2e0,8,SpriteEngine::ClearLastCameraSetupFlag,?ClearLastCameraSetupFlag@SpriteEngine@@QAEXXZ
