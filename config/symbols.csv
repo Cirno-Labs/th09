@@ -161,8 +161,8 @@ address,size,name,symbol
 0x0040e2d0,18,Func40e2d0,
 0x0040e2f0,115,Func40e2f0,
 0x0040e370,8,SpriteEngine::ClearBlendMode,?ClearBlendMode@SpriteEngine@@QAEXXZ
-0x0040e380,8,Func40e380,
-0x0040e390,11,Func40e390,
+0x0040e380,8,SpriteEngine::ClearVertexFormat,?ClearVertexFormat@SpriteEngine@@QAEXXZ
+0x0040e390,11,SpriteEngine::ClearSpriteData,?ClearSpriteData@SpriteEngine@@QAEXXZ
 0x0040e3a0,37,Func40e3a0,
 0x0040e3d0,16,Func40e3d0,
 0x0040e3e0,16,Func40e3e0,
@@ -286,8 +286,8 @@ address,size,name,symbol
 0x00415cb0,18,Func415cb0,
 0x00415cd0,18,Func415cd0,
 0x00415cf0,6,Func415cf0,
-0x00415d00,8,Func415d00,
-0x00415d10,8,Func415d10,
+0x00415d00,8,SpriteEngine::ClearColorOp,?ClearColorOp@SpriteEngine@@QAEXXZ
+0x00415d10,8,SpriteEngine::ClearZWrite,?ClearZWrite@SpriteEngine@@QAEXXZ
 0x00415d20,13,Func415d20,
 0x00415d30,15,Func415d30,
 0x00415d40,14,Func415d40,
@@ -576,7 +576,7 @@ address,size,name,symbol
 0x0042d2b0,10,Func42d2b0,
 0x0042d2c0,12,Func42d2c0,
 0x0042d2d0,8,Func42d2d0,
-0x0042d2e0,8,Func42d2e0,
+0x0042d2e0,8,SpriteEngine::ClearLastCameraSetupFlag,?ClearLastCameraSetupFlag@SpriteEngine@@QAEXXZ
 0x0042d2f0,43,Func42d2f0,
 0x0042d320,167,Func42d320,
 0x0042d3d0,249,Func42d3d0,

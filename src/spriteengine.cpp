@@ -37,6 +37,11 @@ void SpriteEngine::ClearBlendMode()
     this->blendMode = 3;
 }
 
+void SpriteEngine::ClearVertexFormat()
+{
+    this->vertexFormat = 0xff;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)

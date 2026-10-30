@@ -105,6 +105,8 @@ public:
     void SetColorModulation(D3DCOLOR color);
     // Forgets the blend mode last set, as ClearTexture (0x40e370).
     void ClearBlendMode();
+    // The same for the vertex format (0x40e380).
+    void ClearVertexFormat();
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
 
