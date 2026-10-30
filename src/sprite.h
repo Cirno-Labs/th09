@@ -309,6 +309,14 @@ struct VertexTex1DiffuseXyzrwh
     } uv;
 };
 
+// A vertex with an untransformed position and texture coordinates, as
+// th08's.
+struct VertexTex1Xyz
+{
+    D3DXVECTOR3 pos;
+    D3DXVECTOR2 uv;
+};
+
 // Runs every sprite's script (th08's name), at *0x4dc550.
 class SpriteEngine
 {
@@ -524,7 +532,9 @@ public:
     float shakeY;
     // The loaded ANM files, by slot.
     AnmLoaded anms[0x100];
-    unsigned char pad_12024[0x123fc - 0x12024];
+    // The world matrix ProjectSprite3D last used.
+    D3DXMATRIX lastWorldMatrix;
+    unsigned char pad_12064[0x123fc - 0x12064];
     // Images loaded as surfaces to copy to the back buffer from, as
     // th08's.
     IDirect3DSurface8 *surfaces[0x20];
@@ -548,7 +558,9 @@ public:
     unsigned char pad_12889[0x1288c - 0x12889];
     // The sprite data last drawn.
     void *currentSpriteData;
-    unsigned char pad_12890[0x128e4 - 0x12890];
+    unsigned char pad_12890[0x12894 - 0x12890];
+    // The quad of a sprite 256 pixels across, as th08's.
+    VertexTex1Xyz quad[4];
     // The number of quads batched to draw with FlushQuadBatch.
     int batchQuadCount;
     // The batched quads, two triangles each.

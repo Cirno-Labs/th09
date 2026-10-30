@@ -1079,13 +1079,17 @@ address,size,name,symbol
 0x0044eef0,47,Func44eef0,
 0x0044ef1f,119,Func44ef1f,
 0x0044f119,13,Func44f119,
+0x0044f126,6,D3DXMatrixMultiply,_D3DXMatrixMultiply@12
 0x0044f362,13,Func44f362,
 0x0044f625,13,Func44f625,
 0x0044f9c5,46,Func44f9c5,
 0x0044fa4f,46,Func44fa4f,
 0x0044fad9,28,Func44fad9,
+0x0044faf5,6,D3DXMatrixRotationX,_D3DXMatrixRotationX@8
 0x0044fb75,28,Func44fb75,
+0x0044fb91,6,D3DXMatrixRotationY,_D3DXMatrixRotationY@8
 0x0044fc12,28,Func44fc12,
+0x0044fc2e,6,D3DXMatrixRotationZ,_D3DXMatrixRotationZ@8
 0x0044fcb0,32,Func44fcb0,
 0x0044fcd0,258,Func44fcd0,
 0x0044fdd2,13,Func44fdd2,
