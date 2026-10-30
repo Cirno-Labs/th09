@@ -166,7 +166,7 @@ address,size,name,symbol
 0x0040e370,8,SpriteEngine::ClearBlendMode,?ClearBlendMode@SpriteEngine@@QAEXXZ
 0x0040e380,8,SpriteEngine::ClearVertexFormat,?ClearVertexFormat@SpriteEngine@@QAEXXZ
 0x0040e390,11,SpriteEngine::ClearSpriteData,?ClearSpriteData@SpriteEngine@@QAEXXZ
-0x0040e3a0,37,Func40e3a0,
+0x0040e3a0,37,PlayRecord::AddClear,?AddClear@PlayRecord@@QAEXDH@Z
 0x0040e3d0,16,Func40e3d0,
 0x0040e3e0,16,Func40e3e0,
 0x0040e3f0,16,Func40e3f0,
@@ -2246,9 +2246,6 @@ address,size,name,symbol
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
 0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
-0x004a81cc,,g_OpenEntries,?g_OpenEntries@@3PAEA
-0x004a81dc,,g_OpenEntries2,?g_OpenEntries2@@3PAEA
-0x004a81ec,,g_OpenEntries3,?g_OpenEntries3@@3PAEA
 0x004ac858,,g_Hscr,?g_Hscr@@3UHscr@@A
 0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
 0x004acc00,,g_PathBuffer,?g_PathBuffer@@3PADA

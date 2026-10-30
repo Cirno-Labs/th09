@@ -87,7 +87,7 @@ void MainMenu::SkipClosedEntries(int idx, int delta, char *entries, int count)
         return;
     }
     int *cursor = &this->cursors[idx];
-    while (!g_OpenEntries[entries[*cursor]])
+    while (!g_PlayRecord.openEntries[entries[*cursor]])
     {
         *cursor += delta;
         if (*cursor < 0)
@@ -108,7 +108,7 @@ void MainMenu::SkipClosedEntries2(int idx, int delta, char *entries, int count)
         return;
     }
     int *cursor = &this->cursors[idx];
-    while (!g_OpenEntries2[entries[*cursor]])
+    while (!g_PlayRecord.openEntries2[entries[*cursor]])
     {
         *cursor += delta;
         if (*cursor < 0)
@@ -129,7 +129,7 @@ void MainMenu::SkipClosedEntries3(int idx, int delta, char *entries, int count)
         return;
     }
     int *cursor = &this->cursors[idx];
-    while (!g_OpenEntries3[entries[*cursor]])
+    while (!g_PlayRecord.openEntries3[entries[*cursor]])
     {
         *cursor += delta;
         if (*cursor < 0)

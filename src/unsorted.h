@@ -211,6 +211,43 @@ struct PlayerInput
 ASSERT_SIZE(PlayerInput, 0x8e);
 extern PlayerInput g_PlayerInputs[3];
 
+// The record of what has been played, at 0x4a8180, around g_RunTime
+// and g_PlayTime (+0xc, +0x1c). Only what is known so far.
+struct PlayRecord
+{
+    // Counts a clear of character `character` on difficulty
+    // `difficulty`, up to 999999 (0x40e3a0).
+    void AddClear(char character, int difficulty);
+    // Opens entry `entry` of the three menus' lists (0x40e3d0, 0x40e3e0,
+    // 0x40e3f0).
+    void OpenEntry(char entry);
+    void OpenEntry2(char entry);
+    void OpenEntry3(char entry);
+    // Whether character `character` has a clear on any of the five
+    // difficulties (0x40e400).
+    BOOL HasCleared(char character);
+    // Character `character`'s count for difficulty 5 (0x40e450).
+    int GetClears5(char character);
+    // Whether unknown118 is 0 (0x40e470).
+    BOOL IsUnknown118Zero();
+    // Character `character`'s count for difficulty `difficulty`, or,
+    // when it is negative, those of the first four or'ed together
+    // (0x4234a7).
+    int GetClearFlags(char character, int difficulty);
+
+    unsigned char pad_0[0x4c];
+    // Which entries of three of the menus' lists are open.
+    BYTE openEntries[16];
+    BYTE openEntries2[16];
+    BYTE openEntries3[16];
+    // Each character's clears on each difficulty; how many characters
+    // is not known.
+    int clearFlags[6][6];
+    unsigned char pad_10c[0x118 - 0x10c];
+    int unknown118;
+};
+extern PlayRecord g_PlayRecord;
+
 // The header of thbgm.dat, as th08's.
 struct BgmDatHeader
 {

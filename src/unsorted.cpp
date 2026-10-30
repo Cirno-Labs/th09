@@ -55,6 +55,15 @@ void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
     }
 }
 
+void PlayRecord::AddClear(char character, int difficulty)
+{
+    int *clears = &this->clearFlags[character][difficulty];
+    if (*clears < 999999)
+    {
+        *clears += 1;
+    }
+}
+
 float Fabs(float x)
 {
     return (float)fabs((double)x);
