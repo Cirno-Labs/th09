@@ -3,7 +3,14 @@
 // exception frame to free the block if the constructor throws.
 #include "effect.h"
 #include "gamemanager.h"
+#include "player.h"
 #include "unsorted.h"
+
+int EffectUpdateFollowPlayer(Effect *effect)
+{
+    effect->pos = effect->mgr->side->player->pos;
+    return 1;
+}
 
 void EffectManager::Reset()
 {

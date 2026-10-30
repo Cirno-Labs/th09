@@ -140,6 +140,7 @@ address,size,name,symbol
 0x0040c810,69,SendExAttack12,?SendExAttack12@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c860,226,SendExAttack22,?SendExAttack22@@YIXPAUEnemy@@PAUEclInstr@@@Z
 0x0040c950,14,EffectManager::Init,?Init@EffectManager@@QAEXXZ
+0x0040c960,38,EffectUpdateFollowPlayer,?EffectUpdateFollowPlayer@@YIHPAUEffect@@@Z
 0x0040c990,194,EffectManager::Reset,?Reset@EffectManager@@QAEXXZ
 0x0040ca60,407,Func40ca60,
 0x0040cc00,184,EffectManager::SpawnParticles,?SpawnParticles@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@HK@Z

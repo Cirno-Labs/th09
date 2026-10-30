@@ -9,11 +9,13 @@
 
 struct GameSide;
 class AnmLoaded;
+class EffectManager;
 
 // An effect (0xd8 bytes). Only the fields known so far.
 struct Effect
 {
-    unsigned char pad_0[0x4];
+    // The effect's manager.
+    EffectManager *mgr;
     // A block of the effect's own; EffectUpdate40e080 turns its float at
     // 8 (a Sprite's rotation.z?) with the effect.
     float *unknown04;
@@ -105,3 +107,8 @@ ASSERT_SIZE(EffectManager, 0x2dc);
 // effect 256 along its angle and turns unknown04[2] to the angle plus
 // pi/2. Returns 0 (0x40e080).
 int EffectUpdate40e080(Effect *effect);
+
+// An effect update callback of the effect table: puts the effect on its
+// side's player, as th08's EffectUpdateFollowPlayer. Returns 1
+// (0x40c960).
+int EffectUpdateFollowPlayer(Effect *effect);
