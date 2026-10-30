@@ -745,7 +745,7 @@ address,size,name,symbol
 0x00435370,117,ContinueMenu::DrawContinueMenu,?DrawContinueMenu@ContinueMenu@@QAEXXZ
 0x004353f0,503,AsciiText::DrawPopups,?DrawPopups@AsciiText@@QAEXH@Z
 0x004355f0,1144,UnknownMenu::UpdateUnknownMenu,?UpdateUnknownMenu@UnknownMenu@@QAEHXZ
-0x00435a90,83,Func435a90,
+0x00435a90,83,UnknownMenu::DrawUnknownMenu,?DrawUnknownMenu@UnknownMenu@@QAEXXZ
 0x00435af0,15,Func435af0,
 0x00435b00,253,Func435b00,
 0x00435c00,83,Func435c00,

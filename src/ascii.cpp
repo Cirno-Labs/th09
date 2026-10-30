@@ -297,3 +297,21 @@ void AsciiText::DrawPopups(int side)
         }
     }
 }
+
+void UnknownMenu::DrawUnknownMenu()
+{
+    int i;
+
+    if (g_GameManager.unknown13e)
+    {
+        g_SpriteEngine->FlushQuadBatch();
+        g_App.SetView(2);
+        for (i = 0; i < ARRAY_SIZE(this->sprites); i++)
+        {
+            if (this->sprites[i].IsShown())
+            {
+                g_SpriteEngine->DrawUnrotated(&this->sprites[i]);
+            }
+        }
+    }
+}
