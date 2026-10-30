@@ -195,3 +195,8 @@ void Sprite::SetColorInterp(int frames, BYTE easing, D3DCOLOR from, D3DCOLOR to)
     ((BYTE *)&this->colorEnd)[1] = to >> 8 & 0xff;
     ((BYTE *)&this->colorEnd)[0] = to & 0xff;
 }
+
+void SoundPlayer::UnPause()
+{
+    this->QueueSoundCommand(7, 0, "UnPause");
+}

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.13% (477)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.87% (580)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.22% (478)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.78% (579)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="337.10" height="6" x="0" y="0" class="named"/>
-<rect width="409.90" height="6" x="337.10" y="0" class="todo"/>
+<rect width="337.81" height="6" x="0" y="0" class="named"/>
+<rect width="409.19" height="6" x="337.81" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -552,7 +552,7 @@
 <rect width="12" height="12" x="480" y="135" class="named"><title>0x004233a3 Sprite::SetMoveInterp (81 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="135" class="named"><title>0x004233f4 Sprite::SetColorInterp (117 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="135" class="todo"><title>0x00423469 SpriteEngine::HasTexture (47 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="135" class="todo"><title>0x00423498 Func423498 (15 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="135" class="named"><title>0x00423498 SoundPlayer::UnPause (15 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="135" class="todo"><title>0x004234a7 Func4234a7 (54 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="135" class="todo"><title>0x004234dd Func4234dd (25 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="135" class="todo"><title>0x004234f6 Func4234f6 (1280 bytes)</title></rect>
@@ -1130,8 +1130,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">20.10%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">79.90%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="150.13" height="6" x="0" y="0" class="named"/>
-<rect width="596.87" height="6" x="150.13" y="0" class="todo"/>
+<rect width="150.17" height="6" x="0" y="0" class="named"/>
+<rect width="596.83" height="6" x="150.17" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2088,7 +2088,7 @@
 <rect width="0.43" height="0.76" x="736.29" y="301.77" class="todo"><title>0x0041f060 Func41f060 (15 bytes)</title></rect>
 <rect width="0.43" height="0.76" x="739.71" y="301.77" class="todo"><title>0x00420830 Func420830 (15 bytes)</title></rect>
 <rect width="0.43" height="0.76" x="743.14" y="301.77" class="todo"><title>0x00422950 Func422950 (15 bytes)</title></rect>
-<rect width="0.43" height="0.76" x="746.57" y="301.77" class="todo"><title>0x00423498 Func423498 (15 bytes)</title></rect>
+<rect width="0.43" height="0.76" x="746.57" y="301.77" class="named"><title>0x00423498 SoundPlayer::UnPause (15 bytes)</title></rect>
 <rect width="0.63" height="0.55" x="719.14" y="305.53" class="named"><title>0x0042f760 SpriteEngine::ClearDrawStats (15 bytes)</title></rect>
 <rect width="0.63" height="0.55" x="719.14" y="309.09" class="todo"><title>0x00432ea0 Func432ea0 (15 bytes)</title></rect>
 <rect width="0.63" height="0.55" x="719.14" y="312.64" class="named"><title>0x00435af0 AsciiPopup::AsciiPopup (15 bytes)</title></rect>
