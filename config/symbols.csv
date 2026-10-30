@@ -876,7 +876,7 @@ address,size,name,symbol
 0x0043e1f0,208,Func43e1f0,
 0x0043e2c0,39,SoundPlayer::LoadBgmFormat,?LoadBgmFormat@SoundPlayer@@QAEHPAD@Z
 0x0043e2f0,140,SoundPlayer::PlaySoundByIdx,?PlaySoundByIdx@SoundPlayer@@QAEXHH@Z
-0x0043e380,153,Func43e380,
+0x0043e380,153,SoundPlayer::QueueSoundPanned,?QueueSoundPanned@SoundPlayer@@QAEXHM@Z
 0x0043e420,7,Func43e420,
 0x0043e430,4,Func43e430,
 0x0043e440,38,Func43e440,

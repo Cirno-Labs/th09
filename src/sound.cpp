@@ -45,3 +45,37 @@ void SoundPlayer::PlaySoundByIdx(int idx, int arg)
     this->queueArgs[i][0] = arg;
     this->queueArgCounts[i]++;
 }
+
+void SoundPlayer::QueueSoundPanned(int idx, float x)
+{
+    int i;
+    int pan;
+    int pri;
+
+    pri = g_SoundInfos[idx].priority;
+    pan = x * (1000.0f / 144.0f);
+    for (i = 0; i < 0xc; i++)
+    {
+        if (this->queue[i] < 0)
+        {
+            break;
+        }
+        if (this->queue[i] == idx)
+        {
+            if (this->queueArgCounts[i] < 0x80)
+            {
+                this->queueArgs[i][this->queueArgCounts[i]] = pan;
+                this->queueArgCounts[i]++;
+            }
+            return;
+        }
+    }
+    if (i >= 0xc)
+    {
+        return;
+    }
+    this->queue[i] = idx;
+    this->queuedSound[idx] = pri;
+    this->queueArgs[i][0] = pan;
+    this->queueArgCounts[i]++;
+}
