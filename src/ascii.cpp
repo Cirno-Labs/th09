@@ -315,3 +315,58 @@ void UnknownMenu::DrawUnknownMenu()
         }
     }
 }
+
+int AsciiText::OnUpdate(AsciiText *text)
+{
+    int i;
+    int side;
+    AsciiPopup *entry;
+
+    if (!g_GameManager.isPaused && !g_GameManager.isInContinueMenu)
+    {
+        if (!(g_GameManager.stateFlags & 0x1800))
+        {
+            for (side = 0; side < 2; side++)
+            {
+                entry = text->popups[side];
+                if (g_GameManager.sides[side].flags & 1)
+                {
+                    continue;
+                }
+                for (i = 0; i < 100; i++, entry++)
+                {
+                    if (!entry->active)
+                    {
+                        continue;
+                    }
+                    entry->pos.y -= 0.2f * g_App.gameSpeed;
+                    entry->timer++;
+                    if (entry->timer > 60)
+                    {
+                        entry->active = 0;
+                    }
+                }
+            }
+        }
+    }
+    else if (g_GameManager.isPaused)
+    {
+        text->pauseMenu.UpdatePauseMenu();
+    }
+    if (g_GameManager.isInContinueMenu)
+    {
+        if (text->continueMenu.UpdateContinueMenu())
+        {
+            return 3;
+        }
+    }
+    if (g_GameManager.unknown13e)
+    {
+        if (text->unknownMenu.UpdateUnknownMenu())
+        {
+            return 3;
+        }
+    }
+    text->frameCounter++;
+    return 1;
+}
