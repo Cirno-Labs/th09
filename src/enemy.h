@@ -86,13 +86,13 @@ struct EnemyShooter
     EnemyShooter()
     {
         memset(this, 0, sizeof(EnemyShooter));
-        this->unknown204 = -1;
+        this->bulletSound = -1;
     }
 
     unsigned char pad_0[0x200];
     // The sounds of shooting and of the bullets, as th08's.
     int sound;
-    int unknown204;
+    int bulletSound;
     unsigned char pad_208[0x214 - 0x208];
 };
 ASSERT_SIZE(EnemyShooter, 0x214);
