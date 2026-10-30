@@ -32,6 +32,8 @@ public:
     DWORD GetRandomU32();
     // A random float from 0 up to 1 (0x42ae70).
     float GetRandomF32ZeroToOne();
+    // A random float from -1 up to 1 (0x42aea0).
+    float GetRandomF32MinusOneToOne();
 
     WORD seed;
     unsigned char pad_2[0x2];
