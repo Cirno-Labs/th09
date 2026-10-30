@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.79% (484)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.21% (573)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.88% (485)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.12% (572)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="342.05" height="6" x="0" y="0" class="named"/>
-<rect width="404.95" height="6" x="342.05" y="0" class="todo"/>
+<rect width="342.76" height="6" x="0" y="0" class="named"/>
+<rect width="404.24" height="6" x="342.76" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -236,7 +236,7 @@
 <rect width="12" height="12" x="240" y="45" class="named"><title>0x0040e390 SpriteEngine::ClearSpriteData (11 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="45" class="named"><title>0x0040e3a0 PlayRecord::AddClear (37 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="45" class="named"><title>0x0040e3d0 PlayRecord::OpenEntry (16 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="45" class="todo"><title>0x0040e3e0 Func40e3e0 (16 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="45" class="named"><title>0x0040e3e0 PlayRecord::OpenEntry2 (16 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="45" class="todo"><title>0x0040e3f0 Func40e3f0 (16 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="45" class="todo"><title>0x0040e400 Func40e400 (75 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="45" class="todo"><title>0x0040e450 Func40e450 (20 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.53%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.47%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.54%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.46%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="175.80" height="6" x="0" y="0" class="named"/>
-<rect width="571.20" height="6" x="175.80" y="0" class="todo"/>
+<rect width="175.84" height="6" x="0" y="0" class="named"/>
+<rect width="571.16" height="6" x="175.84" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2067,7 +2067,7 @@
 <rect width="0.80" height="0.62" x="723.37" y="298.16" class="named"><title>0x00401600 SpriteEngine::SetLastCameraSetupFlag (16 bytes)</title></rect>
 <rect width="0.80" height="0.62" x="727.18" y="298.16" class="todo"><title>0x00406820 Func406820 (16 bytes)</title></rect>
 <rect width="0.80" height="0.62" x="730.98" y="298.16" class="named"><title>0x0040e3d0 PlayRecord::OpenEntry (16 bytes)</title></rect>
-<rect width="0.80" height="0.62" x="734.78" y="298.16" class="todo"><title>0x0040e3e0 Func40e3e0 (16 bytes)</title></rect>
+<rect width="0.80" height="0.62" x="734.78" y="298.16" class="named"><title>0x0040e3e0 PlayRecord::OpenEntry2 (16 bytes)</title></rect>
 <rect width="0.80" height="0.62" x="738.59" y="298.16" class="todo"><title>0x0040e3f0 Func40e3f0 (16 bytes)</title></rect>
 <rect width="0.80" height="0.62" x="742.39" y="298.16" class="named"><title>0x0040f170 EclManager::GetTimeline (16 bytes)</title></rect>
 <rect width="0.80" height="0.62" x="746.20" y="298.16" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>

@@ -69,6 +69,11 @@ void PlayRecord::OpenEntry(char entry)
     this->openEntries[entry] = 1;
 }
 
+void PlayRecord::OpenEntry2(char entry)
+{
+    this->openEntries2[entry] = 1;
+}
+
 float Fabs(float x)
 {
     return (float)fabs((double)x);
