@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.13% (338)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">67.87% (714)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.22% (339)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">67.78% (713)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="240.01" height="6" x="0" y="0" class="named"/>
-<rect width="506.99" height="6" x="240.01" y="0" class="todo"/>
+<rect width="240.72" height="6" x="0" y="0" class="named"/>
+<rect width="506.28" height="6" x="240.72" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -901,7 +901,7 @@
 <rect width="12" height="12" x="465" y="240" class="named"><title>0x0043c800 SpriteEngine::LoadAnmSprites (558 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="240" class="named"><title>0x0043ca30 SpriteEngine::ReleaseAnm (163 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="240" class="named"><title>0x0043cae0 SpriteEngine::LoadSurface (486 bytes)</title></rect>
-<rect width="12" height="12" x="510" y="240" class="todo"><title>0x0043ccd0 Func43ccd0 (102 bytes)</title></rect>
+<rect width="12" height="12" x="510" y="240" class="named"><title>0x0043ccd0 SpriteEngine::PreloadSurface (102 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="240" class="todo"><title>0x0043cd40 Func43cd40 (141 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="240" class="todo"><title>0x0043cdd0 Func43cdd0 (87 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="240" class="todo"><title>0x0043ce30 Func43ce30 (341 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">11.69%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">88.31%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">11.73%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">88.27%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="87.34" height="6" x="0" y="0" class="named"/>
-<rect width="659.66" height="6" x="87.34" y="0" class="todo"/>
+<rect width="87.61" height="6" x="0" y="0" class="named"/>
+<rect width="659.39" height="6" x="87.61" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1644,7 +1644,7 @@
 <rect width="6.33" height="6.67" x="606.71" y="239.02" class="todo"><title>0x004406e0 Func4406e0 (105 bytes)</title></rect>
 <rect width="6.33" height="6.58" x="606.71" y="248.70" class="named"><title>0x00420a60 FreeResources (104 bytes)</title></rect>
 <rect width="6.33" height="6.49" x="606.71" y="258.28" class="todo"><title>0x004222c0 Func4222c0 (103 bytes)</title></rect>
-<rect width="6.33" height="6.40" x="606.71" y="267.77" class="todo"><title>0x0043ccd0 Func43ccd0 (102 bytes)</title></rect>
+<rect width="6.33" height="6.40" x="606.71" y="267.77" class="named"><title>0x0043ccd0 SpriteEngine::PreloadSurface (102 bytes)</title></rect>
 <rect width="6.33" height="6.31" x="606.71" y="277.17" class="todo"><title>0x0040e480 Func40e480 (101 bytes)</title></rect>
 <rect width="6.33" height="6.31" x="606.71" y="286.47" class="named"><title>0x004121d0 EnemyManager::EnemyManager (101 bytes)</title></rect>
 <rect width="6.33" height="6.31" x="606.71" y="295.78" class="todo"><title>0x0041bb00 Func41bb00 (101 bytes)</title></rect>
