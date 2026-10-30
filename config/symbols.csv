@@ -645,7 +645,7 @@ address,size,name,symbol
 0x0042ff70,233,App::AddPlayTime,?AddPlayTime@App@@QAEXXZ
 0x00430060,237,App::AddTotalPlayTime,?AddTotalPlayTime@App@@QAEXXZ
 0x00430150,199,App::CheckVersionFile,?CheckVersionFile@App@@QAEHPADKK@Z
-0x00430220,11,Func430220,
+0x00430220,11,AsciiText::ClearStrings,?ClearStrings@AsciiText@@QAEXXZ
 0x00430230,108,App::CloseSubThread,?CloseSubThread@App@@QAEXXZ
 0x004302a0,16,Func4302a0,
 0x004302b0,173,App::StartLoadingSprites,?StartLoadingSprites@App@@QAEXPAUD3DXVECTOR3@@@Z
@@ -748,7 +748,7 @@ address,size,name,symbol
 0x00435a90,83,UnknownMenu::DrawUnknownMenu,?DrawUnknownMenu@UnknownMenu@@QAEXXZ
 0x00435af0,15,Func435af0,
 0x00435b00,253,AsciiText::OnUpdate,?OnUpdate@AsciiText@@SIHPAV1@@Z
-0x00435c00,83,Func435c00,
+0x00435c00,83,AsciiText::OnDraw,?OnDraw@AsciiText@@SIHPAV1@@Z
 0x00435c60,52,Func435c60,
 0x00435ca0,157,Func435ca0,
 0x00435d40,39,Func435d40,
