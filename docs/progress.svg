@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.51% (711)</tspan> · <tspan class="decompiled">0.65% (7)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">32.83% (351)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">66.60% (712)</tspan> · <tspan class="decompiled">0.65% (7)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">32.74% (350)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="496.84" height="6" x="0" y="0" class="named"/>
-<rect width="4.89" height="6" x="496.84" y="0" class="decompiled"/>
-<rect width="245.27" height="6" x="501.73" y="0" class="todo"/>
+<rect width="497.53" height="6" x="0" y="0" class="named"/>
+<rect width="4.89" height="6" x="497.53" y="0" class="decompiled"/>
+<rect width="244.57" height="6" x="502.43" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -394,7 +394,7 @@
 <rect width="12" height="12" x="345" y="90" class="named"><title>0x00418840 Gui::RegisterChain (220 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="90" class="named"><title>0x00418920 GuiSide::Init (14 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="90" class="named"><title>0x00418930 FreeResources (26 bytes)</title></rect>
-<rect width="12" height="12" x="390" y="90" class="todo"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>
+<rect width="12" height="12" x="390" y="90" class="named"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="90" class="todo"><title>0x00418a90 GuiSide::OnUpdate (2367 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="90" class="todo"><title>0x004193e0 GuiSide::OnDraw (3074 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="90" class="todo"><title>0x0041a000 GuiSide::AddedCallback (448 bytes)</title></rect>
@@ -1141,11 +1141,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.48%</tspan> · <tspan class="decompiled">0.06%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">65.45%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.59%</tspan> · <tspan class="decompiled">0.06%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">65.34%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="257.60" height="6" x="0" y="0" class="named"/>
-<rect width="0.48" height="6" x="257.60" y="0" class="decompiled"/>
-<rect width="488.93" height="6" x="258.07" y="0" class="todo"/>
+<rect width="258.41" height="6" x="0" y="0" class="named"/>
+<rect width="0.48" height="6" x="258.41" y="0" class="decompiled"/>
+<rect width="488.11" height="6" x="258.89" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.47" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1385,7 +1385,7 @@
 <rect width="13.86" height="13.36" x="487.30" y="75.38" class="todo"><title>0x00444f00 Func444f00 (322 bytes)</title></rect>
 <rect width="13.86" height="13.30" x="487.30" y="91.74" class="todo"><title>0x004151f0 ExAttackManager::AddAttack (321 bytes)</title></rect>
 <rect width="13.86" height="13.25" x="487.30" y="108.04" class="todo"><title>0x0041cc80 Func41cc80 (320 bytes)</title></rect>
-<rect width="13.86" height="13.20" x="487.30" y="124.30" class="todo"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>
+<rect width="13.86" height="13.20" x="487.30" y="124.30" class="named"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>
 <rect width="13.86" height="13.15" x="487.30" y="140.50" class="todo"><title>0x00420ad0 ReplayManager::Release (318 bytes)</title></rect>
 <rect width="13.86" height="13.15" x="487.30" y="156.65" class="todo"><title>0x00422330 Func422330 (318 bytes)</title></rect>
 <rect width="13.86" height="13.15" x="487.30" y="172.80" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>

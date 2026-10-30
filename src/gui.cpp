@@ -93,6 +93,37 @@ static int FreeResources(GuiSide *side)
     return 0;
 }
 
+void GuiSide::SetUnknown76d4Time(int frames)
+{
+    int secs;
+    int hundredths;
+
+    if (frames < 0)
+    {
+        memset(&this->unknown76d4[0], 0, sizeof(this->unknown76d4[0]));
+        memset(&this->unknown76d4[1], 0, sizeof(this->unknown76d4[1]));
+        memset(&this->unknown76d4[2], 0, sizeof(this->unknown76d4[2]));
+        memset(&this->unknown76d4[3], 0, sizeof(this->unknown76d4[3]));
+        memset(&this->unknown76d4[4], 0, sizeof(this->unknown76d4[4]));
+        memset(&this->unknown76d4[5], 0, sizeof(this->unknown76d4[5]));
+        return;
+    }
+    secs = frames / 60;
+    if (secs / 100 == 0)
+    {
+        memset(&this->unknown76d4[0], 0, sizeof(this->unknown76d4[0]));
+    }
+    else
+    {
+        this->anm->SetSprite(&this->unknown76d4[0], secs / 100 + 0x35);
+    }
+    this->anm->SetSprite(&this->unknown76d4[1], secs / 10 % 10 + 0x35);
+    this->anm->SetSprite(&this->unknown76d4[2], secs % 10 + 0x35);
+    hundredths = frames % 60 * 100 / 60;
+    this->anm->SetSprite(&this->unknown76d4[4], hundredths / 10 + 0x35);
+    this->anm->SetSprite(&this->unknown76d4[5], hundredths % 10 + 0x35);
+}
+
 void GuiSide::RemoveChain(GuiSide *side)
 {
     if (side != NULL)
