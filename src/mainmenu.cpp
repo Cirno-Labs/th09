@@ -683,7 +683,7 @@ int MainMenu::InitTitleScene()
     {
         this->unknown1b23c = 2;
         g_GameManager.unknown114 = 0;
-        g_App.config.unknownB0 = 1;
+        g_App.config.difficulty = 1;
     }
     switch (this->unknown1b22c)
     {
@@ -1030,6 +1030,176 @@ int MainMenu::OnUpdate(MainMenu *menu)
     return ret;
 }
 
+int MainMenu::UpdateState2()
+{
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            if (g_SpriteEngine->LoadSurface(0, "title/select00.png") != 0)
+            {
+                return 0;
+            }
+            if (this->state == 4)
+            {
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 25);
+            }
+            else
+            {
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 12);
+            }
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            if (this->state == 7)
+            {
+                this->sprites[0x83 + g_GameManager.unknown114].pendingInterrupt = 9;
+                if (this->unknown1b23c == 1)
+                {
+                    this->SetState(8);
+                    switch (g_GameManager.unknown114)
+                    {
+                    case 0:
+                        this->UpdateState8();
+                        break;
+                    case 1:
+                        this->UpdateState8b();
+                        break;
+                    case 2:
+                        this->UpdateState8b();
+                        break;
+                    case 3:
+                        this->UpdateState8b();
+                        break;
+                    }
+                    this->sprites[0x88 + g_App.config.difficulty].pendingInterrupt = 10;
+                    this->unknown1b23c = 0;
+                    return 1;
+                }
+                if (this->unknown1b23c == 2)
+                {
+                    this->UpdateState8();
+                    this->sprites[0x88 + g_App.config.difficulty].pendingInterrupt = 10;
+                    this->unknown1b23c = 0;
+                    this->SetState(8);
+                    return 1;
+                }
+            }
+            this->cursor = g_App.config.difficulty;
+            if (this->state == 4)
+            {
+                this->cursor = 4;
+            }
+            else if (this->cursor >= 4)
+            {
+                this->cursor = 1;
+            }
+            this->entryFirst = 0x88;
+            this->entryCount = 4;
+            this->SelectCursorEntry();
+            this->unknownC918 = 1;
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+        }
+        break;
+    case 1:
+        if (this->state != 4)
+        {
+            if (this->MoveCursor(4) != 0)
+            {
+                this->SelectCursorEntry();
+            }
+        }
+        else if (g_PlayerInputs[2].unknown6 & 0x30)
+        {
+            this->PlaySoundNow(12, 0);
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            g_App.config.difficulty = this->cursor;
+            this->PlaySoundNow(10, 0);
+            if (this->state == 7)
+            {
+                this->SetState(8);
+                switch (g_GameManager.unknown114)
+                {
+                case 0:
+                    this->UpdateState8();
+                    break;
+                case 1:
+                    this->UpdateState8b();
+                    break;
+                case 2:
+                    this->UpdateState8b();
+                    break;
+                case 3:
+                    this->UpdateState8b();
+                    break;
+                case 4:
+                    this->UpdateState8();
+                    break;
+                }
+                this->sprites[0x88 + g_App.config.difficulty].pendingInterrupt = 10;
+                return 1;
+            }
+            if (this->state == 2)
+            {
+                this->SetState(3);
+            }
+            else
+            {
+                this->SetState(5);
+            }
+            this->UpdateState3();
+            this->sprites[0x88 + g_App.config.difficulty].pendingInterrupt = 9;
+            return 1;
+        }
+        if (g_GameManager.unknown114 == 4 && g_Network->unknownA8 == 0)
+        {
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            if (this->state == 7)
+            {
+                this->SetState(6);
+                return 1;
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 6);
+            this->subState = 3;
+        }
+        if (g_Network->unknownA8 == 0 && (g_PlayerInputs[2].unknown6 & 0xa))
+        {
+            g_App.config.difficulty = this->cursor;
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            if (this->state == 7)
+            {
+                this->SetState(6);
+                return 1;
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 6);
+            this->subState = 3;
+        }
+        break;
+    case 3:
+        if (this->stateFrames >= 20)
+        {
+            int state = this->state;
+            this->SetState(1);
+            this->cursor = state != 2;
+            return 1;
+        }
+        break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState6()
 {
     switch (this->subState)
@@ -1076,7 +1246,7 @@ int MainMenu::UpdateState6()
             {
                 g_Network->Init();
                 g_App.ResetRun();
-                g_App.config.unknownB0 = 1;
+                g_App.config.difficulty = 1;
                 g_GameManager.sides[0].character = 0;
                 g_GameManager.sides[1].character = 1;
             }

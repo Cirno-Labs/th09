@@ -121,7 +121,7 @@ void GameConfig::SetDefaults()
     this->padThresholdY = 600;
     this->musicMode = 1;
     this->playSounds = 1;
-    this->unknownB0 = 1;
+    this->difficulty = 1;
     this->unknownAc = 0;
     this->unknownAd = 0;
     this->windowed = 0;

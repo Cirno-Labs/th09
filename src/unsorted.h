@@ -286,7 +286,8 @@ struct GameConfig
     BYTE musicMode;
     // Whether the sound effects play.
     BYTE playSounds;
-    BYTE unknownB0;
+    // The difficulty the menu last chose; network play sets 1.
+    BYTE difficulty;
     // Whether the game runs in a window.
     BYTE windowed;
     BYTE unknownB2;
