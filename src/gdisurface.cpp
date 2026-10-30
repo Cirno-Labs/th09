@@ -9,3 +9,8 @@ void *GdiSurface::GetBits()
 {
     return this->bits;
 }
+
+int GdiSurface::GetFormat()
+{
+    return this->format;
+}

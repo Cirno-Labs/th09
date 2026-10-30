@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.81% (282)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.19% (770)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.90% (283)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.10% (769)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="200.24" height="6" x="0" y="0" class="named"/>
-<rect width="546.76" height="6" x="200.24" y="0" class="todo"/>
+<rect width="200.95" height="6" x="0" y="0" class="named"/>
+<rect width="546.05" height="6" x="200.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -824,7 +824,7 @@
 <rect width="12" height="12" x="60" y="225" class="named"><title>0x00435da0 UnknownMenu::UnknownMenu (28 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="225" class="named"><title>0x00435dc0 AsciiText::AsciiText (227 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="225" class="named"><title>0x00435eb0 GdiSurface::GetBits (4 bytes)</title></rect>
-<rect width="12" height="12" x="105" y="225" class="todo"><title>0x00435ec0 Func435ec0 (3 bytes)</title></rect>
+<rect width="12" height="12" x="105" y="225" class="named"><title>0x00435ec0 GdiSurface::GetFormat (3 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="225" class="todo"><title>0x00435ed0 Func435ed0 (4 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="225" class="todo"><title>0x00435ee0 Func435ee0 (4 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="225" class="todo"><title>0x00435ef0 Func435ef0 (4 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.47%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.53%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.48%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.52%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="63.30" height="6" x="0" y="0" class="named"/>
-<rect width="683.70" height="6" x="63.30" y="0" class="todo"/>
+<rect width="63.31" height="6" x="0" y="0" class="named"/>
+<rect width="683.69" height="6" x="63.31" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2178,7 +2178,7 @@
 <rect width="0.10" height="0.10" x="747.17" y="328.14" class="todo"><title>0x00412590 Func412590 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.59" y="328.14" class="todo"><title>0x004125a0 Func4125a0 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.17" y="329.96" class="named"><title>0x004343d0 D3DXVECTOR3::D3DXVECTOR3 (3 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="748.59" y="329.96" class="todo"><title>0x00435ec0 Func435ec0 (3 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="748.59" y="329.96" class="named"><title>0x00435ec0 GdiSurface::GetFormat (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.17" y="331.78" class="todo"><title>0x0044ab20 Func44ab20 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="749.29" y="331.78" class="todo"><title>0x0043d2b0 DebugPrint (1 bytes)</title></rect>
 </g>

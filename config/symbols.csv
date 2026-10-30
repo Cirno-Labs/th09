@@ -756,7 +756,7 @@ address,size,name,symbol
 0x00435da0,28,UnknownMenu::UnknownMenu,??0UnknownMenu@@QAE@XZ
 0x00435dc0,227,AsciiText::AsciiText,??0AsciiText@@QAE@XZ
 0x00435eb0,4,GdiSurface::GetBits,?GetBits@GdiSurface@@QAEPAXXZ
-0x00435ec0,3,Func435ec0,
+0x00435ec0,3,GdiSurface::GetFormat,?GetFormat@GdiSurface@@QAEHXZ
 0x00435ed0,4,Func435ed0,
 0x00435ee0,4,Func435ee0,
 0x00435ef0,4,Func435ef0,
