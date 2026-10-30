@@ -17,8 +17,9 @@ struct Network
     // Sets and clears unknownA8 (0x42e9a0, 0x42e9b0).
     void SetUnknownA8();
     void ClearUnknownA8();
-    // Closes the connection and releases its interfaces (0x432f70).
-    void Close();
+    // Cancels and closes the connection, releases the addresses and
+    // initializes the peer anew; always returns 1 (0x432f70).
+    int Close();
     // The entry of unknown1c for the side unknownAc is not (0x42e980).
     int GetOtherUnknown1c();
     // Closes the peer and releases the addresses and the peer

@@ -241,3 +241,42 @@ HRESULT Network::CreatePeer()
 end:
     return hr;
 }
+
+int Network::Close()
+{
+    HRESULT hr;
+
+    this->peer->CancelAsyncOperation(NULL, DPNCANCEL_ALL_OPERATIONS);
+    this->peer->Close(0);
+    if (this->deviceAddress != NULL)
+    {
+        this->deviceAddress->Release();
+        this->deviceAddress = NULL;
+    }
+    if (this->unknownC != NULL)
+    {
+        this->unknownC->Release();
+        this->unknownC = NULL;
+    }
+    if (this->hostAddress != NULL)
+    {
+        this->hostAddress->Release();
+        this->hostAddress = NULL;
+    }
+    Sleep(100);
+    hr = this->peer->Initialize(NULL, NetworkMessageHandler, 0);
+    if (FAILED(hr))
+    {
+        LogError(&g_Log, "IDirectPlay8Peer 初期化失敗:  0x%X\r\n", hr);
+        LogNetworkError(hr);
+        return 1;
+    }
+    if (!IsServiceProviderValid(&CLSID_DP8SP_TCPIP))
+    {
+        LogError(&g_Log, "CLSID_DP8SP_TCPIP 使用不可\r\n");
+        return 1;
+    }
+    this->unknown1c[0] = 0;
+    this->unknown1c[1] = 0;
+    return 1;
+}
