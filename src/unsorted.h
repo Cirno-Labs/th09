@@ -123,6 +123,10 @@ struct App
     // Initializes and deletes criticalSections (0x430530, 0x430560).
     void InitCriticalSections();
     void DeleteCriticalSections();
+    // Returns 0 if verFile lists `version` with `size` and `checksum`,
+    // or if `version` is "debug", and -1 otherwise, as th08's
+    // (0x430150).
+    int CheckVersionFile(char *version, DWORD size, DWORD checksum);
     // Asks the sub thread to close (closeSubThread) and waits for it,
     // as th08's (0x430230).
     void CloseSubThread();
@@ -147,5 +151,10 @@ struct App
     CRITICAL_SECTION criticalSections[5];
     // How deep each of criticalSections is entered.
     BYTE criticalSectionDepths[5];
+    unsigned char pad_73d[0x7a8 - 0x73d];
+    // The contents of the version file, as th08's: lines of a version,
+    // a size and a checksum.
+    DWORD verFileSize;
+    char *verFile;
 };
 extern App g_App;

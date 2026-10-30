@@ -635,7 +635,7 @@ address,size,name,symbol
 0x0042ff40,42,Func42ff40,
 0x0042ff70,233,Func42ff70,
 0x00430060,237,Func430060,
-0x00430150,199,Func430150,
+0x00430150,199,App::CheckVersionFile,?CheckVersionFile@App@@QAEHPADKK@Z
 0x00430220,11,Func430220,
 0x00430230,108,App::CloseSubThread,?CloseSubThread@App@@QAEXXZ
 0x004302a0,16,Func4302a0,
@@ -1652,9 +1652,9 @@ address,size,name,symbol
 0x0047ca90,31,Func47ca90,
 0x0047cab0,61,__chkstk,
 0x0047caf0,45,_strrchr,
-0x0047cb30,195,_strchr,
-0x0047cbee,52,_sscanf,
-0x0047cc30,57,_strncmp,
+0x0047cb30,195,_strchr,_strchr
+0x0047cbee,52,_sscanf,_sscanf
+0x0047cc30,57,_strncmp,_strncmp
 0x0047cc69,86,_printf,
 0x0047ccc4,11,Func47ccc4,
 0x0047cccf,22,Func47cccf,

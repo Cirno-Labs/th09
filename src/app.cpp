@@ -79,6 +79,51 @@ void App::TickTimer(int *frames, float *subFrame)
     }
 }
 
+int App::CheckVersionFile(char *version, DWORD size, DWORD checksum)
+{
+    DWORD size2;
+    char *start;
+    DWORD left;
+    DWORD checksum2;
+    char *p;
+
+    if (this->verFile == NULL)
+    {
+        return 0;
+    }
+    p = this->verFile;
+    left = this->verFileSize;
+    if (strncmp(version, "debug", 5) == 0)
+    {
+        return 0;
+    }
+    if (strcmp("0150a", "debug") == 0)
+    {
+        return 0;
+    }
+    while (left > 0)
+    {
+        if (strncmp(version, p, 5) == 0)
+        {
+            p += 6;
+            sscanf(p, "%d %d", &size2, &checksum2);
+            if (size2 == size && checksum2 == checksum)
+            {
+                return 0;
+            }
+        }
+        start = p;
+        p = strchr(p, '\n');
+        if (p == NULL)
+        {
+            break;
+        }
+        p++;
+        left -= p - start;
+    }
+    return -1;
+}
+
 void App::CloseSubThread()
 {
     if (this->subThread != NULL)
