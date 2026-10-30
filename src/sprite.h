@@ -456,6 +456,9 @@ public:
     void BeginQuadBatch();
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
+    // Adds `quad` to the batch as two triangles, as th08's. Returns 0
+    // (0x439730).
+    int AddQuadToBatch(VertexTex1DiffuseXyzrwh *quad);
     // Draws `vm`, as th08's (0x43ab50).
     int Draw(Sprite *vm);
     // Draws `vm`, then the batched quads, as th08's. Inline; the copy is

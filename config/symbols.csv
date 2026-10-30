@@ -789,7 +789,7 @@ address,size,name,symbol
 0x00439630,66,AnmLoaded::StartSpriteSeries,?StartSpriteSeries@AnmLoaded@@QAEXPAVSprite@@HH@Z
 0x00439680,29,SpriteEngine::BeginQuadBatch,?BeginQuadBatch@SpriteEngine@@QAEXXZ
 0x004396a0,137,SpriteEngine::FlushQuadBatch,?FlushQuadBatch@SpriteEngine@@QAEXXZ
-0x00439730,165,Func439730,
+0x00439730,165,SpriteEngine::AddQuadToBatch,?AddQuadToBatch@SpriteEngine@@QAEHPAUVertexTex1DiffuseXyzrwh@@@Z
 0x004397e0,49,SpriteEngine::RotatePoint,?RotatePoint@SpriteEngine@@QAEXPAMMMMMMM@Z
 0x00439820,622,Func439820,
 0x00439a90,595,Func439a90,
