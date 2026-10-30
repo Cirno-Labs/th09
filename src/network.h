@@ -24,6 +24,9 @@ struct Network
     // Closes the peer and releases the addresses and the peer
     // (0x432340).
     void ReleaseInterfaces();
+    // Sends `size` bytes of `data` to the other side's player, if
+    // connected; returns 0 if not (0x4323b0).
+    HRESULT Send(void *data, DWORD size);
     // Whether the peer has TCP/IP among its service providers; the
     // argument is unused (0x432770).
     BOOL IsServiceProviderValid(const GUID *serviceProvider);

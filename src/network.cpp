@@ -53,6 +53,25 @@ void Network::ReleaseInterfaces()
     }
 }
 
+HRESULT Network::Send(void *data, DWORD size)
+{
+    DPN_BUFFER_DESC desc;
+
+    if (this->unknownA8 == 0)
+    {
+        return 0;
+    }
+    if (this->unknown1c[1 - this->unknownAc] == 0)
+    {
+        return 0;
+    }
+    desc.dwBufferSize = size;
+    desc.pBufferData = (BYTE *)data;
+    return this->peer->SendTo(this->unknown1c[1 - this->unknownAc], &desc, 1, 0, NULL, &this->sendHandle,
+                              DPNSEND_PRIORITY_HIGH | DPNSEND_NONSEQUENTIAL | DPNSEND_GUARANTEED |
+                                  DPNSEND_COMPLETEONPROCESS);
+}
+
 BOOL Network::IsServiceProviderValid(const GUID *serviceProvider)
 {
     HRESULT hr;

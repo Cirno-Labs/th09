@@ -676,7 +676,7 @@ address,size,name,symbol
 0x00432180,182,App::RegisterChain,?RegisterChain@App@@SIHXZ
 0x00432240,240,Func432240,
 0x00432340,97,Network::ReleaseInterfaces,?ReleaseInterfaces@Network@@QAEXXZ
-0x004323b0,95,Func4323b0,
+0x004323b0,95,Network::Send,?Send@Network@@QAEJPAXK@Z
 0x00432410,164,LogNetworkError,?LogNetworkError@@YIXJ@Z
 0x004324c0,679,Network::Init,?Init@Network@@QAEXXZ
 0x00432770,199,Network::IsServiceProviderValid,?IsServiceProviderValid@Network@@QAEHPBU_GUID@@@Z

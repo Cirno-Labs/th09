@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">54.43% (577)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">45.57% (483)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">54.53% (578)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">45.47% (482)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="406.62" height="6" x="0" y="0" class="named"/>
-<rect width="340.38" height="6" x="406.62" y="0" class="todo"/>
+<rect width="407.33" height="6" x="0" y="0" class="named"/>
+<rect width="339.67" height="6" x="407.33" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -744,7 +744,7 @@
 <rect width="12" height="12" x="360" y="195" class="named"><title>0x00432180 App::RegisterChain (182 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="195" class="todo"><title>0x00432240 Func432240 (240 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="195" class="named"><title>0x00432340 Network::ReleaseInterfaces (97 bytes)</title></rect>
-<rect width="12" height="12" x="405" y="195" class="todo"><title>0x004323b0 Func4323b0 (95 bytes)</title></rect>
+<rect width="12" height="12" x="405" y="195" class="named"><title>0x004323b0 Network::Send (95 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="195" class="named"><title>0x00432410 LogNetworkError (164 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="195" class="todo"><title>0x004324c0 Network::Init (679 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="195" class="named"><title>0x00432770 Network::IsServiceProviderValid (199 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.97%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.03%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">29%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="216.37" height="6" x="0" y="0" class="named"/>
-<rect width="530.63" height="6" x="216.37" y="0" class="todo"/>
+<rect width="216.62" height="6" x="0" y="0" class="named"/>
+<rect width="530.38" height="6" x="216.62" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1676,7 +1676,7 @@
 <rect width="5.75" height="6.42" x="741.25" y="189.87" class="named"><title>0x00424d9f MainMenu::DeletedCallback (96 bytes)</title></rect>
 <rect width="5.98" height="6.09" x="615.54" y="199.29" class="named"><title>0x00412470 BulletManager::Reset (95 bytes)</title></rect>
 <rect width="5.98" height="6.09" x="615.54" y="208.39" class="todo"><title>0x0041a270 Func41a270 (95 bytes)</title></rect>
-<rect width="5.98" height="6.09" x="615.54" y="217.48" class="todo"><title>0x004323b0 Func4323b0 (95 bytes)</title></rect>
+<rect width="5.98" height="6.09" x="615.54" y="217.48" class="named"><title>0x004323b0 Network::Send (95 bytes)</title></rect>
 <rect width="5.98" height="6.09" x="615.54" y="226.57" class="todo"><title>0x00440d30 Func440d30 (95 bytes)</title></rect>
 <rect width="5.98" height="6" x="615.54" y="235.66" class="named"><title>0x0042ee30 EnumAxesCallback (94 bytes)</title></rect>
 <rect width="5.98" height="6" x="615.54" y="244.66" class="named"><title>0x0042ee90 EnumAxesCallback2 (94 bytes)</title></rect>
