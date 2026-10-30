@@ -275,3 +275,23 @@ DatArchive::~DatArchive()
 {
     this->Release();
 }
+
+bool DatArchive::Open(char *path)
+{
+    this->Release();
+    this->file = new File();
+    if (this->file == NULL)
+    {
+        return false;
+    }
+    if (this->ReadTable(path))
+    {
+        this->path = this->DuplicateString(path);
+        if (this->path != NULL)
+        {
+            return true;
+        }
+    }
+    this->Release();
+    return false;
+}
