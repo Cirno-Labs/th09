@@ -43,6 +43,9 @@ struct Network
     HRESULT Connect();
     // Handles a DirectPlay message (0x432b70).
     HRESULT HandleMessage(PVOID context, DWORD type, PVOID message);
+    // Creates and initializes the peer and checks for TCP/IP
+    // (0x432eb0).
+    HRESULT CreatePeer();
 
     IDirectPlay8Peer *peer;
     IDirectPlay8Address *deviceAddress;

@@ -211,3 +211,33 @@ HRESULT WINAPI NetworkMessageHandler(PVOID context, DWORD type, PVOID message)
 {
     return g_Network->HandleMessage(context, type, message);
 }
+
+HRESULT Network::CreatePeer()
+{
+    HRESULT hr;
+
+    hr = CoCreateInstance(CLSID_DirectPlay8Peer, NULL, CLSCTX_INPROC_SERVER, IID_IDirectPlay8Peer,
+                          (LPVOID *)&this->peer);
+    if (FAILED(hr))
+    {
+        LogError(&g_Log, "IDirectPlay8Peer 作成失敗:  0x%X\r\n", hr);
+        LogNetworkError(hr);
+        return hr;
+    }
+    hr = this->peer->Initialize(NULL, NetworkMessageHandler, 0);
+    if (FAILED(hr))
+    {
+        LogError(&g_Log, "IDirectPlay8Peer 初期化失敗:  0x%X\r\n", hr);
+        LogNetworkError(hr);
+        return hr;
+    }
+    if (!IsServiceProviderValid(&CLSID_DP8SP_TCPIP))
+    {
+        hr = E_FAIL;
+        LogError(&g_Log, "CLSID_DP8SP_TCPIP 使用不可\r\n");
+        goto end;
+    }
+    LogPrintf(&g_Log, "DirectPlay が正常に初期化されたように見えた\r\n");
+end:
+    return hr;
+}
