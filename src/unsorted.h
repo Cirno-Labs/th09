@@ -36,6 +36,9 @@ public:
     // range != 0 ? GetRandomU32() % range : 0, as th08's inline
     // function; this copy is 0x4048e0.
     DWORD GetRandomU32InRange(DWORD range);
+    // A random float from 0 up to `range` (0x404910), and from -`range`
+    // up to `range` (0x406200).
+    float GetRandomF32InRange(float range);
 
     WORD seed;
     unsigned char pad_2[0x2];
