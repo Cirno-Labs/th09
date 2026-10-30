@@ -82,10 +82,15 @@ public:
     unsigned char pad_cd0[0xcd4 - 0xcd0];
     // OnDraw clears the target to black once if set.
     int clearScreenOnce;
-    unsigned char pad_cd8[0xce0 - 0xcd8];
-    Sprite unknownCe0[0x20];
+    // Drawn by OnDraw2 once spellCardState is 1, at their posOffset in
+    // the arena.
+    int dialogueSpriteCount;
+    unsigned char pad_cdc[0xce0 - 0xcdc];
+    Sprite dialogueSprites[0x20];
     Sprite unknown6160;
-    unsigned char pad_6404[0x642c - 0x6404];
+    // Called by OnDraw2 once spellCardState is 1, if set.
+    void (*spellCardDrawCallback)();
+    unsigned char pad_6408[0x642c - 0x6408];
     // OnDraw modulates sprites by it if its alpha is nonzero.
     union
     {
@@ -99,8 +104,11 @@ public:
         };
     } tintColor;
     // OnDraw stops modulating sprites unless set.
+    // OnDraw2 clears it.
     int keepColorModulation;
-    unsigned char pad_6434[0x6444 - 0x6434];
+    unsigned char pad_6434[0x6440 - 0x6434];
+    // Cleared by OnDraw2.
+    int unknown6440;
     D3DXVECTOR3 unknown6444[0x20];
 };
 ASSERT_SIZE(Stage, 0x65c4);

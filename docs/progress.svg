@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.90% (304)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">71.10% (748)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">29.09% (306)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">70.91% (746)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="215.86" height="6" x="0" y="0" class="named"/>
-<rect width="531.14" height="6" x="215.86" y="0" class="todo"/>
+<rect width="217.28" height="6" x="0" y="0" class="named"/>
+<rect width="529.72" height="6" x="217.28" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -87,7 +87,7 @@
 <rect width="12" height="12" x="255" y="0" class="named"><title>0x00401360 MemoryManager::Free (19 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="0" class="named"><title>0x00401380 MemoryManager::Register (10 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="0" class="todo"><title>0x00401390 App::SetView (71 bytes)</title></rect>
-<rect width="12" height="12" x="300" y="0" class="todo"><title>0x004013e0 Func4013e0 (42 bytes)</title></rect>
+<rect width="12" height="12" x="300" y="0" class="named"><title>0x004013e0 App::ResetView (42 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="0" class="todo"><title>0x00401410 Func401410 (42 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="0" class="todo"><title>0x00401440 Func401440 (26 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="0" class="named"><title>0x00401460 App::GetNoFog (13 bytes)</title></rect>
@@ -120,7 +120,7 @@
 <rect width="12" height="12" x="0" y="15" class="named"><title>0x00403390 Timer::Timer (12 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="15" class="named"><title>0x004033a0 SpriteBase::SpriteBase (62 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="15" class="named"><title>0x004033e0 Stage::OnDraw (671 bytes)</title></rect>
-<rect width="12" height="12" x="45" y="15" class="todo"><title>0x00403680 Stage::OnDraw2 (421 bytes)</title></rect>
+<rect width="12" height="12" x="45" y="15" class="named"><title>0x00403680 Stage::OnDraw2 (421 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="15" class="todo"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="15" class="named"><title>0x00403a10 Sprite::Sprite (45 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="15" class="named"><title>0x00403a40 Stage::Stage (160 bytes)</title></rect>
@@ -723,7 +723,7 @@
 <rect width="12" height="12" x="45" y="195" class="named"><title>0x00430500 App::StartLoadingScreenEffect (47 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="195" class="named"><title>0x00430530 App::InitCriticalSections (33 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="195" class="named"><title>0x00430560 App::DeleteCriticalSections (33 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="195" class="todo"><title>0x00430590 Func430590 (285 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="195" class="todo"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="195" class="todo"><title>0x004306b0 Func4306b0 (257 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="195" class="todo"><title>0x004307c0 Func4307c0 (736 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="195" class="todo"><title>0x00430aa0 Func430aa0 (1633 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">9.05%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">90.95%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">9.21%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">90.79%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="67.58" height="6" x="0" y="0" class="named"/>
-<rect width="679.42" height="6" x="67.58" y="0" class="todo"/>
+<rect width="68.77" height="6" x="0" y="0" class="named"/>
+<rect width="678.23" height="6" x="68.77" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1302,7 +1302,7 @@
 <rect width="16.14" height="15.96" x="452.24" y="40.27" class="named"><title>0x0041b82a GameManager::DeletedCallback (422 bytes)</title></rect>
 <rect width="16.14" height="15.96" x="452.24" y="59.23" class="todo"><title>0x0041bfc0 Func41bfc0 (422 bytes)</title></rect>
 <rect width="16.14" height="15.96" x="452.24" y="78.19" class="todo"><title>0x004435e0 Func4435e0 (422 bytes)</title></rect>
-<rect width="16.14" height="15.91" x="452.24" y="97.14" class="todo"><title>0x00403680 Stage::OnDraw2 (421 bytes)</title></rect>
+<rect width="16.14" height="15.91" x="452.24" y="97.14" class="named"><title>0x00403680 Stage::OnDraw2 (421 bytes)</title></rect>
 <rect width="16.14" height="15.87" x="452.24" y="116.06" class="todo"><title>0x00448490 Func448490 (420 bytes)</title></rect>
 <rect width="16.14" height="15.46" x="452.24" y="134.93" class="todo"><title>0x00439e90 Func439e90 (411 bytes)</title></rect>
 <rect width="16.14" height="15.28" x="452.24" y="153.39" class="todo"><title>0x0040ca60 Func40ca60 (407 bytes)</title></rect>
@@ -1399,7 +1399,7 @@
 <rect width="12.07" height="13.43" x="505.79" y="125.30" class="todo"><title>0x00407200 Func407200 (288 bytes)</title></rect>
 <rect width="12.07" height="13.38" x="505.79" y="141.74" class="todo"><title>0x0040e170 Func40e170 (287 bytes)</title></rect>
 <rect width="12.07" height="13.26" x="505.79" y="158.11" class="todo"><title>0x0042d4d0 Func42d4d0 (285 bytes)</title></rect>
-<rect width="12.07" height="13.26" x="505.79" y="174.37" class="todo"><title>0x00430590 Func430590 (285 bytes)</title></rect>
+<rect width="12.07" height="13.26" x="505.79" y="174.37" class="todo"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
 <rect width="12.07" height="13.15" x="505.79" y="190.64" class="named"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>
 <rect width="12.07" height="13.15" x="505.79" y="206.78" class="named"><title>0x0041a5d0 GuiSide::RegisterChain (283 bytes)</title></rect>
 <rect width="12.07" height="12.92" x="505.79" y="222.93" class="todo"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
@@ -1872,7 +1872,7 @@
 <rect width="3.28" height="3.03" x="669.94" y="315.19" class="todo"><title>0x00445530 Func445530 (44 bytes)</title></rect>
 <rect width="3.28" height="2.89" x="669.94" y="321.22" class="todo"><title>0x0041cfe0 Func41cfe0 (43 bytes)</title></rect>
 <rect width="3.28" height="2.89" x="669.94" y="327.11" class="todo"><title>0x0042d2f0 Func42d2f0 (43 bytes)</title></rect>
-<rect width="3.21" height="2.81" x="676.21" y="253.27" class="todo"><title>0x004013e0 Func4013e0 (42 bytes)</title></rect>
+<rect width="3.21" height="2.81" x="676.21" y="253.27" class="named"><title>0x004013e0 App::ResetView (42 bytes)</title></rect>
 <rect width="3.21" height="2.81" x="682.42" y="253.27" class="todo"><title>0x00401410 Func401410 (42 bytes)</title></rect>
 <rect width="3.21" height="2.81" x="688.63" y="253.27" class="todo"><title>0x004067f0 Func4067f0 (42 bytes)</title></rect>
 <rect width="3.21" height="2.81" x="694.84" y="253.27" class="named"><title>0x00420c10 ReplayManager::RemoveChain (42 bytes)</title></rect>

@@ -146,6 +146,64 @@ int Stage::OnDraw(Stage *stage)
     return 1;
 }
 
+int Stage::OnDraw2(Stage *stage)
+{
+    float fog;
+    int i;
+
+    g_App.SetView(stage->sideIdx);
+    if (stage->spellCardState <= 1)
+    {
+        stage->DrawLayer(2);
+        stage->DrawLayer(3);
+        if (!g_App.GetNoFog())
+        {
+            g_App.DisableFog();
+        }
+    }
+    if (stage->tintColor.a > 0)
+    {
+        g_SpriteEngine->SetColorModulation(stage->tintColor.color);
+    }
+    stage->tintColor.a = 0;
+    stage->tintColor.r = 0x80;
+    stage->tintColor.g = 0x80;
+    stage->tintColor.b = 0x80;
+    g_SpriteEngine->FlushQuadBatch();
+    g_App.SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
+    if (!g_App.GetNoFog())
+    {
+        g_App.DisableFog();
+    }
+    if (stage->spellCardState >= 1)
+    {
+        for (i = 0; i < stage->dialogueSpriteCount; i++)
+        {
+            stage->dialogueSprites[i].pos.x = g_GameManager.ArenaToScreenX(stage->dialogueSprites[i].posOffset.x);
+            stage->dialogueSprites[i].pos.y = g_GameManager.ArenaToScreenY(stage->dialogueSprites[i].posOffset.y);
+            stage->dialogueSprites[i].pos.z = stage->dialogueSprites[i].posOffset.z;
+            g_SpriteEngine->DrawAndFlush(&stage->dialogueSprites[i]);
+        }
+        if (stage->spellCardDrawCallback != NULL)
+        {
+            stage->spellCardDrawCallback();
+        }
+    }
+    g_SpriteEngine->SetLastCameraSetupFlag(0);
+    g_App.ResetView();
+    fog = 1000.0f;
+    g_App.SetRenderState(D3DRS_FOGSTART, *(DWORD *)&fog);
+    fog = 2000.0f;
+    g_App.SetRenderState(D3DRS_FOGEND, *(DWORD *)&fog);
+    if (stage->keepColorModulation == 0)
+    {
+        g_SpriteEngine->ResetColorModulation();
+    }
+    stage->keepColorModulation = 0;
+    stage->unknown6440 = 0;
+    return 1;
+}
+
 Stage::Stage()
 {
     memset(this, 0, sizeof(Stage));

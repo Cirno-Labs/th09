@@ -310,11 +310,27 @@ extern PlayTime g_RunTime;
 extern PlayTime g_PlayTime;
 
 // The object that runs the game (th08's App), at 0x4b3100.
+// A camera of App's views. Only the fields known so far.
+struct Camera
+{
+    unsigned char pad_0[0xcc];
+    D3DVIEWPORT8 viewport;
+};
+
 struct App
 {
     // Sets up view `view`, its camera and viewport: 0 the play area, 2
     // the whole screen (0x401390).
     void SetView(int view);
+    // Sets up the camera and the projection of `camera` (0x430590).
+    void SetupCamera(Camera *camera);
+    // Sets up the current camera and its viewport again. Inline; the copy
+    // is at 0x4013e0.
+    void ResetView()
+    {
+        this->SetupCamera(this->camera);
+        this->d3dDevice->SetViewport(&this->camera->viewport);
+    }
     // Bit 3 of stateFlags, as th08's GetNoScore (0x420180).
     int GetNoScore();
     // The config's options, as th08's getters, out of line (0x401460,
@@ -403,7 +419,10 @@ struct App
 
     unsigned char pad_0[0x8];
     IDirect3DDevice8 *d3dDevice;
-    unsigned char pad_c[0x388 - 0xc];
+    unsigned char pad_c[0x348 - 0xc];
+    // The camera of the view SetView last set up.
+    Camera *camera;
+    unsigned char pad_34c[0x388 - 0x34c];
     GameConfig config;
     unsigned char pad_454[0x590 - 0x454];
     int scene;
