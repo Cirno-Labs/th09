@@ -495,7 +495,7 @@ address,size,name,symbol
 0x00424601,112,MainMenu::MoveCursorLR,?MoveCursorLR@MainMenu@@QAEHH@Z
 0x00424671,217,MainMenu::MoveCursor4,?MoveCursor4@MainMenu@@QAEHH@Z
 0x0042474a,167,MainMenu::MovePlayerCursor,?MovePlayerCursor@MainMenu@@QAEHHH@Z
-0x004247f1,167,Func4247f1,
+0x004247f1,167,MainMenu::MovePlayerCursor2,?MovePlayerCursor2@MainMenu@@QAEHHHH@Z
 0x00424898,329,Func424898,
 0x004249e1,534,Func4249e1,
 0x00424bf7,335,Func424bf7,
