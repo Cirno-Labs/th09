@@ -1,11 +1,15 @@
+// cflags: -/GX
+// The effect object is built without /GX: new EffectManager() has no
+// exception frame to free the block if the constructor throws.
 #include "effect.h"
+#include "gamemanager.h"
 
 void EffectManager::Reset()
 {
     int i;
     Effect *effect;
 
-    this->unknown110 = 0;
+    this->unknown3c.next = NULL;
     effect = this->effects;
     for (i = 0; i < this->unknown34 + this->unknown38 + 1; i++, effect++)
     {
@@ -58,4 +62,47 @@ void EffectManager::RemoveChain(EffectManager *mgr)
         g_Chain.Remove(mgr->drawElem);
         delete mgr;
     }
+}
+
+EffectManager *EffectManager::RegisterChain(int sideIdx, int count34, int count38)
+{
+    EffectManager *mgr =
+        (EffectManager *)g_MemoryManager.Register(new EffectManager(), sizeof(EffectManager), "EffectSysInf");
+
+    mgr->Init();
+    mgr->sideIdx = sideIdx;
+    if (sideIdx < 2)
+    {
+        mgr->side = &g_GameManager.sides[sideIdx];
+        mgr->otherSide = &g_GameManager.sides[1 - sideIdx];
+    }
+    else
+    {
+        mgr->side = &g_GameManager.sides[sideIdx];
+        mgr->otherSide = &g_GameManager.sides[sideIdx];
+    }
+    mgr->unknown34 = count34;
+    mgr->unknown38 = count38;
+    mgr->effects = (Effect *)g_MemoryManager.Alloc((count34 + count38 + 1) * sizeof(Effect), GLOBAL_H);
+    memset(mgr->effects, 0, (count34 + count38 + 1) * sizeof(Effect));
+    mgr->calcElem = g_Chain.CreateElem((ChainCallback)EffectManager::OnUpdate);
+    mgr->calcElem->arg = mgr;
+    mgr->calcElem->addedCallback = (ChainCallback)EffectManager::AddedCallback;
+    if (g_Chain.AddToCalcChain(mgr->calcElem, sideIdx + 0x13) != 0)
+    {
+        return NULL;
+    }
+    if (sideIdx < 2)
+    {
+        mgr->drawElem = g_Chain.CreateElem((ChainCallback)EffectManager::OnDraw);
+        mgr->drawElem->arg = mgr;
+        g_Chain.AddToDrawChain(mgr->drawElem, sideIdx + 0x13);
+    }
+    else
+    {
+        mgr->drawElem = g_Chain.CreateElem((ChainCallback)EffectManager::OnDraw2);
+        mgr->drawElem->arg = mgr;
+        g_Chain.AddToDrawChain(mgr->drawElem, 0x1e);
+    }
+    return mgr;
 }
