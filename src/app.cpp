@@ -736,3 +736,11 @@ void App::SetupCamera3D(Camera *camera)
         g_SpriteEngine->shakeY = camera->shakeY;
     }
 }
+
+int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
+{
+    this->CloseSubThread();
+    this->subThread = CreateThread(NULL, 0, proc, arg, 0, &this->subThreadId);
+    this->unknown6b8 = 1;
+    return this->subThread != NULL ? 0 : -1;
+}
