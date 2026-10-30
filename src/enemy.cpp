@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "gamemanager.h"
 #include "sprite.h"
 #include "unsorted.h"
 
@@ -76,3 +77,27 @@ EnemyManager::EnemyManager()
     this->Initialize();
 }
 
+EnemyManager *EnemyManager::RegisterChain(int sideIdx)
+{
+    EnemyManager *mgr =
+        (EnemyManager *)g_MemoryManager.Register(new EnemyManager(), sizeof(EnemyManager), "EnemyCtrlInf");
+
+    mgr->Initialize();
+    mgr->sideIdx = sideIdx;
+    mgr->side = &g_GameManager.sides[sideIdx];
+    mgr->otherSide = &g_GameManager.sides[1 - sideIdx];
+    mgr->calcElem = g_Chain.CreateElem((ChainCallback)EnemyManager::OnUpdate);
+    mgr->calcElem->arg = mgr;
+    mgr->calcElem->addedCallback = (ChainCallback)EnemyManager::AddedCallback;
+    if (g_Chain.AddToCalcChain(mgr->calcElem, sideIdx + 0xa) != 0)
+    {
+        return NULL;
+    }
+    mgr->drawElem = g_Chain.CreateElem((ChainCallback)EnemyManager::OnDraw);
+    mgr->drawElem->arg = mgr;
+    g_Chain.AddToDrawChain(mgr->drawElem, sideIdx + 0xa);
+    mgr->drawElem2 = g_Chain.CreateElem((ChainCallback)EnemyManager::OnDraw2);
+    mgr->drawElem2->arg = mgr;
+    g_Chain.AddToDrawChain(mgr->drawElem2, sideIdx + 0x11);
+    return mgr;
+}
