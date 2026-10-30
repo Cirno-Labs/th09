@@ -30,6 +30,8 @@ public:
     // Frees the attacks, removes the manager's chain elements and deletes
     // it, if any (0x4156a0).
     static void RemoveChain(ExAttackManager *mgr);
+    // Ends and clears the attacks for a new round (0x4156f0).
+    void Reset();
 
     ChainElem *calcElem;
     ChainElem *drawElem;

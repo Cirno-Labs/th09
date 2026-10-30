@@ -26,6 +26,8 @@ public:
     // Frees the effects, removes the manager's chain elements and deletes
     // it, if any (0x40d280).
     static void RemoveChain(EffectManager *mgr);
+    // Resets the effects for a new round (0x40c990).
+    void Reset();
 
     unsigned char pad_0[0x18];
     ChainElem *calcElem;

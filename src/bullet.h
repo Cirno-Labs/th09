@@ -12,6 +12,8 @@ public:
     // Removes the manager's chain elements and deletes it, if any
     // (0x414180).
     static void RemoveChain(BulletManager *mgr);
+    // Clears the bullets for a new round (0x412470).
+    void Reset();
 
     unsigned char pad_0[0x25e184];
     ChainElem *calcElem;

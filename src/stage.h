@@ -11,6 +11,8 @@ public:
     // Removes the stage's chain elements and deletes it, if any
     // (0x402530).
     static void RemoveChain(Stage *stage);
+    // Resets the stage for a new round (0x4011c0).
+    void Reset();
 
     ChainElem *calcElem;
     ChainElem *drawElem;

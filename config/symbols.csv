@@ -9,7 +9,7 @@ address,size,name,symbol
 0x00401100,54,Func401100,
 0x00401140,54,Func401140,
 0x00401180,52,Func401180,
-0x004011c0,11,Func4011c0,
+0x004011c0,11,Stage::Reset,?Reset@Stage@@QAEXXZ
 0x004011d0,181,Func4011d0,
 0x00401290,40,Func401290,
 0x004012c0,31,Func4012c0,
@@ -62,7 +62,7 @@ address,size,name,symbol
 0x00403c90,91,Func403c90,
 0x00403cf0,100,Func403cf0,
 0x00403d60,31,RunEndCallbacks,
-0x00403d80,12,Func403d80,
+0x00403d80,12,SpellCard::Reset,?Reset@SpellCard@@QAEXXZ
 0x00403d90,71,Func403d90,
 0x00403de0,20,Timer::operator>,??OTimer@@QAEHH@Z
 0x00403e00,41,Func403e00,
@@ -132,7 +132,7 @@ address,size,name,symbol
 0x0040c810,69,Func40c810,
 0x0040c860,226,Func40c860,
 0x0040c950,14,Func40c950,
-0x0040c990,194,Func40c990,
+0x0040c990,194,EffectManager::Reset,?Reset@EffectManager@@QAEXXZ
 0x0040ca60,407,Func40ca60,
 0x0040cc00,184,Func40cc00,
 0x0040ccc0,175,Func40ccc0,
@@ -212,7 +212,7 @@ address,size,name,symbol
 0x00411d80,38,Func411d80,
 0x00411f30,68,FreeResources,
 0x00411f80,74,EnemyManager::RemoveChain,?RemoveChain@EnemyManager@@SIXPAV1@@Z
-0x00411fd0,177,Func411fd0,
+0x00411fd0,177,EnemyManager::Reset,?Reset@EnemyManager@@QAEXXZ
 0x00412090,15,Func412090,
 0x004120a0,20,Func4120a0,
 0x004120c0,15,Func4120c0,
@@ -222,7 +222,7 @@ address,size,name,symbol
 0x00412240,328,Func412240,
 0x00412390,39,Func412390,
 0x004123c0,173,Func4123c0,
-0x00412470,95,Func412470,
+0x00412470,95,BulletManager::Reset,?Reset@BulletManager@@QAEXXZ
 0x004124d0,16,Func4124d0,
 0x004124e0,161,Func4124e0,
 0x00412590,3,Func412590,
@@ -273,7 +273,7 @@ address,size,name,symbol
 0x00415580,190,Func415580,
 0x00415650,70,FreeAttacks,
 0x004156a0,66,ExAttackManager::RemoveChain,?RemoveChain@ExAttackManager@@SIXPAV1@@Z
-0x004156f0,88,Func4156f0,
+0x004156f0,88,ExAttackManager::Reset,?Reset@ExAttackManager@@QAEXXZ
 0x004157a0,15,Func4157a0,
 0x004157b0,28,Func4157b0,
 0x004157d0,264,Func4157d0,
@@ -302,7 +302,7 @@ address,size,name,symbol
 0x00417520,271,GuiMsg::UnloadBgm,?UnloadBgm@GuiMsg@@QAEXH@Z
 0x00417630,1485,Func417630,
 0x00417c10,1474,Func417c10,
-0x004181e0,133,Func4181e0,
+0x004181e0,133,Gui::Reset,?Reset@Gui@@QAEXXZ
 0x00418270,34,Gui::FreeResources,?FreeResources@Gui@@SIHPAV1@@Z
 0x004182a0,50,Gui::RemoveChain,?RemoveChain@Gui@@SIXPAV1@@Z
 0x004182e0,398,Func4182e0,
@@ -318,7 +318,7 @@ address,size,name,symbol
 0x0041a000,448,Func41a000,
 0x0041a1d0,59,GuiSide::RemoveChain,?RemoveChain@GuiSide@@SIXPAV1@@Z
 0x0041a210,21,Func41a210,
-0x0041a230,51,Func41a230,
+0x0041a230,51,GuiSide::Reset,?Reset@GuiSide@@QAEXXZ
 0x0041a270,95,Func41a270,
 0x0041a2d0,67,Func41a2d0,
 0x0041a320,92,Func41a320,
@@ -343,7 +343,7 @@ address,size,name,symbol
 0x0041aa07,88,GameManager::AddExtend,?AddExtend@GameManager@@QAEXXZ
 0x0041aa5f,1230,GameManager::OnUpdate,?OnUpdate@GameManager@@SIHPAV1@@Z
 0x0041af2d,1689,GameManager::LoadingThread,?LoadingThread@GameManager@@SIXPAV1@@Z
-0x0041b5c6,425,Func41b5c6,
+0x0041b5c6,425,GameManager::ResetRound,?ResetRound@GameManager@@SIXXZ
 0x0041b76f,187,GameManager::AddedCallback,?AddedCallback@GameManager@@SIHPAV1@@Z
 0x0041b82a,422,GameManager::DeletedCallback,?DeletedCallback@GameManager@@SIHPAV1@@Z
 0x0041b9d0,127,GameManager::RegisterChain,?RegisterChain@GameManager@@SIHXZ
@@ -396,7 +396,7 @@ address,size,name,symbol
 0x0041e720,400,Func41e720,
 0x0041e8b0,74,Func41e8b0,
 0x0041eb10,166,Func41eb10,
-0x0041ebc0,552,Func41ebc0,
+0x0041ebc0,552,Player::Reset,?Reset@Player@@QAEXXZ
 0x0041ee00,28,Func41ee00,
 0x0041ee20,12,Func41ee20,
 0x0041ee30,23,Func41ee30,
@@ -723,7 +723,7 @@ address,size,name,symbol
 0x004343b0,10,Func4343b0,
 0x004343c0,16,Func4343c0,
 0x004343d0,3,Func4343d0,
-0x004343e0,251,Func4343e0,
+0x004343e0,251,AsciiText::Initialize,?Initialize@AsciiText@@QAEXXZ
 0x004344e0,89,Func4344e0,
 0x00434540,341,Func434540,
 0x004346a0,154,Func4346a0,
@@ -2221,6 +2221,7 @@ address,size,name,symbol
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
+0x004ce458,,g_AsciiText,?g_AsciiText@@3VAsciiText@@A
 0x004d9698,,g_Unknown4d9698,?g_Unknown4d9698@@3PAEA
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A

@@ -87,6 +87,10 @@ public:
     void ResetState();
     // Whether a demo plays: bit 1 of stateFlags (0x41a9ac).
     int IsDemo();
+    // Resets the state, the ASCII text and every object for a new round,
+    // and sets unknownB4, unknownC4 and unknownC8 by difficulty
+    // (0x41b5c6).
+    static void ResetRound();
     // Sets arena to the play area (-144, 0, 288, 448) and arena2 to
     // (-136, 16, 272, 416), as th08's. Inline, but not expanded in Init,
     // which calls the copy at 0x41a9b8.
@@ -110,11 +114,17 @@ public:
     Gui *gui;
     ExAttackManager *exAttackManager;
     int unknownB0;
-    unsigned char pad_b4[0x4];
+    // ResetRound lowers it by 2 per unknown100, to at least 1, from a
+    // value set by difficulty; in mode 2 by 8, to at least unknown100.
+    int unknownB4;
     int unknownB8;
     int unknownBc;
     int unknownC0;
-    unsigned char pad_c4[0xd0 - 0xc4];
+    // Set by ResetRound from difficulty, unknown100 and unknownFc.
+    int unknownC4;
+    int unknownC8;
+    // ResetRound lowers it by 1000, to at least 0.
+    int unknownCc;
     int unknownD0;
     ReplayManager *replayManager;
     unsigned char pad_d8[0xe8 - 0xd8];
@@ -125,7 +135,9 @@ public:
     // to unknown24.
     int unknownF4;
     int unknownF8;
-    unsigned char pad_fc[0x110 - 0xfc];
+    int unknownFc;
+    int unknown100;
+    unsigned char pad_104[0x110 - 0x104];
     int unknown110;
     unsigned char pad_114[0x4];
     int mode;

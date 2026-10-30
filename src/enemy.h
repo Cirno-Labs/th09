@@ -37,6 +37,8 @@ public:
     // Frees the enemies' resources, removes the manager's chain elements
     // and deletes it, if any (0x411f80).
     static void RemoveChain(EnemyManager *mgr);
+    // Resets the enemies for a new round (0x411fd0).
+    void Reset();
 
     // enemy.ecl, and the character's plXX.ecl.
     EclManager ecl;

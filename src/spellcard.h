@@ -15,6 +15,8 @@ public:
     // Ends the spell card, removes its chain elements and deletes it, if
     // any (0x404570).
     static void RemoveChain(SpellCard *card);
+    // Resets the spell card for a new round (0x403d80).
+    void Reset();
 
     unsigned char pad_0[0xc];
     ChainElem *calcElem;

@@ -12,6 +12,8 @@ public:
     // Frees the player's resources, removes its chain elements and
     // deletes it, if any (0x41ced0).
     static void RemoveChain(Player *player);
+    // Resets the player for a new round (0x41ebc0).
+    void Reset();
 
     unsigned char pad_0[0x8];
     // The side, 0 or 1.

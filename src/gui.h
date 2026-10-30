@@ -26,6 +26,8 @@ public:
     // Frees the resources, removes the chain elements and deletes the
     // front, if any (0x4182a0).
     static void RemoveChain(Gui *gui);
+    // Resets the front for a new round (0x4181e0).
+    void Reset();
 
     ChainElem *calcElem;
     ChainElem *drawElem;
@@ -41,6 +43,8 @@ public:
     // Removes the chain elements and deletes the side's front, if any,
     // after unloading ANM slot 7 if unknownA67c is set (0x41a1d0).
     static void RemoveChain(GuiSide *side);
+    // Resets the side's front for a new round (0x41a230).
+    void Reset();
 
     unsigned char pad_0[0xa660];
     ChainElem *calcElem;
