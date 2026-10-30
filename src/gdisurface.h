@@ -28,14 +28,34 @@ extern FormatInfo g_FormatInfos[7];
 class GdiSurface
 {
 public:
-    // th08's getters, out of line (0x435eb0 to 0x435f10).
-    void *GetBits();
-    int GetFormat();
+    // th08's getters. Inline; the copies are at 0x435eb0 to 0x435f10.
+    void *GetBits()
+    {
+        return this->bits;
+    }
+    int GetFormat()
+    {
+        return this->format;
+    }
+    // Inline too in the original; out of line here until its callers
+    // (0x4364c0, 0x4367b0) are decompiled, so that it is compiled.
     HDC GetHdc();
-    int GetWidthBytes();
-    int GetWidth();
-    int GetHeight();
-    bool IsCreated();
+    int GetWidthBytes()
+    {
+        return this->widthBytes;
+    }
+    int GetWidth()
+    {
+        return this->width;
+    }
+    int GetHeight()
+    {
+        return this->height;
+    }
+    bool IsCreated()
+    {
+        return this->bitmap != NULL;
+    }
     // (0x435f20, 0x436300)
     GdiSurface();
     ~GdiSurface();
@@ -46,8 +66,11 @@ public:
     // when it is missing; NULL for -1, as th08's (0x435f90).
     FormatInfo *FindFormat(int format);
     // Creates the DIB section and its DC, after releasing any old ones
-    // (0x435fe0).
+    // (0x436310).
     bool CreateInFormat(int width, int height, int format);
+    // CreateInFormat, falling back to a 32-bit format for the 16-bit
+    // ones, as th08's (0x436450).
+    bool Create(int width, int height, int format);
     // Copies the pixels into `surface` when it has the same format.
     // Returns false when there is no bitmap or the surface can't be
     // locked (0x4361c0).
