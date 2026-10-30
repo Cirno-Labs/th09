@@ -114,7 +114,7 @@
 <rect width="12" height="12" x="660" y="0" class="todo"><title>0x004018f0 Func4018f0 (2472 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="0" class="todo"><title>0x00402350 Func402350 (377 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="0" class="todo"><title>0x004024d0 Func4024d0 (85 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="0" class="named"><title>0x00402530 Stage::CutChain (59 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="0" class="named"><title>0x00402530 Stage::RemoveChain (59 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="0" class="todo"><title>0x00402570 Func402570 (314 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="0" class="todo"><title>0x004026c0 Func4026c0 (3274 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="15" class="named"><title>0x00403390 Timer::Timer (12 bytes)</title></rect>
@@ -209,7 +209,7 @@
 <rect width="12" height="12" x="585" y="30" class="todo"><title>0x0040cfb0 Func40cfb0 (183 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="30" class="todo"><title>0x0040d110 Func40d110 (169 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="30" class="named"><title>0x0040d200 EffectManager::FreeEffects (123 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="30" class="named"><title>0x0040d280 EffectManager::CutChain (51 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="30" class="named"><title>0x0040d280 EffectManager::RemoveChain (51 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="30" class="todo"><title>0x0040d2c0 Func40d2c0 (18 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="30" class="todo"><title>0x0040d2e0 Func40d2e0 (61 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="30" class="todo"><title>0x0040d320 Func40d320 (327 bytes)</title></rect>
@@ -327,7 +327,7 @@
 <rect width="12" height="12" x="105" y="75" class="todo"><title>0x00413af0 Func413af0 (215 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="75" class="todo"><title>0x00413be0 Func413be0 (591 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="75" class="todo"><title>0x00413e40 Func413e40 (598 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="75" class="named"><title>0x00414180 BulletManager::CutChain (52 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="75" class="named"><title>0x00414180 BulletManager::RemoveChain (52 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="75" class="todo"><title>0x004141c0 Func4141c0 (1233 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="75" class="todo"><title>0x004146f0 Func4146f0 (2184 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="75" class="todo"><title>0x00414fa0 Func414fa0 (56 bytes)</title></rect>
@@ -1780,7 +1780,7 @@
 <rect width="3.91" height="4.16" x="652.25" y="296.51" class="todo"><title>0x0040e130 Func40e130 (60 bytes)</title></rect>
 <rect width="3.91" height="4.16" x="652.25" y="303.67" class="todo"><title>0x0043fdc0 Func43fdc0 (60 bytes)</title></rect>
 <rect width="3.91" height="4.16" x="652.25" y="310.84" class="todo"><title>0x00440750 Func440750 (60 bytes)</title></rect>
-<rect width="4.20" height="3.76" x="659.17" y="223.06" class="named"><title>0x00402530 Stage::CutChain (59 bytes)</title></rect>
+<rect width="4.20" height="3.76" x="659.17" y="223.06" class="named"><title>0x00402530 Stage::RemoveChain (59 bytes)</title></rect>
 <rect width="4.20" height="3.76" x="666.37" y="223.06" class="todo"><title>0x0041a1d0 Func41a1d0 (59 bytes)</title></rect>
 <rect width="4.20" height="3.76" x="673.57" y="223.06" class="todo"><title>0x00431b30 Func431b30 (59 bytes)</title></rect>
 <rect width="4.20" height="3.76" x="680.78" y="223.06" class="todo"><title>0x0043cf90 Func43cf90 (59 bytes)</title></rect>
@@ -1807,11 +1807,11 @@
 <rect width="3.59" height="3.64" x="659.17" y="304.72" class="named"><title>0x0042fcf0 App::PlayBgm (53 bytes)</title></rect>
 <rect width="3.59" height="3.64" x="659.17" y="311.36" class="todo"><title>0x00439560 Func439560 (53 bytes)</title></rect>
 <rect width="3.60" height="3.51" x="665.76" y="229.83" class="todo"><title>0x00401180 Func401180 (52 bytes)</title></rect>
-<rect width="3.60" height="3.51" x="672.36" y="229.83" class="named"><title>0x00414180 BulletManager::CutChain (52 bytes)</title></rect>
+<rect width="3.60" height="3.51" x="672.36" y="229.83" class="named"><title>0x00414180 BulletManager::RemoveChain (52 bytes)</title></rect>
 <rect width="3.60" height="3.51" x="678.95" y="229.83" class="todo"><title>0x00435c60 Func435c60 (52 bytes)</title></rect>
 <rect width="3.60" height="3.51" x="685.55" y="229.83" class="todo"><title>0x0043d060 Func43d060 (52 bytes)</title></rect>
 <rect width="3.47" height="3.51" x="692.15" y="229.83" class="todo"><title>0x00404570 Func404570 (51 bytes)</title></rect>
-<rect width="3.47" height="3.51" x="698.62" y="229.83" class="named"><title>0x0040d280 EffectManager::CutChain (51 bytes)</title></rect>
+<rect width="3.47" height="3.51" x="698.62" y="229.83" class="named"><title>0x0040d280 EffectManager::RemoveChain (51 bytes)</title></rect>
 <rect width="3.47" height="3.51" x="705.09" y="229.83" class="todo"><title>0x0040f180 Func40f180 (51 bytes)</title></rect>
 <rect width="3.47" height="3.51" x="711.56" y="229.83" class="todo"><title>0x0041a230 Func41a230 (51 bytes)</title></rect>
 <rect width="3.47" height="3.51" x="718.03" y="229.83" class="todo"><title>0x0041f310 Func41f310 (51 bytes)</title></rect>

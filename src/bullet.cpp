@@ -1,6 +1,6 @@
 #include "bullet.h"
 
-void BulletManager::CutChain(BulletManager *mgr)
+void BulletManager::RemoveChain(BulletManager *mgr)
 {
     if (mgr != NULL)
     {

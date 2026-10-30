@@ -10,7 +10,7 @@ class Stage
 public:
     // Removes the stage's chain elements and deletes it, if any
     // (0x402530).
-    static void CutChain(Stage *stage);
+    static void RemoveChain(Stage *stage);
 
     ChainElem *calcElem;
     ChainElem *drawElem;

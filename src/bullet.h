@@ -11,7 +11,7 @@ class BulletManager
 public:
     // Removes the manager's chain elements and deletes it, if any
     // (0x414180).
-    static void CutChain(BulletManager *mgr);
+    static void RemoveChain(BulletManager *mgr);
 
     unsigned char pad_0[0x25e184];
     ChainElem *calcElem;

@@ -1,6 +1,6 @@
 #include "stage.h"
 
-void Stage::CutChain(Stage *stage)
+void Stage::RemoveChain(Stage *stage)
 {
     if (stage != NULL)
     {

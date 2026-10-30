@@ -25,7 +25,7 @@ public:
     static int FreeEffects(EffectManager *mgr);
     // Frees the effects, removes the manager's chain elements and deletes
     // it, if any (0x40d280).
-    static void CutChain(EffectManager *mgr);
+    static void RemoveChain(EffectManager *mgr);
 
     unsigned char pad_0[0x18];
     ChainElem *calcElem;

@@ -23,7 +23,7 @@ int EffectManager::FreeEffects(EffectManager *mgr)
     return 0;
 }
 
-void EffectManager::CutChain(EffectManager *mgr)
+void EffectManager::RemoveChain(EffectManager *mgr)
 {
     if (mgr != NULL)
     {
