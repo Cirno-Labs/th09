@@ -85,6 +85,15 @@ struct PlayerOption
 };
 ASSERT_SIZE(PlayerOption, 0x2f4);
 
+struct PlayerBullet;
+struct ShtFile;
+struct ShotData;
+
+// A shot's callbacks, as th08's. Under /Gr these are __fastcall.
+typedef int (*ShotFireFunc)(Player *player, PlayerBullet *bullet, int frame, ShotData *sd);
+typedef int (*ShotUpdateFunc)(Player *player, PlayerBullet *bullet);
+typedef int (*ShotHitFunc)(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos);
+
 // One of the player's bullets (0x484 bytes), the layout of th08's
 // PlayerBullet. Only the fields known so far.
 struct PlayerBullet
@@ -114,7 +123,13 @@ struct PlayerBullet
     unsigned char pad_46f[0x470 - 0x46f];
     // Cleared when fired, where th08 copied the player's focus.
     short unknown470;
-    unsigned char pad_472[0x484 - 0x472];
+    unsigned char pad_472[0x474 - 0x472];
+    // The shot's callbacks, copied when it fires.
+    ShotUpdateFunc update;
+    ShotUpdateFunc draw;
+    ShotHitFunc hit;
+    // The shot it was fired from.
+    ShotData *shot;
 };
 ASSERT_SIZE(PlayerBullet, 0x484);
 
@@ -261,7 +276,7 @@ public:
     PlayerBullet bullets[0x80];
     PlayerUnknown3031c unknown3031c;
     // The character's shot file (plXX.sht).
-    void *shtFile;
+    ShtFile *shtFile;
     unsigned char pad_3033c[0x30388 - 0x3033c];
     // Lowered by SubUnknown30388, down to 1.
     float unknown30388;
@@ -303,6 +318,29 @@ struct ShotData
     // Its script, from 5, and its sound or -1.
     short script;
     short sound;
+    // Fires it; TryFireShot when NULL.
+    ShotFireFunc fire;
+    // Copied into the bullet it fires.
+    ShotUpdateFunc update;
+    ShotUpdateFunc draw;
+    ShotHitFunc hit;
+};
+ASSERT_SIZE(ShotData, 0x38);
+
+// A table of shots, ending with a frame below 0. Only the fields known
+// so far.
+struct ShotTable
+{
+    ShotData *shots;
+    unsigned char pad_4[0x8 - 0x4];
+};
+ASSERT_SIZE(ShotTable, 0x8);
+
+// A character's shot file (plXX.sht). Only the fields known so far.
+struct ShtFile
+{
+    unsigned char pad_0[0x42c];
+    ShotTable tables[1];
 };
 
 // Fills `bullet` with shot `sd` and starts it, as th08's (0x41f350).
@@ -311,6 +349,10 @@ void FireShot(Player *player, PlayerBullet *bullet, ShotData *sd);
 // did, as th08's, which tested frame % interval against phase
 // (0x41f490).
 int TryFireShot(Player *player, PlayerBullet *bullet, int frame, ShotData *sd);
+// Fires the shots of table `table` of the shot file into the free
+// bullets, as th08's FireShots, which picked the table itself
+// (0x41f4c0).
+void FireShots(Player *player, int frame, int table);
 
 // Each character's files: its shot file, ANM, ECL, MSG, match MSG and
 // second ANM (0x4a1238).
@@ -318,4 +360,4 @@ extern char *g_CharacterFiles[][6];
 
 // Each side's shot file, kept while the side keeps its character
 // (0x4a8160).
-extern void *g_ShtFiles[2];
+extern ShtFile *g_ShtFiles[2];

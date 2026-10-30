@@ -305,6 +305,51 @@ int TryFireShot(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
     return 0;
 }
 
+void FireShots(Player *player, int frame, int table)
+{
+    ShotData *shot;
+    int ret;
+    PlayerBullet *curBullet;
+    int i;
+
+    shot = player->shtFile->tables[table].shots;
+    curBullet = player->bullets;
+    for (i = 0; i < 0x80; i++, curBullet++)
+    {
+        if (curBullet->state != 0)
+        {
+            continue;
+        }
+    again:
+        if (shot->fire != NULL)
+        {
+            ret = shot->fire(player, curBullet, frame, shot);
+        }
+        else
+        {
+            ret = TryFireShot(player, curBullet, frame, shot);
+        }
+        if (ret == 1)
+        {
+            curBullet->sprite.flags |= 0x2000;
+            curBullet->state = 1;
+            curBullet->shot = shot;
+            curBullet->update = curBullet->shot->update;
+            curBullet->draw = curBullet->shot->draw;
+            curBullet->hit = curBullet->shot->hit;
+        }
+        shot++;
+        if (shot->frame < 0)
+        {
+            return;
+        }
+        if (ret == 0)
+        {
+            goto again;
+        }
+    }
+}
+
 void Player::DrawHitBullets()
 {
     PlayerBullet *bullet = this->bullets;

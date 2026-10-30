@@ -417,7 +417,7 @@ address,size,name,symbol
 0x0041f310,51,Player::SubUnknown30388,?SubUnknown30388@Player@@QAEXM@Z
 0x0041f350,309,FireShot,?FireShot@@YIXPAVPlayer@@PAUPlayerBullet@@PAUShotData@@@Z
 0x0041f490,37,TryFireShot,?TryFireShot@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
-0x0041f4c0,190,Func41f4c0,
+0x0041f4c0,190,FireShots,?FireShots@@YIXPAVPlayer@@HH@Z
 0x0041f580,242,Func41f580,
 0x0041f680,205,Func41f680,
 0x0041f760,164,Player::DrawHitBullets,?DrawHitBullets@Player@@QAEXXZ
@@ -2262,7 +2262,7 @@ address,size,name,symbol
 0x004a7d90,,g_GameManager,?g_GameManager@@3VGameManager@@A
 0x004a8120,,g_GameManagerCalcChain,?g_GameManagerCalcChain@@3UChainElem@@A
 0x004a8140,,g_GameManagerDrawChain,?g_GameManagerDrawChain@@3UChainElem@@A
-0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAXA
+0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAUShtFile@@A
 0x004a8168,,g_Lsnm,?g_Lsnm@@3ULsnm@@A
 0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
