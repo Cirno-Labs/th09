@@ -269,7 +269,13 @@ struct Enemy
             DWORD rotateSprite : 1;
         };
     };
-    unsigned char pad_3380[0x338a - 0x3380];
+    struct
+    {
+        DWORD unusedBits0 : 10;
+        // What EnemyManager::FindByUnknownType looks for.
+        DWORD unknownType : 2;
+    };
+    unsigned char pad_3384[0x338a - 0x3384];
     short turnStill;
     unsigned char pad_338c[0x3390 - 0x338c];
     short turnLeft;
@@ -325,6 +331,9 @@ public:
     // (priority 0xa + `sideIdx`) and draw elements (0xa + `sideIdx` and
     // 0x11 + `sideIdx`). Returns it, or NULL if adding fails (0x412240).
     static EnemyManager *RegisterChain(int sideIdx);
+    // The first active enemy, of the first 0x80, whose unknownType is
+    // `type`, or NULL (0x40f7d0).
+    Enemy *FindByUnknownType(int type);
 
     // enemy.ecl, and the character's plXX.ecl.
     EclManager ecl;

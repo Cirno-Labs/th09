@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.07% (695)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.36% (367)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.17% (696)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.27% (366)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="486.11" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="486.11" y="0" class="decompiled"/>
-<rect width="256.69" height="6" x="490.31" y="0" class="todo"/>
+<rect width="486.81" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="486.81" y="0" class="decompiled"/>
+<rect width="255.99" height="6" x="491.01" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -267,7 +267,7 @@
 <rect width="12" height="12" x="690" y="45" class="named"><title>0x0040f5a0 D3DXVECTOR3::operator/ (56 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="45" class="todo"><title>0x0040f5e0 Func40f5e0 (91 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="45" class="todo"><title>0x0040f640 Func40f640 (385 bytes)</title></rect>
-<rect width="12" height="12" x="735" y="45" class="todo"><title>0x0040f7d0 Func40f7d0 (62 bytes)</title></rect>
+<rect width="12" height="12" x="735" y="45" class="named"><title>0x0040f7d0 EnemyManager::FindByUnknownType (62 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="60" class="named"><title>0x0040f810 Timer::HasTicked (17 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="60" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="60" class="named"><title>0x0040f840 Sprite::SetRotationZ (20 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.20%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.76%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.22%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.74%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="247.97" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="247.97" y="0" class="decompiled"/>
-<rect width="498.73" height="6" x="248.27" y="0" class="todo"/>
+<rect width="248.13" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="248.13" y="0" class="decompiled"/>
+<rect width="498.57" height="6" x="248.43" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1805,7 +1805,7 @@
 <rect width="4.45" height="4.36" x="663.50" y="231.16" class="named"><title>0x004330a0 DatArchive::DuplicateString (64 bytes)</title></rect>
 <rect width="4.33" height="4.36" x="670.95" y="231.16" class="named"><title>0x004405e0 CWaveFile::SwitchTrack (63 bytes)</title></rect>
 <rect width="4.22" height="4.36" x="678.28" y="231.16" class="named"><title>0x004033a0 SpriteBase::SpriteBase (62 bytes)</title></rect>
-<rect width="4.22" height="4.36" x="685.50" y="231.16" class="todo"><title>0x0040f7d0 Func40f7d0 (62 bytes)</title></rect>
+<rect width="4.22" height="4.36" x="685.50" y="231.16" class="named"><title>0x0040f7d0 EnemyManager::FindByUnknownType (62 bytes)</title></rect>
 <rect width="4.22" height="4.36" x="692.72" y="231.16" class="todo"><title>0x00422bd0 Func422bd0 (62 bytes)</title></rect>
 <rect width="4.22" height="4.36" x="699.94" y="231.16" class="todo"><title>0x00422c10 Func422c10 (62 bytes)</title></rect>
 <rect width="4.22" height="4.36" x="707.16" y="231.16" class="named"><title>0x0042af40 Rotate2D (62 bytes)</title></rect>

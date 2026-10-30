@@ -15,6 +15,21 @@ void Enemy::ResetRankSpeeds()
     this->rankCount2High = 0;
 }
 
+Enemy *EnemyManager::FindByUnknownType(int type)
+{
+    int i;
+    Enemy *enemy = this->enemies;
+
+    for (i = 0; i < 0x80; i++, enemy++)
+    {
+        if (enemy->unknownType == type && enemy->active)
+        {
+            return enemy;
+        }
+    }
+    return NULL;
+}
+
 void EnemyManager::Initialize()
 {
     int i;
