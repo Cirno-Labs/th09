@@ -502,7 +502,7 @@ address,size,name,symbol
 0x00424d4b,84,MainMenu::ReleaseTitleScene,?ReleaseTitleScene@MainMenu@@QAEHXZ
 0x00424d9f,96,MainMenu::DeletedCallback,?DeletedCallback@MainMenu@@SIHPAV1@@Z
 0x00424dff,150,MainMenu::SelectEntry,?SelectEntry@MainMenu@@QAEXHHH@Z
-0x00424e95,72,Func424e95,
+0x00424e95,72,MainMenu::ShowEntryFrame,?ShowEntryFrame@MainMenu@@QAEXHH@Z
 0x00424edd,211,Func424edd,
 0x00424fb0,175,Func424fb0,
 0x0042505f,175,Func42505f,

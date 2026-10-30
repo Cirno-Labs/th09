@@ -585,3 +585,9 @@ void MainMenu::SelectEntry(int cursor, int first, int count)
     this->anm->SetSprite(&this->sprites[cursor + first], this->sprites[cursor + first].baseSpriteIndex);
     this->sprites[cursor + first].pendingInterrupt = 7;
 }
+
+void MainMenu::ShowEntryFrame(int frame, int idx)
+{
+    this->anm->SetSprite(&this->sprites[idx], this->sprites[idx].baseSpriteIndex + frame * 2);
+    this->sprites[idx].pendingInterrupt = 7;
+}
