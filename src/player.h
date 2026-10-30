@@ -217,6 +217,12 @@ public:
     static void RemoveChain(Player *player);
     // Resets the player for a new round (0x41ebc0).
     void Reset();
+    // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
+    // (0x435ec0).
+    int GetUnknown0()
+    {
+        return this->unknown0;
+    }
     // Sets registerChainArg (0x41bde0).
     void SetRegisterChainArg(BYTE arg);
     // Takes a free hit area (the last of the free list), or the spare
@@ -251,7 +257,8 @@ public:
     // unknown46e is set, as th08's DrawHitBullets (0x41f760).
     void DrawHitBullets();
 
-    unsigned char pad_0[0x4];
+    // OnDraw draws only unknown30454 while it is 5.
+    int unknown0;
     // RegisterChain's first argument.
     BYTE registerChainArg;
     unsigned char pad_5[0x8 - 0x5];
@@ -264,7 +271,11 @@ public:
     ChainElem *drawElem2;
     int unknown20;
     PlayerUnknown24 unknown24;
-    unsigned char pad_9c[0xbc - 0x9c];
+    unsigned char pad_9c[0xa8 - 0x9c];
+    // Draws the player whatever the front's unknown1095c and
+    // unknown10960.
+    int unknownA8;
+    unsigned char pad_ac[0xbc - 0xac];
     // The character's ANM, in slot sideIdx + 5.
     AnmLoaded *anm;
     Sprite sprite;

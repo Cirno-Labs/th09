@@ -92,7 +92,12 @@ public:
     unsigned char pad_e934[0xe944 - 0xe934];
     GuiMsg msg;
     Sprite unknown106b4;
-    unsigned char pad_10958[0x10968 - 0x10958];
+    unsigned char pad_10958[0x1095c - 0x10958];
+    // The player is not drawn while unknown1095c is 2 or more or
+    // unknown10960 is over 30, unless its unknownA8 is set.
+    int unknown1095c;
+    int unknown10960;
+    unsigned char pad_10964[0x10968 - 0x10964];
     Sprite unknown10968[8];
     unsigned char pad_11e88[0x11ea8 - 0x11e88];
     // Nonzero stops the player's combo from counting hits.

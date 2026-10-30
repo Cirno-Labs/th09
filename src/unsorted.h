@@ -608,6 +608,15 @@ struct App
         this->d3dDevice->SetViewport(&this->camera->viewport);
         this->view = view;
     }
+    // SetView, setting the camera up through SetupCamera. Inline; the
+    // copy is at 0x403d90.
+    void SetView2D(int view)
+    {
+        this->camera = &this->cameras[view];
+        this->SetupCamera(this->camera);
+        this->d3dDevice->SetViewport(&this->camera->viewport);
+        this->view = view;
+    }
     // Sets up the camera and the projection of `camera` (0x430590).
     void SetupCamera(Camera *camera);
     // Sets up the current camera and its viewport again. Inline; the copy

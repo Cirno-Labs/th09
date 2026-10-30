@@ -1,5 +1,6 @@
 #include "player.h"
 #include "sprite.h"
+#include "gui.h"
 
 void PlayerHitArea::Deactivate()
 {
@@ -234,6 +235,29 @@ void Player::DrawUnknown30454()
             g_SpriteEngine->DrawUnrotated(&this->unknown30454[i].sprite);
         }
     }
+}
+
+int Player::OnDraw(Player *player)
+{
+    g_App.SetView2D(player->sideIdx);
+    if (player->GetUnknown0() != 5)
+    {
+        player->DrawBullets();
+        if (player->unknownA8 == 0 &&
+            (g_GameManager.gui->unknown1095c >= 2 || g_GameManager.gui->unknown10960 > 30))
+        {
+            return 1;
+        }
+        if (!g_GameManager.isInContinueMenu)
+        {
+            player->sprite.pos.x = g_GameManager.ArenaToScreenX(player->pos.x);
+            player->sprite.pos.y = g_GameManager.ArenaToScreenY(player->pos.y);
+            player->sprite.pos.z = 0.1f;
+            g_SpriteEngine->DrawUnrotated(&player->sprite);
+        }
+    }
+    player->DrawUnknown30454();
+    return 1;
 }
 
 Player::Player()

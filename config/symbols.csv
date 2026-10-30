@@ -63,7 +63,7 @@ address,size,name,symbol
 0x00403cf0,100,Func403cf0,
 0x00403d60,31,RunEndCallbacks,?RunEndCallbacks@@YIHPAVSpellCard@@@Z
 0x00403d80,12,SpellCard::Reset,?Reset@SpellCard@@QAEXXZ
-0x00403d90,71,Func403d90,
+0x00403d90,71,App::SetView2D,?SetView2D@App@@QAEXH@Z
 0x00403de0,20,Timer::operator>,??OTimer@@QAEHH@Z
 0x00403e00,41,AnmLoaded::StartScript,?StartScript@AnmLoaded@@QAEXPAVSprite@@H@Z
 0x00403e30,27,Func403e30,
@@ -760,7 +760,7 @@ address,size,name,symbol
 0x00435da0,28,UnknownMenu::UnknownMenu,??0UnknownMenu@@QAE@XZ
 0x00435dc0,227,AsciiText::AsciiText,??0AsciiText@@QAE@XZ
 0x00435eb0,4,GdiSurface::GetBits,?GetBits@GdiSurface@@QAEPAXXZ
-0x00435ec0,3,GdiSurface::GetFormat,?GetFormat@GdiSurface@@QAEHXZ
+0x00435ec0,3,GdiSurface::GetFormat,?GetFormat@GdiSurface@@QAEHXZ ?GetUnknown0@Player@@QAEHXZ
 0x00435ed0,4,GdiSurface::GetHdc,?GetHdc@GdiSurface@@QAEPAUHDC__@@XZ
 0x00435ee0,4,GdiSurface::GetWidthBytes,?GetWidthBytes@GdiSurface@@QAEHXZ
 0x00435ef0,4,GdiSurface::GetWidth,?GetWidth@GdiSurface@@QAEHXZ
