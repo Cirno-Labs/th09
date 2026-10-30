@@ -504,13 +504,23 @@ extern PlayTime g_PlayTime;
 // A camera of App's views. Only the fields known so far.
 struct Camera
 {
-    unsigned char pad_0[0x30];
+    // SetupCamera3D looks from offset + eye to at + eye, with `up` up.
+    D3DXVECTOR3 eye;
+    D3DXVECTOR3 at;
+    D3DXVECTOR3 up;
+    unsigned char pad_24[0x30 - 0x24];
     // A unit to the camera's right, as th08's Stage camera's.
     D3DXVECTOR3 cameraRight;
-    unsigned char pad_3c[0x4c - 0x3c];
+    D3DXVECTOR3 offset;
+    // The field of view, in radians.
+    float fov;
     D3DXMATRIX viewMatrix;
     D3DXMATRIX projectionMatrix;
     D3DVIEWPORT8 viewport;
+    unsigned char pad_e4[0xe8 - 0xe4];
+    // Copied to the sprite engine's shake when the camera is set up.
+    float shakeX;
+    float shakeY;
 };
 
 struct App

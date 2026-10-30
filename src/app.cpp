@@ -626,3 +626,24 @@ void App::DeleteCriticalSections()
         DeleteCriticalSection(&this->criticalSections[i]);
     }
 }
+
+void App::SetupCamera(Camera *camera)
+{
+    if (g_SpriteEngine != NULL)
+    {
+        g_SpriteEngine->FlushQuadBatch();
+    }
+    float halfWidth = (float)camera->viewport.Width * g_Half;
+    float halfHeight = (float)camera->viewport.Height * g_Half;
+    float aspect = (float)camera->viewport.Width / (float)camera->viewport.Height;
+    D3DXMatrixLookAtLH(&camera->viewMatrix, &D3DXVECTOR3(halfWidth, halfHeight, halfHeight / tan(0.15707964f)),
+                       &D3DXVECTOR3(halfWidth, halfHeight, 0.0f), &D3DXVECTOR3(0.0f, -1.0f, 0.0f));
+    D3DXMatrixPerspectiveFovLH(&camera->projectionMatrix, 0.31415927f, aspect, 1.0f, 10000.0f);
+    g_App.d3dDevice->SetTransform(D3DTS_VIEW, &camera->viewMatrix);
+    g_App.d3dDevice->SetTransform(D3DTS_PROJECTION, &camera->projectionMatrix);
+    if (g_SpriteEngine != NULL)
+    {
+        g_SpriteEngine->shakeX = camera->shakeX;
+        g_SpriteEngine->shakeY = camera->shakeY;
+    }
+}

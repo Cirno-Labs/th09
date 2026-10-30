@@ -598,8 +598,8 @@ address,size,name,symbol
 0x0042dc40,326,Func42dc40,
 0x0042dd90,1561,Func42dd90,
 0x0042e3b0,1348,Func42e3b0,
-0x0042e900,14,Tan,?Tan@@YIMM@Z
-0x0042e910,14,Func42e910,
+0x0042e900,14,Tan,?Tan@@YIMM@Z @tanf@4
+0x0042e910,14,tan,?tan@@YAMM@Z
 0x0042e920,83,Func42e920,
 0x0042e980,17,Func42e980,
 0x0042e9a0,11,Func42e9a0,
@@ -1097,8 +1097,8 @@ address,size,name,symbol
 0x0044fef5,17,Func44fef5,
 0x0044ff06,39,Func44ff06,
 0x0044ff2d,230,Func44ff2d,
-0x00450013,328,Func450013,
-0x0045015b,148,Func45015b,
+0x00450013,328,D3DXMatrixLookAtLH,_D3DXMatrixLookAtLH@16
+0x0045015b,148,D3DXMatrixPerspectiveFovLH,_D3DXMatrixPerspectiveFovLH@20
 0x004503f4,32,Func4503f4,
 0x00450414,92,Func450414,
 0x00450470,46,Func450470,

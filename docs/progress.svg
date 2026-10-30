@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">46.26% (489)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">53.74% (568)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">46.45% (491)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">53.55% (566)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="345.58" height="6" x="0" y="0" class="named"/>
-<rect width="401.42" height="6" x="345.58" y="0" class="todo"/>
+<rect width="347" height="6" x="0" y="0" class="named"/>
+<rect width="400" height="6" x="347" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -667,7 +667,7 @@
 <rect width="12" height="12" x="705" y="165" class="todo"><title>0x0042dd90 Func42dd90 (1561 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="165" class="todo"><title>0x0042e3b0 Func42e3b0 (1348 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="165" class="named"><title>0x0042e900 Tan (14 bytes)</title></rect>
-<rect width="12" height="12" x="0" y="180" class="todo"><title>0x0042e910 Func42e910 (14 bytes)</title></rect>
+<rect width="12" height="12" x="0" y="180" class="named"><title>0x0042e910 tan (14 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="180" class="todo"><title>0x0042e920 Func42e920 (83 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="180" class="todo"><title>0x0042e980 Func42e980 (17 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="180" class="todo"><title>0x0042e9a0 Func42e9a0 (11 bytes)</title></rect>
@@ -723,7 +723,7 @@
 <rect width="12" height="12" x="45" y="195" class="named"><title>0x00430500 App::StartLoadingScreenEffect (47 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="195" class="named"><title>0x00430530 App::InitCriticalSections (33 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="195" class="named"><title>0x00430560 App::DeleteCriticalSections (33 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="195" class="todo"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="195" class="named"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="195" class="todo"><title>0x004306b0 App::SetupCamera3D (257 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="195" class="todo"><title>0x004307c0 Func4307c0 (736 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="195" class="todo"><title>0x00430aa0 Func430aa0 (1633 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.58%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.42%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.69%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.31%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="176.16" height="6" x="0" y="0" class="named"/>
-<rect width="570.84" height="6" x="176.16" y="0" class="todo"/>
+<rect width="176.93" height="6" x="0" y="0" class="named"/>
+<rect width="570.07" height="6" x="176.93" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1404,7 +1404,7 @@
 <rect width="12.06" height="13.44" x="505.67" y="125.25" class="todo"><title>0x00407200 Func407200 (288 bytes)</title></rect>
 <rect width="12.06" height="13.38" x="505.67" y="141.69" class="todo"><title>0x0040e170 Func40e170 (287 bytes)</title></rect>
 <rect width="12.06" height="13.27" x="505.67" y="158.07" class="todo"><title>0x0042d4d0 Func42d4d0 (285 bytes)</title></rect>
-<rect width="12.06" height="13.27" x="505.67" y="174.34" class="todo"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
+<rect width="12.06" height="13.27" x="505.67" y="174.34" class="named"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
 <rect width="12.06" height="13.15" x="505.67" y="190.60" class="named"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>
 <rect width="12.06" height="13.15" x="505.67" y="206.75" class="named"><title>0x0041a5d0 GuiSide::RegisterChain (283 bytes)</title></rect>
 <rect width="12.06" height="12.92" x="505.67" y="222.91" class="todo"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
@@ -2102,7 +2102,7 @@
 <rect width="0.40" height="0.54" x="729.58" y="305.53" class="named"><title>0x00418920 GuiSide::Init (14 bytes)</title></rect>
 <rect width="0.40" height="0.54" x="732.98" y="305.53" class="todo"><title>0x00420160 Func420160 (14 bytes)</title></rect>
 <rect width="0.40" height="0.54" x="736.39" y="305.53" class="named"><title>0x0042e900 Tan (14 bytes)</title></rect>
-<rect width="0.40" height="0.54" x="739.79" y="305.53" class="todo"><title>0x0042e910 Func42e910 (14 bytes)</title></rect>
+<rect width="0.40" height="0.54" x="739.79" y="305.53" class="named"><title>0x0042e910 tan (14 bytes)</title></rect>
 <rect width="0.40" height="0.54" x="743.19" y="305.53" class="todo"><title>0x0042ed70 Func42ed70 (14 bytes)</title></rect>
 <rect width="0.40" height="0.54" x="746.60" y="305.53" class="named"><title>0x00436ab0 Atan (14 bytes)</title></rect>
 <rect width="0.30" height="0.64" x="722.77" y="309.07" class="named"><title>0x0043d0f0 MmTimer::DefaultCallback (14 bytes)</title></rect>
