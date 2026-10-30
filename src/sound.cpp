@@ -480,3 +480,37 @@ int SoundPlayer::Release()
     }
     return 0;
 }
+
+int SoundPlayer::LoadBgm(char *path)
+{
+    DWORD notifySize;
+    BgmFormat *format;
+    HRESULT hr;
+    INT nSamplesPerSec;
+    DWORD nBlockAlign;
+
+    strcpy(this->bgmPath, path);
+    if (!this->manager)
+    {
+        return -1;
+    }
+    if (this->dsound == NULL)
+    {
+        return -1;
+    }
+    this->StopBgm();
+    format = this->bgmFormat;
+    nBlockAlign = format->format.nBlockAlign;
+    nSamplesPerSec = format->format.nSamplesPerSec;
+    notifySize = nSamplesPerSec * 4 * nBlockAlign / 16;
+    notifySize -= notifySize % nBlockAlign;
+    this->notifyEvent = CreateEventA(NULL, FALSE, FALSE, NULL);
+    this->notifyThread = CreateThread(NULL, 0, BgmNotificationProc, g_App.hwnd, 0, &this->notifyThreadId);
+    hr = this->manager->CreateStreaming(&this->bgm, path, DSBCAPS_CTRLPOSITIONNOTIFY | DSBCAPS_GETCURRENTPOSITION2,
+                                        GUID_NULL, 0x10, notifySize, this->notifyEvent, format);
+    if (hr < 0)
+    {
+        return -1;
+    }
+    return 0;
+}
