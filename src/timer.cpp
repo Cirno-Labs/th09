@@ -67,3 +67,8 @@ void Timer::Add(int frames)
 {
     this->Add((float)frames);
 }
+
+void Timer::Sub(int frames)
+{
+    this->Add(-frames);
+}
