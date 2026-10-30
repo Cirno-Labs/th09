@@ -57,3 +57,8 @@ BOOL Timer::operator==(int frames)
 {
     return this->current == frames;
 }
+
+void Timer::Sub(float frames)
+{
+    this->Add(-frames);
+}
