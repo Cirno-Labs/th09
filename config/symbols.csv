@@ -825,9 +825,9 @@ address,size,name,symbol
 0x0043c0d0,294,SpriteEngine::CopySurfaceRectToBackBuffer,?CopySurfaceRectToBackBuffer@SpriteEngine@@QAEXHHHHHHH@Z
 0x0043c200,193,SpriteEngine::CopyBackBufferToTexture,?CopyBackBufferToTexture@SpriteEngine@@QAEXHHHHHHHHH@Z
 0x0043c2d0,352,SpriteEngine::CopyBackBufferToSurface,?CopyBackBufferToSurface@SpriteEngine@@QAEXHHHHHHHHH@Z
-0x0043c430,50,Func43c430,
-0x0043c470,75,Func43c470,
-0x0043c4c0,327,Func43c4c0,
+0x0043c430,50,AdjustTextureFormat,?AdjustTextureFormat@@YIHH@Z
+0x0043c470,75,SpriteEngine::LoadTexture,?LoadTexture@SpriteEngine@@SGHPAUAnmTexture@@HK@Z
+0x0043c4c0,330,Func43c4c0,
 0x0043c610,390,Func43c610,
 0x0043c7a0,90,SpriteEngine::PreloadAnm,?PreloadAnm@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
 0x0043c800,558,Func43c800,
@@ -1122,13 +1122,13 @@ address,size,name,symbol
 0x00451f6b,211,Func451f6b,
 0x0045203e,810,Func45203e,
 0x00452368,40,Func452368,
-0x00452390,102,Func452390,
+0x00452390,102,D3DXCreateTexture,_D3DXCreateTexture@32
 0x004523f6,184,Func4523f6,
 0x004524ae,422,D3DXLoadSurfaceFromSurface,_D3DXLoadSurfaceFromSurface@32
 0x00452654,134,Func452654,
 0x004526da,740,Func4526da,
 0x004529be,1651,Func4529be,
-0x00453031,64,Func453031,
+0x00453031,64,D3DXCreateTextureFromFileInMemoryEx,_D3DXCreateTextureFromFileInMemoryEx@60
 0x00453071,92,Func453071,
 0x004530cd,37,Func4530cd,
 0x004530f2,153,Func4530f2,
@@ -2238,6 +2238,8 @@ address,size,name,symbol
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b1020,,g_Log,?g_Log@@3VLog@@A
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
+0x00490f58,,g_TextureFormats,?g_TextureFormats@@3QBW4_D3DFORMAT@@B
+0x00490f70,,g_TextureFormatSizes,?g_TextureFormatSizes@@3QBHB
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
 0x004b4420,,g_LzssTree,?g_LzssTree@@3PAULzssNode@@A

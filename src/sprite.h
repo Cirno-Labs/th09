@@ -155,6 +155,19 @@ struct AnmTexture
     int size;
 };
 
+// An image stored in an ANM file, its pixels following the header, as
+// th08's.
+struct AnmImage
+{
+    unsigned char pad_0[0x6];
+    // The pixels' format, an index into g_TextureFormats.
+    short format;
+    short width;
+    short height;
+    unsigned char pad_c[0x4];
+    BYTE data[1];
+};
+
 class AnmLoaded
 {
 public:
@@ -305,6 +318,14 @@ public:
     // back buffer, as th08's (0x43c2d0).
     void CopyBackBufferToSurface(int surface, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
                                  int dstTop, int dstWidth, int dstHeight);
+    // Creates `tex`'s texture from its image file, in the format
+    // g_TextureFormats[`format`], with `colorKey` transparent, as th08's.
+    // Returns 0, or -1 on failure (0x43c470).
+    static int __stdcall LoadTexture(AnmTexture *tex, int format, D3DCOLOR colorKey);
+    // Creates `tex`'s texture from the pixels of `image`, in the format
+    // g_TextureFormats[`format`], as th08's. Returns 0, or -1 on failure
+    // (0x43c4c0).
+    static int __stdcall CreateTextureFromImage(AnmTexture *tex, AnmImage *image, int format);
     // Runs `count` sprites from `vms` a frame, as th08's (0x439560).
     void StepSprites(Sprite *vms, int count);
     // Empties the quad batch, as th08's (0x439680).
@@ -385,3 +406,8 @@ public:
     int pendingCopyDstHeight;
 };
 extern SpriteEngine *g_SpriteEngine;
+
+// The Direct3D formats of ANM images, by index (0x490f58).
+extern const D3DFORMAT g_TextureFormats[];
+// The bytes per pixel of each of g_TextureFormats (0x490f70).
+extern const int g_TextureFormatSizes[];

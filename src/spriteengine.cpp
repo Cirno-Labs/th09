@@ -436,3 +436,34 @@ done:
         backBuffer = NULL;
     }
 }
+
+// `format`, or the 16-bit format to use instead of it when g_App forces
+// 16-bit textures, as th08's SpriteEngine::AdjustTextureFormat (0x43c430).
+static int AdjustTextureFormat(int format)
+{
+    if (g_App.GetForce16BitTextures())
+    {
+        if (g_TextureFormats[format] == D3DFMT_A8R8G8B8 || g_TextureFormats[format] == D3DFMT_UNKNOWN)
+        {
+            format = 5;
+        }
+        else if (g_TextureFormats[format] == D3DFMT_R8G8B8)
+        {
+            format = 3;
+        }
+    }
+    return format;
+}
+
+// 0x43c470
+int __stdcall SpriteEngine::LoadTexture(AnmTexture *tex, int format, D3DCOLOR colorKey)
+{
+    format = AdjustTextureFormat(format);
+    if (D3DXCreateTextureFromFileInMemoryEx(g_App.d3dDevice, tex->data, tex->size, 0, 0, 0, 0, g_TextureFormats[format],
+                                            D3DPOOL_MANAGED, D3DX_FILTER_LINEAR, D3DX_DEFAULT, colorKey, NULL, NULL,
+                                            &tex->texture) != D3D_OK)
+    {
+        return -1;
+    }
+    return 0;
+}
