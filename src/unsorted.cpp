@@ -193,6 +193,12 @@ void App::EnterCriticalSection(int idx)
     this->criticalSectionDepths[idx]++;
 }
 
+void App::LeaveCriticalSection(int idx)
+{
+    ::LeaveCriticalSection(&this->criticalSections[idx]);
+    this->criticalSectionDepths[idx]--;
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);
