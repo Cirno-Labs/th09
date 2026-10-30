@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.26% (415)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.74% (642)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.36% (416)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.64% (641)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="293.29" height="6" x="0" y="0" class="named"/>
-<rect width="453.71" height="6" x="293.29" y="0" class="todo"/>
+<rect width="293.99" height="6" x="0" y="0" class="named"/>
+<rect width="453.01" height="6" x="293.99" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -985,7 +985,7 @@
 <rect width="12" height="12" x="225" y="270" class="named"><title>0x0043fef0 CWaveFile::Read (218 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="270" class="named"><title>0x0043ffd0 CWaveFile::Close (36 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="270" class="named"><title>0x00440000 CSoundManager::Initialize (84 bytes)</title></rect>
-<rect width="12" height="12" x="270" y="270" class="todo"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
+<rect width="12" height="12" x="270" y="270" class="named"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="270" class="todo"><title>0x004401d0 CSound::Play (160 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="270" class="todo"><title>0x00440270 CStreamingSound::HandleWaveStreamNotification (600 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="270" class="todo"><title>0x004404d0 CStreamingSound::Reset (115 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.16%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.84%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.28%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.72%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="113.23" height="6" x="0" y="0" class="named"/>
-<rect width="633.77" height="6" x="113.23" y="0" class="todo"/>
+<rect width="114.17" height="6" x="0" y="0" class="named"/>
+<rect width="632.83" height="6" x="114.17" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1327,7 +1327,7 @@
 <rect width="14.66" height="15.11" x="543.16" y="40.25" class="todo"><title>0x00411db0 EnemyManager::AddedCallback (372 bytes)</title></rect>
 <rect width="14.61" height="15.11" x="560.82" y="40.25" class="todo"><title>0x00443c70 Func443c70 (371 bytes)</title></rect>
 <rect width="14.47" height="15.11" x="578.43" y="40.25" class="todo"><title>0x00442a60 Func442a60 (368 bytes)</title></rect>
-<rect width="14.33" height="15.11" x="595.90" y="40.25" class="todo"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
+<rect width="14.33" height="15.11" x="595.90" y="40.25" class="named"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
 <rect width="14.28" height="15.11" x="613.23" y="40.25" class="todo"><title>0x0040f1d0 Func40f1d0 (364 bytes)</title></rect>
 <rect width="14.14" height="15.11" x="630.51" y="40.25" class="named"><title>0x00421670 ReplayManager::RegisterChain (361 bytes)</title></rect>
 <rect width="14.14" height="15.11" x="647.65" y="40.25" class="todo"><title>0x004455d0 Func4455d0 (361 bytes)</title></rect>
