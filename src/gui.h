@@ -61,6 +61,9 @@ public:
     // 0x16) and draw element (0x1c). Returns it, or NULL if adding fails
     // (0x418840).
     static Gui *RegisterChain();
+    // Preloads front.anm into ANM slot 10; returns 1 if that fails
+    // (0x415c30).
+    static int LoadAnm();
     // Has the dialogue unload its music if the game frees its resources.
     // Returns 0 (0x418270).
     static int FreeResources(Gui *gui);

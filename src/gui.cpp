@@ -2,6 +2,11 @@
 #include "gamemanager.h"
 #include "sprite.h"
 
+int Gui::LoadAnm()
+{
+    return g_SpriteEngine->PreloadAnm(10, "front.anm") == NULL;
+}
+
 int FreesResources()
 {
     return g_App.freesResources;
