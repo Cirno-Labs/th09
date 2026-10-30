@@ -55,15 +55,15 @@ public:
     BYTE fontHeight;
     unsigned char pad_29a[0xa];
 
-    // Resets the sprite's state up to pos, as th08's: a scale of 1,
-    // white, the identity matrix, flags 7. Inline; the copy is at
-    // 0x4127b0.
     // Sets pendingInterrupt. Inline; the copy is 0x406790.
     void SetPendingInterrupt(short interrupt)
     {
         this->pendingInterrupt = interrupt;
     }
 
+    // Resets the sprite's state up to pos, as th08's: a scale of 1,
+    // white, the identity matrix, flags 7. Inline; the copy is at
+    // 0x4127b0.
     void Initialize()
     {
         memset(this, 0, offsetof(Sprite, pos));
