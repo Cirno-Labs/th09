@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.98% (486)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">54.02% (571)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">46.07% (487)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">53.93% (570)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="343.46" height="6" x="0" y="0" class="named"/>
-<rect width="403.54" height="6" x="343.46" y="0" class="todo"/>
+<rect width="344.17" height="6" x="0" y="0" class="named"/>
+<rect width="402.83" height="6" x="344.17" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -238,7 +238,7 @@
 <rect width="12" height="12" x="270" y="45" class="named"><title>0x0040e3d0 PlayRecord::OpenEntry (16 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="45" class="named"><title>0x0040e3e0 PlayRecord::OpenEntry2 (16 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="45" class="named"><title>0x0040e3f0 PlayRecord::OpenEntry3 (16 bytes)</title></rect>
-<rect width="12" height="12" x="315" y="45" class="todo"><title>0x0040e400 Func40e400 (75 bytes)</title></rect>
+<rect width="12" height="12" x="315" y="45" class="named"><title>0x0040e400 PlayRecord::HasCleared (75 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="45" class="todo"><title>0x0040e450 Func40e450 (20 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="45" class="todo"><title>0x0040e470 Func40e470 (14 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="45" class="todo"><title>0x0040e480 Func40e480 (101 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.54%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.46%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.57%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">76.43%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="175.88" height="6" x="0" y="0" class="named"/>
-<rect width="571.12" height="6" x="175.88" y="0" class="todo"/>
+<rect width="176.07" height="6" x="0" y="0" class="named"/>
+<rect width="570.93" height="6" x="176.07" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1735,7 +1735,7 @@
 <rect width="4.91" height="5.48" x="633.58" y="242.35" class="named"><title>0x00435f40 GdiSurface::Release (78 bytes)</title></rect>
 <rect width="4.91" height="5.48" x="633.58" y="250.82" class="todo"><title>0x00441420 Func441420 (78 bytes)</title></rect>
 <rect width="4.91" height="5.48" x="633.58" y="259.30" class="todo"><title>0x00441c30 Func441c30 (78 bytes)</title></rect>
-<rect width="4.91" height="5.15" x="633.58" y="267.78" class="todo"><title>0x0040e400 Func40e400 (75 bytes)</title></rect>
+<rect width="4.91" height="5.15" x="633.58" y="267.78" class="named"><title>0x0040e400 PlayRecord::HasCleared (75 bytes)</title></rect>
 <rect width="4.91" height="5.15" x="633.58" y="275.93" class="named"><title>0x0041ce60 FreeResources (75 bytes)</title></rect>
 <rect width="4.91" height="5.15" x="633.58" y="284.09" class="named"><title>0x0042b190 Chain::~Chain (75 bytes)</title></rect>
 <rect width="4.91" height="5.15" x="633.58" y="292.24" class="named"><title>0x0043c470 SpriteEngine::LoadTexture (75 bytes)</title></rect>

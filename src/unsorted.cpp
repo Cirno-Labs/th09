@@ -79,6 +79,17 @@ void PlayRecord::OpenEntry3(char entry)
     this->openEntries3[entry] = 1;
 }
 
+BOOL PlayRecord::HasCleared(char character)
+{
+    if (this->clearFlags[character][0] != 0 || this->clearFlags[character][1] != 0 ||
+        this->clearFlags[character][2] != 0 || this->clearFlags[character][3] != 0 ||
+        this->clearFlags[character][4] != 0)
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
 float Fabs(float x)
 {
     return (float)fabs((double)x);

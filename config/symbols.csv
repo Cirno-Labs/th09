@@ -170,7 +170,7 @@ address,size,name,symbol
 0x0040e3d0,16,PlayRecord::OpenEntry,?OpenEntry@PlayRecord@@QAEXD@Z
 0x0040e3e0,16,PlayRecord::OpenEntry2,?OpenEntry2@PlayRecord@@QAEXD@Z
 0x0040e3f0,16,PlayRecord::OpenEntry3,?OpenEntry3@PlayRecord@@QAEXD@Z
-0x0040e400,75,Func40e400,
+0x0040e400,75,PlayRecord::HasCleared,?HasCleared@PlayRecord@@QAEHD@Z
 0x0040e450,20,Func40e450,
 0x0040e470,14,Func40e470,
 0x0040e480,101,Func40e480,
