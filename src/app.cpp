@@ -78,3 +78,13 @@ void App::TickTimer(int *frames, float *subFrame)
         *subFrame += 1.0f;
     }
 }
+
+void App::InitCriticalSections()
+{
+    DWORD i;
+
+    for (i = 0; i < ARRAY_SIZE(this->criticalSections); i++)
+    {
+        InitializeCriticalSection(&this->criticalSections[i]);
+    }
+}
