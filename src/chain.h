@@ -52,6 +52,8 @@ public:
     // into the update chain by priority, inside critical section 0.
     // Returns the callback's result, or 0 without one (0x42b1e0).
     int AddToCalcChain(ChainElem *elem, int priority);
+    // Like AddToCalcChain, for the draw chain (0x42b270).
+    int AddToDrawChain(ChainElem *elem, int priority);
 
     ChainElem calcChain;
     ChainElem drawChain;

@@ -542,7 +542,7 @@ address,size,name,symbol
 0x0042b160,40,App::LeaveCriticalSection,?LeaveCriticalSection@App@@QAEXH@Z
 0x0042b190,75,Chain::~Chain,??1Chain@@QAE@XZ
 0x0042b1e0,143,Chain::AddToCalcChain,?AddToCalcChain@Chain@@QAEHPAUChainElem@@H@Z
-0x0042b270,143,Func42b270,
+0x0042b270,143,Chain::AddToDrawChain,?AddToDrawChain@Chain@@QAEHPAUChainElem@@H@Z
 0x0042b300,71,Func42b300,
 0x0042b350,188,Func42b350,
 0x0042b410,808,Func42b410,
