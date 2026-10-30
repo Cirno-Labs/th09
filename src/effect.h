@@ -14,8 +14,13 @@ class AnmLoaded;
 struct Effect
 {
     unsigned char pad_0[0x4];
-    void *unknown04;
-    unsigned char pad_8[0xac - 0x8];
+    // A block of the effect's own; EffectUpdate40e080 turns its float at
+    // 8 (a Sprite's rotation.z?) with the effect.
+    float *unknown04;
+    unsigned char pad_8[0xc - 0x8];
+    D3DXVECTOR3 pos;
+    float angle;
+    unsigned char pad_1c[0xac - 0x1c];
     Timer unknownAc;
     unsigned char pad_b8[0xc6 - 0xb8];
     // Set to have the effect fade out, as th08's.
@@ -95,3 +100,8 @@ public:
     unsigned char pad_2d8[0x2dc - 0x2d8];
 };
 ASSERT_SIZE(EffectManager, 0x2dc);
+
+// An effect update callback of the effect table (0x4a0b48): moves the
+// effect 256 along its angle and turns unknown04[2] to the angle plus
+// pi/2. Returns 0 (0x40e080).
+int EffectUpdate40e080(Effect *effect);

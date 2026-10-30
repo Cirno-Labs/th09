@@ -1,4 +1,4 @@
-// The ending, from 0x40e080, as th08's ending.cpp.
+// The ending, from 0x40e0d0 to 0x40f160, as th08's ending.cpp.
 
 #include <stdlib.h>
 #include <string.h>

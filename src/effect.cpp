@@ -3,6 +3,7 @@
 // exception frame to free the block if the constructor throws.
 #include "effect.h"
 #include "gamemanager.h"
+#include "unsorted.h"
 
 void EffectManager::Reset()
 {
@@ -105,4 +106,15 @@ EffectManager *EffectManager::RegisterChain(int sideIdx, int count34, int count3
         g_Chain.AddToDrawChain(mgr->drawElem, 0x1e);
     }
     return mgr;
+}
+
+int EffectUpdate40e080(Effect *effect)
+{
+    D3DXVECTOR3 offset;
+
+    ((Vector2 *)&offset)->SetPolar(effect->angle, 256.0f);
+    effect->pos.x += offset.x;
+    effect->pos.y += offset.y;
+    effect->unknown04[2] = AddNormalizeAngle(effect->angle, 1.5707964f);
+    return 0;
 }

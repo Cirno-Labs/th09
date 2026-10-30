@@ -163,7 +163,7 @@ address,size,name,symbol
 0x0040d910,200,Func40d910,
 0x0040d9e0,464,Func40d9e0,
 0x0040dc70,1028,Func40dc70,
-0x0040e080,71,Func40e080,
+0x0040e080,71,EffectUpdate40e080,?EffectUpdate40e080@@YIHPAUEffect@@@Z
 0x0040e0d0,84,Ending::ReadInt,?ReadInt@Ending@@QAEHXZ
 0x0040e130,60,Ending::DrawFade,?DrawFade@Ending@@QAEXXZ
 0x0040e170,287,Ending::UpdateFade,?UpdateFade@Ending@@QAEXXZ
