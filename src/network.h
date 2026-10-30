@@ -24,6 +24,9 @@ struct Network
     // Closes the peer and releases the addresses and the peer
     // (0x432340).
     void ReleaseInterfaces();
+    // Whether the peer has TCP/IP among its service providers; the
+    // argument is unused (0x432770).
+    BOOL IsServiceProviderValid(const GUID *serviceProvider);
     // Clears unknown1c and creates the TCP/IP address on `port` to host
     // on (0x432840).
     HRESULT CreateDeviceAddress();

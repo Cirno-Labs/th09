@@ -679,7 +679,7 @@ address,size,name,symbol
 0x004323b0,95,Func4323b0,
 0x00432410,164,LogNetworkError,?LogNetworkError@@YIXJ@Z
 0x004324c0,679,Network::Init,?Init@Network@@QAEXXZ
-0x00432770,199,Func432770,
+0x00432770,199,Network::IsServiceProviderValid,?IsServiceProviderValid@Network@@QAEHPBU_GUID@@@Z
 0x00432840,165,Network::CreateDeviceAddress,?CreateDeviceAddress@Network@@QAEJXZ
 0x004328f0,276,Network::CreateHostAddress,?CreateHostAddress@Network@@QAEJXZ
 0x00432a10,167,Func432a10,
@@ -1685,7 +1685,7 @@ address,size,name,symbol
 0x0047cb30,195,_strchr,_strchr
 0x0047cbee,52,_sscanf,_sscanf
 0x0047cc30,57,_strncmp,_strncmp
-0x0047cc69,86,_printf,
+0x0047cc69,86,_printf,_printf
 0x0047ccc4,11,Func47ccc4,
 0x0047cccf,22,_wcslen,_wcslen
 0x0047cce5,251,___mbstowcs_mt,

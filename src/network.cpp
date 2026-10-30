@@ -53,6 +53,37 @@ void Network::ReleaseInterfaces()
     }
 }
 
+BOOL Network::IsServiceProviderValid(const GUID *serviceProvider)
+{
+    HRESULT hr;
+    DPN_SERVICE_PROVIDER_INFO *info = NULL;
+    DWORD count = 0;
+    DWORD size = 0;
+
+    hr = this->peer->EnumServiceProviders(&CLSID_DP8SP_TCPIP, NULL, NULL, &size, &count, 0);
+    if (hr != DPNERR_BUFFERTOOSMALL)
+    {
+        printf("Failed Enumerating Service Providers:  0x%x\r\n", hr);
+        goto cleanup;
+    }
+    info = (DPN_SERVICE_PROVIDER_INFO *)g_MemoryManager.Alloc(size, GLOBAL_H);
+    if (FAILED(hr = this->peer->EnumServiceProviders(&CLSID_DP8SP_TCPIP, NULL, info, &size, &count, 0)))
+    {
+        LogError(&g_Log, "サービスプロバイダ列挙失敗:\t0x%x\r\n", hr);
+        goto cleanup;
+    }
+    if (count == 0)
+    {
+        hr = E_FAIL;
+    }
+cleanup:
+    if (info != NULL)
+    {
+        g_MemoryManager.Free(info);
+    }
+    return SUCCEEDED(hr);
+}
+
 HRESULT Network::CreateDeviceAddress()
 {
     HRESULT hr;
