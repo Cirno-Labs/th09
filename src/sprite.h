@@ -174,6 +174,9 @@ public:
         vm->anm = this;
         this->SetSprite(vm, sprite);
     }
+    // Copies `sprite` into sprite `index` and works out its texture
+    // coordinates and size, as th08's (0x43bcb0).
+    void LoadSprite(int index, SpriteData *sprite);
 
     // Sprite `sprite` of this file, as th08's. Inline; the copy is at
     // 0x434390.
