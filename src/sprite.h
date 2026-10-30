@@ -280,6 +280,10 @@ public:
     // of the ANM file in slot `texture`, as th08's (0x43c200).
     void CopyBackBufferToTexture(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
                                  int dstTop, int dstWidth, int dstHeight);
+    // Creates surface `surface` and its backup from a rectangle of the
+    // back buffer, as th08's (0x43c2d0).
+    void CopyBackBufferToSurface(int surface, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
+                                 int dstTop, int dstWidth, int dstHeight);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).
