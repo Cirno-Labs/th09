@@ -8,8 +8,7 @@ dir = "orig/th09_150a"
 exe = "th09.exe"
 checksums = "orig/th09_150a.sha1"
 original = "build/th09_150a.exe"
-# The end of .text until the analysis shows where the game code ends
-game_end = 0x48DADA
+game_end = 0x44CB5C  # D3DX8's tables, D3DX8 and the CRT follow
 
 [ghidra]
 project = "th09_150a"
