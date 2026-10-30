@@ -78,7 +78,7 @@ address,size,name,symbol
 0x004048b0,41,Rng::GetRandomU16InRange,?GetRandomU16InRange@Rng@@QAEGG@Z
 0x004048e0,34,Rng::GetRandomU32InRange,?GetRandomU32InRange@Rng@@QAEKK@Z
 0x00404910,15,Rng::GetRandomF32InRange,?GetRandomF32InRange@Rng@@QAEMM@Z
-0x00404920,33,Func404920,
+0x00404920,33,Timer::HasTickedEvery,?HasTickedEvery@Timer@@QAEHH@Z
 0x00404950,20,Timer::operator==,??8Timer@@QAEHH@Z
 0x00404970,15,Func404970,
 0x00404980,24,Gui::IsMsgRunning,?IsMsgRunning@Gui@@QAEHXZ

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.02% (658)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.98% (403)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.11% (659)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.89% (402)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="463.27" height="6" x="0" y="0" class="named"/>
-<rect width="283.73" height="6" x="463.27" y="0" class="todo"/>
+<rect width="463.97" height="6" x="0" y="0" class="named"/>
+<rect width="283.03" height="6" x="463.97" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -146,7 +146,7 @@
 <rect width="12" height="12" x="390" y="15" class="named"><title>0x004048b0 Rng::GetRandomU16InRange (41 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="15" class="named"><title>0x004048e0 Rng::GetRandomU32InRange (34 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="15" class="named"><title>0x00404910 Rng::GetRandomF32InRange (15 bytes)</title></rect>
-<rect width="12" height="12" x="435" y="15" class="todo"><title>0x00404920 Func404920 (33 bytes)</title></rect>
+<rect width="12" height="12" x="435" y="15" class="named"><title>0x00404920 Timer::HasTickedEvery (33 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="15" class="named"><title>0x00404950 Timer::operator== (20 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="15" class="todo"><title>0x00404970 Func404970 (15 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="15" class="named"><title>0x00404980 Gui::IsMsgRunning (24 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.19%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.81%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.20%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.80%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="240.43" height="6" x="0" y="0" class="named"/>
-<rect width="506.57" height="6" x="240.43" y="0" class="todo"/>
+<rect width="240.52" height="6" x="0" y="0" class="named"/>
+<rect width="506.48" height="6" x="240.52" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1945,7 +1945,7 @@
 <rect width="2.44" height="2.36" x="686.94" y="270.06" class="named"><title>0x0042ec00 MidiPlayer::PlayFile (34 bytes)</title></rect>
 <rect width="2.44" height="2.36" x="686.94" y="275.42" class="named"><title>0x004336a0 File::Close (34 bytes)</title></rect>
 <rect width="2.44" height="2.36" x="686.94" y="280.78" class="named"><title>0x0043e470 SoundPlayer::SoundPlayer (34 bytes)</title></rect>
-<rect width="2.44" height="2.21" x="686.94" y="286.15" class="todo"><title>0x00404920 Func404920 (33 bytes)</title></rect>
+<rect width="2.44" height="2.21" x="686.94" y="286.15" class="named"><title>0x00404920 Timer::HasTickedEvery (33 bytes)</title></rect>
 <rect width="2.44" height="2.21" x="686.94" y="291.35" class="named"><title>0x0040f860 GameSide::AddScore (33 bytes)</title></rect>
 <rect width="2.44" height="2.21" x="686.94" y="296.56" class="named"><title>0x00412780 SinCos (33 bytes)</title></rect>
 <rect width="2.44" height="2.21" x="686.94" y="301.77" class="todo"><title>0x004158e0 Func4158e0 (33 bytes)</title></rect>

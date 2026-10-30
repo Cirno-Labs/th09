@@ -53,6 +53,11 @@ BOOL Timer::operator>(int frames)
     return this->current > frames;
 }
 
+BOOL Timer::HasTickedEvery(int n)
+{
+    return this->current != this->previous && this->current % n == 0;
+}
+
 BOOL Timer::operator==(int frames)
 {
     return this->current == frames;

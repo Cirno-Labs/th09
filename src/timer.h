@@ -36,6 +36,9 @@ struct Timer
     void operator--(int);
     // Whether the count changed since the last Tick or Set (0x40f810).
     BOOL HasTicked();
+    // Whether it has just ticked to a multiple of `n`, as th08's
+    // (0x404920).
+    BOOL HasTickedEvery(int n);
     // The whole count. Inline; the copy the game calls is folded with
     // GdiSurface::GetHeight (0x435f00).
     int AsFrames()
