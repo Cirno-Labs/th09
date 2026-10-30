@@ -58,11 +58,15 @@ struct App
     int GetForce16BitTextures();
     // (0x42d2c0)
     int GetReferenceRasterizer();
+    // (0x42d2d0)
+    int GetWindowed();
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
 
-    unsigned char pad_0[0x450];
+    unsigned char pad_0[0x439];
+    BYTE windowed;
+    unsigned char pad_43a[0x450 - 0x43a];
     GameConfigFlags flags;
     unsigned char pad_454[0x5b8 - 0x454];
     // Below 1 when the game runs slow.

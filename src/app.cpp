@@ -21,6 +21,11 @@ int App::GetReferenceRasterizer()
     return this->flags.referenceRasterizer;
 }
 
+int App::GetWindowed()
+{
+    return this->windowed;
+}
+
 void Timer::Add(float frames)
 {
     this->previous = this->current;
