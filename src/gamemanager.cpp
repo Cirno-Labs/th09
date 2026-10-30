@@ -108,3 +108,33 @@ WORD Rng::GetSeed()
 {
     return this->seed;
 }
+
+void GameConfig::SetDefaults()
+{
+    memset(this, 0, sizeof(GameConfig));
+    this->version = 0x90003;
+    this->padThresholdX = 600;
+    this->padThresholdY = 600;
+    this->musicMode = 1;
+    this->unknownAf = 1;
+    this->unknownB0 = 1;
+    this->unknownAc = 0;
+    this->unknownAd = 0;
+    this->windowed = 0;
+    this->unknownB2 = 0;
+    this->mappings[0][0] = g_PlayerInputs[0].mappings[0];
+    this->mappings[0][1] = g_PlayerInputs[0].mappings[1];
+    this->mappings[0][2] = g_PlayerInputs[0].mappings[2];
+    this->mappings[1][0] = g_PlayerInputs[1].mappings[0];
+    this->mappings[1][1] = g_PlayerInputs[1].mappings[1];
+    this->mappings[1][2] = g_PlayerInputs[1].mappings[2];
+    this->unknownB3 = 2;
+    this->bgmVolume = 100;
+    this->seVolume = 80;
+    this->unknownB4 = 0;
+    this->unknownB5 = 0;
+    this->unknownB6 = 0;
+    this->unknownB7 = 0;
+    this->unknownB8 = 1;
+    this->unknownB9 = 2;
+}
