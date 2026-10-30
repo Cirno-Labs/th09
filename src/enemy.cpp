@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "sprite.h"
+#include "unsorted.h"
 
 void Enemy::FreeUnknown33d8()
 {
@@ -43,4 +44,29 @@ void EnemyManager::RemoveChain(EnemyManager *mgr)
         g_Chain.Remove(mgr->drawElem2);
         delete mgr;
     }
+}
+
+void EnemyManager::Reset()
+{
+    int i;
+    Enemy *enemy;
+
+    enemy = this->enemies;
+    for (i = 0; i < 0x80; i++, enemy++)
+    {
+        enemy->FreeUnknown33d8();
+        enemy->unknown337c &= ~1;
+    }
+    if (this->unknown31c == 0)
+    {
+        for (i = 0; i < 0x100; i++)
+        {
+            g_TimelineOrder[i] = g_Rng.GetRandomU32InRange(this->ecl.GetTimelineCount());
+            g_TimelineOrder[i] |= g_Rng.GetRandomU32InRange(2) << 7;
+        }
+    }
+    this->unknown2ac3d4 = 0;
+    this->timeline = this->ecl.GetTimeline(g_TimelineOrder[0] & 0x7f);
+    this->unknown2ac3ec = 200;
+    this->unknown2ac3e0 = 0;
 }

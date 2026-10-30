@@ -2,9 +2,9 @@
 
 void EclManager::Unload()
 {
-    if (this->eclFile != NULL)
+    if (this->file != NULL)
     {
-        g_MemoryManager.Free(this->eclFile);
+        g_MemoryManager.Free(this->file);
     }
-    this->eclFile = NULL;
+    this->file = NULL;
 }

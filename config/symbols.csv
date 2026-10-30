@@ -177,8 +177,8 @@ address,size,name,symbol
 0x0040ef60,119,Func40ef60,
 0x0040efe0,139,Func40efe0,
 0x0040f080,223,Func40f080,
-0x0040f160,7,Func40f160,
-0x0040f170,16,Func40f170,
+0x0040f160,7,EclManager::GetTimelineCount,?GetTimelineCount@EclManager@@QAEHXZ
+0x0040f170,16,EclManager::GetTimeline,?GetTimeline@EclManager@@QAEPAXH@Z
 0x0040f180,51,Func40f180,
 0x0040f1c0,12,Fabs,?Fabs@@YIMM@Z
 0x0040f1d0,364,Func40f1d0,
@@ -2202,6 +2202,7 @@ address,size,name,symbol
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA
 0x004a21d0,,g_BgmInfos,?g_BgmInfos@@3PAUBgmInfo@@A
+0x004a7c88,,g_TimelineOrder,?g_TimelineOrder@@3PAEA
 0x004a7d90,,g_GameManager,?g_GameManager@@3VGameManager@@A
 0x004a8120,,g_GameManagerCalcChain,?g_GameManagerCalcChain@@3UChainElem@@A
 0x004a8140,,g_GameManagerDrawChain,?g_GameManagerDrawChain@@3UChainElem@@A
