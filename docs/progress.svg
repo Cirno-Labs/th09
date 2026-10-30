@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.01% (444)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">57.99% (613)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.10% (445)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">57.90% (612)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="313.78" height="6" x="0" y="0" class="named"/>
-<rect width="433.22" height="6" x="313.78" y="0" class="todo"/>
+<rect width="314.49" height="6" x="0" y="0" class="named"/>
+<rect width="432.51" height="6" x="314.49" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -869,7 +869,7 @@
 <rect width="12" height="12" x="735" y="225" class="todo"><title>0x0043a520 SpriteEngine::DrawQuadMirrored (1067 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="240" class="named"><title>0x0043a950 SpriteEngine::DrawUnrotated (254 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="240" class="named"><title>0x0043aa50 SpriteEngine::DrawUnrotatedMirrored (254 bytes)</title></rect>
-<rect width="12" height="12" x="30" y="240" class="todo"><title>0x0043ab50 SpriteEngine::Draw (491 bytes)</title></rect>
+<rect width="12" height="12" x="30" y="240" class="named"><title>0x0043ab50 SpriteEngine::Draw (491 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="240" class="todo"><title>0x0043ad40 SpriteEngine::DrawRotatedNoRound (658 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="240" class="named"><title>0x0043afe0 SpriteEngine::DrawNoRound (254 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="240" class="named"><title>0x0043b0e0 SpriteEngine::DrawProjected (88 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">16.87%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">83.13%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">17.04%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">82.96%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="126.02" height="6" x="0" y="0" class="named"/>
-<rect width="620.98" height="6" x="126.02" y="0" class="todo"/>
+<rect width="127.28" height="6" x="0" y="0" class="named"/>
+<rect width="619.72" height="6" x="127.28" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1275,7 +1275,7 @@
 <rect width="17.54" height="18.05" x="709.20" y="0" class="named"><title>0x004353f0 AsciiText::DrawPopups (503 bytes)</title></rect>
 <rect width="17.26" height="18.05" x="729.74" y="0" class="todo"><title>0x00447890 Func447890 (496 bytes)</title></rect>
 <rect width="16.81" height="18.31" x="432.33" y="21.05" class="todo"><title>0x00405f20 Func405f20 (491 bytes)</title></rect>
-<rect width="16.81" height="18.31" x="432.33" y="42.35" class="todo"><title>0x0043ab50 SpriteEngine::Draw (491 bytes)</title></rect>
+<rect width="16.81" height="18.31" x="432.33" y="42.35" class="named"><title>0x0043ab50 SpriteEngine::Draw (491 bytes)</title></rect>
 <rect width="16.81" height="18.31" x="432.33" y="63.66" class="todo"><title>0x00445a40 Func445a40 (491 bytes)</title></rect>
 <rect width="16.81" height="18.09" x="432.33" y="84.97" class="named"><title>0x0043cae0 SpriteEngine::LoadSurface (486 bytes)</title></rect>
 <rect width="16.81" height="18.05" x="432.33" y="106.06" class="todo"><title>0x004266b5 Func4266b5 (485 bytes)</title></rect>
