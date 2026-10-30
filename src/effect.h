@@ -37,4 +37,6 @@ public:
     // The effects are unknown34 + unknown38 + 1.
     int unknown34;
     int unknown38;
+    unsigned char pad_3c[0x110 - 0x3c];
+    int unknown110;
 };

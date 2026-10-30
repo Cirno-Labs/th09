@@ -13,6 +13,10 @@
 // The number of elements of array `a`, as an unsigned size_t.
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 
+// The original allocates in an inline from global.h, whose __FILE__ names
+// the block.
+#define GLOBAL_H "./system\\global.h"
+
 // The object every allocation goes through, as th08's (at 0x4ad018).
 class MemoryManager
 {

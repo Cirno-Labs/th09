@@ -388,10 +388,6 @@ found:
     }
 }
 
-// The original allocates in an inline from global.h, whose __FILE__ names
-// the block.
-#define GLOBAL_H "./system\\global.h"
-
 BYTE *DecryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int limit)
 {
     int unused = 0;
