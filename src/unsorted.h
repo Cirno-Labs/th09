@@ -83,6 +83,11 @@ extern JOYCAPSA g_JoyCaps[2];
 
 // Releases every key in the keyboard state, as th08's (0x42ad70).
 void ResetKeyboard();
+// Reads player `player`'s keyboard and pad buttons into
+// g_PlayerInputs[player] and returns them (0x42b850).
+WORD ReadInput(int player);
+// Reads the three players' inputs (0x42e9c0).
+void ReadInputs();
 
 // The directory the game's loose files are read from (0x4acd08), and
 // where GetDataPath builds a path in it (0x4acc00).

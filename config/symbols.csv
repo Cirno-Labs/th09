@@ -559,7 +559,7 @@ address,size,name,symbol
 0x0042b350,188,Chain::RemoveLocked,?RemoveLocked@Chain@@QAEXPAUChainElem@@@Z
 0x0042b410,808,Func42b410,
 0x0042b740,259,Func42b740,
-0x0042b850,1507,Func42b850,
+0x0042b850,1507,ReadInput,?ReadInput@@YIGH@Z
 0x0042be40,819,Func42be40,
 0x0042c180,259,DecryptData,?DecryptData@@YIPAEPAEHEEHH@Z
 0x0042c290,220,DecryptFileData,?DecryptFileData@@YIPAEPAEPAHH@Z
@@ -607,7 +607,7 @@ address,size,name,symbol
 0x0042e980,17,Func42e980,
 0x0042e9a0,11,Network::SetUnknownA8,?SetUnknownA8@Network@@QAEXXZ
 0x0042e9b0,11,Network::ClearUnknownA8,?ClearUnknownA8@Network@@QAEXXZ
-0x0042e9c0,27,Func42e9c0,
+0x0042e9c0,27,ReadInputs,?ReadInputs@@YIXXZ
 0x0042e9e0,213,App::AddRecord,?AddRecord@App@@QAEXHHGG@Z
 0x0042eac0,188,Func42eac0,
 0x0042eb80,119,Func42eb80,

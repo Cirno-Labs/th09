@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.19% (532)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">49.81% (528)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.28% (533)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">49.72% (527)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="374.91" height="6" x="0" y="0" class="named"/>
-<rect width="372.09" height="6" x="374.91" y="0" class="todo"/>
+<rect width="375.61" height="6" x="0" y="0" class="named"/>
+<rect width="371.39" height="6" x="375.61" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -627,7 +627,7 @@
 <rect width="12" height="12" x="105" y="165" class="named"><title>0x0042b350 Chain::RemoveLocked (188 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="165" class="todo"><title>0x0042b410 Func42b410 (808 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="165" class="todo"><title>0x0042b740 Func42b740 (259 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="165" class="todo"><title>0x0042b850 Func42b850 (1507 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="165" class="todo"><title>0x0042b850 ReadInput (1507 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="165" class="todo"><title>0x0042be40 Func42be40 (819 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="165" class="named"><title>0x0042c180 DecryptData (259 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="165" class="named"><title>0x0042c290 DecryptFileData (220 bytes)</title></rect>
@@ -675,7 +675,7 @@
 <rect width="12" height="12" x="75" y="180" class="todo"><title>0x0042e980 Func42e980 (17 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="180" class="named"><title>0x0042e9a0 Network::SetUnknownA8 (11 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="180" class="named"><title>0x0042e9b0 Network::ClearUnknownA8 (11 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="180" class="todo"><title>0x0042e9c0 Func42e9c0 (27 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="180" class="named"><title>0x0042e9c0 ReadInputs (27 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="180" class="todo"><title>0x0042e9e0 App::AddRecord (213 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="180" class="todo"><title>0x0042eac0 Func42eac0 (188 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="180" class="todo"><title>0x0042eb80 Func42eb80 (119 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.59%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">73.41%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.60%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">73.40%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="198.60" height="6" x="0" y="0" class="named"/>
-<rect width="548.40" height="6" x="198.60" y="0" class="todo"/>
+<rect width="198.67" height="6" x="0" y="0" class="named"/>
+<rect width="548.33" height="6" x="198.67" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1167,7 +1167,7 @@
 <rect width="35.58" height="31.76" x="172.45" y="298.24" class="todo"><title>0x0042dd90 Func42dd90 (1561 bytes)</title></rect>
 <rect width="31.21" height="36.17" x="211.03" y="0" class="named"><title>0x00429e23 MainMenu::UpdateState1 (1560 bytes)</title></rect>
 <rect width="31.21" height="35.07" x="211.03" y="39.17" class="todo"><title>0x0041d150 Func41d150 (1516 bytes)</title></rect>
-<rect width="31.21" height="34.84" x="211.03" y="77.24" class="todo"><title>0x0042b850 Func42b850 (1507 bytes)</title></rect>
+<rect width="31.21" height="34.84" x="211.03" y="77.24" class="todo"><title>0x0042b850 ReadInput (1507 bytes)</title></rect>
 <rect width="31.21" height="34.29" x="211.03" y="115.08" class="todo"><title>0x00417630 Gui::OnUpdate (1485 bytes)</title></rect>
 <rect width="31.21" height="34.24" x="211.03" y="152.37" class="todo"><title>0x0040e8a0 Func40e8a0 (1483 bytes)</title></rect>
 <rect width="31.21" height="34.01" x="211.03" y="189.61" class="todo"><title>0x00417c10 Gui::OnDraw (1474 bytes)</title></rect>
@@ -1995,7 +1995,7 @@
 <rect width="1.99" height="1.82" x="697.20" y="314.25" class="named"><title>0x00435da0 UnknownMenu::UnknownMenu (28 bytes)</title></rect>
 <rect width="1.99" height="1.64" x="697.20" y="319.07" class="named"><title>0x00401640 SpriteEngine::DrawAndFlush (27 bytes)</title></rect>
 <rect width="1.99" height="1.64" x="697.20" y="323.71" class="todo"><title>0x00403e30 Func403e30 (27 bytes)</title></rect>
-<rect width="1.99" height="1.64" x="697.20" y="328.36" class="todo"><title>0x0042e9c0 Func42e9c0 (27 bytes)</title></rect>
+<rect width="1.99" height="1.64" x="697.20" y="328.36" class="named"><title>0x0042e9c0 ReadInputs (27 bytes)</title></rect>
 <rect width="1.82" height="1.64" x="702.20" y="280.54" class="named"><title>0x004010b0 D3DXVECTOR3::D3DXVECTOR3 (26 bytes)</title></rect>
 <rect width="1.82" height="1.64" x="707.01" y="280.54" class="todo"><title>0x00401440 Func401440 (26 bytes)</title></rect>
 <rect width="1.82" height="1.64" x="711.83" y="280.54" class="named"><title>0x00418930 FreeResources (26 bytes)</title></rect>

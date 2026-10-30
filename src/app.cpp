@@ -40,6 +40,13 @@ void Network::ClearUnknownA8()
     this->unknownA8 = 0;
 }
 
+void ReadInputs()
+{
+    ReadInput(0);
+    ReadInput(1);
+    ReadInput(2);
+}
+
 void App::ResetRun()
 {
     this->unknown458 = 0;
