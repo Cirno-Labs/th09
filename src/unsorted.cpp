@@ -1,5 +1,6 @@
 #include "unsorted.h"
 
+#include "chain.h"
 #include "timer.h"
 
 float Sqrt(float x)
@@ -69,6 +70,18 @@ void SinCos(float *sinOut, float *cosOut, float angle)
         mov eax, sinOut
         fstp [eax]
     }
+}
+
+ChainElem::ChainElem()
+{
+    this->prev = NULL;
+    this->next = NULL;
+    this->callback = NULL;
+    this->self = this;
+    this->addedCallback = NULL;
+    this->deletedCallback = NULL;
+    this->priority = 0;
+    this->allocated = 0;
 }
 
 WORD Rng::GetRandomU16()

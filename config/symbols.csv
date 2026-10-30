@@ -519,7 +519,7 @@ address,size,name,symbol
 0x0042a7d1,506,Func42a7d1,
 0x0042a9cb,264,Func42a9cb,
 0x0042ab13,201,Func42ab13,
-0x0042abe0,30,Func42abe0,
+0x0042abe0,30,ChainElem::ChainElem,??0ChainElem@@QAE@XZ
 0x0042ac00,36,Func42ac00,
 0x0042ac30,18,Func42ac30,
 0x0042ac50,33,Func42ac50,
@@ -2197,6 +2197,7 @@ address,size,name,symbol
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
 0x004ace0c,,g_Rng,?g_Rng@@3VRng@@A
+0x004acfc8,,g_Chain,?g_Chain@@3VChain@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
