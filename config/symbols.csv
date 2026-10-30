@@ -163,7 +163,7 @@ address,size,name,symbol
 0x0040d520,210,EffectInit40d520,?EffectInit40d520@@YIHPAUEffect@@@Z
 0x0040d600,775,Func40d600,
 0x0040d910,200,EffectInit40d910,?EffectInit40d910@@YIHPAUEffect@@@Z
-0x0040d9e0,464,Func40d9e0,
+0x0040d9e0,464,EffectUpdate40d9e0,?EffectUpdate40d9e0@@YIHPAUEffect@@@Z
 0x0040dbb0,184,EffectInit40dbb0,?EffectInit40dbb0@@YIHPAUEffect@@@Z
 0x0040dc70,1028,Func40dc70,
 0x0040e080,71,EffectInit40e080,?EffectInit40e080@@YIHPAUEffect@@@Z
@@ -194,7 +194,7 @@ address,size,name,symbol
 0x0040f170,16,EclManager::GetTimeline,?GetTimeline@EclManager@@QAEPAXH@Z
 0x0040f180,51,Enemy::ResetRankSpeeds,?ResetRankSpeeds@Enemy@@QAEXXZ
 0x0040f1c0,12,Fabs,?Fabs@@YIMM@Z
-0x0040f1d0,364,Func40f1d0,
+0x0040f1d0,364,EnemyManager::SpawnEnemy,?SpawnEnemy@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHHH@Z
 0x0040f340,373,Func40f340,
 0x0040f4c0,151,Func40f4c0,
 0x0040f560,64,Enemy::ReleaseEffects,?ReleaseEffects@Enemy@@QAEXXZ

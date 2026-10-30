@@ -207,7 +207,8 @@ struct Enemy
     D3DXVECTOR3 velocity;
     unsigned char pad_2d98[0x2dbc - 0x2d98];
     D3DXVECTOR3 hitboxSize;
-    unsigned char pad_2dc8[0x2de0 - 0x2dc8];
+    unsigned char pad_2dc8[0x2dd4 - 0x2dc8];
+    D3DXVECTOR3 unknown2dd4;
     float angle;
     float angularVelocity;
     unsigned char pad_2de8[0x2df4 - 0x2de8];
@@ -274,7 +275,9 @@ struct Enemy
     };
     struct
     {
-        DWORD unusedBits0 : 10;
+        DWORD unusedBits0 : 6;
+        DWORD unknown3380 : 3;
+        DWORD unusedBits9 : 1;
         // What EnemyManager::FindByUnknownType looks for.
         DWORD unknownType : 2;
     };
@@ -338,6 +341,11 @@ public:
     // The first active enemy, of the first 0x80, whose unknownType is
     // `type`, or NULL (0x40f7d0).
     Enemy *FindByUnknownType(int type);
+    // Starts the first free enemy as subroutine `sub` (of playerEcl if
+    // `usePlayerEcl`) at `pos`, mirrored if `mirrored`, with `life` and
+    // `score` unless negative. Returns it (0x40f1d0).
+    Enemy *SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, int mirrored,
+                      int usePlayerEcl);
 
     // enemy.ecl, and the character's plXX.ecl.
     EclManager ecl;
@@ -354,7 +362,9 @@ public:
     Enemy enemyTemplate;
     // The enemies, and one more.
     Enemy enemies[0x81];
-    unsigned char pad_2ac388[0x2ac3c8 - 0x2ac388];
+    unsigned char pad_2ac388[0x2ac3b8 - 0x2ac388];
+    int unknown2ac3b8;
+    unsigned char pad_2ac3bc[0x2ac3c8 - 0x2ac3bc];
     Timer unknown2ac3c8;
     unsigned char unknown2ac3d4;
     unsigned char pad_2ac3d5[0x2ac3e0 - 0x2ac3d5];

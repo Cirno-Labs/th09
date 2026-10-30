@@ -2,7 +2,9 @@
 // The effect object is built without /GX: new EffectManager() has no
 // exception frame to free the block if the constructor throws.
 #include "effect.h"
+#include "enemy.h"
 #include "gamemanager.h"
+#include "gui.h"
 #include "player.h"
 #include "sprite.h"
 #include "unsorted.h"
@@ -278,6 +280,48 @@ int EffectInit40d910(Effect *effect)
     ((Vector2 *)&effect->unknown48)
         ->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
     effect->unknown9c = g_Rng.GetRandomF32InRange(100.0f) + 60.0f;
+    return 0;
+}
+
+int EffectUpdate40d9e0(Effect *effect)
+{
+    float t;
+    float f00;
+    float f01;
+    float f10;
+    float f11;
+    Enemy *enemy;
+    int range;
+
+    if (effect->unknownAc.AsFloat() < effect->unknown9c)
+    {
+        t = effect->unknownAc.AsFloat() / effect->unknown9c;
+        f00 = (2.0f * t + 1.0f) * (t - 1.0f) * (t - 1.0f);
+        f01 = (3.0f - 2.0f * t) * t * t;
+        f10 = (1.0f - t) * (1.0f - t) * t;
+        f11 = (t - 1.0f) * t * t;
+        effect->pos.x = f00 * effect->unknown54.x + f10 * effect->unknown3c.x + f01 * effect->unknown60.x +
+                        f11 * effect->unknown48.x;
+        effect->pos.y = f00 * effect->unknown54.y + f10 * effect->unknown3c.y + f01 * effect->unknown60.y +
+                        f11 * effect->unknown48.y;
+        return 1;
+    }
+    if (g_GameManager.gui->GetUnknown11ea8() == 0 &&
+        g_GameManager.sides[1 - effect->unknownA8].enemyManager->unknown2ac3b8 < 10)
+    {
+        enemy = g_GameManager.sides[1 - effect->unknownA8].enemyManager->SpawnEnemy(
+            effect->unknownA4, &effect->velocity, 0x14, -2, 1000, 0, 0);
+        enemy->unknown3380 = effect->unknownA6;
+        enemy->acceleration += effect->unknownA0;
+        range = g_GameManager.sides[1 - effect->unknownA8].character != 7 ? 5 : 4;
+        if (g_Rng.GetRandomU32InRange(range))
+        {
+            enemy->angle = g_Rng.GetRandomF32SignedInRange(0.015707964f) + 1.5707964f;
+            return 0;
+        }
+        enemy->angle = g_GameManager.sides[1 - effect->unknownA8].player->AngleToPlayer(&enemy->unknown2dd4) +
+                       g_Rng.GetRandomF32SignedInRange(0.3926991f);
+    }
     return 0;
 }
 
