@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">21.24% (223)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">78.76% (827)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">21.33% (224)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">78.67% (826)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="158.65" height="6" x="0" y="0" class="named"/>
-<rect width="588.35" height="6" x="158.65" y="0" class="todo"/>
+<rect width="159.36" height="6" x="0" y="0" class="named"/>
+<rect width="587.64" height="6" x="159.36" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -770,7 +770,7 @@
 <rect width="12" height="12" x="0" y="210" class="named"><title>0x004335e0 DatArchive::Open (179 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="210" class="named"><title>0x004336a0 File::Close (34 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="210" class="named"><title>0x004336d0 File::Read (61 bytes)</title></rect>
-<rect width="12" height="12" x="45" y="210" class="todo"><title>0x00433710 File::Write (66 bytes)</title></rect>
+<rect width="12" height="12" x="45" y="210" class="named"><title>0x00433710 File::Write (66 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="210" class="todo"><title>0x00433760 File::Tell (25 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="210" class="todo"><title>0x00433780 File::GetSize (21 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="210" class="todo"><title>0x004337a0 File::Seek (40 bytes)</title></rect>
@@ -1121,10 +1121,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.12%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93.88%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">6.14%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">93.86%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="45.70" height="6" x="0" y="0" class="named"/>
-<rect width="701.30" height="6" x="45.70" y="0" class="todo"/>
+<rect width="45.87" height="6" x="0" y="0" class="named"/>
+<rect width="701.13" height="6" x="45.87" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.43" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1771,7 +1771,7 @@
 <rect width="4.26" height="4.48" x="650.62" y="216.63" class="named"><title>0x004127b0 Sprite::Initialize (66 bytes)</title></rect>
 <rect width="4.26" height="4.48" x="657.87" y="216.63" class="named"><title>0x004156a0 ExAttackManager::RemoveChain (66 bytes)</title></rect>
 <rect width="4.26" height="4.48" x="665.13" y="216.63" class="named"><title>0x00415750 ExAttackManager::AddedCallback (66 bytes)</title></rect>
-<rect width="4.26" height="4.48" x="672.38" y="216.63" class="todo"><title>0x00433710 File::Write (66 bytes)</title></rect>
+<rect width="4.26" height="4.48" x="672.38" y="216.63" class="named"><title>0x00433710 File::Write (66 bytes)</title></rect>
 <rect width="4.26" height="4.48" x="679.64" y="216.63" class="todo"><title>0x00435f90 Func435f90 (66 bytes)</title></rect>
 <rect width="4.26" height="4.48" x="686.90" y="216.63" class="todo"><title>0x00439630 Func439630 (66 bytes)</title></rect>
 <rect width="4.15" height="4.48" x="694.15" y="216.63" class="named"><title>0x0042ad70 ResetKeyboard (65 bytes)</title></rect>
