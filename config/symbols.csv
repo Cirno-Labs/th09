@@ -761,7 +761,7 @@ address,size,name,symbol
 0x004364c0,751,Func4364c0,
 0x004367b0,743,Func4367b0,
 0x00436aa0,15,Func436aa0,
-0x00436ab0,14,Func436ab0,
+0x00436ab0,14,Atan,?Atan@@YGMM@Z
 0x00436ac0,189,Func436ac0,
 0x00436b80,144,Func436b80,
 0x00436c40,116,Func436c40,

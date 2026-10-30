@@ -44,6 +44,11 @@ float Tan(float angle)
     return (float)tan((double)angle);
 }
 
+float Atan(float x)
+{
+    return (float)atan((double)x);
+}
+
 void Vector2::SetPolar(float angle, float radius)
 {
     __asm

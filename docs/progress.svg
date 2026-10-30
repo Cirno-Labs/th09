@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.37% (35)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">96.63% (1003)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.47% (36)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">96.53% (1002)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="25.19" height="6" x="0" y="0" class="named"/>
-<rect width="721.81" height="6" x="25.19" y="0" class="todo"/>
+<rect width="25.91" height="6" x="0" y="0" class="named"/>
+<rect width="721.09" height="6" x="25.91" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -829,7 +829,7 @@
 <rect width="12" height="12" x="135" y="225" class="todo"><title>0x004364c0 Func4364c0 (751 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="225" class="todo"><title>0x004367b0 Func4367b0 (743 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="225" class="todo"><title>0x00436aa0 Func436aa0 (15 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="225" class="todo"><title>0x00436ab0 Func436ab0 (14 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="225" class="named"><title>0x00436ab0 Atan (14 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="225" class="todo"><title>0x00436ac0 Func436ac0 (189 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="225" class="todo"><title>0x00436b80 Func436b80 (144 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="225" class="todo"><title>0x00436c40 Func436c40 (116 bytes)</title></rect>
@@ -1109,10 +1109,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.32%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.68%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.33%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.67%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="2.41" height="6" x="0" y="0" class="named"/>
-<rect width="744.59" height="6" x="2.41" y="0" class="todo"/>
+<rect width="2.45" height="6" x="0" y="0" class="named"/>
+<rect width="744.55" height="6" x="2.45" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.75" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2072,7 +2072,7 @@
 <rect width="0.19" height="0.63" x="724.12" y="296.48" class="named"><title>0x0042e900 Tan (14 bytes)</title></rect>
 <rect width="0.19" height="0.63" x="724.12" y="300.11" class="todo"><title>0x0042e910 Func42e910 (14 bytes)</title></rect>
 <rect width="0.19" height="0.63" x="724.12" y="303.74" class="todo"><title>0x0042ed70 Func42ed70 (14 bytes)</title></rect>
-<rect width="0.19" height="0.63" x="724.12" y="307.37" class="todo"><title>0x00436ab0 Func436ab0 (14 bytes)</title></rect>
+<rect width="0.19" height="0.63" x="724.12" y="307.37" class="named"><title>0x00436ab0 Atan (14 bytes)</title></rect>
 <rect width="0.19" height="0.63" x="724.12" y="311" class="todo"><title>0x0043d0f0 Func43d0f0 (14 bytes)</title></rect>
 <rect width="0.19" height="0.37" x="724.12" y="314.63" class="todo"><title>0x00401460 Func401460 (13 bytes)</title></rect>
 <rect width="0.24" height="0.31" x="727.31" y="292.85" class="todo"><title>0x00415d20 Func415d20 (13 bytes)</title></rect>
