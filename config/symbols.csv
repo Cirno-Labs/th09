@@ -328,7 +328,7 @@ address,size,name,symbol
 0x0041a2d0,67,Func41a2d0,
 0x0041a320,92,Func41a320,
 0x0041a380,56,Func41a380,
-0x0041a3c0,21,Func41a3c0,
+0x0041a3c0,21,GuiSide::StartUnknown7430,?StartUnknown7430@GuiSide@@QAEXXZ
 0x0041a3e0,142,Func41a3e0,
 0x0041a470,28,GuiSideA678::GuiSideA678,??0GuiSideA678@@QAE@XZ
 0x0041a490,307,GuiSide::GuiSide,??0GuiSide@@QAE@XZ

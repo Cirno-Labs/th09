@@ -137,6 +137,8 @@ public:
     void StartUnknownAbcc();
     // Starts script 0x43 on unknown59c8 (0x41a210).
     void StartUnknown59c8();
+    // Starts script 0x4e on unknown7430 (0x41a3c0).
+    void StartUnknown7430();
     // Creates side `sideIdx`'s front, zeroed, and adds its update element
     // (priority 0x17 + `sideIdx`) and draw element (0x1a + `sideIdx`).
     // Returns it, or NULL if adding fails (0x41a5d0).

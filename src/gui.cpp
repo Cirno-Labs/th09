@@ -113,6 +113,11 @@ void GuiSide::Reset()
     }
 }
 
+void GuiSide::StartUnknown7430()
+{
+    this->anm->StartScriptAtOrigin(&this->unknown7430, 0x4e);
+}
+
 GuiSide *GuiSide::RegisterChain(int sideIdx)
 {
     GuiSide *side = (GuiSide *)g_MemoryManager.Register(new GuiSide(), sizeof(GuiSide), "FrontSideInf");
