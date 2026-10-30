@@ -95,6 +95,11 @@ int PlayRecord::GetClears5(char character)
     return this->clearFlags[character][5];
 }
 
+BOOL PlayRecord::IsUnknown118Zero()
+{
+    return this->unknown118 == 0;
+}
+
 float Fabs(float x)
 {
     return (float)fabs((double)x);
