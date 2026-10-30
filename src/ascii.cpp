@@ -18,6 +18,11 @@ void AsciiText::SetUnknown17c4Pos(int i, D3DXVECTOR3 *pos)
     this->unknown17c4[i].pos = *pos;
 }
 
+void AsciiText::SetUnknown2254(int i, int value)
+{
+    this->unknown2254[i] = value;
+}
+
 int AsciiText::DeletedCallback(AsciiText *text)
 {
     g_SpriteEngine->ReleaseAnm(1);

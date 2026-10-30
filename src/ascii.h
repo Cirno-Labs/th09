@@ -141,6 +141,8 @@ public:
     void SetUnknown17c4Interrupt(int i, short interrupt);
     // Sets the position of unknown17c4[`i`] (0x4067f0).
     void SetUnknown17c4Pos(int i, D3DXVECTOR3 *pos);
+    // Sets unknown2254[`i`] (0x40f890).
+    void SetUnknown2254(int i, int value);
 
     // Empties the queue of strings. Inline, as th08's; the copy is at
     // 0x430220.

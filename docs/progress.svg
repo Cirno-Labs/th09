@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.89% (693)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.55% (369)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.98% (694)</tspan> · <tspan class="decompiled">0.56% (6)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">34.46% (368)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="484.71" height="6" x="0" y="0" class="named"/>
-<rect width="4.20" height="6" x="484.71" y="0" class="decompiled"/>
-<rect width="258.09" height="6" x="488.91" y="0" class="todo"/>
+<rect width="485.41" height="6" x="0" y="0" class="named"/>
+<rect width="4.20" height="6" x="485.41" y="0" class="decompiled"/>
+<rect width="257.39" height="6" x="489.61" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -272,7 +272,7 @@
 <rect width="12" height="12" x="15" y="60" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="60" class="named"><title>0x0040f840 Sprite::SetRotationZ (20 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="60" class="named"><title>0x0040f860 GameSide::AddScore (33 bytes)</title></rect>
-<rect width="12" height="12" x="60" y="60" class="todo"><title>0x0040f890 Func40f890 (20 bytes)</title></rect>
+<rect width="12" height="12" x="60" y="60" class="named"><title>0x0040f890 AsciiText::SetUnknown2254 (20 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="60" class="named"><title>0x0040f8b0 PlayerUnknown30410::AddComboCounted (12 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="60" class="named"><title>0x0040f8c0 PlayerUnknown30410::ResetCombo (29 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="60" class="todo"><title>0x0040f8e0 Func40f8e0 (205 bytes)</title></rect>
@@ -1140,11 +1140,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.17%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.79%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">33.18%</tspan> · <tspan class="decompiled">0.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">66.78%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="247.79" height="6" x="0" y="0" class="named"/>
-<rect width="0.29" height="6" x="247.79" y="0" class="decompiled"/>
-<rect width="498.91" height="6" x="248.09" y="0" class="todo"/>
+<rect width="247.84" height="6" x="0" y="0" class="named"/>
+<rect width="0.29" height="6" x="247.84" y="0" class="decompiled"/>
+<rect width="498.86" height="6" x="248.14" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.49" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2057,7 +2057,7 @@
 <rect width="1.28" height="1" x="706.25" y="305.17" class="named"><title>0x00406720 Timer::operator&lt;= (20 bytes)</title></rect>
 <rect width="1.28" height="1" x="706.25" y="309.18" class="named"><title>0x0040e450 PlayRecord::GetClears5 (20 bytes)</title></rect>
 <rect width="1.28" height="1" x="706.25" y="313.18" class="named"><title>0x0040f840 Sprite::SetRotationZ (20 bytes)</title></rect>
-<rect width="1.28" height="1" x="706.25" y="317.18" class="todo"><title>0x0040f890 Func40f890 (20 bytes)</title></rect>
+<rect width="1.28" height="1" x="706.25" y="317.18" class="named"><title>0x0040f890 AsciiText::SetUnknown2254 (20 bytes)</title></rect>
 <rect width="1.28" height="1" x="706.25" y="321.19" class="named"><title>0x004120a0 EnemyTimelineTimers::EnemyTimelineTimers (20 bytes)</title></rect>
 <rect width="1.28" height="1" x="706.25" y="325.19" class="named"><title>0x004276d7 MainMenu::SelectCursorEntry (20 bytes)</title></rect>
 <rect width="1.28" height="0.80" x="706.25" y="329.20" class="named"><title>0x00401340 MemoryManager::Alloc (19 bytes)</title></rect>
