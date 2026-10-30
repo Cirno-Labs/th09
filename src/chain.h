@@ -65,6 +65,8 @@ public:
     // section 0, which it leaves while the element is deleted or its
     // deleted callback runs (0x42b350).
     void RemoveLocked(ChainElem *elem);
+    // Like RemoveLocked, inside critical section 0 (0x42c8c0).
+    void Remove(ChainElem *elem);
 
     ChainElem calcChain;
     ChainElem drawChain;

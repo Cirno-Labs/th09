@@ -558,7 +558,7 @@ address,size,name,symbol
 0x0042c660,153,Func42c660,
 0x0042c700,179,Func42c700,
 0x0042c7e0,186,Func42c7e0,
-0x0042c8c0,46,Func42c8c0,
+0x0042c8c0,46,Chain::Remove,?Remove@Chain@@QAEXPAUChainElem@@@Z
 0x0042c8f0,120,Func42c8f0,
 0x0042c970,355,Func42c970,
 0x0042cae0,241,Func42cae0,

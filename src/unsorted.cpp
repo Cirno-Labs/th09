@@ -349,6 +349,13 @@ found:
     }
 }
 
+void Chain::Remove(ChainElem *elem)
+{
+    g_App.EnterCriticalSection(0);
+    this->RemoveLocked(elem);
+    g_App.LeaveCriticalSection(0);
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);
