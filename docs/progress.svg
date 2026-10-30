@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">13.46% (140)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">86.54% (900)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">13.56% (141)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">86.44% (899)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="100.56" height="6" x="0" y="0" class="named"/>
-<rect width="646.44" height="6" x="100.56" y="0" class="todo"/>
+<rect width="101.28" height="6" x="0" y="0" class="named"/>
+<rect width="645.72" height="6" x="101.28" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -693,7 +693,7 @@
 <rect width="12" height="12" x="345" y="180" class="named"><title>0x0042f760 SpriteEngine::ClearDrawStats (15 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="180" class="named"><title>0x0042f770 SpriteEngine::ResetFrameState (74 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="180" class="todo"><title>0x0042f7c0 App::LoadConfig (1054 bytes)</title></rect>
-<rect width="12" height="12" x="390" y="180" class="todo"><title>0x0042fbe0 SoundPlayer::UpdateBgmFades (54 bytes)</title></rect>
+<rect width="12" height="12" x="390" y="180" class="named"><title>0x0042fbe0 SoundPlayer::UpdateBgmFades (54 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="180" class="named"><title>0x0042fc20 App::LoadBgm (207 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="180" class="named"><title>0x0042fcf0 App::PlayBgm (53 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="180" class="named"><title>0x0042fd30 App::StopBgm (81 bytes)</title></rect>
@@ -1111,10 +1111,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">2.96%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">97.04%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">2.98%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">97.02%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="22.13" height="6" x="0" y="0" class="named"/>
-<rect width="724.87" height="6" x="22.13" y="0" class="todo"/>
+<rect width="22.27" height="6" x="0" y="0" class="named"/>
+<rect width="724.73" height="6" x="22.27" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1801,7 +1801,7 @@
 <rect width="3.59" height="3.76" x="659.17" y="264.14" class="todo"><title>0x00401140 Func401140 (54 bytes)</title></rect>
 <rect width="3.59" height="3.76" x="659.17" y="270.91" class="todo"><title>0x00412610 Func412610 (54 bytes)</title></rect>
 <rect width="3.59" height="3.76" x="659.17" y="277.67" class="todo"><title>0x004234a7 Func4234a7 (54 bytes)</title></rect>
-<rect width="3.59" height="3.76" x="659.17" y="284.43" class="todo"><title>0x0042fbe0 SoundPlayer::UpdateBgmFades (54 bytes)</title></rect>
+<rect width="3.59" height="3.76" x="659.17" y="284.43" class="named"><title>0x0042fbe0 SoundPlayer::UpdateBgmFades (54 bytes)</title></rect>
 <rect width="3.59" height="3.76" x="659.17" y="291.20" class="todo"><title>0x0043e130 Func43e130 (54 bytes)</title></rect>
 <rect width="3.59" height="3.76" x="659.17" y="297.96" class="todo"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
 <rect width="3.59" height="3.64" x="659.17" y="304.72" class="named"><title>0x0042fcf0 App::PlayBgm (53 bytes)</title></rect>

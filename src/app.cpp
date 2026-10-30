@@ -73,6 +73,17 @@ int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, in
     return 0;
 }
 
+void SoundPlayer::UpdateBgmFades()
+{
+    if (this->bgm != NULL)
+    {
+        this->bgm->UpdateFade();
+        this->bgm->UpdateFadeIn();
+        this->bgm->UpdateFadeDown();
+        this->bgm->UpdateFadeUp();
+    }
+}
+
 int App::LoadBgm(int id)
 {
     char *dot;
