@@ -377,7 +377,7 @@ address,size,name,symbol
 0x0041cdc0,31,Func41cdc0,
 0x0041cde0,114,Func41cde0,
 0x0041ce60,75,FreeResources,?FreeResources@@YIHPAVPlayer@@@Z
-0x0041ceb0,28,Func41ceb0,
+0x0041ceb0,28,PlayerUnknown36c::PlayerUnknown36c,??0PlayerUnknown36c@@QAE@XZ
 0x0041ced0,86,Player::RemoveChain,?RemoveChain@Player@@SIXPAV1@@Z
 0x0041cf30,110,Func41cf30,
 0x0041cfa0,55,Func41cfa0,
@@ -402,14 +402,14 @@ address,size,name,symbol
 0x0041e8b0,74,Func41e8b0,
 0x0041eb10,166,Func41eb10,
 0x0041ebc0,552,Player::Reset,?Reset@Player@@QAEXXZ
-0x0041ee00,28,Func41ee00,
-0x0041ee20,12,BulletEx::BulletEx,??0BulletEx@@QAE@XZ
-0x0041ee30,23,Func41ee30,
+0x0041ee00,28,PlayerUnknown24::PlayerUnknown24,??0PlayerUnknown24@@QAE@XZ
+0x0041ee20,12,BulletEx::BulletEx,??0BulletEx@@QAE@XZ ??0PlayerUnknown3031c@@QAE@XZ
+0x0041ee30,23,PlayerUnknown30410::PlayerUnknown30410,??0PlayerUnknown30410@@QAE@XZ
 0x0041ee50,438,Func41ee50,
-0x0041f010,23,Func41f010,
-0x0041f030,44,Func41f030,
-0x0041f060,15,Func41f060,
-0x0041f070,243,Func41f070,
+0x0041f010,23,PlayerOption::PlayerOption,??0PlayerOption@@QAE@XZ
+0x0041f030,44,PlayerBullet::PlayerBullet,??0PlayerBullet@@QAE@XZ
+0x0041f060,15,PlayerUnknown30454::PlayerUnknown30454,??0PlayerUnknown30454@@QAE@XZ
+0x0041f070,243,Player::Player,??0Player@@QAE@XZ
 0x0041f170,328,Func41f170,
 0x0041f2c0,55,Func41f2c0,
 0x0041f300,9,Timer::operator-=,??ZTimer@@QAEXH@Z
@@ -737,7 +737,7 @@ address,size,name,symbol
 0x00434390,18,AnmLoaded::GetSprite,?GetSprite@AnmLoaded@@QAEPAUSpriteData@@H@Z
 0x004343b0,10,Func4343b0,
 0x004343c0,16,AsciiText::SetGlyphWidth,?SetGlyphWidth@AsciiText@@QAEXH@Z
-0x004343d0,3,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@XZ ??0AsciiString@@QAE@XZ
+0x004343d0,3,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@XZ ??0AsciiString@@QAE@XZ ??0PlayerUnknown36cEntry@@QAE@XZ
 0x004343e0,251,AsciiText::Initialize,?Initialize@AsciiText@@QAEXXZ
 0x004344e0,89,AsciiText::AddedCallback,?AddedCallback@AsciiText@@SIHPAV1@@Z
 0x00434540,341,AsciiText::DrawStrings,?DrawStrings@AsciiText@@QAEXXZ

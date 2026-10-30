@@ -40,14 +40,23 @@ struct PlayerUnknown24
 };
 ASSERT_SIZE(PlayerUnknown24, 0x78);
 
-// A part of the player at +0x36c: the player and 0x80 points.
+// An entry of PlayerUnknown36c (0x30 bytes). Its implicit constructor
+// folds with D3DXVECTOR3's. Placeholder name.
+struct PlayerUnknown36cEntry
+{
+    D3DXVECTOR3 pos;
+    unsigned char pad_c[0x30 - 0xc];
+};
+ASSERT_SIZE(PlayerUnknown36cEntry, 0x30);
+
+// A part of the player at +0x36c: the player and 0x80 entries.
 // Placeholder name.
 struct PlayerUnknown36c
 {
     Player *player;
-    D3DXVECTOR3 points[0x80];
+    PlayerUnknown36cEntry entries[0x80];
 };
-ASSERT_SIZE(PlayerUnknown36c, 0x604);
+ASSERT_SIZE(PlayerUnknown36c, 0x1804);
 
 // One of the player's options (0x2f4 bytes), the size and timer of
 // th08's PlayerOption. Only the fields known so far.
@@ -107,6 +116,11 @@ ASSERT_SIZE(PlayerUnknown30454, 0x2c4);
 class Player
 {
 public:
+    // Empty, and defined out of line, as th08's: constructs the members
+    // (0x41f070). Their implicit constructors come with it (0x41ee00,
+    // 0x41ceb0, 0x41f010, 0x41f030, 0x41ee20, 0x41ee30, 0x41f060).
+    Player();
+
     // Frees the player's resources, removes its chain elements and
     // deletes it, if any (0x41ced0).
     static void RemoveChain(Player *player);
@@ -136,7 +150,7 @@ public:
     Sprite sprite;
     unsigned char pad_364[0x36c - 0x364];
     PlayerUnknown36c unknown36c;
-    unsigned char pad_970[0x1b74 - 0x970];
+    unsigned char pad_1b70[0x1b74 - 0x1b70];
     Timer unknown1b74;
     unsigned char pad_1b80[0x1b88 - 0x1b80];
     D3DXVECTOR3 pos;
