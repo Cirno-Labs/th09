@@ -77,3 +77,8 @@ void Timer::operator+=(int frames)
 {
     this->Add(frames);
 }
+
+void Timer::operator+=(float frames)
+{
+    this->Add(frames);
+}
