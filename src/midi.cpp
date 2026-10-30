@@ -248,3 +248,15 @@ void MidiPlayer::FreeTracks()
     this->tracks = NULL;
     this->trackCount = 0;
 }
+
+int MidiPlayer::Play()
+{
+    if (this->tracks == NULL)
+    {
+        return -1;
+    }
+    this->Rewind();
+    this->device.Open(MIDI_MAPPER);
+    this->Start(1, NULL, 0);
+    return 0;
+}
