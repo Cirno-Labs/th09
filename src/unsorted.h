@@ -113,6 +113,10 @@ struct App
     int GetPreloadBgm();
     int GetNoVsync();
     int GetNoTextRenderDetect();
+    // Enters and leaves criticalSections[idx], counting the depth in
+    // criticalSectionDepths, as th08's (0x42b130, 0x42b160).
+    void EnterCriticalSection(int idx);
+    void LeaveCriticalSection(int idx);
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);
@@ -127,5 +131,9 @@ struct App
     float gameSpeed;
     unsigned char pad_5bc[0x5d4 - 0x5bc];
     DWORD stateFlags;
+    unsigned char pad_5d8[0x6c0 - 0x5d8];
+    CRITICAL_SECTION criticalSections[5];
+    // How deep each of criticalSections is entered.
+    BYTE criticalSectionDepths[5];
 };
 extern App g_App;

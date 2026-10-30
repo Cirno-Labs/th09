@@ -538,7 +538,7 @@ address,size,name,symbol
 0x0042b0d0,13,MemoryManager::MemoryManager,??0MemoryManager@@QAE@XZ
 0x0042b0e0,44,MemoryManager::~MemoryManager,??1MemoryManager@@QAE@XZ
 0x0042b110,19,Log::Log,??0Log@@QAE@XZ
-0x0042b130,40,Func42b130,
+0x0042b130,40,App::EnterCriticalSection,?EnterCriticalSection@App@@QAEXH@Z
 0x0042b160,40,Func42b160,
 0x0042b190,75,Func42b190,
 0x0042b1e0,140,Func42b1e0,

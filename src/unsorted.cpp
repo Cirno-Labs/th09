@@ -187,6 +187,12 @@ Log::Log()
     this->hasError = 0;
 }
 
+void App::EnterCriticalSection(int idx)
+{
+    ::EnterCriticalSection(&this->criticalSections[idx]);
+    this->criticalSectionDepths[idx]++;
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);
