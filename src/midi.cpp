@@ -175,3 +175,8 @@ void MidiPlayer::SendVolume(int offset)
         this->device.SendShortMsg(chStatus, cc, data2);
     }
 }
+
+void MidiTimer::OnTimer()
+{
+    QueryPerformanceCounter(&g_MidiTimerLastCounter);
+}
