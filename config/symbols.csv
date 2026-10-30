@@ -750,7 +750,7 @@ address,size,name,symbol
 0x00435b00,253,AsciiText::OnUpdate,?OnUpdate@AsciiText@@SIHPAV1@@Z
 0x00435c00,83,AsciiText::OnDraw,?OnDraw@AsciiText@@SIHPAV1@@Z
 0x00435c60,52,AsciiText::OnDraw2,?OnDraw2@AsciiText@@SIHPAV1@@Z
-0x00435ca0,157,Func435ca0,
+0x00435ca0,157,AsciiText::RegisterChain,?RegisterChain@AsciiText@@SIHXZ
 0x00435d40,39,Func435d40,
 0x00435d70,39,Func435d70,
 0x00435da0,28,Func435da0,

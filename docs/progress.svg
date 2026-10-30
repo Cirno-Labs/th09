@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.14% (275)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.86% (777)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.24% (276)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.76% (776)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="195.27" height="6" x="0" y="0" class="named"/>
-<rect width="551.73" height="6" x="195.27" y="0" class="todo"/>
+<rect width="195.98" height="6" x="0" y="0" class="named"/>
+<rect width="551.02" height="6" x="195.98" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -818,7 +818,7 @@
 <rect width="12" height="12" x="720" y="210" class="named"><title>0x00435b00 AsciiText::OnUpdate (253 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="210" class="named"><title>0x00435c00 AsciiText::OnDraw (83 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="225" class="named"><title>0x00435c60 AsciiText::OnDraw2 (52 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="225" class="todo"><title>0x00435ca0 Func435ca0 (157 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="225" class="named"><title>0x00435ca0 AsciiText::RegisterChain (157 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="225" class="todo"><title>0x00435d40 Func435d40 (39 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="225" class="todo"><title>0x00435d70 Func435d70 (39 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="225" class="todo"><title>0x00435da0 Func435da0 (28 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.30%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.70%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.35%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.65%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="61.99" height="6" x="0" y="0" class="named"/>
-<rect width="685.01" height="6" x="61.99" y="0" class="todo"/>
+<rect width="62.40" height="6" x="0" y="0" class="named"/>
+<rect width="684.60" height="6" x="62.40" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1553,7 +1553,7 @@
 <rect width="8.53" height="8.93" x="574.39" y="206.17" class="todo"><title>0x004401d0 Func4401d0 (160 bytes)</title></rect>
 <rect width="8.53" height="8.78" x="574.39" y="218.10" class="todo"><title>0x00413590 Func413590 (158 bytes)</title></rect>
 <rect width="8.53" height="8.71" x="574.39" y="229.88" class="todo"><title>0x00407560 Func407560 (157 bytes)</title></rect>
-<rect width="8.53" height="8.71" x="574.39" y="241.59" class="todo"><title>0x00435ca0 Func435ca0 (157 bytes)</title></rect>
+<rect width="8.53" height="8.71" x="574.39" y="241.59" class="named"><title>0x00435ca0 AsciiText::RegisterChain (157 bytes)</title></rect>
 <rect width="8.53" height="8.48" x="574.39" y="253.29" class="todo"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
 <rect width="8.53" height="8.48" x="574.39" y="264.78" class="named"><title>0x004346a0 AsciiText::AddPopup (154 bytes)</title></rect>
 <rect width="8.53" height="8.41" x="574.39" y="276.26" class="named"><title>0x0042c5c0 LogPrintf (153 bytes)</title></rect>
