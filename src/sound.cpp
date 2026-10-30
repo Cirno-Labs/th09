@@ -258,6 +258,19 @@ int SoundPlayer::LoadSound(int index, char *path)
     return 0;
 }
 
+int SoundPlayer::SwitchBgmTrack(char *path)
+{
+    int i;
+
+    if (this->bgm == NULL)
+    {
+        return -1;
+    }
+    i = this->FindTrackIndex(path);
+    this->bgm->GetWaveFile()->SwitchTrack(&this->bgmFormat[i]);
+    return 0;
+}
+
 int SoundPlayer::LoadSounds()
 {
     int i;
