@@ -59,6 +59,9 @@ struct Bullet
     // Sets command `i` to flag 0x4000, which switches the bullet to
     // bullet type `type` and color `color`, as th08's (0x4126d0).
     void SetSpriteCommand(int i, int concurrent, int type, int color);
+    // Frees the bullet: state 0 and both timers reset, as th08's
+    // (0x412930).
+    void FreeBullet();
 
     unsigned char pad_0[0x4];
     BulletTypeSprites sprites;

@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.90% (678)</tspan> · <tspan class="decompiled">0.19% (2)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">35.91% (381)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64% (679)</tspan> · <tspan class="decompiled">0.19% (2)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">35.82% (380)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="477.35" height="6" x="0" y="0" class="named"/>
-<rect width="1.41" height="6" x="477.35" y="0" class="decompiled"/>
-<rect width="268.24" height="6" x="478.76" y="0" class="todo"/>
+<rect width="478.05" height="6" x="0" y="0" class="named"/>
+<rect width="1.41" height="6" x="478.05" y="0" class="decompiled"/>
+<rect width="267.54" height="6" x="479.46" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -315,7 +315,7 @@
 <rect width="12" height="12" x="660" y="60" class="named"><title>0x004127b0 Sprite::Initialize (66 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="60" class="named"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="60" class="todo"><title>0x00412830 Func412830 (245 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="60" class="todo"><title>0x00412930 Func412930 (40 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="60" class="named"><title>0x00412930 Bullet::FreeBullet (40 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="60" class="todo"><title>0x00412960 Func412960 (1887 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="60" class="todo"><title>0x004130f0 Func4130f0 (200 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="75" class="todo"><title>0x004131c0 Func4131c0 (200 bytes)</title></rect>
@@ -1133,11 +1133,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.83%</tspan> · <tspan class="decompiled">0.02%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.15%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.84%</tspan> · <tspan class="decompiled">0.02%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.13%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="245.25" height="6" x="0" y="0" class="named"/>
-<rect width="0.16" height="6" x="245.25" y="0" class="decompiled"/>
-<rect width="501.59" height="6" x="245.41" y="0" class="todo"/>
+<rect width="245.35" height="6" x="0" y="0" class="named"/>
+<rect width="0.16" height="6" x="245.35" y="0" class="decompiled"/>
+<rect width="501.49" height="6" x="245.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1900,7 +1900,7 @@
 <rect width="2.85" height="3.01" x="687.21" y="258.32" class="named"><title>0x0042aea0 Rng::GetRandomF32MinusOneToOne (41 bytes)</title></rect>
 <rect width="2.85" height="3.01" x="693.06" y="258.32" class="named"><title>0x0043d0c0 MmTimer::Stop (41 bytes)</title></rect>
 <rect width="2.71" height="3.01" x="698.91" y="258.32" class="named"><title>0x00401290 D3DXVec3Length (40 bytes)</title></rect>
-<rect width="2.71" height="3.01" x="704.62" y="258.32" class="todo"><title>0x00412930 Func412930 (40 bytes)</title></rect>
+<rect width="2.71" height="3.01" x="704.62" y="258.32" class="named"><title>0x00412930 Bullet::FreeBullet (40 bytes)</title></rect>
 <rect width="2.71" height="3.01" x="710.33" y="258.32" class="named"><title>0x0042520b MainMenu::FlashSprite (40 bytes)</title></rect>
 <rect width="2.71" height="3.01" x="716.04" y="258.32" class="named"><title>0x0042b130 App::EnterCriticalSection (40 bytes)</title></rect>
 <rect width="2.71" height="3.01" x="721.75" y="258.32" class="named"><title>0x0042b160 App::LeaveCriticalSection (40 bytes)</title></rect>

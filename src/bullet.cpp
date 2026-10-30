@@ -140,3 +140,10 @@ void EnemyShooter::SetCommand20000(int i, int concurrent, int frames)
 
     cmd->frames = frames;
 }
+
+void Bullet::FreeBullet()
+{
+    this->state = 0;
+    this->timer = 0;
+    this->grazeDelayTimer = 0;
+}

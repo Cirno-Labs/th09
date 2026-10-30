@@ -246,7 +246,7 @@ address,size,name,symbol
 0x004127b0,66,Sprite::Initialize,?Initialize@Sprite@@QAEXXZ
 0x00412800,41,AnmLoaded::InitSprite,?InitSprite@AnmLoaded@@QAEXPAVSprite@@H@Z
 0x00412830,245,Func412830,
-0x00412930,40,Func412930,
+0x00412930,40,Bullet::FreeBullet,?FreeBullet@Bullet@@QAEXXZ
 0x00412960,1887,Func412960,
 0x004130f0,200,Func4130f0,
 0x004131c0,200,Func4131c0,
