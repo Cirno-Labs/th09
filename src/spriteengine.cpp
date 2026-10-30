@@ -26,6 +26,12 @@ void SpriteEngine::ResetColorModulation()
     this->modulateColor = 0x80808080;
 }
 
+void SpriteEngine::SetColorModulation(D3DCOLOR color)
+{
+    this->modulateColorEnabled = 1;
+    this->modulateColor = color;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)
