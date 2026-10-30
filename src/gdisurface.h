@@ -37,9 +37,10 @@ public:
     {
         return this->format;
     }
-    // Inline too in the original; out of line here until its callers
-    // (0x4364c0, 0x4367b0) are decompiled, so that it is compiled.
-    HDC GetHdc();
+    HDC GetHdc()
+    {
+        return this->hdc;
+    }
     int GetWidthBytes()
     {
         return this->widthBytes;
@@ -71,6 +72,9 @@ public:
     // CreateInFormat, falling back to a 32-bit format for the 16-bit
     // ones, as th08's (0x436450).
     bool Create(int width, int height, int format);
+    // Inverts the alpha of the rows from `y`, `width` by `height`; in
+    // A1R5G5B5 it also shades the text, as th08's (0x435fe0).
+    bool InvertAlpha(int x, int y, int width, int height, int lightShading);
     // Copies the pixels into `surface` when it has the same format.
     // Returns false when there is no bitmap or the surface can't be
     // locked (0x4361c0).
@@ -95,3 +99,13 @@ extern IDirect3DSurface8 *g_TextSurface;
 // 0x4362e0).
 void CreateTextSurface();
 void ReleaseTextSurface();
+
+// The colour of the text's outline; never written, so black (0x4dc548).
+extern COLORREF g_TextOutlineColor;
+
+// th08's RenderTextToTextureBold, but in the normal weight and copying two
+// more pixels each way: draws `text` in `textColor`, outlined, on
+// g_TextSurface at twice the size, then scales it into `texture`,
+// `destHeight` rows high at row `y` (0x4364c0).
+void RenderTextToTextureLarge(int x, int y, int width, int unused, int fontHeight, int destHeight,
+                              COLORREF textColor, COLORREF shadowColor, char *text, IDirect3DTexture8 *texture);
