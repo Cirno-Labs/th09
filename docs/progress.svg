@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.60% (547)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.40% (513)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.70% (548)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">48.30% (512)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="385.48" height="6" x="0" y="0" class="named"/>
-<rect width="361.52" height="6" x="385.48" y="0" class="todo"/>
+<rect width="386.18" height="6" x="0" y="0" class="named"/>
+<rect width="360.82" height="6" x="386.18" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -86,7 +86,7 @@
 <rect width="12" height="12" x="240" y="0" class="named"><title>0x00401340 MemoryManager::Alloc (19 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="0" class="named"><title>0x00401360 MemoryManager::Free (19 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="0" class="named"><title>0x00401380 MemoryManager::Register (10 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="0" class="todo"><title>0x00401390 App::SetView (71 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="0" class="named"><title>0x00401390 App::SetView (71 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="0" class="named"><title>0x004013e0 App::ResetView (42 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="0" class="named"><title>0x00401410 App::ResetView3D (42 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="0" class="todo"><title>0x00401440 Func401440 (26 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.28%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.72%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">27.30%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">72.70%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="203.76" height="6" x="0" y="0" class="named"/>
-<rect width="543.24" height="6" x="203.76" y="0" class="todo"/>
+<rect width="203.95" height="6" x="0" y="0" class="named"/>
+<rect width="543.05" height="6" x="203.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1760,7 +1760,7 @@
 <rect width="4.64" height="5.09" x="727.07" y="216.24" class="named"><title>0x0043e9e0 SoundPlayer::SwitchBgmTrack (72 bytes)</title></rect>
 <rect width="4.64" height="5.09" x="734.71" y="216.24" class="todo"><title>0x00445c30 Func445c30 (72 bytes)</title></rect>
 <rect width="4.64" height="5.09" x="742.36" y="216.24" class="todo"><title>0x00445cb0 Func445cb0 (72 bytes)</title></rect>
-<rect width="4.80" height="4.82" x="641.09" y="224.34" class="todo"><title>0x00401390 App::SetView (71 bytes)</title></rect>
+<rect width="4.80" height="4.82" x="641.09" y="224.34" class="named"><title>0x00401390 App::SetView (71 bytes)</title></rect>
 <rect width="4.80" height="4.82" x="641.09" y="232.15" class="todo"><title>0x00403d90 Func403d90 (71 bytes)</title></rect>
 <rect width="4.80" height="4.82" x="641.09" y="239.97" class="todo"><title>0x0040e080 Func40e080 (71 bytes)</title></rect>
 <rect width="4.80" height="4.82" x="641.09" y="247.79" class="named"><title>0x0042b300 Chain::CreateElem (71 bytes)</title></rect>

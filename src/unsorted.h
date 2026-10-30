@@ -554,12 +554,20 @@ struct Camera
     float shakeX;
     float shakeY;
 };
+ASSERT_SIZE(Camera, 0xf0);
 
 struct App
 {
     // Sets up view `view`, its camera and viewport: 0 the play area, 2
-    // the whole screen (0x401390).
-    void SetView(int view);
+    // the whole screen. Inline; the copy is the stage's object's
+    // (0x401390).
+    void SetView(int view)
+    {
+        this->camera = &this->cameras[view];
+        this->SetupCamera3D(this->camera);
+        this->d3dDevice->SetViewport(&this->camera->viewport);
+        this->view = view;
+    }
     // Sets up the camera and the projection of `camera` (0x430590).
     void SetupCamera(Camera *camera);
     // Sets up the current camera and its viewport again. Inline; the copy
@@ -697,10 +705,12 @@ struct App
     unsigned char pad_c[0x74 - 0xc];
     // The game's window, as th08's.
     HWND hwnd;
-    unsigned char pad_78[0x348 - 0x78];
+    // The views' cameras.
+    Camera cameras[3];
     // The camera of the view SetView last set up.
     Camera *camera;
-    unsigned char pad_34c[0x350 - 0x34c];
+    // The view SetView last set up.
+    int view;
     // The parameters the device is created with, as th08's.
     D3DPRESENT_PARAMETERS presentParams;
     unsigned char pad_384[0x388 - 0x384];
