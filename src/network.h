@@ -7,6 +7,21 @@
 
 #include "common.h"
 
+// What the two sides send each other (0xc bytes).
+struct NetPacket
+{
+    // 0 for a frame's input, 1 for a check, 2 for the session setup.
+    BYTE type;
+    // The sending side.
+    char side;
+    WORD seed;
+    // The setup sends the sync frames in it.
+    int value;
+    // The input, or the setup's isLan.
+    int unknown8;
+};
+ASSERT_SIZE(NetPacket, 0xc);
+
 // The network play's state ("NetworkInf", 0xd4 bytes), at 0x4b42d0.
 // Only what is known so far.
 struct Network
@@ -65,7 +80,9 @@ struct Network
     int unknownA8;
     // The local side, 0 or 1, so it seems.
     int unknownAc;
-    unsigned char pad_b0[0xb8 - 0xb0];
+    // Set when a send completes, or a check packet matches.
+    int unknownB0;
+    unsigned char pad_b4[4];
     // Cleared by App::ResetRun.
     int unknownB8;
     // Set by IP.txt's Sync LAN.
@@ -74,7 +91,9 @@ struct Network
     int side;
     // From IP.txt's Sync: 60 for LAN and High, 30 for Low, 20 for Bad.
     unsigned char syncFrames;
-    unsigned char pad_c5[0xd4 - 0xc5];
+    unsigned char pad_c5[3];
+    // The last input packet received from the other side.
+    NetPacket lastPacket;
 };
 ASSERT_SIZE(Network, 0xd4);
 extern Network *g_Network;

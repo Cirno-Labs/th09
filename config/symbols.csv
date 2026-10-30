@@ -424,7 +424,7 @@ address,size,name,symbol
 0x0041fcd0,985,Func41fcd0,
 0x004200c0,45,Func4200c0,
 0x004200f0,111,Func4200f0,
-0x00420160,14,Func420160,
+0x00420160,14,Rng::SetSeed,?SetSeed@Rng@@QAEXG@Z
 0x00420170,8,Func420170,
 0x00420180,13,App::GetNoScore,?GetNoScore@App@@QAEHXZ
 0x00420190,257,ReplayManager::OnUpdateMode0b,?OnUpdateMode0b@ReplayManager@@SIHPAV1@@Z
@@ -684,7 +684,7 @@ address,size,name,symbol
 0x004328f0,276,Network::CreateHostAddress,?CreateHostAddress@Network@@QAEJXZ
 0x00432a10,167,Network::Host,?Host@Network@@QAEJXZ
 0x00432ac0,168,Network::Connect,?Connect@Network@@QAEJXZ
-0x00432b70,765,Network::HandleMessage,?HandleMessage@Network@@QAEJPAXK0@Z
+0x00432b70,768,Network::HandleMessage,?HandleMessage@Network@@QAEJPAXK0@Z
 0x00432ea0,15,NetworkMessageHandler,?NetworkMessageHandler@@YGJPAXK0@Z
 0x00432eb0,183,Network::CreatePeer,?CreatePeer@Network@@QAEJXZ
 0x00432f70,200,Network::Close,?Close@Network@@QAEHXZ

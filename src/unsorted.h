@@ -48,6 +48,8 @@ public:
 
     // Inline; the copy is the GameManager object's (0x41a89e).
     WORD GetSeed();
+    // Sets the seed (0x420160).
+    void SetSeed(WORD seed);
 
     WORD seed;
     unsigned char pad_2[0x2];
@@ -766,7 +768,8 @@ struct App
     // The time ResetRun ran.
     DWORD unknown464;
     DWORD unknown468;
-    unsigned char pad_46c[0x474 - 0x46c];
+    DWORD unknown46c;
+    unsigned char pad_470[0x474 - 0x470];
     DWORD unknown474;
     int unknown478;
     // Each side's ten records, ordered by value, and its last one.

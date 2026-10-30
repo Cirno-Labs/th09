@@ -207,6 +207,113 @@ HRESULT Network::Connect()
     return hr;
 }
 
+HRESULT Network::HandleMessage(PVOID context, DWORD type, PVOID message)
+{
+    NetPacket *packet;
+    DPN_PLAYER_INFO *info;
+    DWORD size;
+    HRESULT hr;
+    int i;
+
+    switch (type)
+    {
+    case DPN_MSGID_RECEIVE:
+        g_App.EnterCriticalSection(4);
+        packet = (NetPacket *)((DPNMSG_RECEIVE *)message)->pReceiveData;
+        if (packet->type == 0)
+        {
+            if (packet->side != g_Network->unknownAc)
+            {
+                this->lastPacket = *packet;
+                g_App.AddRecord(packet->side, packet->value, packet->unknown8, packet->seed);
+            }
+        }
+        else if (packet->type == 1)
+        {
+            if (g_App.unknown458 == packet->value && packet->value == packet->seed)
+            {
+                this->unknownB0 = 1;
+            }
+        }
+        else if (packet->type == 2)
+        {
+            if (packet->side == this->unknownAc)
+            {
+                this->unknownAc = 1 - packet->side;
+            }
+            if (this->unknownAc == 1)
+            {
+                g_Rng.SetSeed(packet->seed);
+                this->syncFrames = packet->value;
+                this->isLan = packet->unknown8;
+                if (60 / this->syncFrames > 1)
+                {
+                    for (i = 0; i < 60 / this->syncFrames - 1; i++)
+                    {
+                        g_App.AddRecord(0, i - 9998, 0, g_Rng.GetSeed());
+                        g_App.AddRecord(1, i - 9998, 0, g_Rng.GetSeed());
+                    }
+                }
+            }
+        }
+        g_App.unknown464 = g_App.unknown46c;
+        g_App.LeaveCriticalSection(4);
+        break;
+    case DPN_MSGID_CREATE_PLAYER:
+        g_App.EnterCriticalSection(4);
+        size = 0;
+        this->peer->GetPeerInfo(((DPNMSG_CREATE_PLAYER *)message)->dpnidPlayer, NULL, &size, 0);
+        info = (DPN_PLAYER_INFO *)new BYTE[size];
+        memset(info, 0, size);
+        info->dwSize = sizeof(DPN_PLAYER_INFO);
+        hr = this->peer->GetPeerInfo(((DPNMSG_CREATE_PLAYER *)message)->dpnidPlayer, info, &size, 0);
+        if (hr != DPN_OK)
+        {
+            delete info;
+            g_App.LeaveCriticalSection(4);
+            return hr;
+        }
+        if (info->dwPlayerFlags & DPNPLAYER_LOCAL)
+        {
+            this->unknown1c[this->unknownAc] = ((DPNMSG_CREATE_PLAYER *)message)->dpnidPlayer;
+        }
+        else
+        {
+            this->unknown1c[1 - this->unknownAc] = ((DPNMSG_CREATE_PLAYER *)message)->dpnidPlayer;
+        }
+        delete info;
+        g_App.LeaveCriticalSection(4);
+        break;
+    case DPN_MSGID_DESTROY_PLAYER:
+        g_App.EnterCriticalSection(4);
+        if (this->unknown1c[0] == ((DPNMSG_DESTROY_PLAYER *)message)->dpnidPlayer)
+        {
+            this->unknown1c[0] = 0;
+        }
+        if (this->unknown1c[1] == ((DPNMSG_DESTROY_PLAYER *)message)->dpnidPlayer)
+        {
+            this->unknown1c[1] = 0;
+        }
+        g_App.LeaveCriticalSection(4);
+        break;
+    case DPN_MSGID_SEND_COMPLETE:
+        g_App.EnterCriticalSection(4);
+        this->unknownB0 = 1;
+        g_App.LeaveCriticalSection(4);
+        break;
+    case DPN_MSGID_CONNECT_COMPLETE:
+        g_App.EnterCriticalSection(4);
+        if (((DPNMSG_CONNECT_COMPLETE *)message)->hResultCode == DPN_OK && this->unknownB8 == 1)
+        {
+            this->unknownB8 = 3;
+            this->unknownAc = 1;
+        }
+        g_App.LeaveCriticalSection(4);
+        break;
+    }
+    return 0;
+}
+
 HRESULT WINAPI NetworkMessageHandler(PVOID context, DWORD type, PVOID message)
 {
     return g_Network->HandleMessage(context, type, message);
