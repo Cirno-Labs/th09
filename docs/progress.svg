@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.18% (33)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">96.82% (1005)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">3.28% (34)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">96.72% (1004)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="23.75" height="6" x="0" y="0" class="named"/>
-<rect width="723.25" height="6" x="23.75" y="0" class="todo"/>
+<rect width="24.47" height="6" x="0" y="0" class="named"/>
+<rect width="722.53" height="6" x="24.47" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -248,7 +248,7 @@
 <rect width="12" height="12" x="420" y="45" class="todo"><title>0x0040f160 Func40f160 (7 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="45" class="todo"><title>0x0040f170 Func40f170 (16 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="45" class="todo"><title>0x0040f180 Func40f180 (51 bytes)</title></rect>
-<rect width="12" height="12" x="465" y="45" class="todo"><title>0x0040f1c0 Func40f1c0 (12 bytes)</title></rect>
+<rect width="12" height="12" x="465" y="45" class="named"><title>0x0040f1c0 Fabs (12 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="45" class="todo"><title>0x0040f1d0 Func40f1d0 (364 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="45" class="todo"><title>0x0040f340 Func40f340 (373 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="45" class="todo"><title>0x0040f4c0 Func40f4c0 (151 bytes)</title></rect>
@@ -1109,10 +1109,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.31%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.69%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.32%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.68%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="2.34" height="6" x="0" y="0" class="named"/>
-<rect width="744.66" height="6" x="2.34" y="0" class="todo"/>
+<rect width="2.37" height="6" x="0" y="0" class="named"/>
+<rect width="744.63" height="6" x="2.37" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.75" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2089,7 +2089,7 @@
 <rect width="0.21" height="0.10" x="727.31" y="308.75" class="named"><title>0x00403390 Timer::Timer (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="311.83" class="todo"><title>0x00403c20 Func403c20 (12 bytes)</title></rect>
 <rect width="0.21" height="0.10" x="727.31" y="314.92" class="todo"><title>0x00403d80 Func403d80 (12 bytes)</title></rect>
-<rect width="0.25" height="0.10" x="730.52" y="296.16" class="todo"><title>0x0040f1c0 Func40f1c0 (12 bytes)</title></rect>
+<rect width="0.25" height="0.10" x="730.52" y="296.16" class="named"><title>0x0040f1c0 Fabs (12 bytes)</title></rect>
 <rect width="0.25" height="0.10" x="733.77" y="296.16" class="todo"><title>0x0040f8b0 Func40f8b0 (12 bytes)</title></rect>
 <rect width="0.25" height="0.10" x="737.01" y="296.16" class="todo"><title>0x0041a98b Func41a98b (12 bytes)</title></rect>
 <rect width="0.25" height="0.10" x="740.26" y="296.16" class="todo"><title>0x0041a9ac Func41a9ac (12 bytes)</title></rect>

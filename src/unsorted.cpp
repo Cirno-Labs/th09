@@ -34,6 +34,11 @@ float Fmod(float x, float y)
     return (float)fmod((double)x, (double)y);
 }
 
+float Fabs(float x)
+{
+    return (float)fabs((double)x);
+}
+
 void Vector2::SetPolar(float angle, float radius)
 {
     __asm

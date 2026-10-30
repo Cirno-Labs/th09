@@ -180,7 +180,7 @@ address,size,name,symbol
 0x0040f160,7,Func40f160,
 0x0040f170,16,Func40f170,
 0x0040f180,51,Func40f180,
-0x0040f1c0,12,Func40f1c0,
+0x0040f1c0,12,Fabs,?Fabs@@YGMM@Z
 0x0040f1d0,364,Func40f1d0,
 0x0040f340,373,Func40f340,
 0x0040f4c0,151,Func40f4c0,
