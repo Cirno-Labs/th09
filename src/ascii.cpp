@@ -67,3 +67,20 @@ void AsciiText::Initialize()
     this->highlight = 0;
     this->SetGlyphWidth(9);
 }
+
+int AsciiText::AddedCallback(AsciiText *text)
+{
+    memset(text, 0, sizeof(AsciiText));
+    text->anm = g_SpriteEngine->PreloadAnm(1, "ascii.anm");
+    if (text->anm == NULL)
+    {
+        return -1;
+    }
+    text->anm2 = g_SpriteEngine->PreloadAnm(3, "capture.anm");
+    if (text->anm2 == NULL)
+    {
+        return -1;
+    }
+    text->Initialize();
+    return 0;
+}
