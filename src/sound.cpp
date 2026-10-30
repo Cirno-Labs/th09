@@ -13,3 +13,35 @@ int SoundPlayer::LoadBgmFormat(char *path)
     this->bgmFormat = (BgmFormat *)OpenPath(path, NULL, 0);
     return this->bgmFormat != NULL ? 0 : -1;
 }
+
+void SoundPlayer::PlaySoundByIdx(int idx, int arg)
+{
+    int i;
+    int pri;
+
+    pri = g_SoundInfos[idx].priority;
+    for (i = 0; i < 0xc; i++)
+    {
+        if (this->queue[i] < 0)
+        {
+            break;
+        }
+        if (this->queue[i] == idx)
+        {
+            if (this->queueArgCounts[i] < 0x80)
+            {
+                this->queueArgs[i][this->queueArgCounts[i]] = arg;
+                this->queueArgCounts[i]++;
+            }
+            return;
+        }
+    }
+    if (i >= 0xc)
+    {
+        return;
+    }
+    this->queue[i] = idx;
+    this->queuedSound[idx] = pri;
+    this->queueArgs[i][0] = arg;
+    this->queueArgCounts[i]++;
+}
