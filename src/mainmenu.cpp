@@ -737,3 +737,46 @@ void MainMenu::MoveCharacterCursor(int player, int selected, int selected2, char
         }
     }
 }
+
+void MainMenu::MoveCharacterCursor2(int player, int selected, char *entries)
+{
+    int row = 0;
+    Sprite *vm = &this->sprites[189];
+    int i;
+    for (i = 0; i < 16; i++)
+    {
+        if (selected == entries[i])
+        {
+            break;
+        }
+        if (i > 13 || g_PlayRecord.openEntries[entries[i]] || g_Network->unknownA8 != 0)
+        {
+            row++;
+        }
+    }
+    D3DXVECTOR3 to;
+    to.x = vm->pos.x;
+    to.y = row * 16.0f + 128.0f;
+    to.z = 0.0f;
+    vm->SetMoveInterp(8, 4, &vm->pos, &to);
+    vm = &this->sprites[190];
+    to.x = vm->pos.x;
+    vm->SetMoveInterp(8, 4, &vm->pos, &to);
+    int j = 0;
+    for (i = 0; i < 16; i++)
+    {
+        if (g_PlayRecord.openEntries[entries[i]] || i > 13 || g_Network->unknownA8 != 0)
+        {
+            vm = &this->sprites[j + 207];
+            if (row == j)
+            {
+                vm->SetColorInterp(8, 4, vm->color, 0xffffffff);
+            }
+            else
+            {
+                vm->SetColorInterp(8, 4, vm->color, 0xffa0a0a0);
+            }
+            j++;
+        }
+    }
+}
