@@ -315,6 +315,30 @@ int SoundPlayer::PreloadBgm(int slot, char *path)
     return 0;
 }
 
+void SoundPlayer::StopBgm()
+{
+    if (this->bgm != NULL)
+    {
+        this->bgm->Stop();
+        if (this->notifyThread != NULL)
+        {
+            PostThreadMessageA(this->notifyThreadId, WM_QUIT, 0, 0);
+            while (WaitForSingleObject(this->notifyThread, 0x100) != WAIT_OBJECT_0)
+            {
+                PostThreadMessageA(this->notifyThreadId, WM_QUIT, 0, 0);
+            }
+            CloseHandle(this->notifyThread);
+            CloseHandle(this->notifyEvent);
+            this->notifyThread = NULL;
+        }
+        if (this->bgm != NULL)
+        {
+            delete this->bgm;
+            this->bgm = NULL;
+        }
+    }
+}
+
 int SoundPlayer::LoadSounds()
 {
     int i;
