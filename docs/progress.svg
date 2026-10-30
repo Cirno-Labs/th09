@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">16.33% (170)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">83.67% (871)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">16.52% (172)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">83.48% (869)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="121.99" height="6" x="0" y="0" class="named"/>
-<rect width="625.01" height="6" x="121.99" y="0" class="todo"/>
+<rect width="123.42" height="6" x="0" y="0" class="named"/>
+<rect width="623.58" height="6" x="123.42" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -140,8 +140,8 @@
 <rect width="12" height="12" x="300" y="15" class="todo"><title>0x00404410 SpellCard::OnDraw (334 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="15" class="named"><title>0x00404560 SpellCard::AddedCallback (8 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="15" class="named"><title>0x00404570 SpellCard::RemoveChain (51 bytes)</title></rect>
-<rect width="12" height="12" x="345" y="15" class="todo"><title>0x004045b0 SpellCard::SpellCard (66 bytes)</title></rect>
-<rect width="12" height="12" x="360" y="15" class="todo"><title>0x00404600 SpellCard::RegisterChain (264 bytes)</title></rect>
+<rect width="12" height="12" x="345" y="15" class="named"><title>0x004045b0 SpellCard::SpellCard (66 bytes)</title></rect>
+<rect width="12" height="12" x="360" y="15" class="named"><title>0x00404600 SpellCard::RegisterChain (264 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="15" class="todo"><title>0x00404710 Func404710 (346 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="15" class="todo"><title>0x004048b0 Func4048b0 (41 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="15" class="named"><title>0x004048e0 Rng::GetRandomU32InRange (34 bytes)</title></rect>
@@ -1112,10 +1112,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">4.17%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">95.83%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">4.28%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">95.72%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="31.15" height="6" x="0" y="0" class="named"/>
-<rect width="715.85" height="6" x="31.15" y="0" class="todo"/>
+<rect width="32.01" height="6" x="0" y="0" class="named"/>
+<rect width="714.99" height="6" x="32.01" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.72" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1396,7 +1396,7 @@
 <rect width="11.49" height="12.49" x="513.58" y="182.39" class="todo"><title>0x00415460 Func415460 (272 bytes)</title></rect>
 <rect width="11.49" height="12.43" x="513.58" y="197.88" class="todo"><title>0x00417520 GuiMsg::UnloadBgm (271 bytes)</title></rect>
 <rect width="11.49" height="12.21" x="513.58" y="213.32" class="todo"><title>0x0042c370 Func42c370 (267 bytes)</title></rect>
-<rect width="11.49" height="12.04" x="513.58" y="228.52" class="todo"><title>0x00404600 SpellCard::RegisterChain (264 bytes)</title></rect>
+<rect width="11.49" height="12.04" x="513.58" y="228.52" class="named"><title>0x00404600 SpellCard::RegisterChain (264 bytes)</title></rect>
 <rect width="11.49" height="12.04" x="513.58" y="243.56" class="todo"><title>0x004157d0 Func4157d0 (264 bytes)</title></rect>
 <rect width="11.49" height="12.04" x="513.58" y="258.60" class="todo"><title>0x0042a9cb Func42a9cb (264 bytes)</title></rect>
 <rect width="11.49" height="11.87" x="513.58" y="273.63" class="todo"><title>0x00407b20 Func407b20 (261 bytes)</title></rect>
@@ -1755,7 +1755,7 @@
 <rect width="4.27" height="4.72" x="644.95" y="294.95" class="todo"><title>0x00422cd0 Func422cd0 (68 bytes)</title></rect>
 <rect width="4.27" height="4.72" x="644.95" y="302.67" class="todo"><title>0x004423d0 Func4423d0 (68 bytes)</title></rect>
 <rect width="4.27" height="4.61" x="644.95" y="310.39" class="todo"><title>0x0041a2d0 Func41a2d0 (67 bytes)</title></rect>
-<rect width="4.66" height="4.11" x="652.22" y="215.92" class="todo"><title>0x004045b0 SpellCard::SpellCard (66 bytes)</title></rect>
+<rect width="4.66" height="4.11" x="652.22" y="215.92" class="named"><title>0x004045b0 SpellCard::SpellCard (66 bytes)</title></rect>
 <rect width="4.66" height="4.11" x="659.89" y="215.92" class="named"><title>0x004127b0 Sprite::Initialize (66 bytes)</title></rect>
 <rect width="4.66" height="4.11" x="667.55" y="215.92" class="named"><title>0x004156a0 ExAttackManager::RemoveChain (66 bytes)</title></rect>
 <rect width="4.66" height="4.11" x="675.21" y="215.92" class="todo"><title>0x00433710 Func433710 (66 bytes)</title></rect>

@@ -38,3 +38,25 @@ void SpellCard::RemoveChain(SpellCard *card)
         delete card;
     }
 }
+
+SpellCard *SpellCard::RegisterChain(int sideIdx)
+{
+    SpellCard *card =
+        (SpellCard *)g_MemoryManager.Register(new SpellCard(), sizeof(SpellCard), "CardAttackInf");
+
+    memset(card, 0, sizeof(SpellCard));
+    card->sideIdx = sideIdx;
+    card->side = &g_GameManager.sides[sideIdx];
+    card->otherSide = &g_GameManager.sides[1 - sideIdx];
+    card->calcElem = g_Chain.CreateElem((ChainCallback)SpellCard::OnUpdate);
+    card->calcElem->addedCallback = (ChainCallback)SpellCard::AddedCallback;
+    card->calcElem->arg = card;
+    if (g_Chain.AddToCalcChain(card->calcElem, sideIdx + 0x11) != 0)
+    {
+        return NULL;
+    }
+    card->drawElem = g_Chain.CreateElem((ChainCallback)SpellCard::OnDraw);
+    card->drawElem->arg = card;
+    g_Chain.AddToDrawChain(card->drawElem, sideIdx + 0x18);
+    return card;
+}
