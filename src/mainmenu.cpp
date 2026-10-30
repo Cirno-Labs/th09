@@ -7,6 +7,10 @@
 #include "ascii.h"
 #include "midi.h"
 
+// The menu, for LoadingThread. The original keeps it in this object
+// only (0x4ac8c0).
+static MainMenu *g_MainMenu;
+
 MusicTune::MusicTune()
 {
     memset(this, 0, sizeof(MusicTune));
@@ -544,6 +548,94 @@ int MainMenu::OnDraw(MainMenu *menu)
     return 1;
 }
 
+void MainMenu::LoadingThread(MainMenu *menu)
+{
+    int i;
+
+    while (g_SpriteEngine->pendingCopyTexture >= 0)
+    {
+        Sleep(1);
+    }
+    g_MainMenu->anm = g_SpriteEngine->PreloadAnm(0xf, "title01.anm");
+    if (g_MainMenu->anm == NULL)
+    {
+        g_MainMenu->loadingState = 2;
+        return;
+    }
+    g_MainMenu->resultTextAnm = g_SpriteEngine->PreloadAnm(0x11, "resulttext.anm");
+    if (g_MainMenu->resultTextAnm == NULL)
+    {
+        g_MainMenu->loadingState = 2;
+        return;
+    }
+    if (g_App.closeSubThread != 0)
+    {
+        return;
+    }
+    for (i = 0; i < 14; i++)
+    {
+        g_App.textAnm->StartScript(&g_MainMenu->helpSprites[i], 5);
+        g_App.textAnm->SetSprite(&g_MainMenu->helpSprites[i], g_MainMenu->helpSprites[i].spriteIndex + i);
+        g_App.textAnm->SetSprite(&g_MainMenu->cardDetailSprites[i], i + 0x15);
+        if (i <= 4)
+        {
+            g_MainMenu->cardDetailSprites[i].pos = D3DXVECTOR3(64.0f, i * 16.0f + 352.0f, 0.0f);
+        }
+        else
+        {
+            g_MainMenu->cardDetailSprites[i].pos = D3DXVECTOR3(64.0f, i * 16.0f + 362.0f, 0.0f);
+        }
+        g_MainMenu->cardDetailSprites[i].flags |= 0x1800;
+        g_MainMenu->cardDetailSprites[i].fontWidth = 15;
+        g_MainMenu->cardDetailSprites[i].fontHeight = 15;
+        g_MainMenu->cardDetailSprites[i].flags |= 2;
+    }
+    if (g_App.closeSubThread != 0)
+    {
+        return;
+    }
+    if (g_MainMenu->state == 1)
+    {
+        if (g_SpriteEngine->PreloadSurface(0, "title/title00.png") != 0)
+        {
+            g_MainMenu->loadingState = 2;
+            return;
+        }
+    }
+    else if (g_SpriteEngine->PreloadSurface(0, "title/result00.png") != 0)
+    {
+        g_MainMenu->loadingState = 2;
+        return;
+    }
+    if (!(g_GameManager.stateFlags & 2))
+    {
+        if (g_App.prevScene != 5)
+        {
+            g_App.LoadBgm(0);
+        }
+        if (g_App.lastPlayTimeTick == 0)
+        {
+            ScreenEffect::StartEffect(0, 70, 0xffffff, 0, 0, 0x23, 2);
+        }
+        else
+        {
+            ScreenEffect::StartEffect(0, 70, 0xffffff, 0, 0, 0x23, 2);
+        }
+    }
+    g_MainMenu->helpSprite = g_MainMenu->helpSprites;
+    g_MainMenu->loadingState = 0;
+    if (g_Unknown4a7c80 != NULL)
+    {
+        g_Unknown4a7c80->Finish();
+    }
+    g_Unknown4a7c80 = NULL;
+    g_App.StopLoadingSprites();
+    g_App.subThread = NULL;
+    g_App.closeSubThread = 0;
+    g_App.unknown6b8 = 0;
+}
+
+
 int MainMenu::ReleaseTitleScene()
 {
     if (this->unknownC8fc != NULL)
@@ -941,4 +1033,27 @@ int MainMenu::OnUpdate(MainMenu *menu)
         g_SpriteEngine->Step(menu->helpSprite);
     }
     return ret;
+}
+
+int SetUpTitleScene(int arg)
+{
+    MainMenu *menu;
+
+    menu = new MainMenu;
+    g_MainMenu = menu;
+    memset(menu, 0, sizeof(MainMenu));
+    g_GameManager.isPaused = 0;
+    menu->unknown1b22c = arg;
+    menu->calcChain = g_Chain.CreateElem((ChainCallback)MainMenu::OnUpdate);
+    menu->calcChain->arg = menu;
+    menu->calcChain->addedCallback = (ChainCallback)MainMenu::AddedCallback;
+    menu->calcChain->deletedCallback = (ChainCallback)MainMenu::DeletedCallback;
+    if (g_Chain.AddToCalcChain(menu->calcChain, 4) != 0)
+    {
+        return -1;
+    }
+    menu->drawChain = g_Chain.CreateElem((ChainCallback)MainMenu::OnDraw);
+    menu->drawChain->arg = menu;
+    g_Chain.AddToDrawChain(menu->drawChain, 3);
+    return 0;
 }

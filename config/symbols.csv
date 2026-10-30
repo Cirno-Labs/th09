@@ -530,7 +530,7 @@ address,size,name,symbol
 0x0042a45b,886,MainMenu::UpdateState2,?UpdateState2@MainMenu@@QAEHXZ
 0x0042a7d1,506,MainMenu::UpdateState6,?UpdateState6@MainMenu@@QAEHXZ
 0x0042a9cb,264,MainMenu::OnUpdate,?OnUpdate@MainMenu@@SIHPAV1@@Z
-0x0042ab13,201,Func42ab13,
+0x0042ab13,201,SetUpTitleScene,?SetUpTitleScene@@YIHH@Z
 0x0042abe0,30,ChainElem::ChainElem,??0ChainElem@@QAE@XZ
 0x0042ac00,36,ChainElem::~ChainElem,??1ChainElem@@QAE@XZ
 0x0042ac30,18,Chain::Chain,??0Chain@@QAE@XZ
@@ -1677,7 +1677,7 @@ address,size,name,symbol
 0x0047c5d8,273,__chdir,
 0x0047c71b,44,Func47c71b,
 0x0047c750,672,_memcpy,
-0x0047ca90,31,Func47ca90,
+0x0047ca90,31,_EH_prolog,__EH_prolog
 0x0047cab0,61,__chkstk,__chkstk
 0x0047caf0,45,_strrchr,_strrchr
 0x0047cb30,195,_strchr,_strchr
@@ -2242,6 +2242,7 @@ address,size,name,symbol
 0x004a1f80,,g_SoundInfos,?g_SoundInfos@@3PAUSoundInfo@@A
 0x004a2130,,g_SoundPaths,?g_SoundPaths@@3PAPADA
 0x004a21d0,,g_BgmInfos,?g_BgmInfos@@3PAUBgmInfo@@A
+0x004a7c80,,g_Unknown4a7c80,?g_Unknown4a7c80@@3PAVScreenEffect@@A
 0x004a7c88,,g_TimelineOrder,?g_TimelineOrder@@3PAEA
 0x004a7d90,,g_GameManager,?g_GameManager@@3VGameManager@@A
 0x004a8120,,g_GameManagerCalcChain,?g_GameManagerCalcChain@@3UChainElem@@A

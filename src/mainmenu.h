@@ -223,3 +223,8 @@ public:
     GameConfig config;
 };
 ASSERT_SIZE(MainMenu, 0x1b388);
+
+// Creates the title menu and registers its chain elements, as th08's.
+// `arg` goes to unknown1b22c. Returns 0, or -1 if the update element
+// could not be added (0x42ab13).
+int SetUpTitleScene(int arg);

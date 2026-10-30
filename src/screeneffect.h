@@ -33,6 +33,10 @@ public:
 };
 ASSERT_SIZE(ScreenEffect, 0x38);
 
+// An effect LoadingThread finishes once the title has loaded
+// (0x4a7c80).
+extern ScreenEffect *g_Unknown4a7c80;
+
 // Fills `rect` (left, top, right, bottom) with `color`, as th08's
 // (0x422960).
 void DrawColorRect(float *rect, DWORD color);
