@@ -1,4 +1,5 @@
 #include "exattack.h"
+#include "gamemanager.h"
 
 // Calls the onFree callback of each running attack and frees its block.
 // Returns 0. Static, with the manager in eax (0x415650).
@@ -62,4 +63,14 @@ void ExAttackManager::Reset()
         }
         memset(attack, 0, sizeof(ExAttack));
     }
+}
+
+int ExAttackManager::AddedCallback(ExAttackManager *mgr)
+{
+    mgr->unknown14 = g_Unknown4a117c[g_GameManager.sides[0].character] * g_GameManager.difficulty +
+                     g_Unknown4a1128[g_GameManager.sides[0].character];
+    mgr->unknown18 = g_Unknown4a117c[g_GameManager.sides[1].character] * g_GameManager.difficulty +
+                     g_Unknown4a1128[g_GameManager.sides[1].character];
+    mgr->Reset();
+    return 0;
 }
