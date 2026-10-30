@@ -495,6 +495,31 @@ WORD InitJoystick()
     return 0;
 }
 
+BYTE *DecryptFileData(BYTE *data, int *size, int fileSize)
+{
+    DWORD j;
+    BYTE *result;
+    BYTE *p = data;
+
+    if (p[0] == g_CryptMagic[0] - 0x20 && p[1] == g_CryptMagic[1] - 0x40 && p[2] == g_CryptMagic[2] - 0x60)
+    {
+        j = 0;
+        while (p[3] != g_CryptParams[j].type - (int)(j * 16) - 0x10 && j < 8)
+        {
+            j++;
+        }
+        if (j >= 8)
+        {
+            return p;
+        }
+        result = DecryptData(p + 4, fileSize - 4, g_CryptParams[j].key, g_CryptParams[j].step,
+                             g_CryptParams[j].blockSize, g_CryptParams[j].limit);
+        g_MemoryManager.Free(data);
+        return result;
+    }
+    return p;
+}
+
 void *OpenPath(char *path, int *size, int isExternal)
 {
     char *name;

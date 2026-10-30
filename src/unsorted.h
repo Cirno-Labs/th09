@@ -95,7 +95,32 @@ int FileExists(char *path);
 // -2 if not all was written (0x42c4e0).
 int WriteToFile(char *path, void *data, int size);
 
-// Decrypts a file's data if it is encrypted, as th08's (0x42c290).
+// Decrypts `size` bytes of `data` into a new block, as th08's
+// (0x42c180).
+BYTE *DecryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int limit);
+
+// The DecryptData parameters for one kind of data file, as th08's.
+struct CryptParams
+{
+    // The fourth byte of the file's header, plus 0x10 times (its index
+    // + 1).
+    BYTE type;
+    BYTE key;
+    BYTE step;
+    BYTE unusedByte3;
+    int blockSize;
+    int limit;
+};
+ASSERT_SIZE(CryptParams, 0xc);
+// At 0x4a1e60.
+extern CryptParams g_CryptParams[8];
+// "edz" plus 0x20, 0x40 and 0x60: the first three bytes of an encrypted
+// data file (0x4a1ec0).
+extern BYTE g_CryptMagic[];
+
+// If `data` (`fileSize` bytes) starts with the encrypted file header,
+// decrypts the rest into a new block, frees `data` and returns the new
+// one; else returns `data`, as th08's (0x42c290).
 BYTE *DecryptFileData(BYTE *data, int *size, int fileSize);
 // Reads the file at `path`, from the archive unless `isExternal` is set,
 // else from g_DataDir, decrypted, into a new block, inside critical

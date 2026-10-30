@@ -549,7 +549,7 @@ address,size,name,symbol
 0x0042b740,259,Func42b740,
 0x0042b850,1507,Func42b850,
 0x0042be40,819,Func42be40,
-0x0042c180,259,Func42c180,
+0x0042c180,259,DecryptData,?DecryptData@@YIPAEPAEHEEHH@Z
 0x0042c290,220,DecryptFileData,?DecryptFileData@@YIPAEPAEPAHH@Z
 0x0042c370,267,Func42c370,
 0x0042c480,92,FileExists,?FileExists@@YIHPAD@Z
@@ -2198,6 +2198,8 @@ address,size,name,symbol
 0x0048e284,4,CoInitialize,__imp__CoInitialize@4
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
+0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
+0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA
 0x004a21d0,,g_BgmInfos,?g_BgmInfos@@3PAUBgmInfo@@A
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
