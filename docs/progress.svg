@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.79% (367)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">65.21% (688)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">34.88% (368)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">65.12% (687)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="259.86" height="6" x="0" y="0" class="named"/>
-<rect width="487.14" height="6" x="259.86" y="0" class="todo"/>
+<rect width="260.56" height="6" x="0" y="0" class="named"/>
+<rect width="486.44" height="6" x="260.56" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -936,7 +936,7 @@
 <rect width="12" height="12" x="240" y="255" class="named"><title>0x0043de20 MidiTimer::StartTimer (12 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="255" class="named"><title>0x0043de30 MidiPlayer::Stop (83 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="255" class="todo"><title>0x0043de90 MidiPlayer::OnTimer (505 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="255" class="todo"><title>0x0043e090 Func43e090 (58 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="255" class="named"><title>0x0043e090 MidiPlayer::~MidiPlayer (58 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="255" class="todo"><title>0x0043e0d0 MidiPlayer::LoadFile (94 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="255" class="todo"><title>0x0043e130 Func43e130 (54 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="255" class="todo"><title>0x0043e170 Func43e170 (33 bytes)</title></rect>
@@ -1126,10 +1126,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.24%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">87.76%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">12.26%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">87.74%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="91.43" height="6" x="0" y="0" class="named"/>
-<rect width="655.57" height="6" x="91.43" y="0" class="todo"/>
+<rect width="91.58" height="6" x="0" y="0" class="named"/>
+<rect width="655.42" height="6" x="91.58" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.77" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1806,7 +1806,7 @@
 <rect width="4.20" height="4.05" x="707.67" y="232.48" class="todo"><title>0x00431b30 Func431b30 (59 bytes)</title></rect>
 <rect width="4.20" height="4.05" x="714.86" y="232.48" class="named"><title>0x0043cf90 SpriteEngine::LoadAnm (59 bytes)</title></rect>
 <rect width="4.08" height="4.05" x="722.06" y="232.48" class="named"><title>0x00414fe0 Bullet::Bullet (58 bytes)</title></rect>
-<rect width="4.08" height="4.05" x="729.14" y="232.48" class="todo"><title>0x0043e090 Func43e090 (58 bytes)</title></rect>
+<rect width="4.08" height="4.05" x="729.14" y="232.48" class="named"><title>0x0043e090 MidiPlayer::~MidiPlayer (58 bytes)</title></rect>
 <rect width="3.95" height="4.05" x="736.21" y="232.48" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>
 <rect width="3.83" height="4.05" x="743.17" y="232.48" class="todo"><title>0x0040f5a0 Func40f5a0 (56 bytes)</title></rect>
 <rect width="3.80" height="4.08" x="656.67" y="239.52" class="named"><title>0x00414fa0 BulletTypeSprites::BulletTypeSprites (56 bytes)</title></rect>

@@ -868,7 +868,7 @@ address,size,name,symbol
 0x0043de20,12,MidiTimer::StartTimer,?StartTimer@MidiTimer@@QAEXXZ
 0x0043de30,83,MidiPlayer::Stop,?Stop@MidiPlayer@@QAEHXZ
 0x0043de90,505,MidiPlayer::OnTimer,?OnTimer@MidiPlayer@@UAEXXZ
-0x0043e090,58,Func43e090,
+0x0043e090,58,MidiPlayer::~MidiPlayer,??1MidiPlayer@@QAE@XZ
 0x0043e0d0,94,MidiPlayer::LoadFile,?LoadFile@MidiPlayer@@QAEHHPAD@Z
 0x0043e130,54,Func43e130,
 0x0043e170,33,Func43e170,
