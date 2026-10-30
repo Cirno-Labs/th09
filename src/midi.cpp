@@ -115,3 +115,23 @@ DWORD ReadVarLen(BYTE **cursor)
     } while (byte & 0x80);
     return value;
 }
+
+void MidiPlayer::Rewind()
+{
+    int i;
+    MidiTrack *track;
+
+    track = this->tracks;
+    this->volumeScale = 1.0f;
+    this->framesSinceRewind = 0;
+    this->fading = 0;
+    this->ticks = 0;
+    this->baseTime = 0;
+    for (i = 0; i < this->trackCount; i++, track++)
+    {
+        track->cursor = track->data;
+        track->loopCursor = track->cursor;
+        track->active = 1;
+        track->delta = ReadVarLen(&track->cursor);
+    }
+}

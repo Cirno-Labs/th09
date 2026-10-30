@@ -848,7 +848,7 @@ address,size,name,symbol
 0x0043d100,18,SwapBytes16,?SwapBytes16@@YIGG@Z
 0x0043d120,38,SwapBytes32,?SwapBytes32@@YIKK@Z
 0x0043d150,32,ReadVarLen,?ReadVarLen@@YIKPAPAE@Z
-0x0043d170,110,Func43d170,
+0x0043d170,110,MidiPlayer::Rewind,?Rewind@MidiPlayer@@QAEXXZ
 0x0043d1e0,46,MidiPlayer::FadeOut,?FadeOut@MidiPlayer@@QAEHH@Z
 0x0043d210,117,Func43d210,
 0x0043d2b0,1,DebugPrint,?DebugPrint@@YAXPBDZZ
