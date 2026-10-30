@@ -48,6 +48,20 @@ public:
 };
 extern Rng g_Rng;
 
+// The log, as th08's, at 0x4b1020.
+class Log
+{
+public:
+    // Empties the buffer and clears hasError (0x42b110).
+    Log();
+
+    char buffer[0x2000];
+    // Where the next message goes.
+    char *cursor;
+    char hasError;
+};
+extern Log g_Log;
+
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);

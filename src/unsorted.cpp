@@ -180,6 +180,13 @@ MemoryManager::~MemoryManager()
     }
 }
 
+Log::Log()
+{
+    this->cursor = this->buffer;
+    *this->cursor = '\0';
+    this->hasError = 0;
+}
+
 float Tan(float angle)
 {
     return (float)tan((double)angle);

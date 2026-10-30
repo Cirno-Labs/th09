@@ -537,7 +537,7 @@ address,size,name,symbol
 0x0042af80,142,Func42af80,
 0x0042b0d0,13,MemoryManager::MemoryManager,??0MemoryManager@@QAE@XZ
 0x0042b0e0,44,MemoryManager::~MemoryManager,??1MemoryManager@@QAE@XZ
-0x0042b110,19,Func42b110,
+0x0042b110,19,Log::Log,??0Log@@QAE@XZ
 0x0042b130,40,Func42b130,
 0x0042b160,40,Func42b160,
 0x0042b190,75,Func42b190,
@@ -554,7 +554,7 @@ address,size,name,symbol
 0x0042c370,267,Func42c370,
 0x0042c480,92,Func42c480,
 0x0042c4e0,210,Func42c4e0,
-0x0042c5c0,153,Log::Printf,
+0x0042c5c0,153,LogPrintf,
 0x0042c660,153,Func42c660,
 0x0042c700,179,Func42c700,
 0x0042c7e0,186,Func42c7e0,
@@ -2200,5 +2200,6 @@ address,size,name,symbol
 0x004ace0c,,g_Rng,?g_Rng@@3VRng@@A
 0x004acfc8,,g_Chain,?g_Chain@@3VChain@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
+0x004b1020,,g_Log,?g_Log@@3VLog@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
