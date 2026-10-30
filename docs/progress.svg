@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.43% (673)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36.57% (388)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.52% (674)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">36.48% (387)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="473.83" height="6" x="0" y="0" class="named"/>
-<rect width="273.17" height="6" x="473.83" y="0" class="todo"/>
+<rect width="474.53" height="6" x="0" y="0" class="named"/>
+<rect width="272.47" height="6" x="474.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -176,7 +176,7 @@
 <rect width="12" height="12" x="90" y="30" class="named"><title>0x004067f0 AsciiText::SetUnknown17c4Pos (42 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="30" class="named"><title>0x00406820 Player::CallUnknown30404 (16 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="30" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
-<rect width="12" height="12" x="135" y="30" class="todo"><title>0x00406850 Func406850 (73 bytes)</title></rect>
+<rect width="12" height="12" x="135" y="30" class="named"><title>0x00406850 EclManager::StartSub (73 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="30" class="todo"><title>0x004068a0 Func4068a0 (1633 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="30" class="todo"><title>0x004070a0 Func4070a0 (346 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="30" class="todo"><title>0x00407200 Func407200 (288 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.75%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.25%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.78%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.22%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="244.67" height="6" x="0" y="0" class="named"/>
-<rect width="502.33" height="6" x="244.67" y="0" class="todo"/>
+<rect width="244.85" height="6" x="0" y="0" class="named"/>
+<rect width="502.15" height="6" x="244.85" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1756,7 +1756,7 @@
 <rect width="4.88" height="5.05" x="687.92" y="216.79" class="named"><title>0x0042f770 SpriteEngine::ResetFrameState (74 bytes)</title></rect>
 <rect width="4.88" height="5.05" x="695.80" y="216.79" class="named"><title>0x00433050 DatArchive::FindEntry (74 bytes)</title></rect>
 <rect width="4.88" height="5.05" x="703.68" y="216.79" class="named"><title>0x0043e1a0 FindRiffChunk (74 bytes)</title></rect>
-<rect width="4.77" height="5.05" x="711.56" y="216.79" class="todo"><title>0x00406850 Func406850 (73 bytes)</title></rect>
+<rect width="4.77" height="5.05" x="711.56" y="216.79" class="named"><title>0x00406850 EclManager::StartSub (73 bytes)</title></rect>
 <rect width="4.67" height="5.05" x="719.33" y="216.79" class="named"><title>0x00424e95 MainMenu::ShowEntryFrame (72 bytes)</title></rect>
 <rect width="4.67" height="5.05" x="727" y="216.79" class="named"><title>0x00436de0 SpriteEngine::SendInterruptToLoadedSprites (72 bytes)</title></rect>
 <rect width="4.67" height="5.05" x="734.67" y="216.79" class="named"><title>0x0043e9e0 SoundPlayer::SwitchBgmTrack (72 bytes)</title></rect>

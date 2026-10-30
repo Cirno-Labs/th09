@@ -36,3 +36,17 @@ void EclManager::Unload()
     }
     this->file = NULL;
 }
+
+int EclManager::StartSub(EnemyUnknown22c *ctx, short sub)
+{
+    if (sub < 0)
+    {
+        return 0;
+    }
+    ctx->code = this->subs[sub];
+    ctx->timer = 0;
+    ctx->waitTimer = 0;
+    ctx->sub = sub;
+    ctx->ecl = this;
+    return 0;
+}

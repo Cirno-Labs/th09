@@ -108,7 +108,7 @@ address,size,name,symbol
 0x004067f0,42,AsciiText::SetUnknown17c4Pos,?SetUnknown17c4Pos@AsciiText@@QAEXHPAUD3DXVECTOR3@@@Z
 0x00406820,16,Player::CallUnknown30404,?CallUnknown30404@Player@@QAEHPAUD3DXVECTOR3@@@Z
 0x00406830,28,EclManager::Unload,?Unload@EclManager@@QAEXXZ
-0x00406850,73,Func406850,
+0x00406850,73,EclManager::StartSub,?StartSub@EclManager@@QAEHPAUEnemyUnknown22c@@F@Z
 0x004068a0,1633,Func4068a0,
 0x004070a0,346,Func4070a0,
 0x00407200,288,Func407200,

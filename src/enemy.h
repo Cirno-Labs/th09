@@ -8,6 +8,7 @@
 
 class EnemyManager;
 struct GameSide;
+struct EnemyUnknown22c;
 
 // The head of an ECL file, as th08's: then the offsets of the timelines.
 struct EclHeader
@@ -34,6 +35,9 @@ struct EclManager
     int Load(char *path);
     // Frees the ECL file (0x406830).
     void Unload();
+    // Starts subroutine `sub` in `ctx`, unless it is negative, as th08's.
+    // Returns 0 (0x406850).
+    int StartSub(EnemyUnknown22c *ctx, short sub);
 
     // How many timelines the file has. Inline, as th08's; the copy is
     // at 0x40f160.
@@ -66,16 +70,23 @@ struct EnemyUnknown30
 };
 ASSERT_SIZE(EnemyUnknown30, 0x30);
 
-// Something of 0x22c bytes. Only the fields known so far; its implicit
-// constructor is at 0x4120d0.
+// The state of an enemy's ECL script, as th08's EnemyScriptState (0x22c
+// bytes). Only the fields known so far; its implicit constructor is at
+// 0x4120d0.
 struct EnemyUnknown22c
 {
-    unsigned char pad_0[0x8];
-    Timer unknown8;
+    // The manager whose subroutine runs, and where it is.
+    EclManager *ecl;
+    void *code;
+    // The frame of the subroutine, and of a wait.
+    Timer timer;
     unsigned char pad_14[0x94 - 0x14];
-    Timer unknown94;
+    Timer waitTimer;
     EnemyUnknown30 unknownA0[8];
-    unsigned char pad_220[0x22c - 0x220];
+    unsigned char pad_220[0x228 - 0x220];
+    // The subroutine.
+    short sub;
+    unsigned char pad_22a[0x22c - 0x22a];
 };
 ASSERT_SIZE(EnemyUnknown22c, 0x22c);
 
