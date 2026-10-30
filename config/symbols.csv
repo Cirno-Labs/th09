@@ -684,8 +684,8 @@ address,size,name,symbol
 0x004328f0,276,Func4328f0,
 0x00432a10,167,Func432a10,
 0x00432ac0,168,Func432ac0,
-0x00432b70,765,Func432b70,
-0x00432ea0,15,Func432ea0,
+0x00432b70,765,Network::HandleMessage,?HandleMessage@Network@@QAEJPAXK0@Z
+0x00432ea0,15,NetworkMessageHandler,?NetworkMessageHandler@@YGJPAXK0@Z
 0x00432eb0,183,Func432eb0,
 0x00432f70,200,Network::Close,?Close@Network@@QAEXXZ
 0x00433040,16,DatArchive::DatArchive,??0DatArchive@@QAE@XZ

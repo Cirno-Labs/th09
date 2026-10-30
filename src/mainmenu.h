@@ -25,6 +25,8 @@ struct Network
     void Close();
     // The entry of unknown1c for the side unknownAc is not (0x42e980).
     int GetOtherUnknown1c();
+    // Handles a DirectPlay message (0x432b70).
+    HRESULT HandleMessage(PVOID context, DWORD type, PVOID message);
 
     unsigned char pad_0[0x1c];
     // One per side.
@@ -39,6 +41,9 @@ struct Network
     int unknownB8;
 };
 extern Network *g_Network;
+// The DirectPlay message handler: hands the message to g_Network
+// (0x432ea0).
+HRESULT WINAPI NetworkMessageHandler(PVOID context, DWORD type, PVOID message);
 
 // The help lines of the title's eight entries (0x4a1e3c).
 extern char *g_TitleHelpTexts[8];
