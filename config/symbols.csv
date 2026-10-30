@@ -509,7 +509,7 @@ address,size,name,symbol
 0x0042510e,85,MainMenu::SelectEntryInterrupts,?SelectEntryInterrupts@MainMenu@@QAEXHHH@Z
 0x00425163,168,MainMenu::FlashHalves,?FlashHalves@MainMenu@@QAEXHH@Z
 0x0042520b,40,MainMenu::FlashSprite,?FlashSprite@MainMenu@@QAEXHH@Z
-0x00425233,349,Func425233,
+0x00425233,349,MainMenu::MoveCharacterCursor,?MoveCharacterCursor@MainMenu@@QAEXHHHPAD@Z
 0x00425390,279,Func425390,
 0x004254a7,1572,Func4254a7,
 0x00425acb,2153,Func425acb,

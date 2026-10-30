@@ -100,6 +100,16 @@ public:
     void FlashHalves(int left, int right);
     // Sends sprite 153 + idx interrupt 9 if `on`, else 10 (0x42520b).
     void FlashSprite(int idx, int on);
+    // Moves player `player`'s cursor sprite to the row of entry
+    // `selected` among the open ones of `entries`, and lights the rows
+    // of `selected` and `selected2`. Open is by g_PlayRecord's
+    // openEntries in state 8, where network play opens all, openEntries2
+    // in state 3 and openEntries3 otherwise, except for the lighting,
+    // which always goes by openEntries (0x425233).
+    void MoveCharacterCursor(int player, int selected, int selected2, char *entries);
+    // The same for sprites 189 and 190 and one selection; the last two
+    // entries are always shown (0x425390).
+    void MoveCharacterCursor2(int player, int selected, char *entries);
 
     int cursor;
     unsigned char pad_4[0x10 - 0x4];

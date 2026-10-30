@@ -657,3 +657,83 @@ void MainMenu::FlashSprite(int idx, int on)
 {
     this->sprites[idx + 153].pendingInterrupt = on ? 9 : 10;
 }
+
+void MainMenu::MoveCharacterCursor(int player, int selected, int selected2, char *entries)
+{
+    Sprite *vm = &this->sprites[player + 0xbd];
+    int row = 0;
+    int i;
+    for (i = 0; i < 16; i++)
+    {
+        if (selected == entries[i])
+        {
+            break;
+        }
+        if (this->state == 8)
+        {
+            if (g_PlayRecord.openEntries[entries[i]] || g_Network->unknownA8 != 0)
+            {
+                row++;
+            }
+        }
+        else if (this->state == 3)
+        {
+            if (g_PlayRecord.openEntries2[entries[i]])
+            {
+                row++;
+            }
+        }
+        else if (g_PlayRecord.openEntries3[entries[i]])
+        {
+            row++;
+        }
+    }
+    D3DXVECTOR3 to;
+    to.x = vm->pos.x;
+    to.y = row * 16.0f + 128.0f;
+    to.z = 0.0f;
+    vm->SetMoveInterp(8, 4, &vm->pos, &to);
+    int row2 = 0;
+    for (i = 0; i < 16; i++)
+    {
+        if (selected2 == entries[i])
+        {
+            break;
+        }
+        if (this->state == 8)
+        {
+            if (g_PlayRecord.openEntries[entries[i]] || g_Network->unknownA8 != 0)
+            {
+                row2++;
+            }
+        }
+        else if (this->state == 3)
+        {
+            if (g_PlayRecord.openEntries2[entries[i]])
+            {
+                row2++;
+            }
+        }
+        else if (g_PlayRecord.openEntries3[entries[i]])
+        {
+            row2++;
+        }
+    }
+    int j = 0;
+    for (i = 0; i < 16; i++)
+    {
+        if (g_PlayRecord.openEntries[entries[i]] || g_Network->unknownA8 != 0)
+        {
+            vm = &this->sprites[j + 191];
+            if (row == j || row2 == j)
+            {
+                vm->SetColorInterp(8, 4, vm->color, 0xffffffff);
+            }
+            else
+            {
+                vm->SetColorInterp(8, 4, vm->color, 0xffa0a0a0);
+            }
+            j++;
+        }
+    }
+}
