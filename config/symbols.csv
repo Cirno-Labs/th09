@@ -64,7 +64,7 @@ address,size,name,symbol
 0x00403d60,31,Func403d60,
 0x00403d80,12,Func403d80,
 0x00403d90,71,Func403d90,
-0x00403de0,20,Func403de0,
+0x00403de0,20,Timer::operator>,??OTimer@@QAEHH@Z
 0x00403e00,41,Func403e00,
 0x00403e30,27,Func403e30,
 0x00403e50,923,Func403e50,
