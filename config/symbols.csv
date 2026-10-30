@@ -30,7 +30,7 @@ address,size,name,symbol
 0x004014f0,4,Timer::AsFloat,?AsFloat@Timer@@QAEMXZ
 0x00401500,9,Timer::operator=,??4Timer@@QAEXH@Z
 0x00401510,8,Timer::operator++,??ETimer@@QAEXH@Z
-0x00401520,20,Func401520,
+0x00401520,20,Timer::operator>=,??PTimer@@QAEHH@Z
 0x00401540,20,Func401540,
 0x00401560,134,Func401560,
 0x004015f0,11,Func4015f0,
