@@ -354,7 +354,7 @@ address,size,name,symbol
 0x0041b9d0,127,GameManager::RegisterChain,?RegisterChain@GameManager@@SIHXZ
 0x0041ba4f,47,GameManager::Init,?Init@GameManager@@QAEXXZ
 0x0041ba80,121,Func41ba80,
-0x0041bb00,101,Func41bb00,
+0x0041bb00,101,Player::AngleFromPlayer,?AngleFromPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
 0x0041bb70,101,Func41bb70,
 0x0041bbe0,172,LoadShtFile,?LoadShtFile@@YIHPAPAUShtFile@@PAD@Z
 0x0041bc90,162,Func41bc90,

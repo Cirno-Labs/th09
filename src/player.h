@@ -220,6 +220,9 @@ public:
     static void RemoveChain(Player *player);
     // Resets the player for a new round (0x41ebc0).
     void Reset();
+    // The angle from the player to `pos`, or pi / 2 at the player
+    // (0x41bb00).
+    float AngleFromPlayer(D3DXVECTOR3 *pos);
     // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
     int GetUnknown0()

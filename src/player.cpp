@@ -2,6 +2,18 @@
 #include "sprite.h"
 #include "gui.h"
 
+float Player::AngleFromPlayer(D3DXVECTOR3 *pos)
+{
+    float dx = pos->x - this->pos[0];
+    float dy = pos->y - this->pos[1];
+
+    if (dy == 0.0f && dx == 0.0f)
+    {
+        return 1.5707964f;
+    }
+    return Atan2(dy, dx);
+}
+
 // Loads the shot file at `path` into `*out`, sets its diagonal speeds,
 // and turns its tables' offsets into pointers and its shots' callback
 // indices into functions, as th08's LoadShotTypeFile. Returns 0, or -1
