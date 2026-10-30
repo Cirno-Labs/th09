@@ -719,7 +719,7 @@ address,size,name,symbol
 0x00433aa0,470,LzssDecompress,?LzssDecompress@@YIPAXPAEH0H@Z
 0x00433c80,37,LzssTreeInitNode,?LzssTreeInitNode@@YIXH@Z
 0x00433cb0,42,LzssClearWindow,?LzssClearWindow@@YIXXZ
-0x00433ce0,83,Func433ce0,
+0x00433ce0,83,LzssReplaceNode,?LzssReplaceNode@@YIXHH@Z
 0x00433d40,115,Func433d40,
 0x00433dc0,43,Func433dc0,
 0x00433e00,438,Func433e00,
