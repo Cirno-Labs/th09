@@ -139,6 +139,8 @@ public:
     // Sets the pending interrupt of unknown17c4[`i`]. Called by the ECL
     // interpreter; the copy is at 0x4067d0.
     void SetUnknown17c4Interrupt(int i, short interrupt);
+    // Sets the position of unknown17c4[`i`] (0x4067f0).
+    void SetUnknown17c4Pos(int i, D3DXVECTOR3 *pos);
 
     // Empties the queue of strings. Inline, as th08's; the copy is at
     // 0x430220.

@@ -13,6 +13,11 @@ void AsciiText::SetUnknown17c4Interrupt(int i, short interrupt)
     this->unknown17c4[i].SetPendingInterrupt(interrupt);
 }
 
+void AsciiText::SetUnknown17c4Pos(int i, D3DXVECTOR3 *pos)
+{
+    this->unknown17c4[i].pos = *pos;
+}
+
 int AsciiText::DeletedCallback(AsciiText *text)
 {
     g_SpriteEngine->ReleaseAnm(1);
