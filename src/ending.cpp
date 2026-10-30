@@ -152,3 +152,25 @@ Ending::Ending()
     this->scrollY = 0.0f;
     this->scrollSpeed = 0.0f;
 }
+
+int Ending::OnUpdate(Ending *ending)
+{
+    int i;
+    int extra = 0;
+
+loop:
+    if (ending->RunScript() != 0)
+    {
+        return 0;
+    }
+    for (i = 0; i < 0xf; i++)
+    {
+        g_SpriteEngine->Step(&ending->sprites[i]);
+    }
+    if (ending->canSkip != 0 && g_PlayerInputs[2].IsHeld(0x100) && extra < 8)
+    {
+        extra++;
+        goto loop;
+    }
+    return 1;
+}
