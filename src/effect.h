@@ -197,3 +197,7 @@ int EffectInit40dbb0(Effect *effect);
 // velocity moved to the screen, and picks two random offsets and
 // unknown9c. Returns 0 (0x40d520).
 int EffectInit40d520(Effect *effect);
+
+// An init callback of the effect table: EffectInit40d520 without
+// clearing unknown98. Returns 0 (0x40d910).
+int EffectInit40d910(Effect *effect);
