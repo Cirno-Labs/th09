@@ -109,3 +109,6 @@ extern COLORREF g_TextOutlineColor;
 // `destHeight` rows high at row `y` (0x4364c0).
 void RenderTextToTextureLarge(int x, int y, int width, int unused, int fontHeight, int destHeight,
                               COLORREF textColor, COLORREF shadowColor, char *text, IDirect3DTexture8 *texture);
+// th08's RenderTextToTexture, for text 8 pixels high or less (0x4367b0).
+void RenderTextToTexture(int x, int y, int width, int unused, int fontHeight, int destHeight, COLORREF textColor,
+                         COLORREF shadowColor, char *text, IDirect3DTexture8 *texture);
