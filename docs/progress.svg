@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">40.30% (426)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">59.70% (631)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">40.49% (428)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">59.51% (629)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="301.06" height="6" x="0" y="0" class="named"/>
-<rect width="445.94" height="6" x="301.06" y="0" class="todo"/>
+<rect width="302.47" height="6" x="0" y="0" class="named"/>
+<rect width="444.53" height="6" x="302.47" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -995,12 +995,12 @@
 <rect width="12" height="12" x="375" y="270" class="named"><title>0x00440620 CWaveFile::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="270" class="named"><title>0x00440650 CSound::CSound (135 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="270" class="named"><title>0x004406e0 CSound::~CSound (105 bytes)</title></rect>
-<rect width="12" height="12" x="420" y="270" class="todo"><title>0x00440750 CStreamingSound::CStreamingSound (60 bytes)</title></rect>
+<rect width="12" height="12" x="420" y="270" class="named"><title>0x00440750 CStreamingSound::CStreamingSound (60 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="270" class="todo"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="270" class="todo"><title>0x004407a0 CSoundManager::CreateStreaming (578 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="270" class="todo"><title>0x004409f0 CSoundManager::CreateStreamingFromMemory (546 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="270" class="named"><title>0x00440c20 CSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
-<rect width="12" height="12" x="495" y="270" class="todo"><title>0x00440c50 CStreamingSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
+<rect width="12" height="12" x="495" y="270" class="named"><title>0x00440c50 CStreamingSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="270" class="todo"><title>0x00440c80 Func440c80 (38 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="270" class="todo"><title>0x00440cb0 Func440cb0 (12 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="270" class="todo"><title>0x00440d30 Func440d30 (95 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.75%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.25%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.79%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.21%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="117.69" height="6" x="0" y="0" class="named"/>
-<rect width="629.31" height="6" x="117.69" y="0" class="todo"/>
+<rect width="117.93" height="6" x="0" y="0" class="named"/>
+<rect width="629.07" height="6" x="117.93" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1801,7 +1801,7 @@
 <rect width="4.03" height="4.46" x="649.32" y="239.50" class="named"><title>0x004336d0 File::Read (61 bytes)</title></rect>
 <rect width="4.03" height="4.33" x="649.32" y="246.96" class="todo"><title>0x0040e130 Func40e130 (60 bytes)</title></rect>
 <rect width="4.03" height="4.33" x="649.32" y="254.29" class="named"><title>0x0043fdc0 CWaveFile::OpenFromMemory (60 bytes)</title></rect>
-<rect width="4.03" height="4.33" x="649.32" y="261.62" class="todo"><title>0x00440750 CStreamingSound::CStreamingSound (60 bytes)</title></rect>
+<rect width="4.03" height="4.33" x="649.32" y="261.62" class="named"><title>0x00440750 CStreamingSound::CStreamingSound (60 bytes)</title></rect>
 <rect width="4.03" height="4.21" x="649.32" y="268.96" class="named"><title>0x00402530 Stage::RemoveChain (59 bytes)</title></rect>
 <rect width="4.03" height="4.21" x="649.32" y="276.17" class="named"><title>0x0041a1d0 GuiSide::RemoveChain (59 bytes)</title></rect>
 <rect width="4.03" height="4.21" x="649.32" y="283.38" class="named"><title>0x00420470 ReplayManager::OnUpdateMode1b (59 bytes)</title></rect>
@@ -1956,7 +1956,7 @@
 <rect width="2.39" height="2.26" x="687.46" y="291.56" class="named"><title>0x0043e170 CSoundManager::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="2.39" height="2.26" x="687.46" y="296.82" class="named"><title>0x00440620 CWaveFile::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="2.39" height="2.26" x="687.46" y="302.08" class="named"><title>0x00440c20 CSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
-<rect width="2.39" height="2.26" x="687.46" y="307.34" class="todo"><title>0x00440c50 CStreamingSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
+<rect width="2.39" height="2.26" x="687.46" y="307.34" class="named"><title>0x00440c50 CStreamingSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="2.39" height="2.10" x="687.46" y="312.60" class="todo"><title>0x004067d0 Func4067d0 (32 bytes)</title></rect>
 <rect width="2.39" height="2.10" x="687.46" y="317.70" class="named"><title>0x0040d4d0 Vector2::SetPolarEllipse (32 bytes)</title></rect>
 <rect width="2.39" height="2.10" x="687.46" y="322.80" class="todo"><title>0x00421f10 Func421f10 (32 bytes)</title></rect>
