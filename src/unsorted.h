@@ -33,6 +33,9 @@ public:
     float GetRandomF32ZeroToOne();
     // A random float from -1 up to 1 (0x42aea0).
     float GetRandomF32MinusOneToOne();
+    // range != 0 ? GetRandomU32() % range : 0, as th08's inline
+    // function; this copy is 0x4048e0.
+    DWORD GetRandomU32InRange(DWORD range);
 
     WORD seed;
     unsigned char pad_2[0x2];

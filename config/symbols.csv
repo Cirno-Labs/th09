@@ -75,7 +75,7 @@ address,size,name,symbol
 0x00404600,264,Func404600,
 0x00404710,346,Func404710,
 0x004048b0,41,Func4048b0,
-0x004048e0,34,Func4048e0,
+0x004048e0,34,Rng::GetRandomU32InRange,?GetRandomU32InRange@Rng@@QAEKK@Z
 0x00404910,15,Func404910,
 0x00404920,33,Func404920,
 0x00404950,20,Timer::operator==,??8Timer@@QAEHH@Z

@@ -14,6 +14,11 @@ Timer::Timer()
     this->Initialize();
 }
 
+DWORD Rng::GetRandomU32InRange(DWORD range)
+{
+    return range != 0 ? this->GetRandomU32() % range : 0;
+}
+
 float Atan2(float y, float x)
 {
     return (float)atan2((double)y, (double)x);
