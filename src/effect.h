@@ -24,7 +24,10 @@ struct Effect
     float angle;
     unsigned char pad_1c[0xac - 0x1c];
     Timer unknownAc;
-    unsigned char pad_b8[0xc6 - 0xb8];
+    unsigned char pad_b8[0xc4 - 0xb8];
+    // Whether the effect runs.
+    BYTE active;
+    unsigned char pad_c5[0x1];
     // Set to have the effect fade out, as th08's.
     BYTE fadeOut;
     unsigned char pad_c7[0xcc - 0xc7];
@@ -64,8 +67,13 @@ public:
     static void RemoveChain(EffectManager *mgr);
     // Resets the effects for a new round (0x40c990).
     void Reset();
-    // Spawns `count` of effect `effectIdx` at `pos` in `color`, as th08's
-    // (0x40cc00).
+    // Starts `effect` as effect `effectIdx` at `pos` in `color`, moving
+    // by `velocity` (0x40ca60).
+    void StartEffect(Effect *effect, int effectIdx, D3DXVECTOR3 *pos, D3DCOLOR color, D3DXVECTOR3 *velocity);
+    // Spawns `count` of effect `effectIdx` at `pos` in `color`, standing
+    // still, in the first unknown34 effects, as th08's
+    // SpawnEffectWithVelocity. Returns the last effect started, or the
+    // last of all effects if not all could be (0x40cc00).
     Effect *SpawnParticles(int effectIdx, D3DXVECTOR3 *pos, int count, D3DCOLOR color);
     // The update and draw chain callbacks; the third side's draws with
     // OnDraw2 (0x40cdd0, 0x40cfb0, 0x40d070).
@@ -81,7 +89,9 @@ public:
     // side). Returns it, or NULL if adding fails (0x40d320).
     static EffectManager *RegisterChain(int sideIdx, int count34, int count38);
 
-    unsigned char pad_0[0xc];
+    // Where SpawnParticles starts looking for a free effect.
+    int next;
+    unsigned char pad_4[0xc - 0x4];
     int sideIdx;
     // The side, and the other one; for the third side, both itself.
     GameSide *side;

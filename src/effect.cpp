@@ -38,6 +38,40 @@ void EffectManager::Reset()
     memset(this->effects, 0, (this->unknown34 + this->unknown38 + 1) * sizeof(Effect));
 }
 
+Effect *EffectManager::SpawnParticles(int effectIdx, D3DXVECTOR3 *pos, int count, D3DCOLOR color)
+{
+    Effect *effect = &this->effects[this->next];
+    D3DXVECTOR3 velocity(0.0f, 0.0f, 0.0f);
+    int tries;
+
+    for (tries = 0; tries < this->unknown34; tries++)
+    {
+        this->next++;
+        if (this->next >= this->unknown34)
+        {
+            this->next = 0;
+        }
+        if (!effect->active)
+        {
+            this->StartEffect(effect, effectIdx, pos, color, &velocity);
+            count--;
+            if (count == 0)
+            {
+                break;
+            }
+        }
+        if (this->next == 0)
+        {
+            effect = this->effects;
+        }
+        else
+        {
+            effect++;
+        }
+    }
+    return tries >= this->unknown34 ? &this->effects[this->unknown38 + this->unknown34] : effect;
+}
+
 int EffectManager::FreeEffects(EffectManager *mgr)
 {
     int i;
