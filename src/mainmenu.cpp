@@ -561,3 +561,16 @@ int MainMenu::ReleaseTitleScene()
     }
     return 0;
 }
+
+int MainMenu::DeletedCallback(MainMenu *menu)
+{
+    g_App.d3dDevice->ResourceManagerDiscardBytes(0);
+    g_SpriteEngine->ReleaseAnm(0xf);
+    g_SpriteEngine->ReleaseAnm(0x11);
+    g_SpriteEngine->ReleaseSurface(0);
+    g_Chain.Remove(menu->drawChain);
+    menu->drawChain = NULL;
+    menu->ReleaseTitleScene();
+    delete menu;
+    return 0;
+}
