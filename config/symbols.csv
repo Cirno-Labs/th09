@@ -190,7 +190,7 @@ address,size,name,symbol
 0x0040f640,385,Func40f640,
 0x0040f7d0,62,Func40f7d0,
 0x0040f810,17,Timer::HasTicked,?HasTicked@Timer@@QAEHXZ
-0x0040f830,16,Func40f830,
+0x0040f830,16,Timer::operator%,??LTimer@@QAEHH@Z
 0x0040f840,20,Func40f840,
 0x0040f860,33,Func40f860,
 0x0040f890,20,Func40f890,

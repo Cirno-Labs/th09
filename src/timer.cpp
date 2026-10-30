@@ -102,3 +102,8 @@ BOOL Timer::HasTicked()
 {
     return this->current != this->previous;
 }
+
+int Timer::operator%(int n)
+{
+    return this->current % n;
+}
