@@ -60,6 +60,11 @@ void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
     }
 }
 
+WORD PlayerInput::IsHeld(WORD mask)
+{
+    return this->unknown0 & mask;
+}
+
 void PlayRecord::AddClear(char character, int difficulty)
 {
     int *clears = &this->clearFlags[character][difficulty];

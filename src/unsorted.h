@@ -230,11 +230,20 @@ struct PlayerInput
         return (WORD)(this->unknown6 & mask) != 0 || (WORD)(this->unknown4 & mask) != 0;
     }
 
+    // unknown0 & mask and unknown6 & mask (0x40e2b0, 0x40e2d0), and the
+    // same for the second set, unknown2c and unknown32 (0x415cb0,
+    // 0x415cd0).
+    WORD IsHeld(WORD mask);
+
     WORD unknown0;
     unsigned char pad_2[0x2];
     WORD unknown4;
     WORD unknown6;
-    unsigned char pad_8[0x58 - 0x8];
+    unsigned char pad_8[0x2c - 0x8];
+    WORD unknown2c;
+    unsigned char pad_2e[0x32 - 0x2e];
+    WORD unknown32;
+    unsigned char pad_34[0x58 - 0x34];
     // The default mappings.
     ControllerMapping mappings[3];
 };
