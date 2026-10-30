@@ -252,7 +252,9 @@ struct PlayRecord
     // (0x4234a7).
     int GetClearFlags(char character, int difficulty);
 
-    unsigned char pad_0[0x4c];
+    unsigned char pad_0[0x2c];
+    // Which pieces of music have been heard, by BgmInfo::unknown0c.
+    BYTE bgmHeard[0x20];
     // Which entries of three of the menus' lists are open.
     BYTE openEntries[16];
     BYTE openEntries2[16];
@@ -334,6 +336,9 @@ struct BgmInfo
 };
 // The game's music, at 0x4a21d0.
 extern BgmInfo g_BgmInfos[19];
+// The unknown08 of the piece PlayMusic played last (0x4dc690); the
+// gui reads it.
+extern int g_BgmUnknown08;
 
 // A command PlayQueuedSounds carries out over several frames, for the
 // streaming wave music, as th08's.

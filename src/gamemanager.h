@@ -99,6 +99,12 @@ public:
     void ResetState();
     // Whether a demo plays: bit 1 of stateFlags (0x41a9ac).
     int IsDemo();
+    // Whether a replay plays: bit 3 of stateFlags, as th08's. Inline;
+    // the copy the others call is at 0x415d20.
+    int IsReplay()
+    {
+        return this->stateFlags >> 3 & 1;
+    }
     // Resets the state, the ASCII text and every object for a new round,
     // and sets unknownB4, unknownC4 and unknownC8 by difficulty
     // (0x41b5c6).

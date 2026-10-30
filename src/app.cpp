@@ -866,6 +866,51 @@ void App::SetupCamera3D(Camera *camera)
     }
 }
 
+int App::PlayMusic(int id, int arg)
+{
+    DWORD i;
+
+    for (i = 0; i < ARRAY_SIZE(g_BgmInfos); i++)
+    {
+        if (g_BgmInfos[i].id == id)
+        {
+            break;
+        }
+    }
+    if (i >= ARRAY_SIZE(g_BgmInfos))
+    {
+        return 1;
+    }
+    int heard = g_BgmInfos[i].unknown0c;
+    int slot = g_BgmInfos[i].id;
+    if (g_App.config.musicMode == 2)
+    {
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->Restart(slot);
+        }
+        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
+        {
+            g_PlayRecord.bgmHeard[heard] = 1;
+        }
+        return 0;
+    }
+    if (g_App.config.musicMode == 1)
+    {
+        if (g_App.GetPreloadBgm())
+        {
+            g_SoundPlayer.QueueSoundCommand(4, 0, "dummy");
+        }
+        g_SoundPlayer.QueueSoundCommand(2, slot, "dummy");
+        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
+        {
+            g_PlayRecord.bgmHeard[heard] = 1;
+        }
+    }
+    g_BgmUnknown08 = g_BgmInfos[i].unknown08;
+    return 0;
+}
+
 int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
 {
     this->CloseSubThread();

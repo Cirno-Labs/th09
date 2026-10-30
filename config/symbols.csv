@@ -293,7 +293,7 @@ address,size,name,symbol
 0x00415cf0,6,FreesResources,?FreesResources@@YIHXZ
 0x00415d00,8,SpriteEngine::ClearColorOp,?ClearColorOp@SpriteEngine@@QAEXXZ
 0x00415d10,8,SpriteEngine::ClearZWrite,?ClearZWrite@SpriteEngine@@QAEXXZ
-0x00415d20,13,Func415d20,
+0x00415d20,13,GameManager::IsReplay,?IsReplay@GameManager@@QAEHXZ
 0x00415d30,15,Func415d30,
 0x00415d40,14,Gui::Init,?Init@Gui@@QAEXXZ
 0x00415d50,24,Func415d50,
@@ -2282,4 +2282,5 @@ address,size,name,symbol
 0x004dc5c8,,g_TexQuad,?g_TexQuad@@3PAUVertexTex1Xyzrwh@@A
 0x004dc628,,g_DiffuseQuadXyz,?g_DiffuseQuadXyz@@3PAUVertexTex1DiffuseXyz@@A
 0x004dc688,,g_MidiTimerLastCounter,?g_MidiTimerLastCounter@@3T_LARGE_INTEGER@@A
+0x004dc690,,g_BgmUnknown08,?g_BgmUnknown08@@3HA
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A
