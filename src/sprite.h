@@ -107,6 +107,8 @@ public:
     void ClearBlendMode();
     // The same for the vertex format (0x40e380).
     void ClearVertexFormat();
+    // The same for the sprite data (0x40e390).
+    void ClearSpriteData();
     // Runs `vm`'s script up to its next wait (0x436f30).
     void Step(Sprite *vm);
 
@@ -124,5 +126,8 @@ public:
     BYTE vertexFormat;
     BYTE zWriteDisabled;
     BYTE lastCameraSetupFlag;
+    unsigned char pad_12889[0x1288c - 0x12889];
+    // The sprite data last drawn.
+    void *currentSpriteData;
 };
 extern SpriteEngine *g_SpriteEngine;

@@ -42,6 +42,11 @@ void SpriteEngine::ClearVertexFormat()
     this->vertexFormat = 0xff;
 }
 
+void SpriteEngine::ClearSpriteData()
+{
+    this->currentSpriteData = NULL;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)
