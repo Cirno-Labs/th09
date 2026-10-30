@@ -16,6 +16,7 @@ struct GameStats
     unsigned char pad_c[0x4];
     // The extends given; 99999 once there are no more.
     int extendsGiven;
+    // Goes to Hscr::unknown2b.
     BYTE unknown14;
 };
 
@@ -116,11 +117,20 @@ public:
     unsigned char pad_c4[0xd0 - 0xc4];
     int unknownD0;
     ReplayManager *replayManager;
-    unsigned char pad_d8[0x110 - 0xd8];
+    unsigned char pad_d8[0xe8 - 0xd8];
+    // Deleted by DeletedCallback.
+    void *unknownE8;
+    unsigned char pad_ec[0xf4 - 0xec];
+    // DeletedCallback copies it to unknownF8, as each side's character
+    // to unknown24.
+    int unknownF4;
+    int unknownF8;
+    unsigned char pad_fc[0x110 - 0xfc];
     int unknown110;
     unsigned char pad_114[0x4];
     int mode;
-    unsigned char pad_11c[0x124 - 0x11c];
+    int difficulty;
+    unsigned char pad_120[0x124 - 0x120];
     // Set while LoadingThread runs, as th08's.
     int loadingThreadState;
     int unknown128;
@@ -156,6 +166,35 @@ public:
 };
 ASSERT_SIZE(GameManager, 0x390);
 extern GameManager g_GameManager;
+// A high score entry ("HSCR", version 2 now), as th08's. Only the fields
+// known so far.
+struct Hscr
+{
+    DWORD magic;
+    WORD size;
+    // The size again.
+    WORD size2;
+    BYTE version;
+    // Set on the entry being named.
+    BYTE isNew;
+    unsigned char pad_a[0x2];
+    DWORD score;
+    // How much the game slowed down, in percent.
+    float slowdown;
+    BYTE character;
+    BYTE difficulty;
+    unsigned char pad_16[0x1];
+    BYTE unknown17;
+    unsigned char pad_18[0x2b - 0x18];
+    BYTE unknown2b;
+};
+ASSERT_SIZE(Hscr, 0x2c);
+// The entry of the game that ended, set up by GameManager's deleted
+// callback (0x4ac858).
+extern Hscr g_Hscr;
+// A block GameManager's deleted callback clears (0x4d9698).
+extern unsigned char g_Unknown4d9698[0x2bc0];
+
 // Its update and draw chain elements (0x4a8120, 0x4a8140).
 extern ChainElem g_GameManagerCalcChain;
 extern ChainElem g_GameManagerDrawChain;

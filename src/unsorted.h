@@ -282,6 +282,9 @@ public:
     void UpdateBgmFades();
     // Queues a command for the sound thread (0x43ee40).
     void QueueSoundCommand(int type, int arg, char *path);
+    // Carries out the queued commands, as th08's. Returns whether any
+    // are left (0x43f1f0).
+    int PlayQueuedSounds();
     // Plays sound effect `idx`, as th08's (0x43e2f0).
     void PlaySoundByIdx(int idx, int unused);
 

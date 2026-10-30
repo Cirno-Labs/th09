@@ -878,7 +878,7 @@ address,size,name,symbol
 0x0043eeb0,232,Func43eeb0,
 0x0043efa0,252,Func43efa0,
 0x0043f0a0,327,Func43f0a0,
-0x0043f1f0,1414,Func43f1f0,
+0x0043f1f0,1414,SoundPlayer::PlayQueuedSounds,?PlayQueuedSounds@SoundPlayer@@QAEHXZ
 0x0043f7a0,23,Func43f7a0,
 0x0043f7c0,200,Func43f7c0,
 0x0043f890,342,Func43f890,
@@ -2208,6 +2208,7 @@ address,size,name,symbol
 0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAXA
 0x004a818c,,g_RunTime,?g_RunTime@@3UPlayTime@@A
 0x004a819c,,g_PlayTime,?g_PlayTime@@3UPlayTime@@A
+0x004ac858,,g_Hscr,?g_Hscr@@3UHscr@@A
 0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
 0x004acc00,,g_PathBuffer,?g_PathBuffer@@3PADA
 0x004acd08,,g_DataDir,?g_DataDir@@3PADA
@@ -2220,5 +2221,6 @@ address,size,name,symbol
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
+0x004d9698,,g_Unknown4d9698,?g_Unknown4d9698@@3PAEA
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A

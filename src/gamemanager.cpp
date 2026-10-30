@@ -7,6 +7,15 @@
 #include <time.h>
 
 #include "gamemanager.h"
+#include "bullet.h"
+#include "effect.h"
+#include "enemy.h"
+#include "exattack.h"
+#include "gui.h"
+#include "player.h"
+#include "replay.h"
+#include "spellcard.h"
+#include "stage.h"
 
 BOOL GameManager::IsInPlayArea(float x, float y, float width, float height)
 {
@@ -200,6 +209,77 @@ int GameManager::AddedCallback(GameManager *mgr)
     g_App.StartSubThread((LPTHREAD_START_ROUTINE)GameManager::LoadingThread, NULL);
     g_App.AddTotalPlayTime();
     g_App.AddPlayTime();
+    return 0;
+}
+
+int GameManager::DeletedCallback(GameManager *mgr)
+{
+    int i;
+
+    g_GameManager.sides[0].unknown24 = g_GameManager.sides[0].character;
+    g_GameManager.sides[1].unknown24 = g_GameManager.sides[1].character;
+    g_GameManager.unknownF8 = g_GameManager.unknownF4;
+    mgr->stateFlags &= ~4;
+    if (g_App.scene != 3 && g_App.scene != 12 && g_App.scene != 10)
+    {
+        g_App.freesResources = 1;
+    }
+    else
+    {
+        g_App.freesResources = 0;
+    }
+    memset(g_Unknown4d9698, 0, sizeof(g_Unknown4d9698));
+    if (g_GameManager.sides[0].stats != NULL)
+    {
+        g_Hscr.score = g_GameManager.sides[0].stats->score;
+        g_Hscr.character = g_GameManager.sides[0].character;
+        g_Hscr.difficulty = g_GameManager.difficulty;
+        g_Hscr.unknown2b = g_GameManager.sides[0].stats->unknown14;
+        g_Hscr.slowdown = 0.0f;
+        g_Hscr.magic = 0x52435348;
+        g_Hscr.unknown17 = 0;
+        g_Hscr.size2 = 0x2c;
+        g_Hscr.size = 0x2c;
+        g_Hscr.version = 2;
+        g_Hscr.isNew = 0;
+    }
+    if ((g_GameManager.stateFlags >> 3 & 1) && g_App.freesResources)
+    {
+        ReplayManager::RemoveChain(mgr->replayManager);
+        mgr->replayManager = NULL;
+    }
+    for (i = 0; i < 2; i++)
+    {
+        Stage::RemoveChain(mgr->sides[i].stage);
+        mgr->sides[i].stage = NULL;
+        Player::RemoveChain(mgr->sides[i].player);
+        mgr->sides[i].player = NULL;
+        BulletManager::RemoveChain(mgr->sides[i].bulletManager);
+        mgr->sides[i].bulletManager = NULL;
+        EffectManager::RemoveChain(mgr->sides[i].effectManager);
+        mgr->sides[i].effectManager = NULL;
+        EnemyManager::RemoveChain(mgr->sides[i].enemyManager);
+        mgr->sides[i].enemyManager = NULL;
+        SpellCard::RemoveChain(mgr->sides[i].spellCard);
+        mgr->sides[i].spellCard = NULL;
+        GuiSide::RemoveChain(mgr->sides[i].gui);
+        mgr->sides[i].gui = NULL;
+    }
+    Gui::RemoveChain(mgr->gui);
+    mgr->gui = NULL;
+    ExAttackManager::RemoveChain(mgr->exAttackManager);
+    mgr->exAttackManager = NULL;
+    EffectManager::RemoveChain(mgr->sides[2].effectManager);
+    mgr->sides[2].effectManager = NULL;
+    if (mgr->unknownE8 != NULL)
+    {
+        delete mgr->unknownE8;
+        mgr->unknownE8 = NULL;
+    }
+    while (g_SoundPlayer.PlayQueuedSounds())
+    {
+    }
+    g_GameManager.frames = 0;
     return 0;
 }
 
