@@ -79,6 +79,10 @@ public:
     // priorities 2 and 5, as th08's RegisterGameManagerChain. Returns 0,
     // or -1 if the update element's added callback failed (0x41b9d0).
     static int RegisterChain();
+    // The screen position of `x` or `y` in the play area of the view
+    // App::SetView set last (0x401680, 0x4016b0).
+    float ArenaToScreenX(float x);
+    float ArenaToScreenY(float y);
     // Whether a `width` by `height` box centred on (`x`, `y`) touches the
     // play area, as th08's; th09's is centred on x = 0 (0x41a6eb).
     BOOL IsInPlayArea(float x, float y, float width, float height);

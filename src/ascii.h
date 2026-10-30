@@ -82,6 +82,8 @@ public:
     void AddString(D3DXVECTOR3 *pos, char *text);
     // AddString with printf formatting (0x434330).
     void AddFormat(D3DXVECTOR3 *pos, char *fmt, ...);
+    // Draws side `side`'s popups (0x4353f0).
+    void DrawPopups(int side);
     // Zeroes the sprites, strings and popups and sets them up again, as
     // th08's (0x4343e0).
     void Initialize();

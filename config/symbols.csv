@@ -39,8 +39,8 @@ address,size,name,symbol
 0x00401620,19,SpriteEngine::SetColorModulation,?SetColorModulation@SpriteEngine@@QAEXK@Z
 0x00401640,27,Func401640,
 0x00401660,20,SpriteEngine::GetAnm,?GetAnm@SpriteEngine@@QAEPAVAnmLoaded@@H@Z
-0x00401680,46,Func401680,
-0x004016b0,46,Func4016b0,
+0x00401680,46,GameManager::ArenaToScreenX,?ArenaToScreenX@GameManager@@QAEMM@Z
+0x004016b0,46,GameManager::ArenaToScreenY,?ArenaToScreenY@GameManager@@QAEMM@Z
 0x004016e0,423,Func4016e0,
 0x004018a0,79,Func4018a0,
 0x004018f0,2472,Func4018f0,
@@ -742,7 +742,7 @@ address,size,name,symbol
 0x00434e30,83,PauseMenu::DrawPauseMenu,?DrawPauseMenu@PauseMenu@@QAEXXZ
 0x00434e90,1198,Func434e90,
 0x00435370,117,ContinueMenu::DrawContinueMenu,?DrawContinueMenu@ContinueMenu@@QAEXXZ
-0x004353f0,497,Func4353f0,
+0x004353f0,503,AsciiText::DrawPopups,?DrawPopups@AsciiText@@QAEXH@Z
 0x004355f0,1144,Func4355f0,
 0x00435a90,83,Func435a90,
 0x00435af0,15,Func435af0,

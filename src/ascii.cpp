@@ -5,6 +5,7 @@
 
 #include "ascii.h"
 #include "gamemanager.h"
+#include "player.h"
 #include "unsorted.h"
 
 void AsciiText::RemoveChain()
@@ -220,6 +221,72 @@ void ContinueMenu::DrawContinueMenu()
             {
                 g_SpriteEngine->DrawUnrotated(&this->sprites[i]);
             }
+        }
+    }
+}
+
+void AsciiText::DrawPopups(int side)
+{
+    AsciiPopup *popup;
+    int i;
+    int j;
+    BYTE *digit;
+    float dx;
+    float dy;
+    int distSq;
+    int alpha;
+
+    popup = this->popups[side];
+    if (!g_App.GetNoFog())
+    {
+        g_App.DisableFog();
+    }
+    g_App.SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
+    for (i = 0; i < 100; i++, popup++)
+    {
+        if (!popup->active)
+        {
+            continue;
+        }
+        this->digit.pos.x = g_GameManager.ArenaToScreenX(popup->pos.x - popup->digitCount * 4);
+        this->digit.pos.y = g_GameManager.ArenaToScreenY(popup->pos.y);
+        this->digit.color = popup->color;
+        dx = g_GameManager.sides[side].player->pos.x - popup->pos.x;
+        dy = g_GameManager.sides[side].player->pos.y - popup->pos.y;
+        distSq = dx * dx + dy * dy;
+        if (distSq > 0x1000)
+        {
+            alpha = 0xd0;
+        }
+        else if (distSq > 0x400)
+        {
+            alpha = (distSq - 0x400) * 0x80 / 0xc00 + 0x50;
+        }
+        else
+        {
+            alpha = 0x50;
+        }
+        digit = &popup->digits[popup->digitCount - 1];
+        for (j = popup->digitCount; j > 0; j--, digit--)
+        {
+            if (popup->timer < 0x34)
+            {
+                this->digit.spriteData = this->anm->GetSprite(*digit + 0x61);
+                this->digit.alpha = alpha;
+            }
+            else if (popup->timer < 0x38)
+            {
+                this->digit.spriteData = this->anm->GetSprite(*digit + 0x61);
+                this->digit.alpha = alpha;
+            }
+            else
+            {
+                this->digit.spriteData = this->anm->GetSprite(*digit + 0x61);
+                this->digit.alpha = alpha;
+            }
+            this->digit.unknown28 = ((SpriteData *)this->digit.spriteData)->unknown34;
+            g_SpriteEngine->DrawUnrotated(&this->digit);
+            this->digit.pos.x += 8.0f;
         }
     }
 }

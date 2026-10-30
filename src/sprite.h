@@ -20,7 +20,10 @@ struct SpriteBase
     // Draw scales the sprite's height and width by these.
     float scaleY;
     float scaleX;
-    unsigned char pad_20[0x38 - 0x20];
+    unsigned char pad_20[0x28 - 0x20];
+    // Copied from the sprite's SpriteData.
+    float unknown28;
+    unsigned char pad_2c[0x38 - 0x2c];
     // The script's frame.
     Timer scriptTime;
     Timer waitTimer;
@@ -30,7 +33,15 @@ struct SpriteBase
     unsigned char pad_f8[0x130 - 0xf8];
     D3DXMATRIX matrix;
     unsigned char pad_170[0x1f0 - 0x170];
-    D3DCOLOR color;
+    union
+    {
+        D3DCOLOR color;
+        struct
+        {
+            BYTE colorRgb[3];
+            BYTE alpha;
+        };
+    };
     unsigned char pad_1f4[0x1f8 - 0x1f4];
     DWORD flags;
     unsigned char pad_1fc[0x1fe - 0x1fc];
@@ -107,7 +118,10 @@ ASSERT_SIZE(Sprite, 0x2a4);
 // A sprite of an ANM file (0x44 bytes). Only its size is known so far.
 struct SpriteData
 {
-    unsigned char pad_0[0x44];
+    unsigned char pad_0[0x34];
+    // Copied to Sprite's unknown28.
+    float unknown34;
+    unsigned char pad_38[0x44 - 0x38];
 };
 ASSERT_SIZE(SpriteData, 0x44);
 

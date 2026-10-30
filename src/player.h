@@ -23,7 +23,9 @@ public:
     ChainElem *calcElem;
     ChainElem *drawElem;
     ChainElem *drawElem2;
-    unsigned char pad_20[0x30338 - 0x20];
+    unsigned char pad_20[0x1b88 - 0x20];
+    D3DXVECTOR3 pos;
+    unsigned char pad_1b94[0x30338 - 0x1b94];
     // The character's shot file (plXX.sht).
     void *shtFile;
 };
