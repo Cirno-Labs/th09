@@ -117,3 +117,26 @@ int Ending::OnDraw(Ending *ending)
     ending->DrawFade();
     return 1;
 }
+
+int Ending::Load(char *path)
+{
+    char *oldFile;
+
+    oldFile = this->file;
+    this->file = (char *)OpenPath(path, NULL, 0);
+    if (this->file == NULL)
+    {
+        this->file = oldFile;
+        LogPrintf(&g_Log, "error : エンディングファイルが読み込めない、ファイルが破壊されています\r\n");
+        return -1;
+    }
+    this->cursor = this->file;
+    this->lineDelay = 8;
+    this->lineTimer = 0;
+    this->timer = 0;
+    if (oldFile != NULL)
+    {
+        g_MemoryManager.Free(oldFile);
+    }
+    return 0;
+}

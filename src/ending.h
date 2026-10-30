@@ -31,6 +31,9 @@ public:
     // The draw chain element's callback: draws the background, the
     // sprites and the fade, as th08's. Returns 1 (0x40e480).
     static int OnDraw(Ending *ending);
+    // Loads the script at `path` and starts it. Returns 0, or -1 after
+    // logging an error, as th08's (0x40e4f0).
+    int Load(char *path);
     // Creates the ending and adds it to the chains (0x40f080).
     static int RegisterChain();
 
