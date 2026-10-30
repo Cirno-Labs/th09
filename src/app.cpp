@@ -2,6 +2,7 @@
 #include "ascii.h"
 #include "bullet.h"
 #include "chain.h"
+#include "ending.h"
 #include "gamemanager.h"
 #include "gdisurface.h"
 #include "gui.h"

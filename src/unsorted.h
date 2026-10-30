@@ -897,13 +897,6 @@ int FreesResources();
 
 // The loading sprites, at 0x4b38b0.
 extern Sprite g_LoadingSprites[3];
-// The ending ("EndingInf").
-class Ending
-{
-public:
-    // Creates the ending and adds it to the chains (0x40f080).
-    static int RegisterChain();
-};
 
 // DirectInput enumeration callbacks: creates the first two pads, as
 // th08's EnumJoysticksCallback (0x42edd0), and sets the range of the
