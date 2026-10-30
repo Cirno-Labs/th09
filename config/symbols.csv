@@ -471,7 +471,7 @@ address,size,name,symbol
 0x00422cd0,68,Func422cd0,
 0x00422d20,447,ScreenEffect::StartEffect,?StartEffect@ScreenEffect@@SIPAV1@HHHHHHH@Z
 0x00422f17,34,MainMenu::PlaySoundNow,?PlaySoundNow@MainMenu@@QAEXHH@Z
-0x00422f39,46,Func422f39,
+0x00422f39,46,MainMenu::SetState,?SetState@MainMenu@@QAEXH@Z
 0x00422f67,106,Func422f67,
 0x00422fd1,124,Func422fd1,
 0x0042304d,89,Func42304d,

@@ -12,3 +12,13 @@ void MainMenu::PlaySoundNow(int idx, int arg)
     g_SoundPlayer.PlaySoundByIdx(idx, arg);
     g_SoundPlayer.PlayQueuedSounds();
 }
+
+void MainMenu::SetState(int state)
+{
+    this->prevState = this->state;
+    this->state = state;
+    this->stateFrames = 0;
+    this->unknown1b230 = 0;
+    this->subState = 0;
+    this->unknownC910 = 0;
+}
