@@ -7,6 +7,27 @@
 
 #include "gamemanager.h"
 
+BOOL GameManager::IsInPlayArea(float x, float y, float width, float height)
+{
+    if (x + width / 2.0f < -144.0f)
+    {
+        return FALSE;
+    }
+    if (144.0f < x - width / 2.0f)
+    {
+        return FALSE;
+    }
+    if (y + height / 2.0f < 0.0f)
+    {
+        return FALSE;
+    }
+    if (448.0f < y - height / 2.0f)
+    {
+        return FALSE;
+    }
+    return TRUE;
+}
+
 void ChainElem::SetCallback(ChainCallback callback)
 {
     this->callback = callback;
