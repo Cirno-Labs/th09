@@ -64,6 +64,11 @@ void PlayRecord::AddClear(char character, int difficulty)
     }
 }
 
+void PlayRecord::OpenEntry(char entry)
+{
+    this->openEntries[entry] = 1;
+}
+
 float Fabs(float x)
 {
     return (float)fabs((double)x);

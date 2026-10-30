@@ -167,7 +167,7 @@ address,size,name,symbol
 0x0040e380,8,SpriteEngine::ClearVertexFormat,?ClearVertexFormat@SpriteEngine@@QAEXXZ
 0x0040e390,11,SpriteEngine::ClearSpriteData,?ClearSpriteData@SpriteEngine@@QAEXXZ
 0x0040e3a0,37,PlayRecord::AddClear,?AddClear@PlayRecord@@QAEXDH@Z
-0x0040e3d0,16,Func40e3d0,
+0x0040e3d0,16,PlayRecord::OpenEntry,?OpenEntry@PlayRecord@@QAEXD@Z
 0x0040e3e0,16,Func40e3e0,
 0x0040e3f0,16,Func40e3f0,
 0x0040e400,75,Func40e400,
