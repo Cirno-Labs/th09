@@ -20,6 +20,12 @@ void SpriteEngine::SetLastCameraSetupFlag(BYTE value)
     this->lastCameraSetupFlag = value;
 }
 
+void SpriteEngine::ResetColorModulation()
+{
+    this->modulateColorEnabled = 0;
+    this->modulateColor = 0x80808080;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)

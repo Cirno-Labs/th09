@@ -35,7 +35,7 @@ address,size,name,symbol
 0x00401560,134,AnmLoaded::StartScriptAtOrigin,?StartScriptAtOrigin@AnmLoaded@@QAEXPAVSprite@@H@Z
 0x004015f0,11,SpriteEngine::ClearTexture,?ClearTexture@SpriteEngine@@QAEXXZ
 0x00401600,16,SpriteEngine::SetLastCameraSetupFlag,?SetLastCameraSetupFlag@SpriteEngine@@QAEXE@Z
-0x00401610,14,Func401610,
+0x00401610,14,SpriteEngine::ResetColorModulation,?ResetColorModulation@SpriteEngine@@QAEXXZ
 0x00401620,19,Func401620,
 0x00401640,27,Func401640,
 0x00401660,20,Func401660,
