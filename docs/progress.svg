@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.95% (454)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">57.05% (603)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">43.05% (455)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">56.95% (602)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="320.85" height="6" x="0" y="0" class="named"/>
-<rect width="426.15" height="6" x="320.85" y="0" class="todo"/>
+<rect width="321.56" height="6" x="0" y="0" class="named"/>
+<rect width="425.44" height="6" x="321.56" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -862,7 +862,7 @@
 <rect width="12" height="12" x="630" y="225" class="named"><title>0x00439820 SpriteEngine::ProjectSprite (622 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="225" class="named"><title>0x00439a90 SpriteEngine::ProjectSprite3D (595 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="225" class="named"><title>0x00439cf0 SpriteEngine::FillSpriteStripVertices (199 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="225" class="todo"><title>0x00439dc0 SpriteEngine::FillVerticalStripVertices (199 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="225" class="named"><title>0x00439dc0 SpriteEngine::FillVerticalStripVertices (199 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="225" class="todo"><title>0x00439e90 Func439e90 (411 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="225" class="named"><title>0x0043a030 SpriteEngine::SetBlendModeForSprite (188 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="225" class="named"><title>0x0043a0f0 SpriteEngine::DrawQuad (1067 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">18.58%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">81.42%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">18.65%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">81.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="138.83" height="6" x="0" y="0" class="named"/>
-<rect width="608.17" height="6" x="138.83" y="0" class="todo"/>
+<rect width="139.34" height="6" x="0" y="0" class="named"/>
+<rect width="607.66" height="6" x="139.34" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1498,7 +1498,7 @@
 <rect width="9.65" height="10.52" x="549.43" y="187.51" class="named"><title>0x00430150 App::CheckVersionFile (199 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.43" y="201.04" class="todo"><title>0x00432770 Func432770 (199 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.43" y="214.56" class="named"><title>0x00439cf0 SpriteEngine::FillSpriteStripVertices (199 bytes)</title></rect>
-<rect width="9.65" height="10.52" x="549.43" y="228.08" class="todo"><title>0x00439dc0 SpriteEngine::FillVerticalStripVertices (199 bytes)</title></rect>
+<rect width="9.65" height="10.52" x="549.43" y="228.08" class="named"><title>0x00439dc0 SpriteEngine::FillVerticalStripVertices (199 bytes)</title></rect>
 <rect width="9.65" height="10.18" x="549.43" y="241.60" class="named"><title>0x0040c990 EffectManager::Reset (194 bytes)</title></rect>
 <rect width="9.65" height="10.11" x="549.43" y="254.79" class="named"><title>0x004331c0 DatArchive::Decode (193 bytes)</title></rect>
 <rect width="9.65" height="10.11" x="549.43" y="267.90" class="named"><title>0x0043c200 SpriteEngine::CopyBackBufferToTexture (193 bytes)</title></rect>
