@@ -27,3 +27,8 @@ float Timer::AsFloat()
 {
     return this->currentF;
 }
+
+void Timer::operator=(int frames)
+{
+    this->Set(frames);
+}
