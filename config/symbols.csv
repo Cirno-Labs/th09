@@ -864,7 +864,7 @@ address,size,name,symbol
 0x0043d5e0,358,MidiPlayer::ParseFile,?ParseFile@MidiPlayer@@QAEHH@Z
 0x0043d750,55,MidiPlayer::Play,?Play@MidiPlayer@@QAEHXZ
 0x0043d790,92,MidiPlayer::ReleaseHeader,?ReleaseHeader@MidiPlayer@@QAEHPAUmidihdr_tag@@@Z
-0x0043d7f0,1216,Func43d7f0,
+0x0043d7f0,1216,MidiPlayer::ProcessEvent,?ProcessEvent@MidiPlayer@@QAEXPAUMidiTrack@@@Z
 0x0043de20,12,MidiTimer::StartTimer,?StartTimer@MidiTimer@@QAEXXZ
 0x0043de30,83,MidiPlayer::Stop,?Stop@MidiPlayer@@QAEHXZ
 0x0043de90,505,MidiPlayer::OnTimer,?OnTimer@MidiPlayer@@UAEXXZ
@@ -1685,8 +1685,8 @@ address,size,name,symbol
 0x0047cf40,672,_memmove,
 0x0047d280,20,_CIacos,__CIacos
 0x0047d29d,174,Func47d29d,
-0x0047d350,104,__aulldiv,
-0x0047d3c0,52,__allmul,
+0x0047d350,104,__aulldiv,__aulldiv
+0x0047d3c0,52,__allmul,__allmul
 0x0047d3f4,34,_rand,
 0x0047d416,37,__amsg_exit,
 0x0047d43b,36,fast_error_exit,
