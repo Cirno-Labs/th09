@@ -134,6 +134,23 @@ int App::OnDrawLoading(App *app)
     return 1;
 }
 
+BOOL CALLBACK EnumJoysticksCallback(const DIDEVICEINSTANCE *pdidInstance, VOID *pContext)
+{
+    HRESULT hr;
+
+    if (g_App.joystick == NULL)
+    {
+        g_App.dinput->CreateDevice(pdidInstance->guidInstance, &g_App.joystick, NULL);
+        return DIENUM_CONTINUE;
+    }
+    if (g_App.joystick2 == NULL)
+    {
+        hr = g_App.dinput->CreateDevice(pdidInstance->guidInstance, &g_App.joystick2, NULL);
+        return FAILED(hr);
+    }
+    return DIENUM_CONTINUE;
+}
+
 int OpenGameArchive()
 {
     char path[0x80];

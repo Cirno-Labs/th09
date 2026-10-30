@@ -4,6 +4,8 @@
 
 #include <windows.h>
 #include <math.h>
+#define DIRECTINPUT_VERSION 0x0800
+#include <dinput.h>
 #include <d3dx8.h>
 
 #include "common.h"
@@ -720,7 +722,14 @@ struct App
 
     unsigned char pad_0[0x8];
     IDirect3DDevice8 *d3dDevice;
-    unsigned char pad_c[0x74 - 0xc];
+    // DirectInput, the keyboard and up to two pads, set up by
+    // InitDirectInput.
+    IDirectInput8 *dinput;
+    IDirectInputDevice8 *keyboard;
+    IDirectInputDevice8 *joystick;
+    IDirectInputDevice8 *joystick2;
+    DIDEVCAPS joystickCaps;
+    DIDEVCAPS joystickCaps2;
     // The game's window, as th08's.
     HWND hwnd;
     // The views' cameras.
@@ -835,6 +844,13 @@ public:
     // Creates the ending and adds it to the chains (0x40f080).
     static int RegisterChain();
 };
+
+// DirectInput enumeration callbacks: creates the first two pads, as
+// th08's EnumJoysticksCallback (0x42edd0), and sets the range of the
+// first's and the second's axes to -1000..1000 (0x42ee30, 0x42ee90).
+BOOL CALLBACK EnumJoysticksCallback(const DIDEVICEINSTANCE *pdidInstance, VOID *pContext);
+BOOL CALLBACK EnumAxesCallback(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pContext);
+BOOL CALLBACK EnumAxesCallback2(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pContext);
 
 class ScreenEffect;
 // The loading screen's fade, at 0x4b30f8.
