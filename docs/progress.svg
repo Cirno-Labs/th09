@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">1.93% (20)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">98.07% (1018)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">2.02% (21)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">97.98% (1017)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="14.39" height="6" x="0" y="0" class="named"/>
-<rect width="732.61" height="6" x="14.39" y="0" class="todo"/>
+<rect width="15.11" height="6" x="0" y="0" class="named"/>
+<rect width="731.89" height="6" x="15.11" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -162,7 +162,7 @@
 <rect width="12" height="12" x="630" y="15" class="named"><title>0x004065e0 Timer::Sub (21 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="15" class="named"><title>0x00406600 Timer::Add (19 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="15" class="named"><title>0x00406620 Timer::Sub (18 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="15" class="todo"><title>0x00406640 Func406640 (9 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="15" class="named"><title>0x00406640 Timer::operator+= (9 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="15" class="todo"><title>0x00406650 Func406650 (9 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="15" class="todo"><title>0x00406660 Func406660 (9 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="15" class="todo"><title>0x00406670 Func406670 (10 bytes)</title></rect>
@@ -1109,10 +1109,10 @@
 </g>
 <g transform="translate(0 486)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.16%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.84%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">0.17%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">99.83%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="1.22" height="6" x="0" y="0" class="named"/>
-<rect width="745.78" height="6" x="1.22" y="0" class="todo"/>
+<rect width="1.24" height="6" x="0" y="0" class="named"/>
+<rect width="745.76" height="6" x="1.24" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="69.75" height="164.76" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2114,7 +2114,7 @@
 <rect width="0.15" height="0.10" x="733.60" y="315.37" class="todo"><title>0x00434370 Func434370 (10 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="736.75" y="301.98" class="todo"><title>0x004343b0 Func4343b0 (10 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="739.63" y="301.98" class="named"><title>0x00401500 Timer::operator= (9 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="742.22" y="301.98" class="todo"><title>0x00406640 Func406640 (9 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="742.22" y="301.98" class="named"><title>0x00406640 Timer::operator+= (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="744.81" y="301.98" class="todo"><title>0x00406650 Func406650 (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.41" y="301.98" class="todo"><title>0x00406660 Func406660 (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="736.75" y="304.85" class="todo"><title>0x0041f300 Func41f300 (9 bytes)</title></rect>

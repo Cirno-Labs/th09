@@ -72,3 +72,8 @@ void Timer::Sub(int frames)
 {
     this->Add(-frames);
 }
+
+void Timer::operator+=(int frames)
+{
+    this->Add(frames);
+}

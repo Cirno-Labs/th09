@@ -94,7 +94,7 @@ address,size,name,symbol
 0x004065e0,21,Timer::Sub,?Sub@Timer@@QAEXM@Z
 0x00406600,19,Timer::Add,?Add@Timer@@QAEXH@Z
 0x00406620,18,Timer::Sub,?Sub@Timer@@QAEXH@Z
-0x00406640,9,Func406640,
+0x00406640,9,Timer::operator+=,??YTimer@@QAEXH@Z
 0x00406650,9,Func406650,
 0x00406660,9,Func406660,
 0x00406670,10,Func406670,
