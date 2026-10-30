@@ -163,3 +163,17 @@ void App::ClearUnknown77c()
     this->unknown788 = 0;
     this->unknown78c = 0;
 }
+
+void Sprite::SetMoveInterp(int frames, BYTE easing, D3DXVECTOR3 *from, D3DXVECTOR3 *to)
+{
+    this->interpDuration[0].current = 0;
+    this->interpDuration[0].currentF = 0.0f;
+    this->interpDuration[0].previous = -999999;
+    Timer *frame = &this->interpFrame[0];
+    frame->current = frames;
+    frame->currentF = frames;
+    frame->previous = -999999;
+    this->moveEasing = easing;
+    this->moveStart = *from;
+    this->moveEnd = *to;
+}

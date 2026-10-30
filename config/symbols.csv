@@ -481,7 +481,7 @@ address,size,name,symbol
 0x00423182,479,Func423182,
 0x00423361,33,MidiPlayer::Restart,?Restart@MidiPlayer@@QAEXH@Z
 0x00423382,33,App::ClearUnknown77c,?ClearUnknown77c@App@@QAEXXZ
-0x004233a3,81,Func4233a3,
+0x004233a3,81,Sprite::SetMoveInterp,?SetMoveInterp@Sprite@@QAEXHEPAUD3DXVECTOR3@@0@Z
 0x004233f4,117,Func4233f4,
 0x00423469,47,SpriteEngine::HasTexture,
 0x00423498,15,Func423498,
