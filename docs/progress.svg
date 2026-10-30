@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">53.58% (568)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">46.42% (492)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">53.68% (569)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">46.32% (491)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="400.28" height="6" x="0" y="0" class="named"/>
-<rect width="346.72" height="6" x="400.28" y="0" class="todo"/>
+<rect width="400.98" height="6" x="0" y="0" class="named"/>
+<rect width="346.02" height="6" x="400.98" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -677,7 +677,7 @@
 <rect width="12" height="12" x="105" y="180" class="named"><title>0x0042e9c0 ReadInputs (27 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="180" class="named"><title>0x0042e9e0 App::AddRecord (213 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="180" class="named"><title>0x0042eac0 App::InsertRecord (191 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="180" class="todo"><title>0x0042eb80 Func42eb80 (119 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="180" class="named"><title>0x0042eb80 App::PopRecord (119 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="180" class="named"><title>0x0042ec00 MidiPlayer::PlayFile (34 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="180" class="named"><title>0x0042ec30 App::ResetRun (177 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="180" class="todo"><title>0x0042ecf0 Func42ecf0 (49 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.59%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.41%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">28.63%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">71.37%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="213.54" height="6" x="0" y="0" class="named"/>
-<rect width="533.46" height="6" x="213.54" y="0" class="todo"/>
+<rect width="213.85" height="6" x="0" y="0" class="named"/>
+<rect width="533.15" height="6" x="213.85" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.73" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1619,7 +1619,7 @@
 <rect width="6.94" height="7.46" x="596.29" y="200.78" class="named"><title>0x0043f9f0 CSound::RestoreBuffer (121 bytes)</title></rect>
 <rect width="6.94" height="7.37" x="596.29" y="211.24" class="named"><title>0x0042c8f0 InitJoystick (120 bytes)</title></rect>
 <rect width="6.94" height="7.28" x="596.29" y="221.61" class="todo"><title>0x0040ef60 Func40ef60 (119 bytes)</title></rect>
-<rect width="6.94" height="7.28" x="596.29" y="231.89" class="todo"><title>0x0042eb80 Func42eb80 (119 bytes)</title></rect>
+<rect width="6.94" height="7.28" x="596.29" y="231.89" class="named"><title>0x0042eb80 App::PopRecord (119 bytes)</title></rect>
 <rect width="6.94" height="7.28" x="596.29" y="242.18" class="todo"><title>0x00445d00 Func445d00 (119 bytes)</title></rect>
 <rect width="6.94" height="7.20" x="596.29" y="252.46" class="named"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
 <rect width="6.94" height="7.11" x="596.29" y="262.66" class="named"><title>0x004233f4 Sprite::SetColorInterp (117 bytes)</title></rect>

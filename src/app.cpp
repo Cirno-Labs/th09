@@ -114,6 +114,31 @@ void App::InsertRecord(int side, int value, WORD seed)
     this->records[side][i].unknown8 = 1;
 }
 
+WORD App::PopRecord(int side, WORD *seed, int *unknown8)
+{
+    WORD unknown;
+    int i;
+
+    if (this->records[side][0].unknown8 == 0)
+    {
+        unknown = this->records[side][0].unknown0;
+    }
+    else
+    {
+        unknown = g_PlayerInputs[side].unknown0;
+    }
+    *seed = this->records[side][0].seed;
+    *unknown8 = this->records[side][0].unknown8;
+    for (i = 0; i < 9; i++)
+    {
+        this->records[side][i].unknown0 = this->records[side][i + 1].unknown0;
+        this->records[side][i].seed = this->records[side][i + 1].seed;
+        this->records[side][i].value = this->records[side][i + 1].value;
+        this->records[side][i].unknown8 = this->records[side][i + 1].unknown8;
+    }
+    return unknown;
+}
+
 void App::ResetRun()
 {
     this->unknown458 = 0;

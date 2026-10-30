@@ -628,6 +628,10 @@ struct App
     // unknown0 in the side's list, before the first greater one, marked
     // with unknown8 1 (0x42eac0).
     void InsertRecord(int side, int value, WORD seed);
+    // Takes the side's first record off its list: returns its unknown0,
+    // or the side's input if its unknown8 is set, and stores its seed
+    // and unknown8 (0x42eb80).
+    WORD PopRecord(int side, WORD *seed, int *unknown8);
     // Resets the run: clears the fields from 0x458 and the records,
     // restarts the timers, adds each side a record of -9999 with the
     // random seed, and sets network play's unknownA8 (0x42ec30).
