@@ -392,7 +392,7 @@ address,size,name,symbol
 0x0041d7e0,41,PlayerUnknown30410::EndCombo,?EndCombo@PlayerUnknown30410@@QAEXXZ
 0x0041d810,602,Func41d810,
 0x0041da70,279,Func41da70,
-0x0041db90,138,Func41db90,
+0x0041db90,138,Player::AddUnknown30454,?AddUnknown30454@Player@@QAEXHPAUD3DXVECTOR3@@@Z
 0x0041dc20,814,Func41dc20,
 0x0041df80,99,Player::DrawUnknown30454,?DrawUnknown30454@Player@@QAEXXZ
 0x0041dff0,855,Func41dff0,

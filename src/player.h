@@ -182,9 +182,11 @@ ASSERT_SIZE(PlayerUnknown30410, 0x40);
 // Placeholder name.
 struct PlayerUnknown30454
 {
-    unsigned char pad_0[0x4];
+    // The sprite's script, less 0x46.
+    int script;
     D3DXVECTOR3 pos;
-    unsigned char pad_10[0x1c - 0x10];
+    // Set to (0, -1.5, 0) when started.
+    D3DXVECTOR3 velocity;
     // Drawn while set.
     int unknown1c;
     Sprite sprite;
@@ -271,6 +273,10 @@ public:
     // their draw callback if they have one, as th08's DrawBullets
     // (0x41f680).
     void DrawBullets();
+    // Starts the first free entry of unknown30454 at `pos` with script
+    // 0x46 + `script` of the side's bullet ANM, unless the front's
+    // unknown1095c is set (0x41db90).
+    void AddUnknown30454(int script, D3DXVECTOR3 *pos);
     // Draws the sprites of unknown30454 that are set at their positions
     // (0x41df80).
     void DrawUnknown30454();

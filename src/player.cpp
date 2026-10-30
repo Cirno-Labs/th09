@@ -1,5 +1,6 @@
 #include "player.h"
 #include "sprite.h"
+#include "bullet.h"
 #include "gui.h"
 
 float Player::AngleFromPlayer(D3DXVECTOR3 *pos)
@@ -351,6 +352,31 @@ void PlayerUnknown30410::EndCombo()
     this->bonus = 0;
     this->unknownC = 0;
     this->timer14 = 0;
+}
+
+void Player::AddUnknown30454(int script, D3DXVECTOR3 *pos)
+{
+    PlayerUnknown30454 *entry = this->unknown30454;
+    int i;
+
+    if (g_GameManager.gui->unknown1095c != 0)
+    {
+        return;
+    }
+    for (i = 0; i < 4; i++, entry++)
+    {
+        if (entry->unknown1c == 0)
+        {
+            entry->script = script;
+            entry->pos = *pos;
+            entry->velocity.x = 0.0f;
+            entry->velocity.y = -1.5f;
+            entry->velocity.z = 0.0f;
+            entry->unknown1c = 1;
+            this->side->bulletManager->etamaAnm->StartScriptAtOrigin(&entry->sprite, script + 0x46);
+            return;
+        }
+    }
 }
 
 void Player::DrawUnknown30454()

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.11% (659)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.89% (402)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.21% (660)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.79% (401)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="463.97" height="6" x="0" y="0" class="named"/>
-<rect width="283.03" height="6" x="463.97" y="0" class="todo"/>
+<rect width="464.67" height="6" x="0" y="0" class="named"/>
+<rect width="282.33" height="6" x="464.67" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -460,7 +460,7 @@
 <rect width="12" height="12" x="600" y="105" class="named"><title>0x0041d7e0 PlayerUnknown30410::EndCombo (41 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="105" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="105" class="todo"><title>0x0041da70 Func41da70 (279 bytes)</title></rect>
-<rect width="12" height="12" x="645" y="105" class="todo"><title>0x0041db90 Func41db90 (138 bytes)</title></rect>
+<rect width="12" height="12" x="645" y="105" class="named"><title>0x0041db90 Player::AddUnknown30454 (138 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="105" class="todo"><title>0x0041dc20 Func41dc20 (814 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="105" class="named"><title>0x0041df80 Player::DrawUnknown30454 (99 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="105" class="todo"><title>0x0041dff0 Func41dff0 (855 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.20%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.80%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.25%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.75%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="240.52" height="6" x="0" y="0" class="named"/>
-<rect width="506.48" height="6" x="240.52" y="0" class="todo"/>
+<rect width="240.87" height="6" x="0" y="0" class="named"/>
+<rect width="506.13" height="6" x="240.87" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1592,7 +1592,7 @@
 <rect width="7.87" height="7.97" x="584.37" y="214.35" class="todo"><title>0x00422200 Func422200 (139 bytes)</title></rect>
 <rect width="7.87" height="7.97" x="584.37" y="225.32" class="named"><title>0x0043bdc0 SpriteEngine::RenderText (139 bytes)</title></rect>
 <rect width="7.87" height="7.97" x="584.37" y="236.28" class="todo"><title>0x0044ab90 Func44ab90 (139 bytes)</title></rect>
-<rect width="7.87" height="7.89" x="584.37" y="247.25" class="todo"><title>0x0041db90 Func41db90 (138 bytes)</title></rect>
+<rect width="7.87" height="7.89" x="584.37" y="247.25" class="named"><title>0x0041db90 Player::AddUnknown30454 (138 bytes)</title></rect>
 <rect width="7.87" height="7.89" x="584.37" y="258.13" class="named"><title>0x0043bcb0 AnmLoaded::LoadSprite (138 bytes)</title></rect>
 <rect width="7.87" height="7.81" x="584.37" y="269.02" class="named"><title>0x004396a0 SpriteEngine::FlushQuadBatch (137 bytes)</title></rect>
 <rect width="7.87" height="7.81" x="584.37" y="279.83" class="todo"><title>0x00441a70 Func441a70 (137 bytes)</title></rect>
