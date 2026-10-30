@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.37% (395)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">62.63% (662)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.46% (396)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">62.54% (661)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="279.15" height="6" x="0" y="0" class="named"/>
-<rect width="467.85" height="6" x="279.15" y="0" class="todo"/>
+<rect width="279.86" height="6" x="0" y="0" class="named"/>
+<rect width="467.14" height="6" x="279.86" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -965,7 +965,7 @@
 <rect width="12" height="12" x="675" y="255" class="todo"><title>0x0043f1f0 SoundPlayer::PlayQueuedSounds (1416 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="255" class="named"><title>0x0043f7a0 CSoundManager::~CSoundManager (23 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="255" class="named"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="255" class="todo"><title>0x0043f890 CStreamingSound::RecreateBuffers (342 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="255" class="named"><title>0x0043f890 CStreamingSound::RecreateBuffers (342 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="255" class="todo"><title>0x0043f9f0 CSound::RestoreBuffer (121 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="270" class="todo"><title>0x0043fa70 CSound::GetFreeBuffer (116 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="270" class="todo"><title>0x0043faf0 CSound::GetBuffer (31 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.54%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.46%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.65%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="108.59" height="6" x="0" y="0" class="named"/>
-<rect width="638.41" height="6" x="108.59" y="0" class="todo"/>
+<rect width="109.47" height="6" x="0" y="0" class="named"/>
+<rect width="637.53" height="6" x="109.47" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1349,7 +1349,7 @@
 <rect width="14.47" height="14.02" x="471.29" y="231.81" class="todo"><title>0x004070a0 Func4070a0 (346 bytes)</title></rect>
 <rect width="14.47" height="13.92" x="471.29" y="248.83" class="todo"><title>0x00441910 Func441910 (344 bytes)</title></rect>
 <rect width="14.47" height="13.87" x="471.29" y="265.75" class="todo"><title>0x00446d80 Func446d80 (343 bytes)</title></rect>
-<rect width="14.47" height="13.82" x="471.29" y="282.63" class="todo"><title>0x0043f890 CStreamingSound::RecreateBuffers (342 bytes)</title></rect>
+<rect width="14.47" height="13.82" x="471.29" y="282.63" class="named"><title>0x0043f890 CStreamingSound::RecreateBuffers (342 bytes)</title></rect>
 <rect width="14.47" height="13.77" x="471.29" y="299.45" class="named"><title>0x00434540 AsciiText::DrawStrings (341 bytes)</title></rect>
 <rect width="14.47" height="13.77" x="471.29" y="316.23" class="todo"><title>0x0043ce30 Func43ce30 (341 bytes)</title></rect>
 <rect width="13.68" height="14.31" x="488.76" y="58.35" class="todo"><title>0x004227a0 Func4227a0 (336 bytes)</title></rect>
