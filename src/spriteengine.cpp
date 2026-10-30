@@ -9,3 +9,24 @@ void AnmLoaded::StartScriptAtOrigin(Sprite *vm, int script)
     vm->fontWidth = 15;
     this->SetScript(vm, this->scripts[script]);
 }
+
+void AnmLoaded::SetScript(Sprite *vm, void *script)
+{
+    if (script == NULL || this->loadStep != 0)
+    {
+        memset(vm, 0, sizeof(Sprite));
+    }
+    else
+    {
+        vm->Initialize();
+        vm->anmSlot = this->slot;
+        vm->anm = this;
+        vm->flags &= ~0x600;
+        vm->scriptStart = script;
+        vm->scriptPos = vm->scriptStart;
+        vm->scriptTime = 0;
+        vm->flags &= ~1;
+        g_SpriteEngine->Step(vm);
+        g_SpriteEngine->scriptStartCount++;
+    }
+}

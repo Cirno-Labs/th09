@@ -239,7 +239,7 @@ address,size,name,symbol
 0x00412730,39,Func412730,
 0x00412760,31,Func412760,
 0x00412780,33,Func412780,
-0x004127b0,66,Func4127b0,
+0x004127b0,66,Sprite::Initialize,?Initialize@Sprite@@QAEXXZ
 0x00412800,41,Func412800,
 0x00412830,245,Func412830,
 0x00412930,40,Func412930,
@@ -769,7 +769,7 @@ address,size,name,symbol
 0x00436d70,84,Func436d70,
 0x00436de0,63,Func436de0,
 0x00436e30,203,Func436e30,
-0x00436f30,9352,Func436f30,
+0x00436f30,9352,SpriteEngine::Step,?Step@SpriteEngine@@QAEXPAVSprite@@@Z
 0x00439560,53,Func439560,
 0x004395a0,143,AnmLoaded::SetScript,?SetScript@AnmLoaded@@QAEXPAVSprite@@PAX@Z
 0x00439630,66,Func439630,
