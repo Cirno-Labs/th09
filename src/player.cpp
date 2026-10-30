@@ -139,6 +139,40 @@ int Player::CheckHitCircle(D3DXVECTOR3 *pos, float radius)
     return 1;
 }
 
+int Player::CheckLaserHit(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle, int canGraze)
+{
+    D3DXVECTOR3 start;
+    D3DXVECTOR3 end;
+    D3DXVECTOR3 boxMin;
+    D3DXVECTOR3 boxMax;
+
+    start = this->pos - *origin;
+    Rotate2D(&end, &start, -angle);
+    end.z = 0.0f;
+    start = end + *origin;
+    boxMin = start - this->hitboxSize;
+    boxMax = start + this->hitboxSize;
+    start = *pos - *size;
+    end = *pos + *size;
+    if (!(boxMin.x > end.x || boxMax.x < start.x || boxMin.y > end.y || boxMax.y < start.y))
+    {
+        return 1;
+    }
+    if (!canGraze)
+    {
+        return 0;
+    }
+    start.x -= 48.0f;
+    start.y -= 48.0f;
+    end.x += 48.0f;
+    end.y += 48.0f;
+    if (boxMin.x > end.x || boxMax.x < start.x || boxMin.y > end.y || boxMax.y < start.y)
+    {
+        return 0;
+    }
+    return 2;
+}
+
 int Player::TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
 {
     D3DXVECTOR3 start;

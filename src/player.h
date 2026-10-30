@@ -251,8 +251,10 @@ public:
     // Whether a circle of `radius` at `pos` touches the player, the
     // shot file's hitbox size added (0x41be70).
     int CheckHitCircle(D3DXVECTOR3 *pos, float radius);
-    // Whether a `size` box at `pos`, turned by `angle` about `origin`,
-    // touches the player, as th08's CheckLaserHit (0x41bfc0).
+    // Whether a box `size` from `pos` each way, turned by `angle` about
+    // `origin`, touches the hitbox (1), or, if `canGraze`, comes within
+    // 48 of it (2), as th08's CheckLaserHit without the death or the
+    // graze (0x41bfc0).
     int CheckLaserHit(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle, int canGraze);
     // Whether a `size` box at `pos` touches grazeTestMin-Max while
     // unknown0 is 0 or 3, as th08's (0x41bee0).
