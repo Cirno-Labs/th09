@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">23.98% (252)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">76.02% (799)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">24.07% (253)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">75.93% (798)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="179.11" height="6" x="0" y="0" class="named"/>
-<rect width="567.89" height="6" x="179.11" y="0" class="todo"/>
+<rect width="179.82" height="6" x="0" y="0" class="named"/>
+<rect width="567.18" height="6" x="179.82" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -790,7 +790,7 @@
 <rect width="12" height="12" x="300" y="210" class="named"><title>0x00433ce0 LzssReplaceNode (83 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="210" class="named"><title>0x00433d40 LzssReplaceChild (115 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="210" class="named"><title>0x00433dc0 LzssPredecessor (49 bytes)</title></rect>
-<rect width="12" height="12" x="345" y="210" class="todo"><title>0x00433e00 Func433e00 (438 bytes)</title></rect>
+<rect width="12" height="12" x="345" y="210" class="named"><title>0x00433e00 LzssInsertNode (438 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="210" class="todo"><title>0x00433fc0 Func433fc0 (83 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="210" class="todo"><title>0x00434020 Func434020 (568 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="210" class="todo"><title>0x00434280 Func434280 (31 bytes)</title></rect>
@@ -1122,10 +1122,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.11%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.89%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">7.27%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">92.73%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="53.15" height="6" x="0" y="0" class="named"/>
-<rect width="693.85" height="6" x="53.15" y="0" class="todo"/>
+<rect width="54.27" height="6" x="0" y="0" class="named"/>
+<rect width="692.73" height="6" x="54.27" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.79" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1292,7 +1292,7 @@
 <rect width="17.01" height="16.21" x="575.08" y="21.05" class="todo"><title>0x00422d20 ScreenEffect::StartEffect (447 bytes)</title></rect>
 <rect width="16.96" height="16.21" x="595.09" y="21.05" class="todo"><title>0x0044c4c0 Func44c4c0 (446 bytes)</title></rect>
 <rect width="16.60" height="16.21" x="615.05" y="21.05" class="todo"><title>0x0041ee50 Func41ee50 (438 bytes)</title></rect>
-<rect width="16.60" height="16.21" x="634.66" y="21.05" class="todo"><title>0x00433e00 Func433e00 (438 bytes)</title></rect>
+<rect width="16.60" height="16.21" x="634.66" y="21.05" class="named"><title>0x00433e00 LzssInsertNode (438 bytes)</title></rect>
 <rect width="16.52" height="16.21" x="654.26" y="21.05" class="todo"><title>0x0044ac20 Func44ac20 (436 bytes)</title></rect>
 <rect width="16.34" height="16.21" x="673.77" y="21.05" class="todo"><title>0x004218e0 Func4218e0 (432 bytes)</title></rect>
 <rect width="16.02" height="16.21" x="693.11" y="21.05" class="named"><title>0x0041b5c6 GameManager::ResetRound (425 bytes)</title></rect>
