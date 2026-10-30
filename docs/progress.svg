@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">44.65% (472)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">55.35% (585)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">44.75% (473)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">55.25% (584)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="333.57" height="6" x="0" y="0" class="named"/>
-<rect width="413.43" height="6" x="333.57" y="0" class="todo"/>
+<rect width="334.28" height="6" x="0" y="0" class="named"/>
+<rect width="412.72" height="6" x="334.28" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -545,7 +545,7 @@
 <rect width="12" height="12" x="375" y="135" class="named"><title>0x0042304d MainMenu::SkipClosedEntries (89 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="135" class="named"><title>0x004230a6 MainMenu::SkipClosedEntries2 (89 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="135" class="named"><title>0x004230ff MainMenu::SkipClosedEntries3 (89 bytes)</title></rect>
-<rect width="12" height="12" x="420" y="135" class="todo"><title>0x00423158 Func423158 (42 bytes)</title></rect>
+<rect width="12" height="12" x="420" y="135" class="named"><title>0x00423158 PlayerInput::IsPressed (42 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="135" class="todo"><title>0x00423182 Func423182 (479 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="135" class="todo"><title>0x00423361 Func423361 (33 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="135" class="todo"><title>0x00423382 Func423382 (33 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.99%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.01%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">20.01%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">79.99%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="149.34" height="6" x="0" y="0" class="named"/>
-<rect width="597.66" height="6" x="149.34" y="0" class="todo"/>
+<rect width="149.45" height="6" x="0" y="0" class="named"/>
+<rect width="597.55" height="6" x="149.45" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1881,7 +1881,7 @@
 <rect width="2.79" height="3.24" x="669.94" y="265.12" class="named"><title>0x00401410 App::ResetView3D (42 bytes)</title></rect>
 <rect width="2.79" height="3.24" x="669.94" y="271.36" class="todo"><title>0x004067f0 Func4067f0 (42 bytes)</title></rect>
 <rect width="2.79" height="3.24" x="669.94" y="277.60" class="named"><title>0x00420c10 ReplayManager::RemoveChain (42 bytes)</title></rect>
-<rect width="2.79" height="3.24" x="669.94" y="283.84" class="todo"><title>0x00423158 Func423158 (42 bytes)</title></rect>
+<rect width="2.79" height="3.24" x="669.94" y="283.84" class="named"><title>0x00423158 PlayerInput::IsPressed (42 bytes)</title></rect>
 <rect width="2.79" height="3.24" x="669.94" y="290.08" class="named"><title>0x0042ff40 App::SetRenderState (42 bytes)</title></rect>
 <rect width="2.79" height="3.24" x="669.94" y="296.31" class="named"><title>0x00433cb0 LzssClearWindow (42 bytes)</title></rect>
 <rect width="2.79" height="3.09" x="669.94" y="302.55" class="todo"><title>0x00403e00 Func403e00 (41 bytes)</title></rect>

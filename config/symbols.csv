@@ -477,7 +477,7 @@ address,size,name,symbol
 0x0042304d,89,MainMenu::SkipClosedEntries,?SkipClosedEntries@MainMenu@@QAEXHHPADH@Z
 0x004230a6,89,MainMenu::SkipClosedEntries2,?SkipClosedEntries2@MainMenu@@QAEXHHPADH@Z
 0x004230ff,89,MainMenu::SkipClosedEntries3,?SkipClosedEntries3@MainMenu@@QAEXHHPADH@Z
-0x00423158,42,Func423158,
+0x00423158,42,PlayerInput::IsPressed,?IsPressed@PlayerInput@@QAEHG@Z
 0x00423182,479,Func423182,
 0x00423361,33,Func423361,
 0x00423382,33,Func423382,

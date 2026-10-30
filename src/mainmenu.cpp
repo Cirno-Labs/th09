@@ -142,3 +142,8 @@ void MainMenu::SkipClosedEntries3(int idx, int delta, char *entries, int count)
         }
     }
 }
+
+BOOL PlayerInput::IsPressed(WORD mask)
+{
+    return (WORD)(this->unknown6 & mask) != 0 || (WORD)(this->unknown4 & mask) != 0;
+}
