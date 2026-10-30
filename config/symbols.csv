@@ -809,9 +809,9 @@ address,size,name,symbol
 0x0043b1a0,811,Func43b1a0,
 0x0043b4d0,238,SpriteEngine::DrawVertexStrip,?DrawVertexStrip@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@H@Z
 0x0043b5c0,163,SpriteEngine::DrawVertexQuad,?DrawVertexQuad@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@@Z
-0x0043b670,318,Func43b670,
-0x0043b7b0,318,Func43b7b0,
-0x0043b8f0,200,Func43b8f0,
+0x0043b670,318,SpriteEngine::DrawColoredStrip,?DrawColoredStrip@SpriteEngine@@QAEHPAVSprite@@PAUVertexDiffuseXyzrwh@@H@Z
+0x0043b7b0,318,SpriteEngine::DrawColoredFan,?DrawColoredFan@SpriteEngine@@QAEHPAVSprite@@PAUVertexDiffuseXyzrwh@@H@Z
+0x0043b8f0,200,SpriteEngine::DrawVertexFan,?DrawVertexFan@SpriteEngine@@QAEHPAVSprite@@PAUVertexTex1DiffuseXyzrwh@@H@Z
 0x0043b9c0,472,Func43b9c0,
 0x0043bba0,50,SpriteEngine::CreateTexture,?CreateTexture@SpriteEngine@@QAEHPAUAnmTexture@@HHH@Z
 0x0043bbe0,150,SpriteEngine::PreloadAnmTexture,?PreloadAnmTexture@SpriteEngine@@QAEHPAVAnmLoaded@@HPAH1PAUAnmFile@@@Z

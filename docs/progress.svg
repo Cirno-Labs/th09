@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">43.42% (459)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">56.58% (598)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">43.52% (460)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">56.48% (597)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="324.38" height="6" x="0" y="0" class="named"/>
-<rect width="422.62" height="6" x="324.38" y="0" class="todo"/>
+<rect width="325.09" height="6" x="0" y="0" class="named"/>
+<rect width="421.91" height="6" x="325.09" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -877,9 +877,9 @@
 <rect width="12" height="12" x="105" y="240" class="todo"><title>0x0043b1a0 Func43b1a0 (811 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="240" class="named"><title>0x0043b4d0 SpriteEngine::DrawVertexStrip (238 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="240" class="named"><title>0x0043b5c0 SpriteEngine::DrawVertexQuad (163 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="240" class="todo"><title>0x0043b670 Func43b670 (318 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="240" class="todo"><title>0x0043b7b0 Func43b7b0 (318 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="240" class="todo"><title>0x0043b8f0 Func43b8f0 (200 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="240" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="240" class="todo"><title>0x0043b7b0 SpriteEngine::DrawColoredFan (318 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="240" class="todo"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="240" class="todo"><title>0x0043b9c0 Func43b9c0 (472 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="240" class="named"><title>0x0043bba0 SpriteEngine::CreateTexture (50 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="240" class="named"><title>0x0043bbe0 SpriteEngine::PreloadAnmTexture (150 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">18.95%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">81.05%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">19.06%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">80.94%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="141.53" height="6" x="0" y="0" class="named"/>
-<rect width="605.47" height="6" x="141.53" y="0" class="todo"/>
+<rect width="142.35" height="6" x="0" y="0" class="named"/>
+<rect width="604.65" height="6" x="142.35" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.75" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1373,8 +1373,8 @@
 <rect width="13.91" height="13.21" x="488.74" y="108.23" class="todo"><title>0x00418950 Func418950 (319 bytes)</title></rect>
 <rect width="13.91" height="13.16" x="488.74" y="124.44" class="todo"><title>0x00420ad0 Func420ad0 (318 bytes)</title></rect>
 <rect width="13.91" height="13.16" x="488.74" y="140.60" class="todo"><title>0x00422330 Func422330 (318 bytes)</title></rect>
-<rect width="13.91" height="13.16" x="488.74" y="156.76" class="todo"><title>0x0043b670 Func43b670 (318 bytes)</title></rect>
-<rect width="13.91" height="13.16" x="488.74" y="172.92" class="todo"><title>0x0043b7b0 Func43b7b0 (318 bytes)</title></rect>
+<rect width="13.91" height="13.16" x="488.74" y="156.76" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>
+<rect width="13.91" height="13.16" x="488.74" y="172.92" class="todo"><title>0x0043b7b0 SpriteEngine::DrawColoredFan (318 bytes)</title></rect>
 <rect width="13.91" height="13.06" x="488.74" y="189.08" class="todo"><title>0x00422660 Func422660 (316 bytes)</title></rect>
 <rect width="13.91" height="13.06" x="488.74" y="205.14" class="todo"><title>0x00445050 Func445050 (316 bytes)</title></rect>
 <rect width="13.91" height="13.01" x="488.74" y="221.20" class="todo"><title>0x00408040 Func408040 (315 bytes)</title></rect>
@@ -1492,7 +1492,7 @@
 <rect width="10.10" height="10.12" x="723.80" y="120.10" class="todo"><title>0x004130f0 Func4130f0 (200 bytes)</title></rect>
 <rect width="10.10" height="10.12" x="736.90" y="120.10" class="todo"><title>0x004131c0 Func4131c0 (200 bytes)</title></rect>
 <rect width="9.65" height="10.59" x="549.43" y="133.22" class="todo"><title>0x00432f70 Func432f70 (200 bytes)</title></rect>
-<rect width="9.65" height="10.59" x="549.43" y="146.81" class="todo"><title>0x0043b8f0 Func43b8f0 (200 bytes)</title></rect>
+<rect width="9.65" height="10.59" x="549.43" y="146.81" class="todo"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
 <rect width="9.65" height="10.59" x="549.43" y="160.40" class="named"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.43" y="173.99" class="todo"><title>0x00413700 Func413700 (199 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.43" y="187.51" class="named"><title>0x00430150 App::CheckVersionFile (199 bytes)</title></rect>

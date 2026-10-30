@@ -309,6 +309,14 @@ struct VertexTex1DiffuseXyzrwh
     } uv;
 };
 
+// A vertex with a transformed position and a color, as th08's.
+struct VertexDiffuseXyzrwh
+{
+    D3DXVECTOR3 pos;
+    float w;
+    D3DCOLOR diffuse;
+};
+
 // A vertex with an untransformed position and texture coordinates, as
 // th08's.
 struct VertexTex1Xyz
@@ -419,6 +427,14 @@ public:
     // Batches `quad`, set up by the caller, with `vm`'s texture, as
     // th08's (0x43b5c0).
     int DrawVertexQuad(Sprite *vm, VertexTex1DiffuseXyzrwh *quad);
+    // Draws the `count` vertices of `vertices` untextured, with `vm`'s
+    // blend mode, as a triangle strip (0x43b670), and as a fan, as
+    // th08's DrawColoredFan (0x43b7b0). Return 0.
+    int DrawColoredStrip(Sprite *vm, VertexDiffuseXyzrwh *vertices, int count);
+    int DrawColoredFan(Sprite *vm, VertexDiffuseXyzrwh *vertices, int count);
+    // Draws the `count` vertices of `vertices` as a triangle fan with
+    // `vm`'s texture and no z writes. Returns 0 (0x43b8f0).
+    int DrawVertexFan(Sprite *vm, VertexTex1DiffuseXyzrwh *vertices, int count);
     // Sets the blend mode, the texture factor color, the z writes and the
     // camera for `vm`, as th08's (0x439e90).
     void SetRenderStateForSprite(Sprite *vm);
