@@ -57,6 +57,11 @@ void SpriteEngine::ClearZWrite()
     this->zWriteDisabled = 0xff;
 }
 
+void SpriteEngine::ClearLastCameraSetupFlag()
+{
+    this->lastCameraSetupFlag = 0xff;
+}
+
 void AnmLoaded::SetScript(Sprite *vm, void *script)
 {
     if (script == NULL || this->loadStep != 0)
