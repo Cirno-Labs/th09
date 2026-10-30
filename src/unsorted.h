@@ -859,8 +859,10 @@ BOOL CALLBACK EnumJoysticksCallback(const DIDEVICEINSTANCE *pdidInstance, VOID *
 BOOL CALLBACK EnumAxesCallback(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pContext);
 BOOL CALLBACK EnumAxesCallback2(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pContext);
 
-// Loads score.dat (0x421ea0).
+// Loads score.dat (0x421ea0), and writes it back through scoretmp
+// (0x421f10).
 int LoadScore();
+int SaveScore();
 
 class ScreenEffect;
 // The loading screen's fade, at 0x4b30f8.

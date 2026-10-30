@@ -449,8 +449,7 @@ address,size,name,symbol
 0x00421c80,523,Func421c80,
 0x00421e90,12,Func421e90,
 0x00421ea0,98,LoadScore,?LoadScore@@YIHXZ
-0x00421f10,32,Func421f10,
-0x00421f30,713,Func421f30,
+0x00421f10,745,SaveScore,?SaveScore@@YIHXZ
 0x00422200,139,Func422200,
 0x00422290,38,Func422290,
 0x004222c0,103,Func4222c0,
@@ -628,6 +627,7 @@ address,size,name,symbol
 0x0042f1a0,517,MeasureRefreshRate,?MeasureRefreshRate@@YIHXZ
 0x0042f3b0,18,MidiTimer::MidiTimer,??0MidiTimer@@QAE@XZ
 0x0042f3d0,31,SpriteEngine::ReleaseVertexBuffer,?ReleaseVertexBuffer@SpriteEngine@@QAEXXZ
+0x0042f3f0,5,MidiTimer::~MidiTimer,??1MidiTimer@@QAE@XZ
 0x0042f400,17,SpriteEngine::GetSurface,?GetSurface@SpriteEngine@@QAEPAUIDirect3DSurface8@@H@Z
 0x0042f420,101,SpriteEngine::SetPendingSurfaceCopy,?SetPendingSurfaceCopy@SpriteEngine@@QAEHHHHHHHHHH@Z
 0x0042f490,93,Timer::Add,?Add@Timer@@QAEXM@Z
@@ -664,7 +664,7 @@ address,size,name,symbol
 0x00430aa0,1633,App::UpdateNetPlay,?UpdateNetPlay@App@@QAEHXZ
 0x00431110,844,App::OnUpdate,?OnUpdate@App@@SIHPAU1@@Z
 0x00431540,312,App::OnDrawLogo,?OnDrawLogo@App@@SIHPAU1@@Z
-0x00431680,33,Func431680,
+0x00431680,33,MidiTimer::`scalar deleting destructor',??_GMidiTimer@@QAEPAXI@Z
 0x004316b0,633,DrawFps,?DrawFps@@YIXH@Z
 0x00431930,254,App::PlayMusic,?PlayMusic@App@@QAEHHH@Z
 0x00431a30,169,App::PlayMusicFile,?PlayMusicFile@App@@QAEHPADH@Z

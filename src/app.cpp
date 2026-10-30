@@ -1,12 +1,13 @@
 #include "archive.h"
-#include "bullet.h"
 #include "ascii.h"
+#include "bullet.h"
 #include "chain.h"
 #include "gamemanager.h"
 #include "gdisurface.h"
 #include "gui.h"
 #include "mainmenu.h"
 #include "midi.h"
+#include "replay.h"
 #include "screeneffect.h"
 #include "sprite.h"
 #include "timer.h"
@@ -1360,6 +1361,87 @@ int App::OnDraw(App *app)
         g_SpriteEngine->DrawUnrotated(g_App.unknown584);
     }
     return 1;
+}
+
+int App::DeletedCallback(App *app)
+{
+    g_App.CloseSubThread();
+    if (g_App.verFile != NULL)
+    {
+        g_MemoryManager.Free(g_App.verFile);
+        g_App.verFile = NULL;
+    }
+    if (g_GameManager.sides[0].stats != NULL)
+    {
+        delete g_GameManager.sides[0].stats;
+    }
+    g_GameManager.sides[0].stats = NULL;
+    if (g_GameManager.sides[1].stats != NULL)
+    {
+        delete g_GameManager.sides[1].stats;
+    }
+    g_GameManager.sides[1].stats = NULL;
+    if (g_App.unknown584 != NULL)
+    {
+        delete g_App.unknown584;
+        g_App.unknown584 = NULL;
+    }
+    g_SpriteEngine->ReleaseVertexBuffer();
+    g_SpriteEngine->ReleaseAnm(0);
+    g_SpriteEngine->ReleaseAnm(2);
+    g_SpriteEngine->ReleaseSurface(8);
+    AsciiText::RemoveChain();
+    g_SoundPlayer.QueueSoundCommand(4, 0, "dummy");
+    if (g_App.config.musicMode == 2 && g_App.midi != NULL)
+    {
+        g_App.midi->Restart(0x1e);
+    }
+    ReplayManager::Release(g_GameManager.replayManager);
+    g_GameManager.replayManager = NULL;
+    ReleaseTextSurface();
+    if (app->keyboard)
+    {
+        app->keyboard->Unacquire();
+    }
+    if (app->keyboard)
+    {
+        app->keyboard->Release();
+        app->keyboard = NULL;
+    }
+    if (app->joystick)
+    {
+        app->joystick->Unacquire();
+    }
+    if (app->joystick2)
+    {
+        app->joystick2->Unacquire();
+    }
+    if (app->joystick)
+    {
+        app->joystick->Release();
+        app->joystick = NULL;
+    }
+    if (app->joystick2)
+    {
+        app->joystick2->Release();
+        app->joystick2 = NULL;
+    }
+    if (app->dinput)
+    {
+        app->dinput->Release();
+        app->dinput = NULL;
+    }
+    g_Archive.Release();
+    if (g_App.timer != NULL)
+    {
+        g_App.timer->StopTimer();
+        delete g_App.timer;
+        g_App.timer = NULL;
+    }
+    SaveScore();
+    BulletManager::ReleaseAnm();
+    Gui::ReleaseAnm();
+    return 0;
 }
 
 void App::LoadingThread(App *app)
