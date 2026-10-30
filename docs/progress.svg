@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.05% (274)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.95% (778)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.14% (275)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">73.86% (777)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="194.56" height="6" x="0" y="0" class="named"/>
-<rect width="552.44" height="6" x="194.56" y="0" class="todo"/>
+<rect width="195.27" height="6" x="0" y="0" class="named"/>
+<rect width="551.73" height="6" x="195.27" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -817,7 +817,7 @@
 <rect width="12" height="12" x="705" y="210" class="todo"><title>0x00435af0 Func435af0 (15 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="210" class="named"><title>0x00435b00 AsciiText::OnUpdate (253 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="210" class="named"><title>0x00435c00 AsciiText::OnDraw (83 bytes)</title></rect>
-<rect width="12" height="12" x="0" y="225" class="todo"><title>0x00435c60 Func435c60 (52 bytes)</title></rect>
+<rect width="12" height="12" x="0" y="225" class="named"><title>0x00435c60 AsciiText::OnDraw2 (52 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="225" class="todo"><title>0x00435ca0 Func435ca0 (157 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="225" class="todo"><title>0x00435d40 Func435d40 (39 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="225" class="todo"><title>0x00435d70 Func435d70 (39 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.28%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.72%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">8.30%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">91.70%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="61.86" height="6" x="0" y="0" class="named"/>
-<rect width="685.14" height="6" x="61.86" y="0" class="todo"/>
+<rect width="61.99" height="6" x="0" y="0" class="named"/>
+<rect width="685.01" height="6" x="61.99" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1826,7 +1826,7 @@
 <rect width="3.75" height="3.76" x="656.78" y="267.23" class="todo"><title>0x00439560 Func439560 (53 bytes)</title></rect>
 <rect width="3.75" height="3.63" x="656.78" y="273.98" class="todo"><title>0x00401180 Func401180 (52 bytes)</title></rect>
 <rect width="3.75" height="3.63" x="656.78" y="280.61" class="named"><title>0x00414180 BulletManager::RemoveChain (52 bytes)</title></rect>
-<rect width="3.75" height="3.63" x="656.78" y="287.24" class="todo"><title>0x00435c60 Func435c60 (52 bytes)</title></rect>
+<rect width="3.75" height="3.63" x="656.78" y="287.24" class="named"><title>0x00435c60 AsciiText::OnDraw2 (52 bytes)</title></rect>
 <rect width="3.75" height="3.63" x="656.78" y="293.87" class="todo"><title>0x0043d060 Func43d060 (52 bytes)</title></rect>
 <rect width="3.75" height="3.50" x="656.78" y="300.50" class="named"><title>0x00404570 SpellCard::RemoveChain (51 bytes)</title></rect>
 <rect width="3.75" height="3.50" x="656.78" y="307" class="todo"><title>0x0040d1c0 EffectManager::AddedCallback (51 bytes)</title></rect>

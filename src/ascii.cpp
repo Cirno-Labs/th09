@@ -384,3 +384,12 @@ int AsciiText::OnDraw(AsciiText *text)
     }
     return 1;
 }
+
+int AsciiText::OnDraw2(AsciiText *text)
+{
+    g_App.SetView(0);
+    text->DrawPopups(0);
+    g_App.SetView(1);
+    text->DrawPopups(1);
+    return 1;
+}
