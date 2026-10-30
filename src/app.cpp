@@ -1,5 +1,6 @@
 #include "ascii.h"
 #include "chain.h"
+#include "gdisurface.h"
 #include "mainmenu.h"
 #include "midi.h"
 #include "screeneffect.h"
@@ -799,6 +800,36 @@ int App::OnDraw(App *app)
         g_SpriteEngine->DrawUnrotated(g_App.unknown584);
     }
     return 1;
+}
+
+int App::AddedCallback(App *app)
+{
+    g_App.gameSpeed = 1.0f;
+    g_GameManager.Init();
+    if (OpenGameArchive() != 0)
+    {
+        return -1;
+    }
+    g_SpriteEngine->LoadSurface(8, "title/th09logo.jpg");
+    app->loadingAnm = g_SpriteEngine->LoadAnm(2, "nowloading.anm");
+    if (app->loadingAnm == NULL)
+    {
+        g_SpriteEngine->ReleaseSurface(0);
+        return -1;
+    }
+    g_App.hideFps = 1;
+    if (g_App.noVsync == 0 && MeasureRefreshRate() != 0)
+    {
+        g_SpriteEngine->ReleaseSurface(0);
+        return -2;
+    }
+    g_SpriteEngine->CreateQuad();
+    CreateTextSurface();
+    D3DXVECTOR3 position(500.0f, 440.0f, 0.0f);
+    g_App.StartLoadingSprites(&position);
+    g_App.loadingThreadState = 1;
+    g_App.StartSubThread((LPTHREAD_START_ROUTINE)App::LoadingThread, app);
+    return 0;
 }
 
 int App::RegisterChain()

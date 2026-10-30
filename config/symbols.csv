@@ -624,8 +624,8 @@ address,size,name,symbol
 0x0042ee30,94,Func42ee30,
 0x0042ee90,94,Func42ee90,
 0x0042eef0,517,Func42eef0,
-0x0042f100,145,Func42f100,
-0x0042f1a0,517,Func42f1a0,
+0x0042f100,145,OpenGameArchive,?OpenGameArchive@@YIHXZ
+0x0042f1a0,517,MeasureRefreshRate,?MeasureRefreshRate@@YIHXZ
 0x0042f3b0,18,Func42f3b0,
 0x0042f3d0,31,Func42f3d0,
 0x0042f400,17,SpriteEngine::GetSurface,?GetSurface@SpriteEngine@@QAEPAUIDirect3DSurface8@@H@Z
@@ -671,7 +671,7 @@ address,size,name,symbol
 0x00431ae0,69,App::StartSubThread,?StartSubThread@App@@QAEHP6GKPAX@Z0@Z
 0x00431b30,59,App::OnDraw,?OnDraw@App@@SIHPAU1@@Z
 0x00431b70,405,App::DeletedCallback,?DeletedCallback@App@@SIHPAU1@@Z
-0x00431d10,882,Func431d10,
+0x00431d10,882,App::LoadingThread,?LoadingThread@App@@SIXPAU1@@Z
 0x00432090,238,App::AddedCallback,?AddedCallback@App@@SIHPAU1@@Z
 0x00432180,182,App::RegisterChain,?RegisterChain@App@@SIHXZ
 0x00432240,240,Func432240,

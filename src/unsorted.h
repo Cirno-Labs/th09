@@ -83,6 +83,11 @@ extern JOYCAPSA g_JoyCaps[2];
 
 // Releases every key in the keyboard state, as th08's (0x42ad70).
 void ResetKeyboard();
+// Opens the game's archive, as th08's. Returns 0, or -1 (0x42f100).
+int OpenGameArchive();
+// Measures the refresh rate, as th08's. Returns nonzero if it is too
+// far from 60 Hz (0x42f1a0).
+int MeasureRefreshRate();
 // Counts the frame and, every half second, measures the frame rate, as
 // th08's; shows it if `draw` is set (0x4316b0).
 void DrawFps(int draw);
@@ -680,6 +685,8 @@ struct App
     // Resets the scenes and adds the update and draw elements, as th08's.
     // Returns 0, or what adding the update element returned (0x432180).
     static int RegisterChain();
+    // Loads the game's resources in the sub thread, as th08's (0x431d10).
+    static void LoadingThread(App *app);
     // Clears subThread, closeSubThread and unknown6b8 (0x41a997).
     void ResetSubThread();
     // Zeroes unknown77c to unknown790 (0x423382).
@@ -723,7 +730,9 @@ struct App
     // Set when the game ends, unless it goes on to scene 3, 10 or 12:
     // the game's objects then free their resources, as th08's.
     int freesResources;
-    unsigned char pad_59c[0x5ac - 0x59c];
+    unsigned char pad_59c[0x5a8 - 0x59c];
+    // Set while the frame rate is not shown, as th08's.
+    int hideFps;
     // Set when the config turns vertical sync off.
     int noVsync;
     unsigned char pad_5b0[0x5b8 - 0x5b0];
@@ -752,7 +761,8 @@ struct App
     // Set to ask the sub thread to end.
     int closeSubThread;
     int unknown6b8;
-    unsigned char pad_6bc[0x6c0 - 0x6bc];
+    // Set while LoadingThread runs, as th08's.
+    int loadingThreadState;
     CRITICAL_SECTION criticalSections[5];
     // How deep each of criticalSections is entered.
     BYTE criticalSectionDepths[5];
