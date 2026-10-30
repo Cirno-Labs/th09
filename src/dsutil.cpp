@@ -755,3 +755,8 @@ HRESULT CStreamingSound::Reset()
 
     return m_apDSBuffer[0]->SetCurrentPosition(0L);
 }
+
+CWaveFile::~CWaveFile()
+{
+    Close();
+}

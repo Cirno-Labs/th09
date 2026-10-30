@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.64% (419)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.36% (638)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.74% (420)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">60.26% (637)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="296.11" height="6" x="0" y="0" class="named"/>
-<rect width="450.89" height="6" x="296.11" y="0" class="todo"/>
+<rect width="296.82" height="6" x="0" y="0" class="named"/>
+<rect width="450.18" height="6" x="296.82" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -989,7 +989,7 @@
 <rect width="12" height="12" x="285" y="270" class="named"><title>0x004401d0 CSound::Play (160 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="270" class="named"><title>0x00440270 CStreamingSound::HandleWaveStreamNotification (600 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="270" class="named"><title>0x004404d0 CStreamingSound::Reset (115 bytes)</title></rect>
-<rect width="12" height="12" x="330" y="270" class="todo"><title>0x00440550 CWaveFile::~CWaveFile (5 bytes)</title></rect>
+<rect width="12" height="12" x="330" y="270" class="named"><title>0x00440550 CWaveFile::~CWaveFile (5 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="270" class="todo"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="270" class="todo"><title>0x004405e0 CWaveFile::SwitchTrack (63 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="270" class="todo"><title>0x00440620 CWaveFile::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
@@ -1130,8 +1130,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">15.59%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">84.41%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="116.42" height="6" x="0" y="0" class="named"/>
-<rect width="630.58" height="6" x="116.42" y="0" class="todo"/>
+<rect width="116.44" height="6" x="0" y="0" class="named"/>
+<rect width="630.56" height="6" x="116.44" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2175,7 +2175,7 @@
 <rect width="0.10" height="0.10" x="745.25" y="323.70" class="named"><title>0x00436300 GdiSurface::~GdiSurface (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.63" y="323.70" class="named"><title>0x0043d2a0 MidiTimer::StopTimer (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="742.88" y="325.51" class="named"><title>0x0043d2c0 MidiDevice::~MidiDevice (5 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="744.86" y="325.51" class="todo"><title>0x00440550 CWaveFile::~CWaveFile (5 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="744.86" y="325.51" class="named"><title>0x00440550 CWaveFile::~CWaveFile (5 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.84" y="325.51" class="named"><title>0x004014f0 Timer::AsFloat (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.42" y="325.51" class="named"><title>0x0041a89e Rng::GetSeed (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="742.88" y="327.69" class="named"><title>0x00435eb0 GdiSurface::GetBits (4 bytes)</title></rect>
