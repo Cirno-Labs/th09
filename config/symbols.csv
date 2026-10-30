@@ -770,7 +770,7 @@ address,size,name,symbol
 0x004362c0,26,CreateTextSurface,?CreateTextSurface@@YIXXZ
 0x004362e0,26,ReleaseTextSurface,?ReleaseTextSurface@@YIXXZ
 0x00436300,5,GdiSurface::~GdiSurface,??1GdiSurface@@QAE@XZ
-0x00436310,315,Func436310,
+0x00436310,315,GdiSurface::CreateInFormat,?CreateInFormat@GdiSurface@@QAE_NHHH@Z
 0x00436450,101,Func436450,
 0x004364c0,751,Func4364c0,
 0x004367b0,743,Func4367b0,
