@@ -10,3 +10,18 @@
 
 // The number of elements of array `a`, as an unsigned size_t.
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
+
+// The object every allocation goes through, as th08's (at 0x4ad018).
+// Only its release build's methods are known.
+class MemoryManager
+{
+public:
+    // malloc() and free(); `name` is unused in the release build
+    // (0x401340, 0x401360).
+    void *Alloc(int size, const char *name);
+    void Free(void *p);
+    // Records `p`, a block of `size` bytes allocated with new, under
+    // `name` and returns it; a no-op in the release build (0x401380).
+    void *Register(void *p, int size, const char *name);
+};
+extern MemoryManager g_MemoryManager;

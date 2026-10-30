@@ -15,7 +15,7 @@ address,size,name,symbol
 0x004012c0,31,Func4012c0,
 0x004012e0,21,Func4012e0,
 0x00401300,57,Func401300,
-0x00401340,19,Func401340,
+0x00401340,19,MemoryManager::Alloc,?Alloc@MemoryManager@@QAEPAXHPBD@Z
 0x00401360,19,Func401360,
 0x00401380,10,Func401380,
 0x00401390,71,Func401390,
@@ -1601,7 +1601,7 @@ address,size,name,symbol
 0x0047b0aa,111,__heap_alloc,
 0x0047b11c,9,Func47b11c,
 0x0047b125,44,__nh_malloc,
-0x0047b151,18,_malloc,
+0x0047b151,18,_malloc,_malloc
 0x0047b163,104,_free,
 0x0047b1b6,9,Func47b1b6,
 0x0047b1d4,117,_ftol2,__ftol2
@@ -2196,5 +2196,6 @@ address,size,name,symbol
 0x0048e284,4,CoInitialize,__imp__CoInitialize@4
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
+0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A
