@@ -11,7 +11,7 @@ int Gui::FreeResources(Gui *gui)
 {
     if (FreesResources())
     {
-        gui->msg.UnloadBgm(g_GameManager.sides[1].unknown20 * 10);
+        gui->msg.UnloadBgm(g_GameManager.sides[1].character * 10);
     }
     return 0;
 }

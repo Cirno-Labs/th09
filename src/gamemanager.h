@@ -19,18 +19,31 @@ struct GameStats
     BYTE unknown14;
 };
 
+class Stage;
+class Player;
+class BulletManager;
+class EffectManager;
+class EnemyManager;
+class SpellCard;
+class GuiSide;
+class Gui;
+class ExAttackManager;
+
 // One side of the game (the third is used for little).
 struct GameSide
 {
-    void *unknown00;
-    void *unknown04;
-    void *unknown08;
-    void *unknown0c;
-    void *unknown10;
-    void *unknown14;
-    void *unknown18;
+    // The side's objects, which GameManager::DeletedCallback removes.
+    Stage *stage;
+    Player *player;
+    BulletManager *bulletManager;
+    EffectManager *effectManager;
+    EnemyManager *enemyManager;
+    SpellCard *spellCard;
+    GuiSide *gui;
     GameStats *stats;
-    int unknown20;
+    // The character: its files are listed by it, and Player keeps the
+    // shot file while unknown24, the last game's, is the same.
+    int character;
     int unknown24;
     unsigned char pad_28[0x34 - 0x28];
     DWORD flags;
@@ -92,8 +105,8 @@ public:
     void AddExtend();
 
     GameSide sides[3];
-    void *unknownA8;
-    void *unknownAc;
+    Gui *gui;
+    ExAttackManager *exAttackManager;
     int unknownB0;
     unsigned char pad_b4[0x4];
     int unknownB8;
