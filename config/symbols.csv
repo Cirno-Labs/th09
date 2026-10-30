@@ -840,7 +840,7 @@ address,size,name,symbol
 0x0043cf90,59,SpriteEngine::LoadAnm,?LoadAnm@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
 0x0043cfd0,16,MidiDevice::MidiDevice,??0MidiDevice@@QAE@XZ
 0x0043cfe0,40,MidiDevice::Close,?Close@MidiDevice@@QAEHXZ
-0x0043d010,70,Func43d010,
+0x0043d010,70,MidiDevice::SendLongMsg,?SendLongMsg@MidiDevice@@QAEHPAUmidihdr_tag@@@Z
 0x0043d060,52,Func43d060,
 0x0043d0a0,32,Func43d0a0,
 0x0043d0c0,41,Func43d0c0,
