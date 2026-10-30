@@ -45,3 +45,14 @@ int MidiDevice::SendShortMsg(BYTE status, BYTE data1, BYTE data2)
     msg.bytes[2] = data2;
     return midiOutShortMsg(this->handle, msg.dword) != MMSYSERR_NOERROR;
 }
+
+MmTimer::MmTimer()
+{
+    timeGetDevCaps(&this->caps, sizeof(this->caps));
+    this->timerId = 0;
+}
+
+// Empty; the linker folded it with DebugPrint (0x43d2b0).
+void MmTimer::OnTimer()
+{
+}
