@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.51% (407)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.49% (650)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.60% (408)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">61.40% (649)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="287.63" height="6" x="0" y="0" class="named"/>
-<rect width="459.37" height="6" x="287.63" y="0" class="todo"/>
+<rect width="288.34" height="6" x="0" y="0" class="named"/>
+<rect width="458.66" height="6" x="288.34" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -977,7 +977,7 @@
 <rect width="12" height="12" x="105" y="270" class="named"><title>0x0043fc90 CStreamingSound::UpdateFade (65 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="270" class="named"><title>0x0043fce0 CStreamingSound::UpdateFadeIn (49 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="270" class="named"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="270" class="todo"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="270" class="named"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="270" class="todo"><title>0x0043fda0 CWaveFile::CWaveFile (19 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="270" class="todo"><title>0x0043fdc0 CWaveFile::OpenFromMemory (60 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="270" class="todo"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.92%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.08%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.94%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.06%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="111.46" height="6" x="0" y="0" class="named"/>
-<rect width="635.54" height="6" x="111.46" y="0" class="todo"/>
+<rect width="111.60" height="6" x="0" y="0" class="named"/>
+<rect width="635.40" height="6" x="111.60" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1826,7 +1826,7 @@
 <rect width="4.07" height="3.57" x="656.35" y="319.87" class="todo"><title>0x004234a7 Func4234a7 (54 bytes)</title></rect>
 <rect width="4.07" height="3.57" x="656.35" y="326.43" class="named"><title>0x0042fbe0 SoundPlayer::UpdateBgmFades (54 bytes)</title></rect>
 <rect width="3.91" height="3.72" x="663.42" y="239.50" class="named"><title>0x0043e130 MidiPlayer::Load (54 bytes)</title></rect>
-<rect width="3.91" height="3.72" x="670.33" y="239.50" class="todo"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
+<rect width="3.91" height="3.72" x="670.33" y="239.50" class="named"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
 <rect width="3.78" height="3.72" x="677.23" y="239.50" class="named"><title>0x0042fcf0 App::PlayBgm (53 bytes)</title></rect>
 <rect width="3.78" height="3.72" x="684.01" y="239.50" class="named"><title>0x00439560 SpriteEngine::StepSprites (53 bytes)</title></rect>
 <rect width="3.65" height="3.72" x="690.79" y="239.50" class="todo"><title>0x00401180 Func401180 (52 bytes)</title></rect>
