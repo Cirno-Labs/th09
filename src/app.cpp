@@ -647,3 +647,25 @@ void App::SetupCamera(Camera *camera)
         g_SpriteEngine->shakeY = camera->shakeY;
     }
 }
+
+void App::SetupCamera3D(Camera *camera)
+{
+    if (g_SpriteEngine != NULL)
+    {
+        g_SpriteEngine->FlushQuadBatch();
+    }
+    D3DXVECTOR3 at = camera->at + camera->eye;
+    D3DXVECTOR3 eye = camera->offset + camera->eye;
+    D3DXMatrixLookAtLH(&camera->viewMatrix, &eye, &at, &camera->up);
+    D3DXMatrixPerspectiveFovLH(&camera->projectionMatrix, camera->fov,
+                               (float)camera->viewport.Width / (float)camera->viewport.Height, 30.0f, 1800.0f);
+    g_App.d3dDevice->SetTransform(D3DTS_VIEW, &camera->viewMatrix);
+    g_App.d3dDevice->SetTransform(D3DTS_PROJECTION, &camera->projectionMatrix);
+    D3DXVec3Cross(&camera->cameraRight, &camera->at, &camera->up);
+    D3DXVec3Normalize(&camera->cameraRight, &camera->cameraRight);
+    if (g_SpriteEngine != NULL)
+    {
+        g_SpriteEngine->shakeX = camera->shakeX;
+        g_SpriteEngine->shakeY = camera->shakeY;
+    }
+}
