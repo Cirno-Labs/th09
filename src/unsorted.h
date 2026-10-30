@@ -422,7 +422,10 @@ struct App
     unsigned char pad_c[0x348 - 0xc];
     // The camera of the view SetView last set up.
     Camera *camera;
-    unsigned char pad_34c[0x388 - 0x34c];
+    unsigned char pad_34c[0x350 - 0x34c];
+    // The parameters the device is created with, as th08's.
+    D3DPRESENT_PARAMETERS presentParams;
+    unsigned char pad_384[0x388 - 0x384];
     GameConfig config;
     unsigned char pad_454[0x590 - 0x454];
     int scene;

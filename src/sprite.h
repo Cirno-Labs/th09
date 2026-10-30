@@ -269,6 +269,10 @@ public:
     // Releases surface `surface`, its backup and its file, as th08's
     // (0x43bf30).
     void ReleaseSurface(int surface);
+    // Copies surface `surface`, from (`left`, `top`) to its end, to
+    // (`x`, `y`) on the back buffer, first creating it from its backup
+    // if needed, as th08's (0x43bfa0).
+    void CopySurfaceToBackBuffer(int surface, int left, int top, int x, int y);
     // Draws the sprites batched so far (0x4396a0).
     void FlushQuadBatch();
     // Draws `vm`, as th08's (0x43ab50).
