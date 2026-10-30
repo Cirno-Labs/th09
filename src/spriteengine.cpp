@@ -858,3 +858,49 @@ int SpriteEngine::PreloadSurface(int surface, char *path)
     this->surfaceFileSizes[surface] = size;
     return 0;
 }
+
+AnmLoaded *SpriteEngine::PostloadAnm(AnmLoaded *anm)
+{
+    AnmFile *header;
+    int scriptOffset;
+    int result;
+    AnmFile *data;
+    int done;
+    int spriteOffset;
+    int index;
+
+    data = anm->file;
+    done = 0;
+    scriptOffset = 0;
+    spriteOffset = 0;
+    index = 0;
+    header = data;
+    while (1)
+    {
+        if (done == anm->loadStep - 1)
+        {
+            result = this->LoadAnmSprites(anm, index, spriteOffset, scriptOffset, header);
+            if (result < 0)
+            {
+                anm->loadStep = 0;
+                return NULL;
+            }
+        }
+        spriteOffset += header->numSprites;
+        scriptOffset += header->numScripts;
+        index++;
+        if (header->nextOffset == 0)
+        {
+            break;
+        }
+        header = (AnmFile *)((BYTE *)header + header->nextOffset);
+        done++;
+        if (done == anm->loadStep)
+        {
+            anm->loadStep++;
+            return anm;
+        }
+    }
+    anm->loadStep = 0;
+    return anm;
+}
