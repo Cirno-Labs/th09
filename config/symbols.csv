@@ -415,8 +415,8 @@ address,size,name,symbol
 0x0041f2c0,55,Func41f2c0,
 0x0041f300,9,Timer::operator-=,??ZTimer@@QAEXH@Z
 0x0041f310,51,Player::SubUnknown30388,?SubUnknown30388@Player@@QAEXM@Z
-0x0041f350,309,Func41f350,
-0x0041f490,37,Func41f490,
+0x0041f350,309,FireShot,?FireShot@@YIXPAVPlayer@@PAUPlayerBullet@@PAUShotData@@@Z
+0x0041f490,37,TryFireShot,?TryFireShot@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x0041f4c0,190,Func41f4c0,
 0x0041f580,242,Func41f580,
 0x0041f680,205,Func41f680,
@@ -2247,6 +2247,7 @@ address,size,name,symbol
 0x004953d0,,GUID_NULL,_GUID_NULL
 0x004a1128,,g_Unknown4a1128,?g_Unknown4a1128@@3PAHA
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
+0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
 0x004a1ce8,,g_DemoReplayPaths,?g_DemoReplayPaths@@3PAPADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
@@ -2299,4 +2300,3 @@ address,size,name,symbol
 0x004dc688,,g_MidiTimerLastCounter,?g_MidiTimerLastCounter@@3T_LARGE_INTEGER@@A
 0x004dc690,,g_BgmUnknown08,?g_BgmUnknown08@@3HA
 0x004dc698,,g_SoundPlayer,?g_SoundPlayer@@3VSoundPlayer@@A
-0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA

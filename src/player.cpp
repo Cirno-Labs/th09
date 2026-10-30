@@ -262,6 +262,16 @@ void Player::SubUnknown30388(float amount)
     }
 }
 
+int TryFireShot(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+{
+    if (frame == sd->frame)
+    {
+        FireShot(player, bullet, sd);
+        return 1;
+    }
+    return 0;
+}
+
 void Player::DrawHitBullets()
 {
     PlayerBullet *bullet = this->bullets;

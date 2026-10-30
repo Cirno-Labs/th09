@@ -267,6 +267,20 @@ public:
 };
 ASSERT_SIZE(Player, 0x30f70);
 
+// One shot of a shot file. Only the fields known so far.
+struct ShotData
+{
+    // The frame it fires on.
+    short frame;
+};
+
+// Fills `bullet` with shot `sd` and starts it, as th08's (0x41f350).
+void FireShot(Player *player, PlayerBullet *bullet, ShotData *sd);
+// Fires `sd` into `bullet` if `frame` is its frame, returning 1 if it
+// did, as th08's, which tested frame % interval against phase
+// (0x41f490).
+int TryFireShot(Player *player, PlayerBullet *bullet, int frame, ShotData *sd);
+
 // Each character's files: its shot file, ANM, ECL, MSG, match MSG and
 // second ANM (0x4a1238).
 extern char *g_CharacterFiles[][6];

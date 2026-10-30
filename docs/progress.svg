@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">60.04% (637)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">39.96% (424)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">60.13% (638)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">39.87% (423)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="448.48" height="6" x="0" y="0" class="named"/>
-<rect width="298.52" height="6" x="448.48" y="0" class="todo"/>
+<rect width="449.19" height="6" x="0" y="0" class="named"/>
+<rect width="297.81" height="6" x="449.19" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -483,8 +483,8 @@
 <rect width="12" height="12" x="195" y="120" class="todo"><title>0x0041f2c0 Func41f2c0 (55 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="120" class="named"><title>0x0041f300 Timer::operator-= (9 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="120" class="named"><title>0x0041f310 Player::SubUnknown30388 (51 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="120" class="todo"><title>0x0041f350 Func41f350 (309 bytes)</title></rect>
-<rect width="12" height="12" x="255" y="120" class="todo"><title>0x0041f490 Func41f490 (37 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="120" class="todo"><title>0x0041f350 FireShot (309 bytes)</title></rect>
+<rect width="12" height="12" x="255" y="120" class="named"><title>0x0041f490 TryFireShot (37 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="120" class="todo"><title>0x0041f4c0 Func41f4c0 (190 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="120" class="todo"><title>0x0041f580 Func41f580 (242 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="120" class="todo"><title>0x0041f680 Func41f680 (205 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.13%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.87%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">31.14%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">68.86%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="232.51" height="6" x="0" y="0" class="named"/>
-<rect width="514.49" height="6" x="232.51" y="0" class="todo"/>
+<rect width="232.60" height="6" x="0" y="0" class="named"/>
+<rect width="514.40" height="6" x="232.60" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1395,7 +1395,7 @@
 <rect width="13.54" height="13.13" x="571.51" y="75.65" class="todo"><title>0x00443010 Func443010 (311 bytes)</title></rect>
 <rect width="13.54" height="13.13" x="588.05" y="75.65" class="todo"><title>0x00449a10 Func449a10 (311 bytes)</title></rect>
 <rect width="13.48" height="13.13" x="604.58" y="75.65" class="todo"><title>0x0044b940 Func44b940 (310 bytes)</title></rect>
-<rect width="13.43" height="13.13" x="621.06" y="75.65" class="todo"><title>0x0041f350 Func41f350 (309 bytes)</title></rect>
+<rect width="13.43" height="13.13" x="621.06" y="75.65" class="todo"><title>0x0041f350 FireShot (309 bytes)</title></rect>
 <rect width="13.38" height="13.13" x="637.49" y="75.65" class="todo"><title>0x00444560 Func444560 (308 bytes)</title></rect>
 <rect width="13.32" height="13.13" x="653.87" y="75.65" class="named"><title>0x00403ae0 Stage::RegisterChain (307 bytes)</title></rect>
 <rect width="13.32" height="13.13" x="670.19" y="75.65" class="named"><title>0x0041a490 GuiSide::GuiSide (307 bytes)</title></rect>
@@ -1928,7 +1928,7 @@
 <rect width="2.62" height="2.64" x="716.26" y="264.51" class="named"><title>0x0040e3a0 PlayRecord::AddClear (37 bytes)</title></rect>
 <rect width="2.62" height="2.64" x="721.88" y="264.51" class="todo"><title>0x00412650 Func412650 (37 bytes)</title></rect>
 <rect width="2.62" height="2.64" x="727.50" y="264.51" class="todo"><title>0x004126d0 Func4126d0 (37 bytes)</title></rect>
-<rect width="2.62" height="2.64" x="733.13" y="264.51" class="todo"><title>0x0041f490 Func41f490 (37 bytes)</title></rect>
+<rect width="2.62" height="2.64" x="733.13" y="264.51" class="named"><title>0x0041f490 TryFireShot (37 bytes)</title></rect>
 <rect width="2.62" height="2.64" x="738.75" y="264.51" class="todo"><title>0x0042ac80 Func42ac80 (37 bytes)</title></rect>
 <rect width="2.62" height="2.64" x="744.38" y="264.51" class="named"><title>0x00433c80 LzssTreeInitNode (37 bytes)</title></rect>
 <rect width="2.70" height="2.41" x="681.60" y="270.15" class="named"><title>0x00405730 D3DXVECTOR3::operator+= (36 bytes)</title></rect>
