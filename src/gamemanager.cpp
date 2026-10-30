@@ -57,6 +57,29 @@ void FormatDate(char *buf)
     strftime(buf, 10, "%y/%m/%d", localtime(&t));
 }
 
+void GameManager::ResetState()
+{
+    int i;
+
+    for (i = 0; i < 3; i++)
+    {
+        this->sides[i].flags &= ~1;
+    }
+    this->unknownB0 = 0;
+    this->unknownB8 = 2;
+    this->unknownC0 = 0;
+    this->unknownD0 = 0;
+    this->unknownBc = 0;
+    this->unknown110 = 0;
+    this->unknown128 = 0;
+    this->unknown12c = 0;
+    this->unknown130 = 0;
+    this->isPaused = 0;
+    this->unknown13d = 0;
+    this->unknown13e = 0;
+    this->unknown380 = 0;
+}
+
 void ChainElem::SetCallback(ChainCallback callback)
 {
     this->callback = callback;
