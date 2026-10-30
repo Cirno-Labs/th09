@@ -252,6 +252,21 @@ int EffectUpdate40d470(Effect *effect)
     return 1;
 }
 
+int EffectInit40d520(Effect *effect)
+{
+    effect->unknown54 = effect->pos;
+    effect->unknown60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);
+    effect->unknown60.y = g_GameManager.ArenaToScreenY(effect->velocity.y);
+    effect->unknown60.z = effect->velocity.z;
+    ((Vector2 *)&effect->unknown3c)
+        ->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
+    ((Vector2 *)&effect->unknown48)
+        ->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
+    effect->unknown9c = g_Rng.GetRandomF32InRange(100.0f) + 60.0f;
+    effect->unknown98 = 0.0f;
+    return 0;
+}
+
 int EffectInit40dbb0(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x1c38, "Effect");

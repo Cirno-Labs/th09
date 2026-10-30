@@ -25,9 +25,11 @@ struct Effect
     D3DXVECTOR3 pos;
     // As spawned; some types' init callbacks take an angle in x.
     D3DXVECTOR3 velocity;
-    unsigned char pad_24[0x48 - 0x24];
-    // Set by EffectInit40dbb0: the position it started at, and two
-    // directions.
+    unsigned char pad_24[0x3c - 0x24];
+    // Set by the init callbacks: EffectInit40dbb0's start position and
+    // two directions, EffectInit40d520's two random offsets in 3c and
+    // 48, its start position in 54 and velocity on screen in 60.
+    D3DXVECTOR3 unknown3c;
     D3DXVECTOR3 unknown48;
     D3DXVECTOR3 unknown54;
     D3DXVECTOR3 unknown60;
@@ -190,3 +192,8 @@ int EffectUpdate40d470(Effect *effect);
 // velocity's parts into the effect. Returns 0, or -1 if the allocation
 // fails (0x40dbb0).
 int EffectInit40dbb0(Effect *effect);
+
+// An init callback of the effect table: keeps the start position and the
+// velocity moved to the screen, and picks two random offsets and
+// unknown9c. Returns 0 (0x40d520).
+int EffectInit40d520(Effect *effect);
