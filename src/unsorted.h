@@ -90,6 +90,11 @@ char *__stdcall GetDataPath(char *name);
 // 2, as th08's (0x42c480).
 int FileExists(char *path);
 
+// Writes `size` bytes of `data` to `path` in g_DataDir, inside critical
+// section 2, as th08's. Returns 0, -1 if the file cannot be created, or
+// -2 if not all was written (0x42c4e0).
+int WriteToFile(char *path, void *data, int size);
+
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);

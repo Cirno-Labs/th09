@@ -404,6 +404,36 @@ int FileExists(char *path)
     return 0;
 }
 
+int WriteToFile(char *path, void *data, int size)
+{
+    HANDLE file;
+    DWORD written;
+
+    path = GetDataPath(path);
+    g_App.EnterCriticalSection(2);
+    file = CreateFileA(path, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    if (file == INVALID_HANDLE_VALUE)
+    {
+        char *msg;
+
+        FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+                       NULL, GetLastError(), MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&msg, 0, NULL);
+        LocalFree(msg);
+        g_App.LeaveCriticalSection(2);
+        return -1;
+    }
+    WriteFile(file, data, size, &written, NULL);
+    if (size != written)
+    {
+        CloseHandle(file);
+        g_App.LeaveCriticalSection(2);
+        return -2;
+    }
+    CloseHandle(file);
+    g_App.LeaveCriticalSection(2);
+    return 0;
+}
+
 int LogPrintf(Log *log, const char *fmt, ...)
 {
     int len2;

@@ -553,7 +553,7 @@ address,size,name,symbol
 0x0042c290,220,Func42c290,
 0x0042c370,267,Func42c370,
 0x0042c480,92,FileExists,?FileExists@@YIHPAD@Z
-0x0042c4e0,210,Func42c4e0,
+0x0042c4e0,210,WriteToFile,?WriteToFile@@YIHPADPAXH@Z
 0x0042c5c0,153,LogPrintf,?LogPrintf@@YAHPAVLog@@PBDZZ
 0x0042c660,153,LogError,?LogError@@YAHPAVLog@@PBDZZ
 0x0042c700,179,Func42c700,
