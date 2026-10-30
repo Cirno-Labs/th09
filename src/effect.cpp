@@ -22,3 +22,14 @@ int EffectManager::FreeEffects(EffectManager *mgr)
     g_MemoryManager.Free(mgr->effects);
     return 0;
 }
+
+void EffectManager::CutChain(EffectManager *mgr)
+{
+    if (mgr != NULL)
+    {
+        FreeEffects(mgr);
+        g_Chain.Remove(mgr->calcElem);
+        g_Chain.Remove(mgr->drawElem);
+        delete mgr;
+    }
+}

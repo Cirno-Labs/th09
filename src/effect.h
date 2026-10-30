@@ -23,6 +23,10 @@ public:
     // Frees the blocks of each effect and the effects. Returns 0. Clears
     // unknownCc where it should clear unknown04 (0x40d200).
     static int FreeEffects(EffectManager *mgr);
+    // Frees the effects, removes the manager's chain elements and deletes
+    // it, if any (0x40d280).
+    static void CutChain(EffectManager *mgr);
+
     unsigned char pad_0[0x18];
     ChainElem *calcElem;
     ChainElem *drawElem;

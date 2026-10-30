@@ -141,7 +141,7 @@ address,size,name,symbol
 0x0040cfb0,183,Func40cfb0,
 0x0040d110,169,Func40d110,
 0x0040d200,123,EffectManager::FreeEffects,?FreeEffects@EffectManager@@SIHPAV1@@Z
-0x0040d280,51,Func40d280,
+0x0040d280,51,EffectManager::CutChain,?CutChain@EffectManager@@SIXPAV1@@Z
 0x0040d2c0,18,Func40d2c0,
 0x0040d2e0,61,Func40d2e0,
 0x0040d320,327,Func40d320,
