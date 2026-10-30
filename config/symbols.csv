@@ -106,7 +106,7 @@ address,size,name,symbol
 0x004067b0,21,Stage::StartSpellCard,?StartSpellCard@Stage@@QAEXXZ
 0x004067d0,32,AsciiText::SetUnknown17c4Interrupt,?SetUnknown17c4Interrupt@AsciiText@@QAEXHF@Z
 0x004067f0,42,AsciiText::SetUnknown17c4Pos,?SetUnknown17c4Pos@AsciiText@@QAEXHPAUD3DXVECTOR3@@@Z
-0x00406820,16,Func406820,
+0x00406820,16,Player::CallUnknown30404,?CallUnknown30404@Player@@QAEHPAUD3DXVECTOR3@@@Z
 0x00406830,28,EclManager::Unload,?Unload@EclManager@@QAEXXZ
 0x00406850,73,Func406850,
 0x004068a0,1633,Func4068a0,
@@ -2249,7 +2249,7 @@ address,size,name,symbol
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
 0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
 0x004a19d0,,g_CharacterFuncs9d0,?g_CharacterFuncs9d0@@3PAP6IHPAVPlayer@@@ZA
-0x004a1a50,,g_CharacterFuncsA50,?g_CharacterFuncsA50@@3PAP6IHPAVPlayer@@@ZA
+0x004a1a50,,g_CharacterFuncsA50,?g_CharacterFuncsA50@@3PAP6IHPAVPlayer@@PAUD3DXVECTOR3@@@ZA
 0x004a1a90,,g_CharacterFuncsA90,?g_CharacterFuncsA90@@3PAP6IHPAVPlayer@@@ZA
 0x004a1ad0,,g_CharacterValuesAd0,?g_CharacterValuesAd0@@3PAHA
 0x004a1b10,,g_CharacterValuesB10,?g_CharacterValuesB10@@3PAHA

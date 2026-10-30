@@ -104,6 +104,8 @@ struct ShtFile;
 
 // A character's function kept by the player. Placeholder signature.
 typedef int (*PlayerFunc)(Player *player);
+// A character's function taking a position, kept by the player.
+typedef int (*PlayerPosFunc)(Player *player, D3DXVECTOR3 *pos);
 struct ShotData;
 
 // A shot's callbacks, as th08's. Under /Gr these are __fastcall.
@@ -236,6 +238,9 @@ public:
     static void RemoveChain(Player *player);
     // Resets the player for a new round (0x41ebc0).
     void Reset();
+    // Calls the character's unknown30404 with `pos`. Called by the
+    // enemies; the copy is at 0x406820.
+    int CallUnknown30404(D3DXVECTOR3 *pos);
     // The angle from the player to `pos`, or pi / 2 at the player
     // (0x41bb00).
     float AngleFromPlayer(D3DXVECTOR3 *pos);
@@ -407,8 +412,8 @@ public:
     int unknown303fc;
     int unknown30400;
     // The character's functions from the tables at 0x4a1a50 and
-    // 0x4a1a90.
-    PlayerFunc unknown30404;
+    // 0x4a1a90. The first takes a position, from CallUnknown30404.
+    PlayerPosFunc unknown30404;
     PlayerFunc unknown30408;
     unsigned char pad_3040c[0x30410 - 0x3040c];
     PlayerUnknown30410 unknown30410;
@@ -512,7 +517,7 @@ extern ShotHitFunc g_ShotHitFuncs[4];
 // 0x4a1a50, 0x4a1a90, 0x4a1ad0, 0x4a1b10, 0x4a1b50, 0x4a1b90,
 // 0x4a1bd0).
 extern PlayerFunc g_CharacterFuncs9d0[16];
-extern PlayerFunc g_CharacterFuncsA50[16];
+extern PlayerPosFunc g_CharacterFuncsA50[16];
 extern PlayerFunc g_CharacterFuncsA90[16];
 extern int g_CharacterValuesAd0[16];
 extern int g_CharacterValuesB10[16];

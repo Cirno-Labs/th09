@@ -3,6 +3,11 @@
 #include "bullet.h"
 #include "gui.h"
 
+int Player::CallUnknown30404(D3DXVECTOR3 *pos)
+{
+    return this->unknown30404(this, pos);
+}
+
 float Player::AngleFromPlayer(D3DXVECTOR3 *pos)
 {
     float dx = pos->x - this->pos[0];
