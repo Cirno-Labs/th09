@@ -81,6 +81,12 @@ void SpriteEngine::ClearSpriteData()
     this->currentSpriteData = NULL;
 }
 
+void Sprite::SetRotationZ(float angle)
+{
+    this->rotation.z = angle;
+    this->rotationSet = 1;
+}
+
 void SpriteEngine::ClearColorOp()
 {
     this->colorOp = 0xff;

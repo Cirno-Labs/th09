@@ -113,7 +113,8 @@ struct SpriteBase
         {
             DWORD shown : 1;
             DWORD visible : 1;
-            DWORD unusedFlag2 : 1;
+            // Set by SetRotationZ.
+            DWORD rotationSet : 1;
             DWORD unusedFlag3 : 1;
             DWORD blendMode : 2;
             DWORD unusedFlag6 : 1;
@@ -211,6 +212,8 @@ public:
         this->pendingInterrupt = interrupt;
     }
 
+    // Sets rotation.z to `angle` and rotationSet (0x40f840).
+    void SetRotationZ(float angle);
     // Set blendMode to 1 and to 0 (0x41bd40, 0x41bd60).
     void SetBlendMode1();
     void ClearBlendMode();
