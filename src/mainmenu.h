@@ -18,8 +18,9 @@ struct Network
 {
     // Sets up network play. Only the call is known (0x4324c0).
     void Init();
-    // Sets unknownA8 (0x42e9a0).
+    // Sets and clears unknownA8 (0x42e9a0, 0x42e9b0).
     void SetUnknownA8();
+    void ClearUnknownA8();
 
     unsigned char pad_0[0xa8];
     // While set, the menus do not skip the entries that are not open.

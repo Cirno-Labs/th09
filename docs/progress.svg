@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.09% (531)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">49.91% (529)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.19% (532)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">49.81% (528)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="374.20" height="6" x="0" y="0" class="named"/>
-<rect width="372.80" height="6" x="374.20" y="0" class="todo"/>
+<rect width="374.91" height="6" x="0" y="0" class="named"/>
+<rect width="372.09" height="6" x="374.91" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -674,7 +674,7 @@
 <rect width="12" height="12" x="60" y="180" class="named"><title>0x0042e920 D3DXVec3Cross (83 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="180" class="todo"><title>0x0042e980 Func42e980 (17 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="180" class="named"><title>0x0042e9a0 Network::SetUnknownA8 (11 bytes)</title></rect>
-<rect width="12" height="12" x="105" y="180" class="todo"><title>0x0042e9b0 Func42e9b0 (11 bytes)</title></rect>
+<rect width="12" height="12" x="105" y="180" class="named"><title>0x0042e9b0 Network::ClearUnknownA8 (11 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="180" class="todo"><title>0x0042e9c0 Func42e9c0 (27 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="180" class="todo"><title>0x0042e9e0 App::AddRecord (213 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="180" class="todo"><title>0x0042eac0 Func42eac0 (188 bytes)</title></rect>
@@ -1131,10 +1131,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.58%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">73.42%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">26.59%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">73.41%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="198.58" height="6" x="0" y="0" class="named"/>
-<rect width="548.42" height="6" x="198.58" y="0" class="todo"/>
+<rect width="198.60" height="6" x="0" y="0" class="named"/>
+<rect width="548.40" height="6" x="198.60" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.74" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -2141,7 +2141,7 @@
 <rect width="0.20" height="0.10" x="728.97" y="321.20" class="named"><title>0x004015f0 SpriteEngine::ClearTexture (11 bytes)</title></rect>
 <rect width="0.20" height="0.10" x="728.97" y="324.15" class="named"><title>0x0040e390 SpriteEngine::ClearSpriteData (11 bytes)</title></rect>
 <rect width="0.20" height="0.10" x="728.97" y="327.10" class="named"><title>0x0042e9a0 Network::SetUnknownA8 (11 bytes)</title></rect>
-<rect width="0.20" height="0.10" x="728.97" y="330.05" class="todo"><title>0x0042e9b0 Func42e9b0 (11 bytes)</title></rect>
+<rect width="0.20" height="0.10" x="728.97" y="330.05" class="named"><title>0x0042e9b0 Network::ClearUnknownA8 (11 bytes)</title></rect>
 <rect width="0.11" height="0.10" x="732.17" y="315.03" class="named"><title>0x00430220 AsciiText::ClearStrings (11 bytes)</title></rect>
 <rect width="0.11" height="0.10" x="735.28" y="315.03" class="named"><title>0x00435f10 GdiSurface::IsCreated (11 bytes)</title></rect>
 <rect width="0.11" height="0.10" x="738.40" y="315.03" class="named"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>

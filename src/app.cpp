@@ -35,6 +35,11 @@ void Network::SetUnknownA8()
     this->unknownA8 = 1;
 }
 
+void Network::ClearUnknownA8()
+{
+    this->unknownA8 = 0;
+}
+
 void App::ResetRun()
 {
     this->unknown458 = 0;

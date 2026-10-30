@@ -606,7 +606,7 @@ address,size,name,symbol
 0x0042e920,83,D3DXVec3Cross,?D3DXVec3Cross@@YIPAUD3DXVECTOR3@@PAU1@PBU1@1@Z
 0x0042e980,17,Func42e980,
 0x0042e9a0,11,Network::SetUnknownA8,?SetUnknownA8@Network@@QAEXXZ
-0x0042e9b0,11,Func42e9b0,
+0x0042e9b0,11,Network::ClearUnknownA8,?ClearUnknownA8@Network@@QAEXXZ
 0x0042e9c0,27,Func42e9c0,
 0x0042e9e0,213,App::AddRecord,?AddRecord@App@@QAEXHHGG@Z
 0x0042eac0,188,Func42eac0,
