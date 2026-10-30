@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.28% (394)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">62.72% (663)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.37% (395)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">62.63% (662)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="278.45" height="6" x="0" y="0" class="named"/>
-<rect width="468.55" height="6" x="278.45" y="0" class="todo"/>
+<rect width="279.15" height="6" x="0" y="0" class="named"/>
+<rect width="467.85" height="6" x="279.15" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -964,7 +964,7 @@
 <rect width="12" height="12" x="660" y="255" class="named"><title>0x0043f0a0 SoundPlayer::PlayPreloadedBgm (327 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="255" class="todo"><title>0x0043f1f0 SoundPlayer::PlayQueuedSounds (1416 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="255" class="named"><title>0x0043f7a0 CSoundManager::~CSoundManager (23 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="255" class="todo"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="255" class="named"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="255" class="todo"><title>0x0043f890 CStreamingSound::RecreateBuffers (342 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="255" class="todo"><title>0x0043f9f0 CSound::RestoreBuffer (121 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="270" class="todo"><title>0x0043fa70 CSound::GetFreeBuffer (116 bytes)</title></rect>
@@ -1128,10 +1128,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.47%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.53%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">14.54%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">85.46%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="108.07" height="6" x="0" y="0" class="named"/>
-<rect width="638.93" height="6" x="108.07" y="0" class="todo"/>
+<rect width="108.59" height="6" x="0" y="0" class="named"/>
+<rect width="638.41" height="6" x="108.59" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.76" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1493,7 +1493,7 @@
 <rect width="10.10" height="10.12" x="736.90" y="120.11" class="todo"><title>0x004131c0 Func4131c0 (200 bytes)</title></rect>
 <rect width="9.65" height="10.59" x="549.45" y="133.24" class="todo"><title>0x00432f70 Func432f70 (200 bytes)</title></rect>
 <rect width="9.65" height="10.59" x="549.45" y="146.82" class="todo"><title>0x0043b8f0 Func43b8f0 (200 bytes)</title></rect>
-<rect width="9.65" height="10.59" x="549.45" y="160.41" class="todo"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>
+<rect width="9.65" height="10.59" x="549.45" y="160.41" class="named"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.45" y="174" class="todo"><title>0x00413700 Func413700 (199 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.45" y="187.53" class="named"><title>0x00430150 App::CheckVersionFile (199 bytes)</title></rect>
 <rect width="9.65" height="10.52" x="549.45" y="201.05" class="todo"><title>0x00432770 Func432770 (199 bytes)</title></rect>
