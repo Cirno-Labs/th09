@@ -826,8 +826,8 @@ address,size,name,symbol
 0x0043c200,193,SpriteEngine::CopyBackBufferToTexture,?CopyBackBufferToTexture@SpriteEngine@@QAEXHHHHHHHHH@Z
 0x0043c2d0,352,SpriteEngine::CopyBackBufferToSurface,?CopyBackBufferToSurface@SpriteEngine@@QAEXHHHHHHHHH@Z
 0x0043c430,50,AdjustTextureFormat,?AdjustTextureFormat@@YIHH@Z
-0x0043c470,75,SpriteEngine::LoadTexture,?LoadTexture@SpriteEngine@@SGHPAUAnmTexture@@HK@Z
-0x0043c4c0,330,SpriteEngine::CreateTextureFromImage,?CreateTextureFromImage@SpriteEngine@@SGHPAUAnmTexture@@PAUAnmImage@@H@Z
+0x0043c470,75,SpriteEngine::LoadTexture,?LoadTexture@SpriteEngine@@QAEHPAUAnmTexture@@HK@Z
+0x0043c4c0,330,SpriteEngine::CreateTextureFromImage,?CreateTextureFromImage@SpriteEngine@@QAEHPAUAnmTexture@@PAUAnmImage@@H@Z
 0x0043c610,390,Func43c610,
 0x0043c7a0,90,SpriteEngine::PreloadAnm,?PreloadAnm@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
 0x0043c800,558,Func43c800,

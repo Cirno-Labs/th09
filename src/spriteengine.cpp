@@ -456,7 +456,7 @@ static int AdjustTextureFormat(int format)
 }
 
 // 0x43c470
-int __stdcall SpriteEngine::LoadTexture(AnmTexture *tex, int format, D3DCOLOR colorKey)
+int SpriteEngine::LoadTexture(AnmTexture *tex, int format, D3DCOLOR colorKey)
 {
     format = AdjustTextureFormat(format);
     if (D3DXCreateTextureFromFileInMemoryEx(g_App.d3dDevice, tex->data, tex->size, 0, 0, 0, 0, g_TextureFormats[format],
@@ -469,7 +469,7 @@ int __stdcall SpriteEngine::LoadTexture(AnmTexture *tex, int format, D3DCOLOR co
 }
 
 // 0x43c4c0
-int __stdcall SpriteEngine::CreateTextureFromImage(AnmTexture *tex, AnmImage *image, int format)
+int SpriteEngine::CreateTextureFromImage(AnmTexture *tex, AnmImage *image, int format)
 {
     BYTE *dstRow;
     BYTE *srcRow;

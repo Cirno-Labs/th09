@@ -168,6 +168,47 @@ struct AnmImage
     BYTE data[1];
 };
 
+// A sprite in an ANM file: its number and rectangle, in pixels, as
+// th08's.
+struct AnmSprite
+{
+    int id;
+    float x;
+    float y;
+    float width;
+    float height;
+};
+
+// An ANM file's header, as th08's. The sprites' and then the scripts'
+// offsets follow it.
+struct AnmFile
+{
+    int numSprites;
+    int numScripts;
+    int textureIndex;
+    int width;
+    int height;
+    int format;
+    D3DCOLOR colorKey;
+    // The image's file name, or "@" for a texture created blank.
+    int nameOffset;
+    int spriteOffset;
+    int alphaNameOffset;
+    // 3 in th09's files.
+    int version;
+    // The texture's resource priority.
+    DWORD priority;
+    // The image stored in the file, when hasImage is set.
+    int imageOffset;
+    BYTE hasImage;
+    BYTE ownsData;
+    unsigned char pad_36[0x2];
+    // The offset of the next ANM in the same file, 0 for the last.
+    int nextOffset;
+    unsigned char pad_3c[0x4];
+    int spriteOffsets[1];
+};
+
 class AnmLoaded
 {
 public:
@@ -204,14 +245,19 @@ public:
 
     // Its slot in SpriteEngine's files.
     int slot;
-    void *file;
+    AnmFile *file;
+    // How many ANMs the file chains.
     int anmCount;
     SpriteData *sprites;
     void **scripts;
     AnmTexture *textures;
-    // Nonzero while the textures are still being created.
+    // While the textures are created a frame at a time: one more than
+    // the number of ANMs done, 0 when all are.
     int loadStep;
-    unsigned char pad_1c[0x120 - 0x1c];
+    // Set by PreloadAnmFile to have StepAnmLoading release the file.
+    int releaseRequested;
+    // The path it was loaded from.
+    char path[0x100];
 };
 ASSERT_SIZE(AnmLoaded, 0x120);
 
@@ -272,11 +318,35 @@ public:
     // color modulation and stops the shake, as th08's App::OnUpdate does
     // every frame (0x42f770).
     void ResetFrameState();
+    // Reads the ANM file at `path` into slot `slot`, sets up its tables
+    // and reads its image files, as th08's; a file in the slot is
+    // released by StepAnmLoading first. The textures are created later,
+    // by PostloadAnm. Returns the slot's AnmLoaded, or NULL on failure
+    // (0x43c610).
+    AnmLoaded *PreloadAnmFile(int slot, char *path);
     // Loads `path` into ANM slot `slot`, as th08's, waiting for the
     // loading thread. Returns it, or NULL on failure (0x43c7a0).
     AnmLoaded *PreloadAnm(int slot, char *path);
+    // Creates the textures and sprites of ANM `index` of `anm`, its
+    // header `file`, numbering them from `spriteOffset` and
+    // `scriptOffset`, as th08's. Returns 1, or -1 on failure (0x43c800).
+    int LoadAnmSprites(AnmLoaded *anm, int index, int spriteOffset, int scriptOffset, AnmFile *file);
     // Frees ANM slot `slot`, as th08's (0x43ca30).
     void ReleaseAnm(int slot);
+    // Loads the image at `path` as surface `surface`, as th08's
+    // (0x43cae0).
+    int LoadSurface(int surface, char *path);
+    // Reads the image file at `path` for LoadSurface to load surface
+    // `surface` from later, as th08's. Returns 0, or -1 on failure
+    // (0x43ccd0).
+    int PreloadSurface(int surface, char *path);
+    // Creates the textures and sprites of the next ANM of `anm`, as
+    // th08's: one a call, counted by anm->loadStep, which drops to 0
+    // after the last. Returns `anm`, or NULL on failure (0x43cd40).
+    AnmLoaded *PostloadAnm(AnmLoaded *anm);
+    // Releases the ANM files asked to be, and goes on creating the
+    // textures of those loading. Returns 0, or -1 on failure (0x43cdd0).
+    int StepAnmLoading();
     // Draws `vm` at its position without rotating it, as th08's
     // (0x43a950).
     int DrawUnrotated(Sprite *vm);
@@ -318,14 +388,21 @@ public:
     // back buffer, as th08's (0x43c2d0).
     void CopyBackBufferToSurface(int surface, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
                                  int dstTop, int dstWidth, int dstHeight);
+    // Creates `tex`'s texture at `width` by `height` in the format
+    // g_TextureFormats[`format`], as th08's. Returns 0 (0x43bba0).
+    int CreateTexture(AnmTexture *tex, int width, int height, int format);
+    // Checks `file`, ANM `index` of `anm`, and reads its image file
+    // unless the image is in the ANM or made blank, as th08's. Returns 1,
+    // or -1 on failure (0x43bbe0).
+    int PreloadAnmTexture(AnmLoaded *anm, int index, int *spriteIndex, int *scriptIndex, AnmFile *file);
     // Creates `tex`'s texture from its image file, in the format
     // g_TextureFormats[`format`], with `colorKey` transparent, as th08's.
     // Returns 0, or -1 on failure (0x43c470).
-    static int __stdcall LoadTexture(AnmTexture *tex, int format, D3DCOLOR colorKey);
+    int LoadTexture(AnmTexture *tex, int format, D3DCOLOR colorKey);
     // Creates `tex`'s texture from the pixels of `image`, in the format
     // g_TextureFormats[`format`], as th08's. Returns 0, or -1 on failure
     // (0x43c4c0).
-    static int __stdcall CreateTextureFromImage(AnmTexture *tex, AnmImage *image, int format);
+    int CreateTextureFromImage(AnmTexture *tex, AnmImage *image, int format);
     // Runs `count` sprites from `vms` a frame, as th08's (0x439560).
     void StepSprites(Sprite *vms, int count);
     // Empties the quad batch, as th08's (0x439680).
