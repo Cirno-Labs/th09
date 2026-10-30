@@ -185,3 +185,8 @@ void MidiTimer::StopTimer()
 {
     this->Stop();
 }
+
+MidiDevice::~MidiDevice()
+{
+    this->Close();
+}
