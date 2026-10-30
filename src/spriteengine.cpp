@@ -904,3 +904,25 @@ AnmLoaded *SpriteEngine::PostloadAnm(AnmLoaded *anm)
     anm->loadStep = 0;
     return anm;
 }
+
+int SpriteEngine::StepAnmLoading()
+{
+    int i;
+
+    for (i = 0; i < ARRAY_SIZE(this->anms); i++)
+    {
+        if (this->anms[i].releaseRequested)
+        {
+            this->ReleaseAnm(i);
+            this->anms[i].releaseRequested = 0;
+        }
+        else if (this->anms[i].loadStep != 0)
+        {
+            if (this->PostloadAnm(&this->anms[i]) == NULL)
+            {
+                return -1;
+            }
+        }
+    }
+    return 0;
+}
