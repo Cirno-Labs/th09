@@ -91,6 +91,21 @@ void SpriteEngine::ClearZWrite()
     this->zWriteDisabled = 0xff;
 }
 
+void Sprite::SetBlendMode1()
+{
+    this->blendMode = 1;
+}
+
+void Sprite::ClearBlendMode()
+{
+    this->blendMode = 0;
+}
+
+AnmFile *SpriteEngine::GetAnmFile(int slot)
+{
+    return this->GetAnm(slot)->file;
+}
+
 void SpriteEngine::ClearLastCameraSetupFlag()
 {
     this->lastCameraSetupFlag = 0xff;
