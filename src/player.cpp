@@ -354,6 +354,49 @@ void PlayerUnknown30410::EndCombo()
     this->timer14 = 0;
 }
 
+PlayerUnknown36cEntry *PlayerUnknown36c::CheckHits()
+{
+    Player *player = this->player;
+    PlayerUnknown36cEntry *entry;
+    int i;
+    int hit;
+
+    if (player->GetUnknown0() != 0)
+    {
+        return NULL;
+    }
+    if (player->unknown1b74 > 0)
+    {
+        return NULL;
+    }
+    entry = this->entries;
+    player->hitboxMin = player->pos - player->hitboxSize;
+    this->player->hitboxMax = this->player->pos + this->player->hitboxSize;
+    for (i = 0; i < this->count; i++, entry++)
+    {
+        if (entry->radius == 0.0f)
+        {
+            if (entry->angle == 0.0f)
+            {
+                hit = this->player->CheckHitBox(&entry->pos, &entry->size);
+            }
+            else
+            {
+                hit = this->player->CheckLaserHit(&entry->pos, &entry->size, &entry->unknownC, entry->angle, 0);
+            }
+        }
+        else
+        {
+            hit = this->player->CheckHitCircle(&entry->pos, entry->radius);
+        }
+        if (hit)
+        {
+            return entry;
+        }
+    }
+    return NULL;
+}
+
 void Player::AddUnknown30454(int script, D3DXVECTOR3 *pos)
 {
     PlayerUnknown30454 *entry = this->unknown30454;

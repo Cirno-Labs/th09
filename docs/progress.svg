@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.21% (660)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.79% (401)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">62.30% (661)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">37.70% (400)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="464.67" height="6" x="0" y="0" class="named"/>
-<rect width="282.33" height="6" x="464.67" y="0" class="todo"/>
+<rect width="465.38" height="6" x="0" y="0" class="named"/>
+<rect width="281.62" height="6" x="465.38" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -436,7 +436,7 @@
 <rect width="12" height="12" x="240" y="105" class="named"><title>0x0041bdf0 Player::CheckHitBox (121 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="105" class="named"><title>0x0041be70 Player::CheckHitCircle (106 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="105" class="named"><title>0x0041bee0 Player::TouchesGrazeBox (209 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="105" class="todo"><title>0x0041bfc0 Func41bfc0 (422 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="105" class="todo"><title>0x0041bfc0 Player::CheckLaserHit (422 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="105" class="todo"><title>0x0041c170 Func41c170 (1832 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="105" class="todo"><title>0x0041c8e0 Func41c8e0 (273 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="105" class="todo"><title>0x0041ca00 Func41ca00 (335 bytes)</title></rect>
@@ -459,7 +459,7 @@
 <rect width="12" height="12" x="585" y="105" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="105" class="named"><title>0x0041d7e0 PlayerUnknown30410::EndCombo (41 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="105" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="105" class="todo"><title>0x0041da70 Func41da70 (279 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="105" class="named"><title>0x0041da70 PlayerUnknown36c::CheckHits (279 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="105" class="named"><title>0x0041db90 Player::AddUnknown30454 (138 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="105" class="todo"><title>0x0041dc20 Func41dc20 (814 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="105" class="named"><title>0x0041df80 Player::DrawUnknown30454 (99 bytes)</title></rect>
@@ -1132,10 +1132,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.25%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.75%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.34%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">67.66%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="240.87" height="6" x="0" y="0" class="named"/>
-<rect width="506.13" height="6" x="240.87" y="0" class="todo"/>
+<rect width="241.59" height="6" x="0" y="0" class="named"/>
+<rect width="505.41" height="6" x="241.59" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.58" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1310,7 +1310,7 @@
 <rect width="15.84" height="16.25" x="731.16" y="21.01" class="todo"><title>0x004016e0 Func4016e0 (423 bytes)</title></rect>
 <rect width="16.19" height="15.90" x="451.22" y="40.26" class="named"><title>0x0043d3a0 MidiPlayer::MidiPlayer (423 bytes)</title></rect>
 <rect width="16.19" height="15.86" x="451.22" y="59.16" class="named"><title>0x0041b82a GameManager::DeletedCallback (422 bytes)</title></rect>
-<rect width="16.19" height="15.86" x="451.22" y="78.02" class="todo"><title>0x0041bfc0 Func41bfc0 (422 bytes)</title></rect>
+<rect width="16.19" height="15.86" x="451.22" y="78.02" class="todo"><title>0x0041bfc0 Player::CheckLaserHit (422 bytes)</title></rect>
 <rect width="16.19" height="15.86" x="451.22" y="96.87" class="todo"><title>0x004435e0 Func4435e0 (422 bytes)</title></rect>
 <rect width="16.19" height="15.81" x="451.22" y="115.73" class="named"><title>0x00403680 Stage::OnDraw2 (421 bytes)</title></rect>
 <rect width="16.19" height="15.77" x="451.22" y="134.54" class="todo"><title>0x00448490 Func448490 (420 bytes)</title></rect>
@@ -1413,7 +1413,7 @@
 <rect width="12.10" height="13.07" x="504.79" y="206.73" class="named"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>
 <rect width="12.10" height="13.07" x="504.79" y="222.80" class="named"><title>0x0041a5d0 GuiSide::RegisterChain (283 bytes)</title></rect>
 <rect width="12.10" height="12.84" x="504.79" y="238.86" class="todo"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
-<rect width="12.10" height="12.84" x="504.79" y="254.70" class="todo"><title>0x0041da70 Func41da70 (279 bytes)</title></rect>
+<rect width="12.10" height="12.84" x="504.79" y="254.70" class="named"><title>0x0041da70 PlayerUnknown36c::CheckHits (279 bytes)</title></rect>
 <rect width="12.10" height="12.84" x="504.79" y="270.55" class="named"><title>0x00425390 MainMenu::MoveCharacterCursor2 (279 bytes)</title></rect>
 <rect width="12.10" height="12.67" x="504.79" y="286.39" class="named"><title>0x004328f0 Network::CreateHostAddress (276 bytes)</title></rect>
 <rect width="12.10" height="12.50" x="504.79" y="302.06" class="todo"><title>0x0041c8e0 Func41c8e0 (273 bytes)</title></rect>

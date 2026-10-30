@@ -368,7 +368,7 @@ address,size,name,symbol
 0x0041bdf0,121,Player::CheckHitBox,?CheckHitBox@Player@@QAEHPAUD3DXVECTOR3@@0@Z
 0x0041be70,106,Player::CheckHitCircle,?CheckHitCircle@Player@@QAEHPAUD3DXVECTOR3@@M@Z
 0x0041bee0,209,Player::TouchesGrazeBox,?TouchesGrazeBox@Player@@QAEHPAUD3DXVECTOR3@@0@Z
-0x0041bfc0,422,Func41bfc0,
+0x0041bfc0,422,Player::CheckLaserHit,?CheckLaserHit@Player@@QAEHPAUD3DXVECTOR3@@00MH@Z
 0x0041c170,1832,Func41c170,
 0x0041c8e0,273,Func41c8e0,
 0x0041ca00,335,Func41ca00,
@@ -391,7 +391,7 @@ address,size,name,symbol
 0x0041d760,126,PlayerUnknown30410::Update,?Update@PlayerUnknown30410@@QAEXXZ
 0x0041d7e0,41,PlayerUnknown30410::EndCombo,?EndCombo@PlayerUnknown30410@@QAEXXZ
 0x0041d810,602,Func41d810,
-0x0041da70,279,Func41da70,
+0x0041da70,279,PlayerUnknown36c::CheckHits,?CheckHits@PlayerUnknown36c@@QAEPAUPlayerUnknown36cEntry@@XZ
 0x0041db90,138,Player::AddUnknown30454,?AddUnknown30454@Player@@QAEXHPAUD3DXVECTOR3@@@Z
 0x0041dc20,814,Func41dc20,
 0x0041df80,99,Player::DrawUnknown30454,?DrawUnknown30454@Player@@QAEXXZ

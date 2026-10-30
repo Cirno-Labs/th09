@@ -60,7 +60,13 @@ ASSERT_SIZE(PlayerUnknown24, 0x78);
 struct PlayerUnknown36cEntry
 {
     D3DXVECTOR3 pos;
-    unsigned char pad_c[0x30 - 0xc];
+    // CheckLaserHit's origin.
+    D3DXVECTOR3 unknownC;
+    D3DXVECTOR3 size;
+    // A circle's radius, or 0 for a box, turned by angle unless it is 0.
+    float radius;
+    float angle;
+    void *unknown2c;
 };
 ASSERT_SIZE(PlayerUnknown36cEntry, 0x30);
 
@@ -68,10 +74,17 @@ ASSERT_SIZE(PlayerUnknown36cEntry, 0x30);
 // Placeholder name.
 struct PlayerUnknown36c
 {
+    // Sets the player's hitbox around it and returns the first of the
+    // first `count` entries that touches it, or NULL, or NULL while
+    // the player's unknown0 is set or unknown1b74 runs (0x41da70).
+    PlayerUnknown36cEntry *CheckHits();
+
     Player *player;
     PlayerUnknown36cEntry entries[0x80];
+    // How many entries are in use; the player clears it every frame.
+    int count;
 };
-ASSERT_SIZE(PlayerUnknown36c, 0x1804);
+ASSERT_SIZE(PlayerUnknown36c, 0x1808);
 
 // One of the player's options (0x2f4 bytes), the size and timer of
 // th08's PlayerOption. Only the fields known so far.
@@ -238,6 +251,9 @@ public:
     // Whether a circle of `radius` at `pos` touches the player, the
     // shot file's hitbox size added (0x41be70).
     int CheckHitCircle(D3DXVECTOR3 *pos, float radius);
+    // Whether a `size` box at `pos`, turned by `angle` about `origin`,
+    // touches the player, as th08's CheckLaserHit (0x41bfc0).
+    int CheckLaserHit(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle, int canGraze);
     // Whether a `size` box at `pos` touches grazeTestMin-Max while
     // unknown0 is 0 or 3, as th08's (0x41bee0).
     int TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size);
@@ -316,7 +332,6 @@ public:
     Sprite sprite;
     unsigned char pad_364[0x36c - 0x364];
     PlayerUnknown36c unknown36c;
-    unsigned char pad_1b70[0x1b74 - 0x1b70];
     Timer unknown1b74;
     unsigned char pad_1b80[0x1b88 - 0x1b80];
     D3DXVECTOR3 pos;
