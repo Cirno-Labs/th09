@@ -151,6 +151,8 @@ public:
     // Starts scripts 0x44-0x47 on unknown5c6c and sets unknownA65c
     // (0x41a270).
     void StartUnknown5c6c();
+    // Interrupts unknown5c6c with 1 and clears unknownA65c (0x41a2d0).
+    void StopUnknown5c6c();
     // Starts scripts 0x48-0x4a on unknown66fc, the last showing digit
     // `digit` (sprite 0x35 on) (0x41a320).
     void StartUnknown66fc(int digit);

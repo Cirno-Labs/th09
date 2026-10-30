@@ -159,6 +159,15 @@ void GuiSide::StartUnknown5c6c()
     this->unknownA65c = 1;
 }
 
+void GuiSide::StopUnknown5c6c()
+{
+    this->unknown5c6c[0].SetPendingInterrupt(1);
+    this->unknown5c6c[1].SetPendingInterrupt(1);
+    this->unknown5c6c[2].SetPendingInterrupt(1);
+    this->unknown5c6c[3].SetPendingInterrupt(1);
+    this->unknownA65c = 0;
+}
+
 void GuiSide::StartUnknown66fc(int digit)
 {
     this->anm->StartScriptAtOrigin(&this->unknown66fc[0], 0x48);
