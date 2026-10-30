@@ -855,7 +855,7 @@ address,size,name,symbol
 0x0043d2a0,5,MidiTimer::StopTimer,?StopTimer@MidiTimer@@QAEXXZ
 0x0043d2b0,1,DebugPrint,?DebugPrint@@YAXPBDZZ
 0x0043d2c0,5,MidiDevice::~MidiDevice,??1MidiDevice@@QAE@XZ
-0x0043d2d0,69,Func43d2d0,
+0x0043d2d0,69,MidiDevice::Open,?Open@MidiDevice@@QAEHI@Z
 0x0043d320,26,Func43d320,
 0x0043d340,85,Func43d340,
 0x0043d3a0,423,Func43d3a0,
