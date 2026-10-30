@@ -926,3 +926,19 @@ int SpriteEngine::StepAnmLoading()
     }
     return 0;
 }
+
+AnmLoaded *SpriteEngine::LoadAnm(int slot, char *path)
+{
+    AnmLoaded *anm;
+
+    anm = this->PreloadAnmFile(slot, path);
+    if (anm != NULL)
+    {
+        anm->loadStep = 1;
+        while (anm->loadStep != 0)
+        {
+            anm = this->PostloadAnm(anm);
+        }
+    }
+    return anm;
+}

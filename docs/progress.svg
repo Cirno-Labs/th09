@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.41% (341)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">67.59% (711)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">32.51% (342)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">67.49% (710)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="242.14" height="6" x="0" y="0" class="named"/>
-<rect width="504.86" height="6" x="242.14" y="0" class="todo"/>
+<rect width="242.85" height="6" x="0" y="0" class="named"/>
+<rect width="504.15" height="6" x="242.85" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -905,7 +905,7 @@
 <rect width="12" height="12" x="525" y="240" class="named"><title>0x0043cd40 SpriteEngine::PostloadAnm (141 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="240" class="named"><title>0x0043cdd0 SpriteEngine::StepAnmLoading (87 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="240" class="todo"><title>0x0043ce30 Func43ce30 (341 bytes)</title></rect>
-<rect width="12" height="12" x="570" y="240" class="todo"><title>0x0043cf90 Func43cf90 (59 bytes)</title></rect>
+<rect width="12" height="12" x="570" y="240" class="named"><title>0x0043cf90 SpriteEngine::LoadAnm (59 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="240" class="todo"><title>0x0043cfd0 Func43cfd0 (16 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="240" class="todo"><title>0x0043cfe0 Func43cfe0 (40 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="240" class="todo"><title>0x0043d010 Func43d010 (70 bytes)</title></rect>
@@ -1123,10 +1123,10 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">11.81%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">88.19%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">11.83%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">88.17%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="88.19" height="6" x="0" y="0" class="named"/>
-<rect width="658.81" height="6" x="88.19" y="0" class="todo"/>
+<rect width="88.34" height="6" x="0" y="0" class="named"/>
+<rect width="658.66" height="6" x="88.34" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.78" height="154.29" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1801,7 +1801,7 @@
 <rect width="4.19" height="4.06" x="693.33" y="232.56" class="named"><title>0x0041a1d0 GuiSide::RemoveChain (59 bytes)</title></rect>
 <rect width="4.19" height="4.06" x="700.52" y="232.56" class="named"><title>0x00420470 ReplayManager::OnUpdateMode1b (59 bytes)</title></rect>
 <rect width="4.19" height="4.06" x="707.71" y="232.56" class="todo"><title>0x00431b30 Func431b30 (59 bytes)</title></rect>
-<rect width="4.19" height="4.06" x="714.90" y="232.56" class="todo"><title>0x0043cf90 Func43cf90 (59 bytes)</title></rect>
+<rect width="4.19" height="4.06" x="714.90" y="232.56" class="named"><title>0x0043cf90 SpriteEngine::LoadAnm (59 bytes)</title></rect>
 <rect width="4.07" height="4.06" x="722.09" y="232.56" class="named"><title>0x00414fe0 Bullet::Bullet (58 bytes)</title></rect>
 <rect width="4.07" height="4.06" x="729.16" y="232.56" class="todo"><title>0x0043e090 Func43e090 (58 bytes)</title></rect>
 <rect width="3.95" height="4.06" x="736.23" y="232.56" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>

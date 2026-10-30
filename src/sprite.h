@@ -324,6 +324,9 @@ public:
     // by PostloadAnm. Returns the slot's AnmLoaded, or NULL on failure
     // (0x43c610).
     AnmLoaded *PreloadAnmFile(int slot, char *path);
+    // Loads the ANM file at `path` into slot `slot` at once, as th08's.
+    // Returns it, or NULL on failure (0x43cf90).
+    AnmLoaded *LoadAnm(int slot, char *path);
     // Loads `path` into ANM slot `slot`, as th08's, waiting for the
     // loading thread. Returns it, or NULL on failure (0x43c7a0).
     AnmLoaded *PreloadAnm(int slot, char *path);

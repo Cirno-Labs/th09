@@ -837,7 +837,7 @@ address,size,name,symbol
 0x0043cd40,141,SpriteEngine::PostloadAnm,?PostloadAnm@SpriteEngine@@QAEPAVAnmLoaded@@PAV2@@Z
 0x0043cdd0,87,SpriteEngine::StepAnmLoading,?StepAnmLoading@SpriteEngine@@QAEHXZ
 0x0043ce30,341,Func43ce30,
-0x0043cf90,59,Func43cf90,
+0x0043cf90,59,SpriteEngine::LoadAnm,?LoadAnm@SpriteEngine@@QAEPAVAnmLoaded@@HPAD@Z
 0x0043cfd0,16,Func43cfd0,
 0x0043cfe0,40,Func43cfe0,
 0x0043d010,70,Func43d010,
