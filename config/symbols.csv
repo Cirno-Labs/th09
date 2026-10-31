@@ -259,7 +259,7 @@ address,size,name,symbol
 0x00412930,40,Bullet::FreeBullet,?FreeBullet@Bullet@@QAEXXZ
 0x00412960,1887,Func412960,
 0x004130f0,200,BulletManager::FirePattern,?FirePattern@BulletManager@@QAEHPAUEnemyShooter@@@Z
-0x004131c0,200,Func4131c0,
+0x004131c0,200,BulletManager::FirePattern2,?FirePattern2@BulletManager@@QAEHPAUEnemyShooter@@@Z
 0x00413290,450,Func413290,
 0x00413460,110,Func413460,
 0x004134d0,179,Func4134d0,
@@ -1090,7 +1090,7 @@ address,size,name,symbol
 0x0044ab30,88,EffectUpdate44ab30,?EffectUpdate44ab30@@YIHPAUEffect@@@Z
 0x0044ab90,139,ShotFire44ab90,?ShotFire44ab90@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x0044ac20,436,ExAttackInit44ac20,?ExAttackInit44ac20@@YIHPAUExAttack@@@Z
-0x0044ade0,405,Func44ade0,
+0x0044ade0,405,ExAttackUpdate44ade0,?ExAttackUpdate44ade0@@YIHPAUExAttack@@@Z
 0x0044af80,101,PlayerComboFunc44af80,?PlayerComboFunc44af80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044aff0,155,EffectInit44aff0,?EffectInit44aff0@@YIHPAUEffect@@@Z
 0x0044b090,314,EffectDraw44b090,?EffectDraw44b090@@YIHPAUEffect@@@Z

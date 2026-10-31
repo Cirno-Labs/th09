@@ -133,6 +133,9 @@ public:
     // Fires the shooter's count1 by count2 bullets, as th08's
     // FirePattern. Returns the last bullet spawned (0x4130f0).
     int FirePattern(EnemyShooter *shooter);
+    // FirePattern, spawning each bullet with an extra argument of 1
+    // (0x4131c0).
+    int FirePattern2(EnemyShooter *shooter);
     // The update chain callback and its added callback, and the draw
     // chain callback (0x4146f0, 0x413e40, 0x413be0).
     static int OnUpdate(BulletManager *mgr);

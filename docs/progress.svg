@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">13.64% (152)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.90% (166)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">13.73% (153)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.81% (165)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="533.76" height="6" x="0" y="0" class="named"/>
-<rect width="101.92" height="6" x="533.76" y="0" class="decompiled"/>
-<rect width="111.31" height="6" x="635.69" y="0" class="todo"/>
+<rect width="102.60" height="6" x="533.76" y="0" class="decompiled"/>
+<rect width="110.64" height="6" x="636.36" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -328,7 +328,7 @@
 <rect width="12" height="12" x="105" y="75" class="named"><title>0x00412930 Bullet::FreeBullet (40 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="75" class="todo"><title>0x00412960 Func412960 (1887 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="75" class="todo"><title>0x004130f0 BulletManager::FirePattern (200 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="75" class="todo"><title>0x004131c0 Func4131c0 (200 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="75" class="todo"><title>0x004131c0 BulletManager::FirePattern2 (200 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="75" class="todo"><title>0x00413290 Func413290 (450 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="75" class="todo"><title>0x00413460 Func413460 (110 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="75" class="todo"><title>0x004134d0 Func4134d0 (179 bytes)</title></rect>
@@ -1159,7 +1159,7 @@
 <rect width="12" height="12" x="570" y="315" class="decompiled"><title>0x0044ab30 EffectUpdate44ab30 (88 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="315" class="decompiled"><title>0x0044ab90 ShotFire44ab90 (139 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="315" class="decompiled"><title>0x0044ac20 ExAttackInit44ac20 (436 bytes)</title></rect>
-<rect width="12" height="12" x="615" y="315" class="todo"><title>0x0044ade0 Func44ade0 (405 bytes)</title></rect>
+<rect width="12" height="12" x="615" y="315" class="decompiled"><title>0x0044ade0 ExAttackUpdate44ade0 (405 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="315" class="decompiled"><title>0x0044af80 PlayerComboFunc44af80 (101 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="315" class="decompiled"><title>0x0044aff0 EffectInit44aff0 (155 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="315" class="decompiled"><title>0x0044b090 EffectDraw44b090 (314 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">12.55%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">45.34%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">12.68%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">45.20%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.57" height="6" x="0" y="0" class="named"/>
-<rect width="93.73" height="6" x="314.57" y="0" class="decompiled"/>
-<rect width="338.70" height="6" x="408.30" y="0" class="todo"/>
+<rect width="94.75" height="6" x="314.57" y="0" class="decompiled"/>
+<rect width="337.68" height="6" x="409.32" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.09" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1374,7 +1374,7 @@
 <rect width="16.56" height="15.30" x="432.56" y="329.70" class="decompiled"><title>0x00445190 ExAttackUpdate445190 (407 bytes)</title></rect>
 <rect width="16.49" height="15.37" x="452.12" y="42.10" class="todo"><title>0x00445ec0 Func445ec0 (407 bytes)</title></rect>
 <rect width="16.39" height="15.37" x="471.61" y="42.10" class="named"><title>0x00431b70 App::DeletedCallback (405 bytes)</title></rect>
-<rect width="16.39" height="15.37" x="491" y="42.10" class="todo"><title>0x0044ade0 Func44ade0 (405 bytes)</title></rect>
+<rect width="16.39" height="15.37" x="491" y="42.10" class="decompiled"><title>0x0044ade0 ExAttackUpdate44ade0 (405 bytes)</title></rect>
 <rect width="16.29" height="15.37" x="510.39" y="42.10" class="decompiled"><title>0x00443440 ExAttackInit443440 (403 bytes)</title></rect>
 <rect width="16.15" height="15.37" x="529.68" y="42.10" class="todo"><title>0x0041e720 Func41e720 (400 bytes)</title></rect>
 <rect width="16.05" height="15.37" x="548.83" y="42.10" class="todo"><title>0x004182e0 Func4182e0 (398 bytes)</title></rect>
@@ -1551,7 +1551,7 @@
 <rect width="10.24" height="10.35" x="531.25" y="137.13" class="named"><title>0x0042ab13 SetUpTitleScene (201 bytes)</title></rect>
 <rect width="10.24" height="10.29" x="531.25" y="150.48" class="decompiled"><title>0x0040d910 EffectInit40d910 (200 bytes)</title></rect>
 <rect width="10.24" height="10.29" x="531.25" y="163.77" class="todo"><title>0x004130f0 BulletManager::FirePattern (200 bytes)</title></rect>
-<rect width="10.24" height="10.29" x="531.25" y="177.06" class="todo"><title>0x004131c0 Func4131c0 (200 bytes)</title></rect>
+<rect width="10.24" height="10.29" x="531.25" y="177.06" class="todo"><title>0x004131c0 BulletManager::FirePattern2 (200 bytes)</title></rect>
 <rect width="10.24" height="10.29" x="531.25" y="190.34" class="named"><title>0x00432f70 Network::Close (200 bytes)</title></rect>
 <rect width="10.24" height="10.29" x="531.25" y="203.63" class="named"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
 <rect width="10.24" height="10.29" x="531.25" y="216.92" class="named"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>

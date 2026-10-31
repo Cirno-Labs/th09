@@ -1,6 +1,8 @@
 // Character 12's extra attacks and callbacks (pl/pl12.cpp).
 
+#include "bullet.h"
 #include "effect.h"
+#include "enemy.h"
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
@@ -98,6 +100,66 @@ int ExAttackInit44ac20(ExAttack *attack)
     data->angle = g_Rng.GetRandomF32SignedInRange(3.1415927f);
     data->angleStep = g_Rng.GetRandomU16InRange(2) ? 0.10471976f : -0.10471976f;
     data->count = 0;
+    return 0;
+}
+
+// The update callback of extra attack type 20: flies in along the curve
+// for 90 frames, then appears hidden on the target's side and, every
+// other frame for 30 frames, fires a ring of 8 bullets there, each
+// faster and turned on by angleStep, in three colors in turn. Returns 1
+// once it is done (0x44ade0).
+int ExAttackUpdate44ade0(ExAttack *attack)
+{
+    ExAttackData20 *data = (ExAttackData20 *)attack->data;
+
+    switch (data->base.state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->base.end, &data->base.start, &data->base.tangent0,
+                           &data->base.tangent1, attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            data->base.state++;
+            attack->pos = data->base.targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+            attack->sprites->visible = 0;
+        }
+        break;
+    case 1:
+        if (attack->timer < 30)
+        {
+            if (attack->timer.HasTickedEvery(2))
+            {
+                EnemyShooter shooter;
+
+                shooter.pos = attack->pos;
+                shooter.sprite = 0x15;
+                shooter.aimMode = 5;
+                shooter.count1 = 8;
+                shooter.count2 = 1;
+                shooter.color = data->count % 3;
+                shooter.angle1 = data->angle;
+                shooter.speed1 = data->speed;
+                shooter.angle2 = 0.0f;
+                shooter.speed2 = 0.0f;
+                shooter.unknown1fa = 0;
+                shooter.flags = 0;
+                g_GameManager.sides[attack->targetSide].bulletManager->FirePattern2(&shooter);
+                data->count++;
+                data->angle += data->angleStep;
+                data->speed += 0.2f;
+            }
+            break;
+        }
+        return 1;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
     return 0;
 }
 
