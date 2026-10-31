@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.88% (901)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.62% (18)</tspan> · <tspan class="todo">3.14% (35)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.97% (902)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.62% (18)</tspan> · <tspan class="todo">3.05% (34)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="604.17" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="604.17" y="0" class="decompiled"/>
-<rect width="12.07" height="6" x="711.46" y="0" class="nonmatching"/>
-<rect width="23.47" height="6" x="723.53" y="0" class="todo"/>
+<rect width="604.84" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="604.84" y="0" class="decompiled"/>
+<rect width="12.07" height="6" x="712.13" y="0" class="nonmatching"/>
+<rect width="22.80" height="6" x="724.20" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -314,7 +314,7 @@
 <rect width="12" height="12" x="630" y="60" class="named"><title>0x004125b0 D3DXVECTOR3::operator-= (36 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="60" class="named"><title>0x004125e0 BulletManager::LoadAnm (24 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="60" class="named"><title>0x00412600 BulletManager::ReleaseAnm (14 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="60" class="todo"><title>0x00412610 Bullet::SetCommand (54 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="60" class="named"><title>0x00412610 Bullet::SetCommand (54 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="60" class="named"><title>0x00412650 EnemyShooter::SetCommand (37 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="60" class="named"><title>0x00412680 Bullet::SetAccelCommand (39 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="60" class="decompiled"><title>0x004126b0 Bullet::SetCommand20000 (31 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.78%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.42%</tspan> · <tspan class="todo">5.98%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.80%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.42%</tspan> · <tspan class="todo">5.96%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="491.36" height="6" x="0" y="0" class="named"/>
-<rect width="110.76" height="6" x="491.36" y="0" class="decompiled"/>
-<rect width="100.22" height="6" x="602.13" y="0" class="nonmatching"/>
-<rect width="44.65" height="6" x="702.35" y="0" class="todo"/>
+<rect width="491.50" height="6" x="0" y="0" class="named"/>
+<rect width="110.76" height="6" x="491.50" y="0" class="decompiled"/>
+<rect width="100.22" height="6" x="602.26" y="0" class="nonmatching"/>
+<rect width="44.52" height="6" x="702.48" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1925,7 +1925,7 @@
 <rect width="4.18" height="3.74" x="651.76" y="294.97" class="named"><title>0x0043d750 MidiPlayer::Play (55 bytes)</title></rect>
 <rect width="4.18" height="3.61" x="651.76" y="301.70" class="named"><title>0x00401100 D3DXVECTOR3::operator+ (54 bytes)</title></rect>
 <rect width="4.18" height="3.61" x="651.76" y="308.32" class="named"><title>0x00401140 D3DXVECTOR3::operator- (54 bytes)</title></rect>
-<rect width="4.18" height="3.61" x="651.76" y="314.93" class="todo"><title>0x00412610 Bullet::SetCommand (54 bytes)</title></rect>
+<rect width="4.18" height="3.61" x="651.76" y="314.93" class="named"><title>0x00412610 Bullet::SetCommand (54 bytes)</title></rect>
 <rect width="4.18" height="3.61" x="651.76" y="321.54" class="named"><title>0x004234a7 PlayRecord::GetClearFlags (54 bytes)</title></rect>
 <rect width="4.18" height="3.61" x="651.76" y="328.16" class="named"><title>0x0042fbe0 SoundPlayer::UpdateBgmFades (54 bytes)</title></rect>
 <rect width="4.18" height="3.61" x="651.76" y="334.77" class="named"><title>0x0043e130 MidiPlayer::Load (54 bytes)</title></rect>
