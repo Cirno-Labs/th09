@@ -233,6 +233,105 @@ void AsciiText::SetScale(float x, float y)
     this->scaleY = y;
 }
 
+int MainMenu::DrawState15()
+{
+    D3DXVECTOR3 pos(32.0f, 64.0f, 0.0f);
+    int i;
+    int slot;
+    int row;
+    int col;
+    float scale;
+    char str[2];
+
+    if (this->subState == 2)
+    {
+        pos.y = 90.0f;
+        for (i = 0; i < 25; i++)
+        {
+            g_AsciiText.color = i == this->cursor ? 0xffffffff : 0xff808080;
+            g_AsciiText.AddFormat(&pos, "No.%.2d %.8s %8s", i + 1,
+                                  *(int *)this->replays[i].magic != 0 ? this->replays[i].info.name : "--------",
+                                  *(int *)this->replays[i].magic != 0 ? this->replays[i].info.date : "--/--/--");
+            pos.y += 13.0f;
+        }
+    }
+    else if (this->subState == 3 || this->subState == 4)
+    {
+        slot = this->replaySlot;
+        pos.y = slot * 13.0f + 90.0f;
+        D3DXVECTOR3 end = pos;
+        end.x = end.y = 224.0f;
+        if (this->unknown1b230 < 10)
+        {
+            pos = pos + (end - pos) * (float)this->unknown1b230 * 0.1f;
+        }
+        else
+        {
+            pos = end;
+        }
+        g_AsciiText.color = 0xffffffff;
+        g_AsciiText.AddFormat(&pos, "No.%.2d %.8s %8s", slot + 1, this->replayName, "");
+        pos.x += (this->replayNameCursor + 6) * 9;
+        g_AsciiText.AddFormat(&pos, "%.8s", "_");
+        if (this->subState == 4)
+        {
+            pos.z = 0.0f;
+            pos.y = 320.0f;
+            for (row = 0; row < 6; row++)
+            {
+                pos.x = 224.0f;
+                for (col = 0; col < 16; col++)
+                {
+                    pos.x += 12.0f;
+                    D3DXVECTOR3 offset(0.0f, 0.0f, 0.0f);
+                    if (this->cursor == col + row * 16)
+                    {
+                        g_AsciiText.color = 0xffffffc0;
+                        if (this->stateFrames % 64 < 32)
+                        {
+                            scale = this->stateFrames % 32 * 0.025f + 1.2f;
+                        }
+                        else
+                        {
+                            scale = 2.0f - this->stateFrames % 32 * 0.025f;
+                        }
+                        g_AsciiText.scaleX = scale;
+                        g_AsciiText.scaleY = scale;
+                        offset.y = offset.x = (scale - 1.0f) * -8.0f;
+                    }
+                    else
+                    {
+                        g_AsciiText.color = 0xc0c0c0c0;
+                        g_AsciiText.scaleX = 1.0f;
+                        g_AsciiText.scaleY = 1.0f;
+                    }
+                    D3DXVECTOR3 charPos = offset + pos;
+                    str[0] = g_NameAlphabet[row * 16 + col];
+                    str[1] = 0;
+                    if (row == 5)
+                    {
+                        if (col == 14)
+                        {
+                            str[0] = 0x7f;
+                        }
+                        else if (col == 15)
+                        {
+                            str[0] = 0x80;
+                        }
+                    }
+                    g_AsciiText.AddString(&charPos, str);
+                }
+                pos.y += 16.0f;
+            }
+        }
+    }
+    g_AsciiText.color = 0xffffffff;
+    g_AsciiText.highlight = 0;
+    g_AsciiText.scaleX = 1.0f;
+    g_AsciiText.scaleY = 1.0f;
+    return 1;
+}
+
 int MainMenu::DrawState12()
 {
     if (this->subState == 1)

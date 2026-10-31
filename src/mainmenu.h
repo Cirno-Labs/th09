@@ -17,6 +17,8 @@ class MainMenu;
 extern char *g_TitleHelpTexts[8];
 // The demo replays the title plays in turn (0x4a1ce8).
 extern char *g_DemoReplayPaths[3];
+// The characters a replay's name is typed with, as th08's (0x4a1cf4).
+extern char *g_NameAlphabet;
 
 // Cleared by the title (0x4ac884).
 extern int g_Unknown4ac884;
@@ -78,7 +80,9 @@ public:
     // for an empty one. Not called (0x423182).
     void ShowHalves(int left, int right);
     // What OnDraw draws on top in states 11, 15, 13 and 14, and 12
-    // (0x4234f6, 0x4239f6, 0x423d16, 0x4244a9).
+    // (0x4234f6, 0x4239f6, 0x423d16, 0x4244a9). State 15's lists the
+    // replay slots (subState 2), then moves the chosen one up and shows
+    // the name being typed (3), with the alphabet to type it with (4).
     int DrawState11();
     int DrawState15();
     int DrawState13();
@@ -179,7 +183,9 @@ public:
     static int OnUpdate(MainMenu *menu);
 
     int cursor;
-    unsigned char pad_4[0x10 - 0x4];
+    // Where the next character of replayName goes.
+    int replayNameCursor;
+    unsigned char pad_8[0x10 - 0x8];
     int cursors[5];
     // The entry whose help UpdateState1 last showed.
     int prevCursor;
@@ -190,13 +196,18 @@ public:
     // The state before the current one.
     int prevState;
     int unknown88;
-    unsigned char pad_8c[0x681c - 0x8c];
+    // The name typed in for the replay being saved.
+    char replayName[9];
+    unsigned char pad_95[0x681c - 0x95];
     // Files ReleaseTitleScene frees.
     void *unknown681c[50];
     // The headers of the replay files.
     ReplayHeader replays[50];
     void *unknownC8fc;
-    unsigned char pad_c900[0xc910 - 0xc900];
+    unsigned char pad_c900[0xc908 - 0xc900];
+    // The replay slot being saved to.
+    int replaySlot;
+    unsigned char pad_c90c[0xc910 - 0xc90c];
     int unknownC910;
     unsigned char pad_c914[0xc918 - 0xc914];
     int unknownC918;

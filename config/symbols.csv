@@ -2335,6 +2335,7 @@ address,size,name,symbol
 0x004a1cb8,,g_ReplayModeNames,?g_ReplayModeNames@@3PAPADA
 0x004a1cd0,,g_ReplayDifficultyNames,?g_ReplayDifficultyNames@@3PAPADA
 0x004a1ce8,,g_DemoReplayPaths,?g_DemoReplayPaths@@3PAPADA
+0x004a1cf4,,g_NameAlphabet,?g_NameAlphabet@@3PADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA
