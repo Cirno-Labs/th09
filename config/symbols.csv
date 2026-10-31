@@ -991,7 +991,7 @@ address,size,name,symbol
 0x00442480,193,PlayerPosFunc442480,?PlayerPosFunc442480@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00442550,35,PlayerEnemyFunc442550,?PlayerEnemyFunc442550@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00442580,454,ExAttackInit442580,?ExAttackInit442580@@YIHPAUExAttack@@@Z
-0x00442750,780,Func442750,
+0x00442750,780,ExAttackUpdate442750,?ExAttackUpdate442750@@YIHPAUExAttack@@@Z
 0x00442a60,368,ExAttackInit442a60,?ExAttackInit442a60@@YIHPAUExAttack@@@Z
 0x00442bd0,739,Func442bd0,
 0x00442ec0,32,ExAttackFree442ec0,?ExAttackFree442ec0@@YIHPAUExAttack@@@Z

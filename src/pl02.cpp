@@ -320,6 +320,82 @@ int ExAttackInit442580(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack type 3: drags its trail behind it,
+// the other four sprites on every sixth point of it, flying on by
+// unknown04 after 30 frames until the trail's end leaves the screen; if
+// it, or the trail's points 12 or 24, touches the target's player, its
+// sprites are interrupted and it ends 15 frames later. Returns 1 once it
+// is done (0x442750).
+int ExAttackUpdate442750(ExAttack *attack)
+{
+    ExAttackData03 *data = (ExAttackData03 *)attack->data;
+    D3DXVECTOR3 pos0;
+    D3DXVECTOR3 pos1;
+    D3DXVECTOR3 pos2;
+    int i;
+
+    switch (data->state)
+    {
+    case 0:
+    {
+        for (i = 0x1f; i > 0; i--)
+        {
+            data->trail[i] = data->trail[i - 1];
+        }
+        data->trail[0] = attack->pos;
+        attack->sprites[1].posOffset = data->trail[6] - attack->pos;
+        attack->sprites[2].posOffset = data->trail[12] - attack->pos;
+        attack->sprites[3].posOffset = data->trail[18] - attack->pos;
+        attack->sprites[4].posOffset = data->trail[24] - attack->pos;
+        D3DXVECTOR3 size;
+        float *s = size;
+        s[0] = 12.0f;
+        s[1] = 12.0f;
+        s[2] = 0.0f;
+        g_App.SetCamera(attack->targetSide);
+        pos0.x = g_GameManager.ScreenToArenaX(attack->pos.x);
+        pos0.y = g_GameManager.ScreenToArenaY(attack->pos.y);
+        pos0.z = 0.0f;
+        pos1.x = g_GameManager.ScreenToArenaX(data->trail[12].x);
+        pos1.y = g_GameManager.ScreenToArenaY(data->trail[12].y);
+        pos1.z = 0.0f;
+        pos2.x = g_GameManager.ScreenToArenaX(data->trail[24].x);
+        pos2.y = g_GameManager.ScreenToArenaY(data->trail[24].y);
+        pos2.z = 0.0f;
+        if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&pos0, &size, NULL) == 2 ||
+            g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&pos1, &size, NULL) == 2 ||
+            g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&pos2, &size, NULL) == 2)
+        {
+            attack->timer = 0;
+            data->state = 1;
+            attack->sprites[0].SetPendingInterrupt(1);
+            attack->sprites[1].SetPendingInterrupt(1);
+            attack->sprites[2].SetPendingInterrupt(1);
+            attack->sprites[3].SetPendingInterrupt(1);
+            attack->sprites[4].SetPendingInterrupt(1);
+            break;
+        }
+        if (attack->timer >= 30)
+        {
+            attack->pos += data->unknown04;
+            if (data->trail[0x1f].x < -32.0f || data->trail[0x1f].x > 672.0f || data->trail[0x1f].y < -32.0f ||
+                data->trail[0x1f].y > 512.0f)
+            {
+                return 1;
+            }
+        }
+        break;
+    }
+    case 1:
+        if (attack->timer >= 15)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The init callback of extra attack type 4: five sprites, from scripts
 // 14 to 18, on the target's side at the screen position it was sent
 // from, starting from the attack it was sent for: its angle and
