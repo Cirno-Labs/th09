@@ -68,6 +68,50 @@ int ShotHit443430(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
     return 1;
 }
 
+// The init callback of extra attack type 13, character 3's: type 0's
+// sprite and curve, flying in to within 128 of the target's player,
+// kept in the play area across and above its bottom. Returns 0
+// (0x443440).
+int ExAttackInit443440(ExAttack *attack)
+{
+    ExAttackData00 *data;
+
+    attack->AllocSprites(1, sizeof(ExAttackData00));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData00 *)attack->data;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    data->targetPos.x =
+        g_Rng.GetRandomF32SignedInRange(128.0f) + g_GameManager.sides[attack->targetSide].player->pos.x;
+    data->targetPos.y =
+        g_Rng.GetRandomF32SignedInRange(128.0f) + g_GameManager.sides[attack->targetSide].player->pos.y;
+    if (data->targetPos.y > 432.0f)
+    {
+        data->targetPos.y = 432.0f;
+    }
+    if (data->targetPos.x < -128.0f)
+    {
+        data->targetPos.x = -128.0f;
+    }
+    else if (data->targetPos.x > 128.0f)
+    {
+        data->targetPos.x = 128.0f;
+    }
+    data->targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    return 0;
+}
+
 // The unknown30450 of character 3: while unknown34 reaches 70 -
 // unknownB4 * 3, sends an extra attack of type 13 from `pos` and takes
 // 70 off it. Returns 0 (0x443790).

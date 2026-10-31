@@ -1003,7 +1003,7 @@ address,size,name,symbol
 0x004432a0,86,ShotFire4432a0,?ShotFire4432a0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00443300,293,ShotDraw443300,?ShotDraw443300@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00443430,8,ShotHit443430,?ShotHit443430@@YIHPAVPlayer@@PAUPlayerBullet@@PAUD3DXVECTOR3@@@Z
-0x00443440,403,Func443440,
+0x00443440,403,ExAttackInit443440,?ExAttackInit443440@@YIHPAUExAttack@@@Z
 0x004435e0,422,Func4435e0,
 0x00443790,85,PlayerComboFunc443790,?PlayerComboFunc443790@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x004437f0,314,EffectDraw4437f0,?EffectDraw4437f0@@YIHPAUEffect@@@Z
