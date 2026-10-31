@@ -54,6 +54,44 @@ int EffectUpdate441d30(Effect *effect)
     return 1;
 }
 
+// The draw callback of effect type 16: a fan from 432 above the effect
+// down over a half circle 448 in radius, squeezed across by unknown84,
+// if unknownC9 is set. Returns 1 (0x441da0).
+int EffectDraw441da0(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        float delta = 3.1415927f / (effect->unknown8c - 1);
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        float angle = 0.0f;
+        int i;
+
+        vtx->pos = effect->pos;
+        vtx->pos.y -= 432.0f;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        for (i = effect->unknown8c; i > 0; i--)
+        {
+            vtx->pos.z = 0.0f;
+            SetPolar((Vector2 *)&vtx->pos, angle, 448.0f);
+            vtx->pos.x *= effect->unknown84;
+            vtx->pos += effect->pos;
+            vtx->pos.y -= 432.0f;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x50600040;
+            vtx++;
+            angle += delta;
+        }
+    }
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    return 1;
+}
+
 // A fire callback of the shot table (1): on the frame of `sd`, sets the
 // player's unknown3031c to the bullet for 30 frames, keeps the shot's
 // option and offset in the bullet, then fires it as type 2 with an empty
