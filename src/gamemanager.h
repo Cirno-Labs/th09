@@ -213,6 +213,10 @@ public:
             // The result screen's mode, as th08's: OnDraw returns 3 in
             // mode 1, and AddedCallback turns 2 and 3 into 1.
             unsigned int stageEndState : 2;
+            unsigned int unusedBits134_7 : 4;
+            // A bit per side, cleared by SpellCard::OnUpdate 30 frames
+            // into the side's spell card.
+            unsigned int unknownBits134_11 : 2;
         };
     };
     unsigned char pad_138[0x13c - 0x138];

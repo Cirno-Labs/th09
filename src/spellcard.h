@@ -47,9 +47,13 @@ public:
     ChainElem *drawElem;
     // Gui::anm, as Reset copies it.
     AnmLoaded *anm;
-    unsigned char pad_18[0x98 - 0x18];
+    // The spell card's name, which OnUpdate renders on unknownAc[1].
+    char name[0x80];
     Timer unknown98;
-    unsigned char pad_a4[0xac - 0xa4];
+    // Once 2 or more, OnUpdate starts the sprites for callbacks[0] or
+    // callbacks[1] and clears them.
+    int unknownA4;
+    int unknownA8;
     Sprite unknownAc[2];
     Sprite unknown5f4[5];
     // Two sets of callbacks of the running effects.

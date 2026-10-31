@@ -3,6 +3,7 @@
 #include "gamemanager.h"
 #include "gui.h"
 #include "player.h"
+#include "stage.h"
 
 void Player::StartClearCircle1()
 {
@@ -49,6 +50,74 @@ static int RunEndCallbacks(SpellCard *card)
 void SpellCard::Reset()
 {
     this->anm = g_GameManager.gui->anm;
+}
+
+int SpellCard::OnUpdate(SpellCard *card)
+{
+    int i;
+
+    if (card->unknownA4 >= 2)
+    {
+        if (card->callbacks[1].update == NULL && card->callbacks[0].update != NULL)
+        {
+            card->anm->StartScript(&card->unknownAc[0], card->sideIdx + 0x12);
+            g_App.textAnm->SetSprite(&card->unknownAc[1], card->sideIdx + 4);
+            card->unknownAc[1].scaleY = 1.0f;
+            card->unknownAc[1].scaleX = 1.0f;
+            g_SpriteEngine->RenderTextCentered(&card->unknownAc[1], 0xfffffe, 0, card->name);
+        }
+        card->unknownA4 = 0;
+    }
+    if (card->unknownA8 >= 2)
+    {
+        if (card->callbacks[1].update != NULL)
+        {
+            card->anm->StartScript(&card->unknownAc[0], card->sideIdx + 0x12);
+            g_App.textAnm->SetSprite(&card->unknownAc[1], card->sideIdx + 4);
+            card->unknownAc[1].scaleY = 1.0f;
+            card->unknownAc[1].scaleX = 1.0f;
+            g_SpriteEngine->RenderTextCentered(&card->unknownAc[1], 0xfffffe, 0, card->name);
+        }
+        card->unknownA8 = 0;
+    }
+    if (g_GameManager.unknownBits134_11 && card->unknown98 > 30)
+    {
+        g_GameManager.unknownBits134_11 &= ~(1 << card->sideIdx);
+    }
+    if (card->callbacks[0].update != NULL && card->callbacks[0].update(card))
+    {
+        if (card->callbacks[1].update == NULL)
+        {
+            card->unknownAc[0].visible = 0;
+        }
+        card->callbacks[0].end(card);
+        card->callbacks[0].update = NULL;
+        card->callbacks[0].draw = NULL;
+        card->callbacks[0].end = NULL;
+    }
+    if (card->callbacks[1].update != NULL && card->callbacks[1].update(card))
+    {
+        card->unknownAc[0].visible = 0;
+        card->callbacks[1].end(card);
+        card->callbacks[1].update = NULL;
+        card->callbacks[1].draw = NULL;
+        card->callbacks[1].end = NULL;
+        g_SoundPlayer.PlaySoundByIdx(0xf, 0);
+        card->side->stage->Reset();
+    }
+    if (g_SpriteEngine->Step(&card->unknownAc[0]))
+    {
+        card->unknownAc[0].visible = 0;
+    }
+    for (i = 0; i < 5; i++)
+    {
+        if (g_SpriteEngine->Step(&card->unknown5f4[i]))
+        {
+            card->unknown5f4[i].visible = 0;
+        }
+    }
+    card->unknown98++;
+    return 1;
 }
 
 int SpellCard::OnDraw(SpellCard *card)
