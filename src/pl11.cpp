@@ -124,3 +124,60 @@ int EffectInit44a6e0(Effect *effect)
     effect->unknown80 = -1.5707964f;
     return 0;
 }
+
+// The draw callback of effect type 31: while unknownC9 is set, a
+// pentagram of radius unknown7c turned by unknown80 around the effect,
+// as a fan from its centre through the five points and the corners
+// between them. Returns 1 (0x44a780).
+int EffectDraw44a780(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        float angle = effect->unknown80;
+        D3DXVECTOR3 points[10];
+        VertexDiffuseXyzrwh *vtx;
+        int i;
+
+        SetPolar((Vector2 *)&points[0], angle, effect->unknown7c);
+        angle = AddNormalizeAngle(angle, 1.2566371f);
+        SetPolar((Vector2 *)&points[2], angle, effect->unknown7c);
+        angle = AddNormalizeAngle(angle, 1.2566371f);
+        SetPolar((Vector2 *)&points[4], angle, effect->unknown7c);
+        angle = AddNormalizeAngle(angle, 1.2566371f);
+        SetPolar((Vector2 *)&points[6], angle, effect->unknown7c);
+        angle = AddNormalizeAngle(angle, 1.2566371f);
+        SetPolar((Vector2 *)&points[8], angle, effect->unknown7c);
+        points[1] = (points[0] - points[4]) / 1.618f + points[4];
+        points[3] = (points[2] - points[6]) / 1.618f + points[6];
+        points[5] = (points[4] - points[8]) / 1.618f + points[8];
+        points[7] = (points[6] - points[0]) / 1.618f + points[0];
+        points[9] = (points[8] - points[2]) / 1.618f + points[2];
+        for (i = 0; i < 10; i++)
+        {
+            points[i].z = 0.0f;
+        }
+        vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x20600040;
+        vtx++;
+        for (i = 0; i < 10; i++)
+        {
+            vtx->pos = points[i] + effect->pos;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x70600040;
+            vtx++;
+        }
+        vtx->pos = points[0] + effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+    }
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, 0xc);
+    return 1;
+}
