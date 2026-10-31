@@ -96,6 +96,63 @@ int ExAttackInit445050(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack types 5 and 10: flies in along
+// the curve for 40 frames, then appears on the target's side and, after
+// 12 frames, falls as a hit box, its fall capped at 4.5, until it
+// touches the player there or leaves the bottom. Returns 1 once it is
+// done (0x445190).
+int ExAttackUpdate445190(ExAttack *attack)
+{
+    ExAttackData05 *data = (ExAttackData05 *)attack->data;
+    D3DXVECTOR3 size(6.0f, 32.0f, 0.0f);
+
+    switch (data->state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 40.0f);
+        if (attack->timer > 40)
+        {
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 9);
+            data->state++;
+            attack->pos = data->targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+        }
+        break;
+    case 1:
+        if (attack->timer > 12)
+        {
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->state = 2;
+                attack->timer = 0;
+                attack->sprites->SetPendingInterrupt(1);
+                return 0;
+            }
+            attack->pos += data->velocity;
+            data->velocity += data->acceleration;
+            if (data->velocity.y > 4.5f)
+            {
+                data->velocity.y = 4.5f;
+            }
+            g_GameManager.sides[attack->targetSide].player->unknown36c.Add(&attack->pos, &size, NULL);
+            if (attack->pos.y >= 480.0f)
+            {
+                return 1;
+            }
+        }
+        break;
+    case 2:
+        if (attack->timer > 12)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The unknown30450 of character 5: while unknown34 reaches 25 -
 // unknownB4 / 2, sends an extra attack of type 5 from `pos` and takes
 // as much off it. Returns 0 (0x445330).
