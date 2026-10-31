@@ -5,6 +5,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sprite.h"
 #include "unsorted.h"
 
 // The init callback of effect type 16: EffectInit447c40's ring of
@@ -245,6 +246,42 @@ int EffectInit442f50(Effect *effect)
     effect->unknown7c = 160.0f;
     effect->unknownC9 = 1;
     return 0;
+}
+
+// The draw callback of effect type 17: a fan of unknown8c - 1 triangles
+// about the effect, unknown7c in radius, over unknown84 radians centred
+// on unknown80, if unknownC9 is set. Returns 1 (0x443010).
+int EffectDraw443010(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        float delta = effect->unknown84 / (effect->unknown8c - 1);
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        float angle = effect->unknown80 - effect->unknown84 * 0.5f;
+        int i;
+
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        for (i = effect->unknown8c; i > 0; i--)
+        {
+            vtx->pos.z = 0.0f;
+            angle = AddNormalizeAngle(angle, 0.0f);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x50600040;
+            vtx++;
+            angle += delta;
+        }
+    }
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    return 1;
 }
 
 // The update callback of effect type 18: grows unknown7c by 0.7 up to
