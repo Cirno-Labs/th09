@@ -132,7 +132,9 @@ public:
     // OnUpdateMode1b returns 6 while a dialogue runs unless it is 2
     // modulo 3.
     int unknown0;
-    unsigned char pad_4[0x8 - 0x4];
+    // How many frames OnUpdateMode0 recorded while bit 9 of stateFlags
+    // was set; it stops at 3.
+    int unknown4;
     ReplayHeader *unknown08;
     // Where each player's recorded inputs and the recorded frame rates
     // are read from, as th08's cursor and extraCursor.
@@ -140,7 +142,8 @@ public:
     BYTE *extraCursor;
     // The recording of each stage.
     ReplayChunk chunks[10];
-    unsigned char pad_10c[0x110 - 0x10c];
+    // The chunk being recorded, as th08's.
+    ReplayChunk *curChunk;
     void *unknown110;
     int mode;
     char *path;

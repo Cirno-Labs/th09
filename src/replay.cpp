@@ -68,6 +68,68 @@ static char *FormatAndAdvance(char *buf, const char *fmt, ...)
     return buf + strlen(buf);
 }
 
+int ReplayManager::OnUpdateMode0(ReplayManager *mgr)
+{
+    DWORD flags = g_GameManager.stateFlags;
+
+    if (!(flags & 4))
+    {
+        return 1;
+    }
+    if (g_App.GetNoScore())
+    {
+        return 1;
+    }
+    if (flags & 0x200)
+    {
+        if (mgr->unknown4 >= 3)
+        {
+            return 1;
+        }
+        mgr->unknown4++;
+    }
+    if (g_GameManager.sides[0].unknown28 == 0)
+    {
+        *mgr->inputCursors[0] = g_PlayerInputs[0].unknown2c;
+    }
+    if (g_GameManager.sides[1].unknown28 == 0)
+    {
+        *mgr->inputCursors[1] = g_PlayerInputs[1].unknown2c;
+    }
+    *mgr->inputCursors[2] = g_PlayerInputs[2].unknown2c;
+    mgr->curChunk->count++;
+    mgr->inputCursors[0]++;
+    mgr->inputCursors[1]++;
+    mgr->inputCursors[2]++;
+    if (mgr->unknown0 % 30 == 0)
+    {
+        *mgr->extraCursor = g_App.roundedFps;
+        mgr->extraCursor++;
+    }
+    if (mgr->curChunk->count >= 0xe0e)
+    {
+        mgr->curChunk->next =
+            (ReplayChunk *)g_MemoryManager.Register(new ReplayChunk, sizeof(ReplayChunk), "ReplayBufLinkInf");
+        mgr->curChunk = mgr->curChunk->next;
+        mgr->inputCursors[0] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
+        mgr->inputCursors[1] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
+        mgr->inputCursors[2] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
+        mgr->extraCursor = (BYTE *)g_MemoryManager.Alloc(0x79, "rep data");
+        mgr->curChunk->inputs[0] = mgr->inputCursors[0];
+        mgr->curChunk->inputs[1] = mgr->inputCursors[1];
+        mgr->curChunk->inputs[2] = mgr->inputCursors[2];
+        mgr->curChunk->extra = mgr->extraCursor;
+        mgr->curChunk->next = NULL;
+        mgr->curChunk->count = 0;
+        memset(mgr->inputCursors[0], 0, 0x1c20);
+        memset(mgr->inputCursors[1], 0, 0x1c20);
+        memset(mgr->inputCursors[2], 0, 0x1c20);
+        memset(mgr->extraCursor, 0, 0x79);
+    }
+    mgr->unknown0++;
+    return 1;
+}
+
 int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
 {
     if ((g_GameManager.stateFlags & 4) && !(g_GameManager.stateFlags & 0x200) && g_GameManager.gui->IsMsgRunning() &&
