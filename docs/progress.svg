@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.46% (789)</tspan> · <tspan class="decompiled">1.77% (19)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">24.77% (266)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.46% (789)</tspan> · <tspan class="decompiled">1.86% (20)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">24.67% (265)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="548.77" height="6" x="0" y="0" class="named"/>
-<rect width="13.22" height="6" x="548.77" y="0" class="decompiled"/>
-<rect width="185.01" height="6" x="561.99" y="0" class="todo"/>
+<rect width="13.91" height="6" x="548.77" y="0" class="decompiled"/>
+<rect width="184.32" height="6" x="562.68" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1030,7 +1030,7 @@
 <rect width="12" height="12" x="135" y="285" class="decompiled"><title>0x00441350 SpellCardInit441350 (75 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="285" class="decompiled"><title>0x004413a0 SpellCardFree4413a0 (38 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="285" class="decompiled"><title>0x004413d0 SpellCardInit4413d0 (75 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="285" class="todo"><title>0x00441420 SpellCardInit441420 (78 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="285" class="decompiled"><title>0x00441420 SpellCardInit441420 (78 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="285" class="todo"><title>0x00441470 SpellCardFree441470 (38 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="285" class="todo"><title>0x004414a0 Func4414a0 (314 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="285" class="todo"><title>0x004415e0 Func4415e0 (471 bytes)</title></rect>
@@ -1146,11 +1146,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.66%</tspan> · <tspan class="decompiled">0.85%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">56.49%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.66%</tspan> · <tspan class="decompiled">0.87%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">56.46%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="318.70" height="6" x="0" y="0" class="named"/>
-<rect width="6.33" height="6" x="318.70" y="0" class="decompiled"/>
-<rect width="421.97" height="6" x="325.03" y="0" class="todo"/>
+<rect width="6.53" height="6" x="318.70" y="0" class="decompiled"/>
+<rect width="421.77" height="6" x="325.23" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.34" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1757,7 +1757,7 @@
 <rect width="4.89" height="5.56" x="630.74" y="249.83" class="decompiled"><title>0x00440ce0 EffectUpdate440ce0 (79 bytes)</title></rect>
 <rect width="4.89" height="5.56" x="630.74" y="258.38" class="decompiled"><title>0x00440df0 PlayerPosFunc440df0 (79 bytes)</title></rect>
 <rect width="4.89" height="5.45" x="630.74" y="266.94" class="named"><title>0x00435f40 GdiSurface::Release (78 bytes)</title></rect>
-<rect width="4.89" height="5.45" x="630.74" y="275.39" class="todo"><title>0x00441420 SpellCardInit441420 (78 bytes)</title></rect>
+<rect width="4.89" height="5.45" x="630.74" y="275.39" class="decompiled"><title>0x00441420 SpellCardInit441420 (78 bytes)</title></rect>
 <rect width="4.89" height="5.45" x="630.74" y="283.83" class="todo"><title>0x00441c30 Func441c30 (78 bytes)</title></rect>
 <rect width="4.89" height="5.23" x="630.74" y="292.28" class="named"><title>0x0040c3f0 SetSidesFlag0 (76 bytes)</title></rect>
 <rect width="4.89" height="5.12" x="630.74" y="300.51" class="named"><title>0x0040e400 PlayRecord::HasCleared (75 bytes)</title></rect>

@@ -75,3 +75,15 @@ int SpellCardInit4413d0(SpellCard *card)
     return 0;
 }
 
+// The init callback of spell card type 2: allocates unknown1364 and
+// spawns enemy subroutine 2 from the player's ECL, with the position
+// never set. Returns 0 (0x441420).
+int SpellCardInit441420(SpellCard *card)
+{
+    D3DXVECTOR3 pos;
+
+    card->unknown1364 = g_MemoryManager.Alloc(0x2b8, ".\\pl\\pl00.cpp");
+    g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(2, &pos, 0x578, -2, 1000, 0);
+    return 0;
+}
+
