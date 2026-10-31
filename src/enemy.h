@@ -246,7 +246,8 @@ struct Enemy
     short pendingInterrupt;
     unsigned char pad_2d72[0x2d74 - 0x2d72];
     D3DXVECTOR3 pos;
-    unsigned char pad_2d80[0x2d8c - 0x2d80];
+    // As th08's: the script moves pos, drawn at absPos = pos + posOrigin.
+    D3DXVECTOR3 posOrigin;
     D3DXVECTOR3 velocity;
     // The velocity Move uses instead while useVelocity2 is set.
     D3DXVECTOR3 velocity2;
@@ -255,7 +256,7 @@ struct Enemy
     D3DXVECTOR3 posDelta;
     D3DXVECTOR3 hitboxSize;
     unsigned char pad_2dc8[0x2dd4 - 0x2dc8];
-    D3DXVECTOR3 unknown2dd4;
+    D3DXVECTOR3 absPos;
     float angle;
     float angularVelocity;
     unsigned char pad_2de8[0x2df4 - 0x2de8];
@@ -330,7 +331,10 @@ struct Enemy
     };
     struct
     {
-        DWORD unusedBits0 : 6;
+        DWORD unusedBits0 : 3;
+        // Not cleared for the bonus, as th08's.
+        DWORD undying : 1;
+        DWORD unusedBits4 : 2;
         DWORD unknown3380 : 3;
         DWORD unusedBits9 : 1;
         // What EnemyManager::FindByUnknownType looks for.
@@ -356,7 +360,11 @@ struct Enemy
     void *unknown33d8[4];
     EnemyUnknown1c trailBoxes[0x60];
     EnemyUnknown1c unknown3e68[0xc2];
-    unsigned char pad_53a0[0x53a8 - 0x53a0];
+    // As th08's: whether it has trail boxes, and how many.
+    BYTE trailFlags;
+    unsigned char pad_53a1[0x1];
+    short trailSegmentCount;
+    unsigned char pad_53a4[0x53a8 - 0x53a4];
     Timer unknown53a8;
     // Effects that follow it, as th08's.
     struct Effect *effects[0x18];
@@ -401,6 +409,11 @@ public:
     // The first active enemy, of the first 0x80, whose unknownType is
     // `type`, or NULL (0x40f7d0).
     Enemy *FindByUnknownType(int type);
+    // Kills the enemies but the bosses and the undying, with a bonus
+    // popup from 2000 up by 30 (to `maxBonus`) at each grazeable one and
+    // its trail boxes, and starts their death subroutines, as th08's.
+    // Returns `start` plus the bonuses (0x40f640).
+    int ClearEnemiesForBonus(int maxBonus, int start);
     // Starts the first free enemy as subroutine `sub` (of playerEcl if
     // `usePlayerEcl`) at `pos`, mirrored if `mirrored`, with `life` and
     // `score` unless negative. Returns it (0x40f1d0).

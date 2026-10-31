@@ -1,5 +1,6 @@
 #include <string.h>
 
+#include "ascii.h"
 #include "effect.h"
 #include "enemy.h"
 #include "gamemanager.h"
@@ -150,6 +151,63 @@ void Enemy::ReleaseEffects()
         this->effects[i] = NULL;
     }
     this->effectCount = 0;
+}
+
+int EnemyManager::ClearEnemiesForBonus(int maxBonus, int start)
+{
+    Enemy *enemy = this->enemies;
+    int total = start;
+    int bonus = 2000;
+    int k;
+    int j;
+
+    for (k = 0; k < 0x80; k++, enemy++)
+    {
+        if (!enemy->active)
+        {
+            continue;
+        }
+        if (enemy->isBoss)
+        {
+            continue;
+        }
+        if (enemy->undying)
+        {
+            continue;
+        }
+        enemy->life = 0;
+        if (enemy->grazeable)
+        {
+            enemy->absPos = enemy->pos + enemy->posOrigin;
+            g_AsciiText.AddPopup(this->sideIdx, &enemy->absPos, bonus, bonus >= maxBonus ? 0xffffff00 : 0xffffffff);
+            total += bonus;
+            bonus += 30;
+            if (bonus > maxBonus)
+            {
+                bonus = maxBonus;
+            }
+            if (enemy->trailFlags)
+            {
+                for (j = 0; j < enemy->trailSegmentCount; j += 6)
+                {
+                    g_AsciiText.AddPopup(this->sideIdx, &enemy->trailBoxes[j].pos, bonus,
+                                         bonus >= maxBonus ? 0xffffff00 : 0xffffffff);
+                    total += bonus;
+                    bonus += 30;
+                    if (bonus > maxBonus)
+                    {
+                        bonus = maxBonus;
+                    }
+                }
+            }
+        }
+        if (enemy->deathSub >= 0)
+        {
+            this->ecl.StartSub(&enemy->unknown7f4, enemy->deathSub);
+            enemy->deathSub = -1;
+        }
+    }
+    return total;
 }
 
 float LerpAngleShort(float from, float to, float t)

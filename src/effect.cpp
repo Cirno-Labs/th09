@@ -445,7 +445,7 @@ int EffectUpdate40d9e0(Effect *effect)
             enemy->angle = g_Rng.GetRandomF32SignedInRange(0.015707964f) + 1.5707964f;
             return 0;
         }
-        enemy->angle = g_GameManager.sides[1 - effect->unknownA8].player->AngleToPlayer(&enemy->unknown2dd4) +
+        enemy->angle = g_GameManager.sides[1 - effect->unknownA8].player->AngleToPlayer(&enemy->absPos) +
                        g_Rng.GetRandomF32SignedInRange(0.3926991f);
     }
     return 0;
