@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.90% (760)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.89% (299)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.99% (761)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.80% (298)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="529.59" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="529.59" y="0" class="decompiled"/>
-<rect width="208.35" height="6" x="538.65" y="0" class="todo"/>
+<rect width="530.29" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="530.29" y="0" class="decompiled"/>
+<rect width="207.65" height="6" x="539.35" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -658,7 +658,7 @@
 <rect width="12" height="12" x="555" y="165" class="todo"><title>0x0042cc10 Func42cc10 (25 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="165" class="todo"><title>0x0042cc30 Func42cc30 (33 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="165" class="todo"><title>0x0042cc60 Func42cc60 (33 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="165" class="todo"><title>0x0042cc90 Func42cc90 (123 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="165" class="named"><title>0x0042cc90 GameWindow::GetTime (123 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="165" class="named"><title>0x0042cd10 CreateD3d (46 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="165" class="todo"><title>0x0042cd40 Func42cd40 (74 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="165" class="todo"><title>0x0042cd90 Func42cd90 (809 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.63%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.65%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.67%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.61%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="296.01" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="296.01" y="0" class="decompiled"/>
-<rect width="445.60" height="6" x="301.40" y="0" class="todo"/>
+<rect width="296.32" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="296.32" y="0" class="decompiled"/>
+<rect width="445.29" height="6" x="301.71" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1627,7 +1627,7 @@
 <rect width="7.19" height="7.41" x="689.58" y="168.91" class="named"><title>0x0042d0c0 ForceForegroundWindow (124 bytes)</title></rect>
 <rect width="7.11" height="7.41" x="699.77" y="168.91" class="named"><title>0x0040d200 EffectManager::FreeEffects (123 bytes)</title></rect>
 <rect width="7.11" height="7.41" x="709.88" y="168.91" class="named"><title>0x00422470 ScreenEffect::OnUpdateFadeOut (123 bytes)</title></rect>
-<rect width="7.11" height="7.41" x="720" y="168.91" class="todo"><title>0x0042cc90 Func42cc90 (123 bytes)</title></rect>
+<rect width="7.11" height="7.41" x="720" y="168.91" class="named"><title>0x0042cc90 GameWindow::GetTime (123 bytes)</title></rect>
 <rect width="6.95" height="7.41" x="730.11" y="168.91" class="named"><title>0x00415050 BulletManager::BulletManager (121 bytes)</title></rect>
 <rect width="6.95" height="7.41" x="740.05" y="168.91" class="todo"><title>0x0041ba80 Func41ba80 (121 bytes)</title></rect>
 <rect width="6.86" height="7.49" x="594.96" y="179.31" class="named"><title>0x0041bdf0 Player::CheckHitBox (121 bytes)</title></rect>

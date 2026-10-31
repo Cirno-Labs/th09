@@ -589,7 +589,7 @@ address,size,name,symbol
 0x0042cc10,25,Func42cc10,
 0x0042cc30,33,Func42cc30,
 0x0042cc60,33,Func42cc60,
-0x0042cc90,123,Func42cc90,
+0x0042cc90,123,GameWindow::GetTime,?GetTime@GameWindow@@QAENXZ
 0x0042cd10,46,CreateD3d,?CreateD3d@@YIHXZ
 0x0042cd40,74,Func42cd40,
 0x0042cd90,809,Func42cd90,
@@ -2309,6 +2309,7 @@ address,size,name,symbol
 0x004ad008,,g_Archive,?g_Archive@@3VDatArchive@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b1020,,g_Log,?g_Log@@3VLog@@A
+0x004b30b0,,g_GameWindow,?g_GameWindow@@3UGameWindow@@A
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A

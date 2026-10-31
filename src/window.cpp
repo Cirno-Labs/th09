@@ -7,6 +7,27 @@
 
 #include "unsorted.h"
 
+double GameWindow::GetTime()
+{
+    if (g_GameWindow.perfFrequency[0] != 0)
+    {
+        // A LARGE_INTEGER, but only 4-aligned, like GameWindow's.
+        DWORD count[2];
+
+        QueryPerformanceCounter((LARGE_INTEGER *)count);
+        return (double)count[0] / (double)g_GameWindow.perfFrequency[0];
+    }
+    else
+    {
+        double time;
+
+        timeBeginPeriod(1);
+        time = timeGetTime() * 0.001f;
+        timeEndPeriod(1);
+        return time;
+    }
+}
+
 int CreateD3d()
 {
     g_App.d3d = Direct3DCreate8(220);

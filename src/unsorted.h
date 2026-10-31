@@ -84,6 +84,31 @@ public:
 };
 extern Log g_Log;
 
+// The game's window, as th08's (0x44 bytes, at 0x4b30b0). Only the
+// fields known so far.
+#pragma pack(push, 4)
+struct GameWindow
+{
+    // The time in seconds, from the performance counter if it has a
+    // frequency, else from timeGetTime() (0x42cc90).
+    double GetTime();
+
+    HWND hwnd;
+    unsigned char pad_4[0x10 - 0x4];
+    char curFrame;
+    unsigned char pad_11[0x3];
+    // The performance counter's frequency, as a LARGE_INTEGER but only
+    // 4-aligned, as th08's.
+    DWORD perfFrequency[2];
+    unsigned char pad_1c[0x2c - 0x1c];
+    double now;
+    double lastTime;
+    double nextFrameTime;
+};
+#pragma pack(pop)
+ASSERT_SIZE(GameWindow, 0x44);
+extern GameWindow g_GameWindow;
+
 // Creates g_App.d3d, as th08's. Returns 0, or logs and returns 1
 // (0x42cd10).
 int CreateD3d();
