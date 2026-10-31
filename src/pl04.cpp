@@ -9,14 +9,19 @@
 #include "unsorted.h"
 
 // The state of effect type 34, which it keeps in its vertices (0xef8
-// bytes).
+// bytes), laid out as ExAttackData14 from unknown4c on.
 struct EffectData34
 {
     // 0 while growing, then 1.
     int state;
-    unsigned char pad_4[0x50 - 0x4];
+    unsigned char pad_4[0x4c - 0x4];
+    // Cleared by the draw.
+    int unknown4c;
+    // The radius.
     float unknown50;
-    unsigned char pad_54[0xce8 - 0x54];
+    // What the draw fills: a fan and four line rings.
+    VertexDiffuseXyzrwh fan[0x21];
+    VertexDiffuseXyzrwh rings[4][0x20];
     // Random offsets, 32 of each row's 33 refreshed each frame.
     float unknownCe8[4][0x21];
 };
@@ -476,6 +481,99 @@ int EffectUpdate444a20(Effect *effect)
             return 0;
         }
     }
+    return 1;
+}
+
+// The draw callback of effect type 34: ExAttackDraw444130's fan and
+// rings about the effect, the fan in red, fading out over 50 frames once
+// grown. Clears unknown4c. Returns 1 (0x444af0).
+int EffectDraw444af0(Effect *effect)
+{
+    EffectData34 *data = (EffectData34 *)effect->vertices;
+    float angle = -3.1415927f;
+    VertexDiffuseXyzrwh *vtx;
+    BYTE alpha;
+    int i;
+    int j;
+
+    AddNormalizeAngle(angle, -1.5707964f);
+    vtx = data->fan;
+    if (data->state == 0)
+    {
+        alpha = 0xff;
+    }
+    else
+    {
+        alpha = 0xff - effect->unknownAc.AsFrames() * 0xff / 50;
+    }
+    vtx->pos = effect->pos;
+    vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+    vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+    vtx->diffuse = (alpha / 4 << 24) | 0xff0000;
+    vtx->w = 1.0f;
+    vtx++;
+    for (i = 0; i < 0x20; i++)
+    {
+        if (angle >= 3.1415927f)
+        {
+            angle -= 6.2831855f;
+        }
+        vtx->pos.z = 0.0f;
+        SetPolar((Vector2 *)&vtx->pos, angle, data->unknown50);
+        vtx->pos += effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->diffuse = (alpha << 24) | 0xff0000;
+        vtx->w = 1.0f;
+        vtx++;
+        angle += 0.2026834f;
+    }
+    g_SpriteEngine->DrawColoredFan(effect->sprites, data->fan, 0x21);
+    g_SpriteEngine->FlushQuadBatch();
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+    g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+    for (i = 0; i < 4; i++)
+    {
+        vtx = data->rings[i];
+        for (j = 0; j < 0x20; j++)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            vtx->pos.z = 0.0f;
+            SetPolar((Vector2 *)&vtx->pos, angle, data->unknownCe8[i][j] + data->unknown50);
+            vtx->pos += effect->pos;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->diffuse = (alpha << 24) | 0xffffff;
+            vtx->w = 1.0f;
+            vtx++;
+            angle += 0.2026834f;
+        }
+        g_App.d3dDevice->SetVertexShader(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
+        g_App.d3dDevice->DrawPrimitiveUP(D3DPT_LINESTRIP, 0x1f, data->rings[i], sizeof(VertexDiffuseXyzrwh));
+        if (data->state == 0)
+        {
+            break;
+        }
+        angle += 0.05067085f;
+    }
+    g_SpriteEngine->ClearVertexFormat();
+    g_SpriteEngine->ClearSpriteData();
+    g_SpriteEngine->ClearTexture();
+    g_SpriteEngine->ClearColorOp();
+    g_SpriteEngine->ClearBlendMode();
+    g_SpriteEngine->ClearZWrite();
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+    data->unknown4c = 0;
     return 1;
 }
 
