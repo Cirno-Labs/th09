@@ -38,11 +38,6 @@ void Timer::operator++(int)
     this->NextTick();
 }
 
-BOOL Timer::operator>=(int frames)
-{
-    return this->current >= frames;
-}
-
 BOOL Timer::operator<(int frames)
 {
     return this->current < frames;

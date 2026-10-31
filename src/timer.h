@@ -51,7 +51,10 @@ struct Timer
     void operator=(int frames);
     // NextTick, as a postfix (0x401510).
     void operator++(int);
-    BOOL operator>=(int frames);
+    BOOL operator>=(int frames)
+    {
+        return this->current >= frames;
+    }
     BOOL operator<(int frames);
     BOOL operator>(int frames);
     // Defined with the enemy code, as in the original (0x404950).
