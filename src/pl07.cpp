@@ -108,3 +108,62 @@ int EffectUpdate4475c0(Effect *effect)
     effect->unknown80 = 0.0f;
     return 1;
 }
+
+// The draw callback of effect type 28: EffectDraw444700's fan with two
+// 60-degree arcs centred sqrt(3) / 2 unknown7c either side of the
+// effect (0x447ce0).
+int EffectDraw447ce0(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        float delta = 1.0471976f / (effect->unknown8c / 2 - 1);
+        float angle = AddNormalizeAngle(effect->unknown80, 1.0471976f);
+        float across = AddNormalizeAngle(effect->unknown80, -1.5707964f);
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        D3DXVECTOR3 offset;
+        int i;
+
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x40600040;
+        vtx++;
+        SetPolar((Vector2 *)&offset, across, effect->unknown7c * 0.8660254f);
+        for (i = effect->unknown8c; i > 0; i -= 2)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos + offset;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->pos.z = 0.0f;
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x70600040;
+            vtx++;
+            angle += delta;
+        }
+        angle = AddNormalizeAngle(angle, 2.0943952f - delta);
+        for (i = effect->unknown8c; i > 0; i -= 2)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos - offset;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->pos.z = 0.0f;
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x70600040;
+            vtx++;
+            angle += delta;
+        }
+    }
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    return 1;
+}
