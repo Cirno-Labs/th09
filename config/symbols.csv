@@ -2341,6 +2341,7 @@ address,size,name,symbol
 0x004a1d50,,g_ReplayMenuModeNames,?g_ReplayMenuModeNames@@3PAPADA
 0x004a1d58,,g_ReplayMenuMatchNames,?g_ReplayMenuMatchNames@@3PAPADA
 0x004a1d68,,g_ScoreRankNames,?g_ScoreRankNames@@3PAPADA
+0x004a1dac,,g_ScoreCharacters,?g_ScoreCharacters@@3PADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA
@@ -2365,6 +2366,7 @@ address,size,name,symbol
 0x004ac840,,g_ScoreDatHeader,?g_ScoreDatHeader@@3UScoreDat@@A
 0x004ac858,,g_Hscr,?g_Hscr@@3UHscr@@A
 0x004ac884,,g_Unknown4ac884,?g_Unknown4ac884@@3HA
+0x004ac8d4,,g_CheatCodeProgress,?g_CheatCodeProgress@@3HA
 0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
 0x004acc00,,g_PathBuffer,?g_PathBuffer@@3PADA
 0x004acd08,,g_DataDir,?g_DataDir@@3PADA

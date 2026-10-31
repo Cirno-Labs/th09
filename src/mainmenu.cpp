@@ -1712,6 +1712,134 @@ int MainMenu::UpdateState1()
     return 1;
 }
 
+int MainMenu::UpdateState13()
+{
+    int i;
+    int delta;
+    char character;
+
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            if (g_SpriteEngine->LoadSurface(0, "title/result00.png") != 0)
+            {
+                return 0;
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 16);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            this->cursor = 0;
+            this->scoreCharacter = 0;
+            this->SelectEntry3(g_ScoreCharacters[0], 0x3c, 0x10, 2);
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+            this->scoreRank = 0;
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+        }
+        break;
+    case 1:
+        if (g_CheatCodeProgress < 3)
+        {
+            if (g_PlayerInputs[2].unknown6 & 0x2000)
+            {
+                g_CheatCodeProgress++;
+            }
+            else if (g_PlayerInputs[2].unknown6)
+            {
+                g_CheatCodeProgress = 0;
+            }
+        }
+        else if (g_CheatCodeProgress < 7)
+        {
+            if (g_PlayerInputs[2].unknown6 & 0x400)
+            {
+                g_CheatCodeProgress++;
+            }
+            else if (g_PlayerInputs[2].unknown6)
+            {
+                g_CheatCodeProgress = 0;
+            }
+        }
+        else if (g_CheatCodeProgress < 8)
+        {
+            if (g_PlayerInputs[2].unknown6 & 0x200)
+            {
+                g_CheatCodeProgress++;
+            }
+            else if (g_PlayerInputs[2].unknown6)
+            {
+                g_CheatCodeProgress = 0;
+            }
+        }
+        else if (g_CheatCodeProgress < 10)
+        {
+            if (g_PlayerInputs[2].unknown6 & 0x4000)
+            {
+                g_CheatCodeProgress++;
+            }
+            else if (g_PlayerInputs[2].unknown6)
+            {
+                g_CheatCodeProgress = 0;
+            }
+        }
+        if (g_CheatCodeProgress >= 10)
+        {
+            // The (char) keeps the stores a loop, as the original's.
+            for (i = 0; i < 16; i++)
+            {
+                g_PlayRecord.openEntries[(char)i] = 1;
+            }
+            for (i = 0; i <= 13; i++)
+            {
+                g_PlayRecord.openEntries2[(char)i] = 1;
+                g_PlayRecord.openEntries3[(char)i] = 1;
+            }
+            g_SoundPlayer.PlaySoundByIdx(0x1c, 0);
+            g_CheatCodeProgress = 0;
+        }
+        if ((delta = this->MoveCursorLR(14)) != 0)
+        {
+            while (!g_PlayRecord.openEntries2[this->cursor])
+            {
+                if (g_PlayRecord.openEntries3[this->cursor])
+                {
+                    break;
+                }
+                this->cursor += delta;
+                if (this->cursor < 0)
+                {
+                    this->cursor += 16;
+                }
+                if (this->cursor >= 16)
+                {
+                    this->cursor -= 16;
+                }
+            }
+            character = g_ScoreCharacters[this->cursor];
+            this->SelectEntry3(character, 0x3c, 0x10, 2);
+            this->scoreCharacter = character;
+        }
+        if (g_PlayerInputs[2].unknown6 & 10)
+        {
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            this->SetState(1);
+            this->cursor = 4;
+            return 1;
+        }
+        break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState2()
 {
     switch (this->subState)

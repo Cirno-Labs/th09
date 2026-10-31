@@ -29,6 +29,13 @@ extern char *g_ReplayMenuMatchNames[4];
 // "1st" to "5th", for the high score tables (0x4a1d68).
 extern char *g_ScoreRankNames[5];
 
+// The characters in the order the high score tables list them
+// (0x4a1dac).
+extern char g_ScoreCharacters[16];
+// How far into the code that opens every entry of the menus' lists the
+// high score tables are (0x4ac8d4).
+extern int g_CheatCodeProgress;
+
 // Cleared by the title (0x4ac884).
 extern int g_Unknown4ac884;
 
@@ -174,7 +181,10 @@ public:
     // The states' update functions, by the first state each runs in.
     // UpdateState2 also runs states 4 and 7, UpdateState3 state 5, and
     // state 8 runs UpdateState8b instead of UpdateState8 when
-    // g_GameManager's unknown114 is 1 to 3.
+    // g_GameManager's unknown114 is 1 to 3. UpdateState13 runs the high
+    // score tables: left and right pick the character among the open
+    // ones, a cancel goes back to state 1, and a code of ten buttons
+    // opens every entry.
     int UpdateState3();
     int UpdateState8b();
     int UpdateState16();
