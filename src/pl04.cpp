@@ -97,6 +97,44 @@ int EffectInit444960(Effect *effect)
     return 0;
 }
 
+// The update callback of effect type 34: over 50 frames, eases
+// unknown50 out to 64; then for 30 frames fills unknownCe8 with random
+// offsets as wide as the frames passed. Returns 0 once done, else 1
+// (0x444a20).
+int EffectUpdate444a20(Effect *effect)
+{
+    EffectData34 *data = (EffectData34 *)effect->vertices;
+    float t;
+    int i;
+    int j;
+
+    if (data->state == 0)
+    {
+        t = 1.0f - effect->unknownAc.AsFloat() * 0.02f;
+        data->unknown50 = (1.0f - t * t) * 64.0f;
+        if (effect->unknownAc >= 50)
+        {
+            data->state = 1;
+            effect->unknownAc = 0;
+        }
+    }
+    else
+    {
+        for (i = 0; i < 4; i++)
+        {
+            for (j = 0; j < 0x20; j++)
+            {
+                data->unknownCe8[i][j] = g_Rng.GetRandomF32SignedInRange(effect->unknownAc.AsFloat());
+            }
+        }
+        if (effect->unknownAc >= 30)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 // An update callback of the effect table: grows unknown7c by 8 up to
 // 48, sets unknownC9 and puts the effect on its side's player. Returns
 // 1 (0x444eb0).
