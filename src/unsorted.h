@@ -804,8 +804,9 @@ struct App
     int GetPreloadBgm();
     int GetNoVsync();
     int GetNoTextRenderDetect();
-    // Saves the back buffer to the bitmap `path` (0x42f540).
-    void SaveScreenshot(char *path);
+    // Saves the back buffer to the bitmap `path`, as th08's. Returns 1
+    // for a back buffer format it does not know, else 0 (0x42f540).
+    int SaveScreenshot(char *path);
     // Whether subThread is set, as th08's. Inline; the copy the others
     // call is at 0x42ed70.
     BOOL HasSubThread()

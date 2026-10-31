@@ -644,7 +644,7 @@ address,size,name,symbol
 0x0042f420,101,SpriteEngine::SetPendingSurfaceCopy,?SetPendingSurfaceCopy@SpriteEngine@@QAEHHHHHHHHHH@Z
 0x0042f490,93,Timer::Add,?Add@Timer@@QAEXM@Z
 0x0042f4f0,71,App::TickTimer,?TickTimer@App@@QAEXPAHPAM@Z
-0x0042f540,543,App::SaveScreenshot,?SaveScreenshot@App@@QAEXPAD@Z
+0x0042f540,543,App::SaveScreenshot,?SaveScreenshot@App@@QAEHPAD@Z
 0x0042f760,15,SpriteEngine::ClearDrawStats,?ClearDrawStats@SpriteEngine@@QAEXXZ
 0x0042f770,74,SpriteEngine::ResetFrameState,?ResetFrameState@SpriteEngine@@QAEXXZ
 0x0042f7c0,1054,App::LoadConfig,?LoadConfig@App@@QAEHPAD@Z

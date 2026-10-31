@@ -768,6 +768,110 @@ void App::TickTimer(int *frames, float *subFrame)
     }
 }
 
+int App::SaveScreenshot(char *path)
+{
+    BITMAPFILEHEADER fileHdr;
+    BYTE *bits;
+    BITMAPINFO *bmi;
+    IDirect3DSurface8 *buffer;
+
+    bmi = NULL;
+    bits = NULL;
+    buffer = NULL;
+    this->d3dDevice->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &buffer);
+    memset(&fileHdr, 0, sizeof(fileHdr));
+    fileHdr.bfType = *(WORD *)"BM";
+    fileHdr.bfOffBits = sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
+    fileHdr.bfSize = fileHdr.bfOffBits;
+    switch (this->presentParams.BackBufferFormat)
+    {
+    case D3DFMT_R5G6B5:
+        LogPrintf(&g_Log, "16bit は取り込めない\r\n");
+        break;
+    case D3DFMT_X8R8G8B8:
+    {
+        int widthBytes;
+        int x;
+        int y;
+        BYTE *dst;
+        BYTE *read;
+        D3DLOCKED_RECT lockRect;
+        int outRow;
+        BYTE *pBits;
+        int pitch;
+        HANDLE file;
+
+        bmi = (BITMAPINFO *)g_MemoryManager.Alloc(sizeof(BITMAPINFO), GLOBAL_H);
+        if (bmi == NULL)
+        {
+            LogPrintf(&g_Log, "snapShotScreen : 確保しくり\r\n");
+            break;
+        }
+        memset(bmi, 0, sizeof(BITMAPINFO));
+        widthBytes = 640 * 3;
+        bits = (BYTE *)g_MemoryManager.Alloc(widthBytes * 480, GLOBAL_H);
+        if (bits == NULL)
+        {
+            LogPrintf(&g_Log, "snapShotScreen : 確保しくり\r\n");
+            goto done;
+        }
+        fileHdr.bfSize += widthBytes * 480;
+        bmi->bmiHeader.biBitCount = 24;
+        bmi->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+        bmi->bmiHeader.biWidth = 640;
+        bmi->bmiHeader.biHeight = 480;
+        bmi->bmiHeader.biPlanes = 1;
+        bmi->bmiHeader.biCompression = BI_RGB;
+        buffer->LockRect(&lockRect, NULL, 0);
+        // Bottom-up, as a bitmap's rows go.
+        pBits = (BYTE *)lockRect.pBits;
+        pitch = lockRect.Pitch;
+        outRow = 0;
+        for (y = 479; y > -1; y--, outRow++)
+        {
+            dst = bits + widthBytes * outRow;
+            read = pBits + pitch * y;
+            for (x = 0; x < 640; x++)
+            {
+                *dst = *read;
+                read++;
+                dst++;
+                *dst = *read;
+                read++;
+                dst++;
+                *dst = *read;
+                read += 2;
+                dst++;
+            }
+        }
+        buffer->UnlockRect();
+        file = CreateFileA(path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        if (file == INVALID_HANDLE_VALUE)
+        {
+            break;
+        }
+        // The byte counts go into path, which is not needed any more.
+        WriteFile(file, &fileHdr, sizeof(BITMAPFILEHEADER), (DWORD *)&path, NULL);
+        WriteFile(file, bmi, sizeof(BITMAPINFOHEADER), (DWORD *)&path, NULL);
+        WriteFile(file, bits, widthBytes * 480, (DWORD *)&path, NULL);
+        CloseHandle(file);
+        break;
+    }
+    default:
+        LogPrintf(&g_Log, "error ? .\\system\\mother.cpp\r\n");
+        return 1;
+    }
+done:
+    if (buffer != NULL)
+    {
+        buffer->Release();
+        buffer = NULL;
+    }
+    g_MemoryManager.Free(bmi);
+    g_MemoryManager.Free(bits);
+    return 0;
+}
+
 void SpriteEngine::ResetFrameState()
 {
     this->ClearVertexFormat();
