@@ -89,7 +89,7 @@ address,size,name,symbol
 0x00405710,18,Fmod,?Fmod@@YIMMM@Z
 0x00405730,36,D3DXVECTOR3::operator+=,??YD3DXVECTOR3@@QAEAAU0@ABU0@@Z
 0x00405760,1572,Func405760,
-0x00405f20,491,Func405f20,
+0x00405f20,491,ResolveOperand,?ResolveOperand@@YIPAHPAUEnemy@@PAHGH@Z
 0x00406200,15,Rng::GetRandomF32SignedInRange,?GetRandomF32SignedInRange@Rng@@QAEMM@Z
 0x00406210,702,ResolveFloatOperand,?ResolveFloatOperand@@YIPAMPAUEnemy@@PAMGH@Z
 0x004065e0,21,Timer::Sub,?Sub@Timer@@QAEXM@Z

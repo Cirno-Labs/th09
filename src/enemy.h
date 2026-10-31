@@ -21,6 +21,13 @@ struct EclHeader
     void *timelines[1];
 };
 
+// The arguments of a subroutine call, as th08's.
+struct EclCallArgs
+{
+    int ints[4];
+    float floats[4];
+};
+
 // The state of an ECL script. Only the fields known so far; its
 // implicit constructor is at 0x40fca0.
 struct EclContext
@@ -61,7 +68,8 @@ struct EclManager
     // The subroutines, after the timelines' offsets in the file.
     void **subs;
     EclContext context;
-    unsigned char pad_188[0x188 - 0x8 - sizeof(EclContext)];
+    // The arguments the next subroutine call passes, as th08's.
+    EclCallArgs callArgs;
 };
 ASSERT_SIZE(EclManager, 0x188);
 
@@ -91,6 +99,9 @@ struct EclInstr
     EclArg args[9];
 };
 
+// The int variable `operand` names when bit `bit` of `mask` is set,
+// as th08's (0x405f20).
+int *ResolveOperand(Enemy *enemy, int *operand, WORD mask, int bit);
 // `id`, or the float variable it names, as th08's GetFloatOperand
 // (0x4068a0).
 float GetFloatOperand(Enemy *enemy, float id);
@@ -105,14 +116,14 @@ void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t);
 void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t);
 
 // An ECL script's variables, which SpawnEnemyWithVars copies in (0x78
-// bytes). Only the fields known so far.
+// bytes).
 struct EclVars
 {
     int intVars[8];
     float floatVars[8];
     int intVars2[4];
     float floatVars2[2];
-    unsigned char pad_58[0x78 - 0x58];
+    EclCallArgs args;
 };
 ASSERT_SIZE(EclVars, 0x78);
 
@@ -137,6 +148,7 @@ struct EnemyUnknown22c
             float floatVars[8];
             int intVars2[4];
             float floatVars2[2];
+            EclCallArgs args;
         };
     };
     Timer waitTimer;
@@ -238,7 +250,12 @@ struct Enemy
     EnemyUnknown22c unknownA20[0x10];
     // The context running, as th08's currentCtx.
     EnemyUnknown22c *currentCtx;
-    unsigned char pad_2ce4[0x2d2a - 0x2ce4];
+    // Where calls save the context, as th08's callStack.
+    EnemyUnknown22c *callStack;
+    // The enemy's own variables, as th08's.
+    int enemyInts[8];
+    float enemyFloats[8];
+    short savedStackDepth;
     short stackDepth;
     unsigned char pad_2d2c[0x2d2e - 0x2d2c];
     short deathSub;

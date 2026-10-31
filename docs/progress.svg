@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.96% (750)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.82% (309)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.06% (751)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.73% (308)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="522.62" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="522.62" y="0" class="decompiled"/>
-<rect width="215.32" height="6" x="531.68" y="0" class="todo"/>
+<rect width="523.32" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="523.32" y="0" class="decompiled"/>
+<rect width="214.62" height="6" x="532.38" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -158,7 +158,7 @@
 <rect width="12" height="12" x="555" y="15" class="named"><title>0x00405710 Fmod (18 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="15" class="named"><title>0x00405730 D3DXVECTOR3::operator+= (36 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="15" class="todo"><title>0x00405760 Func405760 (1572 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="15" class="todo"><title>0x00405f20 Func405f20 (491 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="15" class="named"><title>0x00405f20 ResolveOperand (491 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="15" class="named"><title>0x00406200 Rng::GetRandomF32SignedInRange (15 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="15" class="todo"><title>0x00406210 ResolveFloatOperand (702 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="15" class="named"><title>0x004065e0 Timer::Sub (21 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.89%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">61.39%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.06%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">61.22%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="283.02" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="283.02" y="0" class="decompiled"/>
-<rect width="458.60" height="6" x="288.40" y="0" class="todo"/>
+<rect width="284.27" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="284.27" y="0" class="decompiled"/>
+<rect width="457.34" height="6" x="289.66" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1292,7 +1292,7 @@
 <rect width="17.67" height="17.90" x="708.74" y="0" class="named"><title>0x0043de90 MidiPlayer::OnTimer (505 bytes)</title></rect>
 <rect width="17.59" height="17.90" x="729.41" y="0" class="named"><title>0x004353f0 AsciiText::DrawPopups (503 bytes)</title></rect>
 <rect width="16.77" height="18.46" x="430.48" y="20.90" class="todo"><title>0x00447890 Func447890 (496 bytes)</title></rect>
-<rect width="16.77" height="18.24" x="430.48" y="42.35" class="todo"><title>0x00405f20 Func405f20 (491 bytes)</title></rect>
+<rect width="16.77" height="18.24" x="430.48" y="42.35" class="named"><title>0x00405f20 ResolveOperand (491 bytes)</title></rect>
 <rect width="16.77" height="18.24" x="430.48" y="63.59" class="named"><title>0x0043ab50 SpriteEngine::Draw (491 bytes)</title></rect>
 <rect width="16.77" height="18.24" x="430.48" y="84.83" class="todo"><title>0x00445a40 Func445a40 (491 bytes)</title></rect>
 <rect width="16.77" height="18.02" x="430.48" y="106.07" class="named"><title>0x0043cae0 SpriteEngine::LoadSurface (486 bytes)</title></rect>
