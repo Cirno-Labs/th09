@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">78.90% (879)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.17% (13)</tspan> · <tspan class="todo">5.57% (62)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">78.90% (879)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.26% (14)</tspan> · <tspan class="todo">5.48% (61)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="589.42" height="6" x="0" y="0" class="named"/>
 <rect width="107.29" height="6" x="589.42" y="0" class="decompiled"/>
-<rect width="8.72" height="6" x="696.71" y="0" class="nonmatching"/>
-<rect width="41.57" height="6" x="705.43" y="0" class="todo"/>
+<rect width="9.39" height="6" x="696.71" y="0" class="nonmatching"/>
+<rect width="40.90" height="6" x="706.10" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -596,7 +596,7 @@
 <rect width="12" height="12" x="360" y="150" class="named"><title>0x00425390 MainMenu::MoveCharacterCursor2 (279 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="150" class="todo"><title>0x004254a7 MainMenu::UpdateState3 (1572 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="150" class="todo"><title>0x00425acb MainMenu::UpdateState8b (2153 bytes)</title></rect>
-<rect width="12" height="12" x="405" y="150" class="todo"><title>0x00426334 MainMenu::UpdateState16 (897 bytes)</title></rect>
+<rect width="12" height="12" x="405" y="150" class="nonmatching"><title>0x00426334 MainMenu::UpdateState16 (897 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="150" class="nonmatching"><title>0x004266b5 MainMenu::UpdateState13 (485 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="150" class="named"><title>0x0042689a MainMenu::UpdateState11 (1387 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="150" class="todo"><title>0x00426e05 MainMenu::UpdateState12 (2258 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">57.96%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">11.68%</tspan> · <tspan class="todo">15.53%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">57.96%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">11.98%</tspan> · <tspan class="todo">15.23%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="432.97" height="6" x="0" y="0" class="named"/>
 <rect width="110.77" height="6" x="432.97" y="0" class="decompiled"/>
-<rect width="87.23" height="6" x="543.73" y="0" class="nonmatching"/>
-<rect width="116.04" height="6" x="630.96" y="0" class="todo"/>
+<rect width="89.49" height="6" x="543.73" y="0" class="nonmatching"/>
+<rect width="113.78" height="6" x="633.22" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1258,7 +1258,7 @@
 <rect width="27.29" height="24.45" x="277.46" y="320.55" class="decompiled"><title>0x00444af0 EffectDraw444af0 (946 bytes)</title></rect>
 <rect width="25.25" height="25.71" x="307.75" y="0" class="named"><title>0x00403e50 SpellCard::Start (923 bytes)</title></rect>
 <rect width="25.25" height="25.65" x="307.75" y="28.71" class="decompiled"><title>0x0044a780 EffectDraw44a780 (921 bytes)</title></rect>
-<rect width="25.25" height="24.91" x="307.75" y="57.37" class="todo"><title>0x00426334 MainMenu::UpdateState16 (897 bytes)</title></rect>
+<rect width="25.25" height="24.91" x="307.75" y="57.37" class="nonmatching"><title>0x00426334 MainMenu::UpdateState16 (897 bytes)</title></rect>
 <rect width="25.25" height="24.56" x="307.75" y="85.27" class="named"><title>0x0042a45b MainMenu::UpdateState2 (886 bytes)</title></rect>
 <rect width="25.25" height="24.44" x="307.75" y="112.84" class="named"><title>0x00431d10 App::LoadingThread (882 bytes)</title></rect>
 <rect width="25.25" height="23.97" x="307.75" y="140.28" class="decompiled"><title>0x00447fb0 PlayerPosFunc447fb0 (867 bytes)</title></rect>

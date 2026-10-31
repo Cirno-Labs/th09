@@ -29,6 +29,11 @@ extern char *g_ReplayMenuMatchNames[4];
 // "1st" to "5th", for the high score tables (0x4a1d68).
 extern char *g_ScoreRankNames[5];
 
+// The characters in the order the character select lists them
+// (0x4a1d9c), and the open ones of them, then -1s, as UpdateState16
+// found them (0x4ac8c4).
+extern char g_CharacterOrder[16];
+extern char g_OpenCharacters[16];
 // The characters in the order the high score tables list them
 // (0x4a1dac).
 extern char g_ScoreCharacters[16];
@@ -189,6 +194,10 @@ public:
     // the scores and goes to state 15 (mode 2 goes there at once).
     // UpdateState11 reads the replays (th9_01 to 25 and up to 25 user
     // ones) and lets one and its round be chosen, then plays it.
+    // UpdateState16 is the character select of states 3 and 5 and of
+    // mode 2's matches, listing the open characters of
+    // g_CharacterOrder; it starts the game in scene 2, or goes back to
+    // state 8.
     int UpdateState3();
     int UpdateState8b();
     int UpdateState16();
@@ -254,7 +263,11 @@ public:
     // The music room's tunes.
     MusicTune tunes[32];
     int unknown11b74;
-    unsigned char pad_11b78[0x11b90 - 0x11b78];
+    unsigned char pad_11b78[0x11b84 - 0x11b78];
+    // Go to GameManager::unknown378 and unknown37c.
+    int unknown11b84;
+    int unknown11b88;
+    unsigned char pad_11b8c[0x11b90 - 0x11b8c];
     // The title's ANM file, and the result screen's text.
     AnmLoaded *anm;
     AnmLoaded *resultTextAnm;

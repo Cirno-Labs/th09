@@ -2280,6 +2280,165 @@ int MainMenu::UpdateState11()
     return 1;
 }
 
+int MainMenu::UpdateState16()
+{
+    int i;
+    int n;
+    int delta;
+    char character;
+
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x1a);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            n = 0;
+            for (i = 0; i < 16; i++)
+            {
+                if (g_CharacterOrder[i] > 13 || g_PlayRecord.openEntries[g_CharacterOrder[i]] ||
+                    g_Network->unknownA8)
+                {
+                    this->anm->SetSprite(&this->sprites[n + 207], g_CharacterOrder[i] + 0xfb);
+                    this->sprites[n + 207].flags |= 2;
+                    g_OpenCharacters[n] = g_CharacterOrder[i];
+                    n++;
+                }
+            }
+            this->cursor = n - 2;
+            for (; n < 16; n++)
+            {
+                this->sprites[n + 207].flags &= ~2;
+                g_OpenCharacters[n] = -1;
+            }
+            this->sprites[189].flags |= 2;
+            this->sprites[190].flags |= 2;
+            character = g_OpenCharacters[this->cursor];
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+            this->unknownC918 = 1;
+            this->MoveCharacterCursor2(0, character, g_CharacterOrder);
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+        }
+        break;
+    case 1:
+        if ((delta = this->MoveCursor4(16)) != 0)
+        {
+            while (g_OpenCharacters[this->cursor] < 0)
+            {
+                this->cursor = (this->cursor + delta) % 16;
+            }
+            this->MoveCharacterCursor2(0, g_OpenCharacters[this->cursor], g_CharacterOrder);
+        }
+        if (g_PlayerInputs[2].unknown0 & 0x100)
+        {
+            this->cursor += g_Rng.GetRandomU32() & 0xf;
+            if (this->cursor >= 16)
+            {
+                this->cursor -= 16;
+            }
+            this->MoveCharacterCursor2(0, g_OpenCharacters[this->cursor], g_CharacterOrder);
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            this->PlaySoundNow(10, 0);
+            g_App.StopBgm();
+            g_GameManager.unknownFc = 0;
+            if (this->state == 3)
+            {
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+                g_GameManager.mode = 0;
+                g_GameManager.sides[0].unknown28 = 0;
+            }
+            else if (this->state == 5)
+            {
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+                g_GameManager.mode = 1;
+                g_GameManager.sides[0].unknown28 = 0;
+            }
+            else if (g_GameManager.unknown114 == 0 || g_GameManager.unknown114 == 4)
+            {
+                g_GameManager.sides[1].unknown28 = 0;
+                g_App.scene = 2;
+                g_GameManager.mode = 2;
+                g_GameManager.sides[0].unknown28 = 0;
+            }
+            else if (g_GameManager.unknown114 == 1)
+            {
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+                g_GameManager.mode = 2;
+                g_GameManager.sides[0].unknown28 = 0;
+            }
+            else if (g_GameManager.unknown114 == 2)
+            {
+                g_GameManager.sides[1].unknown28 = 0;
+                g_GameManager.sides[0].unknown28 = 1;
+                g_App.scene = 2;
+                g_GameManager.mode = 2;
+            }
+            else if (g_GameManager.unknown114 == 3)
+            {
+                g_GameManager.sides[1].unknown28 = 1;
+                g_GameManager.sides[0].unknown28 = 1;
+                g_App.scene = 2;
+                g_GameManager.mode = 2;
+            }
+            g_GameManager.difficulty = g_App.config.difficulty;
+            g_GameManager.unknown378 = this->unknown11b84;
+            g_GameManager.unknown37c = this->unknown11b88;
+            g_GameManager.unknown138 = g_OpenCharacters[this->cursor];
+            if (g_GameManager.unknown138 == 14)
+            {
+                g_GameManager.unknown138 = -1;
+            }
+            else if (g_GameManager.unknown138 == 15)
+            {
+                g_GameManager.unknown138 = -2;
+            }
+            else
+            {
+                g_GameManager.unknown138 = g_OpenCharacters[this->cursor];
+            }
+            return 0;
+        }
+        if (g_PlayerInputs[2].unknown6 & 10)
+        {
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            this->SetState(8);
+            switch (g_GameManager.unknown114)
+            {
+            case 0:
+                this->UpdateState8();
+                break;
+            case 1:
+                this->UpdateState8b();
+                break;
+            case 2:
+                this->UpdateState8b();
+                break;
+            case 3:
+                this->UpdateState8b();
+                break;
+            }
+            return 1;
+        }
+        break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState2()
 {
     switch (this->subState)
