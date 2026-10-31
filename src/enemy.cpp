@@ -608,6 +608,158 @@ void Enemy::ClampPos()
     }
 }
 
+void Enemy::DropItems(int kind)
+{
+    D3DXVECTOR3 effectPos;
+    D3DXVECTOR3 effectVelocity;
+    Effect *effect;
+    EnemyManager *mgr;
+    float radius;
+    int count;
+    int a;
+    int b;
+    int c;
+    int d;
+    char deathEffect;
+
+    if (kind)
+    {
+        this->manager->side->player->unknown30410.ResetCombo();
+    }
+    if (this->unknownBit13)
+    {
+        g_SoundPlayer.QueueSoundPanned(0x12, this->absPos.x);
+        this->manager->side->player->unknown30410.AddComboCounted(&this->absPos, 400, 0, 300, 1000);
+        this->manager->side->player->AddUnknown30454(this->item, &this->pos);
+        return;
+    }
+    if (this->unknownType)
+    {
+        g_SoundPlayer.QueueSoundPanned(0x12, this->absPos.x);
+        this->manager->side->player->AddUnknown30454(g_Rng.GetRandomU16InRange(4), &this->pos);
+    }
+    g_SoundPlayer.QueueSoundPanned(this->index % 2 + 2, this->absPos.x);
+    if (this->unknown3380 && kind && !this->useVelocity2)
+    {
+        this->manager->side->effectManager->SpawnParticles(5, &this->absPos, 1, 0xffffffff);
+    }
+    else
+    {
+        this->manager->side->effectManager->SpawnParticles(this->deathEffect + 0x14, &this->absPos, 1, 0xffffffff);
+        deathEffect = this->deathEffect;
+        if (!this->unknown3380)
+        {
+            if (deathEffect == 0)
+            {
+                radius = 5.0f;
+            }
+            else if (deathEffect == 1)
+            {
+                radius = 5.5f;
+            }
+            else if (deathEffect == 2)
+            {
+                radius = 6.0f;
+            }
+            else
+            {
+                radius = 6.25f;
+            }
+            this->manager->side->player->AddKind2Circle(&this->absPos, 32.0f, radius, 3, deathEffect + 8, 4);
+        }
+        else
+        {
+            if (deathEffect == 0)
+            {
+                radius = 5.0f;
+            }
+            else if (deathEffect == 1)
+            {
+                radius = 5.5f;
+            }
+            else if (deathEffect == 2)
+            {
+                radius = 6.0f;
+            }
+            else
+            {
+                radius = 6.25f;
+            }
+            this->manager->side->player->AddKind2Circle(&this->absPos, 32.0f, radius, 2, deathEffect + 8, 4);
+        }
+    }
+    if (this->unknown3380 == 0)
+    {
+        a = 4;
+    }
+    else if (this->unknown3380 == 1)
+    {
+        a = 10;
+    }
+    else if (this->unknown3380 == 2)
+    {
+        a = 20;
+    }
+    else
+    {
+        a = this->unknown3380 == 3 ? 30 : 50;
+    }
+    count = this->manager->side->player->unknown30410.unknown38;
+    b = count > 10 ? 60 : count * 3 + 30;
+    if (this->unknown3380)
+    {
+        c = 0;
+    }
+    else
+    {
+        c = count > 24 ? 28 : count + 4;
+    }
+    if (!this->unknown3380)
+    {
+        d = count > 100 ? 3000 : count * 30 + 10;
+    }
+    else
+    {
+        d = count > 50 ? 11000 : (count + 5) * 200;
+    }
+    if (kind)
+    {
+        d *= 2;
+    }
+    this->manager->side->player->unknown30410.AddComboCounted(&this->absPos, b, c, a, d);
+    count = this->manager->side->player->unknown30410.unknown38;
+    if (count > 128)
+    {
+        radius = 2.0f;
+    }
+    else
+    {
+        radius = count * 0.0078125f + 1.0f;
+    }
+    this->manager->side->player->AddUnknown30388(radius);
+    if (this->unknown3380 && this->unknown3380 < 3 && kind < 2)
+    {
+        mgr = this->manager;
+        if (mgr->otherSide->enemyManager->unknown2ac3b8 < 25)
+        {
+            effectPos.x = g_GameManager.ArenaToScreenX(this->pos.x);
+            effectPos.y = g_GameManager.ArenaToScreenY(this->pos.y);
+            effectPos.z = 0.0f;
+            g_App.SetCamera(1 - mgr->sideIdx);
+            effectVelocity.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+            effectVelocity.y = g_Rng.GetRandomF32InRange(128.0f);
+            effectVelocity.z = 0.0f;
+            effect = g_GameManager.sides[2].effectManager->SpawnParticlesWithVelocity(
+                this->manager->sideIdx + 3, &effectPos, &effectVelocity, 1, 0xffffffff);
+            g_App.SetCamera(this->manager->sideIdx);
+            effect->unknownA4 = this->unknown3380 > 2 ? 2 : this->unknown3380;
+            effect->unknownA6 = this->unknown3380 + 1 > 3 ? 3 : this->unknown3380 + 1;
+            effect->unknownA0 = g_Rng.GetRandomF32InRange(0.5f) * 0.016666668f;
+            effect->unknownA8 = this->manager->sideIdx;
+        }
+    }
+}
+
 int EnemyManager::OnUpdate(EnemyManager *mgr)
 {
     int bomb = 0;
