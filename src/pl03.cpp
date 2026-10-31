@@ -23,6 +23,44 @@ int ShotFire4432a0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
     return 0;
 }
 
+// A draw callback of the shot table (19): draws the bullet's sprite
+// once for each of the first four points of its trail up to the first
+// unused one, shrinking and brightening from a quarter of its color,
+// without moving it. Returns 0 (0x443300).
+int ShotDraw443300(Player *player, PlayerBullet *bullet)
+{
+    int red;
+    int green;
+    int blue;
+    int alpha;
+    int i;
+
+    blue = bullet->sprite.colorRgb[2];
+    green = bullet->sprite.colorRgb[1];
+    red = bullet->sprite.colorRgb[0];
+    alpha = bullet->sprite.alpha;
+
+    for (i = 0; i < 4; i++)
+    {
+        // -999.0f, compared by its bits.
+        if (*(DWORD *)&bullet->trail[i].x == 0xc479c000)
+        {
+            break;
+        }
+        bullet->sprite.scaleY = 3.0f - i * 0.33333334f;
+        bullet->sprite.scaleX = 4.0f - i * 0.33333334f;
+        bullet->sprite.colorRgb[2] = blue * i / 4 + 0x3f;
+        bullet->sprite.colorRgb[1] = green * i / 4 + 0x3f;
+        bullet->sprite.alpha = alpha * i / 4 + 0x3f;
+        g_SpriteEngine->Draw(&bullet->sprite);
+    }
+    bullet->sprite.colorRgb[2] = blue;
+    bullet->sprite.colorRgb[1] = green;
+    bullet->sprite.colorRgb[0] = red;
+    bullet->sprite.alpha = alpha;
+    return 0;
+}
+
 // A hit callback of the shot table (23): does nothing. Returns 1
 // (0x443430).
 int ShotHit443430(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)

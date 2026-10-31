@@ -1001,7 +1001,7 @@ address,size,name,symbol
 0x00443150,248,ShotUpdate443150,?ShotUpdate443150@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00443250,79,EffectUpdate443250,?EffectUpdate443250@@YIHPAUEffect@@@Z
 0x004432a0,86,ShotFire4432a0,?ShotFire4432a0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
-0x00443300,293,Func443300,
+0x00443300,293,ShotDraw443300,?ShotDraw443300@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00443430,8,ShotHit443430,?ShotHit443430@@YIHPAVPlayer@@PAUPlayerBullet@@PAUD3DXVECTOR3@@@Z
 0x00443440,403,Func443440,
 0x004435e0,422,Func4435e0,
