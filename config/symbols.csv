@@ -23,7 +23,7 @@ address,size,name,symbol
 0x00401410,42,App::ResetView3D,?ResetView3D@App@@QAEXXZ
 0x00401440,26,App::SetCamera,?SetCamera@App@@QAEXH@Z
 0x00401460,13,App::GetNoFog,?GetNoFog@App@@QAEHXZ
-0x00401470,38,VectorConstructorIterator,??_H@YGXPAXIHP6EX0@Z@Z
+0x00401470,38,`vector_constructor_iterator',??_H@YGXPAXIHP6EPAX0@Z@Z
 0x004014a0,15,Timer::Initialize,?Initialize@Timer@@QAEXXZ
 0x004014b0,28,Timer::NextTick,?NextTick@Timer@@QAEHXZ
 0x004014d0,25,Timer::Set,?Set@Timer@@QAEXH@Z

@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.06% (903)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.89% (21)</tspan> · <tspan class="todo">2.69% (30)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.15% (904)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.89% (21)</tspan> · <tspan class="todo">2.60% (29)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="605.51" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="605.51" y="0" class="decompiled"/>
-<rect width="14.08" height="6" x="712.80" y="0" class="nonmatching"/>
-<rect width="20.12" height="6" x="726.88" y="0" class="todo"/>
+<rect width="606.18" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="606.18" y="0" class="decompiled"/>
+<rect width="14.08" height="6" x="713.47" y="0" class="nonmatching"/>
+<rect width="19.45" height="6" x="727.55" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -93,7 +93,7 @@
 <rect width="12" height="12" x="315" y="0" class="named"><title>0x00401410 App::ResetView3D (42 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="0" class="named"><title>0x00401440 App::SetCamera (26 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="0" class="named"><title>0x00401460 App::GetNoFog (13 bytes)</title></rect>
-<rect width="12" height="12" x="360" y="0" class="todo"><title>0x00401470 VectorConstructorIterator (38 bytes)</title></rect>
+<rect width="12" height="12" x="360" y="0" class="named"><title>0x00401470 `vector_constructor_iterator&#x27; (38 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="0" class="named"><title>0x004014a0 Timer::Initialize (15 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="0" class="named"><title>0x004014b0 Timer::NextTick (28 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="0" class="named"><title>0x004014d0 Timer::Set (25 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.82%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.71%</tspan> · <tspan class="todo">5.65%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.83%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.71%</tspan> · <tspan class="todo">5.63%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="491.66" height="6" x="0" y="0" class="named"/>
-<rect width="110.76" height="6" x="491.66" y="0" class="decompiled"/>
-<rect width="102.39" height="6" x="602.43" y="0" class="nonmatching"/>
-<rect width="42.18" height="6" x="704.82" y="0" class="todo"/>
+<rect width="491.76" height="6" x="0" y="0" class="named"/>
+<rect width="110.76" height="6" x="491.76" y="0" class="decompiled"/>
+<rect width="102.39" height="6" x="602.52" y="0" class="nonmatching"/>
+<rect width="42.09" height="6" x="704.91" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -2018,7 +2018,7 @@
 <rect width="3.07" height="2.65" x="714.20" y="273.56" class="named"><title>0x0043e2c0 SoundPlayer::LoadBgmFormat (39 bytes)</title></rect>
 <rect width="3.07" height="2.65" x="720.27" y="273.56" class="named"><title>0x0043fbe0 CSound::PauseBuffer (39 bytes)</title></rect>
 <rect width="2.91" height="2.65" x="726.34" y="273.56" class="named"><title>0x004010d0 D3DXVECTOR3::operator/= (38 bytes)</title></rect>
-<rect width="2.91" height="2.65" x="732.26" y="273.56" class="todo"><title>0x00401470 VectorConstructorIterator (38 bytes)</title></rect>
+<rect width="2.91" height="2.65" x="732.26" y="273.56" class="named"><title>0x00401470 `vector_constructor_iterator&#x27; (38 bytes)</title></rect>
 <rect width="2.91" height="2.65" x="738.17" y="273.56" class="named"><title>0x0040c960 EffectUpdateFollowPlayer (38 bytes)</title></rect>
 <rect width="2.91" height="2.65" x="744.09" y="273.56" class="named"><title>0x00411d80 EnemyManager::OnDraw2 (38 bytes)</title></rect>
 <rect width="2.77" height="2.78" x="677.78" y="279.21" class="named"><title>0x00422290 ClearViewport (38 bytes)</title></rect>
