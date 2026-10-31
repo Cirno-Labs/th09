@@ -104,6 +104,16 @@ void BulletManager::ReleaseAnm()
     g_SpriteEngine->ReleaseAnm(8);
 }
 
+BulletCommand *EnemyShooter::SetCommand(int i, int concurrent, DWORD flag)
+{
+    BulletCommand *cmd = &this->commands[i];
+
+    cmd->flag = flag;
+    cmd->concurrentFlag = concurrent;
+    this->flags |= flag;
+    return cmd;
+}
+
 void Bullet::SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1)
 {
     BulletCommand *cmd = this->SetCommand(i, concurrent, 0x10);
