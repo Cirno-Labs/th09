@@ -72,6 +72,10 @@ public:
 
     // Empties the buffer, as th08's (0x42d230).
     void Reset();
+    // If anything was logged, ends it with a line of dashes, shows it in
+    // a message box if hasError is set and writes it to log.txt, as
+    // th08's (0x42d240).
+    void Flush();
 
     char buffer[0x2000];
     // Where the next message goes.

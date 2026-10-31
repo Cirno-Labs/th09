@@ -596,7 +596,7 @@ address,size,name,symbol
 0x0042d0c0,124,ForceForegroundWindow,?ForceForegroundWindow@@YGXPAUHWND__@@@Z
 0x0042d140,225,Func42d140,
 0x0042d230,10,Log::Reset,?Reset@Log@@QAEXXZ
-0x0042d240,80,Func42d240,
+0x0042d240,80,Log::Flush,?Flush@Log@@QAEXXZ
 0x0042d2b0,10,App::GetForce16BitTextures,?GetForce16BitTextures@App@@QAEHXZ
 0x0042d2c0,12,App::GetReferenceRasterizer,?GetReferenceRasterizer@App@@QAEHXZ
 0x0042d2d0,8,App::GetWindowed,?GetWindowed@App@@QAEHXZ
