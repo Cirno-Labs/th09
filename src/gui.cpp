@@ -1,5 +1,6 @@
 #include "gui.h"
 #include "gamemanager.h"
+#include "player.h"
 #include "sprite.h"
 
 int Gui::LoadAnm()
@@ -10,6 +11,34 @@ int Gui::LoadAnm()
 void Gui::ReleaseAnm()
 {
     g_SpriteEngine->ReleaseAnm(10);
+}
+
+void Gui::UpdateEnemyMarker(int side, D3DXVECTOR3 *pos)
+{
+    float dist;
+
+    g_App.SetCamera(side);
+    if (!(pos->x < -112.0f || pos->x > 112.0f))
+    {
+        dist = g_GameManager.sides[side].player->pos.x - pos->x;
+        if (dist < 0.0f)
+        {
+            dist = -dist;
+        }
+        if (dist < 64.0f)
+        {
+            this->enemyMarkers[side].alpha = (int)dist * 3 + 0x40;
+        }
+        else
+        {
+            this->enemyMarkers[side].alpha = 0xff;
+        }
+        this->enemyMarkers[side].pos.x = g_GameManager.ArenaToScreenX(pos->x);
+        this->enemyMarkers[side].pos.y = 472.0f;
+        this->enemyMarkers[side].pos.z = 0.0f;
+        return;
+    }
+    this->enemyMarkers[side].alpha = 0;
 }
 
 void GuiMsg::Clear()

@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.48% (777)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">26.31% (282)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.67% (779)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">26.12% (280)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="541.44" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="541.44" y="0" class="decompiled"/>
-<rect width="196.51" height="6" x="550.49" y="0" class="todo"/>
+<rect width="542.83" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="542.83" y="0" class="decompiled"/>
+<rect width="195.11" height="6" x="551.89" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -90,7 +90,7 @@
 <rect width="12" height="12" x="285" y="0" class="named"><title>0x00401390 App::SetView (71 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="0" class="named"><title>0x004013e0 App::ResetView (42 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="0" class="named"><title>0x00401410 App::ResetView3D (42 bytes)</title></rect>
-<rect width="12" height="12" x="330" y="0" class="todo"><title>0x00401440 Func401440 (26 bytes)</title></rect>
+<rect width="12" height="12" x="330" y="0" class="named"><title>0x00401440 App::SetCamera (26 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="0" class="named"><title>0x00401460 App::GetNoFog (13 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="0" class="todo"><title>0x00401470 VectorConstructorIterator (38 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="0" class="named"><title>0x004014a0 Timer::Initialize (15 bytes)</title></rect>
@@ -378,7 +378,7 @@
 <rect width="12" height="12" x="105" y="90" class="named"><title>0x00415d50 GuiSide::StartUnknownAbcc (24 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="90" class="todo"><title>0x00415d70 Func415d70 (222 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="90" class="todo"><title>0x00415e50 Func415e50 (553 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="90" class="todo"><title>0x00416080 Func416080 (213 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="90" class="named"><title>0x00416080 Gui::UpdateEnemyMarker (213 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="90" class="todo"><title>0x00416160 Func416160 (357 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="90" class="todo"><title>0x004162d0 Func4162d0 (693 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="90" class="todo"><title>0x00416590 Func416590 (2852 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">41.85%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">57.43%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">41.93%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">57.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="312.60" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="312.60" y="0" class="decompiled"/>
-<rect width="429.01" height="6" x="317.99" y="0" class="todo"/>
+<rect width="313.21" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="313.21" y="0" class="decompiled"/>
+<rect width="428.40" height="6" x="318.60" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1487,7 +1487,7 @@
 <rect width="10.71" height="10.41" x="534.48" y="187.64" class="named"><title>0x00421aa0 LoadLsnmChunk (215 bytes)</title></rect>
 <rect width="10.71" height="10.41" x="534.48" y="201.06" class="named"><title>0x0043fe10 CWaveFile::ResetFile (215 bytes)</title></rect>
 <rect width="10.71" height="10.35" x="534.48" y="214.47" class="named"><title>0x004303c0 App::StartLoadingSpritesOverScreen (214 bytes)</title></rect>
-<rect width="10.71" height="10.29" x="534.48" y="227.82" class="todo"><title>0x00416080 Func416080 (213 bytes)</title></rect>
+<rect width="10.71" height="10.29" x="534.48" y="227.82" class="named"><title>0x00416080 Gui::UpdateEnemyMarker (213 bytes)</title></rect>
 <rect width="10.71" height="10.29" x="534.48" y="241.11" class="named"><title>0x0042e9e0 App::AddRecord (213 bytes)</title></rect>
 <rect width="10.71" height="10.16" x="534.48" y="254.40" class="named"><title>0x0041f680 Player::DrawBullets (211 bytes)</title></rect>
 <rect width="10.71" height="10.16" x="534.48" y="267.56" class="named"><title>0x00424edd MainMenu::SelectEntryStep (211 bytes)</title></rect>
@@ -2021,7 +2021,7 @@
 <rect width="1.96" height="1.65" x="711.40" y="279.52" class="todo"><title>0x00403e30 Func403e30 (27 bytes)</title></rect>
 <rect width="1.96" height="1.65" x="716.36" y="279.52" class="named"><title>0x0042e9c0 ReadInputs (27 bytes)</title></rect>
 <rect width="1.78" height="1.65" x="721.32" y="279.52" class="named"><title>0x004010b0 D3DXVECTOR3::D3DXVECTOR3 (26 bytes)</title></rect>
-<rect width="1.78" height="1.65" x="726.10" y="279.52" class="todo"><title>0x00401440 Func401440 (26 bytes)</title></rect>
+<rect width="1.78" height="1.65" x="726.10" y="279.52" class="named"><title>0x00401440 App::SetCamera (26 bytes)</title></rect>
 <rect width="1.78" height="1.65" x="730.88" y="279.52" class="named"><title>0x00418930 FreeResources (26 bytes)</title></rect>
 <rect width="1.78" height="1.65" x="735.66" y="279.52" class="named"><title>0x00433110 DatArchiveCursor::SkipString (26 bytes)</title></rect>
 <rect width="1.78" height="1.65" x="740.44" y="279.52" class="named"><title>0x004362c0 CreateTextSurface (26 bytes)</title></rect>

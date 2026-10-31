@@ -21,7 +21,7 @@ address,size,name,symbol
 0x00401390,71,App::SetView,?SetView@App@@QAEXH@Z
 0x004013e0,42,App::ResetView,?ResetView@App@@QAEXXZ
 0x00401410,42,App::ResetView3D,?ResetView3D@App@@QAEXXZ
-0x00401440,26,Func401440,
+0x00401440,26,App::SetCamera,?SetCamera@App@@QAEXH@Z
 0x00401460,13,App::GetNoFog,?GetNoFog@App@@QAEHXZ
 0x00401470,38,VectorConstructorIterator,??_H@YGXPAXIHP6EX0@Z@Z
 0x004014a0,15,Timer::Initialize,?Initialize@Timer@@QAEXXZ
@@ -309,7 +309,7 @@ address,size,name,symbol
 0x00415d50,24,GuiSide::StartUnknownAbcc,?StartUnknownAbcc@GuiSide@@QAEXXZ
 0x00415d70,222,Func415d70,
 0x00415e50,553,Func415e50,
-0x00416080,213,Func416080,
+0x00416080,213,Gui::UpdateEnemyMarker,?UpdateEnemyMarker@Gui@@QAEXHPAUD3DXVECTOR3@@@Z
 0x00416160,357,Func416160,
 0x004162d0,693,Func4162d0,
 0x00416590,2852,Func416590,

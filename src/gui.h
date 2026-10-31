@@ -74,6 +74,10 @@ public:
     // Frees the resources, removes the chain elements and deletes the
     // front, if any (0x4182a0).
     static void RemoveChain(Gui *gui);
+    // Places side `side`'s marker of the enemy at `pos` under its play
+    // area, more transparent the nearer the player is, or hides it while
+    // pos is out of the play area (0x416080).
+    void UpdateEnemyMarker(int side, D3DXVECTOR3 *pos);
     // Resets the front for a new round (0x4181e0).
     void Reset();
     // Returns unknown11ea8 (0x40d4f0).
@@ -105,7 +109,8 @@ public:
     // Nonzero stops the player's combo from counting hits.
     int unknown11ea8;
     Sprite unknown11eac[2];
-    Sprite unknown123f4[2];
+    // Each side's marker of the enemy's position.
+    Sprite enemyMarkers[2];
 };
 ASSERT_SIZE(Gui, 0x1293c);
 
