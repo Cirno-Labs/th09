@@ -587,8 +587,8 @@ address,size,name,symbol
 0x0042cae0,241,Chain::ReleaseList,?ReleaseList@Chain@@QAEXPAUChainElem@@@Z
 0x0042cbe0,34,Chain::Release,?Release@Chain@@QAEXXZ
 0x0042cc10,25,Network::Network,??0Network@@QAE@XZ
-0x0042cc30,33,Func42cc30,
-0x0042cc60,33,Func42cc60,
+0x0042cc30,33,SpriteEngine::`scalar deleting destructor',??_GSpriteEngine@@QAEPAXI@Z
+0x0042cc60,33,MidiPlayer::`scalar deleting destructor',??_GMidiPlayer@@QAEPAXI@Z
 0x0042cc90,123,GameWindow::GetTime,?GetTime@GameWindow@@QAENXZ
 0x0042cd10,46,CreateD3d,?CreateD3d@@YIHXZ
 0x0042cd40,74,Func42cd40,
@@ -604,14 +604,14 @@ address,size,name,symbol
 0x0042d2f0,43,SpriteEngine::ReleaseSurfaces,?ReleaseSurfaces@SpriteEngine@@QAEXXZ
 0x0042d320,167,SpriteEngine::DoPendingCopy,?DoPendingCopy@SpriteEngine@@QAEXXZ
 0x0042d3d0,249,WindowProc,?WindowProc@@YGJPAUHWND__@@IIJ@Z
-0x0042d4d0,285,Func42d4d0,
+0x0042d4d0,285,CreateGameWindow,?CreateGameWindow@@YIHPAUHINSTANCE__@@@Z
 0x0042d5f0,783,SetDefaultRenderStates,?SetDefaultRenderStates@@YIXXZ
 0x0042d900,394,CheckSingleInstance,?CheckSingleInstance@@YIHXZ
 0x0042da90,192,ChecksumExecutable,?ChecksumExecutable@@YIHXZ
 0x0042db50,232,PresentFrame,?PresentFrame@@YIXXZ
 0x0042dc40,326,GameWindow::RunFrame,?RunFrame@GameWindow@@QAEHXZ
-0x0042dd90,1561,Func42dd90,
-0x0042e3b0,1348,Func42e3b0,
+0x0042dd90,1561,InitD3dDevice,?InitD3dDevice@@YIHXZ
+0x0042e3b0,1351,WinMain,_WinMain@16
 0x0042e900,14,Tan,?Tan@@YIMM@Z @tanf@4
 0x0042e910,14,tan,?tan@@YAMM@Z
 0x0042e920,83,D3DXVec3Cross,?D3DXVec3Cross@@YIPAUD3DXVECTOR3@@PAU1@PBU1@1@Z
@@ -868,7 +868,7 @@ address,size,name,symbol
 0x0043d210,117,MidiPlayer::SendVolume,?SendVolume@MidiPlayer@@QAEXH@Z
 0x0043d290,12,MidiTimer::OnTimer,?OnTimer@MidiTimer@@UAEXXZ
 0x0043d2a0,5,MidiTimer::StopTimer,?StopTimer@MidiTimer@@QAEXXZ
-0x0043d2b0,1,DebugPrint,?DebugPrint@@YAXPBDZZ
+0x0043d2b0,1,DebugPrint,?DebugPrint@@YAXPBDZZ ??1SpriteEngine@@QAE@XZ
 0x0043d2c0,5,MidiDevice::~MidiDevice,??1MidiDevice@@QAE@XZ
 0x0043d2d0,69,MidiDevice::Open,?Open@MidiDevice@@QAEHI@Z
 0x0043d320,26,MmTimer::~MmTimer,??1MmTimer@@QAE@XZ
@@ -1639,6 +1639,7 @@ address,size,name,symbol
 0x00479c6a,859,Func479c6a,
 0x00479fc5,3539,Func479fc5,
 0x0047ad98,693,Func47ad98,
+0x0047b04e,6,WINNLSEnableIME,_WINNLSEnableIME@8
 0x0047b054,56,Func47b054,
 0x0047b08c,30,__fpmath,
 0x0047b0aa,111,__heap_alloc,

@@ -2908,6 +2908,10 @@ SpriteEngine::SpriteEngine()
     this->pendingCopyTexture = -1;
 }
 
+SpriteEngine::~SpriteEngine()
+{
+}
+
 AnmLoaded *SpriteEngine::LoadAnm(int slot, char *path)
 {
     AnmLoaded *anm;

@@ -111,7 +111,12 @@ struct GameWindow
     // Set when the game was not started by its own executable or a
     // shortcut to it, as th08's.
     unsigned char forceClockPacing;
-    unsigned char pad_1d[0x2c - 0x1d];
+    unsigned char pad_1d[0x20 - 0x1d];
+    // The screen saver and power settings WinMain turns off and restores,
+    // as th08's.
+    UINT screenSaveActive;
+    UINT lowPowerActive;
+    UINT powerOffActive;
     double now;
     double lastTime;
     double nextFrameTime;
@@ -137,6 +142,9 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 // than its own executable, as th08's. Returns 0, or -1 if the game
 // already runs (0x42d900).
 int CheckSingleInstance();
+// Creates the device and the cameras, and logs the capabilities
+// (0x42dd90).
+int InitD3dDevice();
 // Sets the device's render states up, as th08's (0x42d5f0).
 void SetDefaultRenderStates();
 // Presents the frame, as th08's: resets the device if it is lost, runs
@@ -866,7 +874,8 @@ struct App
     // Zeroes unknown77c to unknown790 (0x423382).
     void ClearUnknown77c();
 
-    unsigned char pad_0[0x4];
+    // WinMain's instance.
+    HINSTANCE hInstance;
     // Created by CreateD3d.
     IDirect3D8 *d3d;
     IDirect3DDevice8 *d3dDevice;

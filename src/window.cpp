@@ -2,10 +2,14 @@
 
 #include <direct.h>
 
+// For CoInitializeEx.
+#define _WIN32_DCOM
+
 #include <windows.h>
 #define NO_SHDOCVW_GUIDS
 #include <shlguid.h>
 #include <shobjidl.h>
+#include <winnls32.h>
 
 #include "chain.h"
 #include "gamemanager.h"
@@ -216,6 +220,48 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
         break;
     }
     return DefWindowProcA(hwnd, msg, wParam, lParam);
+}
+
+// Registers the window class and creates the window, as th08's.
+// Returns 0, or 1 if the window cannot be created.
+static int CreateGameWindow(HINSTANCE instance)
+{
+    WNDCLASSA wc;
+    int width;
+    int height;
+
+    memset(&wc, 0, sizeof(wc));
+    wc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+    wc.hCursor = LoadCursorA(NULL, IDC_ARROW);
+    wc.hInstance = instance;
+    wc.lpfnWndProc = WindowProc;
+    g_GameWindow.isAppActive = 1;
+    g_GameWindow.isAppInactive = 0;
+    wc.lpszClassName = "BASE";
+    RegisterClassA(&wc);
+    if (!g_App.GetWindowed())
+    {
+        width = 640;
+        height = 480;
+        g_GameWindow.hwnd =
+            CreateWindowExA(0, "BASE", "東方花映塚　～ Phantasmagoria of Flower View. ver 1.50a", WS_OVERLAPPEDWINDOW,
+                            0, 0, width, height, NULL, NULL, instance, NULL);
+    }
+    else
+    {
+        width = GetSystemMetrics(SM_CXDLGFRAME) * 2 + 640;
+        height = GetSystemMetrics(SM_CYDLGFRAME) * 2 + 480 + GetSystemMetrics(SM_CYCAPTION);
+        g_GameWindow.hwnd = CreateWindowExA(0, "BASE", "東方花映塚　～ Phantasmagoria of Flower View. ver 1.50a",
+                                            WS_VISIBLE | WS_SYSMENU | WS_MINIMIZEBOX, CW_USEDEFAULT, CW_USEDEFAULT,
+                                            width, height, NULL, NULL, instance, NULL);
+    }
+    g_App.hwnd = g_GameWindow.hwnd;
+    if (g_GameWindow.hwnd == NULL)
+    {
+        return 1;
+    }
+    ForceForegroundWindow(g_GameWindow.hwnd);
+    return 0;
 }
 
 void SpriteEngine::ReleaseSurfaces()
@@ -447,4 +493,208 @@ void SetDefaultRenderStates()
     {
         g_GameManager.sides[0].stage->fogColorChanged = 1;
     }
+}
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+{
+    int runResult = 0;
+    MSG message;
+    HRESULT testResult;
+    int j;
+    int i;
+
+    // The data are read next to the executable.
+    if (GetModuleFileNameA(NULL, g_DataDir, 0x104) != 0)
+    {
+        for (i = strlen(g_DataDir) - 1; g_DataDir[i] != '\\' && g_DataDir[i] != '/'; i--)
+        {
+            if (i <= 0)
+            {
+                break;
+            }
+        }
+        if (i <= 0)
+        {
+            strcpy(g_DataDir, "./");
+        }
+        else
+        {
+            g_DataDir[i] = '/';
+            g_DataDir[i + 1] = '\0';
+        }
+    }
+    else
+    {
+        strcpy(g_DataDir, "./");
+    }
+    g_App.hInstance = hInstance;
+    SystemParametersInfoA(SPI_GETSCREENSAVEACTIVE, 0, &g_GameWindow.screenSaveActive, 0);
+    SystemParametersInfoA(SPI_GETLOWPOWERACTIVE, 0, &g_GameWindow.lowPowerActive, 0);
+    SystemParametersInfoA(SPI_GETPOWEROFFACTIVE, 0, &g_GameWindow.powerOffActive, 0);
+    SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE, 0, NULL, SPIF_SENDCHANGE);
+    SystemParametersInfoA(SPI_SETLOWPOWERACTIVE, 0, NULL, SPIF_SENDCHANGE);
+    SystemParametersInfoA(SPI_SETPOWEROFFACTIVE, 0, NULL, SPIF_SENDCHANGE);
+    g_App.InitCriticalSections();
+    LogPrintf(&g_Log, "東方動作記録 --------------------------------------------- \r\n");
+    if (CheckSingleInstance() == -1)
+    {
+        goto stop;
+    }
+    if (g_App.LoadConfig("th09.cfg") != 0)
+    {
+        goto stop;
+    }
+    ChecksumExecutable();
+    QueryPerformanceFrequency((LARGE_INTEGER *)g_GameWindow.perfFrequency);
+restart:
+    if (CreateD3d() != 0)
+    {
+        goto stop;
+    }
+    if (CreateGameWindow(hInstance) != 0)
+    {
+        goto stop;
+    }
+    if (InitD3dDevice() != 0)
+    {
+        goto stop;
+    }
+    g_SoundPlayer.Initialize(g_GameWindow.hwnd);
+    InitJoystick();
+    ResetKeyboard();
+    g_SpriteEngine =
+        (SpriteEngine *)g_MemoryManager.Register(new SpriteEngine(), sizeof(SpriteEngine), "SprtCtrlInf");
+    g_Rng.SetSeed(timeGetTime());
+    CoInitializeEx(NULL, COINIT_MULTITHREADED);
+    g_Network = (Network *)g_MemoryManager.Register(new Network(), sizeof(Network), "NetworkInf");
+    g_Network->Init();
+    if (g_Network->CreatePeer() != 0)
+    {
+        LogError(&g_Log, "DirectPlay 初期化失敗\r\n");
+    }
+    if (!g_App.GetWindowed())
+    {
+        WINNLSEnableIME(NULL, FALSE);
+        ShowCursor(FALSE);
+        SetCursor(NULL);
+    }
+    runResult = App::RegisterChain();
+    if (runResult != 0)
+    {
+        if (runResult == -1)
+        {
+            goto release;
+        }
+        runResult = 2;
+        goto release;
+    }
+    runResult = 0;
+    g_GameWindow.curFrame = -4;
+    g_GameWindow.now = g_GameWindow.lastTime = g_GameWindow.nextFrameTime = 0;
+    while (!g_GameWindow.isClosing)
+    {
+        if (PeekMessageA(&message, NULL, 0, 0, PM_REMOVE))
+        {
+            TranslateMessage(&message);
+            DispatchMessageA(&message);
+        }
+        else
+        {
+            testResult = g_App.d3dDevice->TestCooperativeLevel();
+            if (testResult == D3D_OK)
+            {
+                runResult = g_GameWindow.RunFrame();
+                if (runResult != 0)
+                {
+                    break;
+                }
+                g_App.stateFlags &= ~0x10;
+            }
+            else if (testResult == D3DERR_DEVICENOTRESET)
+            {
+                g_SpriteEngine->ReleaseSurfaces();
+                if (g_App.d3dDevice->Reset(&g_App.presentParams) != 0)
+                {
+                    break;
+                }
+                SetDefaultRenderStates();
+                g_App.redrawFrames = 3;
+                g_App.stateFlags |= 0x10;
+            }
+        }
+    }
+release:
+    g_Chain.Release();
+    while (g_SoundPlayer.PlayQueuedSounds())
+    {
+    }
+stop:
+    Sleep(1000);
+    g_SoundPlayer.Release();
+    delete g_SpriteEngine;
+    g_SpriteEngine = NULL;
+    if (g_App.d3dDevice != NULL)
+    {
+        g_App.d3dDevice->Reset(&g_App.presentParams);
+    }
+    if (g_App.d3dDevice != NULL)
+    {
+        g_App.d3dDevice->Release();
+        g_App.d3dDevice = NULL;
+    }
+    if (g_App.d3d != NULL)
+    {
+        g_App.d3d->Release();
+        g_App.d3d = NULL;
+    }
+    if (g_Network != NULL)
+    {
+        g_Network->Close();
+        g_Network->ReleaseInterfaces();
+        delete g_Network;
+        g_Network = NULL;
+    }
+    if (g_GameWindow.hwnd != NULL)
+    {
+        ShowWindow(g_GameWindow.hwnd, SW_HIDE);
+        MoveWindow(g_GameWindow.hwnd, 0, 0, 0, 0, FALSE);
+        DestroyWindow(g_GameWindow.hwnd);
+        g_GameWindow.hwnd = NULL;
+    }
+    ShowCursor(TRUE);
+    if (runResult == 2)
+    {
+        g_Log.Reset();
+        LogPrintf(&g_Log, "再起動を要するオプションが変更されたので再起動します\r\n");
+        if (!g_App.GetWindowed())
+        {
+            WINNLSEnableIME(NULL, TRUE);
+        }
+        j = 0;
+        while (j < 60)
+        {
+            if (PeekMessageA(&message, NULL, 0, 0, PM_REMOVE))
+            {
+                TranslateMessage(&message);
+                DispatchMessageA(&message);
+            }
+            j++;
+        }
+        goto restart;
+    }
+    WriteToFile("th09.cfg", &g_App.config, sizeof(g_App.config));
+    if (g_App.midi != NULL)
+    {
+        g_App.midi->Stop();
+        delete g_App.midi;
+        g_App.midi = NULL;
+    }
+    g_Log.Flush();
+    g_App.DeleteCriticalSections();
+    CoUninitialize();
+    SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE, g_GameWindow.screenSaveActive, NULL, SPIF_SENDCHANGE);
+    SystemParametersInfoA(SPI_SETLOWPOWERACTIVE, g_GameWindow.lowPowerActive, NULL, SPIF_SENDCHANGE);
+    SystemParametersInfoA(SPI_SETPOWEROFFACTIVE, g_GameWindow.powerOffActive, NULL, SPIF_SENDCHANGE);
+    WINNLSEnableIME(NULL, TRUE);
+    return 0;
 }

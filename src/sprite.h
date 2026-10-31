@@ -448,6 +448,8 @@ public:
     // Zeroes the engine and sets up g_TexQuad and g_DiffuseQuad, as
     // th08's (0x43ce30).
     SpriteEngine();
+    // Empty; the linker folded it with DebugPrint (0x43d2b0).
+    ~SpriteEngine();
     // Forgets the texture last set, so that the next sprite sets it
     // again (0x4015f0).
     void ClearTexture();
