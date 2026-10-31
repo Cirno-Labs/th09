@@ -104,7 +104,10 @@ struct GameWindow
     // The performance counter's frequency, as a LARGE_INTEGER but only
     // 4-aligned, as th08's.
     DWORD perfFrequency[2];
-    unsigned char pad_1c[0x2c - 0x1c];
+    // Set when the game was not started by its own executable or a
+    // shortcut to it, as th08's.
+    unsigned char forceClockPacing;
+    unsigned char pad_1d[0x2c - 0x1d];
     double now;
     double lastTime;
     double nextFrameTime;
@@ -112,6 +115,8 @@ struct GameWindow
 #pragma pack(pop)
 ASSERT_SIZE(GameWindow, 0x44);
 extern GameWindow g_GameWindow;
+// The single-instance mutex, as th08's.
+extern HANDLE g_AppMutex;
 
 // Creates g_App.d3d, as th08's. Returns 0, or logs and returns 1
 // (0x42cd10).
@@ -123,6 +128,11 @@ void __stdcall ForceForegroundWindow(HWND hwnd);
 // the game is active, the cursor is hidden while it is in full screen
 // and active, WM_CLOSE sets bit 7 of g_App's stateFlags (0x42d3d0).
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+// Creates the single-instance mutex, still th08's "Touhou 08 App", and
+// sets forceClockPacing if the game was started by something other
+// than its own executable, as th08's. Returns 0, or -1 if the game
+// already runs (0x42d900).
+int CheckSingleInstance();
 // Sets the device's render states up, as th08's (0x42d5f0).
 void SetDefaultRenderStates();
 // Presents the frame, as th08's: resets the device if it is lost, runs

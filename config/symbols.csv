@@ -606,7 +606,7 @@ address,size,name,symbol
 0x0042d3d0,249,WindowProc,?WindowProc@@YGJPAUHWND__@@IIJ@Z
 0x0042d4d0,285,Func42d4d0,
 0x0042d5f0,783,SetDefaultRenderStates,?SetDefaultRenderStates@@YIXXZ
-0x0042d900,391,Func42d900,
+0x0042d900,394,CheckSingleInstance,?CheckSingleInstance@@YIHXZ
 0x0042da90,192,ChecksumExecutable,?ChecksumExecutable@@YIHXZ
 0x0042db50,232,PresentFrame,?PresentFrame@@YIXXZ
 0x0042dc40,326,Func42dc40,
@@ -2309,6 +2309,7 @@ address,size,name,symbol
 0x004ad008,,g_Archive,?g_Archive@@3VDatArchive@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b1020,,g_Log,?g_Log@@3VLog@@A
+0x004b30a8,,g_AppMutex,?g_AppMutex@@3PAXA
 0x004b30b0,,g_GameWindow,?g_GameWindow@@3UGameWindow@@A
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A

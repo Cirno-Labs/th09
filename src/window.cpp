@@ -52,6 +52,57 @@ int CreateD3d()
     return 0;
 }
 
+int CheckSingleInstance()
+{
+    char exePath[0x105];
+    char consoleTitle[0x105];
+    char *extension;
+
+    g_AppMutex = CreateMutexA(NULL, TRUE, "Touhou 08 App");
+    if (GetLastError() == ERROR_ALREADY_EXISTS)
+    {
+        LogError(&g_Log, "二つは起動できません\r\n");
+        return -1;
+    }
+    STARTUPINFOA startup = {sizeof(STARTUPINFOA)};
+    GetModuleFileNameA(NULL, exePath, 0x105);
+    GetConsoleTitleA(consoleTitle, 0x105);
+    GetStartupInfoA(&startup);
+    if (startup.lpTitle != NULL)
+    {
+        extension = strrchr(startup.lpTitle, '.');
+        if (FileExists(startup.lpTitle) && extension != NULL)
+        {
+            if (_stricmp(extension, ".lnk") == 0)
+            {
+                do
+                {
+                    ResolveShortcut(startup.lpTitle, consoleTitle, 0x104);
+                    extension = strrchr(consoleTitle, '.');
+                } while (_stricmp(extension, ".lnk") == 0);
+            }
+            else
+            {
+                strcpy(consoleTitle, startup.lpTitle);
+            }
+            if (strcmp(exePath, consoleTitle) != 0)
+            {
+                g_GameWindow.forceClockPacing = 1;
+            }
+        }
+        g_App.stateFlags &= ~0x40;
+    }
+    else
+    {
+        g_App.stateFlags |= 0x40;
+    }
+    if (g_AppMutex == NULL)
+    {
+        return -1;
+    }
+    return 0;
+}
+
 void __stdcall ForceForegroundWindow(HWND hwnd)
 {
     DWORD activeThread;
