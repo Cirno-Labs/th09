@@ -178,6 +178,32 @@ void Enemy::FreeUnknown33d8()
 
 // Frees the enemies' blocks, enemy.anm (slot 9) and the ECL files.
 // Returns 0. Static, with the manager in ebx (0x411f30).
+void Enemy::ClampPos()
+{
+    float *pos;
+
+    if (this->clampPos)
+    {
+        pos = this->pos;
+        if (pos[0] < this->lowerBound[0])
+        {
+            pos[0] = this->lowerBound[0];
+        }
+        else if (pos[0] > this->upperBound[0])
+        {
+            pos[0] = this->upperBound[0];
+        }
+        if (pos[1] < this->lowerBound[1])
+        {
+            pos[1] = this->lowerBound[1];
+        }
+        else if (pos[1] > this->upperBound[1])
+        {
+            pos[1] = this->upperBound[1];
+        }
+    }
+}
+
 static int FreeResources(EnemyManager *mgr)
 {
     int i;

@@ -199,6 +199,9 @@ struct Enemy
     void ReleaseEffects();
     // Frees the blocks of unknown33d8 (0x4100e0).
     void FreeUnknown33d8();
+    // Keeps pos within the bounds while clampPos is set, as th08's
+    // (0x4101d0).
+    void ClampPos();
     // Moves the enemy by its velocity (or velocity2) times the game
     // speed in x and y, as th08's (0x40f9b0).
     void Move();
@@ -308,7 +311,10 @@ struct Enemy
     unsigned char pad_338c[0x3390 - 0x338c];
     short turnLeft;
     short turnRight;
-    unsigned char pad_3394[0x33a8 - 0x3394];
+    unsigned char pad_3394[0x3398 - 0x3394];
+    // Where ClampPos keeps it, as th08's.
+    float lowerBound[2];
+    float upperBound[2];
     float minShootDistSq;
     unsigned char pad_33ac[0x33b0 - 0x33ac];
     int lifeCallbackLife[4];
