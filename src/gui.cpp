@@ -166,9 +166,9 @@ int GuiMsg::Draw()
     }
     g_SpriteEngine->DrawUnrotatedMirrored(&this->portraits[2]);
     g_SpriteEngine->DrawUnrotatedMirrored(&this->portraits[3]);
-    if (this->timer < 40)
+    if (this->boxTimer < 40)
     {
-        height = this->timer.AsFloat() * 1.5f;
+        height = this->boxTimer.AsFloat() * 1.5f;
     }
     else
     {
@@ -233,14 +233,14 @@ void GuiMsg::UnloadBgm(int firstScript)
             {
                 continue;
             }
-            while (((MsgInstr *)this->instr)->opcode != 0)
+            while (this->instr->opcode != 0)
             {
-                if (((MsgInstr *)this->instr)->opcode == 7 && !unloaded[((MsgInstr *)this->instr)->args[0]])
+                if (this->instr->opcode == 7 && !unloaded[this->instr->i])
                 {
-                    g_App.UnloadBgm(((MsgInstr *)this->instr)->args[0]);
-                    unloaded[((MsgInstr *)this->instr)->args[0]] = 1;
+                    g_App.UnloadBgm(this->instr->i);
+                    unloaded[this->instr->i] = 1;
                 }
-                this->instr = (BYTE *)this->instr + ((MsgInstr *)this->instr)->argSize + 4;
+                this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argSize + 4);
             }
         }
     }
@@ -455,7 +455,7 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
         {
             if (this->msgFile->scripts[i].script != NULL)
             {
-                this->msgFile->scripts[i].script = (BYTE *)this->msgFile->scripts[i].script + (int)this->msgFile;
+                this->msgFile->scripts[i].script = (MsgInstr *)((BYTE *)this->msgFile->scripts[i].script + (int)this->msgFile);
             }
         }
     }
@@ -477,14 +477,14 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
             {
                 continue;
             }
-            while (((MsgInstr *)this->instr)->opcode != 0)
+            while (this->instr->opcode != 0)
             {
-                if (((MsgInstr *)this->instr)->opcode == 7 && !loaded[((MsgInstr *)this->instr)->args[0]])
+                if (this->instr->opcode == 7 && !loaded[this->instr->i])
                 {
-                    g_App.LoadBgm(((MsgInstr *)this->instr)->args[0]);
-                    loaded[((MsgInstr *)this->instr)->args[0]] = 1;
+                    g_App.LoadBgm(this->instr->i);
+                    loaded[this->instr->i] = 1;
                 }
-                this->instr = (BYTE *)this->instr + ((MsgInstr *)this->instr)->argSize + 4;
+                this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argSize + 4);
             }
         }
         return 0;
@@ -499,7 +499,7 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
         }
         for (i = 0; i < this->msgFile2->unknown0; i++)
         {
-            this->msgFile2->scripts[i].script = (BYTE *)this->msgFile2->scripts[i].script + (int)this->msgFile2;
+            this->msgFile2->scripts[i].script = (MsgInstr *)((BYTE *)this->msgFile2->scripts[i].script + (int)this->msgFile2);
         }
     }
     else

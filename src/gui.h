@@ -7,14 +7,42 @@
 #include "sprite.h"
 #include "timer.h"
 
-// An instruction of a dialogue script, as th08's MsgRawInstr: its
+// The arguments of most dialogue opcodes, as th08's MsgArgs: a
+// portrait, then a sprite, script or line number, then the text.
+struct MsgArgs
+{
+    short who;
+    union
+    {
+        short index;
+        BYTE value;
+    };
+    char text[1];
+};
+
+// The arguments of opcodes 15 and 17, as th08's MsgPortraitArgs: the
+// portrait that speaks, then a sprite for each side's portraits
+// (negative to keep them).
+struct MsgPortraitArgs
+{
+    int who;
+    int sprites[2];
+};
+
+// An instruction of a dialogue script, as th08's MsgInstr: its
 // arguments follow, argSize bytes of them.
 struct MsgInstr
 {
-    short time;
+    WORD time;
     BYTE opcode;
     BYTE argSize;
-    int args[1];
+    union
+    {
+        MsgArgs args;
+        MsgPortraitArgs portraitArgs;
+        int i;
+        BYTE b;
+    };
 };
 
 // A dialogue file: its scripts, after a count so it seems.
@@ -23,7 +51,7 @@ struct MsgFile
     int unknown0;
     struct
     {
-        void *script;
+        MsgInstr *script;
         // GuiMsg::StartRandom's odds of the script, out of 0x100.
         int weight;
     } scripts[1];
@@ -66,7 +94,7 @@ struct GuiMsg
 
     MsgFile *msgFile;
     // The instruction being run.
-    void *instr;
+    MsgInstr *instr;
     // The script running, -1 for none.
     int scriptIndex;
     // Side 1's file.
@@ -80,18 +108,23 @@ struct GuiMsg
     // The speakers' text and shadow colors, as th08's.
     D3DCOLOR textColors[4];
     D3DCOLOR shadowColors[4];
-    Timer unknown1d40;
-    unsigned char pad_1d4c[0x1d50 - 0x1d4c];
+    // The frame the script has reached, as th08's timer.
+    Timer timer;
+    // Frames waited on opcode 4, as th08's.
+    int waitFrames;
     int minWaitFrames;
     int fontSize;
-    // Frames the script has run so far, as th08's timer.
-    Timer timer;
+    // Started at 1 by opcode 24, the frames the text box has grown;
+    // Draw shows the box once it is above 0.
+    Timer boxTimer;
     // As th08's.
     BYTE speaker;
     BYTE newPage;
     BYTE nextLine;
     BYTE activePortrait;
-    unsigned char pad_1d68[0x1d6c - 0x1d68];
+    // Raised by opcode 6 and counted down by the interpreter (0x416590),
+    // as th08's.
+    DWORD timelineRelease;
     BYTE skippable;
     // Whether Draw shows the text box, as th08's.
     BYTE textBoxShown;
