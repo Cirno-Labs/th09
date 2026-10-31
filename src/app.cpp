@@ -493,7 +493,7 @@ int App::LoadConfig(char *path)
         g_MemoryManager.Free(file);
         if (g_App.config.unknownAc < 3 && g_App.config.unknownAd < 2 && g_App.config.musicMode < 3 &&
             g_App.config.difficulty < 6 && g_App.config.playSounds < 2 && g_App.config.windowed < 2 &&
-            g_App.config.unknownB2 < 3 && g_App.config.unknownB3 < 3 && g_App.config.version == 0x90003 &&
+            g_App.config.frameSkip < 3 && g_App.config.unknownB3 < 3 && g_App.config.version == 0x90003 &&
             size == sizeof(GameConfig))
         {
             g_PlayerInputs[0].mappings[0] = g_App.config.mappings[0][0];

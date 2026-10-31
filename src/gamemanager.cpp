@@ -125,7 +125,7 @@ void GameConfig::SetDefaults()
     this->unknownAc = 0;
     this->unknownAd = 0;
     this->windowed = 0;
-    this->unknownB2 = 0;
+    this->frameSkip = 0;
     this->mappings[0][0] = g_PlayerInputs[0].mappings[0];
     this->mappings[0][1] = g_PlayerInputs[0].mappings[1];
     this->mappings[0][2] = g_PlayerInputs[0].mappings[2];

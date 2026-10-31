@@ -92,6 +92,10 @@ struct GameWindow
     // The time in seconds, from the performance counter if it has a
     // frequency, else from timeGetTime() (0x42cc90).
     double GetTime();
+    // Runs a frame once its time has come, as th08's, with the 2D view
+    // of the whole screen. Returns 0, or 1 or 2 to quit, as the calc
+    // chain asks (0x42dc40).
+    int RunFrame();
 
     HWND hwnd;
     // Cleared by InitD3dDevice, as th08's.
@@ -418,7 +422,8 @@ struct GameConfig
     BYTE difficulty;
     // Whether the game runs in a window.
     BYTE windowed;
-    BYTE unknownB2;
+    // How many frames to skip drawing, as th08's.
+    BYTE frameSkip;
     BYTE unknownB3;
     BYTE unknownB4;
     BYTE unknownB5;

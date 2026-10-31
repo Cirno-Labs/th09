@@ -609,7 +609,7 @@ address,size,name,symbol
 0x0042d900,394,CheckSingleInstance,?CheckSingleInstance@@YIHXZ
 0x0042da90,192,ChecksumExecutable,?ChecksumExecutable@@YIHXZ
 0x0042db50,232,PresentFrame,?PresentFrame@@YIXXZ
-0x0042dc40,326,Func42dc40,
+0x0042dc40,326,GameWindow::RunFrame,?RunFrame@GameWindow@@QAEHXZ
 0x0042dd90,1561,Func42dd90,
 0x0042e3b0,1348,Func42e3b0,
 0x0042e900,14,Tan,?Tan@@YIMM@Z @tanf@4
