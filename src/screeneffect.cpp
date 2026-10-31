@@ -82,6 +82,32 @@ int ScreenEffect::OnUpdateFadeOut(ScreenEffect *effect)
     return 1;
 }
 
+int ScreenEffect::OnUpdateLoadingFade(ScreenEffect *effect)
+{
+    if (!effect->finishing)
+    {
+        int duration = effect->duration;
+        if (duration != 0 && effect->timer <= duration)
+        {
+            effect->alpha = effect->timer.AsFloat() * 255.0f / duration;
+        }
+        else
+        {
+            effect->alpha = 0xff;
+        }
+    }
+    else if (effect->timer <= 8)
+    {
+        effect->alpha = 0x80 - (int)(effect->timer.AsFloat() * 255.0f / 8.0f);
+    }
+    else
+    {
+        return 0;
+    }
+    effect->timer++;
+    return 1;
+}
+
 int ScreenEffect::DeletedCallback(ScreenEffect *effect)
 {
     effect->calcElem->deletedCallback = NULL;

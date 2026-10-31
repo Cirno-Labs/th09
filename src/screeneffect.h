@@ -25,6 +25,10 @@ public:
     // 255 over duration frames, holding still while the game is paused
     // or in the continue menu. Returns 0 when done, else 1 (0x422470).
     static int OnUpdateFadeOut(ScreenEffect *effect);
+    // Type 5 and 6's update callback, as th08's but fading up to 255 and
+    // holding there, then down from 128 by 255/8 a frame once Finish is
+    // called. Returns 0 when done, else 1 (0x4224f0).
+    static int OnUpdateLoadingFade(ScreenEffect *effect);
     // The draw callbacks, as th08's: the screen after flushing and
     // setting view 2, the whole screen, the play area, and the play area
     // in flashColor (0x422b70, 0x422c10, 0x422bd0, 0x422cd0). Return 1.
