@@ -90,7 +90,7 @@ void BulletManager::Unknown412590(int arg)
 {
 }
 
-void BulletManager::Unknown4125a0(int arg, int arg2)
+void BulletManager::Unknown4125a0(D3DXVECTOR3 *pos, float arg)
 {
 }
 

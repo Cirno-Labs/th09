@@ -212,8 +212,12 @@ public:
     void Reset();
     // Empty; called by the ECL interpreter (0x412590).
     void Unknown412590(int arg);
-    // Empty; called by the ECL interpreter (0x4125a0).
-    void Unknown4125a0(int arg, int arg2);
+    // Empty; called by the ECL interpreter with the enemy's position and
+    // an argument, where th08 turns bullets into items (0x4125a0).
+    void Unknown4125a0(D3DXVECTOR3 *pos, float arg);
+    // Fires a laser from `shooter`, as th08's SpawnLaser. Returns it
+    // (0x413290).
+    Laser *SpawnLaser(EnemyShooter *shooter);
     // Preloads etama.anm into ANM slot 8; returns 1 if that fails
     // (0x4125e0).
     static int LoadAnm();

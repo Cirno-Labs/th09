@@ -329,7 +329,7 @@
 <rect width="12" height="12" x="120" y="75" class="named"><title>0x00412960 BulletManager::SpawnBullet (1896 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="75" class="named"><title>0x004130f0 BulletManager::FirePattern (203 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="75" class="named"><title>0x004131c0 BulletManager::FirePattern2 (203 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="75" class="todo"><title>0x00413290 Func413290 (450 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="75" class="todo"><title>0x00413290 BulletManager::SpawnLaser (450 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="75" class="named"><title>0x00413460 SlowBulletStart (110 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="75" class="named"><title>0x004134d0 AccelerateAlongVelocity (179 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="75" class="named"><title>0x00413590 TurnAndAccelerate (158 bytes)</title></rect>
@@ -1354,7 +1354,7 @@
 <rect width="16.56" height="17.68" x="653.43" y="21.47" class="named"><title>0x0041a000 GuiSide::AddedCallback (460 bytes)</title></rect>
 <rect width="16.56" height="17.68" x="672.99" y="21.47" class="todo"><title>0x004202a0 ReplayManager::OnUpdateMode0 (460 bytes)</title></rect>
 <rect width="16.30" height="17.68" x="692.55" y="21.47" class="decompiled"><title>0x00442580 ExAttackInit442580 (454 bytes)</title></rect>
-<rect width="16.13" height="17.68" x="711.86" y="21.47" class="todo"><title>0x00413290 Func413290 (450 bytes)</title></rect>
+<rect width="16.13" height="17.68" x="711.86" y="21.47" class="todo"><title>0x00413290 BulletManager::SpawnLaser (450 bytes)</title></rect>
 <rect width="16.01" height="17.68" x="730.99" y="21.47" class="named"><title>0x00422d20 ScreenEffect::StartEffect (447 bytes)</title></rect>
 <rect width="16.55" height="17.05" x="432.54" y="42.15" class="decompiled"><title>0x0044c4c0 ExAttackUpdate44c4c0 (446 bytes)</title></rect>
 <rect width="16.55" height="16.83" x="432.54" y="62.20" class="named"><title>0x004218e0 LoadHscrChunks (441 bytes)</title></rect>

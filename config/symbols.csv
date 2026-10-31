@@ -240,7 +240,7 @@ address,size,name,symbol
 0x004124d0,16,CopyBulletSprite,?CopyBulletSprite@@YIXPAVSprite@@0@Z
 0x004124e0,161,BulletManager::ShowSpawnSprite,?ShowSpawnSprite@BulletManager@@QAEXPAVSprite@@0PAUBulletTypeSprites@@H@Z
 0x00412590,3,BulletManager::Unknown412590,?Unknown412590@BulletManager@@QAEXH@Z
-0x004125a0,3,BulletManager::Unknown4125a0,?Unknown4125a0@BulletManager@@QAEXHH@Z
+0x004125a0,3,BulletManager::Unknown4125a0,?Unknown4125a0@BulletManager@@QAEXPAUD3DXVECTOR3@@M@Z
 0x004125b0,36,D3DXVECTOR3::operator-=,??ZD3DXVECTOR3@@QAEAAU0@ABU0@@Z
 0x004125e0,24,BulletManager::LoadAnm,?LoadAnm@BulletManager@@SIHXZ
 0x00412600,14,BulletManager::ReleaseAnm,?ReleaseAnm@BulletManager@@SIXXZ
@@ -260,7 +260,7 @@ address,size,name,symbol
 0x00412960,1896,BulletManager::SpawnBullet,?SpawnBullet@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@HHMH@Z
 0x004130f0,203,BulletManager::FirePattern,?FirePattern@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@@Z
 0x004131c0,203,BulletManager::FirePattern2,?FirePattern2@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@@Z
-0x00413290,450,Func413290,
+0x00413290,450,BulletManager::SpawnLaser,?SpawnLaser@BulletManager@@QAEPAULaser@@PAUEnemyShooter@@@Z
 0x00413460,110,SlowBulletStart,?SlowBulletStart@@YIXPAUBullet@@@Z
 0x004134d0,179,AccelerateAlongVelocity,?AccelerateAlongVelocity@@YIXPAUBullet@@@Z
 0x00413590,158,TurnAndAccelerate,?TurnAndAccelerate@@YIXPAUBullet@@@Z
@@ -2305,6 +2305,8 @@ address,size,name,symbol
 0x004953c0,,IID_IPersistFile,_IID_IPersistFile
 0x004953d0,,GUID_NULL,_GUID_NULL
 0x004a00c0,,g_SpellCardTypes,?g_SpellCardTypes@@3PAUSpellCardType@@A
+0x004a0af4,,g_EnemyScriptInterps,?g_EnemyScriptInterps@@3PAP6IXPAUEnemy@@PAUEclInstr@@M@ZA
+0x004a0b14,,g_EnemyScriptFuncs,?g_EnemyScriptFuncs@@3PAP6IXPAUEnemy@@PAUEclInstr@@@ZA
 0x004a0b48,,g_EffectInfos,?g_EffectInfos@@3PAUEffectInfo@@A
 0x004a0ed8,,g_EndingFiles,?g_EndingFiles@@3PAPADA
 0x004a0f18,,g_BulletColorOffsets16,?g_BulletColorOffsets16@@3PAHA

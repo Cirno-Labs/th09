@@ -131,6 +131,24 @@ void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t);
 // args[7], as th08's (0x4074a0).
 void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t);
 
+// The arguments of the spawn instructions, as th08's.
+struct EnemySpawnArgs
+{
+    int sub;
+    D3DXVECTOR3 pos;
+    int life;
+    int item;
+    int score;
+};
+ASSERT_SIZE(EnemySpawnArgs, 0x1c);
+
+// A function opcodes 136 and 137 run, as th08's EnemyScriptFunc.
+typedef void (*EclFunc)(Enemy *enemy, EclInstr *instr);
+// The interpolations by loop type, as th08's (0x4a0af4).
+extern void (*g_EnemyScriptInterps[8])(Enemy *enemy, EclInstr *instr, float t);
+// The functions opcodes 136 and 137 run (0x4a0b14).
+extern EclFunc g_EnemyScriptFuncs[12];
+
 // An ECL script's variables, which SpawnEnemyWithVars copies in (0x78
 // bytes).
 struct EclVars
@@ -226,7 +244,10 @@ struct EnemyShooter
     float speed2;
     // Copied into each bullet.
     BulletCommand commands[18];
-    unsigned char pad_1d0[0x1f4 - 0x1d0];
+    // The extra arguments of a laser, as th08's.
+    float exFloats[4];
+    int exInts[4];
+    int laserEndHitFrames;
     short count1;
     short count2;
     WORD aimMode;
@@ -313,7 +334,7 @@ struct Enemy
     D3DXVECTOR3 prevPos;
     D3DXVECTOR3 posDelta;
     D3DXVECTOR3 hitboxSize;
-    unsigned char pad_2dc8[0x2dd4 - 0x2dc8];
+    D3DXVECTOR3 extraHitboxSize;
     D3DXVECTOR3 absPos;
     float angle;
     float angularVelocity;
@@ -324,7 +345,7 @@ struct Enemy
     float speed;
     float acceleration;
     float orbitRadius;
-    unsigned char pad_2e00[0x2e04 - 0x2e00];
+    float orbitRadiusVelocity;
     D3DXVECTOR3 shootOffset;
     // A timed move, as th08's: by moveDelta from moveStart over
     // moveDuration frames.
@@ -351,11 +372,13 @@ struct Enemy
     // The primary sprite's color when it spawned, as th08's.
     D3DCOLOR color;
     EnemyShooter shooter;
-    unsigned char pad_3088[0x30b4 - 0x3088];
+    // The instruction a held shot fires, as th08's.
+    unsigned char shootInstr[0x2c];
     int shootInterval;
     Timer shootTimer;
     EnemyShooter unknown30c4;
-    unsigned char pad_32d8[0x3358 - 0x32d8];
+    // The lasers it fired, as th08's.
+    Laser *lasers[0x20];
     int laserIndex;
     // The item it drops, as th08's.
     int item;
@@ -398,6 +421,14 @@ struct Enemy
             DWORD rotateSprite : 1;
             // Calls don't save the caller, as th08's.
             DWORD disableCallStack : 1;
+            DWORD keepSpellCard : 1;
+            DWORD staysOffscreen : 1;
+            DWORD unusedFlag26 : 1;
+            DWORD haltedByBomb : 1;
+            DWORD intangibleDuringBomb : 1;
+            DWORD unusedFlag29 : 2;
+            // Sprites come from the other ANM, as th08's.
+            DWORD useStageAnm : 1;
         };
     };
     struct
@@ -405,7 +436,8 @@ struct Enemy
         DWORD unusedBits0 : 3;
         // Not cleared for the bonus, as th08's.
         DWORD undying : 1;
-        DWORD unusedBits4 : 2;
+        DWORD unusedBit4 : 1;
+        DWORD useMainSpriteOffset : 1;
         DWORD unknown3380 : 3;
         // Set by the timeline's opcode 17.
         DWORD unknownBit9 : 1;
@@ -413,13 +445,23 @@ struct Enemy
         DWORD unknownType : 2;
         // Has Move use velocity2, unmirrored.
         DWORD useVelocity2 : 1;
+        DWORD unusedBit13 : 1;
+        DWORD unknownBit14 : 1;
     };
-    unsigned char pad_3384[0x338a - 0x3384];
+    unsigned char pad_3384[0x3386 - 0x3384];
+    // 0 still, 1 left, 2 right, or 0xff before the first, as th08's.
+    BYTE spriteDirection;
+    BYTE drawListIndex;
+    // Or'ed into the game's difficulty mask, as th08's.
+    BYTE difficultyMaskExtra;
+    unsigned char pad_3389[0x338a - 0x3389];
     short turnStill;
-    unsigned char pad_338c[0x3390 - 0x338c];
+    short turnStillFromLeft;
+    short turnStillFromRight;
     short turnLeft;
     short turnRight;
-    unsigned char pad_3394[0x3398 - 0x3394];
+    short turnExtra;
+    unsigned char pad_3396[0x3398 - 0x3396];
     // Where ClampPos keeps it, as th08's.
     float lowerBound[2];
     float upperBound[2];
@@ -427,9 +469,9 @@ struct Enemy
     // Where th08's lastDamage is, which ECL reads as variable 10083.
     int lastDamage;
     int lifeCallbackLife[4];
-    unsigned char pad_33c0[0x33d0 - 0x33c0];
+    int lifeCallbackSub[4];
     int timerCallbackTime;
-    unsigned char pad_33d4[0x33d8 - 0x33d4];
+    int timerCallbackSub;
     // The extra script threads, as th08's.
     EnemyScriptThread *threads[4];
     EnemyUnknown1c trailBoxes[0x60];
@@ -438,12 +480,14 @@ struct Enemy
     BYTE trailFlags;
     unsigned char pad_53a1[0x1];
     short trailSegmentCount;
-    unsigned char pad_53a4[0x53a8 - 0x53a4];
+    short trailContactSegments;
+    short trailSegmentStep;
     Timer unknown53a8;
     // Effects that follow it, as th08's.
     struct Effect *effects[0x18];
     int effectCount;
-    unsigned char pad_5418[0x5424 - 0x5418];
+    float effectRadius;
+    unsigned char pad_541c[0x5424 - 0x541c];
     Timer unknown5424;
 };
 ASSERT_SIZE(Enemy, 0x5430);
@@ -592,7 +636,8 @@ public:
     unsigned char pad_2ac3bc[0x2ac3c8 - 0x2ac3bc];
     Timer unknown2ac3c8;
     unsigned char unknown2ac3d4;
-    unsigned char pad_2ac3d5[0x2ac3e0 - 0x2ac3d5];
+    unsigned char pad_2ac3d5[0x2ac3dc - 0x2ac3d5];
+    int scriptArg163;
     // The timeline running.
     EnemyTimeline timeline;
     Timer unknown2ac404;
@@ -608,7 +653,8 @@ public:
     int spawnFailed;
     // The timeline's signals, as th08's.
     int timelineSignals[4];
-    unsigned char pad_2ac440[0x2ac44c - 0x2ac440];
+    int holdTimelineSpawns;
+    unsigned char pad_2ac444[0x2ac44c - 0x2ac444];
     // Set by AddedCallback: 200 if the side's character is 5, else 160.
     int unknown2ac44c;
 };

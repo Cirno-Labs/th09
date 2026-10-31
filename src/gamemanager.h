@@ -237,8 +237,7 @@ public:
     int difficulty;
     // The difficulty's bit, as th08's: timeline entries run on the
     // difficulties in their bits.
-    BYTE difficultyMask;
-    unsigned char pad_121[0x124 - 0x121];
+    int difficultyMask;
     // Set while LoadingThread runs, as th08's.
     int loadingThreadState;
     int unknown128;
