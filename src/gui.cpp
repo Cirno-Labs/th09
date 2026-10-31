@@ -1333,6 +1333,234 @@ void GuiSide::SetUnknown76d4Time(int frames)
     this->anm->SetSprite(&this->unknown76d4[5], hundredths % 10 + 0x35);
 }
 
+int GuiSide::OnUpdate(GuiSide *side)
+{
+    int i;
+    int n;
+    Sprite *sprite;
+    GameSide *gameSide;
+    Player *player;
+
+    g_App.SetCamera(side->sideIdx);
+    for (i = 0; i < ARRAY_SIZE(side->unknown0); i++)
+    {
+        g_SpriteEngine->Step(&side->unknown0[i]);
+    }
+    n = side->side->player->unknown30410.count;
+    if (n > 999)
+    {
+        n = 999;
+    }
+    if (n >= 100)
+    {
+        side->anm->SetSprite(&side->unknown0[2], n / 100 + 8);
+        side->unknown0[2].visible = 1;
+    }
+    else
+    {
+        side->unknown0[2].visible = 0;
+    }
+    if (n >= 10)
+    {
+        side->anm->SetSprite(&side->unknown0[3], n / 10 % 10 + 8);
+        side->unknown0[3].visible = 1;
+    }
+    else
+    {
+        side->unknown0[3].visible = 0;
+    }
+    side->anm->SetSprite(&side->unknown0[4], n % 10 + 8);
+    player = side->side->player;
+    if (player->unknown30410.timer20 > 0 && player->unknown30410.timer20 < 20)
+    {
+        if (player->unknown30410.timer20.AsFrames() & 1)
+        {
+            for (i = 1; i < 5; i++)
+            {
+                side->unknown0[i].colorRgb[2] = 0xff;
+                side->unknown0[i].colorRgb[1] = 0;
+                side->unknown0[i].colorRgb[0] = 0;
+            }
+        }
+        else
+        {
+            for (i = 1; i < 5; i++)
+            {
+                side->unknown0[i].colorRgb[2] = 0xff;
+                side->unknown0[i].colorRgb[1] = 0xff;
+                side->unknown0[i].colorRgb[0] = 0xff;
+            }
+        }
+    }
+    else
+    {
+        for (i = 1; i < 5; i++)
+        {
+            side->unknown0[i].colorRgb[2] = 0xd0;
+            side->unknown0[i].colorRgb[1] = 0x80;
+            side->unknown0[i].colorRgb[0] = 0x80;
+        }
+    }
+    n = side->side->player->unknown30410.bonus;
+    side->anm->SetSprite(&side->unknown0[5], n / 100000 + 8);
+    n %= 100000;
+    side->anm->SetSprite(&side->unknown0[6], n / 10000 + 8);
+    n %= 10000;
+    side->anm->SetSprite(&side->unknown0[7], n / 1000 + 8);
+    n %= 1000;
+    side->anm->SetSprite(&side->unknown0[8], n / 100 + 8);
+    n %= 100;
+    side->anm->SetSprite(&side->unknown0[9], n / 10 + 8);
+    n %= 10;
+    side->anm->SetSprite(&side->unknown0[10], n + 8);
+    n = side->side->stats->guiScore;
+    if (n >= 100000000)
+    {
+        side->anm->SetSprite(&side->unknown3f60[0], n / 100000000 + 8);
+        n %= 100000000;
+        side->unknown3f60[0].visible = 1;
+    }
+    else
+    {
+        side->unknown3f60[0].visible = 0;
+    }
+    side->anm->SetSprite(&side->unknown3f60[1], n / 10000000 + 8);
+    n %= 10000000;
+    side->anm->SetSprite(&side->unknown3f60[2], n / 1000000 + 8);
+    n %= 1000000;
+    side->anm->SetSprite(&side->unknown3f60[3], n / 100000 + 8);
+    n %= 100000;
+    side->anm->SetSprite(&side->unknown3f60[4], n / 10000 + 8);
+    n %= 10000;
+    side->anm->SetSprite(&side->unknown3f60[5], n / 1000 + 8);
+    n %= 1000;
+    side->anm->SetSprite(&side->unknown3f60[6], n / 100 + 8);
+    n %= 100;
+    side->anm->SetSprite(&side->unknown3f60[7], n / 10 + 8);
+    n %= 10;
+    side->anm->SetSprite(&side->unknown3f60[8], n + 8);
+    side->anm->SetSprite(&side->unknown3f60[9], side->side->stats->unknown14 + 8);
+    g_SpriteEngine->StepSprites(side->unknown3f60, 10);
+    n = side->side->player->unknownA8;
+    for (i = 0; i < ARRAY_SIZE(side->unknown1d0c); i++)
+    {
+        sprite = &side->unknown1d0c[i];
+        g_SpriteEngine->Step(sprite);
+        side->anm->SetSprite(sprite, (n >= 2 ? 2 : n) + 0x23);
+        n -= 2;
+        if (n < 0)
+        {
+            n = 0;
+        }
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown2a40); i++)
+    {
+        g_SpriteEngine->Step(&side->unknown2a40[i]);
+    }
+    gameSide = side->side;
+    side->unknown2a40[0].scaleY = gameSide->player->unknown30388 * 0.0025f;
+    side->unknown2a40[1].scaleY = gameSide->player->unknown30384 * 0.0025f;
+    if (gameSide->player->unknown30384 >= 400.0f)
+    {
+        side->unknown2a40[1].color = side->timerAbdc % 2 ? 0xffffffff : 0xffff0000;
+    }
+    else if (gameSide->player->unknown30384 >= 300.0f)
+    {
+        side->unknown2a40[1].color = side->timerAbdc % 2 ? 0xfff0f000 : 0xfff0f0c0;
+    }
+    else if (gameSide->player->unknown30384 >= 200.0f)
+    {
+        side->unknown2a40[1].color = side->timerAbdc % 2 ? 0xfff0f000 : 0xffc0c0c0;
+    }
+    else if (gameSide->player->unknown30384 >= 100.0f)
+    {
+        side->unknown2a40[1].color = side->timerAbdc % 2 ? 0xfff0f080 : 0xffc0c0c0;
+    }
+    else
+    {
+        side->unknown2a40[1].color = 0xffc0c0c0;
+    }
+    if (gameSide->player->unknown30388 >= 400.0f)
+    {
+        side->unknown2a40[0].color = 0xffc08080;
+    }
+    else if (gameSide->player->unknown30388 >= 300.0f)
+    {
+        side->unknown2a40[0].color = 0xffb08080;
+    }
+    else if (gameSide->player->unknown30388 >= 200.0f)
+    {
+        side->unknown2a40[0].color = 0xffa08080;
+    }
+    else
+    {
+        side->unknown2a40[0].color = 0xff808080;
+    }
+    n = gameSide->player->unknownA0;
+    side->anm->SetSprite(&side->unknown2a40[3], n / 10 + 8);
+    side->anm->SetSprite(&side->unknown2a40[4], n % 10 + 8);
+    n = side->side->player->unknownA4;
+    side->anm->SetSprite(&side->unknown2a40[5], n / 10 + 8);
+    side->anm->SetSprite(&side->unknown2a40[6], n % 10 + 8);
+    g_SpriteEngine->Step(&side->unknownA678.sprites[0]);
+    g_SpriteEngine->Step(&side->unknownA678.sprites[1]);
+    side->unknown3cbc.scaleY = side->side->player->unknown30410.timer14.AsFloat() * (1.0f / 105.0f);
+    g_SpriteEngine->Step(&side->unknown3cbc);
+    g_SpriteEngine->Step(&side->unknown59c8);
+    g_SpriteEngine->Step(&side->unknown5c6c[0]);
+    sprite = &side->unknown5c6c[1];
+    side->anm->SetSprite(sprite, (int)side->side->player->unknown30384 / 100 + 0x35);
+    g_SpriteEngine->Step(sprite);
+    sprite = &side->unknown5c6c[2];
+    side->anm->SetSprite(sprite, (int)side->side->player->unknown30388 / 100 + 0x35);
+    g_SpriteEngine->Step(sprite);
+    g_SpriteEngine->Step(&side->unknown5c6c[3]);
+    g_SpriteEngine->StepSprites(side->unknown66fc, 3);
+    g_SpriteEngine->StepSprites(side->unknown6ee8, 2);
+    g_SpriteEngine->StepSprites(side->unknown76d4, 6);
+    g_SpriteEngine->Step(&side->unknown7430);
+    if (!g_GameManager.IsMode2())
+    {
+        for (i = 0; i < (int)g_GameManager.sides[side->sideIdx].stats->lives; i++)
+        {
+            side->unknown86ac[i].visible = 1;
+        }
+        for (; i < ARRAY_SIZE(side->unknown86ac); i++)
+        {
+            side->unknown86ac[i].visible = 0;
+        }
+        g_SpriteEngine->StepSprites(side->unknown86ac, 7);
+    }
+    n = g_GameManager.unknown108[side->sideIdx];
+    if (n > 5)
+    {
+        n = 5;
+    }
+    for (i = 0; i < n; i++)
+    {
+        side->unknown9928[i].visible = 1;
+    }
+    for (; i < ARRAY_SIZE(side->unknown9928); i++)
+    {
+        side->unknown9928[i].visible = 0;
+    }
+    g_SpriteEngine->StepSprites(side->unknown9928, 5);
+    if (side->unknownAbcc == 1)
+    {
+        side->timerAbd0++;
+    }
+    else if (side->unknownAbcc == 2)
+    {
+        side->timerAbd0--;
+        if (side->timerAbd0 <= 0)
+        {
+            side->unknownAbcc = 0;
+        }
+    }
+    side->timerAbdc++;
+    return 1;
+}
+
 int GuiSide::AddedCallback(GuiSide *side)
 {
     DWORD i;
