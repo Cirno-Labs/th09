@@ -1,6 +1,51 @@
 #include "exattack.h"
 #include "gamemanager.h"
 
+ExAttack *ExAttackManager::AddAttack(int type, D3DXVECTOR3 *pos, int side, D3DXVECTOR3 *target)
+{
+    ExAttack *attack = this->attacks;
+    int count = 0;
+    int i;
+
+    for (i = 0; i < 0x100; i++, attack++)
+    {
+        if (attack->active != 0 && attack->side == side)
+        {
+            count++;
+        }
+    }
+    if (count >= this->limits[side])
+    {
+        return &this->attacks[0x100];
+    }
+    g_SoundPlayer.PlaySoundByIdx(0x2d, side != 0 ? 500 : -500);
+    attack = this->attacks;
+    for (i = 0; i < 0x100; i++, attack++)
+    {
+        if (attack->active == 0)
+        {
+            goto found;
+        }
+    }
+    return attack;
+found:
+    memset(attack, 0, sizeof(ExAttack));
+    attack->active = 1;
+    attack->pos = *pos;
+    attack->side = side;
+    attack->targetSide = 1 - side;
+    attack->target = target;
+    attack->onUpdate = g_ExAttackTypes[type].onUpdate;
+    attack->onDraw = g_ExAttackTypes[type].onDraw;
+    attack->onFree = g_ExAttackTypes[type].onFree;
+    attack->timer = 0;
+    if (g_ExAttackTypes[type].onInit(attack) != 0)
+    {
+        attack->active = 0;
+    }
+    return attack;
+}
+
 // Calls the onFree callback of each running attack and frees its block.
 // Returns 0. Static, with the manager in eax (0x415650).
 static int FreeAttacks(ExAttackManager *mgr)
@@ -19,10 +64,10 @@ static int FreeAttacks(ExAttackManager *mgr)
         {
             attack->onFree(attack);
         }
-        if (attack->unknown1c != NULL)
+        if (attack->sprites != NULL)
         {
-            g_MemoryManager.Free(attack->unknown1c);
-            attack->unknown1c = NULL;
+            g_MemoryManager.Free(attack->sprites);
+            attack->sprites = NULL;
         }
     }
     return 0;
@@ -56,10 +101,10 @@ void ExAttackManager::Reset()
         {
             attack->onFree(attack);
         }
-        if (attack->unknown1c != NULL)
+        if (attack->sprites != NULL)
         {
-            g_MemoryManager.Free(attack->unknown1c);
-            attack->unknown1c = NULL;
+            g_MemoryManager.Free(attack->sprites);
+            attack->sprites = NULL;
         }
         memset(attack, 0, sizeof(ExAttack));
     }
@@ -67,9 +112,9 @@ void ExAttackManager::Reset()
 
 int ExAttackManager::AddedCallback(ExAttackManager *mgr)
 {
-    mgr->unknown14 = g_Unknown4a117c[g_GameManager.sides[0].character] * g_GameManager.difficulty +
+    mgr->limits[0] = g_Unknown4a117c[g_GameManager.sides[0].character] * g_GameManager.difficulty +
                      g_Unknown4a1128[g_GameManager.sides[0].character];
-    mgr->unknown18 = g_Unknown4a117c[g_GameManager.sides[1].character] * g_GameManager.difficulty +
+    mgr->limits[1] = g_Unknown4a117c[g_GameManager.sides[1].character] * g_GameManager.difficulty +
                      g_Unknown4a1128[g_GameManager.sides[1].character];
     mgr->Reset();
     return 0;

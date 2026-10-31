@@ -281,7 +281,7 @@ address,size,name,symbol
 0x00415020,34,Laser::Laser,??0Laser@@QAE@XZ
 0x00415050,121,BulletManager::BulletManager,??0BulletManager@@QAE@XZ
 0x004150d0,283,BulletManager::RegisterChain,?RegisterChain@BulletManager@@SIPAV1@H@Z
-0x004151f0,321,ExAttackManager::AddAttack,?AddAttack@ExAttackManager@@QAEHHPAUD3DXVECTOR3@@H0@Z
+0x004151f0,321,ExAttackManager::AddAttack,?AddAttack@ExAttackManager@@QAEPAUExAttack@@HPAUD3DXVECTOR3@@H0@Z
 0x00415340,279,ExAttackManager::OnUpdate,?OnUpdate@ExAttackManager@@SIHPAV1@@Z
 0x00415460,272,ExAttackManager::OnDraw,?OnDraw@ExAttackManager@@SIHPAV1@@Z
 0x00415580,190,ExAttackManager::OnDraw2,?OnDraw2@ExAttackManager@@SIHPAV1@@Z
@@ -2263,6 +2263,7 @@ address,size,name,symbol
 0x004953d0,,GUID_NULL,_GUID_NULL
 0x004a0b48,,g_EffectInfos,?g_EffectInfos@@3PAUEffectInfo@@A
 0x004a0ed8,,g_EndingFiles,?g_EndingFiles@@3PAPADA
+0x004a0f78,,g_ExAttackTypes,?g_ExAttackTypes@@3PAUExAttackType@@A
 0x004a1128,,g_Unknown4a1128,?g_Unknown4a1128@@3PAHA
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
 0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
