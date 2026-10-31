@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.70% (899)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.62% (18)</tspan> · <tspan class="todo">3.32% (37)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.79% (900)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.62% (18)</tspan> · <tspan class="todo">3.23% (36)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="602.83" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="602.83" y="0" class="decompiled"/>
-<rect width="12.07" height="6" x="710.12" y="0" class="nonmatching"/>
-<rect width="24.81" height="6" x="722.19" y="0" class="todo"/>
+<rect width="603.50" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="603.50" y="0" class="decompiled"/>
+<rect width="12.07" height="6" x="710.79" y="0" class="nonmatching"/>
+<rect width="24.14" height="6" x="722.86" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -330,7 +330,7 @@
 <rect width="12" height="12" x="120" y="75" class="named"><title>0x00412960 BulletManager::SpawnBullet (1896 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="75" class="named"><title>0x004130f0 BulletManager::FirePattern (203 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="75" class="named"><title>0x004131c0 BulletManager::FirePattern2 (203 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="75" class="todo"><title>0x00413290 BulletManager::SpawnLaser (450 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="75" class="named"><title>0x00413290 BulletManager::SpawnLaser (450 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="75" class="named"><title>0x00413460 SlowBulletStart (110 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="75" class="named"><title>0x004134d0 AccelerateAlongVelocity (179 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="75" class="named"><title>0x00413590 TurnAndAccelerate (158 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.61%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.42%</tspan> · <tspan class="todo">6.14%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.77%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.42%</tspan> · <tspan class="todo">5.99%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="490.14" height="6" x="0" y="0" class="named"/>
-<rect width="110.76" height="6" x="490.14" y="0" class="decompiled"/>
-<rect width="100.22" height="6" x="600.90" y="0" class="nonmatching"/>
-<rect width="45.88" height="6" x="701.12" y="0" class="todo"/>
+<rect width="491.27" height="6" x="0" y="0" class="named"/>
+<rect width="110.76" height="6" x="491.27" y="0" class="decompiled"/>
+<rect width="100.22" height="6" x="602.03" y="0" class="nonmatching"/>
+<rect width="44.75" height="6" x="702.25" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1356,7 +1356,7 @@
 <rect width="16.55" height="17.68" x="653.47" y="21.47" class="named"><title>0x0041a000 GuiSide::AddedCallback (460 bytes)</title></rect>
 <rect width="16.55" height="17.68" x="673.03" y="21.47" class="named"><title>0x004202a0 ReplayManager::OnUpdateMode0 (460 bytes)</title></rect>
 <rect width="16.30" height="17.68" x="692.58" y="21.47" class="decompiled"><title>0x00442580 ExAttackInit442580 (454 bytes)</title></rect>
-<rect width="16.13" height="17.68" x="711.87" y="21.47" class="todo"><title>0x00413290 BulletManager::SpawnLaser (450 bytes)</title></rect>
+<rect width="16.13" height="17.68" x="711.87" y="21.47" class="named"><title>0x00413290 BulletManager::SpawnLaser (450 bytes)</title></rect>
 <rect width="16" height="17.68" x="731" y="21.47" class="named"><title>0x00422d20 ScreenEffect::StartEffect (447 bytes)</title></rect>
 <rect width="16.55" height="17.05" x="432.67" y="42.15" class="decompiled"><title>0x0044c4c0 ExAttackUpdate44c4c0 (446 bytes)</title></rect>
 <rect width="16.55" height="16.83" x="432.67" y="62.20" class="named"><title>0x004218e0 LoadHscrChunks (441 bytes)</title></rect>
