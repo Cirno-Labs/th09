@@ -11,6 +11,7 @@ class EnemyManager;
 struct GameSide;
 struct Enemy;
 struct EnemyUnknown22c;
+struct EclInstr;
 
 // The head of an ECL file, as th08's: then the offsets of the timelines.
 struct EclHeader
@@ -73,13 +74,18 @@ struct EclManager
 };
 ASSERT_SIZE(EclManager, 0x188);
 
-// Something of 0x30 bytes with a Timer at 4. Only the fields known so
-// far; its implicit constructor is at 0x4120c0.
+// An interpolation loop of an ECL script, as th08's EnemyScriptLoop:
+// runs `func` for `duration` frames with the eased time, to set the
+// variable `target` names. Its implicit constructor is at 0x4120c0.
 struct EnemyUnknown30
 {
-    unsigned char pad_0[0x4];
+    void (*func)(Enemy *enemy, EclInstr *instr, float t);
     Timer timer;
-    unsigned char pad_10[0x30 - 0x10];
+    int duration;
+    int type;
+    int mode;
+    float args[4];
+    float target;
 };
 ASSERT_SIZE(EnemyUnknown30, 0x30);
 
@@ -90,12 +96,19 @@ union EclArg
     float f;
 };
 
-// An ECL instruction. Only the fields known so far: the enemy script
-// function instruction takes the function in args[0] and passes it the
-// instruction.
+// An ECL instruction, as th08's: the enemy script function instruction
+// takes the function in args[0] and passes it the instruction.
 struct EclInstr
 {
-    unsigned char pad_0[0xc];
+    // The frame it runs on.
+    int time;
+    short opcode;
+    // The size of the instruction, arguments included.
+    short size;
+    BYTE unusedByte8;
+    BYTE difficultyMask;
+    // Bit n: argument n names a variable.
+    WORD paramMask;
     EclArg args[9];
 };
 
@@ -140,7 +153,9 @@ struct EnemyUnknown22c
     void *code;
     // The frame of the subroutine, and of a wait.
     Timer timer;
-    unsigned char pad_14[0x1c - 0x14];
+    // What runs each frame with `funcInstr`, as th08's.
+    void (*func)(Enemy *enemy, EclInstr *instr);
+    EclInstr *funcInstr;
     union
     {
         EclVars vars;
@@ -155,13 +170,29 @@ struct EnemyUnknown22c
         };
     };
     Timer waitTimer;
-    EnemyUnknown30 unknownA0[8];
-    unsigned char pad_220[0x228 - 0x220];
+    EnemyUnknown30 loops[8];
+    int compareResult;
+    // 1 + the index of the thread it is, or 0 for the main one.
+    int timedCallActive;
     // The subroutine.
     short sub;
     unsigned char pad_22a[0x22c - 0x22a];
 };
 ASSERT_SIZE(EnemyUnknown22c, 0x22c);
+
+// One of an enemy's four extra script threads, as th08's ("ECLInt"),
+// which RunEnemy runs after its main context each frame.
+struct EnemyScriptThread
+{
+    int sub;
+    short unusedShort4;
+    // Enemy::stackDepth while the thread runs.
+    short stackDepth;
+    EnemyUnknown22c ctx;
+    // Its call stack (Enemy::callStack while it runs).
+    EnemyUnknown22c callStack[16];
+};
+ASSERT_SIZE(EnemyScriptThread, 0x24f4);
 
 // How an enemy shoots, as th08's shooter (0x214 bytes). Only the fields
 // known so far.
@@ -237,7 +268,7 @@ struct Enemy
     // Fades out and forgets the effects, as th08's ReleaseEnemyEffects
     // (0x40f560).
     void ReleaseEffects();
-    // Frees the blocks of unknown33d8 (0x4100e0).
+    // Frees the threads (0x4100e0).
     void FreeUnknown33d8();
     // Stops the enemy unless it has a death mode, frees its boss slot,
     // effects and blocks and clears its callbacks, as th08's (0x410110).
@@ -253,8 +284,9 @@ struct Enemy
     unsigned char pad_4[0x8 - 0x4];
     Sprite primarySprite;
     Sprite sprites[2];
-    EnemyUnknown22c unknown7f4;
-    EnemyUnknown22c unknownA20[0x10];
+    // The main context, and its call stack, as th08's.
+    EnemyUnknown22c ctx;
+    EnemyUnknown22c savedCtx[0x10];
     // The context running, as th08's currentCtx.
     EnemyUnknown22c *currentCtx;
     // Where calls save the context, as th08's callStack.
@@ -266,7 +298,9 @@ struct Enemy
     short stackDepth;
     unsigned char pad_2d2c[0x2d2e - 0x2d2c];
     short deathSub;
-    unsigned char pad_2d30[0x2d70 - 0x2d30];
+    // The subroutines of the interrupts, as th08's.
+    short interrupts[0x20];
+    // The interrupt to run, or -1.
     short pendingInterrupt;
     unsigned char pad_2d72[0x2d74 - 0x2d72];
     D3DXVECTOR3 pos;
@@ -362,6 +396,8 @@ struct Enemy
             DWORD unusedFlag20 : 1;
             DWORD onScreen : 1;
             DWORD rotateSprite : 1;
+            // Calls don't save the caller, as th08's.
+            DWORD disableCallStack : 1;
         };
     };
     struct
@@ -394,7 +430,8 @@ struct Enemy
     unsigned char pad_33c0[0x33d0 - 0x33c0];
     int timerCallbackTime;
     unsigned char pad_33d4[0x33d8 - 0x33d4];
-    void *unknown33d8[4];
+    // The extra script threads, as th08's.
+    EnemyScriptThread *threads[4];
     EnemyUnknown1c trailBoxes[0x60];
     EnemyUnknown1c unknown3e68[0xc2];
     // As th08's: whether it has trail boxes, and how many.

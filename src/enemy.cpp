@@ -54,7 +54,7 @@ Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDro
         }
         if (!usePlayerEcl)
         {
-            this->ecl.StartSub(&enemy->unknown7f4, sub);
+            this->ecl.StartSub(&enemy->ctx, sub);
             if (this->ecl.RunEnemy(enemy) == -1)
             {
                 enemy->active = 0;
@@ -64,7 +64,7 @@ Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDro
         }
         else
         {
-            this->playerEcl.StartSub(&enemy->unknown7f4, sub);
+            this->playerEcl.StartSub(&enemy->ctx, sub);
             if (this->playerEcl.RunEnemy(enemy) == -1)
             {
                 enemy->active = 0;
@@ -108,8 +108,8 @@ Enemy *EnemyManager::SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, cha
         enemy->pos = *pos;
         if (!usePlayerEcl)
         {
-            this->ecl.StartSub(&enemy->unknown7f4, sub);
-            enemy->unknown7f4.vars = *vars;
+            this->ecl.StartSub(&enemy->ctx, sub);
+            enemy->ctx.vars = *vars;
             if (this->ecl.RunEnemy(enemy) == -1)
             {
                 enemy->active = 0;
@@ -119,8 +119,8 @@ Enemy *EnemyManager::SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, cha
         }
         else
         {
-            this->playerEcl.StartSub(&enemy->unknown7f4, sub);
-            enemy->unknown7f4.vars = *vars;
+            this->playerEcl.StartSub(&enemy->ctx, sub);
+            enemy->ctx.vars = *vars;
             if (this->playerEcl.RunEnemy(enemy) == -1)
             {
                 enemy->active = 0;
@@ -212,7 +212,7 @@ int EnemyManager::ClearEnemiesForBonus(int maxBonus, int start)
         }
         if (enemy->deathSub >= 0)
         {
-            this->ecl.StartSub(&enemy->unknown7f4, enemy->deathSub);
+            this->ecl.StartSub(&enemy->ctx, enemy->deathSub);
             enemy->deathSub = -1;
         }
     }
@@ -522,10 +522,10 @@ void Enemy::FreeUnknown33d8()
 
     for (i = 0; i < 4; i++)
     {
-        if (this->unknown33d8[i] != NULL)
+        if (this->threads[i] != NULL)
         {
-            g_MemoryManager.Free(this->unknown33d8[i]);
-            this->unknown33d8[i] = NULL;
+            g_MemoryManager.Free(this->threads[i]);
+            this->threads[i] = NULL;
         }
     }
 }
