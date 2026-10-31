@@ -1026,7 +1026,7 @@ address,size,name,symbol
 0x00445050,316,Func445050,
 0x00445190,407,Func445190,
 0x00445330,102,PlayerComboFunc445330,?PlayerComboFunc445330@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
-0x004453a0,314,Func4453a0,
+0x004453a0,314,EffectDraw4453a0,?EffectDraw4453a0@@YIHPAUEffect@@@Z
 0x004454e0,79,EffectUpdate4454e0,?EffectUpdate4454e0@@YIHPAUEffect@@@Z
 0x00445530,44,ShotFire445530,?ShotFire445530@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00445560,26,EffectManager::GetReservedEffect,?GetReservedEffect@EffectManager@@QAEPAUEffect@@H@Z
