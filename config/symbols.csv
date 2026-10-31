@@ -603,7 +603,7 @@ address,size,name,symbol
 0x0042d2e0,8,SpriteEngine::ClearLastCameraSetupFlag,?ClearLastCameraSetupFlag@SpriteEngine@@QAEXXZ
 0x0042d2f0,43,SpriteEngine::ReleaseSurfaces,?ReleaseSurfaces@SpriteEngine@@QAEXXZ
 0x0042d320,167,SpriteEngine::DoPendingCopy,?DoPendingCopy@SpriteEngine@@QAEXXZ
-0x0042d3d0,249,Func42d3d0,
+0x0042d3d0,249,WindowProc,?WindowProc@@YGJPAUHWND__@@IIJ@Z
 0x0042d4d0,285,Func42d4d0,
 0x0042d5f0,783,SetDefaultRenderStates,?SetDefaultRenderStates@@YIXXZ
 0x0042d900,391,Func42d900,

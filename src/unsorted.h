@@ -94,7 +94,11 @@ struct GameWindow
     double GetTime();
 
     HWND hwnd;
-    unsigned char pad_4[0x10 - 0x4];
+    // Cleared by InitD3dDevice, as th08's.
+    int isClosing;
+    // WM_ACTIVATEAPP's wParam, and whether it is 0, as th08's.
+    int isAppActive;
+    int isAppInactive;
     char curFrame;
     unsigned char pad_11[0x3];
     // The performance counter's frequency, as a LARGE_INTEGER but only
@@ -115,6 +119,10 @@ int CreateD3d();
 // Brings `hwnd` to the front despite the foreground lock, as th08's.
 // __stdcall, unlike the rest of the game (0x42d0c0).
 void __stdcall ForceForegroundWindow(HWND hwnd);
+// The window's procedure, as th08's: WM_ACTIVATEAPP keeps whether
+// the game is active, the cursor is hidden while it is in full screen
+// and active, WM_CLOSE sets bit 7 of g_App's stateFlags (0x42d3d0).
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 // Sets the device's render states up, as th08's (0x42d5f0).
 void SetDefaultRenderStates();
 // Presents the frame, as th08's: resets the device if it is lost, runs

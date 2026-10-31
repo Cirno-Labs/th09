@@ -8,6 +8,7 @@
 #include <shobjidl.h>
 
 #include "gamemanager.h"
+#include "midi.h"
 #include "network.h"
 #include "sprite.h"
 #include "stage.h"
@@ -128,6 +129,41 @@ void Log::Flush()
         }
         WriteToFile("./log.txt", this->buffer, strlen(this->buffer));
     }
+}
+
+LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+    switch (msg)
+    {
+    case WM_ERASEBKGND:
+        return 1;
+    case WM_ACTIVATEAPP:
+        g_GameWindow.isAppActive = wParam;
+        g_GameWindow.isAppInactive = wParam == 0;
+        break;
+    case WM_CLOSE:
+        g_App.stateFlags |= 0x80;
+        return 1;
+    case WM_SETCURSOR:
+        if (!g_App.GetWindowed() && !g_GameWindow.isAppInactive)
+        {
+            ShowCursor(FALSE);
+            SetCursor(NULL);
+        }
+        else
+        {
+            SetCursor(LoadCursorA(NULL, IDC_ARROW));
+            ShowCursor(TRUE);
+        }
+        return 1;
+    case MM_MOM_DONE:
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->ReleaseHeader((LPMIDIHDR)lParam);
+        }
+        break;
+    }
+    return DefWindowProcA(hwnd, msg, wParam, lParam);
 }
 
 void SpriteEngine::ReleaseSurfaces()
