@@ -167,6 +167,19 @@ int ExAttackUpdate441100(ExAttack *attack)
     return 0;
 }
 
+// The unknown30450 of character 0: while unknown34 reaches
+// (28 - unknownB4) * 5, sends an extra attack of type 0 from `pos` and
+// takes as much off it. Returns 0 (0x4412e0).
+int PlayerComboFunc4412e0(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
+{
+    while (combo->unknown34 >= (28 - g_GameManager.unknownB4) * 5)
+    {
+        g_GameManager.exAttackManager->AddAttack(0, pos, combo->player->sideIdx, NULL);
+        combo->unknown34 -= (28 - g_GameManager.unknownB4) * 5;
+    }
+    return 0;
+}
+
 // The init callbacks of spell card types 0 and 1: allocate unknown1360
 // and spawn enemy subroutine 0 or 1 from the player's ECL (0x441350,
 // 0x4413d0). The position is never set. Return 0.
