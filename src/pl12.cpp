@@ -1,5 +1,6 @@
 // Character 12's extra attacks and callbacks (pl/pl12.cpp).
 
+#include "effect.h"
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
@@ -39,4 +40,18 @@ int PlayerComboFunc44af80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
         combo->unknown34 -= (40 - g_GameManager.unknownB4) * 4;
     }
     return 0;
+}
+
+// An update callback of the effect table: grows unknown7c by 16 up to
+// 96, sets unknownC9 and puts the effect on its side's player. Returns
+// 1 (0x44b1d0).
+int EffectUpdate44b1d0(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 96.0f)
+    {
+        effect->unknown7c += 16.0f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    return 1;
 }
