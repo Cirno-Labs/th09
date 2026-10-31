@@ -427,7 +427,10 @@ public:
     PlayerUnknown3031c unknown3031c;
     // The character's shot file (plXX.sht).
     ShtFile *shtFile;
-    unsigned char pad_3033c[0x3037c - 0x3033c];
+    unsigned char pad_3033c[0x30354 - 0x3033c];
+    // Counted up by character 1's shot hit callback.
+    BYTE unknown30354;
+    unsigned char pad_30355[0x3037c - 0x30355];
     // An enemy, forgotten when it despawns.
     Enemy *unknown3037c;
     unsigned char pad_30380[0x30388 - 0x30380];

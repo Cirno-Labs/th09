@@ -39,7 +39,7 @@ struct Effect
     // scriptVar1.
     float unknown7c;
     float unknown80;
-    unsigned char pad_84[0x88 - 0x84];
+    float unknown84;
     float unknown88;
     int unknown8c;
     // The reserved slot it was started in, by SpawnReservedEffect.
