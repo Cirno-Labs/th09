@@ -2342,6 +2342,7 @@ address,size,name,symbol
 0x004a1d58,,g_ReplayMenuMatchNames,?g_ReplayMenuMatchNames@@3PAPADA
 0x004a1d68,,g_ScoreRankNames,?g_ScoreRankNames@@3PAPADA
 0x004a1d7c,,g_StoryCharacters,?g_StoryCharacters@@3PADA
+0x004a1d8c,,g_VsCpuCharacters,?g_VsCpuCharacters@@3PADA
 0x004a1d9c,,g_CharacterOrder,?g_CharacterOrder@@3PADA
 0x004a1dac,,g_ScoreCharacters,?g_ScoreCharacters@@3PADA
 0x004a1dbc,,g_MusicNotHeardComment,?g_MusicNotHeardComment@@3PAPADA

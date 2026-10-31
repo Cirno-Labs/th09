@@ -37,6 +37,9 @@ extern char *g_KeyConfigHelpTexts[10];
 extern short g_LastPressedKey;
 // The comment the music room shows for a tune not heard yet (0x4a1dbc).
 extern char *g_MusicNotHeardComment[8];
+// The characters of state 8's character select against the CPU, in
+// its order (0x4a1d8c).
+extern char g_VsCpuCharacters[16];
 // The characters of state 8's character select, in its order
 // (0x4a1e2c).
 extern char g_VsCharacters[16];
@@ -217,6 +220,8 @@ public:
     // (g_VsCharacters, opened by openEntries or network play), each with
     // their own input, cursors[0] and [1], and chosen marks cursors[2]
     // and [3]; once both chose it goes to state 16.
+    // UpdateState8b is the same against the CPU (unknown114 1 to 3):
+    // the one player picks their character, then the opponent's.
     // UpdateState9 is the options, th08's UpdateOptions: unknownAc, the
     // colour depth, the music, the two volumes and the window, the
     // defaults, the key config (state 10) and leaving, which returns 5
