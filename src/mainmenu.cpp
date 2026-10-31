@@ -357,7 +357,7 @@ int MainMenu::DrawState15()
     int row;
     int col;
     float scale;
-    char str[2];
+    char str[16];
 
     if (this->subState == 2)
     {
@@ -399,7 +399,8 @@ int MainMenu::DrawState15()
                 for (col = 0; col < 16; col++)
                 {
                     pos.x += 12.0f;
-                    D3DXVECTOR3 offset(0.0f, 0.0f, 0.0f);
+                    float offsetX = 0.0f;
+                    float offsetY = 0.0f;
                     if (this->cursor == col + row * 16)
                     {
                         g_AsciiText.color = 0xffffffc0;
@@ -413,7 +414,7 @@ int MainMenu::DrawState15()
                         }
                         g_AsciiText.scaleX = scale;
                         g_AsciiText.scaleY = scale;
-                        offset.y = offset.x = (scale - 1.0f) * -8.0f;
+                        offsetY = offsetX = (scale - 1.0f) * -8.0f;
                     }
                     else
                     {
@@ -421,7 +422,7 @@ int MainMenu::DrawState15()
                         g_AsciiText.scaleX = 1.0f;
                         g_AsciiText.scaleY = 1.0f;
                     }
-                    D3DXVECTOR3 charPos = offset + pos;
+                    D3DXVECTOR3 charPos = D3DXVECTOR3(offsetX, offsetY, 0.0f) + pos;
                     str[0] = g_NameAlphabet[row * 16 + col];
                     str[1] = 0;
                     if (row == 5)
