@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">8.53% (95)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">20.20% (225)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">8.62% (96)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">20.11% (224)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="63.70" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="150.88" height="6" x="596.12" y="0" class="todo"/>
+<rect width="64.37" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="150.20" height="6" x="596.80" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1052,7 +1052,7 @@
 <rect width="12" height="12" x="465" y="285" class="todo"><title>0x00441da0 Func441da0 (327 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="285" class="decompiled"><title>0x00441ef0 ShotFire441ef0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="285" class="todo"><title>0x00441f90 Func441f90 (643 bytes)</title></rect>
-<rect width="12" height="12" x="510" y="285" class="todo"><title>0x00442220 Func442220 (204 bytes)</title></rect>
+<rect width="12" height="12" x="510" y="285" class="decompiled"><title>0x00442220 ShotDraw442220 (204 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="285" class="decompiled"><title>0x004422f0 EffectUpdate4422f0 (218 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="285" class="decompiled"><title>0x004423d0 ShotFire4423d0 (68 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="285" class="todo"><title>0x00442420 Func442420 (46 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">3.85%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">54.08%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">3.91%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">54.01%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="28.73" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="403.95" height="6" x="343.05" y="0" class="todo"/>
+<rect width="29.24" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="403.44" height="6" x="343.56" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1545,7 +1545,7 @@
 <rect width="10.65" height="10.34" x="669.22" y="123.79" class="named"><title>0x0042fc20 App::LoadBgm (207 bytes)</title></rect>
 <rect width="10.52" height="10.34" x="682.87" y="123.79" class="named"><title>0x0040f8e0 PlayerUnknown36c::Add (205 bytes)</title></rect>
 <rect width="10.45" height="10.34" x="696.39" y="123.79" class="named"><title>0x0041e350 Player::CheckGraze (204 bytes)</title></rect>
-<rect width="10.45" height="10.34" x="709.84" y="123.79" class="todo"><title>0x00442220 Func442220 (204 bytes)</title></rect>
+<rect width="10.45" height="10.34" x="709.84" y="123.79" class="decompiled"><title>0x00442220 ShotDraw442220 (204 bytes)</title></rect>
 <rect width="10.39" height="10.34" x="723.29" y="123.79" class="named"><title>0x00436e30 Sprite::ResolveFloatArgument (203 bytes)</title></rect>
 <rect width="10.32" height="10.34" x="736.68" y="123.79" class="todo"><title>0x00413630 Func413630 (202 bytes)</title></rect>
 <rect width="10.24" height="10.35" x="531.26" y="137.13" class="named"><title>0x0042ab13 SetUpTitleScene (201 bytes)</title></rect>

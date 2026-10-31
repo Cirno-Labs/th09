@@ -82,6 +82,31 @@ int ShotFire441ef0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
     return 1;
 }
 
+// A draw callback of the shot table (18): draws the bullet's sprite at
+// each point of its trail up to the first unused one, twice
+// unknown46a of them, fading out along it. Returns 0 (0x442220).
+int ShotDraw442220(Player *player, PlayerBullet *bullet)
+{
+    int alpha = bullet->sprite.alpha;
+    int i;
+
+    for (i = 0; i < bullet->unknown46a * 2; i++)
+    {
+        // -999.0f, compared by its bits.
+        if (*(DWORD *)&bullet->trail[i].x == 0xc479c000)
+        {
+            break;
+        }
+        bullet->sprite.pos.x = g_GameManager.ArenaToScreenX(bullet->trail[i].x);
+        bullet->sprite.pos.y = g_GameManager.ArenaToScreenY(bullet->trail[i].y);
+        bullet->sprite.pos.z = 0.0f;
+        bullet->sprite.alpha = alpha - alpha * i / (bullet->unknown46a * 2);
+        g_SpriteEngine->Draw(&bullet->sprite);
+    }
+    bullet->sprite.alpha = alpha;
+    return 0;
+}
+
 // The update callback of effect type 17: grows unknown84 by pi/60 up to
 // pi/2, sets unknownC9, puts the effect on its side's player and turns
 // unknown80 a quarter of the shorter way towards opposite the player's
