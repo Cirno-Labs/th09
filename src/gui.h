@@ -7,6 +7,16 @@
 #include "sprite.h"
 #include "timer.h"
 
+// An instruction of a dialogue script, as th08's MsgRawInstr: its
+// arguments follow, argSize bytes of them.
+struct MsgInstr
+{
+    short time;
+    BYTE opcode;
+    BYTE argSize;
+    int args[1];
+};
+
 // A dialogue file: its scripts, after a count so it seems.
 struct MsgFile
 {
@@ -18,6 +28,11 @@ struct MsgFile
     } scripts[1];
 };
 
+// The dialogue files once loaded, for side 0 and side 1 (0x4a7d88,
+// 0x4a7d8c); GuiMsg::UnloadBgm frees them.
+extern MsgFile *g_MsgFile;
+extern MsgFile *g_MsgFile2;
+
 // The dialogue state (0x1d70 bytes). Only the fields known so far.
 struct GuiMsg
 {
@@ -26,13 +41,18 @@ struct GuiMsg
     // ANM file's scripts 0 and 1 (0x416160).
     void Start(int index, int side);
     // Unloads the music the scripts from `firstScript` on, ten of them,
-    // play with opcode 7 (0x417520).
+    // play with opcode 7 (in mode 2 GameManager::unknownF0's unknownC),
+    // then frees the dialogue files and clears the state, if a file is
+    // loaded (0x417520).
     void UnloadBgm(int firstScript);
     // Zeroes the state, with no script running (0x415c90).
     void Clear();
-    // Loads the dialogue file `path`, and `path2` as side 1's if not
-    // NULL, so it seems. Nonzero is a failure (0x4182e0).
-    int Load(char *path, char *path2, int unknown);
+    // Unloads the music and the files as UnloadBgm, then loads the
+    // dialogue file `path` (in mode 2 `path2` as side 1's) unless it is
+    // loaded, turning its script offsets into pointers, and loads the
+    // music UnloadBgm would unload. Returns 0, or -1 if the file does
+    // not load (0x4182e0).
+    int Load(char *path, char *path2, int firstScript);
 
     MsgFile *msgFile;
     // The instruction being run.

@@ -70,6 +70,18 @@ ASSERT_SIZE(GameSide, 0x38);
 
 // GameManager's fields at 0xb0-0xd3, kept under the offsets in
 // GameManager they had before.
+// Something of shorts GameManager points to; in mode 2 the dialogue
+// plays music unknownC (the copy at 0x416dce, unknown6, 8 and A in the
+// front).
+struct GameManagerUnknownF0
+{
+    unsigned char pad_0[0x6];
+    short unknown6;
+    short unknown8;
+    short unknownA;
+    short unknownC;
+};
+
 struct GameRank
 {
     // Lowers unknownCc by `amount`, to at least 0. Inline; the copy is
@@ -200,7 +212,7 @@ public:
     void *unknownE8;
     // How far the enemy timelines advance a frame.
     float timelineSpeed;
-    unsigned char pad_f0[0xf4 - 0xf0];
+    GameManagerUnknownF0 *unknownF0;
     // The stage, an index into g_StageFiles. DeletedCallback copies it
     // to unknownF8, as each side's character to unknown24.
     int stage;

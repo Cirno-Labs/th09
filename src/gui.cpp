@@ -55,6 +55,54 @@ void GuiMsg::Start(int index, int side)
     g_SpriteEngine->RenderText(&this->text[1], this->textColors[this->speaker], this->shadowColors[this->speaker], " ");
 }
 
+void GuiMsg::UnloadBgm(int firstScript)
+{
+    int i;
+    BYTE unloaded[0x100];
+
+    if (this->msgFile == NULL)
+    {
+        return;
+    }
+    memset(unloaded, 0, sizeof(unloaded));
+    if (!g_GameManager.IsMode2())
+    {
+        for (i = firstScript; i < firstScript + 10; i++)
+        {
+            if (i >= this->msgFile->unknown0)
+            {
+                break;
+            }
+            this->instr = this->msgFile->scripts[i].script;
+            if (this->instr == NULL)
+            {
+                continue;
+            }
+            while (((MsgInstr *)this->instr)->opcode != 0)
+            {
+                if (((MsgInstr *)this->instr)->opcode == 7 && !unloaded[((MsgInstr *)this->instr)->args[0]])
+                {
+                    g_App.UnloadBgm(((MsgInstr *)this->instr)->args[0]);
+                    unloaded[((MsgInstr *)this->instr)->args[0]] = 1;
+                }
+                this->instr = (BYTE *)this->instr + ((MsgInstr *)this->instr)->argSize + 4;
+            }
+        }
+    }
+    else
+    {
+        g_App.UnloadBgm(g_GameManager.unknownF0->unknownC);
+    }
+    if (this->msgFile2 != NULL)
+    {
+        g_MemoryManager.Free(this->msgFile2);
+    }
+    g_MemoryManager.Free(this->msgFile);
+    g_MsgFile = NULL;
+    g_MsgFile2 = NULL;
+    this->Clear();
+}
+
 void Gui::CountRoundWin(int side)
 {
     this->unknown11ea8 = 1;
