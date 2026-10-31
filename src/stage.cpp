@@ -42,6 +42,48 @@ void Stage::Reset()
     this->spellCardState = 0;
 }
 
+int Stage::StepObjects()
+{
+    int busy;
+    int i;
+    Sprite *sprite;
+    StageObject *obj;
+    StageQuad *quad;
+
+    for (i = 0; i < this->objectCount; i++)
+    {
+        obj = this->objects[i];
+        if (obj->flags & 1)
+        {
+            busy = 0;
+            quad = obj->quads;
+            while (quad->type >= 0)
+            {
+                sprite = &this->sprites[quad->spriteIndex];
+                switch (quad->type)
+                {
+                case 0:
+                    g_SpriteEngine->Step(sprite);
+                    break;
+                case 1:
+                    g_SpriteEngine->Step(sprite);
+                    break;
+                }
+                if (sprite->scriptPos != NULL)
+                {
+                    busy++;
+                }
+                quad = (StageQuad *)((char *)quad + quad->size);
+            }
+            if (busy == 0)
+            {
+                obj->flags &= ~1;
+            }
+        }
+    }
+    return 0;
+}
+
 // Moves `out` from `from` to `to` over stage->cameraFadeFrames[i] frames,
 // on stage->cameraFadeTimer[i], eased by stage->cameraFadeMode[i]: 1 to 3
 // slow down, 4 to 6 speed up, 7 follows a Hermite curve with tangents m0
@@ -480,21 +522,95 @@ done:
     }
 }
 
+int Stage::OnUpdate(Stage *stage)
+{
+    int i;
+
+    if (stage->tintFadeMode != 0)
+    {
+        if (--stage->tintFadeFrames <= 0)
+        {
+            stage->tintFadeMode = 0;
+            stage->tintFadeFrames = 0;
+        }
+        else
+        {
+            switch (stage->tintFadeMode)
+            {
+            case 1:
+                stage->tintColor.color = 0x80f00000;
+                break;
+            case 2:
+                stage->tintColor.color = 0x80303040;
+                break;
+            }
+        }
+    }
+    if (g_GameManager.stateFlags & 0x1800)
+    {
+        return 1;
+    }
+    if (stage->side->flag0)
+    {
+        stage->tintColor.color = 0x40303030;
+        return 1;
+    }
+    g_App.SetCamera(stage->sideIdx);
+    if (stage->data == NULL)
+    {
+        return 1;
+    }
+    stage->JumpToWaitLabel();
+    stage->RunScript();
+    if (stage->script[stage->scriptIndex].opcode != 3)
+    {
+        stage->scriptTime++;
+    }
+    stage->StepObjects();
+    if (stage->spellCardState >= 1)
+    {
+        if (stage->spellCardFrames == 60)
+        {
+            stage->spellCardState++;
+        }
+        stage->spellCardFrames++;
+        for (i = 0; i < stage->dialogueSpriteCount; i++)
+        {
+            g_SpriteEngine->Step(&stage->dialogueSprites[i]);
+        }
+    }
+    if (stage->backgroundLayer0.spriteIndex > 0)
+    {
+        g_SpriteEngine->Step(&stage->backgroundLayer0);
+    }
+    if (stage->backgroundLayer1.spriteIndex > 0)
+    {
+        g_SpriteEngine->Step(&stage->backgroundLayer1);
+    }
+    if (stage->backgroundLayer2.spriteIndex > 0)
+    {
+        g_SpriteEngine->Step(&stage->backgroundLayer2);
+        stage->clearColor = stage->backgroundLayer2.color;
+    }
+    stage->unknownC68++;
+    return 1;
+}
+
 int Stage::DeletedCallback(Stage *stage)
 {
     if (FreesResources())
     {
         g_SpriteEngine->ReleaseAnm(4);
     }
-    if (stage->unknown24 != NULL)
+    if (stage->sprites != NULL)
     {
-        g_MemoryManager.Free(stage->unknown24);
-        stage->unknown24 = NULL;
+        g_MemoryManager.Free(stage->sprites);
+        stage->sprites = NULL;
     }
-    if (stage->unknown820 != NULL)
+    if (stage->data != NULL)
     {
-        g_MemoryManager.Free(stage->unknown820);
-        stage->unknown820 = NULL;
+        g_MemoryManager.Free(stage->data);
+        stage->data = NULL;
     }
     return 0;
 }
@@ -692,5 +808,5 @@ Stage *Stage::RegisterChain(int sideIdx)
 void Stage::StartSpellCard()
 {
     this->spellCardState = 1;
-    this->unknownCd0 = 0;
+    this->spellCardFrames = 0;
 }

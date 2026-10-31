@@ -18,6 +18,56 @@ struct StageInstr
     D3DXVECTOR3 args;
 };
 
+// A run of quads in the stage data, ended by one with a negative type,
+// as th08's.
+struct StageQuad
+{
+    short type;
+    // The offset of the next quad.
+    short size;
+    short script;
+    // Set by Load: the quad's Sprite in Stage::sprites.
+    short spriteIndex;
+    D3DXVECTOR3 pos;
+    float width;
+    float height;
+};
+
+// An object of the stage data: its quads start at +0x1c. As th08's.
+struct StageObject
+{
+    BYTE pad_00[0x2];
+    // The background layer it is drawn on.
+    char layer;
+    // Bit 0: its sprites still run scripts. Bit 1: DrawLayer drew it.
+    char flags;
+    D3DXVECTOR3 pos;
+    D3DXVECTOR3 size;
+    StageQuad quads[1];
+};
+
+// A placement of an object; a negative `id` ends the list.
+struct StageInstance
+{
+    short id;
+    short unusedShort02;
+    D3DXVECTOR3 pos;
+};
+
+// The start of the stage data file, as th08's.
+struct StageData
+{
+    short objectCount;
+    short quadCount;
+    int instancesOffset;
+    int scriptOffset;
+    DWORD unusedDword0c;
+    char name[0x80];
+    char songNames[4][0x80];
+    char songPaths[4][0x80];
+    // Then, at 0x490, the objects' offsets.
+};
+
 // D3DRS_FOGSTART, D3DRS_FOGEND and D3DRS_FOGCOLOR, as th08's.
 struct StageFog
 {
@@ -75,7 +125,10 @@ public:
     // on App's camera of the side. Then fades the cameras and the fog
     // and shakes the camera (0x4018f0).
     void RunScript();
-    // Sets spellCardState to 1 and clears unknownCd0. Called by the ECL
+    // Runs one frame of the scripts of each animated object's sprites,
+    // as th08's, without colorScaleSprite (0x4011d0). Returns 0.
+    int StepObjects();
+    // Sets spellCardState to 1 and clears spellCardFrames. Called by the ECL
     // interpreter; the copy is at 0x4067b0.
     void StartSpellCard();
 
@@ -89,9 +142,13 @@ public:
     GameSide *otherSide;
     // The label opcode 31 marks that the script jumps to, as th08's.
     int waitLabel;
-    unsigned char pad_1c[0x24 - 0x1c];
-    // Freed by DeletedCallback.
-    void *unknown24;
+    // OnUpdate tints the stage by tintFadeMode (1 red, 2 dark blue)
+    // until tintFadeFrames runs out.
+    int tintFadeMode;
+    int tintFadeFrames;
+    // One Sprite per object sprite in the data. Freed by
+    // DeletedCallback.
+    Sprite *sprites;
     StageInstr *script;
     // Drawn under the layers while spellCardState is at most 1; the
     // first is placed by OnDraw.
@@ -101,8 +158,11 @@ public:
     AnmLoaded *anm;
     unsigned char pad_81c[0x820 - 0x81c];
     // Freed by DeletedCallback.
-    void *unknown820;
-    unsigned char pad_824[0x834 - 0x824];
+    StageData *data;
+    int quadCount;
+    int objectCount;
+    StageObject **objects;
+    StageInstance *instances;
     // The cameras the fades run between, and the Hermite tangents, as
     // th08's.
     StageCamera cameraFrom;
@@ -115,7 +175,7 @@ public:
     int cameraFadeMode[5];
     Timer scriptTime;
     int scriptIndex;
-    // Cleared by RegisterChain.
+    // Cleared by RegisterChain, counted by OnUpdate.
     int unknownC68;
     unsigned char pad_c6c[0xc70 - 0xc6c];
     D3DVECTOR cameraPos;
@@ -135,7 +195,8 @@ public:
     unsigned char pad_cc9[0xccc - 0xcc9];
     // Cleared by Reset. The layers are drawn while it is at most 1.
     int spellCardState;
-    int unknownCd0;
+    // Counted by OnUpdate while spellCardState is at least 1.
+    int spellCardFrames;
     // OnDraw clears the target to black once if set.
     int clearScreenOnce;
     // Drawn by OnDraw2 once spellCardState is 1, at their posOffset in
