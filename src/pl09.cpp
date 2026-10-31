@@ -174,14 +174,28 @@ int EffectUpdate449000(Effect *effect)
     return 1;
 }
 
+// The data of extra attack type 18 (0x158 bytes): type 0's, then a
+// heading and the trail of the last 16 positions and headings.
+struct ExAttackData18
+{
+    ExAttackData00 base;
+    float angle;
+    float speed;
+    // Set once it has bounced off a side.
+    int bounced;
+    D3DXVECTOR3 positions[16];
+    float angles[16];
+};
+ASSERT_SIZE(ExAttackData18, 0x158);
+
 // The init callback of extra attack type 18: type 0's with four sprites
-// and 0x158 bytes of data, ExAttackData00 and more (0x449070).
+// and ExAttackData18 (0x449070).
 int ExAttackInit449070(ExAttack *attack)
 {
     ExAttackData00 *data;
     float angle;
 
-    attack->AllocSprites(4, 0x158);
+    attack->AllocSprites(4, sizeof(ExAttackData18));
     attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
     data = (ExAttackData00 *)attack->data;
     angle = g_Rng.GetRandomF32InRange(-3.1415927f);
@@ -204,5 +218,110 @@ int ExAttackInit449070(ExAttack *attack)
     data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
     data->end.z = 0.0f;
     g_App.SetCamera(attack->side);
+    return 0;
+}
+
+// The update callback of extra attack type 18: flies in along the curve
+// for 90 frames, then heads for the target's player, speeding up, with
+// three sprites trailing on its 2nd, 4th and 6th last positions. Bounces
+// off a side once, adds a circle of 12 to the player's unknown36c ahead
+// of it and stops when it hits the player. Returns 1 once below 480
+// (0x4491e0).
+int ExAttackUpdate4491e0(ExAttack *attack)
+{
+    ExAttackData18 *data = (ExAttackData18 *)attack->data;
+    D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
+    int i;
+
+    switch (data->base.state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->base.end, &data->base.start, &data->base.tangent0,
+                           &data->base.tangent1, attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[0], 9);
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[1], 10);
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[2], 10);
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[3], 10);
+            data->base.state++;
+            attack->pos = data->base.targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+            data->angle = g_GameManager.sides[attack->targetSide].player->AngleToPlayer(&attack->pos);
+            data->speed = 0.2f;
+            data->bounced = 0;
+            for (i = 0; i < 16; i++)
+            {
+                data->positions[i] = attack->pos;
+                data->angles[i] = attack->angle;
+            }
+        }
+        break;
+    case 1:
+        for (i = 15; i > 0; i--)
+        {
+            data->positions[i] = data->positions[i - 1];
+            data->angles[i] = data->angles[i - 1];
+        }
+        data->positions[0] = attack->pos;
+        data->angles[0] = data->angle;
+        attack->sprites[0].SetRotationZ(data->angle);
+        attack->sprites[1].posOffset = data->positions[1] - attack->pos;
+        attack->sprites[1].SetRotationZ(data->angles[1]);
+        attack->sprites[2].posOffset = data->positions[3] - attack->pos;
+        attack->sprites[2].SetRotationZ(data->angles[3]);
+        attack->sprites[3].posOffset = data->positions[5] - attack->pos;
+        attack->sprites[3].SetRotationZ(data->angles[5]);
+        if (attack->timer > 0x14)
+        {
+            D3DXVECTOR3 ahead;
+
+            SetPolar((Vector2 *)&data->base.velocity, data->angle, data->speed);
+            data->speed += 0.1f;
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->base.state = 2;
+                attack->timer = 0;
+                attack->sprites[0].SetPendingInterrupt(1);
+                attack->sprites[1].SetPendingInterrupt(1);
+                attack->sprites[2].SetPendingInterrupt(1);
+                attack->sprites[3].SetPendingInterrupt(1);
+                return 0;
+            }
+            attack->pos += data->base.velocity;
+            if (!data->bounced)
+            {
+                if (attack->pos.x < -144.0f)
+                {
+                    data->base.velocity.x = -data->base.velocity.x;
+                    data->angle = 3.1415927f - data->angle;
+                    data->angle = AddNormalizeAngle(data->angle, 0.0f);
+                    data->bounced = 1;
+                }
+                else if (attack->pos.x > 144.0f)
+                {
+                    data->base.velocity.x = -data->base.velocity.x;
+                    data->angle = 3.1415927f - data->angle;
+                    data->angle = AddNormalizeAngle(data->angle, 0.0f);
+                    data->bounced = 1;
+                }
+            }
+            SetPolar((Vector2 *)&ahead, data->angle, data->speed);
+            ahead += attack->pos;
+            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&ahead, 12.0f, NULL);
+            if (attack->pos.y >= 480.0f)
+            {
+                return 1;
+            }
+        }
+        break;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
     return 0;
 }

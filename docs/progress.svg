@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">14% (156)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.54% (162)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">14.09% (157)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.45% (161)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="533.76" height="6" x="0" y="0" class="named"/>
-<rect width="104.61" height="6" x="533.76" y="0" class="decompiled"/>
-<rect width="108.63" height="6" x="638.37" y="0" class="todo"/>
+<rect width="105.28" height="6" x="533.76" y="0" class="decompiled"/>
+<rect width="107.96" height="6" x="639.04" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1140,7 +1140,7 @@
 <rect width="12" height="12" x="285" y="315" class="todo"><title>0x00448750 Func448750 (2220 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="315" class="decompiled"><title>0x00449000 EffectUpdate449000 (100 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="315" class="decompiled"><title>0x00449070 ExAttackInit449070 (358 bytes)</title></rect>
-<rect width="12" height="12" x="330" y="315" class="todo"><title>0x004491e0 Func4491e0 (1436 bytes)</title></rect>
+<rect width="12" height="12" x="330" y="315" class="decompiled"><title>0x004491e0 ExAttackUpdate4491e0 (1436 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="315" class="decompiled"><title>0x00449780 PlayerComboFunc449780 (101 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="315" class="decompiled"><title>0x004497f0 ExAttackInit4497f0 (327 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="315" class="decompiled"><title>0x00449940 EffectInit449940 (193 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">13.40%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">44.49%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">13.88%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">44.01%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.57" height="6" x="0" y="0" class="named"/>
-<rect width="100.09" height="6" x="314.57" y="0" class="decompiled"/>
-<rect width="332.34" height="6" x="414.66" y="0" class="todo"/>
+<rect width="103.70" height="6" x="314.57" y="0" class="decompiled"/>
+<rect width="328.73" height="6" x="418.27" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.09" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1227,7 +1227,7 @@
 <rect width="33.98" height="32.65" x="206.75" y="109.01" class="named"><title>0x0040e8a0 Ending::RunScript (1499 bytes)</title></rect>
 <rect width="33.98" height="32.32" x="206.75" y="144.66" class="todo"><title>0x00417630 Gui::OnUpdate (1485 bytes)</title></rect>
 <rect width="33.98" height="32.06" x="206.75" y="179.98" class="todo"><title>0x00417c10 Gui::OnDraw (1474 bytes)</title></rect>
-<rect width="33.98" height="31.16" x="206.75" y="215.04" class="todo"><title>0x004491e0 Func4491e0 (1436 bytes)</title></rect>
+<rect width="33.98" height="31.16" x="206.75" y="215.04" class="decompiled"><title>0x004491e0 ExAttackUpdate4491e0 (1436 bytes)</title></rect>
 <rect width="33.98" height="30.68" x="206.75" y="249.20" class="todo"><title>0x0043f1f0 SoundPlayer::PlayQueuedSounds (1416 bytes)</title></rect>
 <rect width="33.98" height="29.99" x="206.75" y="282.88" class="todo"><title>0x0042689a MainMenu::UpdateState11 (1387 bytes)</title></rect>
 <rect width="33.98" height="29.13" x="206.75" y="315.87" class="named"><title>0x0042e3b0 WinMain (1351 bytes)</title></rect>
