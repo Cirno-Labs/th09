@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.97% (902)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.62% (18)</tspan> · <tspan class="todo">3.05% (34)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.97% (902)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.71% (19)</tspan> · <tspan class="todo">2.96% (33)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="604.84" height="6" x="0" y="0" class="named"/>
 <rect width="107.29" height="6" x="604.84" y="0" class="decompiled"/>
-<rect width="12.07" height="6" x="712.13" y="0" class="nonmatching"/>
-<rect width="22.80" height="6" x="724.20" y="0" class="todo"/>
+<rect width="12.74" height="6" x="712.13" y="0" class="nonmatching"/>
+<rect width="22.13" height="6" x="724.87" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -220,7 +220,7 @@
 <rect width="12" height="12" x="720" y="30" class="named"><title>0x0040cfb0 EffectManager::OnDraw (183 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="30" class="named"><title>0x0040d070 EffectManager::OnDraw2 (146 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="45" class="named"><title>0x0040d110 EffectManager::DrawUnknown114 (169 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="45" class="todo"><title>0x0040d1c0 EffectManager::AddedCallback (51 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="45" class="nonmatching"><title>0x0040d1c0 EffectManager::AddedCallback (51 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="45" class="named"><title>0x0040d200 EffectManager::FreeEffects (123 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="45" class="named"><title>0x0040d280 EffectManager::RemoveChain (51 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="45" class="named"><title>0x0040d2c0 Effect::Effect (18 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.80%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.42%</tspan> · <tspan class="todo">5.96%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.80%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.43%</tspan> · <tspan class="todo">5.94%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="491.50" height="6" x="0" y="0" class="named"/>
 <rect width="110.76" height="6" x="491.50" y="0" class="decompiled"/>
-<rect width="100.22" height="6" x="602.26" y="0" class="nonmatching"/>
-<rect width="44.52" height="6" x="702.48" y="0" class="todo"/>
+<rect width="100.35" height="6" x="602.26" y="0" class="nonmatching"/>
+<rect width="44.39" height="6" x="702.61" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1937,7 +1937,7 @@
 <rect width="3.57" height="3.96" x="685.46" y="254.30" class="named"><title>0x00435c60 AsciiText::OnDraw2 (52 bytes)</title></rect>
 <rect width="3.57" height="3.96" x="692.03" y="254.30" class="named"><title>0x0043d060 MidiDevice::SendShortMsg (52 bytes)</title></rect>
 <rect width="3.44" height="3.96" x="698.60" y="254.30" class="named"><title>0x00404570 SpellCard::RemoveChain (51 bytes)</title></rect>
-<rect width="3.44" height="3.96" x="705.04" y="254.30" class="todo"><title>0x0040d1c0 EffectManager::AddedCallback (51 bytes)</title></rect>
+<rect width="3.44" height="3.96" x="705.04" y="254.30" class="nonmatching"><title>0x0040d1c0 EffectManager::AddedCallback (51 bytes)</title></rect>
 <rect width="3.44" height="3.96" x="711.48" y="254.30" class="named"><title>0x0040d280 EffectManager::RemoveChain (51 bytes)</title></rect>
 <rect width="3.44" height="3.96" x="717.92" y="254.30" class="named"><title>0x0040f180 Enemy::ResetRankSpeeds (51 bytes)</title></rect>
 <rect width="3.44" height="3.96" x="724.36" y="254.30" class="named"><title>0x0041a230 GuiSide::Reset (51 bytes)</title></rect>
