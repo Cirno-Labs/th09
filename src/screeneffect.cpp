@@ -108,6 +108,37 @@ int ScreenEffect::OnUpdateLoadingFade(ScreenEffect *effect)
     return 1;
 }
 
+int ScreenEffect::OnUpdateFlash(ScreenEffect *effect)
+{
+    DWORD startAlpha = (effect->flashColor >> 24) & 0xff;
+
+    if (g_Unknown4ac884 != 0)
+    {
+        return 0;
+    }
+    int duration = effect->duration;
+    if (effect->timer < duration)
+    {
+        effect->alpha = startAlpha - (int)(effect->timer.AsFloat() * startAlpha / duration);
+        if (effect->alpha < 0)
+        {
+            effect->alpha = 0;
+        }
+    }
+    else
+    {
+        effect->alpha = 0;
+        effect->flashes--;
+        if (effect->flashes <= 0)
+        {
+            return 0;
+        }
+        effect->timer = 0;
+    }
+    effect->timer++;
+    return 1;
+}
+
 int ScreenEffect::DeletedCallback(ScreenEffect *effect)
 {
     effect->calcElem->deletedCallback = NULL;

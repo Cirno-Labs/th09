@@ -13,7 +13,7 @@ class ScreenEffect
 public:
     // Creates an effect of `type` that lasts `duration` frames and adds
     // its chain elements, as th08's, with `unknown` new in th09 and stored
-    // in unknown00 (0x422d20).
+    // in side (0x422d20).
     static ScreenEffect *StartEffect(int type, int duration, int a, int b, int c, int drawPriority, int unknown);
     // The update element's deleted callback, as th08's: removes the draw
     // element and deletes the effect. Returns 0 (0x422900).
@@ -29,6 +29,10 @@ public:
     // holding there, then down from 128 by 255/8 a frame once Finish is
     // called. Returns 0 when done, else 1 (0x4224f0).
     static int OnUpdateLoadingFade(ScreenEffect *effect);
+    // Type 3's update callback, as th08's: fades alpha from flashColor's
+    // alpha to 0 over duration frames, flashes times over. Returns 0
+    // when done, else 1 (0x4225b0).
+    static int OnUpdateFlash(ScreenEffect *effect);
     // The draw callbacks, as th08's: the screen after flushing and
     // setting view 2, the whole screen, the play area, and the play area
     // in flashColor (0x422b70, 0x422c10, 0x422bd0, 0x422cd0). Return 1.
@@ -40,7 +44,8 @@ public:
     // timer at 0 (0x422930).
     void Finish();
 
-    int unknown00;
+    // The side whose camera shakes.
+    int side;
     int type;
     ChainElem *calcElem;
     ChainElem *drawElem;
@@ -48,10 +53,22 @@ public:
     // The fade's alpha and the color drawn, as th08's.
     int alpha;
     int duration;
-    DWORD color;
-    // The flash's color, alpha in the top byte, as th08's.
-    DWORD flashColor;
-    unsigned char pad_24[0x28 - 0x24];
+    union
+    {
+        DWORD color;
+        // Shakes: how far the play area shakes at the start.
+        int shakeFrom;
+        // Type 3: how many more times the color flashes.
+        int flashes;
+    };
+    union
+    {
+        // The flash's color, alpha in the top byte, as th08's.
+        DWORD flashColor;
+        // Shakes: how far the play area shakes at the end.
+        int shakeTo;
+    };
+    int flashCount;
     // Set by Finish.
     int finishing;
     Timer timer;
