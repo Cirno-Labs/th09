@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">10.05% (112)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.67% (208)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">10.14% (113)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.58% (207)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="75.10" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="139.48" height="6" x="607.52" y="0" class="todo"/>
+<rect width="75.77" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="138.81" height="6" x="608.19" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1091,7 +1091,7 @@
 <rect width="12" height="12" x="300" y="300" class="decompiled"><title>0x00444a20 EffectUpdate444a20 (208 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="300" class="todo"><title>0x00444af0 Func444af0 (946 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="300" class="decompiled"><title>0x00444eb0 EffectUpdate444eb0 (79 bytes)</title></rect>
-<rect width="12" height="12" x="345" y="300" class="todo"><title>0x00444f00 Func444f00 (322 bytes)</title></rect>
+<rect width="12" height="12" x="345" y="300" class="decompiled"><title>0x00444f00 ExAttackInit444f00 (322 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="300" class="todo"><title>0x00445050 Func445050 (316 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="300" class="todo"><title>0x00445190 Func445190 (407 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="300" class="decompiled"><title>0x00445330 PlayerComboFunc445330 (102 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">5.85%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">52.07%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">5.96%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">51.97%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="43.69" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="388.99" height="6" x="358.01" y="0" class="todo"/>
+<rect width="44.50" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="388.18" height="6" x="358.82" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1428,7 +1428,7 @@
 <rect width="13.80" height="14.07" x="469.66" y="163.17" class="named"><title>0x0042dc40 GameWindow::RunFrame (326 bytes)</title></rect>
 <rect width="13.80" height="14.07" x="469.66" y="180.24" class="decompiled"><title>0x00440fb0 ExAttackInit440fb0 (326 bytes)</title></rect>
 <rect width="13.80" height="13.96" x="469.66" y="197.31" class="todo"><title>0x00447af0 Func447af0 (324 bytes)</title></rect>
-<rect width="13.80" height="13.86" x="469.66" y="214.27" class="todo"><title>0x00444f00 Func444f00 (322 bytes)</title></rect>
+<rect width="13.80" height="13.86" x="469.66" y="214.27" class="decompiled"><title>0x00444f00 ExAttackInit444f00 (322 bytes)</title></rect>
 <rect width="13.80" height="13.81" x="469.66" y="231.13" class="named"><title>0x004151f0 ExAttackManager::AddAttack (321 bytes)</title></rect>
 <rect width="13.80" height="13.76" x="469.66" y="247.94" class="todo"><title>0x0041cc80 Func41cc80 (320 bytes)</title></rect>
 <rect width="13.80" height="13.70" x="469.66" y="264.69" class="named"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>

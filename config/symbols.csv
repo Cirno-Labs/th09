@@ -1022,7 +1022,7 @@ address,size,name,symbol
 0x00444a20,208,EffectUpdate444a20,?EffectUpdate444a20@@YIHPAUEffect@@@Z
 0x00444af0,946,Func444af0,
 0x00444eb0,79,EffectUpdate444eb0,?EffectUpdate444eb0@@YIHPAUEffect@@@Z
-0x00444f00,322,Func444f00,
+0x00444f00,322,ExAttackInit444f00,?ExAttackInit444f00@@YIHPAUExAttack@@@Z
 0x00445050,316,Func445050,
 0x00445190,407,Func445190,
 0x00445330,102,PlayerComboFunc445330,?PlayerComboFunc445330@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
