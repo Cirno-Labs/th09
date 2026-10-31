@@ -43,6 +43,18 @@ int ShotHit441880(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
     return 0;
 }
 
+// The unknown30408 of all characters but 2 and 4: gives the enemy a
+// random sideways velocity2 and one upwards that grows over 120 frames
+// of its unknown5424. Returns 0 (0x4418b0).
+int PlayerEnemyFunc4418b0(Player *player, Enemy *enemy)
+{
+    enemy->velocity2.x = g_Rng.GetRandomF32SignedInRange(0.1f);
+    enemy->velocity2.y = enemy->unknown5424 > 0x78 ? -1.0f : enemy->unknown5424.AsFloat() * (-1.0f / 120.0f);
+    enemy->velocity2.z = 0.0f;
+    enemy->unknown5424++;
+    return 0;
+}
+
 // The init callback of extra attack type 2: pl00's type 0, flying in to
 // a random spot on the bottom of the other side. Returns 0 (0x441910).
 int ExAttackInit441910(ExAttack *attack)

@@ -132,6 +132,8 @@ struct ShtFile;
 typedef int (*PlayerFunc)(Player *player);
 // A character's function taking a position, kept by the player.
 typedef int (*PlayerPosFunc)(Player *player, D3DXVECTOR3 *pos);
+// A character's function that the ECL runs on an enemy.
+typedef int (*PlayerEnemyFunc)(Player *player, struct Enemy *enemy);
 struct ShotData;
 
 // A shot's callbacks, as th08's. Under /Gr these are __fastcall.
@@ -455,7 +457,7 @@ public:
     // The character's functions from the tables at 0x4a1a50 and
     // 0x4a1a90. The first takes a position, from CallUnknown30404.
     PlayerPosFunc unknown30404;
-    PlayerFunc unknown30408;
+    PlayerEnemyFunc unknown30408;
     unsigned char pad_3040c[0x30410 - 0x3040c];
     PlayerUnknown30410 unknown30410;
     // The character's function from the table at 0x4a19d0.
@@ -559,7 +561,7 @@ extern ShotHitFunc g_ShotHitFuncs[4];
 // 0x4a1bd0).
 extern PlayerFunc g_CharacterFuncs9d0[16];
 extern PlayerPosFunc g_CharacterFuncsA50[16];
-extern PlayerFunc g_CharacterFuncsA90[16];
+extern PlayerEnemyFunc g_CharacterFuncsA90[16];
 extern int g_CharacterValuesAd0[16];
 extern int g_CharacterValuesB10[16];
 extern int g_CharacterValuesB50[16];

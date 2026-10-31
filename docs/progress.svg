@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">3.14% (35)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">25.67% (286)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">3.23% (36)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">25.58% (285)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="531.75" height="6" x="0" y="0" class="named"/>
-<rect width="23.47" height="6" x="531.75" y="0" class="decompiled"/>
-<rect width="191.78" height="6" x="555.22" y="0" class="todo"/>
+<rect width="24.14" height="6" x="531.75" y="0" class="decompiled"/>
+<rect width="191.11" height="6" x="555.89" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1039,7 +1039,7 @@
 <rect width="12" height="12" x="270" y="285" class="decompiled"><title>0x004417f0 PlayerPosFunc4417f0 (129 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="285" class="decompiled"><title>0x00441880 ShotHit441880 (11 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="285" class="named"><title>0x00441890 Vector2::SetPolar (32 bytes)</title></rect>
-<rect width="12" height="12" x="315" y="285" class="todo"><title>0x004418b0 Func4418b0 (95 bytes)</title></rect>
+<rect width="12" height="12" x="315" y="285" class="decompiled"><title>0x004418b0 PlayerEnemyFunc4418b0 (95 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="285" class="decompiled"><title>0x00441910 ExAttackInit441910 (344 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="285" class="decompiled"><title>0x00441a70 ExAttackUpdate441a70 (137 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="285" class="todo"><title>0x00441b00 Func441b00 (100 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">1.63%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">56.30%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">1.66%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">56.27%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.26" height="6" x="0" y="0" class="named"/>
-<rect width="12.16" height="6" x="314.26" y="0" class="decompiled"/>
-<rect width="420.59" height="6" x="326.41" y="0" class="todo"/>
+<rect width="12.40" height="6" x="314.26" y="0" class="decompiled"/>
+<rect width="420.35" height="6" x="326.65" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1761,7 +1761,7 @@
 <rect width="6.38" height="5.91" x="638.78" y="205.02" class="named"><title>0x0041a270 GuiSide::StartUnknown5c6c (95 bytes)</title></rect>
 <rect width="6.38" height="5.91" x="648.16" y="205.02" class="named"><title>0x004323b0 Network::Send (95 bytes)</title></rect>
 <rect width="6.38" height="5.91" x="657.53" y="205.02" class="named"><title>0x00440d30 PlayerUnknown36c::AddCircle (95 bytes)</title></rect>
-<rect width="6.38" height="5.91" x="666.91" y="205.02" class="todo"><title>0x004418b0 Func4418b0 (95 bytes)</title></rect>
+<rect width="6.38" height="5.91" x="666.91" y="205.02" class="decompiled"><title>0x004418b0 PlayerEnemyFunc4418b0 (95 bytes)</title></rect>
 <rect width="6.38" height="5.91" x="676.28" y="205.02" class="todo"><title>0x00443c10 Func443c10 (95 bytes)</title></rect>
 <rect width="6.28" height="5.91" x="685.66" y="205.02" class="named"><title>0x0042ee30 EnumAxesCallback (94 bytes)</title></rect>
 <rect width="6.28" height="5.91" x="694.93" y="205.02" class="named"><title>0x0042ee90 EnumAxesCallback2 (94 bytes)</title></rect>
