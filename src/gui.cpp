@@ -3,6 +3,7 @@
 #include "gamemanager.h"
 #include "player.h"
 #include "screeneffect.h"
+#include "spellcard.h"
 #include "sprite.h"
 #include "stage.h"
 
@@ -640,6 +641,193 @@ void GuiMsg::UnloadBgm(int firstScript)
     g_MsgFile = NULL;
     g_MsgFile2 = NULL;
     this->Clear();
+}
+
+int Gui::OnUpdate(Gui *gui)
+{
+    int i;
+    int j;
+    D3DXVECTOR3 pos;
+
+    g_SpriteEngine->Step(&gui->unknownC[0]);
+    g_SpriteEngine->Step(&gui->unknownC[1]);
+    g_SpriteEngine->Step(&gui->unknownC[2]);
+    g_SpriteEngine->Step(&gui->unknownC[3]);
+    g_SpriteEngine->Step(&gui->unknownC[4]);
+    g_SpriteEngine->Step(&gui->unknownC[5]);
+    g_SpriteEngine->Step(&gui->unknownC[6]);
+    g_SpriteEngine->Step(&gui->unknown11eac[0]);
+    g_SpriteEngine->Step(&gui->unknown11eac[1]);
+    g_SpriteEngine->Step(&gui->unknown106b4);
+    if (g_BgmUnknown08 != gui->unknown10958)
+    {
+        gui->unknown10958 = g_BgmUnknown08;
+        if (g_BgmUnknown08 >= 0)
+        {
+            gui->anm->StartScriptAtOrigin(&gui->unknown106b4, 0x57);
+            gui->anm->SetSprite(&gui->unknown106b4, g_BgmUnknown08 + 0x52);
+        }
+    }
+    for (i = 0; i < 2; i++)
+    {
+        if (gui->unknownE93c[i] > 0)
+        {
+            if (gui->unknownE93c[i] & 1)
+            {
+                for (j = 0; j < 5; j++)
+                {
+                    gui->unknownE86c[i][j].diffuse = gui->unknownE934[i];
+                }
+            }
+            else
+            {
+                for (j = 0; j < 5; j++)
+                {
+                    gui->unknownE86c[i][j].diffuse = 0xffffffff;
+                }
+            }
+            gui->unknownE93c[i]--;
+        }
+        else
+        {
+            for (j = 0; j < 5; j++)
+            {
+                gui->unknownE86c[i][j].diffuse = 0x80ffffff;
+            }
+        }
+    }
+    gui->msg.Run();
+    if (gui->unknown1095c == 0)
+    {
+        return 1;
+    }
+    g_SpriteEngine->Step(&gui->unknown10968[0]);
+    g_SpriteEngine->Step(&gui->unknown10968[1]);
+    g_SpriteEngine->Step(&gui->unknown10968[2]);
+    if (gui->unknown1095c >= 2)
+    {
+        g_SpriteEngine->Step(&gui->unknown10968[3]);
+        g_SpriteEngine->Step(&gui->unknown10968[4]);
+        g_SpriteEngine->Step(&gui->unknown10968[5]);
+        g_SpriteEngine->Step(&gui->unknown10968[6]);
+        if (gui->msg.scriptIndex < 0)
+        {
+            if (g_GameManager.IsMode0())
+            {
+                if (gui->unknown10964 == 0)
+                {
+                    if (g_GameManager.unknownFc >= 8)
+                    {
+                        g_App.scene = g_GameManager.IsReplay() ? 1 : 9;
+                    }
+                    else
+                    {
+                        g_App.scene = 3;
+                    }
+                }
+                else
+                {
+                    g_GameManager.isInContinueMenu = 1;
+                }
+            }
+            else if (g_GameManager.IsMode1())
+            {
+                if (gui->unknown10964 == 0)
+                {
+                    if (g_GameManager.unknownFc >= 8)
+                    {
+                        g_App.scene = g_GameManager.IsReplay() ? 1 : 9;
+                    }
+                    else
+                    {
+                        g_App.scene = 3;
+                    }
+                }
+                else
+                {
+                    g_GameManager.isInContinueMenu = 1;
+                }
+            }
+            else
+            {
+                g_GameManager.unknown13e = 1;
+            }
+        }
+    }
+    else if (gui->unknown10960 == 0)
+    {
+        g_GameManager.unknownBits134_11 = 1 << (1 - gui->unknown10964);
+        g_GameManager.sides[1 - gui->unknown10964].spellCard->unknown98 = 0;
+        pos.x = 0.0f;
+        pos.y = 224.0f;
+        pos.z = 0.0f;
+        g_GameManager.sides[0].player->AddHitCircle(&pos, 500.0f, 0.0f, 30000, 0);
+        g_GameManager.sides[0].player->AddKind4Circle(&pos, 500.0f, 0.0f, 200, 30000, 0);
+        g_GameManager.sides[1].player->AddHitCircle(&pos, 500.0f, 0.0f, 30000, 0);
+        g_GameManager.sides[1].player->AddKind4Circle(&pos, 500.0f, 0.0f, 200, 30000, 0);
+        g_GameManager.sides[0].player->unknown30410.EndCombo();
+        g_GameManager.sides[1].player->unknown30410.EndCombo();
+    }
+    else if (gui->unknown10960 == 30)
+    {
+        g_SoundPlayer.PlaySoundByIdx(0x31, 0);
+        g_GameManager.sides[1 - gui->unknown10964].stage->tintFadeMode = 1;
+        g_GameManager.sides[1 - gui->unknown10964].stage->tintFadeFrames = 30;
+        ScreenEffect::StartEffect(1, 60, 16, 0, 0, 0x23, 1 - gui->unknown10964);
+        ScreenEffect::StartEffect(1, 60, 4, 0, 0, 0x23, gui->unknown10964);
+    }
+    else if (gui->unknown10960 == 60)
+    {
+        if (!g_GameManager.IsMode2())
+        {
+            if (gui->unknown10964 != 0 && g_GameManager.sides[0].stats->lives > 0.0f)
+            {
+                g_GameManager.sides[0].stats->lives -= 1.0f;
+                g_GameManager.sides[0].stats->unknown34 += 1.0f;
+                gui->unknown11ea4 = 1;
+            }
+            else if (gui->unknown10964 == 0)
+            {
+                gui->msg.Start(g_GameManager.unknownF0->unknown8, 0);
+            }
+            else
+            {
+                gui->msg.Start(g_GameManager.unknownF0->unknownA, 0);
+            }
+        }
+        else if (g_GameManager.unknown108[0] < g_GameManager.unknown104 &&
+                 g_GameManager.unknown108[1] < g_GameManager.unknown104)
+        {
+            gui->unknown11ea4 = 1;
+        }
+        else
+        {
+            gui->msg.StartRandom(gui->unknown10964);
+        }
+    }
+    else if (gui->unknown11ea4 != 0 && gui->unknown10960 == 160)
+    {
+        g_GameManager.sides[0].gui->StartUnknownAbcc();
+        g_GameManager.sides[1].gui->StartUnknownAbcc();
+    }
+    else if (gui->unknown11ea4 != 0 && gui->unknown10960 == 190)
+    {
+        GameManager::ResetRound();
+        if (g_GameManager.IsMode0() || g_GameManager.IsMode1())
+        {
+            if (g_GameManager.unknown100 >= 4 && (g_GameManager.stateFlags & 0x4000))
+            {
+                g_GameManager.sides[1].unknown2c = g_Unknown4a1504[g_GameManager.difficulty][g_GameManager.unknownFc][3];
+            }
+            else
+            {
+                g_GameManager.sides[1].unknown2c =
+                    g_Unknown4a1504[g_GameManager.difficulty][g_GameManager.unknownFc][g_GameManager.unknown100];
+            }
+        }
+    }
+    gui->unknown10960++;
+    return 1;
 }
 
 int Gui::OnDraw(Gui *gui)

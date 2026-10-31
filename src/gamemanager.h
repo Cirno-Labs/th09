@@ -19,6 +19,9 @@ struct GameStats
     int extendsGiven;
     // Goes to Hscr::unknown2b.
     BYTE unknown14;
+    unsigned char pad_15[0x34 - 0x15];
+    // Gets the life the losing side 1 gives up at the end of a round.
+    float unknown34;
 };
 
 class Stage;
@@ -337,6 +340,9 @@ extern Hscr g_Hscr;
 // The high score tables: five entries for each character and
 // difficulty (0x4a8380).
 extern Hscr g_HighScores[16][5][5];
+// Side 1's unknown2c at the start of a round of mode 0 or 1, by
+// difficulty, GameManager::unknownFc and unknown100 (0x4a1504).
+extern int g_Unknown4a1504[5][9][5];
 // A block GameManager's deleted callback clears (0x4d9698).
 extern unsigned char g_Unknown4d9698[0x2bc0];
 

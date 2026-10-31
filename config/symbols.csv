@@ -315,7 +315,7 @@ address,size,name,symbol
 0x00416590,2852,GuiMsg::Run,?Run@GuiMsg@@QAEHXZ
 0x00417130,995,GuiMsg::Draw,?Draw@GuiMsg@@QAEHXZ
 0x00417520,271,GuiMsg::UnloadBgm,?UnloadBgm@GuiMsg@@QAEXH@Z
-0x00417630,1485,Gui::OnUpdate,?OnUpdate@Gui@@SIHPAV1@@Z
+0x00417630,1491,Gui::OnUpdate,?OnUpdate@Gui@@SIHPAV1@@Z
 0x00417c10,1474,Gui::OnDraw,?OnDraw@Gui@@SIHPAV1@@Z
 0x004181e0,133,Gui::Reset,?Reset@Gui@@QAEXXZ
 0x00418270,34,Gui::FreeResources,?FreeResources@Gui@@SIHPAV1@@Z
@@ -2316,6 +2316,7 @@ address,size,name,symbol
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
 0x004a11b8,,g_StageFiles,?g_StageFiles@@3PAY01PADA
 0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
+0x004a1504,,g_Unknown4a1504,?g_Unknown4a1504@@3PAY184HA
 0x004a19c4,,g_Pl06FcAnmFiles,?g_Pl06FcAnmFiles@@3PAPADA
 0x004a19d0,,g_CharacterFuncs9d0,?g_CharacterFuncs9d0@@3PAP6IHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@ZA
 0x004a1a10,,g_CharacterValuesA10,?g_CharacterValuesA10@@3PAHA

@@ -161,7 +161,17 @@ public:
         memset(this, 0, sizeof(Gui));
     }
     // The update chain callback and its added callback, and the draw
-    // chain callback (0x417630, 0x418480, 0x417c10). The draw callback
+    // chain callback (0x417630, 0x418480, 0x417c10). The update callback
+    // steps the sprites, shows the piece of music playing, flashes the
+    // line strips while unknownE93c counts down and runs the dialogue.
+    // At the end of a round (unknown1095c) it counts unknown10960: at 0
+    // it ends the combos and clears the play areas, at 30 it tints and
+    // shakes the loser's side, at 60 it takes a life from side 0 or
+    // starts the winner's dialogue, at 160 and 190 (once unknown11ea4
+    // is set) it starts the sides' unknownAbcc and resets the round.
+    // From unknown1095c 2, once the dialogue ends, it moves on to the
+    // next stage, the ending or the continue menu. Returns 1. The draw
+    // callback
     // draws the frame sprites, the enemy markers, the two line strips
     // and the dialogue, then while unknown1095c is set the round end
     // sprites of unknown10968 (placed from their posOffset in the play
@@ -223,7 +233,8 @@ public:
     int unknownE93c[2];
     GuiMsg msg;
     Sprite unknown106b4;
-    unsigned char pad_10958[0x1095c - 0x10958];
+    // The g_BgmUnknown08 unknown106b4 last showed.
+    int unknown10958;
     // The player is not drawn while unknown1095c is 2 or more or
     // unknown10960 is over 30, unless its unknownA8 is set.
     int unknown1095c;
