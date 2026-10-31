@@ -1734,7 +1734,7 @@ address,size,name,symbol
 0x0047c4f0,232,strcat,_strcat
 0x0047c5d8,273,_chdir,__chdir
 0x0047c71b,44,_mkdir,__mkdir
-0x0047c750,672,_memcpy,
+0x0047c750,672,_memcpy,_memcpy
 0x0047ca90,31,_EH_prolog,__EH_prolog
 0x0047cab0,61,__chkstk,__chkstk
 0x0047caf0,45,_strrchr,_strrchr
@@ -2344,6 +2344,7 @@ address,size,name,symbol
 0x004a1d7c,,g_StoryCharacters,?g_StoryCharacters@@3PADA
 0x004a1d9c,,g_CharacterOrder,?g_CharacterOrder@@3PADA
 0x004a1dac,,g_ScoreCharacters,?g_ScoreCharacters@@3PADA
+0x004a1dbc,,g_MusicNotHeardComment,?g_MusicNotHeardComment@@3PAPADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA

@@ -693,7 +693,7 @@ int MainMenu::DrawState12()
 {
     if (this->subState == 1)
     {
-        int idx = this->unknown11b74 + 0x9f;
+        int idx = this->playingTune + 0x9f;
         D3DXVECTOR3 savedPos = this->sprites[idx].pos;
         D3DCOLOR savedColor = this->sprites[idx].color;
         this->sprites[idx].color = 0xffffffff;
@@ -704,7 +704,7 @@ int MainMenu::DrawState12()
         this->sprites[idx].color = savedColor;
         for (int i = 0; i < 8; i++)
         {
-            g_SpriteEngine->DrawUnrotated(&this->unknown19d04[i]);
+            g_SpriteEngine->DrawUnrotated(&this->commentSprites[i]);
         }
     }
     return 1;
@@ -1946,6 +1946,353 @@ int MainMenu::UpdateState3()
             this->subState = 1;
         }
         break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
+int MainMenu::UpdateState12()
+{
+    int i;
+    int k;
+    int row;
+    int end;
+    char *rp;
+    char *data;
+    int fileSize;
+
+    switch (this->subState)
+    {
+    case 1:
+        if (this->unknown1b230 == 2)
+        {
+            this->commentSprites[0].pendingInterrupt = 1;
+            if (g_PlayRecord.bgmHeard[this->playingTune])
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[0], 0xe0e0ff, 0x302080, this->tunes[this->playingTune].comment[0]);
+            }
+            else
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[0], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[0]);
+            }
+        }
+        else if (this->unknown1b230 == 4)
+        {
+            this->commentSprites[1].pendingInterrupt = 1;
+            if (g_PlayRecord.bgmHeard[this->playingTune])
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[1], 0xe0e0ff, 0x302080, this->tunes[this->playingTune].comment[1]);
+            }
+            else
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[1], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[1]);
+            }
+        }
+        else if (this->unknown1b230 == 6)
+        {
+            this->commentSprites[2].pendingInterrupt = 1;
+            if (g_PlayRecord.bgmHeard[this->playingTune])
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[2], 0xe0e0ff, 0x302080, this->tunes[this->playingTune].comment[2]);
+            }
+            else
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[2], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[2]);
+            }
+        }
+        else if (this->unknown1b230 == 8)
+        {
+            this->commentSprites[3].pendingInterrupt = 1;
+            if (g_PlayRecord.bgmHeard[this->playingTune])
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[3], 0xe0e0ff, 0x302080, this->tunes[this->playingTune].comment[3]);
+            }
+            else
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[3], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[3]);
+            }
+        }
+        else if (this->unknown1b230 == 10)
+        {
+            this->commentSprites[4].pendingInterrupt = 1;
+            if (g_PlayRecord.bgmHeard[this->playingTune])
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[4], 0xe0e0ff, 0x302080, this->tunes[this->playingTune].comment[4]);
+            }
+            else
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[4], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[4]);
+            }
+        }
+        else if (this->unknown1b230 == 12)
+        {
+            this->commentSprites[5].pendingInterrupt = 1;
+            if (g_PlayRecord.bgmHeard[this->playingTune])
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[5], 0xe0e0ff, 0x302080, this->tunes[this->playingTune].comment[5]);
+            }
+            else
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[5], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[5]);
+            }
+        }
+        else if (this->unknown1b230 == 14)
+        {
+            this->commentSprites[6].pendingInterrupt = 1;
+            if (g_PlayRecord.bgmHeard[this->playingTune])
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[6], 0xe0e0ff, 0x302080, this->tunes[this->playingTune].comment[6]);
+            }
+            else
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[6], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[6]);
+            }
+        }
+        else if (this->unknown1b230 == 16)
+        {
+            this->commentSprites[7].pendingInterrupt = 1;
+            if (g_PlayRecord.bgmHeard[this->playingTune])
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[7], 0xe0e0ff, 0x302080, this->tunes[this->playingTune].comment[7]);
+            }
+            else
+            {
+                g_SpriteEngine->RenderText(&this->commentSprites[7], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[7]);
+            }
+        }
+        if (this->MoveCursor(this->tuneCount) != 0)
+        {
+            if (this->cursor < this->listTop)
+            {
+                this->listTop = this->cursor;
+            }
+            else if (this->cursor >= this->listTop + 10)
+            {
+                this->listTop = this->cursor - 9;
+                if (this->listTop < 0)
+                {
+                    this->listTop = 0;
+                }
+            }
+            this->SelectEntryInterrupts(this->cursor, 0x9f, this->tuneCount);
+            for (i = 0; i < this->listTop; i++)
+            {
+                this->sprites[i + 0x9f].flags &= ~2;
+            }
+            end = this->listTop + 10 < this->tuneCount ? this->listTop + 10 : this->tuneCount;
+            for (i = this->listTop; i < end; i++)
+            {
+                this->sprites[i + 0x9f].flags |= 2;
+                this->sprites[i + 0x9f].pos.y = (i - this->listTop + 1) * 18 + 104.0f - 20.0f;
+            }
+            for (i = end; i <= 29; i++)
+            {
+                this->sprites[i + 0x9f].flags &= ~2;
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 4)
+        {
+            g_App.FadeOutBgm(20.0f);
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x200)
+        {
+            if (this->musicPaused == 0)
+            {
+                g_SoundPlayer.QueueSoundCommand(6, 0, "Pause");
+            }
+            else
+            {
+                g_SoundPlayer.QueueSoundCommand(7, 0, "UnPause");
+            }
+            this->musicPaused = 1 - this->musicPaused;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x4000)
+        {
+            if (this->musicPaused != 0)
+            {
+                g_SoundPlayer.QueueSoundCommand(7, 0, "UnPause");
+            }
+            this->musicPaused = 0;
+            g_App.PlayMusicFile(this->tunes[this->playingTune].path, 0);
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            if (this->musicPaused != 0)
+            {
+                g_SoundPlayer.QueueSoundCommand(7, 0, "UnPause");
+            }
+            this->playingTune = this->cursor;
+            this->musicPaused = 0;
+            g_App.PlayMusicFile(this->tunes[this->playingTune].path, 0);
+            this->unknown1b230 = 0;
+            for (i = 0; i < 8; i++)
+            {
+                g_App.textAnm->StartScript(&this->commentSprites[i], i + 6);
+            }
+        }
+        else if (g_PlayerInputs[2].unknown6 & 0xa)
+        {
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            this->SetState(1);
+            this->cursor = 5;
+            return 1;
+        }
+        break;
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            if (g_SpriteEngine->LoadSurface(0, "title/music00.png") != 0)
+            {
+                return 0;
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 16);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            this->cursor = 0;
+            this->listTop = 0;
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+            data = rp = (char *)OpenPath("sprt/musiccmt.txt", &fileSize, 0);
+            if (rp == NULL)
+            {
+                return -1;
+            }
+            i = -1;
+            while ((DWORD)(rp - data) < (DWORD)fileSize)
+            {
+                if (*rp == '@')
+                {
+                    rp++;
+                    i++;
+                    k = 0;
+                    while (*rp != '\n' && *rp != '\r')
+                    {
+                        this->tunes[i].path[k] = *rp;
+                        rp++;
+                        k++;
+                        if ((DWORD)(rp - data) >= (DWORD)fileSize)
+                        {
+                            goto done;
+                        }
+                    }
+                    while (*rp == '\n' || *rp == '\r')
+                    {
+                        rp++;
+                        if ((DWORD)(rp - data) >= (DWORD)fileSize)
+                        {
+                            goto done;
+                        }
+                    }
+                    k = 0;
+                    while (*rp != '\n' && *rp != '\r')
+                    {
+                        this->tunes[i].title[k] = *rp;
+                        rp++;
+                        k++;
+                        if ((DWORD)(rp - data) >= (DWORD)fileSize)
+                        {
+                            goto done;
+                        }
+                    }
+                    while (*rp == '\n' || *rp == '\r')
+                    {
+                        rp++;
+                        if ((DWORD)(rp - data) >= (DWORD)fileSize)
+                        {
+                            goto done;
+                        }
+                    }
+                    for (row = 0; row < 7; row++)
+                    {
+                        if (*rp == '@')
+                        {
+                            break;
+                        }
+                        memset(this->tunes[i].comment[row], 0, sizeof(this->tunes[i].comment[row]));
+                        k = 0;
+                        while (*rp != '\n' && *rp != '\r')
+                        {
+                            this->tunes[i].comment[row][k] = *rp;
+                            rp++;
+                            k++;
+                            if ((DWORD)(rp - data) >= (DWORD)fileSize)
+                            {
+                                goto done;
+                            }
+                        }
+                        while (*rp == '\n' || *rp == '\r')
+                        {
+                            rp++;
+                            if ((DWORD)(rp - data) >= (DWORD)fileSize)
+                            {
+                                goto done;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    rp++;
+                }
+            }
+        done:
+            free(data);
+            this->tuneCount = i + 1;
+            for (i = 0; i < this->tuneCount; i++)
+            {
+                this->anm->StartScript(&this->sprites[i + 0x9f], i + 0x9f);
+                if (g_PlayRecord.bgmHeard[i])
+                {
+                    g_SpriteEngine->RenderText(&this->sprites[i + 0x9f], 0xd0e0ff, 0x302080, this->tunes[i].title);
+                }
+                else
+                {
+                    char buf[6];
+
+                    memcpy(buf, this->tunes[i].title, 5);
+                    buf[5] = '\0';
+                    g_SpriteEngine->RenderText(&this->sprites[i + 0x9f], 0x80a0a0, 0x100040, "%5s ？？？？？？？？", buf);
+                }
+                this->sprites[i + 0x9f].pos.x = 93.0f;
+                this->sprites[i + 0x9f].pos.y = (i + 1) * 18 + 104.0f - 20.0f;
+                this->sprites[i + 0x9f].pos.z = 0.0f;
+                this->sprites[i + 0x9f].flags |= 0x1800;
+            }
+            this->SelectEntryInterrupts(this->cursor, 0x9f, this->tuneCount);
+            for (i = 0; i < this->listTop; i++)
+            {
+                this->sprites[i + 0x9f].flags &= ~2;
+            }
+            end = this->listTop + 10 < this->tuneCount ? this->listTop + 10 : this->tuneCount;
+            for (i = this->listTop; i < end; i++)
+            {
+                this->sprites[i + 0x9f].flags |= 2;
+                this->sprites[i + 0x9f].pos.y = (i - this->listTop + 1) * 18 + 104.0f - 20.0f;
+            }
+            for (i = end; i <= 29; i++)
+            {
+                this->sprites[i + 0x9f].flags &= ~2;
+            }
+            this->playingTune = this->cursor;
+            for (i = 0; i < 8; i++)
+            {
+                g_App.textAnm->StartScript(&this->commentSprites[i], i + 6);
+            }
+            this->musicPaused = 0;
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+            this->unknown1b230 = 0;
+        }
+        break;
+    }
+    for (i = 0; i < 8; i++)
+    {
+        g_SpriteEngine->Step(&this->commentSprites[i]);
     }
     this->stateFrames++;
     this->unknownC910++;

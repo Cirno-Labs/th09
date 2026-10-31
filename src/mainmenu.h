@@ -29,6 +29,8 @@ extern char *g_ReplayMenuMatchNames[4];
 // "1st" to "5th", for the high score tables (0x4a1d68).
 extern char *g_ScoreRankNames[5];
 
+// The comment the music room shows for a tune not heard yet (0x4a1dbc).
+extern char *g_MusicNotHeardComment[8];
 // The characters of states 3 and 5's character select, in its order
 // (0x4a1d7c; the last two are padding).
 extern char g_StoryCharacters[16];
@@ -202,6 +204,10 @@ public:
     // and [1] pick the two characters and cursors[2] and [3] mark them
     // chosen; while button 4 is held, unknown11b84 can be changed. It
     // starts the game in scene 2, or goes back to state 2, 4 or 7.
+    // UpdateState12 is the music room, th08's music screen: it reads
+    // musiccmt.txt into tunes, lists ten tunes from listTop, shows the
+    // playing one's comment a line every two frames and plays, pauses
+    // or fades out the tune.
     // UpdateState16 is the character select of states 3 and 5 and of
     // mode 2's matches, listing the open characters of
     // g_CharacterOrder; it starts the game in scene 2, or goes back to
@@ -270,8 +276,12 @@ public:
     unsigned char pad_c924[0xc934 - 0xc924];
     // The music room's tunes.
     MusicTune tunes[32];
-    int unknown11b74;
-    unsigned char pad_11b78[0x11b84 - 0x11b78];
+    // The music room's tune playing, how many tunes musiccmt.txt lists,
+    // the first of the ten shown, and whether the tune is paused.
+    int playingTune;
+    int tuneCount;
+    int listTop;
+    int musicPaused;
     // Go to GameManager::unknown378 and unknown37c.
     int unknown11b84;
     int unknown11b88;
@@ -290,7 +300,8 @@ public:
     Sprite unknown14098[21];
     // Sprites 0x15 to 0x22 of textAnm, as th08's card details.
     Sprite cardDetailSprites[14];
-    Sprite unknown19d04[8];
+    // The music room's comment, a line each.
+    Sprite commentSprites[8];
     int spriteCount;
     int state;
     // 1 makes InitTitleScene start in state 14.
