@@ -86,6 +86,10 @@ struct PlayerUnknown36c
     // first `count` entries that touches it, or NULL, or NULL while
     // the player's unknown0 is set or unknown1b74 runs (0x41da70).
     PlayerUnknown36cEntry *CheckHits();
+    // The same for a hitbox `size` around `pos`, the circles grown by
+    // `margin`; the player's position and hitbox are put back after
+    // (0x41d810).
+    PlayerUnknown36cEntry *CheckHitsAt(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, float margin);
     // Adds an entry: a box `size` across at `pos`, unturned (0x40f8e0).
     void Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c);
     // Adds a circle entry of `radius` at `pos`, if one is free. Inline;

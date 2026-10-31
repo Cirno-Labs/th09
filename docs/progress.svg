@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.16% (893)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.53% (17)</tspan> · <tspan class="todo">3.95% (44)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.25% (894)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.53% (17)</tspan> · <tspan class="todo">3.86% (43)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="598.81" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="598.81" y="0" class="decompiled"/>
-<rect width="11.40" height="6" x="706.10" y="0" class="nonmatching"/>
-<rect width="29.50" height="6" x="717.50" y="0" class="todo"/>
+<rect width="599.48" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="599.48" y="0" class="decompiled"/>
+<rect width="11.40" height="6" x="706.77" y="0" class="nonmatching"/>
+<rect width="28.83" height="6" x="718.17" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -470,7 +470,7 @@
 <rect width="12" height="12" x="720" y="105" class="nonmatching"><title>0x0041d150 PlayerUnknown30410::AddCombo (1520 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="105" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="120" class="named"><title>0x0041d7e0 PlayerUnknown30410::EndCombo (41 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="120" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="120" class="named"><title>0x0041d810 PlayerUnknown36c::CheckHitsAt (602 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="120" class="named"><title>0x0041da70 PlayerUnknown36c::CheckHits (279 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="120" class="named"><title>0x0041db90 Player::AddUnknown30454 (138 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="120" class="named"><title>0x0041dc20 Player::UpdateUnknown30454 (816 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.05%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.35%</tspan> · <tspan class="todo">7.78%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">64.25%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.35%</tspan> · <tspan class="todo">7.58%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="478.43" height="6" x="0" y="0" class="named"/>
-<rect width="110.77" height="6" x="478.43" y="0" class="decompiled"/>
-<rect width="99.70" height="6" x="589.20" y="0" class="nonmatching"/>
-<rect width="58.10" height="6" x="688.90" y="0" class="todo"/>
+<rect width="479.94" height="6" x="0" y="0" class="named"/>
+<rect width="110.77" height="6" x="479.94" y="0" class="decompiled"/>
+<rect width="99.70" height="6" x="590.71" y="0" class="nonmatching"/>
+<rect width="56.59" height="6" x="690.41" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1304,7 +1304,7 @@
 <rect width="20.57" height="20.19" x="387.50" y="122.44" class="named"><title>0x00439820 SpriteEngine::ProjectSprite (622 bytes)</title></rect>
 <rect width="20.57" height="19.89" x="387.50" y="145.63" class="named"><title>0x0043e770 SoundPlayer::LoadSound (614 bytes)</title></rect>
 <rect width="20.57" height="19.85" x="387.50" y="168.52" class="named"><title>0x0043e500 SoundPlayer::Initialize (613 bytes)</title></rect>
-<rect width="20.57" height="19.44" x="387.50" y="191.37" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
+<rect width="20.57" height="19.44" x="387.50" y="191.37" class="named"><title>0x0041d810 PlayerUnknown36c::CheckHitsAt (602 bytes)</title></rect>
 <rect width="20.57" height="19.44" x="387.50" y="213.82" class="decompiled"><title>0x00444700 EffectDraw444700 (602 bytes)</title></rect>
 <rect width="20.57" height="19.44" x="387.50" y="236.26" class="decompiled"><title>0x00447ce0 EffectDraw447ce0 (602 bytes)</title></rect>
 <rect width="20.57" height="19.37" x="387.50" y="258.71" class="named"><title>0x00413be0 BulletManager::OnDraw (600 bytes)</title></rect>

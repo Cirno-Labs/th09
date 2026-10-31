@@ -400,7 +400,7 @@ address,size,name,symbol
 0x0041d150,1520,PlayerUnknown30410::AddCombo,?AddCombo@PlayerUnknown30410@@QAEXPAUD3DXVECTOR3@@HHHH@Z
 0x0041d760,126,PlayerUnknown30410::Update,?Update@PlayerUnknown30410@@QAEXXZ
 0x0041d7e0,41,PlayerUnknown30410::EndCombo,?EndCombo@PlayerUnknown30410@@QAEXXZ
-0x0041d810,602,Func41d810,
+0x0041d810,602,PlayerUnknown36c::CheckHitsAt,?CheckHitsAt@PlayerUnknown36c@@QAEPAUPlayerUnknown36cEntry@@PAUD3DXVECTOR3@@0M@Z
 0x0041da70,279,PlayerUnknown36c::CheckHits,?CheckHits@PlayerUnknown36c@@QAEPAUPlayerUnknown36cEntry@@XZ
 0x0041db90,138,Player::AddUnknown30454,?AddUnknown30454@Player@@QAEXHPAUD3DXVECTOR3@@@Z
 0x0041dc20,816,Player::UpdateUnknown30454,?UpdateUnknown30454@Player@@QAEXXZ

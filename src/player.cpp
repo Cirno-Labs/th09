@@ -787,6 +787,61 @@ void PlayerUnknown30410::EndCombo()
     this->timer14 = 0;
 }
 
+PlayerUnknown36cEntry *PlayerUnknown36c::CheckHitsAt(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, float margin)
+{
+    Player *player = this->player;
+    PlayerUnknown36cEntry *entry;
+    int i;
+    D3DXVECTOR3 savedPos;
+    D3DXVECTOR3 savedSize;
+
+    if (player->GetUnknown0() != 0)
+    {
+        return NULL;
+    }
+    if (player->unknown1b74 > 0)
+    {
+        return NULL;
+    }
+    entry = this->entries;
+    savedPos = player->pos;
+    savedSize = player->hitboxSize;
+    player->pos = *pos;
+    this->player->hitboxMin = *pos - *size;
+    this->player->hitboxMax = *pos + *size;
+    this->player->hitboxSize = *size;
+    for (i = 0; i < this->count; i++, entry++)
+    {
+        if (entry->radius == 0.0f)
+        {
+            if (entry->angle == 0.0f)
+            {
+                if (this->player->CheckHitBox(&entry->pos, &entry->size))
+                {
+                    this->player->pos = savedPos;
+                    this->player->hitboxSize = savedSize;
+                    return entry;
+                }
+            }
+            else if (this->player->CheckLaserHit(&entry->pos, &entry->size, &entry->unknownC, entry->angle, 0))
+            {
+                this->player->pos = savedPos;
+                this->player->hitboxSize = savedSize;
+                return entry;
+            }
+        }
+        else if (this->player->CheckHitCircle(&entry->pos, margin + entry->radius))
+        {
+            this->player->pos = savedPos;
+            this->player->hitboxSize = savedSize;
+            return entry;
+        }
+    }
+    this->player->pos = savedPos;
+    this->player->hitboxSize = savedSize;
+    return NULL;
+}
+
 PlayerUnknown36cEntry *PlayerUnknown36c::CheckHits()
 {
     Player *player = this->player;
