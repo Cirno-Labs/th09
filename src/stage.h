@@ -33,6 +33,19 @@ struct StageQuad
     float height;
 };
 
+// A quad of type 1: a strip from `start` to `end`, `width` wide (or
+// its sprite's width), as th08's.
+struct StageLineQuad
+{
+    short type;
+    short size;
+    short script;
+    short spriteIndex;
+    D3DXVECTOR3 start;
+    D3DXVECTOR3 end;
+    float width;
+};
+
 // An object of the stage data: its quads start at +0x1c. As th08's.
 struct StageObject
 {
@@ -120,8 +133,9 @@ public:
     // sprites' scripts, as th08's, always loading the data anew and
     // without colorScaleSprite (0x402570). Returns 0, or -1 on failure.
     int Load(char *dataPath);
-    // Draws background layer `layer` (0x4026c0).
-    void DrawLayer(int layer);
+    // Draws the objects on background layer `layer` near enough the
+    // camera, as th08's, on App's current camera (0x4026c0). Returns 0.
+    int DrawLayer(int layer);
     // Jumps the script to the label waitLabel, if set, as th08's
     // OnUpdate began (0x4018a0).
     void JumpToWaitLabel();
@@ -240,10 +254,13 @@ public:
     float drawDistanceSq;
     // The camera shake opcode 33 starts, as th08's.
     BYTE shakeMode;
-    unsigned char pad_6439[0x6440 - 0x6439];
-    // Cleared by OnDraw2.
-    int unknown6440;
-    D3DXVECTOR3 unknown6444[0x20];
+    unsigned char pad_6439[0x643c - 0x6439];
+    // The screen positions DrawLayer records of the sprites whose
+    // autoRotate's high nibble is 1, while recordEffectSpawnPos is set,
+    // as th08's. OnDraw2 clears recordEffectSpawnPos.
+    int effectSpawnPosCount;
+    int recordEffectSpawnPos;
+    D3DXVECTOR3 effectSpawnPos[0x20];
 };
 ASSERT_SIZE(Stage, 0x65c4);
 

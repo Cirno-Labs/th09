@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.02% (858)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0.54% (6)</tspan> · <tspan class="todo">8.08% (90)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.29% (861)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0.63% (7)</tspan> · <tspan class="todo">7.72% (86)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="575.34" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="575.34" y="0" class="decompiled"/>
-<rect width="4.02" height="6" x="682.63" y="0" class="nonmatching"/>
-<rect width="60.35" height="6" x="686.65" y="0" class="todo"/>
+<rect width="577.35" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="577.35" y="0" class="decompiled"/>
+<rect width="4.69" height="6" x="684.64" y="0" class="nonmatching"/>
+<rect width="57.67" height="6" x="689.33" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -75,15 +75,15 @@
 <rect width="12" height="12" x="45" y="0" class="named"><title>0x00401080 Sqrt (12 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="0" class="named"><title>0x00401090 ModulateChannel (25 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="0" class="named"><title>0x004010b0 D3DXVECTOR3::D3DXVECTOR3 (26 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="0" class="todo"><title>0x004010d0 Func4010d0 (38 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="0" class="named"><title>0x004010d0 D3DXVECTOR3::operator/= (38 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="0" class="named"><title>0x00401100 D3DXVECTOR3::operator+ (54 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="0" class="named"><title>0x00401140 D3DXVECTOR3::operator- (54 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="0" class="named"><title>0x00401180 D3DXVECTOR3::operator* (52 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="0" class="named"><title>0x004011c0 Stage::Reset (11 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="0" class="named"><title>0x004011d0 Stage::StepObjects (190 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="0" class="named"><title>0x00401290 D3DXVec3Length (40 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="0" class="todo"><title>0x004012c0 Func4012c0 (31 bytes)</title></rect>
-<rect width="12" height="12" x="210" y="0" class="todo"><title>0x004012e0 Func4012e0 (21 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="0" class="named"><title>0x004012c0 D3DXVec3LengthSq (31 bytes)</title></rect>
+<rect width="12" height="12" x="210" y="0" class="named"><title>0x004012e0 D3DXVec3Dot (21 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="0" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="0" class="named"><title>0x00401340 MemoryManager::Alloc (19 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="0" class="named"><title>0x00401360 MemoryManager::Free (19 bytes)</title></rect>
@@ -118,7 +118,7 @@
 <rect width="12" height="12" x="690" y="0" class="named"><title>0x004024d0 Stage::DeletedCallback (85 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="0" class="named"><title>0x00402530 Stage::RemoveChain (59 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="0" class="named"><title>0x00402570 Stage::Load (321 bytes)</title></rect>
-<rect width="12" height="12" x="735" y="0" class="todo"><title>0x004026c0 Stage::DrawLayer (3274 bytes)</title></rect>
+<rect width="12" height="12" x="735" y="0" class="nonmatching"><title>0x004026c0 Stage::DrawLayer (3274 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="15" class="named"><title>0x00403390 Timer::Timer (12 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="15" class="named"><title>0x004033a0 SpriteBase::SpriteBase (62 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="15" class="named"><title>0x004033e0 Stage::OnDraw (671 bytes)</title></rect>
@@ -1187,18 +1187,18 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.67%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">8.40%</tspan> · <tspan class="todo">26.10%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.70%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">9.50%</tspan> · <tspan class="todo">24.96%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="378.50" height="6" x="0" y="0" class="named"/>
-<rect width="110.80" height="6" x="378.50" y="0" class="decompiled"/>
-<rect width="62.76" height="6" x="489.30" y="0" class="nonmatching"/>
-<rect width="194.94" height="6" x="552.06" y="0" class="todo"/>
+<rect width="378.73" height="6" x="0" y="0" class="named"/>
+<rect width="110.80" height="6" x="378.73" y="0" class="decompiled"/>
+<rect width="71" height="6" x="489.53" y="0" class="nonmatching"/>
+<rect width="186.47" height="6" x="560.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.09" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
 <rect width="76.09" height="101.04" x="0" y="164.42" class="named"><title>0x00436f30 SpriteEngine::Step (9360 bytes)</title></rect>
 <rect width="76.09" height="40.14" x="0" y="268.47" class="nonmatching"><title>0x00410730 EnemyManager::OnUpdate (3881 bytes)</title></rect>
-<rect width="76.09" height="33.39" x="0" y="311.61" class="todo"><title>0x004026c0 Stage::DrawLayer (3274 bytes)</title></rect>
+<rect width="76.09" height="33.39" x="0" y="311.61" class="nonmatching"><title>0x004026c0 Stage::DrawLayer (3274 bytes)</title></rect>
 <rect width="45.14" height="56" x="79.09" y="0" class="todo"><title>0x004049a0 Func4049a0 (3231 bytes)</title></rect>
 <rect width="45.14" height="53.13" x="79.09" y="59" class="todo"><title>0x004193e0 GuiSide::OnDraw (3074 bytes)</title></rect>
 <rect width="45.14" height="49.08" x="79.09" y="115.14" class="nonmatching"><title>0x00416590 GuiMsg::Run (2852 bytes)</title></rect>
@@ -2017,7 +2017,7 @@
 <rect width="3.10" height="2.62" x="713.88" y="273.56" class="named"><title>0x00435d70 ContinueMenu::ContinueMenu (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="719.98" y="273.56" class="named"><title>0x0043e2c0 SoundPlayer::LoadBgmFormat (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="726.08" y="273.56" class="named"><title>0x0043fbe0 CSound::PauseBuffer (39 bytes)</title></rect>
-<rect width="2.94" height="2.62" x="732.18" y="273.56" class="todo"><title>0x004010d0 Func4010d0 (38 bytes)</title></rect>
+<rect width="2.94" height="2.62" x="732.18" y="273.56" class="named"><title>0x004010d0 D3DXVECTOR3::operator/= (38 bytes)</title></rect>
 <rect width="2.94" height="2.62" x="738.12" y="273.56" class="todo"><title>0x00401470 VectorConstructorIterator (38 bytes)</title></rect>
 <rect width="2.94" height="2.62" x="744.06" y="273.56" class="named"><title>0x0040c960 EffectUpdateFollowPlayer (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.30" y="279.18" class="named"><title>0x00411d80 EnemyManager::OnDraw2 (38 bytes)</title></rect>
@@ -2075,7 +2075,7 @@
 <rect width="2.31" height="2.30" x="688.68" y="316.68" class="named"><title>0x0043d150 ReadVarLen (32 bytes)</title></rect>
 <rect width="2.31" height="2.30" x="688.68" y="321.99" class="named"><title>0x00441890 SetPolar (32 bytes)</title></rect>
 <rect width="2.31" height="2.30" x="688.68" y="327.29" class="decompiled"><title>0x00442ec0 ExAttackFree442ec0 (32 bytes)</title></rect>
-<rect width="2.31" height="2.14" x="688.68" y="332.59" class="todo"><title>0x004012c0 Func4012c0 (31 bytes)</title></rect>
+<rect width="2.31" height="2.14" x="688.68" y="332.59" class="named"><title>0x004012c0 D3DXVec3LengthSq (31 bytes)</title></rect>
 <rect width="2.31" height="2.14" x="688.68" y="337.73" class="named"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
 <rect width="2.31" height="2.14" x="688.68" y="342.86" class="decompiled"><title>0x004126b0 Bullet::SetCommand20000 (31 bytes)</title></rect>
 <rect width="2.26" height="2.18" x="693.98" y="290.01" class="decompiled"><title>0x00412760 EnemyShooter::SetCommand20000 (31 bytes)</title></rect>
@@ -2131,7 +2131,7 @@
 <rect width="1.64" height="1.36" x="736.28" y="300.15" class="named"><title>0x0043f7a0 CSoundManager::~CSoundManager (23 bytes)</title></rect>
 <rect width="1.64" height="1.36" x="740.92" y="300.15" class="decompiled"><title>0x00441bc0 SpellCardUpdate441bc0 (23 bytes)</title></rect>
 <rect width="1.44" height="1.36" x="745.56" y="300.15" class="named"><title>0x00433960 File::~File (22 bytes)</title></rect>
-<rect width="1.22" height="1.37" x="703.59" y="304.50" class="todo"><title>0x004012e0 Func4012e0 (21 bytes)</title></rect>
+<rect width="1.22" height="1.37" x="703.59" y="304.50" class="named"><title>0x004012e0 D3DXVec3Dot (21 bytes)</title></rect>
 <rect width="1.22" height="1.37" x="703.59" y="308.87" class="named"><title>0x004065e0 Timer::Sub (21 bytes)</title></rect>
 <rect width="1.22" height="1.37" x="703.59" y="313.24" class="named"><title>0x004067b0 Stage::StartSpellCard (21 bytes)</title></rect>
 <rect width="1.22" height="1.37" x="703.59" y="317.61" class="named"><title>0x0041a210 GuiSide::StartUnknown59c8 (21 bytes)</title></rect>

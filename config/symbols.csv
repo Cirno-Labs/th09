@@ -5,15 +5,15 @@ address,size,name,symbol
 0x00401080,12,Sqrt,?Sqrt@@YIMM@Z
 0x00401090,25,ModulateChannel,?ModulateChannel@@YIEEE@Z
 0x004010b0,26,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@MMM@Z
-0x004010d0,38,Func4010d0,
+0x004010d0,38,D3DXVECTOR3::operator/=,??_0D3DXVECTOR3@@QAEAAU0@M@Z
 0x00401100,54,D3DXVECTOR3::operator+,??HD3DXVECTOR3@@QBE?AU0@ABU0@@Z
 0x00401140,54,D3DXVECTOR3::operator-,??GD3DXVECTOR3@@QBE?AU0@ABU0@@Z
 0x00401180,52,D3DXVECTOR3::operator*,??DD3DXVECTOR3@@QBE?AU0@M@Z
 0x004011c0,11,Stage::Reset,?Reset@Stage@@QAEXXZ
 0x004011d0,190,Stage::StepObjects,?StepObjects@Stage@@QAEHXZ
 0x00401290,40,D3DXVec3Length,?D3DXVec3Length@@YIMPBUD3DXVECTOR3@@@Z
-0x004012c0,31,Func4012c0,
-0x004012e0,21,Func4012e0,
+0x004012c0,31,D3DXVec3LengthSq,?D3DXVec3LengthSq@@YIMPBUD3DXVECTOR3@@@Z
+0x004012e0,21,D3DXVec3Dot,?D3DXVec3Dot@@YIMPBUD3DXVECTOR3@@0@Z
 0x00401300,57,D3DXMatrixIdentity,?D3DXMatrixIdentity@@YIPAUD3DXMATRIX@@PAU1@@Z
 0x00401340,19,MemoryManager::Alloc,?Alloc@MemoryManager@@QAEPAXHPBD@Z
 0x00401360,19,MemoryManager::Free,?Free@MemoryManager@@QAEXPAX@Z
@@ -48,7 +48,7 @@ address,size,name,symbol
 0x004024d0,85,Stage::DeletedCallback,?DeletedCallback@Stage@@SIHPAV1@@Z
 0x00402530,59,Stage::RemoveChain,?RemoveChain@Stage@@SIXPAV1@@Z
 0x00402570,321,Stage::Load,?Load@Stage@@QAEHPAD@Z
-0x004026c0,3274,Stage::DrawLayer,?DrawLayer@Stage@@QAEXH@Z
+0x004026c0,3274,Stage::DrawLayer,?DrawLayer@Stage@@QAEHH@Z
 0x00403390,12,Timer::Timer,??0Timer@@QAE@XZ
 0x004033a0,62,SpriteBase::SpriteBase,??0SpriteBase@@QAE@XZ
 0x004033e0,671,Stage::OnDraw,?OnDraw@Stage@@SIHPAV1@@Z
