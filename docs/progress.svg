@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">9.69% (108)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">19.03% (212)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">9.78% (109)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.94% (211)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="72.42" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="142.16" height="6" x="604.84" y="0" class="todo"/>
+<rect width="73.09" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="141.49" height="6" x="605.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1086,7 +1086,7 @@
 <rect width="12" height="12" x="225" y="300" class="decompiled"><title>0x004444f0 PlayerComboFunc4444f0 (101 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="300" class="todo"><title>0x00444560 Func444560 (308 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="300" class="decompiled"><title>0x004446a0 ShotUpdate4446a0 (86 bytes)</title></rect>
-<rect width="12" height="12" x="270" y="300" class="todo"><title>0x00444700 Func444700 (602 bytes)</title></rect>
+<rect width="12" height="12" x="270" y="300" class="decompiled"><title>0x00444700 EffectDraw444700 (602 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="300" class="decompiled"><title>0x00444960 EffectInit444960 (178 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="300" class="decompiled"><title>0x00444a20 EffectUpdate444a20 (208 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="300" class="todo"><title>0x00444af0 Func444af0 (946 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">5.28%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">52.65%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">5.48%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">52.44%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="39.41" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="393.27" height="6" x="353.73" y="0" class="todo"/>
+<rect width="40.92" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="391.76" height="6" x="355.24" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1303,7 +1303,7 @@
 <rect width="20.56" height="19.92" x="387.41" y="145.80" class="named"><title>0x0043e770 SoundPlayer::LoadSound (614 bytes)</title></rect>
 <rect width="20.56" height="19.88" x="387.41" y="168.72" class="named"><title>0x0043e500 SoundPlayer::Initialize (613 bytes)</title></rect>
 <rect width="20.56" height="19.47" x="387.41" y="191.60" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
-<rect width="20.56" height="19.47" x="387.41" y="214.07" class="todo"><title>0x00444700 Func444700 (602 bytes)</title></rect>
+<rect width="20.56" height="19.47" x="387.41" y="214.07" class="decompiled"><title>0x00444700 EffectDraw444700 (602 bytes)</title></rect>
 <rect width="20.56" height="19.47" x="387.41" y="236.54" class="todo"><title>0x00447ce0 Func447ce0 (602 bytes)</title></rect>
 <rect width="20.56" height="19.40" x="387.41" y="259.01" class="named"><title>0x00440270 CStreamingSound::HandleWaveStreamNotification (600 bytes)</title></rect>
 <rect width="20.56" height="19.32" x="387.41" y="281.41" class="todo"><title>0x00413e40 BulletManager::AddedCallback (598 bytes)</title></rect>

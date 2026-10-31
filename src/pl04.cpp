@@ -5,6 +5,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sprite.h"
 #include "unsorted.h"
 
 // The state of effect type 34, which it keeps in its vertices (0xef8
@@ -61,6 +62,66 @@ int ShotUpdate4446a0(Player *player, PlayerBullet *bullet)
     }
     bullet->unknown472 = 1;
     return 0;
+}
+
+// The draw callback of effect type 26: a fan about the effect of two
+// arcs of unknown7c in radius, 120 degrees each, centred unknown7c / 2
+// either side of it across unknown80, if unknownC9 is set. Returns 1
+// (0x444700).
+int EffectDraw444700(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        float delta = 2.0943952f / (effect->unknown8c / 2 - 1);
+        float angle = AddNormalizeAngle(effect->unknown80, 0.5235988f);
+        float across = AddNormalizeAngle(effect->unknown80, -1.5707964f);
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        D3DXVECTOR3 offset;
+        int i;
+
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x40600040;
+        vtx++;
+        SetPolar((Vector2 *)&offset, across, effect->unknown7c * 0.5f);
+        for (i = effect->unknown8c; i > 0; i -= 2)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos + offset;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->pos.z = 0.0f;
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x70600040;
+            vtx++;
+            angle += delta;
+        }
+        angle = AddNormalizeAngle(angle, 1.0471976f - delta);
+        for (i = effect->unknown8c; i > 0; i -= 2)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos - offset;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->pos.z = 0.0f;
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x70600040;
+            vtx++;
+            angle += delta;
+        }
+    }
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    return 1;
 }
 
 // The init callback of effect type 34: allocates its zeroed state in
