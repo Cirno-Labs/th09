@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.99% (761)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.80% (298)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.08% (762)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.71% (297)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="530.29" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="530.29" y="0" class="decompiled"/>
-<rect width="207.65" height="6" x="539.35" y="0" class="todo"/>
+<rect width="530.98" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="530.98" y="0" class="decompiled"/>
+<rect width="206.96" height="6" x="540.04" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -670,7 +670,7 @@
 <rect width="12" height="12" x="735" y="165" class="named"><title>0x0042d2c0 App::GetReferenceRasterizer (12 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="180" class="named"><title>0x0042d2d0 App::GetWindowed (8 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="180" class="named"><title>0x0042d2e0 SpriteEngine::ClearLastCameraSetupFlag (8 bytes)</title></rect>
-<rect width="12" height="12" x="30" y="180" class="todo"><title>0x0042d2f0 Func42d2f0 (43 bytes)</title></rect>
+<rect width="12" height="12" x="30" y="180" class="named"><title>0x0042d2f0 SpriteEngine::ReleaseSurfaces (43 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="180" class="todo"><title>0x0042d320 Func42d320 (167 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="180" class="todo"><title>0x0042d3d0 Func42d3d0 (249 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="180" class="todo"><title>0x0042d4d0 Func42d4d0 (285 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.67%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.61%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.68%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.60%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="296.32" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="296.32" y="0" class="decompiled"/>
-<rect width="445.29" height="6" x="301.71" y="0" class="todo"/>
+<rect width="296.43" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="296.43" y="0" class="decompiled"/>
+<rect width="445.18" height="6" x="301.82" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1898,7 +1898,7 @@
 <rect width="3.09" height="3.18" x="668.48" y="302.66" class="named"><title>0x0042b0e0 MemoryManager::~MemoryManager (44 bytes)</title></rect>
 <rect width="3.09" height="3.18" x="668.48" y="308.84" class="todo"><title>0x00445530 Func445530 (44 bytes)</title></rect>
 <rect width="3.09" height="3.04" x="668.48" y="315.02" class="named"><title>0x0041cfe0 Player::AddHitCircle (43 bytes)</title></rect>
-<rect width="3.09" height="3.04" x="668.48" y="321.06" class="todo"><title>0x0042d2f0 Func42d2f0 (43 bytes)</title></rect>
+<rect width="3.09" height="3.04" x="668.48" y="321.06" class="named"><title>0x0042d2f0 SpriteEngine::ReleaseSurfaces (43 bytes)</title></rect>
 <rect width="3.09" height="2.90" x="668.48" y="327.10" class="named"><title>0x004013e0 App::ResetView (42 bytes)</title></rect>
 <rect width="2.88" height="3.11" x="674.57" y="251.81" class="named"><title>0x00401410 App::ResetView3D (42 bytes)</title></rect>
 <rect width="2.88" height="3.11" x="680.45" y="251.81" class="named"><title>0x004067f0 AsciiText::SetUnknown17c4Pos (42 bytes)</title></rect>

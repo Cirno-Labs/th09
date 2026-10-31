@@ -608,6 +608,9 @@ public:
     // The same for the `width` by `height` rectangle at (`left`, `top`),
     // as th08's (0x43c0d0).
     void CopySurfaceRectToBackBuffer(int surface, int x, int y, int left, int top, int width, int height);
+    // Releases the surfaces before the device is reset, as th08's
+    // (0x42d2f0).
+    void ReleaseSurfaces();
     // Copies a rectangle of the back buffer to one of the first texture
     // of the ANM file in slot `texture`, as th08's (0x43c200).
     void CopyBackBufferToTexture(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
