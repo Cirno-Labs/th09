@@ -85,6 +85,106 @@ int ExAttackInit44a030(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack type 19: flies in along the curve
+// for 90 frames, then appears hidden on the target's side as the disc,
+// its texture scrolling and its rim wobbling, slowing the player there
+// by unknown1ce4 and unknown1ce8 while they are within 64 of it from
+// frame 20 to 300. Returns 1 once its sprite has hidden (0x44a330).
+int ExAttackUpdate44a330(ExAttack *attack)
+{
+    // Not matching yet: the angle and the vertex pointer swap stack
+    // slots, and the scroll adds in the loop take their operands the
+    // other way round.
+    ExAttackData19 *data = (ExAttackData19 *)attack->data;
+    int i;
+    int j;
+
+    switch (data->base.state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->base.end, &data->base.start, &data->base.tangent0,
+                           &data->base.tangent1, attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            data->base.state++;
+            attack->pos = data->base.targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 9);
+            attack->sprites->visible = 0;
+        }
+        break;
+    case 1:
+    {
+        VertexTex1DiffuseXyzrwh *vtx = data->vertices;
+        float angle = -3.1415927f;
+
+        vtx->uv.x += data->scrollU;
+        if (vtx->uv.x < 0.0f)
+        {
+            for (j = 0; j < 0x21; j++)
+            {
+                data->vertices[j].uv.x += 1.0f;
+            }
+        }
+        vtx->uv.y += data->scrollU;
+        if (vtx->uv.y < 0.0f)
+        {
+            for (j = 0; j < 0x21; j++)
+            {
+                data->vertices[j].uv.y += 1.0f;
+            }
+        }
+        vtx++;
+        for (i = 1; i < 0x21; i++)
+        {
+            vtx->uv.x += data->scrollU;
+            if (vtx->uv.x < 0.0f)
+            {
+                for (j = 0; j < 0x21; j++)
+                {
+                    data->vertices[j].uv.x += 1.0f;
+                }
+            }
+            vtx->uv.y += data->scrollU;
+            if (vtx->uv.y < 0.0f)
+            {
+                for (j = 0; j < 0x21; j++)
+                {
+                    data->vertices[j].uv.y += 1.0f;
+                }
+            }
+            data->radii[i] += data->radiusSpeeds[i];
+            SetPolar((Vector2 *)&data->points[i], angle, data->radii[i]);
+            data->points[i] += data->base.targetPos;
+            angle += 0.2026834f;
+            vtx++;
+        }
+        if (attack->timer < 300 && attack->timer > 0x14)
+        {
+            D3DXVECTOR3 diff = g_GameManager.sides[attack->targetSide].player->pos - attack->pos;
+            if (diff.x * diff.x + diff.y * diff.y <= 4096.0f)
+            {
+                g_GameManager.sides[attack->targetSide].player->unknown1ce4 *= 0.4f;
+                g_GameManager.sides[attack->targetSide].player->unknown1ce8 *= 0.4f;
+            }
+        }
+        if (!attack->sprites->shown)
+        {
+            return 1;
+        }
+        break;
+    }
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The combo func of character 11: while unknown34 reaches (28 -
 // unknownB4) * 5, sends an extra attack of type 19 from `pos` and
 // takes as much off it. Returns 0 (0x44a670).
