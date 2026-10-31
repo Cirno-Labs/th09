@@ -594,7 +594,7 @@ address,size,name,symbol
 0x0042cd40,74,Func42cd40,
 0x0042cd90,809,Func42cd90,
 0x0042d0c0,124,ForceForegroundWindow,?ForceForegroundWindow@@YGXPAUHWND__@@@Z
-0x0042d140,225,Func42d140,
+0x0042d140,225,ResolveShortcut,?ResolveShortcut@@YIHPAD0H@Z
 0x0042d230,10,Log::Reset,?Reset@Log@@QAEXXZ
 0x0042d240,80,Log::Flush,?Flush@Log@@QAEXXZ
 0x0042d2b0,10,App::GetForce16BitTextures,?GetForce16BitTextures@App@@QAEHXZ
@@ -2256,6 +2256,9 @@ address,size,name,symbol
 0x004952e0,,IID_IDirectSoundNotify,_IID_IDirectSoundNotify
 0x004952f0,,GUID_SysKeyboard,_GUID_SysKeyboard
 0x00495390,,IID_IDirectInput8A,_IID_IDirectInput8A
+0x004953a0,,IID_IShellLinkA,_IID_IShellLinkA
+0x004953b0,,CLSID_ShellLink,_CLSID_ShellLink
+0x004953c0,,IID_IPersistFile,_IID_IPersistFile
 0x004953d0,,GUID_NULL,_GUID_NULL
 0x004a0b48,,g_EffectInfos,?g_EffectInfos@@3PAUEffectInfo@@A
 0x004a0ed8,,g_EndingFiles,?g_EndingFiles@@3PAPADA

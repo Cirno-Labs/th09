@@ -90,6 +90,9 @@ int CreateD3d();
 // Brings `hwnd` to the front despite the foreground lock, as th08's.
 // __stdcall, unlike the rest of the game (0x42d0c0).
 void __stdcall ForceForegroundWindow(HWND hwnd);
+// The target of the shortcut `path`, `size` bytes at most, in `out`, as
+// th08's. Returns 1, or 0 if it cannot be resolved (0x42d140).
+int ResolveShortcut(char *path, char *out, int size);
 
 // Appends a printf-style message to `log` if it fits, inside critical
 // section 3, as th08's. Returns `fmt` (0x42c5c0).

@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.71% (758)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.08% (301)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.80% (759)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.99% (300)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="528.20" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="528.20" y="0" class="decompiled"/>
-<rect width="209.75" height="6" x="537.25" y="0" class="todo"/>
+<rect width="528.89" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="528.89" y="0" class="decompiled"/>
+<rect width="209.05" height="6" x="537.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -663,7 +663,7 @@
 <rect width="12" height="12" x="630" y="165" class="todo"><title>0x0042cd40 Func42cd40 (74 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="165" class="todo"><title>0x0042cd90 Func42cd90 (809 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="165" class="named"><title>0x0042d0c0 ForceForegroundWindow (124 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="165" class="todo"><title>0x0042d140 Func42d140 (225 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="165" class="named"><title>0x0042d140 ResolveShortcut (225 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="165" class="named"><title>0x0042d230 Log::Reset (10 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="165" class="named"><title>0x0042d240 Log::Flush (80 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="165" class="named"><title>0x0042d2b0 App::GetForce16BitTextures (10 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.48%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.80%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.56%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.72%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="294.94" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="294.94" y="0" class="decompiled"/>
-<rect width="446.67" height="6" x="300.33" y="0" class="todo"/>
+<rect width="295.52" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="295.52" y="0" class="decompiled"/>
+<rect width="446.10" height="6" x="300.90" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1473,7 +1473,7 @@
 <rect width="11.35" height="10.53" x="623.15" y="106.55" class="named"><title>0x00435dc0 AsciiText::AsciiText (227 bytes)</title></rect>
 <rect width="11.28" height="10.53" x="637.50" y="106.55" class="named"><title>0x0040c860 SendExAttack22 (226 bytes)</title></rect>
 <rect width="11.28" height="10.53" x="651.78" y="106.55" class="named"><title>0x00433980 File::Open (226 bytes)</title></rect>
-<rect width="11.22" height="10.53" x="666.07" y="106.55" class="todo"><title>0x0042d140 Func42d140 (225 bytes)</title></rect>
+<rect width="11.22" height="10.53" x="666.07" y="106.55" class="named"><title>0x0042d140 ResolveShortcut (225 bytes)</title></rect>
 <rect width="11.09" height="10.53" x="680.29" y="106.55" class="named"><title>0x0040f080 Ending::RegisterChain (223 bytes)</title></rect>
 <rect width="11.03" height="10.53" x="694.38" y="106.55" class="todo"><title>0x00415d70 Func415d70 (222 bytes)</title></rect>
 <rect width="10.90" height="10.53" x="708.41" y="106.55" class="named"><title>0x00418840 Gui::RegisterChain (220 bytes)</title></rect>
