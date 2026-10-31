@@ -181,3 +181,11 @@ int EffectDraw44a780(Effect *effect)
     g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, 0xc);
     return 1;
 }
+
+// Does nothing. Returns 0. Every empty callback of the extra attack and
+// spell card type tables points here, the linker having folded them
+// into this copy (0x44ab20).
+int ReturnZero(ExAttack *attack)
+{
+    return 0;
+}

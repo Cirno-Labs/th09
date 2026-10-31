@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.18% (158)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.54% (797)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.09% (157)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="533.76" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="533.76" y="0" class="decompiled"/>
-<rect width="105.95" height="6" x="641.05" y="0" class="todo"/>
+<rect width="534.43" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="534.43" y="0" class="decompiled"/>
+<rect width="105.28" height="6" x="641.72" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1155,7 +1155,7 @@
 <rect width="12" height="12" x="510" y="315" class="decompiled"><title>0x0044a670 PlayerComboFunc44a670 (101 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="315" class="decompiled"><title>0x0044a6e0 EffectInit44a6e0 (156 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="315" class="decompiled"><title>0x0044a780 EffectDraw44a780 (921 bytes)</title></rect>
-<rect width="12" height="12" x="555" y="315" class="todo"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>
+<rect width="12" height="12" x="555" y="315" class="named"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="315" class="decompiled"><title>0x0044ab30 EffectUpdate44ab30 (88 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="315" class="decompiled"><title>0x0044ab90 ShotFire44ab90 (139 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="315" class="decompiled"><title>0x0044ac20 ExAttackInit44ac20 (436 bytes)</title></rect>
@@ -1188,8 +1188,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">43.05%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="314.57" height="6" x="0" y="0" class="named"/>
-<rect width="110.85" height="6" x="314.57" y="0" class="decompiled"/>
+<rect width="314.58" height="6" x="0" y="0" class="named"/>
+<rect width="110.85" height="6" x="314.58" y="0" class="decompiled"/>
 <rect width="321.58" height="6" x="425.42" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
@@ -2305,7 +2305,7 @@
 <rect width="0.10" height="0.10" x="748.29" y="343.90" class="decompiled"><title>0x004125a0 BulletManager::Unknown4125a0 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.57" y="345.44" class="named"><title>0x004343d0 D3DXVECTOR3::D3DXVECTOR3 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.57" y="346.72" class="named"><title>0x00435ec0 GdiSurface::GetFormat (3 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="748.63" y="345.44" class="todo"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="748.63" y="345.44" class="named"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.63" y="347.36" class="named"><title>0x0043d2b0 DebugPrint (1 bytes)</title></rect>
 </g>
 </g>
