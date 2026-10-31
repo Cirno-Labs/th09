@@ -164,6 +164,36 @@ Effect *EffectManager::SpawnReservedEffect(int effectIdx, D3DXVECTOR3 *pos, int 
     return effect;
 }
 
+int EffectManager::OnDraw2(EffectManager *mgr)
+{
+    Effect *effect;
+    Sprite *sprite;
+    int i;
+
+    effect = mgr->unknown3c.next;
+    g_App.SetView(mgr->sideIdx);
+    for (; effect != NULL; effect = effect->next)
+    {
+        if (effect->draw != NULL)
+        {
+            effect->draw(effect);
+        }
+        else
+        {
+            sprite = effect->sprites;
+            for (i = effect->spriteCount; i > 0; i--, sprite++)
+            {
+                sprite->pos.x = effect->pos.x;
+                sprite->pos.y = effect->pos.y;
+                sprite->pos.z = 0.0f;
+                sprite->pos += sprite->posOffset;
+                g_SpriteEngine->Draw(sprite);
+            }
+        }
+    }
+    return 1;
+}
+
 int EffectManager::DrawUnknown114(EffectManager *mgr)
 {
     Effect *effect;
