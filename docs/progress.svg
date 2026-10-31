@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.14% (915)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">1.97% (22)</tspan> · <tspan class="todo">1.17% (13)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.14% (915)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">1.08% (12)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="613.56" height="6" x="0" y="0" class="named"/>
 <rect width="109.97" height="6" x="613.56" y="0" class="decompiled"/>
-<rect width="14.75" height="6" x="723.53" y="0" class="nonmatching"/>
-<rect width="8.72" height="6" x="738.28" y="0" class="todo"/>
+<rect width="15.42" height="6" x="723.53" y="0" class="nonmatching"/>
+<rect width="8.05" height="6" x="738.95" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -530,7 +530,7 @@
 <rect width="12" height="12" x="120" y="135" class="named"><title>0x00421c80 LoadScoreDat (523 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="135" class="named"><title>0x00421e90 ReleaseScoreDat (12 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="135" class="named"><title>0x00421ea0 LoadScore (98 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="135" class="todo"><title>0x00421f10 SaveScore (745 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="135" class="nonmatching"><title>0x00421f10 SaveScore (745 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="135" class="named"><title>0x00422200 ClearScreen (139 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="135" class="named"><title>0x00422290 ClearViewport (38 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="135" class="named"><title>0x004222c0 ScreenEffect::OnUpdateFadeIn (103 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.01%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">13.98%</tspan> · <tspan class="todo">3.63%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.01%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.23%</tspan> · <tspan class="todo">3.38%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="500.57" height="6" x="0" y="0" class="named"/>
 <rect width="114.88" height="6" x="500.57" y="0" class="decompiled"/>
-<rect width="104.46" height="6" x="615.45" y="0" class="nonmatching"/>
-<rect width="27.09" height="6" x="719.91" y="0" class="todo"/>
+<rect width="106.33" height="6" x="615.45" y="0" class="nonmatching"/>
+<rect width="25.22" height="6" x="721.78" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1284,7 +1284,7 @@
 <rect width="22.87" height="22.58" x="336.01" y="322.42" class="named"><title>0x0041e420 Player::Die (753 bytes)</title></rect>
 <rect width="22.62" height="22.76" x="361.88" y="0" class="named"><title>0x004364c0 RenderTextToTextureLarge (751 bytes)</title></rect>
 <rect width="22.62" height="22.66" x="361.88" y="25.76" class="decompiled"><title>0x00446920 ExAttackUpdate446920 (748 bytes)</title></rect>
-<rect width="22.62" height="22.56" x="361.88" y="51.42" class="todo"><title>0x00421f10 SaveScore (745 bytes)</title></rect>
+<rect width="22.62" height="22.56" x="361.88" y="51.42" class="nonmatching"><title>0x00421f10 SaveScore (745 bytes)</title></rect>
 <rect width="22.62" height="22.49" x="361.88" y="76.98" class="named"><title>0x004367b0 RenderTextToTexture (743 bytes)</title></rect>
 <rect width="22.62" height="22.35" x="361.88" y="102.46" class="decompiled"><title>0x00442bd0 ExAttackUpdate442bd0 (739 bytes)</title></rect>
 <rect width="22.62" height="22.25" x="361.88" y="127.81" class="named"><title>0x004307c0 App::InitCameras (736 bytes)</title></rect>

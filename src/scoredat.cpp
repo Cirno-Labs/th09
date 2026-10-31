@@ -276,3 +276,102 @@ int LoadScore()
     ReleaseScoreDat(dat);
     return 0;
 }
+
+int SaveScore()
+{
+    int left;
+    int size;
+    BYTE *buf;
+    ScoreDat *dat;
+    Th9k th9k;
+    Vrsm vrsm;
+    void *packed;
+    BYTE *encrypted;
+    int m;
+    BYTE *p;
+    BYTE key;
+    BYTE prev;
+
+    left = 7;
+    if (g_ScoreDatHeader.version == 0)
+    {
+        return 1;
+    }
+    buf = (BYTE *)g_MemoryManager.Alloc(0x640000, "scoretmp");
+    memcpy(buf, &g_ScoreDatHeader, sizeof(ScoreDat));
+    size = sizeof(ScoreDat);
+    th9k.magic = 0x4b394854;
+    th9k.size = th9k.size2 = sizeof(Th9k);
+    th9k.version = 1;
+    memcpy(buf + size, &th9k, sizeof(Th9k));
+    size += sizeof(Th9k);
+    // The chunks go in a random order.
+    do
+    {
+        m = g_Rng.GetRandomU32InRange(3);
+        if ((left & 1) && m == 0)
+        {
+            memcpy(buf + size, g_HighScores, sizeof(g_HighScores));
+            size += sizeof(g_HighScores);
+            left ^= 1;
+        }
+        else if ((left & 2) && m == 1)
+        {
+            memcpy(buf + size, &g_Lsnm, sizeof(Lsnm));
+            size += sizeof(Lsnm);
+            left ^= 2;
+        }
+        else if ((left & 4) && m == 2)
+        {
+            g_App.AddPlayTime();
+            if (g_PlayRecord.version != 0)
+            {
+                memcpy(buf + size, &g_PlayRecord, sizeof(PlayRecord));
+                size += sizeof(PlayRecord);
+                left ^= 4;
+            }
+        }
+    } while (left != 0);
+    vrsm.magic = 0x4d535256;
+    vrsm.version = 1;
+    vrsm.size = vrsm.size2 = sizeof(Vrsm);
+    vrsm.clearedOnSave = 0;
+    strcpy(vrsm.gameVersion, "0150a");
+    vrsm.exeSize = g_App.exeSize;
+    vrsm.exeChecksum = g_App.exeChecksum;
+    memcpy(buf + size, &vrsm, sizeof(Vrsm));
+    size += sizeof(Vrsm);
+    dat = (ScoreDat *)buf;
+    dat->dataSize = size - sizeof(ScoreDat);
+    dat->fileSize = size;
+    packed = LzssCompress(buf + sizeof(ScoreDat), dat->dataSize, &dat->packedSize);
+    memcpy(buf + sizeof(ScoreDat), packed, dat->packedSize);
+    GlobalFree(packed);
+    size = dat->packedSize + sizeof(ScoreDat);
+    dat->dataOffset = sizeof(ScoreDat);
+    dat->checksum = 0;
+    dat->key = g_Rng.GetRandomU16InRange(256);
+    dat->secondaryKey = g_Rng.GetRandomU16InRange(256);
+    dat->version = 4;
+    for (m = 4; m < size; m++)
+    {
+        dat->checksum += buf[m];
+    }
+    key = dat->key;
+    p = (BYTE *)dat + 1;
+    m = size - 2;
+    while (m > 0)
+    {
+        prev = p[1];
+        key = ((key & 0xe0) >> 5) | ((key & 0x1f) << 3);
+        p[1] ^= key;
+        key += prev;
+        p++;
+        m--;
+    }
+    encrypted = EncryptData(buf, size, 0x3a, 0xcd, 0x100, 0xc00);
+    WriteToFile("score.dat", encrypted, size);
+    g_MemoryManager.Free(buf);
+    g_MemoryManager.Free(encrypted);
+    return 0;
+}

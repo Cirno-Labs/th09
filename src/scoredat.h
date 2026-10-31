@@ -68,6 +68,21 @@ ASSERT_SIZE(Lsnm, 0x18);
 // At 0x4a8168.
 extern Lsnm g_Lsnm;
 
+// The version chunk ("VRSM") that ends score.dat, as th08's.
+struct Vrsm
+{
+    DWORD magic;
+    WORD size;
+    WORD size2;
+    BYTE version;
+    BYTE clearedOnSave;
+    unsigned char pad_a[0x2];
+    char gameVersion[0x8];
+    DWORD exeSize;
+    DWORD exeChecksum;
+};
+ASSERT_SIZE(Vrsm, 0x1c);
+
 // Reads the score file at `path`, decrypted and unpacked, as th08's
 // LoadScoreDat (0x421c80).
 ScoreDat *LoadScoreDat(char *path);
