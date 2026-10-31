@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.88% (823)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">11.76% (131)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.97% (824)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">11.67% (130)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="551.87" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="551.87" y="0" class="decompiled"/>
-<rect width="87.84" height="6" x="659.16" y="0" class="todo"/>
+<rect width="552.54" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="552.54" y="0" class="decompiled"/>
+<rect width="87.17" height="6" x="659.83" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -138,7 +138,7 @@
 <rect width="12" height="12" x="255" y="15" class="todo"><title>0x00403e30 Func403e30 (27 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="15" class="todo"><title>0x00403e50 Func403e50 (923 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="15" class="todo"><title>0x004041f0 SpellCard::OnUpdate (536 bytes)</title></rect>
-<rect width="12" height="12" x="300" y="15" class="todo"><title>0x00404410 SpellCard::OnDraw (334 bytes)</title></rect>
+<rect width="12" height="12" x="300" y="15" class="named"><title>0x00404410 SpellCard::OnDraw (334 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="15" class="named"><title>0x00404560 SpellCard::AddedCallback (8 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="15" class="named"><title>0x00404570 SpellCard::RemoveChain (51 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="15" class="named"><title>0x004045b0 SpellCard::SpellCard (66 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.99%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">39.18%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">46.10%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">39.06%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="343.52" height="6" x="0" y="0" class="named"/>
-<rect width="110.83" height="6" x="343.52" y="0" class="decompiled"/>
-<rect width="292.65" height="6" x="454.35" y="0" class="todo"/>
+<rect width="344.37" height="6" x="0" y="0" class="named"/>
+<rect width="110.83" height="6" x="344.37" y="0" class="decompiled"/>
+<rect width="291.81" height="6" x="455.19" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1416,7 +1416,7 @@
 <rect width="14.35" height="14.03" x="629.81" y="60.46" class="todo"><title>0x004227a0 ScreenEffect::OnUpdateShakeRamp (336 bytes)</title></rect>
 <rect width="14.30" height="14.03" x="647.16" y="60.46" class="todo"><title>0x0041ca00 Func41ca00 (335 bytes)</title></rect>
 <rect width="14.30" height="14.03" x="664.46" y="60.46" class="named"><title>0x00424bf7 MainMenu::InitTitleScene (335 bytes)</title></rect>
-<rect width="14.25" height="14.03" x="681.77" y="60.46" class="todo"><title>0x00404410 SpellCard::OnDraw (334 bytes)</title></rect>
+<rect width="14.25" height="14.03" x="681.77" y="60.46" class="named"><title>0x00404410 SpellCard::OnDraw (334 bytes)</title></rect>
 <rect width="14.05" height="14.03" x="699.02" y="60.46" class="named"><title>0x0043c4c0 SpriteEngine::CreateTextureFromImage (330 bytes)</title></rect>
 <rect width="13.99" height="14.03" x="716.06" y="60.46" class="named"><title>0x00424898 MainMenu::OnDraw (329 bytes)</title></rect>
 <rect width="13.94" height="14.03" x="733.06" y="60.46" class="named"><title>0x00412240 EnemyManager::RegisterChain (328 bytes)</title></rect>

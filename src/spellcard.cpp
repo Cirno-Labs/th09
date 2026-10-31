@@ -31,17 +31,17 @@ void Player::StartClearCircle3()
     this->side->effectManager->SpawnParticles(0xf, &this->pos, 1, 0xffffffff);
 }
 
-// Calls the spell card's callbacks unknown1330 and unknown133c, if set.
+// Calls the spell card's end callbacks, if set.
 // Returns 0. Static, with the spell card in esi (0x403d60).
 static int RunEndCallbacks(SpellCard *card)
 {
-    if (card->unknown1330 != NULL)
+    if (card->callbacks[0].end != NULL)
     {
-        card->unknown1330(card);
+        card->callbacks[0].end(card);
     }
-    if (card->unknown133c != NULL)
+    if (card->callbacks[1].end != NULL)
     {
-        card->unknown133c(card);
+        card->callbacks[1].end(card);
     }
     return 0;
 }
@@ -49,6 +49,47 @@ static int RunEndCallbacks(SpellCard *card)
 void SpellCard::Reset()
 {
     this->anm = g_GameManager.gui->anm;
+}
+
+int SpellCard::OnDraw(SpellCard *card)
+{
+    int i;
+    Sprite *sprite;
+
+    g_App.SetView2D(card->sideIdx);
+    if (card->callbacks[0].draw != NULL)
+    {
+        card->callbacks[0].draw(card);
+    }
+    if (card->callbacks[1].draw != NULL)
+    {
+        card->callbacks[1].draw(card);
+    }
+    sprite = &card->unknownAc[0];
+    if (sprite->visible)
+    {
+        sprite->pos.x = g_GameManager.ArenaToScreenX(sprite->posOffset.x);
+        sprite->pos.y = g_GameManager.ArenaToScreenY(sprite->posOffset.y);
+        sprite->pos.z = 0.0f;
+        g_SpriteEngine->DrawUnrotated(sprite);
+        card->unknownAc[1].pos = sprite->pos;
+        card->unknownAc[1].pos.y += 10.0f;
+        card->unknownAc[1].color = sprite->color;
+        card->unknownAc[1].flags = sprite->flags;
+        g_SpriteEngine->DrawUnrotated(&card->unknownAc[1]);
+    }
+    sprite = card->unknown5f4;
+    for (i = 0; i < 5; i++, sprite++)
+    {
+        if (sprite->visible)
+        {
+            sprite->pos.x = g_GameManager.ArenaToScreenX(sprite->posOffset.x);
+            sprite->pos.y = g_GameManager.ArenaToScreenY(sprite->posOffset.y);
+            sprite->pos.z = 0.0f;
+            g_SpriteEngine->DrawUnrotated(sprite);
+        }
+    }
+    return 1;
 }
 
 int SpellCard::AddedCallback(SpellCard *card)

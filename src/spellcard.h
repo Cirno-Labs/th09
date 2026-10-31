@@ -12,6 +12,14 @@ class SpellCard;
 // A spell card's callbacks, which take the spell card.
 typedef int (*SpellCardCallback)(SpellCard *card);
 
+// Callbacks run by OnUpdate, OnDraw and RunEndCallbacks, if set.
+struct SpellCardCallbacks
+{
+    SpellCardCallback update;
+    SpellCardCallback draw;
+    SpellCardCallback end;
+};
+
 // A side's spell card (0x1368 bytes). Only the fields known so far.
 class SpellCard
 {
@@ -44,10 +52,8 @@ public:
     unsigned char pad_a4[0xac - 0xa4];
     Sprite unknownAc[2];
     Sprite unknown5f4[5];
-    unsigned char pad_1328[0x1330 - 0x1328];
-    SpellCardCallback unknown1330;
-    unsigned char pad_1334[0x133c - 0x1334];
-    SpellCardCallback unknown133c;
+    // Two sets of callbacks of the running effects.
+    SpellCardCallbacks callbacks[2];
     unsigned char pad_1340[0x1360 - 0x1340];
     // Blocks some types' callbacks allocate and free.
     void *unknown1360;
