@@ -1011,7 +1011,7 @@ address,size,name,symbol
 0x00443a30,209,EffectUpdate443a30,?EffectUpdate443a30@@YIHPAUEffect@@@Z
 0x00443b10,249,Func443b10,
 0x00443c10,95,PlayerEnemyFunc443c10,?PlayerEnemyFunc443c10@@YIHPAVPlayer@@PAUEnemy@@@Z
-0x00443c70,371,Func443c70,
+0x00443c70,371,ExAttackInit443c70,?ExAttackInit443c70@@YIHPAUExAttack@@@Z
 0x00443df0,824,Func443df0,
 0x00444130,959,Func444130,
 0x004444f0,101,PlayerComboFunc4444f0,?PlayerComboFunc4444f0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z

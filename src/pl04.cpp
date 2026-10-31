@@ -33,6 +33,57 @@ int PlayerEnemyFunc443c10(Player *player, Enemy *enemy)
     return 0;
 }
 
+// The data of extra attack type 14: type 0's, then the fan and rings
+// its draw fills (0xf48 bytes).
+struct ExAttackData14
+{
+    ExAttackData00 base;
+    // Cleared after every draw.
+    int unknown4c;
+    // The radius of the disc, from 4 up to 64 as it bursts.
+    float radius;
+    VertexDiffuseXyzrwh fan[0x21];
+    VertexDiffuseXyzrwh rings[4][0x21];
+    // Random offsets to the radius, per ring point.
+    float offsets[4][0x21];
+};
+ASSERT_SIZE(ExAttackData14, 0xf48);
+
+// The init callback of extra attack type 14, character 4's: type 0's,
+// starting off at around pi/2, with a disc of radius 4. Returns 0
+// (0x443c70).
+int ExAttackInit443c70(ExAttack *attack)
+{
+    ExAttackData14 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData14));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData14 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(0.19634955f) + 1.5707964f;
+    data->base.velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->base.velocity, angle, 2.0f);
+    data->base.state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->base.tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->base.tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->base.start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->base.start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->base.start.z = 0.0f;
+    data->base.targetPos.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+    data->base.targetPos.y = g_Rng.GetRandomF32InRange(128.0f);
+    data->base.targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->base.end.x = g_GameManager.ArenaToScreenX(data->base.targetPos.x);
+    data->base.end.y = g_GameManager.ArenaToScreenY(data->base.targetPos.y);
+    data->base.end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    data->radius = 4.0f;
+    return 0;
+}
+
 // The unknown30450 of character 4: while unknown34 reaches (28 -
 // unknownB4) * 5, sends an extra attack of type 14 from `pos` and
 // takes as much off it. Returns 0 (0x4444f0).
