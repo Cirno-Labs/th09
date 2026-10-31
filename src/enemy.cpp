@@ -591,6 +591,68 @@ void Enemy::ClampPos()
     }
 }
 
+int EnemyManager::AddedCallback(EnemyManager *mgr)
+{
+    int i;
+    SpriteEngine *se = g_SpriteEngine;
+    AnmLoaded *anm = se->GetAnm(9);
+
+    if (anm->file == NULL)
+    {
+        if (g_GameManager.stage == 0 || g_GameManager.stage == 3 || g_GameManager.stage == 7)
+        {
+            mgr->anm = se->PreloadAnm(9, "enemy1.anm");
+            if (mgr->anm == NULL)
+            {
+                return -1;
+            }
+        }
+        else if (g_GameManager.stage == 12 || g_GameManager.stage == 15)
+        {
+            mgr->anm = se->PreloadAnm(9, "enemy13.anm");
+            if (mgr->anm == NULL)
+            {
+                return -1;
+            }
+        }
+        else
+        {
+            mgr->anm = se->PreloadAnm(9, "enemy.anm");
+            if (mgr->anm == NULL)
+            {
+                return -1;
+            }
+        }
+    }
+    else
+    {
+        mgr->anm = anm;
+    }
+    mgr->otherPlayerAnm = g_SpriteEngine->GetAnm(6 - mgr->sideIdx);
+    memset(&mgr->ecl, 0, sizeof(EclManager));
+    if (mgr->ecl.Load("enemy.ecl") != 0)
+    {
+        return -1;
+    }
+    if (mgr->playerEcl.Load(g_CharacterFiles[mgr->otherSide->character][2]) != 0)
+    {
+        return -1;
+    }
+    if (mgr->sideIdx == 0)
+    {
+        for (i = 0; i < 0x100; i++)
+        {
+            g_TimelineOrder[i] = g_Rng.GetRandomU32InRange(mgr->ecl.GetTimelineCount());
+            g_TimelineOrder[i] |= g_Rng.GetRandomU32InRange(2) << 7;
+        }
+    }
+    mgr->timeline.mgr = mgr;
+    mgr->timeline.pos = (EnemyTimelineEntry *)mgr->ecl.GetTimeline(g_TimelineOrder[mgr->unknown2ac3d4++] & 0x7f);
+    mgr->timeline.delay = 200;
+    mgr->unknown2ac44c = mgr->side->character == 5 ? 200 : 160;
+    return 0;
+}
+
 static int FreeResources(EnemyManager *mgr)
 {
     int i;

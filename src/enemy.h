@@ -557,12 +557,21 @@ public:
     // The timeline running.
     EnemyTimeline timeline;
     Timer unknown2ac404;
-    unsigned char pad_2ac410[0x2ac42c - 0x2ac410];
+    // The enemies drawn by OnDraw (0 and 1) and OnDraw2 (2 and 3), as
+    // th08's.
+    Enemy *drawListHeads[4];
+    // enemy.anm (or the stage's variant), slot 9.
+    AnmLoaded *anm;
+    // The other side's player ANM.
+    AnmLoaded *otherPlayerAnm;
+    unsigned char pad_2ac428[0x2ac42c - 0x2ac428];
     // Whether the last spawn found no free enemy, as th08's.
     int spawnFailed;
     // The timeline's signals, as th08's.
     int timelineSignals[4];
-    unsigned char pad_2ac440[0x2ac450 - 0x2ac440];
+    unsigned char pad_2ac440[0x2ac44c - 0x2ac440];
+    // Set by AddedCallback: 200 if the side's character is 5, else 160.
+    int unknown2ac44c;
 };
 ASSERT_SIZE(EnemyManager, 0x2ac450);
 

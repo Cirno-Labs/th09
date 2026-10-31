@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.79% (822)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">11.85% (132)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.88% (823)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">11.76% (131)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="551.20" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="551.20" y="0" class="decompiled"/>
-<rect width="88.51" height="6" x="658.49" y="0" class="todo"/>
+<rect width="551.87" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="551.87" y="0" class="decompiled"/>
+<rect width="87.84" height="6" x="659.16" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -292,7 +292,7 @@
 <rect width="12" height="12" x="315" y="60" class="todo"><title>0x00411670 Func411670 (1752 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="60" class="todo"><title>0x00411d50 EnemyManager::OnDraw (35 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="60" class="todo"><title>0x00411d80 EnemyManager::OnDraw2 (38 bytes)</title></rect>
-<rect width="12" height="12" x="360" y="60" class="todo"><title>0x00411db0 EnemyManager::AddedCallback (372 bytes)</title></rect>
+<rect width="12" height="12" x="360" y="60" class="named"><title>0x00411db0 EnemyManager::AddedCallback (372 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="60" class="named"><title>0x00411f30 FreeResources (68 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="60" class="named"><title>0x00411f80 EnemyManager::RemoveChain (74 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="60" class="named"><title>0x00411fd0 EnemyManager::Reset (177 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.86%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">39.30%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.99%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">39.18%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="342.59" height="6" x="0" y="0" class="named"/>
-<rect width="110.83" height="6" x="342.59" y="0" class="decompiled"/>
-<rect width="293.58" height="6" x="453.42" y="0" class="todo"/>
+<rect width="343.52" height="6" x="0" y="0" class="named"/>
+<rect width="110.83" height="6" x="343.52" y="0" class="decompiled"/>
+<rect width="292.65" height="6" x="454.35" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1385,7 +1385,7 @@
 <rect width="15.14" height="15.37" x="642.76" y="42.10" class="decompiled"><title>0x00446320 ExAttackInit446320 (379 bytes)</title></rect>
 <rect width="15.05" height="15.37" x="660.90" y="42.10" class="named"><title>0x00402350 Stage::OnUpdate (377 bytes)</title></rect>
 <rect width="14.86" height="15.37" x="678.95" y="42.10" class="named"><title>0x0040f340 EnemyManager::SpawnEnemyWithVars (373 bytes)</title></rect>
-<rect width="14.81" height="15.37" x="696.81" y="42.10" class="todo"><title>0x00411db0 EnemyManager::AddedCallback (372 bytes)</title></rect>
+<rect width="14.81" height="15.37" x="696.81" y="42.10" class="named"><title>0x00411db0 EnemyManager::AddedCallback (372 bytes)</title></rect>
 <rect width="14.76" height="15.37" x="714.62" y="42.10" class="decompiled"><title>0x00443c70 ExAttackInit443c70 (371 bytes)</title></rect>
 <rect width="14.62" height="15.37" x="732.38" y="42.10" class="decompiled"><title>0x00442a60 ExAttackInit442a60 (368 bytes)</title></rect>
 <rect width="14.52" height="15.32" x="452.12" y="60.46" class="named"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
