@@ -204,6 +204,9 @@ void DrawFps(int draw);
 // Reads player `player`'s keyboard and pad buttons into
 // g_PlayerInputs[player] and returns them (0x42b850).
 WORD ReadInput(int player);
+// Reads the local keyboard and the pads of both players' settings
+// into one set of buttons, for network play (0x42be40).
+WORD ReadNetInput();
 // Reads the three players' inputs (0x42e9c0).
 void ReadInputs();
 

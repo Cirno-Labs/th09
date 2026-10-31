@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.98% (891)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.53% (17)</tspan> · <tspan class="todo">4.13% (46)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.07% (892)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.53% (17)</tspan> · <tspan class="todo">4.04% (45)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="597.47" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="597.47" y="0" class="decompiled"/>
-<rect width="11.40" height="6" x="704.75" y="0" class="nonmatching"/>
-<rect width="30.85" height="6" x="716.15" y="0" class="todo"/>
+<rect width="598.14" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="598.14" y="0" class="decompiled"/>
+<rect width="11.40" height="6" x="705.43" y="0" class="nonmatching"/>
+<rect width="30.18" height="6" x="716.82" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -641,7 +641,7 @@
 <rect width="12" height="12" x="285" y="165" class="named"><title>0x0042b410 ReadPad (808 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="165" class="named"><title>0x0042b740 GetPadButtons (259 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="165" class="todo"><title>0x0042b850 ReadInput (1507 bytes)</title></rect>
-<rect width="12" height="12" x="330" y="165" class="todo"><title>0x0042be40 Func42be40 (819 bytes)</title></rect>
+<rect width="12" height="12" x="330" y="165" class="named"><title>0x0042be40 ReadNetInput (819 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="165" class="named"><title>0x0042c180 DecryptData (259 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="165" class="named"><title>0x0042c290 DecryptFileData (220 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="165" class="named"><title>0x0042c370 EncryptData (267 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.26%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.35%</tspan> · <tspan class="todo">8.56%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.54%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.35%</tspan> · <tspan class="todo">8.29%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="472.58" height="6" x="0" y="0" class="named"/>
-<rect width="110.77" height="6" x="472.58" y="0" class="decompiled"/>
-<rect width="99.70" height="6" x="583.35" y="0" class="nonmatching"/>
-<rect width="63.95" height="6" x="683.05" y="0" class="todo"/>
+<rect width="474.64" height="6" x="0" y="0" class="named"/>
+<rect width="110.77" height="6" x="474.64" y="0" class="decompiled"/>
+<rect width="99.70" height="6" x="585.41" y="0" class="nonmatching"/>
+<rect width="61.89" height="6" x="685.11" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1266,7 +1266,7 @@
 <rect width="25.25" height="23.26" x="307.75" y="193.85" class="named"><title>0x00407700 ScriptJumpIf (844 bytes)</title></rect>
 <rect width="25.25" height="23.26" x="307.75" y="220.11" class="named"><title>0x00431110 App::OnUpdate (844 bytes)</title></rect>
 <rect width="25.25" height="22.54" x="307.75" y="246.36" class="todo"><title>0x0044a330 Func44a330 (821 bytes)</title></rect>
-<rect width="25.25" height="22.48" x="307.75" y="271.90" class="todo"><title>0x0042be40 Func42be40 (819 bytes)</title></rect>
+<rect width="25.25" height="22.48" x="307.75" y="271.90" class="named"><title>0x0042be40 ReadNetInput (819 bytes)</title></rect>
 <rect width="25.25" height="22.39" x="307.75" y="297.38" class="named"><title>0x0041dc20 Player::UpdateUnknown30454 (816 bytes)</title></rect>
 <rect width="25.25" height="22.23" x="307.75" y="322.77" class="named"><title>0x0043b1a0 SpriteEngine::Draw3D (811 bytes)</title></rect>
 <rect width="22.87" height="24.48" x="336" y="0" class="named"><title>0x0042cd90 FormatCapsReport (809 bytes)</title></rect>

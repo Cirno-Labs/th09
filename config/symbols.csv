@@ -571,7 +571,7 @@ address,size,name,symbol
 0x0042b410,808,ReadPad,?ReadPad@@YIGHHG@Z
 0x0042b740,259,GetPadButtons,?GetPadButtons@@YIPAEH@Z
 0x0042b850,1507,ReadInput,?ReadInput@@YIGH@Z
-0x0042be40,819,Func42be40,
+0x0042be40,819,ReadNetInput,?ReadNetInput@@YIGXZ
 0x0042c180,259,DecryptData,?DecryptData@@YIPAEPAEHEEHH@Z
 0x0042c290,220,DecryptFileData,?DecryptFileData@@YIPAEPAEPAHH@Z
 0x0042c370,267,EncryptData,?EncryptData@@YIPAEPAEHEEHH@Z
