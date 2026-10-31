@@ -231,6 +231,43 @@ int ExAttackInit446c10(ExAttack *attack)
     return 0;
 }
 
+// The init callback of extra attack types 11 and 12: type 9's, heading
+// at the angle AddAttack passed as pos.z, which it clears, and landing
+// where it is on the target's side (0x446d80).
+int ExAttackInit446d80(ExAttack *attack)
+{
+    ExAttackData08 *data;
+
+    attack->AllocSprites(1, sizeof(ExAttackData08));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData08 *)attack->data;
+    g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->velocity, attack->pos.z, 2.0f);
+    data->heading = attack->pos.z;
+    data->state = 0;
+    attack->layer = 2;
+    attack->timer = 0x5a;
+    attack->pos.z = 0.0f;
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->targetPos.x = attack->pos.x;
+    data->targetPos.y = attack->pos.y;
+    data->targetPos.z = 0.0f;
+    data->end.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    data->spin = g_Rng.GetRandomF32SignedInRange(3.1415927f);
+    return 0;
+}
+
 // The draw callback of effect type 25: EffectDraw4414a0's fan
 // (0x447480).
 int EffectDraw447480(Effect *effect)

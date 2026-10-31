@@ -1050,7 +1050,7 @@ address,size,name,symbol
 0x004467c0,352,ExAttackInit4467c0,?ExAttackInit4467c0@@YIHPAUExAttack@@@Z
 0x00446920,748,ExAttackUpdate446920,?ExAttackUpdate446920@@YIHPAUExAttack@@@Z
 0x00446c10,356,ExAttackInit446c10,?ExAttackInit446c10@@YIHPAUExAttack@@@Z
-0x00446d80,343,Func446d80,
+0x00446d80,343,ExAttackInit446d80,?ExAttackInit446d80@@YIHPAUExAttack@@@Z
 0x00446ee0,713,Func446ee0,
 0x004471b0,710,Func4471b0,
 0x00447480,314,EffectDraw447480,?EffectDraw447480@@YIHPAUEffect@@@Z
