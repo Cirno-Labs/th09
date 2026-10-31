@@ -76,6 +76,66 @@ Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, char itemDr
     return enemy;
 }
 
+Enemy *EnemyManager::SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score,
+                                        EclVars *vars, int usePlayerEcl)
+{
+    Enemy *enemy;
+    int i;
+
+    enemy = this->enemies;
+    for (i = 0; i < 0x80; i++, enemy++)
+    {
+        if (enemy->active)
+        {
+            continue;
+        }
+        *enemy = this->enemyTemplate;
+        enemy->index = i;
+        if (life >= 0)
+        {
+            enemy->life = life;
+        }
+        enemy->pos = *pos;
+        if (!usePlayerEcl)
+        {
+            this->ecl.StartSub(&enemy->unknown7f4, sub);
+            enemy->unknown7f4.vars = *vars;
+            if (this->ecl.RunEnemy(enemy) == -1)
+            {
+                enemy->active = 0;
+                i = 0x80;
+                break;
+            }
+        }
+        else
+        {
+            this->playerEcl.StartSub(&enemy->unknown7f4, sub);
+            enemy->unknown7f4.vars = *vars;
+            if (this->playerEcl.RunEnemy(enemy) == -1)
+            {
+                enemy->active = 0;
+                i = 0x80;
+                break;
+            }
+        }
+        enemy->color = enemy->primarySprite.color;
+        enemy->item = itemDrop;
+        if (life >= 0)
+        {
+            enemy->life = life;
+        }
+        if (score >= 0)
+        {
+            enemy->score = score;
+        }
+        enemy->maxLife = enemy->life;
+        enemy->phaseStartLife = enemy->life;
+        break;
+    }
+    this->spawnFailed = i == 0x80;
+    return enemy;
+}
+
 void Enemy::ReleaseEffects()
 {
     int i;

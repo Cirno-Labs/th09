@@ -195,7 +195,7 @@ address,size,name,symbol
 0x0040f180,51,Enemy::ResetRankSpeeds,?ResetRankSpeeds@Enemy@@QAEXXZ
 0x0040f1c0,12,Fabs,?Fabs@@YIMM@Z
 0x0040f1d0,364,EnemyManager::SpawnEnemy,?SpawnEnemy@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHHH@Z
-0x0040f340,373,Func40f340,
+0x0040f340,373,EnemyManager::SpawnEnemyWithVars,?SpawnEnemyWithVars@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHPAUEclVars@@H@Z
 0x0040f4c0,151,Func40f4c0,
 0x0040f560,64,Enemy::ReleaseEffects,?ReleaseEffects@Enemy@@QAEXXZ
 0x0040f5a0,56,D3DXVECTOR3::operator/,??KD3DXVECTOR3@@QBE?AU0@M@Z

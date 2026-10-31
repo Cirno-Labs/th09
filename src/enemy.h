@@ -104,6 +104,18 @@ void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t);
 // args[7], as th08's (0x4074a0).
 void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t);
 
+// An ECL script's variables, which SpawnEnemyWithVars copies in (0x78
+// bytes). Only the fields known so far.
+struct EclVars
+{
+    int intVars[8];
+    float floatVars[8];
+    int intVars2[4];
+    float floatVars2[2];
+    unsigned char pad_58[0x78 - 0x58];
+};
+ASSERT_SIZE(EclVars, 0x78);
+
 // The state of an enemy's ECL script, as th08's EnemyScriptState (0x22c
 // bytes). Only the fields known so far; its implicit constructor is at
 // 0x4120d0.
@@ -115,12 +127,18 @@ struct EnemyUnknown22c
     // The frame of the subroutine, and of a wait.
     Timer timer;
     unsigned char pad_14[0x1c - 0x14];
-    // The script's variables, by their place in th08's.
-    int intVars[8];
-    float floatVars[8];
-    int intVars2[4];
-    float floatVars2[2];
-    unsigned char pad_74[0x94 - 0x74];
+    union
+    {
+        EclVars vars;
+        struct
+        {
+            // The script's variables, by their place in th08's.
+            int intVars[8];
+            float floatVars[8];
+            int intVars2[4];
+            float floatVars2[2];
+        };
+    };
     Timer waitTimer;
     EnemyUnknown30 unknownA0[8];
     unsigned char pad_220[0x228 - 0x220];
@@ -388,6 +406,10 @@ public:
     // `score` unless negative. Returns it (0x40f1d0).
     Enemy *SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, int mirrored,
                       int usePlayerEcl);
+    // SpawnEnemy unmirrored, with the script's variables from `vars`, as
+    // th08's SpawnWithVars (0x40f340).
+    Enemy *SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EclVars *vars,
+                              int usePlayerEcl);
 
     // enemy.ecl, and the character's plXX.ecl.
     EclManager ecl;
