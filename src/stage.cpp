@@ -626,6 +626,45 @@ void Stage::RemoveChain(Stage *stage)
     }
 }
 
+int Stage::Load(char *dataPath)
+{
+    int count;
+    int i;
+    StageObject *obj;
+    StageQuad *quad;
+
+    this->data = (StageData *)OpenPath(dataPath, NULL, 0);
+    if (this->data == NULL)
+    {
+        LogPrintf(&g_Log, "ステージデータが見つかりません。データが壊れています\r\n");
+        return -1;
+    }
+    this->objectCount = this->data->objectCount;
+    this->quadCount = this->data->quadCount;
+    this->instances = (StageInstance *)(this->data->instancesOffset + (int)this->data);
+    this->script = (StageInstr *)(this->data->scriptOffset + (int)this->data);
+    this->objects = (StageObject **)((char *)this->data + 0x490);
+    for (i = 0; i < this->objectCount; i++)
+    {
+        this->objects[i] = (StageObject *)((int)this->objects[i] + (int)this->data);
+    }
+    this->sprites = (Sprite *)g_MemoryManager.Alloc(this->quadCount * sizeof(Sprite), "bgscroll");
+    for (i = 0, count = 0; i < this->objectCount; i++)
+    {
+        obj = this->objects[i];
+        obj->flags = 1;
+        quad = obj->quads;
+        while (quad->type >= 0)
+        {
+            this->anm->StartScriptAtOrigin(&this->sprites[count], quad->script);
+            quad->spriteIndex = count;
+            count++;
+            quad = (StageQuad *)((char *)quad + quad->size);
+        }
+    }
+    return 0;
+}
+
 int Stage::OnDraw(Stage *stage)
 {
     D3DCOLOR color;

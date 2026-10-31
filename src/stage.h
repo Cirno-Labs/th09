@@ -116,6 +116,10 @@ public:
     // (priority 8 + `sideIdx`) and draw elements (6 + `sideIdx` and 8 +
     // `sideIdx`). Returns it, or NULL if adding fails (0x403ae0).
     static Stage *RegisterChain(int sideIdx);
+    // Loads the stage data from `dataPath` and starts the background
+    // sprites' scripts, as th08's, always loading the data anew and
+    // without colorScaleSprite (0x402570). Returns 0, or -1 on failure.
+    int Load(char *dataPath);
     // Draws background layer `layer` (0x4026c0).
     void DrawLayer(int layer);
     // Jumps the script to the label waitLabel, if set, as th08's

@@ -47,7 +47,7 @@ address,size,name,symbol
 0x00402350,377,Stage::OnUpdate,?OnUpdate@Stage@@SIHPAV1@@Z
 0x004024d0,85,Stage::DeletedCallback,?DeletedCallback@Stage@@SIHPAV1@@Z
 0x00402530,59,Stage::RemoveChain,?RemoveChain@Stage@@SIXPAV1@@Z
-0x00402570,314,Func402570,
+0x00402570,321,Stage::Load,?Load@Stage@@QAEHPAD@Z
 0x004026c0,3274,Stage::DrawLayer,?DrawLayer@Stage@@QAEXH@Z
 0x00403390,12,Timer::Timer,??0Timer@@QAE@XZ
 0x004033a0,62,SpriteBase::SpriteBase,??0SpriteBase@@QAE@XZ
