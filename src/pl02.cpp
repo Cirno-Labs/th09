@@ -37,3 +37,14 @@ int ShotFire4423d0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
     return 0;
 }
 
+// The free callback of extra attack type 4: frees the data block, which
+// its init allocates apart from the sprites. Returns 0 (0x442ec0).
+int ExAttackFree442ec0(ExAttack *attack)
+{
+    if (attack->data != NULL)
+    {
+        g_MemoryManager.Free(attack->data);
+    }
+    attack->data = NULL;
+    return 0;
+}
