@@ -611,6 +611,9 @@ public:
     // Releases the surfaces before the device is reset, as th08's
     // (0x42d2f0).
     void ReleaseSurfaces();
+    // Runs the pending copies of the back buffer to a texture and to a
+    // surface, as th08's (0x42d320).
+    void DoPendingCopy();
     // Copies a rectangle of the back buffer to one of the first texture
     // of the ANM file in slot `texture`, as th08's (0x43c200).
     void CopyBackBufferToTexture(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight, int dstLeft,
@@ -739,7 +742,15 @@ public:
     VertexTex1DiffuseXyzrwh *batchStart;
     // -1 at first, as th08's pendingTexCopyTexture.
     int pendingTexCopyTexture;
-    unsigned char pad_2b28f4[0x2b2914 - 0x2b28f4];
+    // The rest of the parameters of the copies, as th08's.
+    int pendingTexCopySrcLeft;
+    int pendingTexCopySrcTop;
+    int pendingTexCopySrcWidth;
+    int pendingTexCopySrcHeight;
+    int pendingTexCopyDstLeft;
+    int pendingTexCopyDstTop;
+    int pendingTexCopyDstWidth;
+    int pendingTexCopyDstHeight;
     int pendingCopySrcLeft;
     int pendingCopySrcTop;
     int pendingCopySrcWidth;

@@ -133,6 +133,26 @@ void SpriteEngine::ReleaseSurfaces()
     }
 }
 
+void SpriteEngine::DoPendingCopy()
+{
+    if (this->pendingTexCopyTexture >= 0)
+    {
+        this->CopyBackBufferToTexture(this->pendingTexCopyTexture, this->pendingTexCopySrcLeft,
+                                      this->pendingTexCopySrcTop, this->pendingTexCopySrcWidth,
+                                      this->pendingTexCopySrcHeight, this->pendingTexCopyDstLeft,
+                                      this->pendingTexCopyDstTop, this->pendingTexCopyDstWidth,
+                                      this->pendingTexCopyDstHeight);
+        this->pendingTexCopyTexture = -1;
+    }
+    if (this->pendingCopyTexture >= 0)
+    {
+        this->CopyBackBufferToSurface(this->pendingCopyTexture, this->pendingCopySrcLeft, this->pendingCopySrcTop,
+                                      this->pendingCopySrcWidth, this->pendingCopySrcHeight, this->pendingCopyDstLeft,
+                                      this->pendingCopyDstTop, this->pendingCopyDstWidth, this->pendingCopyDstHeight);
+        this->pendingCopyTexture = -1;
+    }
+}
+
 int ChecksumExecutable()
 {
     char exePath[0x105];
