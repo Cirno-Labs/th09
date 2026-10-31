@@ -973,7 +973,7 @@ address,size,name,symbol
 0x004418b0,95,PlayerEnemyFunc4418b0,?PlayerEnemyFunc4418b0@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00441910,344,ExAttackInit441910,?ExAttackInit441910@@YIHPAUExAttack@@@Z
 0x00441a70,137,ExAttackUpdate441a70,?ExAttackUpdate441a70@@YIHPAUExAttack@@@Z
-0x00441b00,100,Func441b00,
+0x00441b00,100,PlayerComboFunc441b00,?PlayerComboFunc441b00@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00441b70,75,SpellCardInit441b70,?SpellCardInit441b70@@YIHPAVSpellCard@@@Z
 0x00441bc0,23,SpellCardUpdate441bc0,?SpellCardUpdate441bc0@@YIHPAVSpellCard@@@Z
 0x00441be0,75,SpellCardInit441be0,?SpellCardInit441be0@@YIHPAVSpellCard@@@Z
@@ -2309,7 +2309,7 @@ address,size,name,symbol
 0x004a1128,,g_Unknown4a1128,?g_Unknown4a1128@@3PAHA
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
 0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
-0x004a19d0,,g_CharacterFuncs9d0,?g_CharacterFuncs9d0@@3PAP6IHPAVPlayer@@@ZA
+0x004a19d0,,g_CharacterFuncs9d0,?g_CharacterFuncs9d0@@3PAP6IHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@ZA
 0x004a1a50,,g_CharacterFuncsA50,?g_CharacterFuncsA50@@3PAP6IHPAVPlayer@@PAUD3DXVECTOR3@@@ZA
 0x004a1a90,,g_CharacterFuncsA90,?g_CharacterFuncsA90@@3PAP6IHPAVPlayer@@PAUEnemy@@@ZA
 0x004a1ad0,,g_CharacterValuesAd0,?g_CharacterValuesAd0@@3PAHA

@@ -134,6 +134,8 @@ typedef int (*PlayerFunc)(Player *player);
 typedef int (*PlayerPosFunc)(Player *player, D3DXVECTOR3 *pos);
 // A character's function that the ECL runs on an enemy.
 typedef int (*PlayerEnemyFunc)(Player *player, struct Enemy *enemy);
+// A character's function that a combo hit at `pos` runs.
+typedef int (*PlayerComboFunc)(struct PlayerUnknown30410 *combo, D3DXVECTOR3 *pos);
 struct ShotData;
 
 // A shot's callbacks, as th08's. Under /Gr these are __fastcall.
@@ -216,7 +218,9 @@ struct PlayerUnknown30410
     int bonus;
     Timer timer14;
     Timer timer20;
-    unsigned char pad_2c[0x38 - 0x2c];
+    unsigned char pad_2c[0x34 - 0x2c];
+    // What the character's unknown30450 spends on extra attacks.
+    int unknown34;
     int unknown38;
     int unknown3c;
 };
@@ -461,7 +465,7 @@ public:
     unsigned char pad_3040c[0x30410 - 0x3040c];
     PlayerUnknown30410 unknown30410;
     // The character's function from the table at 0x4a19d0.
-    PlayerFunc unknown30450;
+    PlayerComboFunc unknown30450;
     PlayerUnknown30454 unknown30454[4];
     unsigned char pad_30f64[0x30f70 - 0x30f64];
 };
@@ -559,7 +563,7 @@ extern ShotHitFunc g_ShotHitFuncs[4];
 // Each character's values and functions the player keeps (0x4a19d0,
 // 0x4a1a50, 0x4a1a90, 0x4a1ad0, 0x4a1b10, 0x4a1b50, 0x4a1b90,
 // 0x4a1bd0).
-extern PlayerFunc g_CharacterFuncs9d0[16];
+extern PlayerComboFunc g_CharacterFuncs9d0[16];
 extern PlayerPosFunc g_CharacterFuncsA50[16];
 extern PlayerEnemyFunc g_CharacterFuncsA90[16];
 extern int g_CharacterValuesAd0[16];

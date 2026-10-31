@@ -110,6 +110,19 @@ int ExAttackUpdate441a70(ExAttack *attack)
     return 0;
 }
 
+// The unknown30450 of character 1: while unknown34 reaches
+// (40 - unknownB4) * 3, sends an extra attack of type 2 from `pos` and
+// takes (30 - unknownB4) * 4 off it. Returns 0 (0x441b00).
+int PlayerComboFunc441b00(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
+{
+    while (combo->unknown34 >= (40 - g_GameManager.unknownB4) * 3)
+    {
+        g_GameManager.exAttackManager->AddAttack(2, pos, combo->player->sideIdx, NULL);
+        combo->unknown34 -= (30 - g_GameManager.unknownB4) * 4;
+    }
+    return 0;
+}
+
 // The init callbacks of spell card types 3 and 4, pl00's for types 0 and
 // 1 (0x441b70, 0x441be0).
 int SpellCardInit441b70(SpellCard *card)
