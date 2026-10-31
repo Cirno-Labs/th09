@@ -546,8 +546,8 @@ address,size,name,symbol
 0x0042ac00,36,ChainElem::~ChainElem,??1ChainElem@@QAE@XZ
 0x0042ac30,18,Chain::Chain,??0Chain@@QAE@XZ
 0x0042ac50,33,ChainElem::`scalar deleting destructor',??_GChainElem@@QAEPAXI@Z
-0x0042ac80,37,Func42ac80,
-0x0042acb0,47,Func42acb0,
+0x0042ac80,37,SetButtonFromDirectInput,?SetButtonFromDirectInput@@YIHPAGFGPAE@Z
+0x0042acb0,47,SetButtonFromJoystick,?SetButtonFromJoystick@@YIHPAGFGK@Z
 0x0042ace0,131,Func42ace0,
 0x0042ad70,65,ResetKeyboard,?ResetKeyboard@@YIXXZ
 0x0042adc0,90,GetDataPath,?GetDataPath@@YGPADPAD@Z
@@ -568,7 +568,7 @@ address,size,name,symbol
 0x0042b270,143,Chain::AddToDrawChain,?AddToDrawChain@Chain@@QAEHPAUChainElem@@H@Z
 0x0042b300,71,Chain::CreateElem,?CreateElem@Chain@@QAEPAUChainElem@@P6IHPAX@Z@Z
 0x0042b350,188,Chain::RemoveLocked,?RemoveLocked@Chain@@QAEXPAUChainElem@@@Z
-0x0042b410,808,Func42b410,
+0x0042b410,808,ReadPad,?ReadPad@@YIGHHG@Z
 0x0042b740,259,GetPadButtons,?GetPadButtons@@YIPAEH@Z
 0x0042b850,1507,ReadInput,?ReadInput@@YIGH@Z
 0x0042be40,819,Func42be40,

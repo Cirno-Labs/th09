@@ -173,6 +173,11 @@ WORD InitJoystick();
 // The joysticks' capabilities, from joyGetDevCaps (0x4ac8d8).
 extern JOYCAPSA g_JoyCaps[2];
 
+// Adds what pad `pad` (0 or 1) has down to `buttons` by
+// g_PlayerInputs[input]'s first mapping, and the stick as the
+// directions, as th08's ReadJoystick for one pad; joyGetPosEx reads it
+// unless both DirectInput pads are there (0x42b410).
+WORD ReadPad(int input, int pad, WORD buttons);
 // Player `player`'s pad buttons, 0x80 for each one down, as th08's
 // GetPadButtons: through DirectInput, or joyGetPosEx when the player
 // has no DirectInput pad (0x42b740). Returns g_PadButtons.

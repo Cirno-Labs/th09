@@ -489,6 +489,101 @@ found:
     }
 }
 
+static int SetButtonFromDirectInput(WORD *buttons, short button, WORD bit, BYTE *rgbButtons)
+{
+    if (button < 0)
+    {
+        return 0;
+    }
+    *buttons |= (rgbButtons[button] & 0x80) ? bit : 0;
+    return (rgbButtons[button] & 0x80) ? bit : 0;
+}
+
+static int SetButtonFromJoystick(WORD *buttons, short button, WORD bit, DWORD joyButtons)
+{
+    if (button < 0)
+    {
+        return 0;
+    }
+    DWORD mask = 1 << button;
+    *buttons |= (joyButtons & mask) ? bit : 0;
+    return (joyButtons & mask) ? bit : 0;
+}
+
+WORD ReadPad(int input, int pad, WORD buttons)
+{
+    JOYINFOEX joyInfo;
+    DWORD margin;
+    HRESULT hr;
+    DIJOYSTATE2 state;
+    PlayerInput *playerInput;
+    int retries;
+
+    playerInput = &g_PlayerInputs[input];
+    if (g_App.joystick == NULL || g_App.joystick2 == NULL)
+    {
+        memset(&joyInfo, 0, sizeof(joyInfo));
+        joyInfo.dwSize = sizeof(joyInfo);
+        joyInfo.dwFlags = JOY_RETURNALL;
+        if (joyGetPosEx(pad != 0, &joyInfo) != JOYERR_NOERROR)
+        {
+            return buttons;
+        }
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].shootButton, 1, joyInfo.dwButtons);
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].bombButton, 2, joyInfo.dwButtons);
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].focusButton, 4, joyInfo.dwButtons);
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].menuButton, 8, joyInfo.dwButtons);
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].upButton, 0x10, joyInfo.dwButtons);
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].downButton, 0x20, joyInfo.dwButtons);
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].leftButton, 0x40, joyInfo.dwButtons);
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].rightButton, 0x80, joyInfo.dwButtons);
+        SetButtonFromJoystick(&buttons, playerInput->mappings[0].skipButton, 0x100, joyInfo.dwButtons);
+        margin = (g_JoyCaps[pad].wXmax - g_JoyCaps[pad].wXmin) / 2 / 2;
+        buttons |= ((g_JoyCaps[pad].wXmin + g_JoyCaps[pad].wXmax) / 2 + margin < joyInfo.dwXpos) ? 0x80 : 0;
+        buttons |= (joyInfo.dwXpos < (g_JoyCaps[pad].wXmin + g_JoyCaps[pad].wXmax) / 2 - margin) ? 0x40 : 0;
+        margin = (g_JoyCaps[pad].wYmax - g_JoyCaps[pad].wYmin) / 2 / 2;
+        buttons |= ((g_JoyCaps[pad].wYmin + g_JoyCaps[pad].wYmax) / 2 + margin < joyInfo.dwYpos) ? 0x20 : 0;
+        buttons |= (joyInfo.dwYpos < (g_JoyCaps[pad].wYmin + g_JoyCaps[pad].wYmax) / 2 - margin) ? 0x10 : 0;
+        return buttons;
+    }
+    hr = g_App.joysticks[pad]->Poll();
+    if (FAILED(hr))
+    {
+        retries = 0;
+        hr = g_App.joysticks[pad]->Acquire();
+        while (hr == DIERR_INPUTLOST)
+        {
+            hr = g_App.joysticks[pad]->Acquire();
+            retries++;
+            if (retries >= 400)
+            {
+                return buttons;
+            }
+        }
+        return buttons;
+    }
+    memset(&state, 0, sizeof(state));
+    hr = g_App.joysticks[pad]->GetDeviceState(sizeof(DIJOYSTATE2), &state);
+    if (FAILED(hr))
+    {
+        return buttons;
+    }
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].shootButton, 1, state.rgbButtons);
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].bombButton, 2, state.rgbButtons);
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].focusButton, 4, state.rgbButtons);
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].menuButton, 8, state.rgbButtons);
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].upButton, 0x10, state.rgbButtons);
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].downButton, 0x20, state.rgbButtons);
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].leftButton, 0x40, state.rgbButtons);
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].rightButton, 0x80, state.rgbButtons);
+    SetButtonFromDirectInput(&buttons, playerInput->mappings[0].skipButton, 0x100, state.rgbButtons);
+    buttons |= (state.lX > g_App.config.padThresholdX) ? 0x80 : 0;
+    buttons |= (state.lX < -g_App.config.padThresholdX) ? 0x40 : 0;
+    buttons |= (state.lY > g_App.config.padThresholdY) ? 0x20 : 0;
+    buttons |= (state.lY < -g_App.config.padThresholdY) ? 0x10 : 0;
+    return buttons;
+}
+
 BYTE *GetPadButtons(int player)
 {
     JOYINFOEX joyInfo;
