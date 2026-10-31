@@ -342,3 +342,44 @@ int ExAttackInit44b220(ExAttack *attack)
     }
     return 0;
 }
+
+// The draw callback of extra attack types 19 and 21: once the attack
+// has landed, the disc as a textured fan through its points, the centre
+// at its sprite's alpha and the rim in light red, closed on the first
+// rim point. Clears unknown684. Returns 0 (0x44b940).
+int ExAttackDraw44b940(ExAttack *attack)
+{
+    ExAttackData19 *data = (ExAttackData19 *)attack->data;
+
+    if (data->base.state >= 1)
+    {
+        BYTE alpha = attack->sprites->alpha;
+        VertexTex1DiffuseXyzrwh *vtx = data->vertices;
+        float angle = -3.1415927f;
+        int i;
+
+        vtx->pos = data->points[0];
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->diffuse = (alpha << 24) | 0xffffff;
+        vtx++;
+        for (i = 1; i < 0x20; i++)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            vtx->pos.z = 0.0f;
+            vtx->pos = data->points[i];
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->diffuse = 0x8080ff;
+            vtx++;
+            angle += 0.2026834f;
+        }
+        *vtx = data->vertices[1];
+        g_SpriteEngine->DrawVertexFan(attack->sprites, data->vertices, 0x21);
+    }
+    data->unknown684 = 0;
+    return 0;
+}
