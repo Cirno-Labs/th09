@@ -4,6 +4,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sprite.h"
 #include "unsorted.h"
 
 // The update callback of effect type 32: shrinks unknown7c by 32 down
@@ -87,6 +88,44 @@ int EffectInit44aff0(Effect *effect)
     effect->unknown7c = 640.0f;
     effect->unknownC9 = 1;
     return 0;
+}
+
+// The draw callback of effect type 32: EffectDraw4414a0's fan, drawn only if unknownC9 is set
+// (0x44b090).
+int EffectDraw44b090(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        float delta = 6.2831855f / (effect->unknown8c - 1);
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        float angle = -3.1415927f;
+        int i;
+
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x40600040;
+        vtx++;
+        for (i = effect->unknown8c; i > 0; i--)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            vtx->pos.z = 0.0f;
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x70600040;
+            vtx++;
+            angle += delta;
+        }
+        g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    }
+    return 1;
 }
 
 // The update callback of effect type 33: grows unknown7c by 16 up to 96,
