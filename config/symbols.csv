@@ -2346,6 +2346,8 @@ address,size,name,symbol
 0x004a1dac,,g_ScoreCharacters,?g_ScoreCharacters@@3PADA
 0x004a1dbc,,g_MusicNotHeardComment,?g_MusicNotHeardComment@@3PAPADA
 0x004a1ddc,,g_OptionsHelpTexts,?g_OptionsHelpTexts@@3PAPADA
+0x004a1e00,,g_LastPressedKey,?g_LastPressedKey@@3FA
+0x004a1e04,,g_KeyConfigHelpTexts,?g_KeyConfigHelpTexts@@3PAPADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA

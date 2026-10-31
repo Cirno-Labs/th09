@@ -31,6 +31,10 @@ extern char *g_ScoreRankNames[5];
 
 // The help lines of the options' nine entries (0x4a1ddc).
 extern char *g_OptionsHelpTexts[9];
+// The help lines of the key config's ten entries (0x4a1e04), and the
+// pad button the key config last saw pressed (0x4a1e00).
+extern char *g_KeyConfigHelpTexts[10];
+extern short g_LastPressedKey;
 // The comment the music room shows for a tune not heard yet (0x4a1dbc).
 extern char *g_MusicNotHeardComment[8];
 // The characters of states 3 and 5's character select, in its order
@@ -210,6 +214,10 @@ public:
     // colour depth, the music, the two volumes and the window, the
     // defaults, the key config (state 10) and leaving, which returns 5
     // when the colour depth or the window changed.
+    // UpdateState10 is the key config, th08's UpdateKeyConfig for the
+    // player unknownC920: the pad, unknownB4 and shoot, bomb, focus,
+    // skip and menu, which only the joysticks set; saving copies the
+    // mappings to the config and the inputs.
     // UpdateState12 is the music room, th08's music screen: it reads
     // musiccmt.txt into tunes, lists ten tunes from listTop, shows the
     // playing one's comment a line every two frames and plays, pauses
@@ -325,7 +333,8 @@ public:
     int entryCount;
     ChainElem *calcChain;
     ChainElem *drawChain;
-    unsigned char pad_1b250[0x1b2bc - 0x1b250];
+    // The key config's copy of the config's mappings.
+    ControllerMapping mappings[2][3];
     GameConfig config;
 };
 ASSERT_SIZE(MainMenu, 0x1b388);

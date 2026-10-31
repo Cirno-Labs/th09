@@ -2650,6 +2650,356 @@ int MainMenu::UpdateState9()
     return 1;
 }
 
+int MainMenu::UpdateState10()
+{
+    int i;
+    int delta;
+    Sprite *digit;
+    BYTE *pad;
+    short key;
+
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 4);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            this->entryFirst = 0x25;
+            this->entryCount = 10;
+            this->SelectCursorEntry();
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->unknownC918 = 1;
+            memcpy(this->mappings, g_App.config.mappings, sizeof(this->mappings));
+            this->ShowEntryFrame(this->unknownC920, 0x2f);
+            this->ShowEntryFrame(g_App.config.pads[this->unknownC920], 0x30);
+            this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x31);
+            digit = &this->sprites[50];
+            this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].shootButton);
+            digit += 2;
+            this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].bombButton);
+            digit += 2;
+            this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].focusButton);
+            digit += 2;
+            this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].skipButton);
+            digit += 2;
+            this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].menuButton);
+            this->prevCursor = -1;
+        }
+        this->subState = 1;
+        for (i = 0; i < ARRAY_SIZE(g_KeyConfigHelpTexts); i++)
+        {
+            g_SpriteEngine->RenderTextCentered(&this->helpSprites[i], 0xfff0e0, 0x300000, g_KeyConfigHelpTexts[i]);
+        }
+    case 1:
+        if ((delta = this->MoveCursor(10)) != 0)
+        {
+            if (g_App.config.pads[this->unknownC920] >= 2)
+            {
+                while (this->cursor >= 3 && this->cursor <= 7)
+                {
+                    this->cursor += delta;
+                }
+            }
+            this->SelectCursorEntry();
+        }
+        if (this->prevCursor != this->cursor)
+        {
+            this->helpSprite = &this->helpSprites[this->cursor];
+            this->helpSprite->SetPendingInterrupt(1);
+        }
+        this->prevCursor = this->cursor;
+        digit = &this->sprites[50];
+        this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].shootButton);
+        digit += 2;
+        this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].bombButton);
+        digit += 2;
+        this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].focusButton);
+        digit += 2;
+        this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].skipButton);
+        digit += 2;
+        this->ShowButtonDigits(digit, this->mappings[this->unknownC920][0].menuButton);
+        if (g_App.config.pads[this->unknownC920] < 2)
+        {
+            pad = GetPadButtons(g_App.config.pads[this->unknownC920]);
+            for (key = 0; key < 0x20; key++)
+            {
+                if (pad[key] & 0x80)
+                {
+                    break;
+                }
+            }
+            if (key < 0x20 && g_LastPressedKey != key)
+            {
+                switch (this->cursor)
+                {
+                case 3:
+                    this->ReassignButton(&this->mappings[this->unknownC920][0], key,
+                                         this->mappings[this->unknownC920][0].shootButton, 1);
+                    this->mappings[this->unknownC920][0].shootButton = key;
+                    break;
+                case 4:
+                    this->ReassignButton(&this->mappings[this->unknownC920][0], key,
+                                         this->mappings[this->unknownC920][0].bombButton, 0);
+                    this->mappings[this->unknownC920][0].bombButton = key;
+                    break;
+                case 5:
+                    this->ReassignButton(&this->mappings[this->unknownC920][0], key,
+                                         this->mappings[this->unknownC920][0].focusButton, 1);
+                    this->mappings[this->unknownC920][0].focusButton = key;
+                    break;
+                case 6:
+                    this->ReassignButton(&this->mappings[this->unknownC920][0], key,
+                                         this->mappings[this->unknownC920][0].skipButton, 0);
+                    this->mappings[this->unknownC920][0].skipButton = key;
+                    break;
+                case 7:
+                    this->ReassignButton(&this->mappings[this->unknownC920][0], key,
+                                         this->mappings[this->unknownC920][0].menuButton, 0);
+                    this->mappings[this->unknownC920][0].menuButton = key;
+                    break;
+                default:
+                    goto assigned;
+                }
+                this->PlaySoundNow(10, 0);
+            }
+        assigned:
+            g_LastPressedKey = key;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x40))
+        {
+            switch (this->cursor)
+            {
+            case 0:
+                this->unknownC920 = 1 - this->unknownC920;
+                this->ShowEntryFrame(this->unknownC920, 0x2f);
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x31);
+                this->ShowEntryFrame(g_App.config.pads[this->unknownC920], 0x30);
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x2a);
+                if (g_App.config.pads[this->unknownC920] >= 2)
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xff606060;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xff606060;
+                    }
+                }
+                else
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xffffffff;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xffffffff;
+                    }
+                }
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                break;
+            case 1:
+                do
+                {
+                    if (g_App.config.pads[this->unknownC920] <= 0)
+                    {
+                        g_App.config.pads[this->unknownC920] += 5;
+                    }
+                    g_App.config.pads[this->unknownC920]--;
+                } while (g_App.config.pads[1 - this->unknownC920] == 1 && g_App.config.pads[this->unknownC920] == 1 ||
+                       g_App.config.pads[1 - this->unknownC920] == 0 && g_App.config.pads[this->unknownC920] == 0 ||
+                       g_App.config.pads[1 - this->unknownC920] == 2 &&
+                           (g_App.config.pads[this->unknownC920] == 2 || g_App.config.pads[this->unknownC920] == 3 ||
+                            g_App.config.pads[this->unknownC920] == 4) ||
+                       g_App.config.pads[1 - this->unknownC920] == 3 &&
+                           (g_App.config.pads[this->unknownC920] == 2 || g_App.config.pads[this->unknownC920] == 3) ||
+                       g_App.config.pads[1 - this->unknownC920] == 4 &&
+                           (g_App.config.pads[this->unknownC920] == 2 || g_App.config.pads[this->unknownC920] == 4));
+                this->ShowEntryFrame(g_App.config.pads[this->unknownC920], 0x30);
+                if (g_App.config.pads[this->unknownC920] >= 2)
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xff606060;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xff606060;
+                    }
+                }
+                else
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xffffffff;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xffffffff;
+                    }
+                }
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                break;
+            case 2:
+                if (g_App.config.unknownB4[this->unknownC920] <= 0)
+                {
+                    g_App.config.unknownB4[this->unknownC920] += 2;
+                }
+                g_App.config.unknownB4[this->unknownC920]--;
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x31);
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x2a);
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                break;
+            default:
+                break;
+            }
+        }
+        if (g_PlayerInputs[2].IsPressed(0x80))
+        {
+            switch (this->cursor)
+            {
+            case 0:
+                this->unknownC920 = 1 - this->unknownC920;
+                this->ShowEntryFrame(this->unknownC920, 0x2f);
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x31);
+                this->ShowEntryFrame(g_App.config.pads[this->unknownC920], 0x30);
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x2a);
+                if (g_App.config.pads[this->unknownC920] >= 2)
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xff606060;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xff606060;
+                    }
+                }
+                else
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xffffffff;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xffffffff;
+                    }
+                }
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                break;
+            case 1:
+                do
+                {
+                    g_App.config.pads[this->unknownC920]++;
+                    if (g_App.config.pads[this->unknownC920] >= 5)
+                    {
+                        g_App.config.pads[this->unknownC920] -= 5;
+                    }
+                } while (g_App.config.pads[1 - this->unknownC920] == 1 && g_App.config.pads[this->unknownC920] == 1 ||
+                       g_App.config.pads[1 - this->unknownC920] == 0 && g_App.config.pads[this->unknownC920] == 0 ||
+                       g_App.config.pads[1 - this->unknownC920] == 2 &&
+                           (g_App.config.pads[this->unknownC920] == 2 || g_App.config.pads[this->unknownC920] == 3 ||
+                            g_App.config.pads[this->unknownC920] == 4) ||
+                       g_App.config.pads[1 - this->unknownC920] == 3 &&
+                           (g_App.config.pads[this->unknownC920] == 2 || g_App.config.pads[this->unknownC920] == 3) ||
+                       g_App.config.pads[1 - this->unknownC920] == 4 &&
+                           (g_App.config.pads[this->unknownC920] == 2 || g_App.config.pads[this->unknownC920] == 4));
+                this->ShowEntryFrame(g_App.config.pads[this->unknownC920], 0x30);
+                if (g_App.config.pads[this->unknownC920] >= 2)
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xff606060;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xff606060;
+                    }
+                }
+                else
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xffffffff;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xffffffff;
+                    }
+                }
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                break;
+            case 2:
+                g_App.config.unknownB4[this->unknownC920]++;
+                if (g_App.config.unknownB4[this->unknownC920] >= 2)
+                {
+                    g_App.config.unknownB4[this->unknownC920] -= 2;
+                }
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x31);
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x2a);
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                break;
+            default:
+                break;
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            switch (this->cursor)
+            {
+            case 8:
+                this->PlaySoundNow(10, 0);
+                memcpy(this->mappings, g_App.config.mappings, sizeof(this->mappings));
+                g_App.config.unknownB4[this->unknownC920] = 0;
+                g_App.config.pads[this->unknownC920] = this->unknownC920;
+                this->ShowEntryFrame(this->unknownC920, 0x2f);
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x31);
+                this->ShowEntryFrame(g_App.config.pads[this->unknownC920], 0x30);
+                this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x2a);
+                if (g_App.config.pads[this->unknownC920] >= 2)
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xff606060;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xff606060;
+                    }
+                }
+                else
+                {
+                    for (i = 0; i < 5; i++)
+                    {
+                        this->sprites[i + 40].color = 0xffffffff;
+                    }
+                    for (i = 0; i < 10; i++)
+                    {
+                        this->sprites[i + 50].color = 0xffffffff;
+                    }
+                }
+                break;
+            case 9:
+                this->PlaySoundNow(11, 0);
+                this->SetState(9);
+                memcpy(g_App.config.mappings, this->mappings, sizeof(this->mappings));
+                g_PlayerInputs[0].mappings[0] = g_App.config.mappings[0][0];
+                g_PlayerInputs[1].mappings[0] = g_App.config.mappings[1][0];
+                this->cursor = 7;
+                return 1;
+            }
+        }
+    }
+    this->unknownC910++;
+    this->stateFrames++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState13()
 {
     int i;

@@ -475,12 +475,12 @@ struct GameConfig
     // How many frames to skip drawing, as th08's.
     BYTE frameSkip;
     BYTE unknownB3;
-    BYTE unknownB4;
-    BYTE unknownB5;
-    BYTE unknownB6;
-    BYTE unknownB7;
-    BYTE unknownB8;
-    BYTE unknownB9;
+    // By player; the key config switches each between 0 and 1.
+    BYTE unknownB4[3];
+    // The pad each player's keys are read from: 0 and 1 are the
+    // joysticks (GetPadButtons), 2 to 4 keyboard layouts; the two
+    // players' cannot clash.
+    BYTE pads[3];
     char bgmVolume;
     char seVolume;
     unsigned char pad_bc[0xc8 - 0xbc];

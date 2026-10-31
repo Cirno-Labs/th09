@@ -137,12 +137,12 @@ void GameConfig::SetDefaults()
     this->unknownB3 = 2;
     this->bgmVolume = 100;
     this->seVolume = 80;
-    this->unknownB4 = 0;
-    this->unknownB5 = 0;
-    this->unknownB6 = 0;
-    this->unknownB7 = 0;
-    this->unknownB8 = 1;
-    this->unknownB9 = 2;
+    this->unknownB4[0] = 0;
+    this->unknownB4[1] = 0;
+    this->unknownB4[2] = 0;
+    this->pads[0] = 0;
+    this->pads[1] = 1;
+    this->pads[2] = 2;
 }
 
 void App::ResetSubThread()
