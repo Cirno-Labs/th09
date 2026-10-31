@@ -958,7 +958,7 @@ address,size,name,symbol
 0x00440e40,355,ExAttackInit440e40,?ExAttackInit440e40@@YIHPAUExAttack@@@Z
 0x00440fb0,326,ExAttackInit440fb0,?ExAttackInit440fb0@@YIHPAUExAttack@@@Z
 0x00441100,475,ExAttackUpdate441100,?ExAttackUpdate441100@@YIHPAUExAttack@@@Z
-0x004412e0,101,Func4412e0,
+0x004412e0,101,PlayerComboFunc4412e0,?PlayerComboFunc4412e0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00441350,75,SpellCardInit441350,?SpellCardInit441350@@YIHPAVSpellCard@@@Z
 0x004413a0,38,SpellCardFree4413a0,?SpellCardFree4413a0@@YIHPAVSpellCard@@@Z
 0x004413d0,75,SpellCardInit4413d0,?SpellCardInit4413d0@@YIHPAVSpellCard@@@Z
@@ -995,7 +995,7 @@ address,size,name,symbol
 0x00442a60,368,Func442a60,
 0x00442bd0,739,Func442bd0,
 0x00442ec0,32,ExAttackFree442ec0,?ExAttackFree442ec0@@YIHPAUExAttack@@@Z
-0x00442ee0,97,Func442ee0,
+0x00442ee0,97,PlayerComboFunc442ee0,?PlayerComboFunc442ee0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00442f50,187,Func442f50,
 0x00443010,311,Func443010,
 0x00443150,248,Func443150,

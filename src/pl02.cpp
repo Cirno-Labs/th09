@@ -48,3 +48,16 @@ int ExAttackFree442ec0(ExAttack *attack)
     attack->data = NULL;
     return 0;
 }
+
+// The unknown30450 of character 2: while unknown34 reaches
+// (45 - unknownB4) * 2, sends an extra attack of type 3 from `pos` and
+// takes as much off it. Returns 0 (0x442ee0).
+int PlayerComboFunc442ee0(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
+{
+    while (combo->unknown34 >= (45 - g_GameManager.unknownB4) * 2)
+    {
+        g_GameManager.exAttackManager->AddAttack(3, pos, combo->player->sideIdx, NULL);
+        combo->unknown34 -= (45 - g_GameManager.unknownB4) * 2;
+    }
+    return 0;
+}
