@@ -184,6 +184,105 @@ int ExAttackUpdate443df0(ExAttack *attack)
     return 0;
 }
 
+// The draw callback of extra attack types 14 and 22: once the disc has
+// burst, a fan of its radius in red about the attack and four line rings
+// around it, each pushed out by its offsets, fading out over 30 frames
+// once the rings scatter. Clears unknown4c. Returns 0 (0x444130).
+int ExAttackDraw444130(ExAttack *attack)
+{
+    ExAttackData14 *data = (ExAttackData14 *)attack->data;
+
+    if (data->base.state >= 2)
+    {
+        float angle = -3.1415927f;
+        VertexDiffuseXyzrwh *vtx;
+        BYTE alpha;
+        int i;
+        int j;
+
+        AddNormalizeAngle(angle, -1.5707964f);
+        vtx = data->fan;
+        if (data->base.state == 2)
+        {
+            alpha = 0xff;
+        }
+        else
+        {
+            alpha = 0xff - attack->timer.AsFrames() * 0xff / 30;
+        }
+        vtx->pos = attack->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = (alpha / 2 << 24) | 0xffffff;
+        vtx++;
+        for (i = 0; i < 0x20; i++)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            vtx->pos.z = 0.0f;
+            SetPolar((Vector2 *)&vtx->pos, angle, data->radius);
+            vtx->pos += attack->pos;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = (alpha << 24) | 0xff4040;
+            vtx++;
+            angle += 0.2026834f;
+        }
+        attack->sprites->color = 0xffffffff;
+        g_SpriteEngine->DrawColoredFan(attack->sprites, data->fan, 0x21);
+        g_SpriteEngine->FlushQuadBatch();
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_DIFFUSE);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_DIFFUSE);
+        g_App.d3dDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+        g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+        for (i = 0; i < 4; i++)
+        {
+            vtx = data->rings[i];
+            for (j = 0; j < 0x20; j++)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                vtx->pos.z = 0.0f;
+                SetPolar((Vector2 *)&vtx->pos, angle, data->offsets[i][j] + data->radius);
+                vtx->pos += attack->pos;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->diffuse = (alpha << 24) | 0xffffff;
+                vtx->w = 1.0f;
+                vtx++;
+                angle += 0.2026834f;
+            }
+            g_App.d3dDevice->SetVertexShader(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
+            g_App.d3dDevice->DrawPrimitiveUP(D3DPT_LINESTRIP, 0x1f, data->rings[i], sizeof(VertexDiffuseXyzrwh));
+            if (data->base.state == 1)
+            {
+                break;
+            }
+            angle += 0.05067085f;
+        }
+        g_SpriteEngine->ClearVertexFormat();
+        g_SpriteEngine->ClearSpriteData();
+        g_SpriteEngine->ClearTexture();
+        g_SpriteEngine->ClearColorOp();
+        g_SpriteEngine->ClearBlendMode();
+        g_SpriteEngine->ClearZWrite();
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+    }
+    data->unknown4c = 0;
+    return 0;
+}
+
 // The unknown30450 of character 4: while unknown34 reaches (28 -
 // unknownB4) * 5, sends an extra attack of type 14 from `pos` and
 // takes as much off it. Returns 0 (0x4444f0).
