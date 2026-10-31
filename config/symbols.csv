@@ -1111,7 +1111,7 @@ address,size,name,symbol
 0x0044c350,361,Func44c350,
 0x0044c4c0,446,Func44c4c0,
 0x0044c680,98,PlayerComboFunc44c680,?PlayerComboFunc44c680@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
-0x0044c6f0,151,Func44c6f0,
+0x0044c6f0,151,EffectInit44c6f0,?EffectInit44c6f0@@YIHPAUEffect@@@Z
 0x0044c790,972,Func44c790,
 0x0044e5a0,,DirectInput8Create,_DirectInput8Create@20
 0x0044e5a6,,DirectSoundCreate8,_DirectSoundCreate8@12
