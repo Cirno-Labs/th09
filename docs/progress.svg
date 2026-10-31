@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.36% (765)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.43% (294)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.46% (766)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.33% (293)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="533.07" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="533.07" y="0" class="decompiled"/>
-<rect width="204.87" height="6" x="542.13" y="0" class="todo"/>
+<rect width="533.77" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="533.77" y="0" class="decompiled"/>
+<rect width="204.17" height="6" x="542.83" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -655,7 +655,7 @@
 <rect width="12" height="12" x="510" y="165" class="named"><title>0x0042c970 OpenPath (355 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="165" class="named"><title>0x0042cae0 Chain::ReleaseList (241 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="165" class="named"><title>0x0042cbe0 Chain::Release (34 bytes)</title></rect>
-<rect width="12" height="12" x="555" y="165" class="todo"><title>0x0042cc10 Func42cc10 (25 bytes)</title></rect>
+<rect width="12" height="12" x="555" y="165" class="named"><title>0x0042cc10 Network::Network (25 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="165" class="todo"><title>0x0042cc30 Func42cc30 (33 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="165" class="todo"><title>0x0042cc60 Func42cc60 (33 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="165" class="named"><title>0x0042cc90 GameWindow::GetTime (123 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">40.09%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.19%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">40.10%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.18%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="299.46" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="299.46" y="0" class="decompiled"/>
-<rect width="442.16" height="6" x="304.84" y="0" class="todo"/>
+<rect width="299.52" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="299.52" y="0" class="decompiled"/>
+<rect width="442.09" height="6" x="304.91" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -2031,7 +2031,7 @@
 <rect width="1.46" height="1.79" x="710.56" y="284.17" class="named"><title>0x00401090 ModulateChannel (25 bytes)</title></rect>
 <rect width="1.46" height="1.79" x="715.02" y="284.17" class="named"><title>0x004014d0 Timer::Set (25 bytes)</title></rect>
 <rect width="1.46" height="1.79" x="719.49" y="284.17" class="named"><title>0x004234dd AsciiText::SetScale (25 bytes)</title></rect>
-<rect width="1.46" height="1.79" x="723.95" y="284.17" class="todo"><title>0x0042cc10 Func42cc10 (25 bytes)</title></rect>
+<rect width="1.46" height="1.79" x="723.95" y="284.17" class="named"><title>0x0042cc10 Network::Network (25 bytes)</title></rect>
 <rect width="1.46" height="1.79" x="728.41" y="284.17" class="named"><title>0x00433760 File::Tell (25 bytes)</title></rect>
 <rect width="1.28" height="1.79" x="732.87" y="284.17" class="named"><title>0x00404980 Gui::IsMsgRunning (24 bytes)</title></rect>
 <rect width="1.28" height="1.79" x="737.15" y="284.17" class="named"><title>0x004125e0 BulletManager::LoadAnm (24 bytes)</title></rect>

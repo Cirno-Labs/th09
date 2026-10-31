@@ -26,6 +26,8 @@ ASSERT_SIZE(NetPacket, 0xc);
 // Only what is known so far.
 struct Network
 {
+    // Zeroes the object and sets syncFrames to 60 (0x42cc10).
+    Network();
     // Reads IP.txt: the host name, the port, the sync mode and the side
     // (0x4324c0).
     void Init();

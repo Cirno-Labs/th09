@@ -586,7 +586,7 @@ address,size,name,symbol
 0x0042c970,355,OpenPath,?OpenPath@@YIPAXPADPAHH@Z
 0x0042cae0,241,Chain::ReleaseList,?ReleaseList@Chain@@QAEXPAUChainElem@@@Z
 0x0042cbe0,34,Chain::Release,?Release@Chain@@QAEXXZ
-0x0042cc10,25,Func42cc10,
+0x0042cc10,25,Network::Network,??0Network@@QAE@XZ
 0x0042cc30,33,Func42cc30,
 0x0042cc60,33,Func42cc60,
 0x0042cc90,123,GameWindow::GetTime,?GetTime@GameWindow@@QAENXZ

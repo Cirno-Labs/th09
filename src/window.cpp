@@ -8,9 +8,16 @@
 #include <shobjidl.h>
 
 #include "gamemanager.h"
+#include "network.h"
 #include "sprite.h"
 #include "stage.h"
 #include "unsorted.h"
+
+Network::Network()
+{
+    memset(this, 0, sizeof(Network));
+    this->syncFrames = 60;
+}
 
 double GameWindow::GetTime()
 {
