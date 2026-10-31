@@ -724,6 +724,78 @@ void SendExAttack24(Enemy *enemy, EclInstr *instr)
     g_GameManager.exAttackManager->AddAttack(24, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
+// Stops every bullet on both sides, points it at a random angle and
+// accelerates it after 60 frames by the context's floatVars[0], first
+// making the small ones of the side the enemy is on, and on the other
+// side every second small one turned to sprite 0 colour 15, look like
+// their type's next variant. The test for a height of exactly 16 is an
+// integer compare in the original (0x40c530).
+void ScatterBullets(Enemy *enemy, EclInstr *instr)
+{
+    Bullet *bullet;
+    int i;
+
+    bullet = enemy->manager->side->bulletManager->bullets;
+    for (i = 0; i < 0x218; i++, bullet++)
+    {
+        if (bullet->state == 0 || bullet->state == 6)
+        {
+            continue;
+        }
+        if (bullet->sprites.sprite0.spriteHeight <= 16.0f)
+        {
+            bullet->mgr->etamaAnm->SetSprite(&bullet->sprites.sprite0, bullet->sprites.unknownD44 + 0xf);
+        }
+        bullet->speed = 0.0f;
+        bullet->accelSpeed = 0.0f;
+        bullet->turnSpeed = 0.0f;
+        bullet->angle = g_Rng.GetRandomF32SignedInRange(3.1415927f);
+        bullet->angularVelocity = 0.0f;
+        bullet->turnAngle = 0.0f;
+        bullet->velocity.x = 0.0f;
+        bullet->velocity.y = 0.0f;
+        bullet->velocity.z = 0.0f;
+        bullet->ClearCommands();
+        bullet->SetCommand20000(0, 0, 0x3c);
+        bullet->SetAccelCommand(1, 0, 0x3c, enemy->currentCtx->floatVars[0], -999.0f);
+    }
+    bullet = enemy->manager->otherSide->bulletManager->bullets;
+    for (i = 0; i < 0x218; i++, bullet++)
+    {
+        if (bullet->state == 0 || bullet->state == 6)
+        {
+            continue;
+        }
+        if (bullet->sprites.sprite0.spriteHeight <= 16.0f && bullet->sprites.unknownD44 < 0x157)
+        {
+            bullet->mgr->etamaAnm->SetSprite(&bullet->sprites.sprite0, bullet->sprites.unknownD44 + 0xf);
+        }
+        bullet->speed = 0.0f;
+        bullet->accelSpeed = 0.0f;
+        bullet->turnSpeed = 0.0f;
+        bullet->angle = g_Rng.GetRandomF32SignedInRange(3.1415927f);
+        bullet->angularVelocity = 0.0f;
+        bullet->turnAngle = 0.0f;
+        bullet->velocity.x = 0.0f;
+        bullet->velocity.y = 0.0f;
+        bullet->velocity.z = 0.0f;
+        bullet->ClearCommands();
+        if (!(i & 1) && *(DWORD *)&bullet->sprites.sprite0.spriteHeight == 0x41800000)
+        {
+            bullet->sprite = 0;
+            bullet->SetSpriteCommand(0, 0, 0, 0xf);
+            bullet->SetCommand20000(1, 0, 0x3c);
+            bullet->SetAccelCommand(2, 0, 0x3c, enemy->currentCtx->floatVars[0], -999.0f);
+        }
+        else
+        {
+            bullet->SetCommand20000(0, 0, 0x3c);
+            bullet->SetAccelCommand(1, 0, 0x3c, enemy->currentCtx->floatVars[0], -999.0f);
+        }
+    }
+    g_SoundPlayer.PlaySoundByIdx(0x34, 0);
+}
+
 void SendExAttack10(Enemy *enemy, EclInstr *instr)
 {
     D3DXVECTOR3 pos;
