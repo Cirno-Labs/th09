@@ -160,7 +160,8 @@ public:
     Sprite backgroundLayer1;
     Sprite backgroundLayer2;
     AnmLoaded *anm;
-    unsigned char pad_81c[0x820 - 0x81c];
+    // The side's player ANM, slot sideIdx + 5.
+    AnmLoaded *playerAnm;
     // Freed by DeletedCallback.
     StageData *data;
     int quadCount;
@@ -206,7 +207,8 @@ public:
     // Drawn by OnDraw2 once spellCardState is 1, at their posOffset in
     // the arena.
     int dialogueSpriteCount;
-    unsigned char pad_cdc[0xce0 - 0xcdc];
+    // Cleared by AddedCallback.
+    int unknownCdc;
     Sprite dialogueSprites[0x20];
     Sprite unknown6160;
     // Called by OnDraw2 once spellCardState is 1, if set.
@@ -234,7 +236,8 @@ public:
     // OnDraw stops modulating sprites unless set.
     // OnDraw2 clears it.
     int keepColorModulation;
-    unsigned char pad_6434[0x6438 - 0x6434];
+    // DrawLayer skips objects farther from the camera than its root.
+    float drawDistanceSq;
     // The camera shake opcode 33 starts, as th08's.
     BYTE shakeMode;
     unsigned char pad_6439[0x6440 - 0x6439];
@@ -243,3 +246,6 @@ public:
     D3DXVECTOR3 unknown6444[0x20];
 };
 ASSERT_SIZE(Stage, 0x65c4);
+
+// Each stage's ANM and stage data files (0x4a11b8).
+extern char *g_StageFiles[][2];

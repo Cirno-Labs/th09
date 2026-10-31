@@ -814,6 +814,68 @@ int Stage::OnDraw2(Stage *stage)
     return 1;
 }
 
+int Stage::AddedCallback(Stage *stage)
+{
+    int i;
+    AnmLoaded *anm;
+
+    stage->scriptTime = 0;
+    stage->scriptIndex = 0;
+    stage->cameraPos.x = 0.0f;
+    stage->cameraPos.y = 0.0f;
+    stage->cameraPos.z = 0.0f;
+    stage->fogFadeFrames = 0;
+    stage->unknownCdc = 0;
+    stage->dialogueSpriteCount = 2;
+    anm = g_SpriteEngine->GetAnm(4);
+    if (anm->file != NULL && strcmp(anm->path, g_StageFiles[g_GameManager.stage][0]) == 0)
+    {
+        stage->anm = anm;
+    }
+    else
+    {
+        stage->anm = g_SpriteEngine->PreloadAnm(4, g_StageFiles[g_GameManager.stage][0]);
+        if (stage->anm == NULL)
+        {
+            return -1;
+        }
+    }
+    stage->playerAnm = g_SpriteEngine->GetAnm(stage->sideIdx + 5);
+    if (stage->Load(g_StageFiles[g_GameManager.stage][1]) != 0)
+    {
+        return -1;
+    }
+    stage->fog.color = 0xff000000;
+    stage->fog.nearPlane = 200.0f;
+    stage->fog.farPlane = 500.0f;
+    stage->shakeMode = 0;
+    for (i = 0; i < 4; i++)
+    {
+        stage->cameraFadeFrames[i] = 0;
+        stage->cameraFadeTimer[i] = 0;
+    }
+    stage->waitLabel = 0;
+    stage->drawDistanceSq = 1822500.0f;
+    if (g_GameManager.stage == 5)
+    {
+        stage->drawDistanceSq = 3062500.0f;
+    }
+    else if (g_GameManager.stage == 9)
+    {
+        stage->drawDistanceSq = 3062500.0f;
+    }
+    else if (g_GameManager.stage == 11)
+    {
+        stage->drawDistanceSq = 4202500.0f;
+    }
+    else if (g_GameManager.stage == 12 || g_GameManager.stage == 15)
+    {
+        stage->drawDistanceSq = 6002500.0f;
+    }
+    stage->Reset();
+    return 0;
+}
+
 Stage::Stage()
 {
     memset(this, 0, sizeof(Stage));

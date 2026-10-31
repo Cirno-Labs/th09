@@ -182,9 +182,9 @@ public:
     // How far the enemy timelines advance a frame.
     float timelineSpeed;
     unsigned char pad_f0[0xf4 - 0xf0];
-    // DeletedCallback copies it to unknownF8, as each side's character
-    // to unknown24.
-    int unknownF4;
+    // The stage, an index into g_StageFiles. DeletedCallback copies it
+    // to unknownF8, as each side's character to unknown24.
+    int stage;
     int unknownF8;
     int unknownFc;
     int unknown100;

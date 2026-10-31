@@ -287,7 +287,7 @@ int GameManager::DeletedCallback(GameManager *mgr)
 
     g_GameManager.sides[0].unknown24 = g_GameManager.sides[0].character;
     g_GameManager.sides[1].unknown24 = g_GameManager.sides[1].character;
-    g_GameManager.unknownF8 = g_GameManager.unknownF4;
+    g_GameManager.unknownF8 = g_GameManager.stage;
     mgr->stateFlags &= ~4;
     if (g_App.scene != 3 && g_App.scene != 12 && g_App.scene != 10)
     {

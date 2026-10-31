@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.70% (821)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">11.94% (133)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.79% (822)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">11.85% (132)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="550.53" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="550.53" y="0" class="decompiled"/>
-<rect width="89.18" height="6" x="657.82" y="0" class="todo"/>
+<rect width="551.20" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="551.20" y="0" class="decompiled"/>
+<rect width="88.51" height="6" x="658.49" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -122,7 +122,7 @@
 <rect width="12" height="12" x="15" y="15" class="named"><title>0x004033a0 SpriteBase::SpriteBase (62 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="15" class="named"><title>0x004033e0 Stage::OnDraw (671 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="15" class="named"><title>0x00403680 Stage::OnDraw2 (421 bytes)</title></rect>
-<rect width="12" height="12" x="60" y="15" class="todo"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
+<rect width="12" height="12" x="60" y="15" class="named"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="15" class="named"><title>0x00403a10 Sprite::Sprite (45 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="15" class="named"><title>0x00403a40 Stage::Stage (160 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="15" class="named"><title>0x00403ae0 Stage::RegisterChain (307 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.70%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">39.46%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">45.86%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">39.30%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="341.39" height="6" x="0" y="0" class="named"/>
-<rect width="110.83" height="6" x="341.39" y="0" class="decompiled"/>
-<rect width="294.78" height="6" x="452.22" y="0" class="todo"/>
+<rect width="342.59" height="6" x="0" y="0" class="named"/>
+<rect width="110.83" height="6" x="342.59" y="0" class="decompiled"/>
+<rect width="293.58" height="6" x="453.42" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1341,7 +1341,7 @@
 <rect width="18.61" height="16.74" x="410.96" y="308.68" class="todo"><title>0x004266b5 MainMenu::UpdateState13 (485 bytes)</title></rect>
 <rect width="18.61" height="16.58" x="410.96" y="328.42" class="decompiled"><title>0x00445740 ExAttackUpdate445740 (481 bytes)</title></rect>
 <rect width="17.40" height="17.65" x="432.56" y="21.45" class="named"><title>0x00423182 MainMenu::ShowHalves (479 bytes)</title></rect>
-<rect width="17.23" height="17.65" x="452.96" y="21.45" class="todo"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
+<rect width="17.23" height="17.65" x="452.96" y="21.45" class="named"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
 <rect width="17.23" height="17.65" x="473.19" y="21.45" class="todo"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
 <rect width="17.23" height="17.65" x="493.42" y="21.45" class="decompiled"><title>0x00441100 ExAttackUpdate441100 (475 bytes)</title></rect>
 <rect width="17.23" height="17.65" x="513.65" y="21.45" class="decompiled"><title>0x0044be40 ExAttackUpdate44be40 (475 bytes)</title></rect>
