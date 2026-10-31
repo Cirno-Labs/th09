@@ -74,6 +74,10 @@ public:
     // Frees the resources, removes the chain elements and deletes the
     // front, if any (0x4182a0).
     static void RemoveChain(Gui *gui);
+    // Counts a round for side `side`, a win so it seems; once it has
+    // unknown104 of them, starts the win and lose sprites. Sets
+    // unknown1095c to 1 and unknown11ea8 (0x415d70).
+    void CountRoundWin(int side);
     // Places side `side`'s marker of the enemy at `pos` under its play
     // area, more transparent the nearer the player is, or hides it while
     // pos is out of the play area (0x416080).
@@ -91,8 +95,8 @@ public:
 
     ChainElem *calcElem;
     ChainElem *drawElem;
-    // SpellCard::Reset copies it.
-    int unknown08;
+    // The front's ANM file; SpellCard::Reset copies it.
+    AnmLoaded *anm;
     Sprite unknownC[0x58];
     GuiUnknownE86c unknownE86c[10];
     unsigned char pad_e934[0xe944 - 0xe934];
@@ -103,9 +107,10 @@ public:
     // unknown10960 is over 30, unless its unknownA8 is set.
     int unknown1095c;
     int unknown10960;
-    unsigned char pad_10964[0x10968 - 0x10964];
+    int unknown10964;
     Sprite unknown10968[8];
-    unsigned char pad_11e88[0x11ea8 - 0x11e88];
+    unsigned char pad_11e88[0x11ea4 - 0x11e88];
+    int unknown11ea4;
     // Nonzero stops the player's combo from counting hits.
     int unknown11ea8;
     Sprite unknown11eac[2];

@@ -48,7 +48,7 @@ static int RunEndCallbacks(SpellCard *card)
 
 void SpellCard::Reset()
 {
-    this->unknown14 = g_GameManager.gui->unknown08;
+    this->anm = g_GameManager.gui->anm;
 }
 
 int SpellCard::AddedCallback(SpellCard *card)

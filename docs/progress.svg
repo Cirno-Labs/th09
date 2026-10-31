@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.67% (779)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">26.12% (280)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.76% (780)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">26.03% (279)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="542.83" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="542.83" y="0" class="decompiled"/>
-<rect width="195.11" height="6" x="551.89" y="0" class="todo"/>
+<rect width="543.53" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="543.53" y="0" class="decompiled"/>
+<rect width="194.42" height="6" x="552.58" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -376,7 +376,7 @@
 <rect width="12" height="12" x="75" y="90" class="named"><title>0x00415d30 GameManager::IsMode2 (15 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="90" class="named"><title>0x00415d40 Gui::Init (14 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="90" class="named"><title>0x00415d50 GuiSide::StartUnknownAbcc (24 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="90" class="todo"><title>0x00415d70 Func415d70 (222 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="90" class="named"><title>0x00415d70 Gui::CountRoundWin (222 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="90" class="todo"><title>0x00415e50 Func415e50 (553 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="90" class="named"><title>0x00416080 Gui::UpdateEnemyMarker (213 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="90" class="todo"><title>0x00416160 Func416160 (357 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">41.93%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">57.35%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.01%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">57.27%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="313.21" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="313.21" y="0" class="decompiled"/>
-<rect width="428.40" height="6" x="318.60" y="0" class="todo"/>
+<rect width="313.78" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="313.78" y="0" class="decompiled"/>
+<rect width="427.83" height="6" x="319.17" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1475,7 +1475,7 @@
 <rect width="11.28" height="10.53" x="651.79" y="106.55" class="named"><title>0x00433980 File::Open (226 bytes)</title></rect>
 <rect width="11.22" height="10.53" x="666.07" y="106.55" class="named"><title>0x0042d140 ResolveShortcut (225 bytes)</title></rect>
 <rect width="11.09" height="10.53" x="680.29" y="106.55" class="named"><title>0x0040f080 Ending::RegisterChain (223 bytes)</title></rect>
-<rect width="11.03" height="10.53" x="694.38" y="106.55" class="todo"><title>0x00415d70 Func415d70 (222 bytes)</title></rect>
+<rect width="11.03" height="10.53" x="694.38" y="106.55" class="named"><title>0x00415d70 Gui::CountRoundWin (222 bytes)</title></rect>
 <rect width="10.90" height="10.53" x="708.41" y="106.55" class="named"><title>0x00418840 Gui::RegisterChain (220 bytes)</title></rect>
 <rect width="10.90" height="10.53" x="722.32" y="106.55" class="named"><title>0x0042c290 DecryptFileData (220 bytes)</title></rect>
 <rect width="10.78" height="10.53" x="736.22" y="106.55" class="named"><title>0x0043fef0 CWaveFile::Read (218 bytes)</title></rect>

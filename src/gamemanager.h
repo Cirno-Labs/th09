@@ -178,7 +178,9 @@ public:
     int unknownF8;
     int unknownFc;
     int unknown100;
-    unsigned char pad_104[0x110 - 0x104];
+    // The rounds a side must win, and each side's wins.
+    int unknown104;
+    int unknown108[2];
     int unknown110;
     int unknown114;
     int mode;

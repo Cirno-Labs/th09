@@ -37,8 +37,8 @@ public:
     GameSide *otherSide;
     ChainElem *calcElem;
     ChainElem *drawElem;
-    // Gui::unknown08, as Reset copies it.
-    int unknown14;
+    // Gui::anm, as Reset copies it.
+    AnmLoaded *anm;
     unsigned char pad_18[0x98 - 0x18];
     Timer unknown98;
     unsigned char pad_a4[0xac - 0xa4];

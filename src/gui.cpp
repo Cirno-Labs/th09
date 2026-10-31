@@ -13,6 +13,28 @@ void Gui::ReleaseAnm()
     g_SpriteEngine->ReleaseAnm(10);
 }
 
+void Gui::CountRoundWin(int side)
+{
+    this->unknown11ea8 = 1;
+    g_GameManager.unknown100++;
+    if (++g_GameManager.unknown108[side] >= g_GameManager.unknown104)
+    {
+        this->anm->StartScriptAtOrigin(&this->unknown10968[0], 0x3c);
+        this->anm->StartScriptAtOrigin(&this->unknown10968[1], 0x3d);
+        this->anm->StartScriptAtOrigin(&this->unknown10968[2], 0x3e);
+        this->unknown10968[1].posOffset.x = -999.0f;
+        this->unknown10968[2].posOffset.x = -999.0f;
+        this->unknown10968[1].pos.x = -999.0f;
+        this->unknown10968[2].pos.x = -999.0f;
+        this->anm->SetSprite(&this->unknown10968[1 + side], 0x2c);
+        this->anm->SetSprite(&this->unknown10968[2 - side], 0x2d);
+    }
+    this->unknown10964 = side;
+    this->unknown1095c = 1;
+    this->unknown10960 = 0;
+    this->unknown11ea4 = 0;
+}
+
 void Gui::UpdateEnemyMarker(int side, D3DXVECTOR3 *pos)
 {
     float dist;
