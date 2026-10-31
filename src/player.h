@@ -283,6 +283,14 @@ public:
     static void RemoveChain(Player *player);
     // Resets the player for a new round (0x41ebc0).
     void Reset();
+    // The player is hit, unless the front's unknown11ea8 is set: queues
+    // sound 4 and takes rank.unknownB8 lives (and rank.unknownBc more
+    // while unknown20 is set) from unknownA8, keeping one. With one left,
+    // character 8 with unknown30388 at 200 or more instead starts a
+    // spell card on the other side by it and returns; otherwise the
+    // other side wins the round. Then sets unknown0 to 4, blows the
+    // player off at a random angle and lowers the rank (0x41e420).
+    void Die();
     // Calls the character's unknown30404 with `pos`. Called by the
     // enemies; the copy is at 0x406820.
     int CallUnknown30404(D3DXVECTOR3 *pos);
@@ -408,7 +416,9 @@ public:
     // The character's ANM, in slot sideIdx + 5.
     AnmLoaded *anm;
     Sprite sprite;
-    unsigned char pad_364[0x368 - 0x364];
+    // Effect 7, started in the side's reserved slot; Die interrupts its
+    // sprites with 1.
+    Effect *unknown364;
     // An effect whose unknown7c is the radius the character's
     // unknown30404 tests.
     Effect *unknown368;
@@ -431,10 +441,11 @@ public:
     D3DXVECTOR3 hitboxSize;
     D3DXVECTOR3 grazeSize;
     D3DXVECTOR3 unknown1cc0;
-    // Below 0 or above 0 by the way the player moves across, as
-    // character 10's effect update callback tells.
-    float unknown1ccc;
-    unsigned char pad_1cd0[0x1cd8 - 0x1cd0];
+    // x is below 0 or above 0 by the way the player moves across, as
+    // character 10's effect update callback tells; Die sets it one
+    // along unknown1cd8.
+    Vector2 unknown1ccc;
+    unsigned char pad_1cd4[0x1cd8 - 0x1cd4];
     // An angle; character 2's effect type 17 starts opposite it.
     float unknown1cd8;
     // Character 3's shot callback sets both to 0.5.
@@ -464,7 +475,9 @@ public:
     unsigned char pad_30370[0x3037c - 0x30370];
     // An enemy, forgotten when it despawns.
     Enemy *unknown3037c;
-    unsigned char pad_30380[0x30388 - 0x30380];
+    unsigned char pad_30380[0x30384 - 0x30380];
+    // Die sets it with unknown30388.
+    float unknown30384;
     // Lowered by SubUnknown30388, down to 1, and raised by
     // AddUnknown30388, up to 400.
     float unknown30388;
@@ -555,7 +568,10 @@ struct ShtFile
     float speedFocused;
     float speedDiagonal;
     float speedDiagonalFocused;
-    unsigned char pad_24[0x42c - 0x24];
+    unsigned char pad_24[0x2c - 0x24];
+    // The names of the character's three spell cards, by level.
+    char spellCardNames[3][0x40];
+    unsigned char pad_ec[0x42c - 0xec];
     ShotTable tables[1];
 };
 

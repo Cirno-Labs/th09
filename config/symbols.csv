@@ -407,7 +407,7 @@ address,size,name,symbol
 0x0041df80,99,Player::DrawUnknown30454,?DrawUnknown30454@Player@@QAEXXZ
 0x0041dff0,855,Player::CheckHitAreas,?CheckHitAreas@Player@@QAEHPAUD3DXVECTOR3@@0PAUBullet@@@Z
 0x0041e350,204,Player::CheckGraze,?CheckGraze@Player@@QAEHPAUD3DXVECTOR3@@0PAUBullet@@@Z
-0x0041e420,753,Func41e420,
+0x0041e420,753,Player::Die,?Die@Player@@QAEXXZ
 0x0041e720,400,Func41e720,
 0x0041e8b0,74,Func41e8b0,
 0x0041e900,522,Player::OnUpdate,?OnUpdate@Player@@SIHPAV1@@Z

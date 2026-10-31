@@ -298,11 +298,11 @@ int EffectUpdate449ba0(Effect *effect)
     {
         effect->unknown7c += 6.0f;
     }
-    if (g_GameManager.sides[effect->mgr->sideIdx].player->unknown1ccc < 0.0f)
+    if (g_GameManager.sides[effect->mgr->sideIdx].player->unknown1ccc.x < 0.0f)
     {
         effect->unknown80 += (-2.0943952f - effect->unknown80) * 0.02f;
     }
-    else if (g_GameManager.sides[effect->mgr->sideIdx].player->unknown1ccc > 0.0f)
+    else if (g_GameManager.sides[effect->mgr->sideIdx].player->unknown1ccc.x > 0.0f)
     {
         effect->unknown80 += (-1.0471976f - effect->unknown80) * 0.02f;
     }

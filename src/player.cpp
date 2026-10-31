@@ -3,6 +3,8 @@
 #include "bullet.h"
 #include "effect.h"
 #include "gui.h"
+#include "enemy.h"
+#include "spellcard.h"
 
 int Player::CallUnknown30404(D3DXVECTOR3 *pos)
 {
@@ -497,6 +499,99 @@ int Player::CheckGraze(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet)
         return 0;
     }
     return 1;
+}
+
+void Player::Die()
+{
+    int lifeLoss;
+    float angle;
+
+    if (g_GameManager.gui->GetUnknown11ea8() != 0)
+    {
+        return;
+    }
+    g_SoundPlayer.QueueSoundPanned(4, this->pos.x);
+    lifeLoss = g_GameManager.rank.unknownB8;
+    if (this->unknown20 != 0)
+    {
+        lifeLoss += g_GameManager.rank.unknownBc;
+    }
+    if (this->unknownA8 <= 1)
+    {
+        if (this->side->character == 8 && this->unknown30388 >= 200.0f)
+        {
+            if (this->unknown30388 >= 400.0f)
+            {
+                if (this->otherSide->enemyManager->FindByUnknownType(3) == NULL)
+                {
+                    this->otherSide->spellCard->Start(2, 2, 0, this->shtFile->spellCardNames[2]);
+                    this->unknown30384 = 0.0f;
+                    this->unknown30388 = 0.0f;
+                    this->StartClearCircle3();
+                    return;
+                }
+                this->otherSide->spellCard->Start(1, 1, 0, this->shtFile->spellCardNames[1]);
+                this->unknown30384 = 100.0f;
+                this->unknown30388 = 100.0f;
+                this->StartClearCircle2();
+                return;
+            }
+            if (this->unknown30388 >= 300.0f)
+            {
+                this->otherSide->spellCard->Start(1, 1, 0, this->shtFile->spellCardNames[1]);
+                this->unknown30384 = 0.0f;
+                this->unknown30388 = 0.0f;
+                this->StartClearCircle2();
+                return;
+            }
+            if (this->unknown30388 >= 200.0f)
+            {
+                this->otherSide->spellCard->Start(0, 0, 0, this->shtFile->spellCardNames[0]);
+                this->unknown30384 = 0.0f;
+                this->unknown30388 = 0.0f;
+                this->StartClearCircle1();
+            }
+            return;
+        }
+        this->unknownA8 = 0;
+        g_GameManager.gui->CountRoundWin(1 - this->sideIdx);
+        this->side->effectManager->SpawnReservedEffect(0x13, &this->pos, 4, 0xff4040ff);
+    }
+    else if (this->unknownA8 - lifeLoss > 1)
+    {
+        this->unknownA8 -= lifeLoss;
+    }
+    else
+    {
+        g_SoundPlayer.PlaySoundByIdx(0x30, this->sideIdx != 0 ? 500 : -500);
+        this->side->gui->StartUnknown6ee8(0);
+        this->unknownA8 = 1;
+    }
+    this->unknown0 = 4;
+    this->unknown303c8 = 0;
+    angle = g_Rng.GetRandomF32SignedInRange(3.1415927f);
+    this->unknown1cd8 = angle;
+    SetPolar(&this->unknown1ccc, angle, 1.0f);
+    g_GameManager.gui->unknownE93c[this->sideIdx] = 0x3c;
+    g_GameManager.gui->unknownE934[this->sideIdx] = 0x80ff0000;
+    if (this->unknown364 != NULL)
+    {
+        this->unknown364->sprites->SetPendingInterrupt(1);
+        this->unknown364 = NULL;
+        this->unknown368->active = 0;
+        this->unknown368 = NULL;
+    }
+    g_GameManager.rank.LowerUnknownCc(1500);
+    if (g_GameManager.rank.unknownB8 > 4)
+    {
+        g_GameManager.rank.unknownB8 -= 2;
+    }
+    else if (g_GameManager.rank.unknownB8 > 2)
+    {
+        g_GameManager.rank.unknownB8--;
+    }
+    this->unknown30410.EndCombo();
+    this->unknown24.Reset();
 }
 
 int Player::OnDraw(Player *player)

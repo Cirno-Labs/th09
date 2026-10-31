@@ -137,7 +137,9 @@ public:
     Sprite unknownC[0x58];
     // Two line strips of five vertices, the outlines of the play areas.
     GuiUnknownE86c unknownE86c[2][5];
-    unsigned char pad_e934[0xe944 - 0xe934];
+    // Each side's color and frames of something, set by Player::Die.
+    D3DCOLOR unknownE934[2];
+    int unknownE93c[2];
     GuiMsg msg;
     Sprite unknown106b4;
     unsigned char pad_10958[0x1095c - 0x10958];

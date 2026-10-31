@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.51% (830)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">11.13% (124)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.60% (831)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">11.04% (123)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="556.56" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="556.56" y="0" class="decompiled"/>
-<rect width="83.15" height="6" x="663.85" y="0" class="todo"/>
+<rect width="557.23" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="557.23" y="0" class="decompiled"/>
+<rect width="82.48" height="6" x="664.52" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -476,7 +476,7 @@
 <rect width="12" height="12" x="75" y="120" class="named"><title>0x0041df80 Player::DrawUnknown30454 (99 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="120" class="todo"><title>0x0041dff0 Player::CheckHitAreas (855 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="120" class="named"><title>0x0041e350 Player::CheckGraze (204 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="120" class="todo"><title>0x0041e420 Func41e420 (753 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="120" class="named"><title>0x0041e420 Player::Die (753 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="120" class="todo"><title>0x0041e720 Func41e720 (400 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="120" class="todo"><title>0x0041e8b0 Func41e8b0 (74 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="120" class="todo"><title>0x0041e900 Player::OnUpdate (522 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.19%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">37.97%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.44%</tspan> · <tspan class="decompiled">14.84%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">37.72%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="352.52" height="6" x="0" y="0" class="named"/>
-<rect width="110.82" height="6" x="352.52" y="0" class="decompiled"/>
-<rect width="283.66" height="6" x="463.34" y="0" class="todo"/>
+<rect width="354.41" height="6" x="0" y="0" class="named"/>
+<rect width="110.82" height="6" x="354.41" y="0" class="decompiled"/>
+<rect width="281.77" height="6" x="465.23" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1279,7 +1279,7 @@
 <rect width="22.89" height="23.33" x="335.85" y="244.09" class="decompiled"><title>0x0040d600 EffectUpdate40d600 (775 bytes)</title></rect>
 <rect width="22.89" height="23.09" x="335.85" y="270.42" class="named"><title>0x00432b70 Network::HandleMessage (768 bytes)</title></rect>
 <rect width="22.89" height="22.92" x="335.85" y="296.50" class="decompiled"><title>0x0044a030 ExAttackInit44a030 (763 bytes)</title></rect>
-<rect width="22.89" height="22.58" x="335.85" y="322.42" class="todo"><title>0x0041e420 Func41e420 (753 bytes)</title></rect>
+<rect width="22.89" height="22.58" x="335.85" y="322.42" class="named"><title>0x0041e420 Player::Die (753 bytes)</title></rect>
 <rect width="22.63" height="22.76" x="361.74" y="0" class="named"><title>0x004364c0 RenderTextToTextureLarge (751 bytes)</title></rect>
 <rect width="22.63" height="22.66" x="361.74" y="25.76" class="decompiled"><title>0x00446920 ExAttackUpdate446920 (748 bytes)</title></rect>
 <rect width="22.63" height="22.56" x="361.74" y="51.42" class="todo"><title>0x00421f10 SaveScore (745 bytes)</title></rect>
