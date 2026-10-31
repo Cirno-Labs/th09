@@ -45,7 +45,10 @@ ASSERT_SIZE(AsciiPopup, 0x38);
 class PauseMenu
 {
 public:
-    // Updates it while paused (0x434740).
+    // Updates it while paused (0x434740), as th08's: a resume/quit menu
+    // (states 1 and 2) whose quit asks for a confirmation (4-7); quitting
+    // leaves for scene 10, or scene 11 in practice or on difficulty 4.
+    // Pause (8) resumes and 0x200 goes to scene 1. Returns 0.
     int UpdatePauseMenu();
     // Draws it while paused (0x434e30).
     void DrawPauseMenu();

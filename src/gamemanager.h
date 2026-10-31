@@ -194,6 +194,12 @@ public:
     {
         return this->stateFlags >> 3 & 1;
     }
+    // Whether a practice game plays: bit 0 of stateFlags, as th08's.
+    // Inline; the copy the pause menu calls is at 0x4343b0.
+    int IsInPractice()
+    {
+        return this->stateFlags & 1;
+    }
     // Whether mode is 2 (0x415d30).
     BOOL IsMode2();
     // Resets the state, the ASCII text and every object for a new round,
