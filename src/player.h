@@ -86,6 +86,9 @@ struct PlayerUnknown36c
     PlayerUnknown36cEntry *CheckHits();
     // Adds an entry: a box `size` across at `pos`, unturned (0x40f8e0).
     void Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c);
+    // Add, for a box turned by `angle` about `origin`; used by
+    // BulletManager::OnUpdate (0x412830).
+    void AddTurned(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle, void *unknown2c);
 
     Player *player;
     PlayerUnknown36cEntry entries[0x80];

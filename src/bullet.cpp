@@ -1,6 +1,7 @@
 #include "bullet.h"
 #include "enemy.h"
 #include "gamemanager.h"
+#include "player.h"
 
 void Bullet::ClearCommands()
 {
@@ -166,6 +167,23 @@ void EnemyShooter::SetCommand20000(int i, int concurrent, int frames)
     BulletCommand *cmd = this->SetCommand(i, concurrent, 0x20000);
 
     cmd->frames = frames;
+}
+
+void PlayerUnknown36c::AddTurned(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle,
+                                 void *unknown2c)
+{
+    if (this->count < 0x80)
+    {
+        this->entries[this->count].pos = *pos;
+        this->entries[this->count].unknownC = *origin;
+        this->entries[this->count].size = *size;
+        this->entries[this->count].size.x /= 2.0f;
+        this->entries[this->count].size.y /= 2.0f;
+        this->entries[this->count].radius = 0.0f;
+        this->entries[this->count].angle = angle;
+        this->entries[this->count].unknown2c = unknown2c;
+        this->count++;
+    }
 }
 
 void Bullet::FreeBullet()
