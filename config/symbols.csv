@@ -1059,7 +1059,7 @@ address,size,name,symbol
 0x00447720,355,ExAttackInit447720,?ExAttackInit447720@@YIHPAUExAttack@@@Z
 0x00447890,496,Func447890,
 0x00447a80,98,PlayerComboFunc447a80,?PlayerComboFunc447a80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
-0x00447af0,324,Func447af0,
+0x00447af0,324,ExAttackInit447af0,?ExAttackInit447af0@@YIHPAUExAttack@@@Z
 0x00447c40,155,EffectInit447c40,?EffectInit447c40@@YIHPAUEffect@@@Z
 0x00447ce0,602,EffectDraw447ce0,?EffectDraw447ce0@@YIHPAUEffect@@@Z
 0x00447f40,106,EffectUpdate447f40,?EffectUpdate447f40@@YIHPAUEffect@@@Z

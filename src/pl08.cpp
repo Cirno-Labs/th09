@@ -68,6 +68,41 @@ int PlayerComboFunc447a80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
     return 0;
 }
 
+// The init callback of extra attack type 23: type 16's, after 90
+// frames, landing where it is on the target's side. Returns 0
+// (0x447af0).
+int ExAttackInit447af0(ExAttack *attack)
+{
+    ExAttackData16 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData16));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData16 *)attack->data;
+    attack->timer = 0x5a;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->velocity, angle, 2.0f);
+    data->state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    data->targetPos.x = attack->pos.x;
+    data->targetPos.y = attack->pos.y;
+    data->targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    return 0;
+}
+
 // An init callback of the effect table of types 10, 18, 24, 25, 26, 28 and 33: allocates 0x294 bytes of
 // vertices and sets the effect up as a ring of 32 segments, radius 16,
 // around its position, from the angle in velocity.x, as wide as
