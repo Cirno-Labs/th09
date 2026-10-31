@@ -74,6 +74,30 @@ int ExAttackInit441910(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack type 2: flies in along the curve
+// for 90 frames, then spawns enemy subroutine 8 of the target's player
+// ECL there, its first float variable -pi/2. Returns 1 once it did
+// (0x441a70).
+int ExAttackUpdate441a70(ExAttack *attack)
+{
+    ExAttackData00 *data = (ExAttackData00 *)attack->data;
+    EclVars vars;
+
+    if (data->state == 0)
+    {
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            vars.floatVars[0] = -1.5707964f;
+            g_GameManager.sides[attack->targetSide].enemyManager->SpawnPlayerEnemyWithVars(8, &data->targetPos, 0x14,
+                                                                                            -2, 1000, &vars);
+            return 1;
+        }
+    }
+    return 0;
+}
+
 // The init callbacks of spell card types 3 and 4, pl00's for types 0 and
 // 1 (0x441b70, 0x441be0).
 int SpellCardInit441b70(SpellCard *card)
