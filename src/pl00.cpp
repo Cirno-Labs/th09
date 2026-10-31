@@ -90,6 +90,37 @@ int ExAttackInit440e40(ExAttack *attack)
     return 0;
 }
 
+// The init callback of extra attack type 1: type 0's, flying in to near
+// its own position on screen after waiting 90 frames. Returns 0
+// (0x440fb0).
+int ExAttackInit440fb0(ExAttack *attack)
+{
+    ExAttackData00 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData00));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData00 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    ((Vector2 *)&data->velocity)->SetPolar(angle, 2.0f);
+    data->state = 0;
+    attack->timer = 0x5a;
+    attack->layer = 2;
+    ((Vector2 *)&data->tangent1)->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    ((Vector2 *)&data->tangent0)->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    data->targetPos.x = g_Rng.GetRandomF32SignedInRange(64.0f) + attack->pos.x;
+    data->targetPos.y = g_Rng.GetRandomF32SignedInRange(64.0f) + attack->pos.x;
+    data->targetPos.z = 0.0f;
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    return 0;
+}
+
 // The init callbacks of spell card types 0 and 1: allocate unknown1360
 // and spawn enemy subroutine 0 or 1 from the player's ECL (0x441350,
 // 0x4413d0). The position is never set. Return 0.
