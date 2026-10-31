@@ -274,6 +274,21 @@ Enemy *EnemyManager::FindByUnknownType(int type)
     return NULL;
 }
 
+void PlayerUnknown36c::Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c)
+{
+    if (this->count < 0x80)
+    {
+        this->entries[this->count].pos = *pos;
+        this->entries[this->count].size = *size;
+        this->entries[this->count].size.x /= 2.0f;
+        this->entries[this->count].size.y /= 2.0f;
+        this->entries[this->count].radius = 0.0f;
+        this->entries[this->count].angle = 0.0f;
+        this->entries[this->count].unknown2c = unknown2c;
+        this->count++;
+    }
+}
+
 void Enemy::Move()
 {
     this->posDelta = this->pos - this->prevPos;
@@ -606,6 +621,14 @@ void Enemy::ClampPos()
             pos[1] = this->upperBound[1];
         }
     }
+}
+
+void Enemy::CheckPlayerContact(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
+{
+    D3DXVECTOR3 box;
+
+    box = *size / 1.5f;
+    this->manager->side->player->unknown36c.Add(pos, &box, NULL);
 }
 
 void Enemy::DropItems(int kind)
