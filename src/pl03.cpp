@@ -112,6 +112,66 @@ int ExAttackInit443440(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack type 13: flies in along the curve
+// for 180 frames, then appears on the target's side and, after 20
+// frames, sits there as a hit circle shedding particles until it touches
+// the player there or 300 frames pass. Returns 1 once it is done
+// (0x4435e0).
+int ExAttackUpdate4435e0(ExAttack *attack)
+{
+    ExAttackData00 *data = (ExAttackData00 *)attack->data;
+    D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
+
+    switch (data->state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 180.0f);
+        if (attack->timer > 0xb4)
+        {
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 9);
+            data->state++;
+            attack->pos = data->targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+        }
+        break;
+    case 1:
+        if (attack->timer.HasTickedEvery(2))
+        {
+            g_GameManager.sides[attack->targetSide].effectManager->SpawnParticles(9, &attack->pos, 1, 0xffffffff);
+        }
+        if (attack->timer > 0x14)
+        {
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->state = 2;
+                attack->timer = 0;
+                attack->sprites->SetPendingInterrupt(1);
+            }
+            else
+            {
+                g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 14.0f, NULL);
+            }
+            if (attack->timer > 300)
+            {
+                data->state = 2;
+                attack->timer = 0;
+                attack->sprites->SetPendingInterrupt(1);
+                return 0;
+            }
+        }
+        break;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The unknown30450 of character 3: while unknown34 reaches 70 -
 // unknownB4 * 3, sends an extra attack of type 13 from `pos` and takes
 // 70 off it. Returns 0 (0x443790).
