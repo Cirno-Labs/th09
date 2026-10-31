@@ -379,7 +379,7 @@ address,size,name,symbol
 0x0041be70,106,Player::CheckHitCircle,?CheckHitCircle@Player@@QAEHPAUD3DXVECTOR3@@M@Z
 0x0041bee0,209,Player::TouchesGrazeBox,?TouchesGrazeBox@Player@@QAEHPAUD3DXVECTOR3@@0@Z
 0x0041bfc0,422,Player::CheckLaserHit,?CheckLaserHit@Player@@QAEHPAUD3DXVECTOR3@@00MH@Z
-0x0041c170,1832,Func41c170,
+0x0041c170,1835,Player::HandleInput,?HandleInput@Player@@QAEHXZ
 0x0041c8e0,273,Func41c8e0,
 0x0041ca00,335,Func41ca00,
 0x0041cb50,293,Func41cb50,
@@ -2318,6 +2318,7 @@ address,size,name,symbol
 0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
 0x004a19c4,,g_Pl06FcAnmFiles,?g_Pl06FcAnmFiles@@3PAPADA
 0x004a19d0,,g_CharacterFuncs9d0,?g_CharacterFuncs9d0@@3PAP6IHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@ZA
+0x004a1a10,,g_CharacterValuesA10,?g_CharacterValuesA10@@3PAHA
 0x004a1a50,,g_CharacterFuncsA50,?g_CharacterFuncsA50@@3PAP6IHPAVPlayer@@PAUD3DXVECTOR3@@@ZA
 0x004a1a90,,g_CharacterFuncsA90,?g_CharacterFuncsA90@@3PAP6IHPAVPlayer@@PAUEnemy@@@ZA
 0x004a1ad0,,g_CharacterValuesAd0,?g_CharacterValuesAd0@@3PAHA

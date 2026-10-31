@@ -111,6 +111,11 @@ struct PlayerUnknown36c
 };
 ASSERT_SIZE(PlayerUnknown36c, 0x1808);
 
+class Player;
+struct PlayerOption;
+// An option's update function, as th08's.
+typedef int (*PlayerOptionFunc)(Player *player, PlayerOption *option);
+
 // One of the player's options (0x2f4 bytes), the size and timer of
 // th08's PlayerOption. Only the fields known so far.
 struct PlayerOption
@@ -119,7 +124,9 @@ struct PlayerOption
     D3DXVECTOR3 pos;
     unsigned char pad_2b0[0x2e0 - 0x2b0];
     Timer timer;
-    unsigned char pad_2ec[0x2f4 - 0x2ec];
+    // Run by HandleInput each frame while set.
+    PlayerOptionFunc update;
+    unsigned char pad_2f0[0x2f4 - 0x2f0];
 };
 ASSERT_SIZE(PlayerOption, 0x2f4);
 
@@ -392,6 +399,13 @@ public:
     // side's screen, turned to their angle when they rotate, blue while
     // unknown46e is set, as th08's DrawHitBullets (0x41f760).
     void DrawHitBullets();
+    // Moves the player by its side's input, as th08's HandleInput:
+    // picks the direction and focus, starts or stops the focus effects
+    // (7 and the character's from g_CharacterValuesA10), sets the move
+    // angle unknown1cd8, the sprite's leaning script and velocity, keeps
+    // the player in arena2, updates the boxes and options and records
+    // the position. Does nothing while unknownA8 is clear (0x41c170).
+    int HandleInput();
 
     // OnDraw draws only unknown30454 while it is 5.
     int unknown0;
@@ -430,7 +444,18 @@ public:
     Effect *unknown368;
     PlayerUnknown36c unknown36c;
     Timer unknown1b74;
-    unsigned char pad_1b80[0x1b88 - 0x1b80];
+    union
+    {
+        DWORD unknown1b80;
+        struct
+        {
+            // Set while the player moves focused: by the focus button,
+            // or by holding the shot button 8 frames with the side's
+            // charge setting 1.
+            DWORD focused : 2;
+        };
+    };
+    unsigned char pad_1b84[0x1b88 - 0x1b84];
     D3DXVECTOR3 pos;
     unsigned char pad_1b94[0x1ba0 - 0x1b94];
     // The player's last positions, as th08's.
@@ -457,7 +482,9 @@ public:
     // Character 3's shot callback sets both to 0.5.
     float unknown1cdc;
     float unknown1ce0;
-    unsigned char pad_1ce4[0x1cec - 0x1ce4];
+    // HandleInput scales the movement by unknown1cdc times these.
+    float unknown1ce4;
+    float unknown1ce8;
     PlayerOption options[4];
     // The hit areas; the last is the spare AllocHitArea hands out when
     // none is free.
@@ -475,7 +502,12 @@ public:
     unsigned char pad_3033c[0x30354 - 0x3033c];
     // Counted up by character 1's shot hit callback.
     BYTE unknown30354;
-    unsigned char pad_30355[0x30364 - 0x30355];
+    unsigned char pad_30355[0x30358 - 0x30355];
+    // The direction the player moves, as th08's (0 still, 1 up, 2
+    // down, 3 left, 4 right, 5 to 8 diagonal), and its speed.
+    int direction;
+    float velocityX;
+    float velocityY;
     // Where character 12's shot fire callback aims.
     D3DXVECTOR3 unknown30364;
     unsigned char pad_30370[0x3037c - 0x30370];
@@ -615,6 +647,8 @@ extern ShotHitFunc g_ShotHitFuncs[4];
 // 0x4a1a50, 0x4a1a90, 0x4a1ad0, 0x4a1b10, 0x4a1b50, 0x4a1b90,
 // 0x4a1bd0).
 extern PlayerComboFunc g_CharacterFuncs9d0[16];
+// The effect each character's focus starts besides effect 7 (0x4a1a10).
+extern int g_CharacterValuesA10[16];
 extern PlayerPosFunc g_CharacterFuncsA50[16];
 extern PlayerEnemyFunc g_CharacterFuncsA90[16];
 extern int g_CharacterValuesAd0[16];

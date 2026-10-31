@@ -200,6 +200,225 @@ int Player::TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
     return 1;
 }
 
+int Player::HandleInput()
+{
+    int side;
+    PlayerInput *input;
+    float deltaX;
+    float deltaY;
+    float *pos;
+    int i;
+
+    deltaX = 0.0f;
+    deltaY = 0.0f;
+    if (this->unknownA8 == 0)
+    {
+        return 0;
+    }
+    side = this->sideIdx;
+    input = &g_PlayerInputs[side];
+    if (input->IsHeld2(0x50) == 0x50)
+    {
+        this->direction = 5;
+    }
+    else if (input->IsHeld2(0x60) == 0x60)
+    {
+        this->direction = 7;
+    }
+    else if (input->IsHeld2(0x90) == 0x90)
+    {
+        this->direction = 6;
+    }
+    else if (input->IsHeld2(0xa0) == 0xa0)
+    {
+        this->direction = 8;
+    }
+    else if (input->IsHeld2(0x20))
+    {
+        this->direction = 2;
+    }
+    else if (input->IsHeld2(0x10))
+    {
+        this->direction = 1;
+    }
+    else if (input->IsHeld2(0x40))
+    {
+        this->direction = 3;
+    }
+    else if (input->IsHeld2(0x80))
+    {
+        this->direction = 4;
+    }
+    else
+    {
+        this->direction = 0;
+    }
+    this->focused = g_GameManager.unknownE8->unknownB4[this->sideIdx] == 1 ? g_PlayerInputs[side].unknown2a >= 8
+                                                                         : input->IsHeld2(4) != 0;
+    if (this->focused)
+    {
+        if (this->unknown364 == NULL)
+        {
+            this->unknown364 = this->side->effectManager->SpawnReservedEffect(7, &this->pos, this->sideIdx, 0xffffffff);
+            this->unknown368 = this->side->effectManager->SpawnReservedEffect(
+                g_CharacterValuesA10[this->side->character], &this->pos, this->sideIdx + 2, 0xffffffff);
+        }
+        switch (this->direction)
+        {
+        case 4:
+            this->unknown1cd8 = 0.0f;
+            deltaX = this->shtFile->speedFocused;
+            break;
+        case 3:
+            this->unknown1cd8 = 3.1415927f;
+            deltaX = -this->shtFile->speedFocused;
+            break;
+        case 1:
+            this->unknown1cd8 = -1.5707964f;
+            deltaY = -this->shtFile->speedFocused;
+            break;
+        case 2:
+            this->unknown1cd8 = 1.5707964f;
+            deltaY = this->shtFile->speedFocused;
+            break;
+        case 5:
+            this->unknown1cd8 = -2.3561945f;
+            deltaX = -this->shtFile->speedDiagonalFocused;
+            deltaY = deltaX;
+            break;
+        case 7:
+            this->unknown1cd8 = 2.3561945f;
+            deltaY = this->shtFile->speedDiagonalFocused;
+            deltaX = -deltaY;
+            break;
+        case 6:
+            this->unknown1cd8 = -0.7853982f;
+            deltaX = this->shtFile->speedDiagonalFocused;
+            deltaY = -deltaX;
+            break;
+        case 8:
+            this->unknown1cd8 = 0.7853982f;
+            deltaX = this->shtFile->speedDiagonalFocused;
+            deltaY = deltaX;
+            break;
+        }
+    }
+    else
+    {
+        if (this->unknown364 != NULL)
+        {
+            this->unknown364->sprites->SetPendingInterrupt(1);
+            this->unknown364 = NULL;
+            this->unknown368->active = 0;
+            this->unknown368 = NULL;
+        }
+        switch (this->direction)
+        {
+        case 4:
+            this->unknown1cd8 = 0.0f;
+            deltaX = this->shtFile->speed;
+            break;
+        case 3:
+            this->unknown1cd8 = 3.1415927f;
+            deltaX = -this->shtFile->speed;
+            break;
+        case 1:
+            this->unknown1cd8 = -1.5707964f;
+            deltaY = -this->shtFile->speed;
+            break;
+        case 2:
+            this->unknown1cd8 = 1.5707964f;
+            deltaY = this->shtFile->speed;
+            break;
+        case 5:
+            this->unknown1cd8 = -2.3561945f;
+            deltaX = -this->shtFile->speedDiagonal;
+            deltaY = deltaX;
+            break;
+        case 7:
+            this->unknown1cd8 = 2.3561945f;
+            deltaY = this->shtFile->speedDiagonal;
+            deltaX = -deltaY;
+            break;
+        case 6:
+            this->unknown1cd8 = -0.7853982f;
+            deltaX = this->shtFile->speedDiagonal;
+            deltaY = -deltaX;
+            break;
+        case 8:
+            this->unknown1cd8 = 0.7853982f;
+            deltaX = this->shtFile->speedDiagonal;
+            deltaY = deltaX;
+            break;
+        }
+    }
+    deltaX *= this->unknown1ce4 * this->unknown1cdc;
+    deltaY *= this->unknown1ce8 * this->unknown1ce0;
+    if (deltaX < 0.0f && this->velocityX >= 0.0f)
+    {
+        this->anm->StartScript(&this->sprite, 1);
+    }
+    else if (deltaX == 0.0f && this->velocityX < 0.0f)
+    {
+        this->anm->StartScript(&this->sprite, 2);
+    }
+    if (deltaX > 0.0f && this->velocityX <= 0.0f)
+    {
+        this->anm->StartScript(&this->sprite, 3);
+    }
+    else if (deltaX == 0.0f && this->velocityX > 0.0f)
+    {
+        this->anm->StartScript(&this->sprite, 4);
+    }
+    this->velocityX = deltaX;
+    this->velocityY = deltaY;
+    this->unknown1ccc.x = deltaX * g_App.gameSpeed;
+    this->unknown1ccc.y = deltaY * g_App.gameSpeed;
+    pos = this->pos;
+    pos[0] += this->unknown1ccc.x;
+    pos[1] += this->unknown1ccc.y;
+    if (pos[0] < g_GameManager.arena2[0])
+    {
+        pos[0] = g_GameManager.arena2[0];
+    }
+    else if (pos[0] > g_GameManager.arena2[0] + g_GameManager.arena2[2])
+    {
+        pos[0] = g_GameManager.arena2[0] + g_GameManager.arena2[2];
+    }
+    if (pos[1] < g_GameManager.arena2[1])
+    {
+        pos[1] = g_GameManager.arena2[1];
+    }
+    else if (pos[1] > g_GameManager.arena2[1] + g_GameManager.arena2[3])
+    {
+        pos[1] = g_GameManager.arena2[1] + g_GameManager.arena2[3];
+    }
+    this->hitboxMin = this->pos - this->hitboxSize;
+    this->hitboxMax = this->pos + this->hitboxSize;
+    this->grazeMin = this->pos - this->grazeSize;
+    this->grazeMax = this->pos + this->grazeSize;
+    this->grazeTestMin = this->pos - this->unknown1cc0;
+    this->grazeTestMax = this->pos + this->unknown1cc0;
+    for (i = 0; i < 4; i++)
+    {
+        if (this->options[i].update != NULL)
+        {
+            this->options[i].update(this, &this->options[i]);
+            g_SpriteEngine->Step(&this->options[i].sprite);
+            this->options[i].timer++;
+        }
+    }
+    if (deltaY != 0.0f || deltaX != 0.0f)
+    {
+        for (i = 15; i > 0; i--)
+        {
+            this->posHistory[i] = this->posHistory[i - 1];
+        }
+        this->posHistory[0] = this->pos;
+    }
+    return 0;
+}
+
 int Player::OnDraw2(Player *player)
 {
     g_App.SetView(player->sideIdx);
