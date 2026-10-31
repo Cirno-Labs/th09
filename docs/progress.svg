@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">5.83% (65)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">22.89% (255)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">5.92% (66)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">22.80% (254)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="43.59" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="170.99" height="6" x="576.01" y="0" class="todo"/>
+<rect width="44.26" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="170.32" height="6" x="576.68" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1108,7 +1108,7 @@
 <rect width="12" height="12" x="555" y="300" class="decompiled"><title>0x00445c30 EffectInit445c30 (72 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="300" class="decompiled"><title>0x00445c80 EffectUpdate445c80 (38 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="300" class="decompiled"><title>0x00445cb0 ShotFire445cb0 (72 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="300" class="todo"><title>0x00445d00 Func445d00 (119 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="300" class="decompiled"><title>0x00445d00 ShotFire445d00 (119 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="300" class="decompiled"><title>0x00445d80 PlayerComboFunc445d80 (119 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="300" class="todo"><title>0x00445e00 Func445e00 (96 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="300" class="decompiled"><title>0x00445e60 PlayerPosFunc445e60 (91 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">2.53%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.39%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">2.57%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="18.89" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="413.79" height="6" x="333.21" y="0" class="todo"/>
+<rect width="19.19" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="413.49" height="6" x="333.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1690,7 +1690,7 @@
 <rect width="7.51" height="7.05" x="581.03" y="298.10" class="named"><title>0x0042c8f0 InitJoystick (120 bytes)</title></rect>
 <rect width="7.51" height="6.96" x="581.03" y="308.15" class="named"><title>0x0040ef60 Ending::Ending (119 bytes)</title></rect>
 <rect width="7.51" height="6.96" x="581.03" y="318.11" class="named"><title>0x0042eb80 App::PopRecord (119 bytes)</title></rect>
-<rect width="7.51" height="6.96" x="581.03" y="328.08" class="todo"><title>0x00445d00 Func445d00 (119 bytes)</title></rect>
+<rect width="7.51" height="6.96" x="581.03" y="328.08" class="decompiled"><title>0x00445d00 ShotFire445d00 (119 bytes)</title></rect>
 <rect width="7.51" height="6.96" x="581.03" y="338.04" class="decompiled"><title>0x00445d80 PlayerComboFunc445d80 (119 bytes)</title></rect>
 <rect width="7.17" height="7.20" x="591.54" y="185.25" class="named"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
 <rect width="7.09" height="7.20" x="601.71" y="185.25" class="named"><title>0x004233f4 Sprite::SetColorInterp (117 bytes)</title></rect>

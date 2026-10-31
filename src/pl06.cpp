@@ -77,3 +77,20 @@ int ShotFire445cb0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
     }
     return 0;
 }
+
+// A fire callback of the shot table (6): on the frame of `sd`, fires it
+// from the effect in reserved slot 5, straight up at its speed. Returns
+// 1 if it fired (0x445d00).
+int ShotFire445d00(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+{
+    if (frame == sd->frame)
+    {
+        FireShot(player, bullet, sd);
+        bullet->pos = player->side->effectManager->GetReservedEffect(5)->pos;
+        bullet->angle = -1.5707964f;
+        bullet->velocity.x = 0.0f;
+        bullet->velocity.y = -sd->speed;
+        return 1;
+    }
+    return 0;
+}
