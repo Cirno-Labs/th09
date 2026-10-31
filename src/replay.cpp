@@ -1,10 +1,20 @@
+#include <stdarg.h>
+#include <stdio.h>
 #include <string.h>
+#include <time.h>
 
 #include "replay.h"
 #include "gamemanager.h"
 #include "gui.h"
 #include "lzss.h"
 #include "unsorted.h"
+
+// The names SaveReplay writes: by character, by GameManager::mode, with
+// the match modes from 2 on, and by difficulty (0x4a1c78, 0x4a1cb8,
+// 0x4a1cd0).
+extern char *g_ReplayCharacterNames[16];
+extern char *g_ReplayModeNames[6];
+extern char *g_ReplayDifficultyNames[5];
 
 void PlayerInput::UpdateRepeat2()
 {
@@ -43,6 +53,19 @@ void Rng::SetSeed(WORD seed)
 void Rng::ResetGenerated()
 {
     this->generated = 0;
+}
+
+// As th08's FormatAndAdvance: formats into `buf` like sprintf and
+// returns the end of what it wrote. Static, with `buf` in esi
+// (0x4200c0).
+static char *FormatAndAdvance(char *buf, const char *fmt, ...)
+{
+    va_list args;
+
+    va_start(args, fmt);
+    vsprintf(buf, fmt, args);
+    va_end(args);
+    return buf + strlen(buf);
 }
 
 int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
@@ -237,6 +260,159 @@ void ReplayManager::RemoveChain(ReplayManager *mgr)
 
 ReplayHeader::ReplayHeader()
 {
+}
+
+int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
+{
+    BYTE *dp2;
+    BYTE kbVal;
+    BYTE *bpCur;
+    int checksum;
+    ReplayUserHeader user;
+    char userInfo[0x400];
+    BYTE *rpyBytes;
+    ReplayChunk *chunk;
+    int chunkSize;
+    char *p2;
+    int allocSize;
+    int mode;
+    int j;
+    int i;
+
+    if (mgr != NULL && path != NULL)
+    {
+        ReplayHeader hX;
+        int offsets;
+
+        allocSize = sizeof(ReplayHeader) + 0x10000;
+        for (i = 0; i < 10; i++)
+        {
+            if (hX.unknown20[0][i] != NULL)
+            {
+                allocSize += 0x60;
+                for (chunk = &mgr->chunks[i]; chunk != NULL; chunk = chunk->next)
+                {
+                    allocSize += 0x54d9;
+                }
+            }
+        }
+        rpyBytes = (BYTE *)g_MemoryManager.Alloc(allocSize, "rep tmp");
+        hX = *mgr->unknown08;
+        offsets = sizeof(ReplayHeader);
+        for (j = 0; j < 3; j++)
+        {
+            for (i = 0; i < 10; i++)
+            {
+                if (hX.unknown20[j][i] != NULL)
+                {
+                    memcpy(rpyBytes + offsets - 0xc0, hX.unknown20[j][i], 0x20);
+                    hX.unknown20[j][i] = (void *)offsets;
+                    offsets += 0x20;
+                    for (chunk = &mgr->chunks[i]; chunk != NULL; chunk = chunk->next)
+                    {
+                        chunkSize = chunk->count * 2;
+                        memcpy(rpyBytes + offsets - 0xc0, chunk->inputs[j], chunkSize);
+                        offsets += chunkSize;
+                    }
+                }
+            }
+        }
+        for (i = 0; i < 10; i++)
+        {
+            if (hX.unknown98[i] != NULL)
+            {
+                hX.unknown98[i] = (void *)offsets;
+                for (chunk = &mgr->chunks[i]; chunk != NULL; chunk = chunk->next)
+                {
+                    chunkSize = chunk->count / 30;
+                    memcpy(rpyBytes + offsets - 0xc0, chunk->extra, chunkSize);
+                    offsets += chunkSize;
+                }
+            }
+        }
+        memset(userInfo, 0, sizeof(userInfo));
+        user.magic = *(DWORD *)"USER";
+        user.type = 0;
+        p2 = userInfo;
+        p2 = FormatAndAdvance(p2, "プレイヤー名\t%s\r\n", name);
+        p2 = FormatAndAdvance(p2, "プレイ時刻\t%s\r\n", g_Hscr.date);
+        p2 = FormatAndAdvance(p2, "難易度\t\t%s\r\n", g_ReplayDifficultyNames[g_GameManager.difficulty]);
+        mode = g_GameManager.mode;
+        if (mode == 2)
+        {
+            mode = g_GameManager.unknown114 + 2;
+        }
+        p2 = FormatAndAdvance(p2, "モード\t\t%s\r\n", g_ReplayModeNames[mode]);
+        if (!g_GameManager.IsMode2())
+        {
+            p2 = FormatAndAdvance(p2, "使用キャラ\t\t%s\r\n", g_ReplayCharacterNames[g_GameManager.sides[0].character]);
+        }
+        else
+        {
+            p2 = FormatAndAdvance(p2, "対戦キャラ\t\t%s vs %s\r\n", g_ReplayCharacterNames[g_GameManager.sides[0].character],
+                                  g_ReplayCharacterNames[g_GameManager.sides[1].character]);
+        }
+        p2 = FormatAndAdvance(p2, "初期体力\t\t%1.1f vs %1.1f\r\n", g_GameManager.unknown378 * 0.5f,
+                              g_GameManager.unknown37c * 0.5f);
+        p2 = FormatAndAdvance(p2, "ゲームのバージョン\t%s\r\n", "東方花映塚 ver 1.50a");
+        user.size = strlen(userInfo) + 1 + 0xc;
+        user.size += user.size & 1;
+        hX.isSaved = 1;
+        strcpy(hX.info.name, name);
+        strcpy(hX.info.date, g_Hscr.date);
+        hX.key = g_Rng.GetRandomU16InRange(0x80) + 0x40;
+        hX.replayFormatVersion = 30;
+        hX.info.randomByte = g_Rng.GetRandomU16InRange(0x100);
+        hX.secondaryKey = g_Rng.GetRandomU16InRange(0x100);
+        memcpy(rpyBytes, &hX.info, sizeof(ReplayHeader) - 0xc0);
+        hX.dataSize = offsets - 0xc0;
+        {
+            BYTE *compressedData;
+            int compSize;
+            HANDLE file;
+            DWORD writtenSize;
+            compressedData = (BYTE *)LzssCompress(rpyBytes, hX.dataSize, &hX.compressedSize);
+            g_MemoryManager.Free(rpyBytes);
+            compSize = hX.compressedSize;
+            bpCur = &hX.key;
+            checksum = 0x3f000318;
+            for (i = 0; i < 0xabU; i++, bpCur++)
+            {
+                checksum += *bpCur;
+            }
+            for (i = 0; i < compSize; i++)
+            {
+                checksum += compressedData[i];
+            }
+            hX.checksum = checksum;
+            dp2 = (BYTE *)&hX.compressedSize;
+            kbVal = hX.key;
+            for (i = 0; i < 0xa8U; i++, dp2++)
+            {
+                *dp2 += kbVal;
+                kbVal += 7;
+            }
+            dp2 = compressedData;
+            for (i = 0; i < compSize; i++, dp2++)
+            {
+                *dp2 += kbVal;
+                kbVal += 7;
+            }
+            hX.size = compSize + 0xc0;
+            writtenSize = 0;
+            file = CreateFileA(path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+            if (file != INVALID_HANDLE_VALUE)
+            {
+                WriteFile(file, &hX, 0xc0, &writtenSize, NULL);
+                WriteFile(file, compressedData, compSize, &writtenSize, NULL);
+                WriteFile(file, &user, 0xc, &writtenSize, NULL);
+                WriteFile(file, userInfo, user.size - 0xc, &writtenSize, NULL);
+                CloseHandle(file);
+                GlobalFree(compressedData);
+            }
+        }
+    }
+    return 0;
 }
 
 ReplayManager *ReplayManager::RegisterChain(int mode, char *path)

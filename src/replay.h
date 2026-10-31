@@ -70,6 +70,15 @@ ASSERT_SIZE(ReplayHeader, 0x1ec);
 // `data`. Returns NULL if the file is not a valid replay (0x4205e0).
 ReplayHeader *ValidateReplay(void *data, int size);
 
+// The text section after a replay's data, as th08's: "USER", its size
+// counted from `magic`, and a type.
+struct ReplayUserHeader
+{
+    DWORD magic;
+    int size;
+    BYTE type;
+};
+
 // A block of a stage's recording: three input streams of `count` WORDs,
 // a byte every 30 frames, and the next block.
 struct ReplayChunk
@@ -115,6 +124,10 @@ public:
     // Frees the manager's blocks and resources, removes its update
     // element and deletes it, if any (0x420ad0).
     static void Release(ReplayManager *mgr);
+    // Saves the recording to `path` with the player's `name`, as th08's
+    // SaveReplay, with a "USER" section of the game's details after the
+    // data; does nothing if either is NULL. Returns 0 (0x420c60).
+    static int SaveReplay(ReplayManager *mgr, char *path, char *name);
 
     // OnUpdateMode1b returns 6 while a dialogue runs unless it is 2
     // modulo 3.

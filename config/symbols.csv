@@ -433,7 +433,7 @@ address,size,name,symbol
 0x0041f760,164,Player::DrawHitBullets,?DrawHitBullets@Player@@QAEXXZ
 0x0041f810,1210,Func41f810,
 0x0041fcd0,996,Player::CalcDamage,?CalcDamage@Player@@QAEHPAUD3DXVECTOR3@@0PAH11@Z
-0x004200c0,45,Func4200c0,
+0x004200c0,45,FormatAndAdvance,?FormatAndAdvance@@YAPADPADPBDZZ
 0x004200f0,111,PlayerInput::UpdateRepeat2,?UpdateRepeat2@PlayerInput@@QAEXXZ
 0x00420160,14,Rng::SetSeed,?SetSeed@Rng@@QAEXG@Z
 0x00420170,8,Rng::ResetGenerated,?ResetGenerated@Rng@@QAEXXZ
@@ -449,7 +449,7 @@ address,size,name,symbol
 0x00420ad0,318,ReplayManager::Release,?Release@ReplayManager@@SIXPAV1@@Z
 0x00420c10,42,ReplayManager::RemoveChain,?RemoveChain@ReplayManager@@SIXPAV1@@Z
 0x00420c40,18,ReplayHeader::ReplayHeader,??0ReplayHeader@@QAE@XZ
-0x00420c60,1227,Func420c60,
+0x00420c60,1238,ReplayManager::SaveReplay,?SaveReplay@ReplayManager@@SIHPAV1@PAD1@Z
 0x00421140,1323,ReplayManager::AddedCallbackMode0,?AddedCallbackMode0@ReplayManager@@SIHPAV1@@Z
 0x00421670,361,ReplayManager::RegisterChain,?RegisterChain@ReplayManager@@SIPAV1@HPAD@Z
 0x004217e0,21,ReplayManager::RunAddedCallback,?RunAddedCallback@ReplayManager@@SIXPAV1@H@Z
@@ -2329,6 +2329,9 @@ address,size,name,symbol
 0x004a1c34,,g_ShotUpdateFuncs,?g_ShotUpdateFuncs@@3PAP6IHPAVPlayer@@PAUPlayerBullet@@@ZA
 0x004a1c54,,g_ShotDrawFuncs,?g_ShotDrawFuncs@@3PAP6IHPAVPlayer@@PAUPlayerBullet@@@ZA
 0x004a1c64,,g_ShotHitFuncs,?g_ShotHitFuncs@@3PAP6IHPAVPlayer@@PAUPlayerBullet@@PAUD3DXVECTOR3@@@ZA
+0x004a1c78,,g_ReplayCharacterNames,?g_ReplayCharacterNames@@3PAPADA
+0x004a1cb8,,g_ReplayModeNames,?g_ReplayModeNames@@3PAPADA
+0x004a1cd0,,g_ReplayDifficultyNames,?g_ReplayDifficultyNames@@3PAPADA
 0x004a1ce8,,g_DemoReplayPaths,?g_DemoReplayPaths@@3PAPADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
