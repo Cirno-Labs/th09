@@ -1046,7 +1046,7 @@ address,size,name,symbol
 0x00445ec0,407,Func445ec0,
 0x00446060,698,Func446060,
 0x00446320,379,ExAttackInit446320,?ExAttackInit446320@@YIHPAUExAttack@@@Z
-0x004464a0,799,Func4464a0,
+0x004464a0,799,ExAttackUpdate4464a0,?ExAttackUpdate4464a0@@YIHPAUExAttack@@@Z
 0x004467c0,352,ExAttackInit4467c0,?ExAttackInit4467c0@@YIHPAUExAttack@@@Z
 0x00446920,748,ExAttackUpdate446920,?ExAttackUpdate446920@@YIHPAUExAttack@@@Z
 0x00446c10,356,ExAttackInit446c10,?ExAttackInit446c10@@YIHPAUExAttack@@@Z
