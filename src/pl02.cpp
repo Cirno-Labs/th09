@@ -7,6 +7,35 @@
 #include "player.h"
 #include "unsorted.h"
 
+// The init callback of effect type 16: EffectInit447c40's ring of
+// radius 16, with unknown84 at 0.01. Returns 0, or -1 if the allocation
+// fails (0x441c80).
+int EffectInit441c80(Effect *effect)
+{
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
+    if (effect->vertices == NULL)
+    {
+        return -1;
+    }
+    effect->unknown48 = effect->pos;
+    effect->unknown54.x = 0.0f;
+    effect->unknown54.y = 0.0f;
+    effect->unknown54.z = 1.0f;
+    effect->unknown60.x = 0.0f;
+    effect->unknown60.y = -1.0f;
+    effect->unknown60.z = 0.0f;
+    effect->unknown80 = effect->velocity.x;
+    effect->unknown88 = effect->velocity.z;
+    effect->unknown94 = 0.0f;
+    effect->unknown98 = 0.0f;
+    effect->unknown9c = 1.0f;
+    effect->unknown8c = 0x20;
+    effect->unknown7c = 16.0f;
+    effect->unknownC9 = 1;
+    effect->unknown84 = 0.01f;
+    return 0;
+}
+
 // An update callback of the effect table: after 30 frames, grows
 // unknown84 by 0.001 up to 0.08; sets unknownC9 and puts the effect on
 // its side's player. Returns 1 (0x441d30).
