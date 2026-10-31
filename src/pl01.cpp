@@ -52,3 +52,14 @@ int SpellCardInit441b70(SpellCard *card)
     return 0;
 }
 
+// The update callback of spell card types 0, 1, 3, 4, 6 and 7: whether
+// unknown98 passed 192 frames (0x441bc0).
+int SpellCardUpdate441bc0(SpellCard *card)
+{
+    if (card->unknown98 > 0xc0)
+    {
+        return 1;
+    }
+    return 0;
+}
+
