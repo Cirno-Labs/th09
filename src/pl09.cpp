@@ -4,6 +4,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "unsorted.h"
 
 // The unknown30450 of character 9: while unknown34 reaches (30 -
 // unknownB4) * 2, sends an extra attack of type 17 from `pos` and
@@ -60,4 +61,37 @@ int EffectUpdate449000(Effect *effect)
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     effect->unknown80 = -1.5707964f;
     return 1;
+}
+
+// The init callback of extra attack type 18: type 0's with four sprites
+// and 0x158 bytes of data, ExAttackData00 and more (0x449070).
+int ExAttackInit449070(ExAttack *attack)
+{
+    ExAttackData00 *data;
+    float angle;
+
+    attack->AllocSprites(4, 0x158);
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData00 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->velocity, angle, 2.0f);
+    data->state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    data->targetPos.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+    data->targetPos.y = g_Rng.GetRandomF32InRange(128.0f);
+    data->targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    return 0;
 }
