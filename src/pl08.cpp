@@ -55,6 +55,74 @@ int ExAttackInit447720(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack types 16 and 23: flies in along
+// the curve for 90 frames, then appears on the target's side drifting
+// away from its middle and, after 20 frames, falls as a hit circle,
+// turning back past the edges, until it touches the player there or
+// leaves the bottom. Returns 1 once it is done (0x447890).
+int ExAttackUpdate447890(ExAttack *attack)
+{
+    ExAttackData16 *data = (ExAttackData16 *)attack->data;
+    D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
+
+    switch (data->state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            data->state++;
+            attack->pos = data->targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+            if (attack->pos.x < 0.0f)
+            {
+                g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 0xb);
+                data->unknown10 = -0.03f;
+            }
+            else
+            {
+                g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 0xc);
+                data->unknown10 = 0.03f;
+            }
+            data->velocity.y = 2.0f;
+            data->velocity.x = 0.0f;
+        }
+        break;
+    case 1:
+        if (attack->timer > 0x14)
+        {
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->state = 2;
+                attack->timer = 0;
+                attack->sprites->SetPendingInterrupt(1);
+                return 0;
+            }
+            attack->pos += data->velocity;
+            data->velocity.x += data->unknown10;
+            if (attack->pos.x < -144.0f || attack->pos.x > 144.0f)
+            {
+                data->velocity.x *= -1.0f;
+            }
+            if (attack->pos.y >= 464.0f)
+            {
+                return 1;
+            }
+            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 13.0f, NULL);
+        }
+        break;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The unknown30450 of character 8: while unknown34 reaches 100 -
 // unknownB4 * 3, sends an extra attack of type 16 from `pos` and takes
 // as much off it. Returns 0 (0x447a80).
