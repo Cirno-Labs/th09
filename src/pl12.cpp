@@ -48,6 +48,59 @@ int ShotFire44ab90(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
     return 0;
 }
 
+// The data of extra attack type 20 (0x5c bytes): type 0's, then the
+// spiral it fires.
+struct ExAttackData20
+{
+    ExAttackData00 base;
+    // The speed and angle of the next ring, and how far the angle turns
+    // after each.
+    float speed;
+    float angle;
+    float angleStep;
+    // How many rings it has fired.
+    int count;
+};
+ASSERT_SIZE(ExAttackData20, 0x5c);
+
+// The init callback of extra attack type 20, character 12's: type 0's
+// curve to a random spot near the top of the other side, with a spiral
+// from a random angle turning pi/30 either way. Returns 0 (0x44ac20).
+int ExAttackInit44ac20(ExAttack *attack)
+{
+    ExAttackData20 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData20));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData20 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->base.velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->base.velocity, angle, 2.0f);
+    data->base.state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->base.tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->base.tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->base.start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->base.start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->base.start.z = 0.0f;
+    data->base.targetPos.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+    data->base.targetPos.y = g_Rng.GetRandomF32InRange(144.0f) + 32.0f;
+    data->base.targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->base.end.x = g_GameManager.ArenaToScreenX(data->base.targetPos.x);
+    data->base.end.y = g_GameManager.ArenaToScreenY(data->base.targetPos.y);
+    data->base.end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    data->speed = 1.0f;
+    data->angle = g_Rng.GetRandomF32SignedInRange(3.1415927f);
+    data->angleStep = g_Rng.GetRandomU16InRange(2) ? 0.10471976f : -0.10471976f;
+    data->count = 0;
+    return 0;
+}
+
 // The unknown30450 of character 12: while unknown34 reaches (40 -
 // unknownB4) * 4, sends an extra attack of type 20 from `pos` and
 // takes as much off it. Returns 0 (0x44af80).
