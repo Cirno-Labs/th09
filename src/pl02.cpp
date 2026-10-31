@@ -1,6 +1,7 @@
 // Character 2's extra attacks and callbacks (pl/pl02.cpp).
 
 #include "effect.h"
+#include "enemy.h"
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
@@ -34,6 +35,17 @@ int ShotFire4423d0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
         bullet->angle = sd->angle;
         return 1;
     }
+    return 0;
+}
+
+// The unknown30408 of character 2: stops the enemy's velocity2.
+// Returns 0 (0x442550).
+int PlayerEnemyFunc442550(Player *player, Enemy *enemy)
+{
+    enemy->velocity2.x = 0.0f;
+    enemy->velocity2.y = 0.0f;
+    enemy->velocity2.z = 0.0f;
+    enemy->unknown5424++;
     return 0;
 }
 

@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">4.67% (52)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">24.15% (269)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">4.85% (54)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">23.97% (267)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="531.75" height="6" x="0" y="0" class="named"/>
-<rect width="34.87" height="6" x="531.75" y="0" class="decompiled"/>
-<rect width="180.38" height="6" x="566.62" y="0" class="todo"/>
+<rect width="36.21" height="6" x="531.75" y="0" class="decompiled"/>
+<rect width="179.04" height="6" x="567.96" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1058,7 +1058,7 @@
 <rect width="12" height="12" x="555" y="285" class="todo"><title>0x00442420 Func442420 (46 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="285" class="todo"><title>0x00442450 Func442450 (46 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="285" class="todo"><title>0x00442480 Func442480 (193 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="285" class="todo"><title>0x00442550 Func442550 (35 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="285" class="decompiled"><title>0x00442550 PlayerEnemyFunc442550 (35 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="285" class="todo"><title>0x00442580 Func442580 (454 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="285" class="todo"><title>0x00442750 Func442750 (780 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="285" class="todo"><title>0x00442a60 Func442a60 (368 bytes)</title></rect>
@@ -1079,7 +1079,7 @@
 <rect width="12" height="12" x="120" y="300" class="todo"><title>0x00443930 Func443930 (249 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="300" class="todo"><title>0x00443a30 Func443a30 (209 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="300" class="todo"><title>0x00443b10 Func443b10 (249 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="300" class="todo"><title>0x00443c10 Func443c10 (95 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="300" class="decompiled"><title>0x00443c10 PlayerEnemyFunc443c10 (95 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="300" class="todo"><title>0x00443c70 Func443c70 (371 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="300" class="todo"><title>0x00443df0 Func443df0 (824 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="300" class="todo"><title>0x00444130 Func444130 (959 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">2.20%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.73%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">2.24%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.69%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.26" height="6" x="0" y="0" class="named"/>
-<rect width="16.43" height="6" x="314.26" y="0" class="decompiled"/>
-<rect width="416.31" height="6" x="330.69" y="0" class="todo"/>
+<rect width="16.76" height="6" x="314.26" y="0" class="decompiled"/>
+<rect width="415.98" height="6" x="331.02" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1762,7 +1762,7 @@
 <rect width="6.38" height="5.91" x="648.16" y="205.02" class="named"><title>0x004323b0 Network::Send (95 bytes)</title></rect>
 <rect width="6.38" height="5.91" x="657.53" y="205.02" class="named"><title>0x00440d30 PlayerUnknown36c::AddCircle (95 bytes)</title></rect>
 <rect width="6.38" height="5.91" x="666.91" y="205.02" class="decompiled"><title>0x004418b0 PlayerEnemyFunc4418b0 (95 bytes)</title></rect>
-<rect width="6.38" height="5.91" x="676.28" y="205.02" class="todo"><title>0x00443c10 Func443c10 (95 bytes)</title></rect>
+<rect width="6.38" height="5.91" x="676.28" y="205.02" class="decompiled"><title>0x00443c10 PlayerEnemyFunc443c10 (95 bytes)</title></rect>
 <rect width="6.28" height="5.91" x="685.66" y="205.02" class="named"><title>0x0042ee30 EnumAxesCallback (94 bytes)</title></rect>
 <rect width="6.28" height="5.91" x="694.93" y="205.02" class="named"><title>0x0042ee90 EnumAxesCallback2 (94 bytes)</title></rect>
 <rect width="6.28" height="5.91" x="704.21" y="205.02" class="named"><title>0x0043e0d0 MidiPlayer::LoadFile (94 bytes)</title></rect>
@@ -2039,7 +2039,7 @@
 <rect width="2.63" height="2.63" x="717.32" y="279.16" class="named"><title>0x0043ffd0 CWaveFile::Close (36 bytes)</title></rect>
 <rect width="2.47" height="2.63" x="722.95" y="279.16" class="todo"><title>0x00411d50 EnemyManager::OnDraw (35 bytes)</title></rect>
 <rect width="2.47" height="2.63" x="728.42" y="279.16" class="named"><title>0x0042ae70 Rng::GetRandomF32ZeroToOne (35 bytes)</title></rect>
-<rect width="2.47" height="2.63" x="733.90" y="279.16" class="todo"><title>0x00442550 Func442550 (35 bytes)</title></rect>
+<rect width="2.47" height="2.63" x="733.90" y="279.16" class="decompiled"><title>0x00442550 PlayerEnemyFunc442550 (35 bytes)</title></rect>
 <rect width="2.32" height="2.63" x="739.37" y="279.16" class="named"><title>0x004048e0 Rng::GetRandomU32InRange (34 bytes)</title></rect>
 <rect width="2.32" height="2.63" x="744.68" y="279.16" class="named"><title>0x00415020 Laser::Laser (34 bytes)</title></rect>
 <rect width="2.59" height="2.35" x="683.08" y="284.78" class="named"><title>0x00418270 Gui::FreeResources (34 bytes)</title></rect>
