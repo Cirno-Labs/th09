@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">10.77% (120)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">17.95% (200)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">10.86% (121)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">17.86% (199)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="80.47" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="134.11" height="6" x="612.89" y="0" class="todo"/>
+<rect width="81.14" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="133.44" height="6" x="613.56" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1178,7 +1178,7 @@
 <rect width="12" height="12" x="105" y="330" class="decompiled"><title>0x0044c290 EffectUpdate44c290 (79 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="330" class="decompiled"><title>0x0044c2e0 PlayerPosFunc44c2e0 (98 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="330" class="decompiled"><title>0x0044c350 ExAttackInit44c350 (361 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="330" class="todo"><title>0x0044c4c0 Func44c4c0 (446 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="330" class="decompiled"><title>0x0044c4c0 ExAttackUpdate44c4c0 (446 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="330" class="decompiled"><title>0x0044c680 PlayerComboFunc44c680 (98 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="330" class="decompiled"><title>0x0044c6f0 EffectInit44c6f0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="330" class="todo"><title>0x0044c790 Func44c790 (972 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">6.89%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">51.03%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">7.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">50.88%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="51.45" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="381.23" height="6" x="365.77" y="0" class="todo"/>
+<rect width="52.58" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="380.10" height="6" x="366.90" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1356,7 +1356,7 @@
 <rect width="16.16" height="17.65" x="692.73" y="21.45" class="todo"><title>0x00413290 Func413290 (450 bytes)</title></rect>
 <rect width="16.08" height="17.65" x="711.89" y="21.45" class="todo"><title>0x0041a000 GuiSide::AddedCallback (448 bytes)</title></rect>
 <rect width="16.03" height="17.65" x="730.97" y="21.45" class="named"><title>0x00422d20 ScreenEffect::StartEffect (447 bytes)</title></rect>
-<rect width="16.56" height="17.06" x="432.58" y="42.10" class="todo"><title>0x0044c4c0 Func44c4c0 (446 bytes)</title></rect>
+<rect width="16.56" height="17.06" x="432.58" y="42.10" class="decompiled"><title>0x0044c4c0 ExAttackUpdate44c4c0 (446 bytes)</title></rect>
 <rect width="16.56" height="16.83" x="432.58" y="62.16" class="named"><title>0x004218e0 LoadHscrChunks (441 bytes)</title></rect>
 <rect width="16.56" height="16.70" x="432.58" y="81.99" class="named"><title>0x0041ee50 Player::AddedCallback (438 bytes)</title></rect>
 <rect width="16.56" height="16.70" x="432.58" y="101.69" class="named"><title>0x00433e00 LzssInsertNode (438 bytes)</title></rect>

@@ -1,6 +1,8 @@
 // Character 15's extra attacks and callbacks (pl/pl15.cpp).
 
+#include "bullet.h"
 #include "effect.h"
+#include "enemy.h"
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
@@ -50,6 +52,66 @@ int ExAttackInit44c350(ExAttack *attack)
     data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
     data->end.z = 0.0f;
     g_App.SetCamera(attack->side);
+    return 0;
+}
+
+// The update callback of extra attack type 26: flies in along the curve
+// for 90 frames, then appears on the target's side and, after 20
+// frames, fires a speeding bullet every 3 frames until it is 50 frames
+// there. Returns 1 once it is done (0x44c4c0).
+int ExAttackUpdate44c4c0(ExAttack *attack)
+{
+    ExAttackData00 *data = (ExAttackData00 *)attack->data;
+
+    switch (data->state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 8);
+            data->state++;
+            attack->pos = data->targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+        }
+        break;
+    case 1:
+        if (attack->timer > 0x14)
+        {
+            if (attack->timer.HasTickedEvery(3))
+            {
+                EnemyShooter shooter;
+
+                shooter.pos = attack->pos;
+                shooter.sprite = 0x13;
+                shooter.aimMode = 2;
+                shooter.count1 = 1;
+                shooter.count2 = 1;
+                shooter.color = 2;
+                shooter.angle1 = 0.0f;
+                shooter.speed1 = 0.2f;
+                shooter.SetAccelCommand(0, 0, 120, 0.006666667f, -999.0f);
+                shooter.angle2 = 0.0f;
+                shooter.speed2 = 0.0f;
+                shooter.unknown1fa = 0;
+                shooter.flags = 0x10;
+                g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
+            }
+            if (attack->timer > 0x32)
+            {
+                return 1;
+            }
+        }
+        break;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
     return 0;
 }
 
