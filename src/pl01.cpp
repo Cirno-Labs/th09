@@ -63,3 +63,12 @@ int SpellCardUpdate441bc0(SpellCard *card)
     return 0;
 }
 
+int SpellCardInit441be0(SpellCard *card)
+{
+    D3DXVECTOR3 pos;
+
+    card->unknown1360 = g_MemoryManager.Alloc(0x2b8, ".\\pl\\pl01.cpp");
+    g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(1, &pos, 0x1e, -2, 10000, 0);
+    return 0;
+}
+
