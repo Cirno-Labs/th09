@@ -21,6 +21,10 @@ public:
     // Type 0's update callback, as th08's: fades alpha from 255 to 0
     // over duration frames. Returns 0 when done, else 1 (0x4222c0).
     static int OnUpdateFadeIn(ScreenEffect *effect);
+    // Type 2 and 4's update callback, as th08's: fades alpha from 0 to
+    // 255 over duration frames, holding still while the game is paused
+    // or in the continue menu. Returns 0 when done, else 1 (0x422470).
+    static int OnUpdateFadeOut(ScreenEffect *effect);
     // The draw callbacks, as th08's: the screen after flushing and
     // setting view 2, the whole screen, the play area, and the play area
     // in flashColor (0x422b70, 0x422c10, 0x422bd0, 0x422cd0). Return 1.

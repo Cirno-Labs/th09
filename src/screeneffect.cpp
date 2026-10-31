@@ -1,4 +1,6 @@
 #include "screeneffect.h"
+#include "gamemanager.h"
+#include "mainmenu.h"
 #include "sprite.h"
 #include "unsorted.h"
 
@@ -52,6 +54,32 @@ void DrawColoredLineStrip(VertexDiffuseXyzrwh *vertices, int count)
     g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
     g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
     g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+}
+
+int ScreenEffect::OnUpdateFadeOut(ScreenEffect *effect)
+{
+    if (g_Unknown4ac884 != 0)
+    {
+        return 0;
+    }
+    int duration = effect->duration;
+    if (duration != 0)
+    {
+        effect->alpha = effect->timer.AsFloat() * 255.0f / duration;
+        if (effect->alpha < 0)
+        {
+            effect->alpha = 0;
+        }
+    }
+    if (effect->timer >= duration)
+    {
+        return 0;
+    }
+    if (!g_GameManager.isPaused && !g_GameManager.isInContinueMenu)
+    {
+        effect->timer++;
+    }
+    return 1;
 }
 
 int ScreenEffect::DeletedCallback(ScreenEffect *effect)
