@@ -54,3 +54,15 @@ int SpellCardInit441350(SpellCard *card)
     return 0;
 }
 
+// The free callback of spell card types 0, 1, 3, 4, 6 and 7: frees
+// unknown1360. Returns 0 (0x4413a0).
+int SpellCardFree4413a0(SpellCard *card)
+{
+    if (card->unknown1360 != NULL)
+    {
+        g_MemoryManager.Free(card->unknown1360);
+    }
+    card->unknown1360 = NULL;
+    return 0;
+}
+
