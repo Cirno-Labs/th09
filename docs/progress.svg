@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">5.48% (61)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">23.34% (260)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">5.57% (62)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">23.25% (259)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="531.75" height="6" x="0" y="0" class="named"/>
-<rect width="40.90" height="6" x="531.75" y="0" class="decompiled"/>
-<rect width="174.34" height="6" x="572.66" y="0" class="todo"/>
+<rect width="41.57" height="6" x="531.75" y="0" class="decompiled"/>
+<rect width="173.67" height="6" x="573.33" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1071,7 +1071,7 @@
 <rect width="12" height="12" x="0" y="300" class="todo"><title>0x00443250 Func443250 (79 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="300" class="decompiled"><title>0x004432a0 ShotFire4432a0 (86 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="300" class="todo"><title>0x00443300 Func443300 (293 bytes)</title></rect>
-<rect width="12" height="12" x="45" y="300" class="todo"><title>0x00443430 Func443430 (8 bytes)</title></rect>
+<rect width="12" height="12" x="45" y="300" class="decompiled"><title>0x00443430 ShotHit443430 (8 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="300" class="todo"><title>0x00443440 Func443440 (403 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="300" class="todo"><title>0x004435e0 Func4435e0 (422 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="300" class="decompiled"><title>0x00443790 PlayerComboFunc443790 (85 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">2.46%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.47%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">2.47%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.46%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.26" height="6" x="0" y="0" class="named"/>
-<rect width="18.41" height="6" x="314.26" y="0" class="decompiled"/>
-<rect width="414.34" height="6" x="332.66" y="0" class="todo"/>
+<rect width="18.43" height="6" x="314.26" y="0" class="decompiled"/>
+<rect width="414.32" height="6" x="332.68" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -2278,7 +2278,7 @@
 <rect width="0.10" height="0.10" x="741.32" y="335.39" class="named"><title>0x0042d2d0 App::GetWindowed (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="744.21" y="335.39" class="named"><title>0x0042d2e0 SpriteEngine::ClearLastCameraSetupFlag (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.11" y="335.39" class="todo"><title>0x00434380 Func434380 (8 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="738.42" y="337.82" class="todo"><title>0x00443430 Func443430 (8 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="738.42" y="337.82" class="decompiled"><title>0x00443430 ShotHit443430 (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="738.42" y="340.63" class="named"><title>0x0040d4f0 Gui::GetUnknown11ea8 (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="738.42" y="343.09" class="named"><title>0x0040f160 EclManager::GetTimelineCount (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="738.42" y="345.54" class="named"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>

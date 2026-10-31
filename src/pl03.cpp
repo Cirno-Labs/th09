@@ -20,6 +20,13 @@ int ShotFire4432a0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
     return 0;
 }
 
+// A hit callback of the shot table (23): does nothing. Returns 1
+// (0x443430).
+int ShotHit443430(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
+{
+    return 1;
+}
+
 // The unknown30450 of character 3: while unknown34 reaches 70 -
 // unknownB4 * 3, sends an extra attack of type 13 from `pos` and takes
 // 70 off it. Returns 0 (0x443790).
