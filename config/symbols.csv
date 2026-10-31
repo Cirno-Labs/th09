@@ -1079,7 +1079,7 @@ address,size,name,symbol
 0x00449b50,71,Func449b50,
 0x00449ba0,198,Func449ba0,
 0x00449c70,98,ShotUpdate449c70,?ShotUpdate449c70@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
-0x00449ce0,98,Func449ce0,
+0x00449ce0,98,ShotUpdate449ce0,?ShotUpdate449ce0@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00449d50,732,Func449d50,
 0x0044a030,763,Func44a030,
 0x0044a330,821,Func44a330,

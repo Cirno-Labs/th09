@@ -31,3 +31,17 @@ int ShotUpdate449c70(Player *player, PlayerBullet *bullet)
     bullet->velocity.y = sinf(angle) * speed;
     return 0;
 }
+
+// An update callback of the shot table (16): ShotUpdate449c70 turning
+// the other way. Returns 0 (0x449ce0).
+int ShotUpdate449ce0(Player *player, PlayerBullet *bullet)
+{
+    float angle;
+    float speed;
+
+    bullet->angle = angle = AddNormalizeAngle(bullet->angle, -0.07853982f);
+    bullet->speed = speed = bullet->speed * 0.96f;
+    bullet->velocity.x = cosf(angle) * speed;
+    bullet->velocity.y = sinf(angle) * speed;
+    return 0;
+}
