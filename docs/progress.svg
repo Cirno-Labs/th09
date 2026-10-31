@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">14.18% (158)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.36% (160)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">14.27% (159)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.27% (159)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="533.76" height="6" x="0" y="0" class="named"/>
-<rect width="105.95" height="6" x="533.76" y="0" class="decompiled"/>
-<rect width="107.29" height="6" x="639.71" y="0" class="todo"/>
+<rect width="106.62" height="6" x="533.76" y="0" class="decompiled"/>
+<rect width="106.62" height="6" x="640.38" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1181,16 +1181,16 @@
 <rect width="12" height="12" x="150" y="330" class="decompiled"><title>0x0044c4c0 ExAttackUpdate44c4c0 (446 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="330" class="decompiled"><title>0x0044c680 PlayerComboFunc44c680 (98 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="330" class="decompiled"><title>0x0044c6f0 EffectInit44c6f0 (151 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="330" class="todo"><title>0x0044c790 Func44c790 (972 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="330" class="decompiled"><title>0x0044c790 EffectDraw44c790 (972 bytes)</title></rect>
 </g>
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">14.19%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">43.70%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">14.52%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">43.37%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.57" height="6" x="0" y="0" class="named"/>
-<rect width="106.02" height="6" x="314.57" y="0" class="decompiled"/>
-<rect width="326.41" height="6" x="420.59" y="0" class="todo"/>
+<rect width="108.47" height="6" x="314.57" y="0" class="decompiled"/>
+<rect width="323.96" height="6" x="423.04" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.09" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1249,7 +1249,7 @@
 <rect width="27.31" height="25.90" x="277.32" y="122.34" class="named"><title>0x0041fcd0 Player::CalcDamage (996 bytes)</title></rect>
 <rect width="27.31" height="25.87" x="277.32" y="151.24" class="todo"><title>0x00417130 Func417130 (995 bytes)</title></rect>
 <rect width="27.31" height="25.32" x="277.32" y="180.11" class="named"><title>0x0040fcc0 EnemyTimeline::Run (976 bytes)</title></rect>
-<rect width="27.31" height="25.20" x="277.32" y="208.43" class="todo"><title>0x0044c790 Func44c790 (972 bytes)</title></rect>
+<rect width="27.31" height="25.20" x="277.32" y="208.43" class="decompiled"><title>0x0044c790 EffectDraw44c790 (972 bytes)</title></rect>
 <rect width="27.31" height="25.06" x="277.32" y="236.63" class="todo"><title>0x00408180 Func408180 (967 bytes)</title></rect>
 <rect width="27.31" height="25.03" x="277.32" y="264.69" class="todo"><title>0x0042929c MainMenu::UpdateState14 (966 bytes)</title></rect>
 <rect width="27.31" height="24.83" x="277.32" y="292.72" class="decompiled"><title>0x00444130 ExAttackDraw444130 (959 bytes)</title></rect>

@@ -155,3 +155,92 @@ int EffectInit44c6f0(Effect *effect)
     effect->unknownC9 = 1;
     return 0;
 }
+
+// The draw callback of effect type 37: while unknownC9 is set, a
+// vertical and then a horizontal beam through the effect, each a strip
+// 2 * unknown7c wide across the playfield, brighter at the edges than
+// in the middle. Returns 1 (0x44c790).
+int EffectDraw44c790(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        VertexDiffuseXyzrwh *strip;
+
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x - effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(0.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x - effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(448.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(0.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(448.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x + effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(0.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x + effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(448.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        g_SpriteEngine->DrawColoredStrip(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, 6);
+        strip = vtx;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y + effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y + effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        g_SpriteEngine->DrawColoredStrip(effect->sprites, strip, 6);
+    }
+    return 1;
+}
