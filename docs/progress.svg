@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.04% (783)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">25.75% (276)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.13% (784)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">25.65% (275)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="545.62" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="545.62" y="0" class="decompiled"/>
-<rect width="192.32" height="6" x="554.68" y="0" class="todo"/>
+<rect width="546.31" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="546.31" y="0" class="decompiled"/>
+<rect width="191.63" height="6" x="555.37" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -216,7 +216,7 @@
 <rect width="12" height="12" x="675" y="30" class="named"><title>0x0040ccc0 EffectManager::SpawnParticlesWithVelocity (175 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="30" class="named"><title>0x0040cd70 EffectManager::SpawnReservedEffect (85 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="30" class="todo"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="30" class="todo"><title>0x0040cfb0 EffectManager::OnDraw (183 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="30" class="named"><title>0x0040cfb0 EffectManager::OnDraw (183 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="30" class="named"><title>0x0040d070 EffectManager::OnDraw2 (146 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="45" class="named"><title>0x0040d110 EffectManager::DrawUnknown114 (169 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="45" class="todo"><title>0x0040d1c0 EffectManager::AddedCallback (51 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.24%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">57.04%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.30%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">56.98%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="315.50" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="315.50" y="0" class="decompiled"/>
-<rect width="426.11" height="6" x="320.89" y="0" class="todo"/>
+<rect width="315.97" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="315.97" y="0" class="decompiled"/>
+<rect width="425.64" height="6" x="321.36" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1538,7 +1538,7 @@
 <rect width="9.49" height="9.60" x="687.68" y="133.04" class="named"><title>0x00410110 Enemy::Despawn (184 bytes)</title></rect>
 <rect width="9.49" height="9.60" x="700.17" y="133.04" class="named"><title>0x0042c700 Chain::RunCalcChain (184 bytes)</title></rect>
 <rect width="9.49" height="9.60" x="712.66" y="133.04" class="named"><title>0x0043ed80 BgmNotificationProc (184 bytes)</title></rect>
-<rect width="9.42" height="9.60" x="725.15" y="133.04" class="todo"><title>0x0040cfb0 EffectManager::OnDraw (183 bytes)</title></rect>
+<rect width="9.42" height="9.60" x="725.15" y="133.04" class="named"><title>0x0040cfb0 EffectManager::OnDraw (183 bytes)</title></rect>
 <rect width="9.42" height="9.60" x="737.58" y="133.04" class="named"><title>0x00432eb0 Network::CreatePeer (183 bytes)</title></rect>
 <rect width="9.06" height="9.91" x="560.73" y="145.64" class="named"><title>0x00432180 App::RegisterChain (182 bytes)</title></rect>
 <rect width="9.06" height="9.84" x="560.73" y="158.55" class="todo"><title>0x004011d0 Func4011d0 (181 bytes)</title></rect>
