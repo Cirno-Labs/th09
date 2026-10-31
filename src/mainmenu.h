@@ -234,6 +234,9 @@ public:
     // musiccmt.txt into tunes, lists ten tunes from listTop, shows the
     // playing one's comment a line every two frames and plays, pauses
     // or fades out the tune.
+    // UpdateState15 asks whether to save the replay, lists the slots
+    // th9_01 to 25, asks before overwriting one and has the name typed
+    // in; network play saves to the first free th9_udnXXX at once.
     // UpdateState16 is the character select of states 3 and 5 and of
     // mode 2's matches, listing the open characters of
     // g_CharacterOrder; it starts the game in scene 2, or goes back to

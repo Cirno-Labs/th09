@@ -3545,6 +3545,326 @@ int MainMenu::UpdateState8b()
     return 1;
 }
 
+int MainMenu::UpdateState15()
+{
+    int i;
+    char path[0x100];
+    char slotPath[0x40];
+    int size;
+    void *data;
+    ReplayHeader *replay;
+
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            if (g_GameManager.stateFlags & 0x2000)
+            {
+                this->stateFrames = 0;
+                this->SetState(1);
+                this->cursor = 0;
+                return 1;
+            }
+            if (g_Network->unknownA8 != 0)
+            {
+                for (i = 0; i < 1000; i++)
+                {
+                    sprintf(path, "./replay/th9_udn%.3d.rpy", i + 1);
+                    if (!FileExists(path))
+                    {
+                        break;
+                    }
+                }
+                if (i >= 1000)
+                {
+                    i = 999;
+                }
+                sprintf(path, "./replay/th9_udn%.3d.rpy", i + 1);
+                ReplayManager::SaveReplay(g_GameManager.replayManager, path, g_Lsnm.name);
+                this->stateFrames = 0;
+                this->SetState(1);
+                this->cursor = 0;
+                this->unknown1b23c = 2;
+                return 1;
+            }
+            if (g_SpriteEngine->LoadSurface(0, "title/replay00.png") != 0)
+            {
+                return 0;
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x13);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            this->cursor = 0;
+            strcpy(this->replayName, g_Lsnm.name);
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+            if (g_GameManager.mode == 2)
+            {
+            listSlots:
+                memset(this->replays, 0, sizeof(this->replays));
+                for (i = 0; i < 25; i++)
+                {
+                    sprintf(slotPath, "./replay/th9_%.2d.rpy", i + 1);
+                    data = OpenPath(slotPath, &size, 1);
+                    if (data != NULL && (replay = ValidateReplay(data, size)) != NULL)
+                    {
+                        this->replays[i] = *replay;
+                        strcpy(this->replayPaths[i], slotPath);
+                        free(replay);
+                    }
+                }
+                this->subState = 2;
+                this->unknown1b230 = 0;
+                this->cursor = 0;
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x16);
+                g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+                break;
+            }
+            this->entryFirst = 0x7d;
+            this->entryCount = 2;
+            this->SelectCursorEntry();
+            _mkdir("replay");
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+        }
+        break;
+    case 1:
+        if (this->MoveCursorLR(2) != 0)
+        {
+            this->SelectCursorEntry();
+        }
+        if (g_PlayerInputs[2].unknown6 & 0xa)
+        {
+            if (this->cursor == 0)
+            {
+                this->PlaySoundNow(11, 0);
+                this->cursor = 1;
+                this->SelectCursorEntry();
+                break;
+            }
+            goto quit;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            if (this->cursor == 1)
+            {
+            quit:
+                this->PlaySoundNow(11, 0);
+                this->stateFrames = 0;
+                this->SetState(1);
+                this->cursor = 0;
+                strcpy(g_Lsnm.name, g_HighScores[this->scoreCharacter][g_GameManager.difficulty][this->scoreRank].name);
+                return 1;
+            }
+            goto listSlots;
+        }
+        break;
+    case 2:
+        if (this->unknown1b230 < 6)
+        {
+            break;
+        }
+        if (this->MoveCursor(25) != 0)
+        {
+            this->SelectCursorEntry();
+        }
+        if (g_PlayerInputs[2].unknown6 & 0xa)
+        {
+            this->PlaySoundNow(11, 0);
+            this->cursor = 0;
+            this->unknown1b230 = 0;
+            this->subState = 1;
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x13);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            this->entryFirst = 0x7d;
+            this->entryCount = 2;
+            this->SelectCursorEntry();
+            break;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            this->PlaySoundNow(10, 0);
+            this->replaySlot = this->cursor;
+            this->cursor = 0;
+            if (*(DWORD *)this->replays[this->replaySlot].magic != 0)
+            {
+                this->subState = 3;
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x15);
+                g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+                this->entryFirst = 0x81;
+                this->entryCount = 2;
+                this->SelectCursorEntry();
+            }
+            else
+            {
+                this->cursor = 0x5f;
+                this->subState = 4;
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x17);
+                g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            }
+            this->unknown1b230 = 0;
+            strcpy(this->replayName, g_Lsnm.name);
+        }
+        break;
+    case 3:
+        if (this->unknown1b230 < 10)
+        {
+            break;
+        }
+        if (this->MoveCursorLR(2) != 0)
+        {
+            this->SelectCursorEntry();
+        }
+        if (g_PlayerInputs[2].unknown6 & 0xa)
+        {
+            goto back;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            if (this->cursor == 1)
+            {
+            back:
+                this->PlaySoundNow(11, 0);
+                this->subState = 2;
+                this->cursor = 0;
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x16);
+                g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            }
+            else
+            {
+                this->PlaySoundNow(10, 0);
+                this->cursor = 0x5f;
+                this->subState = 4;
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x17);
+                g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            }
+        }
+        break;
+    case 4:
+        if (this->unknown1b230 < 10)
+        {
+            break;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x10))
+        {
+            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            this->cursor -= 16;
+            if (this->cursor < 0)
+            {
+                this->cursor += 0x60;
+            }
+            if (this->cursor == 0x5d)
+            {
+                this->cursor = 0x4d;
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x20))
+        {
+            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            this->cursor += 16;
+            if (this->cursor >= 0x60)
+            {
+                this->cursor -= 0x60;
+            }
+            if (this->cursor == 0x5d)
+            {
+                this->cursor = 0xd;
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x40))
+        {
+            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            if (this->cursor % 16 == 0)
+            {
+                this->cursor += 15;
+            }
+            else
+            {
+                this->cursor--;
+                if (this->cursor == 0x5d)
+                {
+                    this->cursor = 0x5c;
+                }
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x80))
+        {
+            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            if (this->cursor % 16 == 15)
+            {
+                this->cursor -= 15;
+            }
+            else
+            {
+                this->cursor++;
+                if (this->cursor == 0x5d)
+                {
+                    this->cursor = 0x5e;
+                }
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            if (this->cursor == 0x5f)
+            {
+                this->PlaySoundNow(10, 0);
+                sprintf(path, "replay/th9_%.2d.rpy", this->replaySlot + 1);
+                ReplayManager::SaveReplay(g_GameManager.replayManager, path, this->replayName);
+                this->stateFrames = 0;
+                this->SetState(1);
+                this->cursor = 0;
+                strcpy(g_Lsnm.name, this->replayName);
+                return 1;
+            }
+            this->replayName[this->replayNameCursor] = this->cursor == 0x5e ? ' ' : g_NameAlphabet[this->cursor];
+            this->PlaySoundNow(10, 0);
+            if (this->replayNameCursor < 7)
+            {
+                this->replayNameCursor++;
+            }
+            else
+            {
+                this->cursor = 0x5f;
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0xa)
+        {
+            this->PlaySoundNow(11, 0);
+            if (this->replayNameCursor == 7 && this->replayName[7] != ' ')
+            {
+                this->replayName[7] = ' ';
+            }
+            else if (this->replayNameCursor > 0)
+            {
+                this->replayNameCursor--;
+                this->replayName[this->replayNameCursor] = ' ';
+            }
+            else
+            {
+                this->cursor = 0;
+                this->subState = 2;
+                g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x16);
+                g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+                this->unknown1b230 = 0;
+            }
+            this->stateFrames = 0;
+        }
+        break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState13()
 {
     int i;
