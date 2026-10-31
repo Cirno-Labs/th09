@@ -283,7 +283,7 @@ address,size,name,symbol
 0x004150d0,283,BulletManager::RegisterChain,?RegisterChain@BulletManager@@SIPAV1@H@Z
 0x004151f0,321,ExAttackManager::AddAttack,?AddAttack@ExAttackManager@@QAEPAUExAttack@@HPAUD3DXVECTOR3@@H0@Z
 0x00415340,279,ExAttackManager::OnUpdate,?OnUpdate@ExAttackManager@@SIHPAV1@@Z
-0x00415460,272,ExAttackManager::OnDraw,?OnDraw@ExAttackManager@@SIHPAV1@@Z
+0x00415460,286,ExAttackManager::OnDraw,?OnDraw@ExAttackManager@@SIHPAV1@@Z
 0x00415580,190,ExAttackManager::OnDraw2,?OnDraw2@ExAttackManager@@SIHPAV1@@Z
 0x00415650,70,FreeAttacks,?FreeAttacks@@YIHPAVExAttackManager@@@Z
 0x004156a0,66,ExAttackManager::RemoveChain,?RemoveChain@ExAttackManager@@SIXPAV1@@Z

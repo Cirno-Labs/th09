@@ -33,7 +33,8 @@ struct ExAttack
     void *data;
     // AddAttack's target.
     D3DXVECTOR3 *target;
-    unsigned char pad_3c[0x40 - 0x3c];
+    // The rotation its sprites that turn are drawn at.
+    float angle;
     // Its type's callbacks: run every frame until it returns nonzero,
     // draw it, and run when the attack is freed, if set.
     ExAttackCallback onUpdate;

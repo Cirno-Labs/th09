@@ -103,6 +103,39 @@ int ExAttackManager::OnUpdate(ExAttackManager *mgr)
     return 1;
 }
 
+int ExAttackManager::OnDraw(ExAttackManager *mgr)
+{
+    int i;
+    int j;
+    ExAttack *attack;
+
+    for (i = 0; i < 2; i++)
+    {
+        g_App.SetView2D(i);
+        for (attack = mgr->layerHeads[i]; attack != NULL; attack = attack->next)
+        {
+            for (j = 0; j < attack->spriteCount; j++)
+            {
+                if (attack->sprites[j].autoRotate != 0)
+                {
+                    attack->sprites[j].SetRotationZ(attack->angle);
+                }
+                attack->sprites[j].pos.x =
+                    g_GameManager.ArenaToScreenX(attack->sprites[j].posOffset.x + attack->pos.x);
+                attack->sprites[j].pos.y =
+                    g_GameManager.ArenaToScreenY(attack->sprites[j].posOffset.y + attack->pos.y);
+                attack->sprites[j].pos.z = 0.06f;
+                g_SpriteEngine->Draw(&attack->sprites[j]);
+            }
+            if (attack->onDraw != NULL)
+            {
+                attack->onDraw(attack);
+            }
+        }
+    }
+    return 1;
+}
+
 // Calls the onFree callback of each running attack and frees its block.
 // Returns 0. Static, with the manager in eax (0x415650).
 static int FreeAttacks(ExAttackManager *mgr)
