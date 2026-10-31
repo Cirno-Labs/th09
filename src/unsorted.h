@@ -344,10 +344,11 @@ struct PlayerInput
     void UpdateRepeat2();
 
     WORD unknown0;
-    unsigned char pad_2[0x2];
+    WORD unknown2;
     WORD unknown4;
     WORD unknown6;
-    unsigned char pad_8[0x2a - 0x8];
+    WORD unknown8;
+    unsigned char pad_a[0x2a - 0xa];
     // How long button 1 of the second set has been held during a
     // replay, up to 8, for the sides whose GameManagerUnknownE8
     // unknownB4 is 1.

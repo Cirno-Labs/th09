@@ -13,7 +13,8 @@ struct GameStats
     // The score shown, and the score, counting in tens, as th08's.
     DWORD guiScore;
     DWORD score;
-    unsigned char pad_c[0x4];
+    // How far guiScore counts up a frame, as th08's.
+    DWORD scoreIncrement;
     // The extends given; 99999 once there are no more.
     int extendsGiven;
     // Goes to Hscr::unknown2b.
@@ -107,15 +108,16 @@ struct GameRank
         }
     }
 
-    int unknownB0;
+    // Frames played; OnUpdate counts it while no dialogue runs.
+    DWORD unknownB0;
     // ResetRound lowers it by 2 per unknown100, to at least 1, from a
     // value set by difficulty; in mode 2 by 8, to at least unknown100.
     int unknownB4;
     int unknownB8;
     int unknownBc;
-    int unknownC0;
+    DWORD unknownC0;
     // Set by ResetRound from difficulty, unknown100 and unknownFc.
-    int unknownC4;
+    DWORD unknownC4;
     int unknownC8;
     // ResetRound lowers it by 1000, to at least 0.
     int unknownCc;
@@ -140,7 +142,11 @@ public:
     // sets App::loadsResources by the scene, sets loadingThreadState,
     // starts the loading sprites (and, coming from the title, the loading
     // screen effect), turns the result screen's mode 2 and 3 into 1 and
-    // runs LoadingThread in the sub thread. Returns 0.
+    // runs LoadingThread in the sub thread. Returns 0. The update
+    // callback copies the menu input to both sides, handles pausing and
+    // the demo, advances the rank, spawns a pair of item enemies once
+    // rank.unknownCc passes 10000, rolls the shown scores up and gives
+    // the extends. Returns 1, or 3 while paused or loading.
     static int OnUpdate(GameManager *mgr);
     static int AddedCallback(GameManager *mgr);
     static int DeletedCallback(GameManager *mgr);
@@ -273,7 +279,9 @@ public:
     BYTE unknown13e;
     // The demo the title plays next.
     BYTE demoIndex;
-    unsigned char pad_140[0x145 - 0x140];
+    // How long the demo has played.
+    int demoFrames;
+    unsigned char pad_144[0x145 - 0x144];
     // The replay to play.
     char replayFile[0x200];
     unsigned char pad_345[0x346 - 0x345];
@@ -283,11 +291,16 @@ public:
     unsigned char pad_34c[0x350 - 0x34c];
     float arena[4];
     float arena2[4];
-    unsigned char pad_370[0x378 - 0x370];
+    unsigned char pad_370[0x374 - 0x370];
+    // The item of the last pair of enemies OnUpdate spawned.
+    int unknown374;
     int unknown378;
     int unknown37c;
     int unknown380;
-    unsigned char pad_384[0x390 - 0x384];
+    unsigned char pad_384[0x38c - 0x384];
+    // Set by the loading thread, as th08's pendingMusicStart: OnUpdate
+    // releases surface 8 and, at 1, plays music 0.
+    int unknown38c;
 };
 ASSERT_SIZE(GameManager, 0x390);
 extern GameManager g_GameManager;

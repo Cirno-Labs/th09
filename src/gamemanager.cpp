@@ -15,7 +15,9 @@
 #include "gui.h"
 #include "player.h"
 #include "replay.h"
+#include "screeneffect.h"
 #include "spellcard.h"
+#include "sprite.h"
 #include "stage.h"
 
 BOOL GameManager::IsInPlayArea(float x, float y, float width, float height)
@@ -378,4 +380,200 @@ void GameManager::Init()
     this->demoIndex = 0;
     this->unknown378 = 10;
     this->unknown37c = 10;
+}
+
+int GameManager::OnUpdate(GameManager *mgr)
+{
+    int i;
+    DWORD step;
+    int item;
+
+    g_GameManager.unknown12c++;
+    if (g_GameManager.mode != 2 || g_GameManager.sides[0].unknown28 != 0 || g_GameManager.sides[1].unknown28 != 0)
+    {
+        g_PlayerInputs[0].unknown0 = g_PlayerInputs[2].unknown0;
+        g_PlayerInputs[0].unknown2 = g_PlayerInputs[2].unknown2;
+        g_PlayerInputs[0].unknown4 = g_PlayerInputs[2].unknown4;
+        g_PlayerInputs[0].unknown6 = g_PlayerInputs[2].unknown6;
+        g_PlayerInputs[0].unknown8 = g_PlayerInputs[2].unknown8;
+        g_PlayerInputs[1].unknown0 = g_PlayerInputs[2].unknown0;
+        g_PlayerInputs[1].unknown2 = g_PlayerInputs[2].unknown2;
+        g_PlayerInputs[1].unknown4 = g_PlayerInputs[2].unknown4;
+        g_PlayerInputs[1].unknown6 = g_PlayerInputs[2].unknown6;
+        g_PlayerInputs[1].unknown8 = g_PlayerInputs[2].unknown8;
+    }
+    if (g_GameManager.loadingThreadState != 0)
+    {
+        if (g_GameManager.loadingThreadState == 2)
+        {
+            return 4;
+        }
+        mgr->unknown128++;
+        return 3;
+    }
+    if (g_GameManager.unknown38c != 0)
+    {
+        g_SpriteEngine->ReleaseSurface(8);
+        g_App.loadingState = 0;
+        if (g_GameManager.unknown38c == 1)
+        {
+            g_App.PlayMusic(0, 0);
+        }
+        g_GameManager.unknown38c = 0;
+    }
+    if (!mgr->isInContinueMenu && !mgr->unknown13e && !mgr->isPaused && !(mgr->stateFlags >> 1 & 1) &&
+        (g_PlayerInputs[2].unknown6 & 8))
+    {
+        mgr->isPaused = 1;
+        mgr->unknown130 = 1;
+        g_SoundPlayer.QueueSoundCommand(6, 0, "Pause");
+        g_SoundPlayer.PlaySoundByIdx(0x22, 0);
+        g_App.AddTotalPlayTime();
+    }
+    if (mgr->stateFlags >> 1 & 1)
+    {
+        if (g_PlayerInputs[2].unknown6 != 0)
+        {
+            g_App.scene = 1;
+        }
+        mgr->demoFrames++;
+        if (mgr->demoFrames == 6000)
+        {
+            ScreenEffect::StartEffect(4, 120, 0, 0, 0, 0x23, 2);
+            g_App.FadeOutBgm(3.0f);
+        }
+        if (mgr->demoFrames == 6120)
+        {
+            g_App.scene = 1;
+            return 3;
+        }
+    }
+    if (mgr->isPaused == 1 || mgr->isPaused == 2 || mgr->isInContinueMenu || mgr->unknown13e)
+    {
+        return 3;
+    }
+    if (!g_GameManager.gui->IsMsgRunning())
+    {
+        g_GameManager.rank.unknownD0++;
+        g_GameManager.rank.unknownB0++;
+        if (g_GameManager.rank.unknownB0 % g_GameManager.rank.unknownC4 == g_GameManager.rank.unknownC4 - 1)
+        {
+            g_GameManager.rank.unknownB4++;
+            if (g_GameManager.rank.unknownB4 > g_GameManager.rank.unknownC8)
+            {
+                g_GameManager.rank.unknownB4 = g_GameManager.rank.unknownC8;
+            }
+        }
+        g_GameManager.rank.unknownC0++;
+        if (g_GameManager.rank.unknownB0 % 3600 == 3599)
+        {
+            if (g_GameManager.sides[0].player->unknownA0 < 16)
+            {
+                g_GameManager.sides[0].player->unknownA0++;
+            }
+            if (g_GameManager.sides[0].player->unknownA4 < 16)
+            {
+                g_GameManager.sides[0].player->unknownA4++;
+            }
+            if (g_GameManager.sides[1].player->unknownA0 < 16)
+            {
+                g_GameManager.sides[1].player->unknownA0++;
+            }
+            if (g_GameManager.sides[1].player->unknownA4 < 16)
+            {
+                g_GameManager.sides[1].player->unknownA4++;
+            }
+        }
+        if (g_GameManager.rank.unknownB8 < 6 && g_GameManager.rank.unknownC0 % 720 == 719)
+        {
+            g_GameManager.rank.unknownB8++;
+        }
+        if (!g_GameManager.unknownBits134_11 && !g_GameManager.sides[0].flag0)
+        {
+            g_GameManager.rank.unknownCc += mgr->rank.unknownB0 < 1800   ? 3
+                                            : mgr->rank.unknownB0 < 3600 ? 4
+                                            : mgr->rank.unknownB0 < 5400 ? 6
+                                                                         : 7;
+        }
+        if (g_GameManager.rank.unknownCc > 10000)
+        {
+            D3DXVECTOR3 pos;
+            Enemy *enemy;
+
+            item = (WORD)(g_Rng.GetRandomU16() % 4);
+            if (item == g_GameManager.unknown374)
+            {
+                item++;
+                if (item >= 4)
+                {
+                    item = 0;
+                }
+            }
+            g_GameManager.rank.unknownCc -= 10000;
+            pos.x = 0.0f;
+            pos.z = 0.0f;
+            g_GameManager.unknown374 = item;
+            pos.y = -32.0f;
+            enemy = g_GameManager.sides[0].enemyManager->SpawnEnemy(0x13, &pos, 0x33e, -2, 10000, 0, 0);
+            enemy->item = item;
+            enemy->unknownBit13 = 1;
+            enemy = g_GameManager.sides[1].enemyManager->SpawnEnemy(0x13, &pos, 0x33e, -2, 10000, 0, 0);
+            enemy->unknownBit13 = 1;
+            enemy->item = item;
+            g_SoundPlayer.PlaySoundByIdx(0x33, 0);
+            g_GameManager.sides[0].gui->StartUnknown6ee8(1);
+            g_GameManager.sides[1].gui->StartUnknown6ee8(1);
+        }
+    }
+    for (i = 0; i < 2; i++)
+    {
+        if (g_GameManager.sides[i].stats->score >= 1000000000)
+        {
+            g_GameManager.sides[i].stats->score = 999999999;
+        }
+        if (g_GameManager.sides[i].stats->guiScore != g_GameManager.sides[i].stats->score)
+        {
+            if (g_GameManager.sides[i].stats->score < g_GameManager.sides[i].stats->guiScore)
+            {
+                g_GameManager.sides[i].stats->score = g_GameManager.sides[i].stats->guiScore;
+            }
+            step = (g_GameManager.sides[i].stats->score - g_GameManager.sides[i].stats->guiScore) / 15;
+            if (step >= 0x8d55e)
+            {
+                step = 0x8d55e;
+            }
+            else if (step == 0)
+            {
+                step = 1;
+            }
+            if (g_GameManager.sides[i].stats->scoreIncrement < step)
+            {
+                g_GameManager.sides[i].stats->scoreIncrement = step;
+            }
+            if (g_GameManager.sides[i].stats->guiScore + g_GameManager.sides[i].stats->scoreIncrement >
+                g_GameManager.sides[i].stats->score)
+            {
+                g_GameManager.sides[i].stats->scoreIncrement =
+                    g_GameManager.sides[i].stats->score - g_GameManager.sides[i].stats->guiScore;
+            }
+            g_GameManager.sides[i].stats->guiScore += g_GameManager.sides[i].stats->scoreIncrement;
+            if (g_GameManager.sides[i].stats->guiScore >= g_GameManager.sides[i].stats->score)
+            {
+                g_GameManager.sides[i].stats->scoreIncrement = 0;
+                g_GameManager.sides[i].stats->guiScore = g_GameManager.sides[i].stats->score;
+            }
+        }
+    }
+    if (g_GameManager.mode == 0 &&
+        g_GameManager.sides[0].stats->guiScore >= g_GameManager.sides[0].stats->extendsGiven * 2000000 + 1000000)
+    {
+        g_GameManager.AddExtend();
+    }
+    if (g_GameManager.mode == 1 &&
+        g_GameManager.sides[0].stats->guiScore >= (g_GameManager.sides[0].stats->extendsGiven + 1) * 500000)
+    {
+        g_GameManager.AddExtend();
+    }
+    mgr->frames++;
+    return 1;
 }
