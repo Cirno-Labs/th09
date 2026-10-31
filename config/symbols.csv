@@ -1084,7 +1084,7 @@ address,size,name,symbol
 0x0044a030,763,Func44a030,
 0x0044a330,821,Func44a330,
 0x0044a670,101,PlayerComboFunc44a670,?PlayerComboFunc44a670@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
-0x0044a6e0,156,Func44a6e0,
+0x0044a6e0,156,EffectInit44a6e0,?EffectInit44a6e0@@YIHPAUEffect@@@Z
 0x0044a780,921,Func44a780,
 0x0044ab20,3,ReturnZero,
 0x0044ab30,88,EffectUpdate44ab30,?EffectUpdate44ab30@@YIHPAUEffect@@@Z
