@@ -173,6 +173,13 @@ WORD InitJoystick();
 // The joysticks' capabilities, from joyGetDevCaps (0x4ac8d8).
 extern JOYCAPSA g_JoyCaps[2];
 
+// Player `player`'s pad buttons, 0x80 for each one down, as th08's
+// GetPadButtons: through DirectInput, or joyGetPosEx when the player
+// has no DirectInput pad (0x42b740). Returns g_PadButtons.
+BYTE *GetPadButtons(int player);
+// The buttons GetPadButtons read (0x4b3028).
+extern BYTE g_PadButtons[0x80];
+
 // Releases every key in the keyboard state, as th08's (0x42ad70).
 void ResetKeyboard();
 // Opens the game's archive, as th08's. Returns 0, or -1 (0x42f100).
@@ -913,8 +920,16 @@ struct App
     // InitDirectInput.
     IDirectInput8 *dinput;
     IDirectInputDevice8 *keyboard;
-    IDirectInputDevice8 *joystick;
-    IDirectInputDevice8 *joystick2;
+    union
+    {
+        struct
+        {
+            IDirectInputDevice8 *joystick;
+            IDirectInputDevice8 *joystick2;
+        };
+        // The same, by player.
+        IDirectInputDevice8 *joysticks[2];
+    };
     DIDEVCAPS joystickCaps;
     DIDEVCAPS joystickCaps2;
     // The game's window, as th08's.

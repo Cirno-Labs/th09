@@ -489,6 +489,56 @@ found:
     }
 }
 
+BYTE *GetPadButtons(int player)
+{
+    JOYINFOEX joyInfo;
+    DWORD mask;
+    DWORD button;
+    HRESULT hr;
+    DIJOYSTATE2 state;
+    int retries;
+
+    memset(g_PadButtons, 0, sizeof(g_PadButtons));
+    if (g_App.joysticks[player] == NULL)
+    {
+        memset(&joyInfo, 0, sizeof(joyInfo));
+        joyInfo.dwSize = sizeof(joyInfo);
+        joyInfo.dwFlags = JOY_RETURNALL;
+        if (joyGetPosEx(JOYSTICKID1, &joyInfo) != JOYERR_NOERROR)
+        {
+            return g_PadButtons;
+        }
+        mask = joyInfo.dwButtons;
+        for (button = 0; button < 32; button++, mask >>= 1)
+        {
+            if (mask & 1)
+            {
+                g_PadButtons[button] = 0x80;
+            }
+        }
+        return g_PadButtons;
+    }
+    hr = g_App.joysticks[player]->Poll();
+    if (FAILED(hr))
+    {
+        retries = 0;
+        hr = g_App.joysticks[player]->Acquire();
+        while (hr == DIERR_INPUTLOST)
+        {
+            hr = g_App.joysticks[player]->Acquire();
+            retries++;
+            if (retries >= 400)
+            {
+                return g_PadButtons;
+            }
+        }
+        return g_PadButtons;
+    }
+    g_App.joysticks[player]->GetDeviceState(sizeof(DIJOYSTATE2), &state);
+    memcpy(g_PadButtons, state.rgbButtons, sizeof(g_PadButtons));
+    return g_PadButtons;
+}
+
 BYTE *DecryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int limit)
 {
     int unused = 0;

@@ -569,7 +569,7 @@ address,size,name,symbol
 0x0042b300,71,Chain::CreateElem,?CreateElem@Chain@@QAEPAUChainElem@@P6IHPAX@Z@Z
 0x0042b350,188,Chain::RemoveLocked,?RemoveLocked@Chain@@QAEXPAUChainElem@@@Z
 0x0042b410,808,Func42b410,
-0x0042b740,259,Func42b740,
+0x0042b740,259,GetPadButtons,?GetPadButtons@@YIPAEH@Z
 0x0042b850,1507,ReadInput,?ReadInput@@YIGH@Z
 0x0042be40,819,Func42be40,
 0x0042c180,259,DecryptData,?DecryptData@@YIPAEPAEHEEHH@Z
@@ -2378,6 +2378,7 @@ address,size,name,symbol
 0x004ad008,,g_Archive,?g_Archive@@3VDatArchive@@A
 0x004ad018,,g_MemoryManager,?g_MemoryManager@@3VMemoryManager@@A
 0x004b1020,,g_Log,?g_Log@@3VLog@@A
+0x004b3028,,g_PadButtons,?g_PadButtons@@3PAEA
 0x004b30a8,,g_AppMutex,?g_AppMutex@@3PAXA
 0x004b30b0,,g_GameWindow,?g_GameWindow@@3UGameWindow@@A
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
