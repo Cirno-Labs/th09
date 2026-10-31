@@ -74,7 +74,7 @@ address,size,name,symbol
 0x00404570,51,SpellCard::RemoveChain,?RemoveChain@SpellCard@@SIXPAV1@@Z
 0x004045b0,66,SpellCard::SpellCard,??0SpellCard@@QAE@XZ
 0x00404600,264,SpellCard::RegisterChain,?RegisterChain@SpellCard@@SIPAV1@H@Z
-0x00404710,346,Func404710,
+0x00404710,348,Player::GetMoveDelta,?GetMoveDelta@Player@@QAEXHHPAM0@Z
 0x004048b0,41,Rng::GetRandomU16InRange,?GetRandomU16InRange@Rng@@QAEGG@Z
 0x004048e0,34,Rng::GetRandomU32InRange,?GetRandomU32InRange@Rng@@QAEKK@Z
 0x00404910,15,Rng::GetRandomF32InRange,?GetRandomF32InRange@Rng@@QAEMM@Z

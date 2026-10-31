@@ -422,6 +422,10 @@ public:
     // the player in arena2, updates the boxes and options and records
     // the position. Does nothing while unknownA8 is clear (0x41c170).
     int HandleInput();
+    // HandleInput's movement for `direction` (1 up, 2 down, 3 left, 4
+    // right, 5 to 8 the diagonals), focused or not, into `deltaX` and
+    // `deltaY`; the CPU player plans with it (0x404710).
+    void GetMoveDelta(int direction, int focused, float *deltaX, float *deltaY);
 
     // OnDraw draws only unknown30454 while it is 5.
     int unknown0;

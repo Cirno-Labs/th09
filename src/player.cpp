@@ -201,6 +201,74 @@ int Player::TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
     return 1;
 }
 
+void Player::GetMoveDelta(int direction, int focused, float *deltaX, float *deltaY)
+{
+    *deltaY = 0.0f;
+    *deltaX = 0.0f;
+    if (focused)
+    {
+        switch (direction)
+        {
+        case 4:
+            *deltaX = this->shtFile->speedFocused;
+            break;
+        case 3:
+            *deltaX = -this->shtFile->speedFocused;
+            break;
+        case 1:
+            *deltaY = -this->shtFile->speedFocused;
+            break;
+        case 2:
+            *deltaY = this->shtFile->speedFocused;
+            break;
+        case 5:
+            *deltaY = *deltaX = -this->shtFile->speedDiagonalFocused;
+            break;
+        case 7:
+            *deltaX = -(*deltaY = this->shtFile->speedDiagonalFocused);
+            break;
+        case 6:
+            *deltaY = -(*deltaX = this->shtFile->speedDiagonalFocused);
+            break;
+        case 8:
+            *deltaY = *deltaX = this->shtFile->speedDiagonalFocused;
+            break;
+        }
+    }
+    else
+    {
+        switch (direction)
+        {
+        case 4:
+            *deltaX = this->shtFile->speed;
+            break;
+        case 3:
+            *deltaX = -this->shtFile->speed;
+            break;
+        case 1:
+            *deltaY = -this->shtFile->speed;
+            break;
+        case 2:
+            *deltaY = this->shtFile->speed;
+            break;
+        case 5:
+            *deltaY = *deltaX = -this->shtFile->speedDiagonal;
+            break;
+        case 7:
+            *deltaX = -(*deltaY = this->shtFile->speedDiagonal);
+            break;
+        case 6:
+            *deltaY = -(*deltaX = this->shtFile->speedDiagonal);
+            break;
+        case 8:
+            *deltaY = *deltaX = this->shtFile->speedDiagonal;
+            break;
+        }
+    }
+    *deltaX *= this->unknown1ce4 * this->unknown1cdc;
+    *deltaY *= this->unknown1ce8 * this->unknown1ce0;
+}
+
 int Player::HandleInput()
 {
     int side;
