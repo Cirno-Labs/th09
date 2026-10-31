@@ -1,3 +1,8 @@
+// cflags: -/GX
+// The screen effect object is built without /GX: new ScreenEffect has
+// no exception frame to free the block if the constructor throws.
+#include <string.h>
+
 #include "screeneffect.h"
 #include "gamemanager.h"
 #include "mainmenu.h"
@@ -323,4 +328,71 @@ void ScreenEffect::Finish()
 {
     this->finishing = 1;
     this->timer = 0;
+}
+
+ScreenEffect *ScreenEffect::StartEffect(int type, int duration, int a, int b, int c, int drawPriority, int side)
+{
+    ChainElem *calc = NULL;
+    ChainElem *drawElem = NULL;
+    ScreenEffect *effect = (ScreenEffect *)g_MemoryManager.Register(new ScreenEffect, sizeof(ScreenEffect), "ScreenInf");
+
+    if (effect == NULL)
+    {
+        return NULL;
+    }
+    memset(effect, 0, sizeof(ScreenEffect));
+    effect->side = side;
+    switch (type)
+    {
+    case 0:
+        calc = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnUpdateFadeIn);
+        drawElem = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnDrawScreen);
+        break;
+    case 1:
+        calc = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnUpdateShake);
+        break;
+    case 2:
+        calc = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnUpdateFadeOut);
+        drawElem = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnDrawPlayArea);
+        break;
+    case 4:
+        calc = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnUpdateFadeOut);
+        drawElem = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnDrawScreen);
+        break;
+    case 3:
+        calc = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnUpdateFlash);
+        drawElem = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnDrawFlash);
+        break;
+    case 5:
+        calc = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnUpdateLoadingFade);
+        drawElem = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnDrawWholeScreen);
+        break;
+    case 6:
+        calc = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnUpdateLoadingFade);
+        drawElem = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnDrawPlayAreas);
+        break;
+    case 7:
+        calc = g_Chain.CreateElem((ChainCallback)ScreenEffect::OnUpdateShakeRamp);
+        break;
+    }
+    calc->addedCallback = (ChainCallback)ScreenEffect::AddedCallback;
+    calc->deletedCallback = (ChainCallback)ScreenEffect::DeletedCallback;
+    calc->arg = effect;
+    effect->type = type;
+    effect->duration = duration;
+    effect->color = a;
+    effect->flashColor = b;
+    effect->flashCount = c;
+    if (g_Chain.AddToCalcChain(calc, 3) != 0)
+    {
+        return NULL;
+    }
+    if (drawElem != NULL)
+    {
+        drawElem->arg = effect;
+        g_Chain.AddToDrawChain(drawElem, drawPriority);
+    }
+    effect->calcElem = calc;
+    effect->drawElem = drawElem;
+    return effect;
 }

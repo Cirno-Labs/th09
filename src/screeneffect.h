@@ -12,9 +12,9 @@ class ScreenEffect
 {
 public:
     // Creates an effect of `type` that lasts `duration` frames and adds
-    // its chain elements, as th08's, with `unknown` new in th09 and stored
-    // in side (0x422d20).
-    static ScreenEffect *StartEffect(int type, int duration, int a, int b, int c, int drawPriority, int unknown);
+    // its chain elements, as th08's, with `side` new in th09, and type 6
+    // drawn over both play areas. Returns it, or NULL (0x422d20).
+    static ScreenEffect *StartEffect(int type, int duration, int a, int b, int c, int drawPriority, int side);
     // The update element's added callback, as th08's: restarts the
     // timer. Returns 0 (0x4228f0).
     static int AddedCallback(ScreenEffect *effect);
@@ -41,6 +41,9 @@ public:
     // holding still while the side's flag0 or GameManager's freeze bits
     // are set. Returns 0 when done, else 1 (0x422660).
     static int OnUpdateShake(ScreenEffect *effect);
+    // Type 7's update callback, as th08's: shakes the sprite engine by up
+    // to duration pixels, rising, holding and falling (0x4227a0).
+    static int OnUpdateShakeRamp(ScreenEffect *effect);
     // The draw callbacks, as th08's: the screen after flushing and
     // setting view 2, the whole screen, the play area, and the play area
     // in flashColor (0x422b70, 0x422c10, 0x422bd0, 0x422cd0). Return 1.
