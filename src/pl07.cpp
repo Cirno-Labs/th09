@@ -54,8 +54,8 @@ int PlayerPosFunc445e60(Player *player, D3DXVECTOR3 *pos)
     return 0;
 }
 
-// An update callback of the effect table: grows unknown7c by 8 up to
-// 320, sets unknownC9, puts the effect on its side's player and clears
+// The update callback of effect type 28: grows unknown7c by 8 up to 320,
+// sets unknownC9, puts the effect on its side's player and clears
 // unknown80. Returns 1 (0x4475c0).
 int EffectUpdate4475c0(Effect *effect)
 {
