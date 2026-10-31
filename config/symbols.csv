@@ -1075,7 +1075,7 @@ address,size,name,symbol
 0x00449780,101,PlayerComboFunc449780,?PlayerComboFunc449780@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x004497f0,327,Func4497f0,
 0x00449940,193,EffectInit449940,?EffectInit449940@@YIHPAUEffect@@@Z
-0x00449a10,311,Func449a10,
+0x00449a10,311,EffectDraw449a10,?EffectDraw449a10@@YIHPAUEffect@@@Z
 0x00449b50,71,Func449b50,
 0x00449ba0,198,EffectUpdate449ba0,?EffectUpdate449ba0@@YIHPAUEffect@@@Z
 0x00449c70,98,ShotUpdate449c70,?ShotUpdate449c70@@YIHPAVPlayer@@PAUPlayerBullet@@@Z

@@ -4,6 +4,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sprite.h"
 #include "unsorted.h"
 
 // The unknown30450 of character 10: while unknown34 reaches (25 -
@@ -47,6 +48,41 @@ int EffectInit449940(Effect *effect)
     effect->unknownC9 = 1;
     effect->unknown80 = -1.5707964f;
     return 0;
+}
+
+// The draw callback of effect type 30: EffectDraw443010's sector
+// (0x449a10).
+int EffectDraw449a10(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        float delta = effect->unknown84 / (effect->unknown8c - 1);
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        float angle = effect->unknown80 - effect->unknown84 * 0.5f;
+        int i;
+
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        for (i = effect->unknown8c; i > 0; i--)
+        {
+            vtx->pos.z = 0.0f;
+            angle = AddNormalizeAngle(angle, 0.0f);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x50600040;
+            vtx++;
+            angle += delta;
+        }
+    }
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    return 1;
 }
 
 // An update callback of the effect table: grows unknown7c by 6 up to
