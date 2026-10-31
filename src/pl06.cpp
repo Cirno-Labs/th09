@@ -9,6 +9,20 @@
 #include "sprite.h"
 #include "unsorted.h"
 
+// The update callback of effect type 27: grows unknown7c by 0.5 up to 16,
+// sets unknownC9 and puts the effect on its side's player. Returns 1
+// (0x4454e0).
+int EffectUpdate4454e0(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 16.0f)
+    {
+        effect->unknown7c += 0.5f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    return 1;
+}
+
 // A fire callback of the shot table (4): on the frame of `sd`, starts
 // effect 0x23 at the player in reserved slot 5. Returns 0 (0x445530).
 int ShotFire445530(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)

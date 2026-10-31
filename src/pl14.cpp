@@ -9,6 +9,20 @@
 #include "sprite.h"
 #include "unsorted.h"
 
+// The update callback of effect type 36: grows unknown7c by 0.5 up to 24,
+// sets unknownC9 and puts the effect on its side's player. Returns 1
+// (0x44bc30).
+int EffectUpdate44bc30(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 24.0f)
+    {
+        effect->unknown7c += 0.5f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    return 1;
+}
+
 // The unknown30404 of character 14: whether `pos` is within the radius
 // of the player's unknown368 up or down (0x44bc80).
 int PlayerPosFunc44bc80(Player *player, D3DXVECTOR3 *pos)
@@ -177,19 +191,5 @@ int EffectDraw44c090(Effect *effect)
         vtx->diffuse = 0x70600040;
     }
     g_SpriteEngine->DrawColoredStrip(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, 6);
-    return 1;
-}
-
-// The update callback of effect type 37: grows unknown7c by 0.5 up to 8,
-// sets unknownC9 and puts the effect on its side's player. Returns 1
-// (0x44c290).
-int EffectUpdate44c290(Effect *effect)
-{
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 8.0f)
-    {
-        effect->unknown7c += 0.5f;
-    }
-    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }

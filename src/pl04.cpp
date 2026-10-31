@@ -8,6 +8,41 @@
 #include "sprite.h"
 #include "unsorted.h"
 
+// The update callback of effect type 26: grows unknown7c by 8 up to 112,
+// sets unknownC9, puts the effect on its side's player and turns
+// unknown80 an eighth of the shorter way towards opposite the player's
+// unknown1cd8, as EffectUpdate4422f0. Returns 1 (0x443a30).
+int EffectUpdate443a30(Effect *effect)
+{
+    float target;
+    float delta;
+
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 112.0f)
+    {
+        effect->unknown7c += 8.0f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    target = AddNormalizeAngle(effect->mgr->side->player->unknown1cd8, 3.1415927f);
+    delta = target - effect->unknown80;
+    if (target > effect->unknown80)
+    {
+        if (delta > 3.1415927f)
+        {
+            delta -= 6.2831855f;
+        }
+    }
+    else
+    {
+        if (delta < -3.1415927f)
+        {
+            delta += 6.2831855f;
+        }
+    }
+    effect->unknown80 = AddNormalizeAngle(effect->unknown80, delta * 0.125f);
+    return 1;
+}
+
 // The state of effect type 34, which it keeps in its vertices (0xef8
 // bytes), laid out as ExAttackData14 from unknown4c on.
 struct EffectData34
@@ -574,19 +609,5 @@ int EffectDraw444af0(Effect *effect)
     g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
     g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
     data->unknown4c = 0;
-    return 1;
-}
-
-// An update callback of the effect table: grows unknown7c by 8 up to
-// 48, sets unknownC9 and puts the effect on its side's player. Returns
-// 1 (0x444eb0).
-int EffectUpdate444eb0(Effect *effect)
-{
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 48.0f)
-    {
-        effect->unknown7c += 8.0f;
-    }
-    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }

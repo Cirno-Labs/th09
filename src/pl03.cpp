@@ -7,6 +7,20 @@
 #include "sprite.h"
 #include "unsorted.h"
 
+// The update callback of effect type 18: grows unknown7c by 0.7 up to
+// 144, sets unknownC9 and puts the effect on its side's player. Returns 1
+// (0x443250).
+int EffectUpdate443250(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 144.0f)
+    {
+        effect->unknown7c += 0.7f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    return 1;
+}
+
 // A fire callback of the shot table (3): fires `sd` on its frame, going
 // up at 24, and sets the player's unknown1cdc and unknown1ce0 to 0.5.
 // Returns 1 if it fired (0x4432a0).
@@ -248,39 +262,4 @@ int ShotUpdate443930(Player *player, PlayerBullet *bullet)
         player->AddHitBox(&pos, width, 30.0f, 0, 0);
     }
     return 0;
-}
-
-// The update callback of effect type 26: grows unknown7c by 8 up to 112,
-// sets unknownC9, puts the effect on its side's player and turns
-// unknown80 an eighth of the shorter way towards opposite the player's
-// unknown1cd8, as EffectUpdate4422f0. Returns 1 (0x443a30).
-int EffectUpdate443a30(Effect *effect)
-{
-    float target;
-    float delta;
-
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 112.0f)
-    {
-        effect->unknown7c += 8.0f;
-    }
-    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
-    target = AddNormalizeAngle(effect->mgr->side->player->unknown1cd8, 3.1415927f);
-    delta = target - effect->unknown80;
-    if (target > effect->unknown80)
-    {
-        if (delta > 3.1415927f)
-        {
-            delta -= 6.2831855f;
-        }
-    }
-    else
-    {
-        if (delta < -3.1415927f)
-        {
-            delta += 6.2831855f;
-        }
-    }
-    effect->unknown80 = AddNormalizeAngle(effect->unknown80, delta * 0.125f);
-    return 1;
 }

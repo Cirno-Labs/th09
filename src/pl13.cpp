@@ -57,17 +57,3 @@ int EffectDraw44baf0(Effect *effect)
     g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
     return 1;
 }
-
-// The update callback of effect type 36: grows unknown7c by 0.5 up to 24,
-// sets unknownC9 and puts the effect on its side's player. Returns 1
-// (0x44bc30).
-int EffectUpdate44bc30(Effect *effect)
-{
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 24.0f)
-    {
-        effect->unknown7c += 0.5f;
-    }
-    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
-    return 1;
-}

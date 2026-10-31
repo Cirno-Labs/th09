@@ -7,6 +7,20 @@
 #include "sprite.h"
 #include "unsorted.h"
 
+// An update callback of the effect table: grows unknown7c by 8 up to
+// 48, sets unknownC9 and puts the effect on its side's player. Returns
+// 1 (0x444eb0).
+int EffectUpdate444eb0(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 48.0f)
+    {
+        effect->unknown7c += 8.0f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    return 1;
+}
+
 // The data of extra attack types 5 and 10 (0x58 bytes): ExAttackData00
 // with an acceleration after the velocity.
 struct ExAttackData05
@@ -201,19 +215,5 @@ int EffectDraw4453a0(Effect *effect)
         }
     }
     g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
-    return 1;
-}
-
-// The update callback of effect type 27: grows unknown7c by 0.5 up to 16,
-// sets unknownC9 and puts the effect on its side's player. Returns 1
-// (0x4454e0).
-int EffectUpdate4454e0(Effect *effect)
-{
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 16.0f)
-    {
-        effect->unknown7c += 0.5f;
-    }
-    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }

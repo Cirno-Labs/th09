@@ -7,6 +7,21 @@
 #include "sprite.h"
 #include "unsorted.h"
 
+// The update callback of effect type 28: grows unknown7c by 8 up to 320,
+// sets unknownC9, puts the effect on its side's player and clears
+// unknown80. Returns 1 (0x4475c0).
+int EffectUpdate4475c0(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 320.0f)
+    {
+        effect->unknown7c += 8.0f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    effect->unknown80 = 0.0f;
+    return 1;
+}
+
 // The data of extra attack types 16 and 23 (0x50 bytes): ExAttackData00
 // with a float after the velocity.
 struct ExAttackData16
