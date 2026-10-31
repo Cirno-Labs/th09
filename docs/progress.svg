@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.23% (785)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">25.56% (274)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.32% (786)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">25.47% (273)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="547.01" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="547.01" y="0" class="decompiled"/>
-<rect width="190.93" height="6" x="556.07" y="0" class="todo"/>
+<rect width="547.71" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="547.71" y="0" class="decompiled"/>
+<rect width="190.23" height="6" x="556.77" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -351,7 +351,7 @@
 <rect width="12" height="12" x="450" y="75" class="named"><title>0x00415050 BulletManager::BulletManager (121 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="75" class="named"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="75" class="named"><title>0x004151f0 ExAttackManager::AddAttack (321 bytes)</title></rect>
-<rect width="12" height="12" x="495" y="75" class="todo"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
+<rect width="12" height="12" x="495" y="75" class="named"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="75" class="todo"><title>0x00415460 ExAttackManager::OnDraw (272 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="75" class="todo"><title>0x00415580 ExAttackManager::OnDraw2 (190 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="75" class="named"><title>0x00415650 FreeAttacks (70 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.41%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">56.87%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.50%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">56.77%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="316.79" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="316.79" y="0" class="decompiled"/>
-<rect width="424.82" height="6" x="322.18" y="0" class="todo"/>
+<rect width="317.50" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="317.50" y="0" class="decompiled"/>
+<rect width="424.11" height="6" x="322.89" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1425,7 +1425,7 @@
 <rect width="12.99" height="12.25" x="503.65" y="184.29" class="named"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
 <rect width="12.99" height="12.14" x="503.65" y="199.53" class="named"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>
 <rect width="12.99" height="12.14" x="503.65" y="214.67" class="named"><title>0x0041a5d0 GuiSide::RegisterChain (283 bytes)</title></rect>
-<rect width="12.99" height="11.92" x="503.65" y="229.81" class="todo"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
+<rect width="12.99" height="11.92" x="503.65" y="229.81" class="named"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
 <rect width="12.99" height="11.92" x="503.65" y="244.74" class="named"><title>0x0041da70 PlayerUnknown36c::CheckHits (279 bytes)</title></rect>
 <rect width="12.99" height="11.92" x="503.65" y="259.66" class="named"><title>0x00425390 MainMenu::MoveCharacterCursor2 (279 bytes)</title></rect>
 <rect width="12.99" height="11.76" x="503.65" y="274.59" class="named"><title>0x004328f0 Network::CreateHostAddress (276 bytes)</title></rect>

@@ -46,6 +46,63 @@ found:
     return attack;
 }
 
+int ExAttackManager::OnUpdate(ExAttackManager *mgr)
+{
+    ExAttack *attack = mgr->attacks;
+    int i;
+    int j;
+
+    if (!(g_GameManager.stateFlags & 0x1800) && !g_GameManager.sides[0].flag0)
+    {
+        mgr->layerTails[0] = NULL;
+        mgr->layerTails[1] = NULL;
+        mgr->layerTails[2] = NULL;
+        mgr->layerHeads[0] = NULL;
+        mgr->layerHeads[1] = NULL;
+        mgr->layerHeads[2] = NULL;
+        mgr->counts[1] = 0;
+        mgr->counts[0] = 0;
+        for (i = 0x100; i > 0; i--, attack++)
+        {
+            if (attack->active == 0)
+            {
+                continue;
+            }
+            if (attack->onUpdate(attack) != 0)
+            {
+                if (attack->onFree != NULL)
+                {
+                    attack->onFree(attack);
+                }
+                if (attack->sprites != NULL)
+                {
+                    g_MemoryManager.Free(attack->sprites);
+                    attack->sprites = NULL;
+                }
+                attack->active = 0;
+                continue;
+            }
+            for (j = 0; j < attack->spriteCount; j++)
+            {
+                g_SpriteEngine->Step(&attack->sprites[j]);
+            }
+            if (mgr->layerTails[attack->layer] != NULL)
+            {
+                mgr->layerTails[attack->layer]->next = attack;
+            }
+            else
+            {
+                mgr->layerHeads[attack->layer] = attack;
+            }
+            mgr->counts[attack->side]++;
+            mgr->layerTails[attack->layer] = attack;
+            attack->next = NULL;
+            attack->timer++;
+        }
+    }
+    return 1;
+}
+
 // Calls the onFree callback of each running attack and frees its block.
 // Returns 0. Static, with the manager in eax (0x415650).
 static int FreeAttacks(ExAttackManager *mgr)
