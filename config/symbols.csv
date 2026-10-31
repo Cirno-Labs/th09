@@ -311,7 +311,7 @@ address,size,name,symbol
 0x00415e50,553,Func415e50,
 0x00416080,213,Gui::UpdateEnemyMarker,?UpdateEnemyMarker@Gui@@QAEXHPAUD3DXVECTOR3@@@Z
 0x00416160,357,GuiMsg::Start,?Start@GuiMsg@@QAEXHH@Z
-0x004162d0,693,Func4162d0,
+0x004162d0,693,GuiMsg::StartRandom,?StartRandom@GuiMsg@@QAEXH@Z
 0x00416590,2852,Func416590,
 0x00417130,995,Func417130,
 0x00417520,271,GuiMsg::UnloadBgm,?UnloadBgm@GuiMsg@@QAEXH@Z

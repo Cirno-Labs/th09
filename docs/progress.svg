@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.78% (833)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">10.86% (121)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.87% (834)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">10.77% (120)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="558.57" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="558.57" y="0" class="decompiled"/>
-<rect width="81.14" height="6" x="665.86" y="0" class="todo"/>
+<rect width="559.24" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="559.24" y="0" class="decompiled"/>
+<rect width="80.47" height="6" x="666.53" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -380,7 +380,7 @@
 <rect width="12" height="12" x="135" y="90" class="todo"><title>0x00415e50 Func415e50 (553 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="90" class="named"><title>0x00416080 Gui::UpdateEnemyMarker (213 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="90" class="named"><title>0x00416160 GuiMsg::Start (357 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="90" class="todo"><title>0x004162d0 Func4162d0 (693 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="90" class="named"><title>0x004162d0 GuiMsg::StartRandom (693 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="90" class="todo"><title>0x00416590 Func416590 (2852 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="90" class="todo"><title>0x00417130 Func417130 (995 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="90" class="named"><title>0x00417520 GuiMsg::UnloadBgm (271 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.67%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">37.49%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.91%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">37.26%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="356.11" height="6" x="0" y="0" class="named"/>
-<rect width="110.82" height="6" x="356.11" y="0" class="decompiled"/>
-<rect width="280.08" height="6" x="466.92" y="0" class="todo"/>
+<rect width="357.85" height="6" x="0" y="0" class="named"/>
+<rect width="110.82" height="6" x="357.85" y="0" class="decompiled"/>
+<rect width="278.33" height="6" x="468.67" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1293,7 +1293,7 @@
 <rect width="22.63" height="21.22" x="361.73" y="251.92" class="named"><title>0x00418480 Gui::AddedCallback (706 bytes)</title></rect>
 <rect width="22.63" height="21.15" x="361.73" y="276.14" class="named"><title>0x00406210 ResolveFloatOperand (704 bytes)</title></rect>
 <rect width="22.63" height="20.94" x="361.73" y="300.29" class="decompiled"><title>0x00446060 ExAttackUpdate446060 (698 bytes)</title></rect>
-<rect width="22.63" height="20.77" x="361.73" y="324.23" class="todo"><title>0x004162d0 Func4162d0 (693 bytes)</title></rect>
+<rect width="22.63" height="20.77" x="361.73" y="324.23" class="named"><title>0x004162d0 GuiMsg::StartRandom (693 bytes)</title></rect>
 <rect width="20.58" height="22.32" x="387.36" y="0" class="todo"><title>0x004324c0 Network::Init (679 bytes)</title></rect>
 <rect width="20.58" height="22.02" x="387.36" y="25.32" class="named"><title>0x004033e0 Stage::OnDraw (671 bytes)</title></rect>
 <rect width="20.58" height="21.53" x="387.36" y="50.33" class="named"><title>0x0043ad40 SpriteEngine::DrawRotatedNoRound (658 bytes)</title></rect>

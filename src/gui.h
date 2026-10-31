@@ -24,7 +24,8 @@ struct MsgFile
     struct
     {
         void *script;
-        int unknown4;
+        // GuiMsg::StartRandom's odds of the script, out of 0x100.
+        int weight;
     } scripts[1];
 };
 
@@ -40,6 +41,10 @@ struct GuiMsg
     // as th08's StartMsgScript, with clear text sprites in the text
     // ANM file's scripts 0 and 1 (0x416160).
     void Start(int index, int side);
+    // Starts, as Start, a script of side `side`'s file picked at random
+    // by weight among the ten of the other side's character, or else
+    // among scripts 210-219, script 210 if none is picked (0x4162d0).
+    void StartRandom(int side);
     // Unloads the music the scripts from `firstScript` on, ten of them,
     // play with opcode 7 (in mode 2 GameManager::unknownF0's unknownC),
     // then frees the dialogue files and clears the state, if a file is
