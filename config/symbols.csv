@@ -1102,7 +1102,7 @@ address,size,name,symbol
 0x0044baf0,314,EffectDraw44baf0,?EffectDraw44baf0@@YIHPAUEffect@@@Z
 0x0044bc30,79,EffectUpdate44bc30,?EffectUpdate44bc30@@YIHPAUEffect@@@Z
 0x0044bc80,71,PlayerPosFunc44bc80,?PlayerPosFunc44bc80@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
-0x0044bcd0,361,Func44bcd0,
+0x0044bcd0,361,ExAttackInit44bcd0,?ExAttackInit44bcd0@@YIHPAUExAttack@@@Z
 0x0044be40,475,Func44be40,
 0x0044c020,101,PlayerComboFunc44c020,?PlayerComboFunc44c020@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044c090,506,EffectDraw44c090,?EffectDraw44c090@@YIHPAUEffect@@@Z
