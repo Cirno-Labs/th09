@@ -70,6 +70,27 @@ Enemy *EnemyManager::FindByUnknownType(int type)
     return NULL;
 }
 
+void Enemy::Move()
+{
+    this->posDelta = this->pos - this->prevPos;
+    this->prevPos = this->pos;
+    if (this->useVelocity2)
+    {
+        this->pos.x += g_App.gameSpeed * this->velocity2.x;
+        this->pos.y += g_App.gameSpeed * this->velocity2.y;
+        return;
+    }
+    if (!this->mirrored)
+    {
+        this->pos.x += g_App.gameSpeed * this->velocity.x;
+    }
+    else
+    {
+        this->pos.x -= g_App.gameSpeed * this->velocity.x;
+    }
+    this->pos.y += g_App.gameSpeed * this->velocity.y;
+}
+
 void EnemyManager::Initialize()
 {
     int i;

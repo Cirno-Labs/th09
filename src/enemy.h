@@ -199,6 +199,9 @@ struct Enemy
     void ReleaseEffects();
     // Frees the blocks of unknown33d8 (0x4100e0).
     void FreeUnknown33d8();
+    // Moves the enemy by its velocity (or velocity2) times the game
+    // speed in x and y, as th08's (0x40f9b0).
+    void Move();
 
     EnemyManager *manager;
     unsigned char pad_4[0x8 - 0x4];
@@ -218,7 +221,11 @@ struct Enemy
     D3DXVECTOR3 pos;
     unsigned char pad_2d80[0x2d8c - 0x2d80];
     D3DXVECTOR3 velocity;
-    unsigned char pad_2d98[0x2dbc - 0x2d98];
+    // The velocity Move uses instead while useVelocity2 is set.
+    D3DXVECTOR3 velocity2;
+    // As th08's.
+    D3DXVECTOR3 prevPos;
+    D3DXVECTOR3 posDelta;
     D3DXVECTOR3 hitboxSize;
     unsigned char pad_2dc8[0x2dd4 - 0x2dc8];
     D3DXVECTOR3 unknown2dd4;
@@ -293,6 +300,8 @@ struct Enemy
         DWORD unusedBits9 : 1;
         // What EnemyManager::FindByUnknownType looks for.
         DWORD unknownType : 2;
+        // Has Move use velocity2, unmirrored.
+        DWORD useVelocity2 : 1;
     };
     unsigned char pad_3384[0x338a - 0x3384];
     short turnStill;

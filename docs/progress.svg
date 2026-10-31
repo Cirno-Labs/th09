@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.60% (724)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31.19% (334)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.69% (725)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31.09% (333)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="504.97" height="6" x="0" y="0" class="named"/>
-<rect width="9.07" height="6" x="504.97" y="0" class="decompiled"/>
-<rect width="232.96" height="6" x="514.04" y="0" class="todo"/>
+<rect width="505.67" height="6" x="0" y="0" class="named"/>
+<rect width="9.07" height="6" x="505.67" y="0" class="decompiled"/>
+<rect width="232.26" height="6" x="514.74" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -279,7 +279,7 @@
 <rect width="12" height="12" x="120" y="60" class="named"><title>0x0040f8b0 PlayerUnknown30410::AddComboCounted (12 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="60" class="named"><title>0x0040f8c0 PlayerUnknown30410::ResetCombo (29 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="60" class="named"><title>0x0040f8e0 PlayerUnknown36c::Add (205 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="60" class="todo"><title>0x0040f9b0 Func40f9b0 (188 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="60" class="named"><title>0x0040f9b0 Enemy::Move (188 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="60" class="named"><title>0x0040fa70 EnemyManager::Initialize (554 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="60" class="named"><title>0x0040fca0 EclContext::EclContext (28 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="60" class="todo"><title>0x0040fcc0 Func40fcc0 (974 bytes)</title></rect>
@@ -1143,11 +1143,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.76%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.52%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.82%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.46%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="267.12" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="267.12" y="0" class="decompiled"/>
-<rect width="474.49" height="6" x="272.51" y="0" class="todo"/>
+<rect width="267.60" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="267.60" y="0" class="decompiled"/>
+<rect width="474.01" height="6" x="272.99" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.39" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1526,7 +1526,7 @@
 <rect width="9.54" height="9.96" x="548.22" y="320.04" class="named"><title>0x0041f4c0 FireShots (190 bytes)</title></rect>
 <rect width="9.83" height="9.60" x="560.76" y="133.05" class="named"><title>0x00436ac0 AnmLoaded::SetSprite (189 bytes)</title></rect>
 <rect width="9.76" height="9.60" x="573.59" y="133.05" class="named"><title>0x004074a0 ScriptMoveHermite (188 bytes)</title></rect>
-<rect width="9.76" height="9.60" x="586.35" y="133.05" class="todo"><title>0x0040f9b0 Func40f9b0 (188 bytes)</title></rect>
+<rect width="9.76" height="9.60" x="586.35" y="133.05" class="named"><title>0x0040f9b0 Enemy::Move (188 bytes)</title></rect>
 <rect width="9.76" height="9.60" x="599.11" y="133.05" class="named"><title>0x0042b350 Chain::RemoveLocked (188 bytes)</title></rect>
 <rect width="9.76" height="9.60" x="611.87" y="133.05" class="named"><title>0x0042c7e0 Chain::RunDrawChain (188 bytes)</title></rect>
 <rect width="9.76" height="9.60" x="624.63" y="133.05" class="named"><title>0x0043a030 SpriteEngine::SetBlendModeForSprite (188 bytes)</title></rect>
