@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">7.09% (79)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">21.63% (241)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">7.18% (80)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">21.54% (240)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="52.97" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="161.60" height="6" x="585.40" y="0" class="todo"/>
+<rect width="53.64" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="160.93" height="6" x="586.07" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1129,7 +1129,7 @@
 <rect width="12" height="12" x="120" y="315" class="todo"><title>0x00447890 Func447890 (496 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="315" class="decompiled"><title>0x00447a80 PlayerComboFunc447a80 (98 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="315" class="todo"><title>0x00447af0 Func447af0 (324 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="315" class="todo"><title>0x00447c40 Func447c40 (155 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="315" class="decompiled"><title>0x00447c40 EffectInit447c40 (155 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="315" class="todo"><title>0x00447ce0 Func447ce0 (602 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="315" class="todo"><title>0x00447f40 Func447f40 (106 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="315" class="todo"><title>0x00447fb0 Func447fb0 (867 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">3.03%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">54.90%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">3.08%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">54.84%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="22.60" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="410.08" height="6" x="336.92" y="0" class="todo"/>
+<rect width="22.99" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="409.69" height="6" x="337.31" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1627,7 +1627,7 @@
 <rect width="9.17" height="8.35" x="557.32" y="302.84" class="todo"><title>0x00407560 Func407560 (157 bytes)</title></rect>
 <rect width="9.17" height="8.35" x="557.32" y="314.18" class="named"><title>0x00435ca0 AsciiText::RegisterChain (157 bytes)</title></rect>
 <rect width="9.17" height="8.27" x="557.32" y="325.53" class="todo"><title>0x0044a6e0 Func44a6e0 (156 bytes)</title></rect>
-<rect width="9.17" height="8.20" x="557.32" y="336.80" class="todo"><title>0x00447c40 Func447c40 (155 bytes)</title></rect>
+<rect width="9.17" height="8.20" x="557.32" y="336.80" class="decompiled"><title>0x00447c40 EffectInit447c40 (155 bytes)</title></rect>
 <rect width="8.57" height="8.79" x="569.49" y="162.43" class="todo"><title>0x0044aff0 Func44aff0 (155 bytes)</title></rect>
 <rect width="8.49" height="8.79" x="581.06" y="162.43" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
 <rect width="8.49" height="8.79" x="592.55" y="162.43" class="named"><title>0x004346a0 AsciiText::AddPopup (154 bytes)</title></rect>
