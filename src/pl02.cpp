@@ -5,6 +5,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "unsorted.h"
 
 // An update callback of the effect table: after 30 frames, grows
 // unknown84 by 0.001 up to 0.08; sets unknownC9 and puts the effect on
@@ -34,6 +35,30 @@ int ShotFire4423d0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
         bullet->velocity.y = 0.0f;
         bullet->angle = sd->angle;
         return 1;
+    }
+    return 0;
+}
+
+// The unknown30404 of characters 2 and 10: whether `pos` is within the
+// radius of the player's unknown368 and the arc of unknown84 radians
+// about its angle unknown80 (0x442480).
+int PlayerPosFunc442480(Player *player, D3DXVECTOR3 *pos)
+{
+    D3DXVECTOR3 diff = player->pos - *pos;
+    Effect *circle = player->unknown368;
+    float angle;
+
+    if (diff.x * diff.x + diff.y * diff.y < circle->unknown7c * circle->unknown7c)
+    {
+        angle = player->AngleFromPlayer(pos) - circle->unknown80;
+        if (Fabs(angle) > 3.1415927f)
+        {
+            angle = angle > 0.0f ? angle - 6.2831855f : angle + 6.2831855f;
+        }
+        if (Fabs(angle) <= circle->unknown84 * 0.5f)
+        {
+            return 1;
+        }
     }
     return 0;
 }
