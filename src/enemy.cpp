@@ -3,6 +3,7 @@
 #include "effect.h"
 #include "enemy.h"
 #include "gamemanager.h"
+#include "player.h"
 #include "sprite.h"
 #include "unsorted.h"
 
@@ -178,6 +179,39 @@ void Enemy::FreeUnknown33d8()
 
 // Frees the enemies' blocks, enemy.anm (slot 9) and the ECL files.
 // Returns 0. Static, with the manager in ebx (0x411f30).
+void Enemy::Despawn()
+{
+    int i;
+
+    if (this->deathMode == 0)
+    {
+        this->active = 0;
+    }
+    if (this->isBoss && this->bossIndex < 4)
+    {
+        this->manager->bosses[this->bossIndex] = NULL;
+        this->isBoss = 0;
+    }
+    if (this->effectCount != 0)
+    {
+        this->ReleaseEffects();
+    }
+    if (this->isBoss)
+    {
+        this->manager->bosses[this->bossIndex] = NULL;
+    }
+    for (i = 0; i < 4; i++)
+    {
+        this->lifeCallbackLife[i] = -1;
+    }
+    this->timerCallbackTime = -1;
+    this->FreeUnknown33d8();
+    if (this->manager->side->player->unknown3037c == this)
+    {
+        this->manager->side->player->unknown3037c = NULL;
+    }
+}
+
 void Enemy::ClampPos()
 {
     float *pos;

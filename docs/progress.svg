@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.79% (726)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31% (332)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.88% (727)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">30.91% (331)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="506.37" height="6" x="0" y="0" class="named"/>
-<rect width="9.07" height="6" x="506.37" y="0" class="decompiled"/>
-<rect width="231.56" height="6" x="515.44" y="0" class="todo"/>
+<rect width="507.07" height="6" x="0" y="0" class="named"/>
+<rect width="9.07" height="6" x="507.07" y="0" class="decompiled"/>
+<rect width="230.87" height="6" x="516.13" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -284,7 +284,7 @@
 <rect width="12" height="12" x="195" y="60" class="named"><title>0x0040fca0 EclContext::EclContext (28 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="60" class="todo"><title>0x0040fcc0 Func40fcc0 (974 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="60" class="named"><title>0x004100e0 Enemy::FreeUnknown33d8 (48 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="60" class="todo"><title>0x00410110 Func410110 (184 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="60" class="named"><title>0x00410110 Enemy::Despawn (184 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="60" class="named"><title>0x004101d0 Enemy::ClampPos (127 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="60" class="todo"><title>0x00410250 Func410250 (82 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="60" class="todo"><title>0x004102b0 Func4102b0 (1142 bytes)</title></rect>
@@ -1143,11 +1143,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.87%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.41%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.93%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.35%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="267.92" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="267.92" y="0" class="decompiled"/>
-<rect width="473.69" height="6" x="273.31" y="0" class="todo"/>
+<rect width="268.39" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="268.39" y="0" class="decompiled"/>
+<rect width="473.22" height="6" x="273.78" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.39" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1534,7 +1534,7 @@
 <rect width="9.63" height="9.60" x="650.08" y="133.05" class="todo"><title>0x004224f0 Func4224f0 (186 bytes)</title></rect>
 <rect width="9.49" height="9.60" x="662.71" y="133.05" class="named"><title>0x0040cc00 EffectManager::SpawnParticles (184 bytes)</title></rect>
 <rect width="9.49" height="9.60" x="675.20" y="133.05" class="decompiled"><title>0x0040dbb0 EffectInit40dbb0 (184 bytes)</title></rect>
-<rect width="9.49" height="9.60" x="687.69" y="133.05" class="todo"><title>0x00410110 Func410110 (184 bytes)</title></rect>
+<rect width="9.49" height="9.60" x="687.69" y="133.05" class="named"><title>0x00410110 Enemy::Despawn (184 bytes)</title></rect>
 <rect width="9.49" height="9.60" x="700.18" y="133.05" class="named"><title>0x0042c700 Chain::RunCalcChain (184 bytes)</title></rect>
 <rect width="9.49" height="9.60" x="712.67" y="133.05" class="named"><title>0x0043ed80 BgmNotificationProc (184 bytes)</title></rect>
 <rect width="9.42" height="9.60" x="725.16" y="133.05" class="todo"><title>0x0040cfb0 EffectManager::OnDraw (183 bytes)</title></rect>

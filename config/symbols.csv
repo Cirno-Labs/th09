@@ -215,7 +215,7 @@ address,size,name,symbol
 0x0040fca0,28,EclContext::EclContext,??0EclContext@@QAE@XZ
 0x0040fcc0,974,Func40fcc0,
 0x004100e0,48,Enemy::FreeUnknown33d8,?FreeUnknown33d8@Enemy@@QAEXXZ
-0x00410110,184,Func410110,
+0x00410110,184,Enemy::Despawn,?Despawn@Enemy@@QAEXXZ
 0x004101d0,127,Enemy::ClampPos,?ClampPos@Enemy@@QAEXXZ
 0x00410250,82,Func410250,
 0x004102b0,1142,Func4102b0,

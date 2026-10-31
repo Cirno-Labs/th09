@@ -199,6 +199,9 @@ struct Enemy
     void ReleaseEffects();
     // Frees the blocks of unknown33d8 (0x4100e0).
     void FreeUnknown33d8();
+    // Stops the enemy unless it has a death mode, frees its boss slot,
+    // effects and blocks and clears its callbacks, as th08's (0x410110).
+    void Despawn();
     // Keeps pos within the bounds while clampPos is set, as th08's
     // (0x4101d0).
     void ClampPos();
@@ -266,7 +269,8 @@ struct Enemy
     BYTE deathEffect;
     BYTE deathEffectIndex;
     BYTE deathEffectVariant;
-    unsigned char pad_336b[0x336c - 0x336b];
+    // Its slot in EnemyManager::bosses, as th08's.
+    BYTE bossIndex;
     BYTE hitFlashTimer;
     unsigned char pad_336d[0x3370 - 0x336d];
     Timer unknown3370;
@@ -390,7 +394,9 @@ public:
     Enemy enemyTemplate;
     // The enemies, and one more.
     Enemy enemies[0x81];
-    unsigned char pad_2ac388[0x2ac3b8 - 0x2ac388];
+    // The bosses, as th08's.
+    Enemy *bosses[4];
+    unsigned char pad_2ac398[0x2ac3b8 - 0x2ac398];
     int unknown2ac3b8;
     unsigned char pad_2ac3bc[0x2ac3c8 - 0x2ac3bc];
     Timer unknown2ac3c8;
