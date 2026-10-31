@@ -139,6 +139,59 @@ int ScreenEffect::OnUpdateFlash(ScreenEffect *effect)
     return 1;
 }
 
+int ScreenEffect::OnUpdateShake(ScreenEffect *effect)
+{
+    float shake;
+
+    if (g_GameManager.sides[effect->side].flag0)
+    {
+        return 1;
+    }
+    if (g_GameManager.stateFlags & 0x1800)
+    {
+        return 1;
+    }
+    if (g_Unknown4ac884 != 0)
+    {
+        return 0;
+    }
+    effect->timer++;
+    int duration = effect->duration;
+    if (effect->timer >= duration)
+    {
+        return 0;
+    }
+    int shakeFrom = effect->shakeFrom;
+    shake = effect->timer.AsFloat() * (effect->shakeTo - shakeFrom);
+    shake = shake / duration;
+    shake = shakeFrom + shake;
+    switch (g_Rng.GetRandomU32InRange(3))
+    {
+    case 0:
+        g_App.cameras[effect->side].shakeX = 0.0f;
+        break;
+    case 1:
+        g_App.cameras[effect->side].shakeX = shake;
+        break;
+    case 2:
+        g_App.cameras[effect->side].shakeX = -shake;
+        break;
+    }
+    switch (g_Rng.GetRandomU32InRange(3))
+    {
+    case 0:
+        g_App.cameras[effect->side].shakeY = 0.0f;
+        break;
+    case 1:
+        g_App.cameras[effect->side].shakeY = shake;
+        break;
+    case 2:
+        g_App.cameras[effect->side].shakeY = -shake;
+        break;
+    }
+    return 1;
+}
+
 int ScreenEffect::DeletedCallback(ScreenEffect *effect)
 {
     effect->calcElem->deletedCallback = NULL;

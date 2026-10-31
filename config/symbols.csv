@@ -468,7 +468,7 @@ address,size,name,symbol
 0x00422470,123,ScreenEffect::OnUpdateFadeOut,?OnUpdateFadeOut@ScreenEffect@@SIHPAV1@@Z
 0x004224f0,186,ScreenEffect::OnUpdateLoadingFade,?OnUpdateLoadingFade@ScreenEffect@@SIHPAV1@@Z
 0x004225b0,163,ScreenEffect::OnUpdateFlash,?OnUpdateFlash@ScreenEffect@@SIHPAV1@@Z
-0x00422660,316,Func422660,
+0x00422660,316,ScreenEffect::OnUpdateShake,?OnUpdateShake@ScreenEffect@@SIHPAV1@@Z
 0x004227a0,336,Func4227a0,
 0x00422900,47,ScreenEffect::DeletedCallback,?DeletedCallback@ScreenEffect@@SIHPAV1@@Z
 0x00422930,18,ScreenEffect::Finish,?Finish@ScreenEffect@@QAEXXZ

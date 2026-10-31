@@ -33,6 +33,11 @@ public:
     // alpha to 0 over duration frames, flashes times over. Returns 0
     // when done, else 1 (0x4225b0).
     static int OnUpdateFlash(ScreenEffect *effect);
+    // Type 1's update callback, as th08's: shakes side's camera at
+    // random by from shakeFrom to shakeTo pixels over duration frames,
+    // holding still while the side's flag0 or GameManager's freeze bits
+    // are set. Returns 0 when done, else 1 (0x422660).
+    static int OnUpdateShake(ScreenEffect *effect);
     // The draw callbacks, as th08's: the screen after flushing and
     // setting view 2, the whole screen, the play area, and the play area
     // in flashColor (0x422b70, 0x422c10, 0x422bd0, 0x422cd0). Return 1.
