@@ -605,10 +605,10 @@ address,size,name,symbol
 0x0042d320,167,SpriteEngine::DoPendingCopy,?DoPendingCopy@SpriteEngine@@QAEXXZ
 0x0042d3d0,249,Func42d3d0,
 0x0042d4d0,285,Func42d4d0,
-0x0042d5f0,783,Func42d5f0,
+0x0042d5f0,783,SetDefaultRenderStates,?SetDefaultRenderStates@@YIXXZ
 0x0042d900,391,Func42d900,
 0x0042da90,192,ChecksumExecutable,?ChecksumExecutable@@YIHXZ
-0x0042db50,232,Func42db50,
+0x0042db50,232,PresentFrame,?PresentFrame@@YIXXZ
 0x0042dc40,326,Func42dc40,
 0x0042dd90,1561,Func42dd90,
 0x0042e3b0,1348,Func42e3b0,
@@ -644,7 +644,7 @@ address,size,name,symbol
 0x0042f420,101,SpriteEngine::SetPendingSurfaceCopy,?SetPendingSurfaceCopy@SpriteEngine@@QAEHHHHHHHHHH@Z
 0x0042f490,93,Timer::Add,?Add@Timer@@QAEXM@Z
 0x0042f4f0,71,App::TickTimer,?TickTimer@App@@QAEXPAHPAM@Z
-0x0042f540,543,Func42f540,
+0x0042f540,543,App::SaveScreenshot,?SaveScreenshot@App@@QAEXPAD@Z
 0x0042f760,15,SpriteEngine::ClearDrawStats,?ClearDrawStats@SpriteEngine@@QAEXXZ
 0x0042f770,74,SpriteEngine::ResetFrameState,?ResetFrameState@SpriteEngine@@QAEXXZ
 0x0042f7c0,1054,App::LoadConfig,?LoadConfig@App@@QAEHPAD@Z
@@ -1690,7 +1690,7 @@ address,size,name,symbol
 0x0047c4e0,7,strcpy,_strcpy
 0x0047c4f0,232,Func47c4f0,
 0x0047c5d8,273,__chdir,
-0x0047c71b,44,Func47c71b,
+0x0047c71b,44,_mkdir,__mkdir
 0x0047c750,672,_memcpy,
 0x0047ca90,31,_EH_prolog,__EH_prolog
 0x0047cab0,61,__chkstk,__chkstk

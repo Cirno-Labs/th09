@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (763)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.61% (296)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (764)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">27.52% (295)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="531.68" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="531.68" y="0" class="decompiled"/>
-<rect width="206.26" height="6" x="540.74" y="0" class="todo"/>
+<rect width="532.38" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="532.38" y="0" class="decompiled"/>
+<rect width="205.56" height="6" x="541.44" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -674,10 +674,10 @@
 <rect width="12" height="12" x="45" y="180" class="named"><title>0x0042d320 SpriteEngine::DoPendingCopy (167 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="180" class="todo"><title>0x0042d3d0 Func42d3d0 (249 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="180" class="todo"><title>0x0042d4d0 Func42d4d0 (285 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="180" class="todo"><title>0x0042d5f0 Func42d5f0 (783 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="180" class="todo"><title>0x0042d5f0 SetDefaultRenderStates (783 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="180" class="todo"><title>0x0042d900 Func42d900 (391 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="180" class="named"><title>0x0042da90 ChecksumExecutable (192 bytes)</title></rect>
-<rect width="12" height="12" x="135" y="180" class="todo"><title>0x0042db50 Func42db50 (232 bytes)</title></rect>
+<rect width="12" height="12" x="135" y="180" class="named"><title>0x0042db50 PresentFrame (232 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="180" class="todo"><title>0x0042dc40 Func42dc40 (326 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="180" class="todo"><title>0x0042dd90 Func42dd90 (1561 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="180" class="todo"><title>0x0042e3b0 Func42e3b0 (1348 bytes)</title></rect>
@@ -713,7 +713,7 @@
 <rect width="12" height="12" x="630" y="180" class="named"><title>0x0042f420 SpriteEngine::SetPendingSurfaceCopy (101 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="180" class="named"><title>0x0042f490 Timer::Add (93 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="180" class="named"><title>0x0042f4f0 App::TickTimer (71 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="180" class="todo"><title>0x0042f540 Func42f540 (543 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="180" class="todo"><title>0x0042f540 App::SaveScreenshot (543 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="180" class="named"><title>0x0042f760 SpriteEngine::ClearDrawStats (15 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="180" class="named"><title>0x0042f770 SpriteEngine::ResetFrameState (74 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="180" class="named"><title>0x0042f7c0 App::LoadConfig (1054 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.74%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.54%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.82%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.46%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="296.86" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="296.86" y="0" class="decompiled"/>
-<rect width="444.75" height="6" x="302.25" y="0" class="todo"/>
+<rect width="297.45" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="297.45" y="0" class="decompiled"/>
+<rect width="444.16" height="6" x="302.84" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1232,7 +1232,7 @@
 <rect width="23.81" height="22.49" x="332.89" y="206.68" class="todo"><title>0x00415910 Func415910 (799 bytes)</title></rect>
 <rect width="23.81" height="22.49" x="332.89" y="232.17" class="todo"><title>0x00443df0 Func443df0 (799 bytes)</title></rect>
 <rect width="23.81" height="22.49" x="332.89" y="257.65" class="todo"><title>0x004464a0 Func4464a0 (799 bytes)</title></rect>
-<rect width="23.81" height="21.98" x="332.89" y="283.14" class="todo"><title>0x0042d5f0 Func42d5f0 (783 bytes)</title></rect>
+<rect width="23.81" height="21.98" x="332.89" y="283.14" class="todo"><title>0x0042d5f0 SetDefaultRenderStates (783 bytes)</title></rect>
 <rect width="23.81" height="21.88" x="332.89" y="308.12" class="todo"><title>0x00442750 Func442750 (780 bytes)</title></rect>
 <rect width="21.88" height="23.64" x="359.71" y="0" class="decompiled"><title>0x0040d600 EffectUpdate40d600 (775 bytes)</title></rect>
 <rect width="21.88" height="23.40" x="359.71" y="26.64" class="named"><title>0x00432b70 Network::HandleMessage (768 bytes)</title></rect>
@@ -1276,7 +1276,7 @@
 <rect width="19.20" height="18.31" x="408.29" y="269.38" class="todo"><title>0x00415e50 Func415e50 (553 bytes)</title></rect>
 <rect width="19.20" height="18.27" x="408.29" y="290.69" class="todo"><title>0x0041ebc0 Player::Reset (552 bytes)</title></rect>
 <rect width="19.20" height="18.04" x="408.29" y="311.96" class="named"><title>0x004409f0 CSoundManager::CreateStreamingFromMemory (546 bytes)</title></rect>
-<rect width="19.23" height="17.90" x="430.49" y="0" class="todo"><title>0x0042f540 Func42f540 (543 bytes)</title></rect>
+<rect width="19.23" height="17.90" x="430.49" y="0" class="todo"><title>0x0042f540 App::SaveScreenshot (543 bytes)</title></rect>
 <rect width="19.11" height="17.90" x="452.72" y="0" class="todo"><title>0x00420840 ReplayManager::AddedCallbackMode1 (540 bytes)</title></rect>
 <rect width="18.94" height="17.90" x="474.82" y="0" class="todo"><title>0x004041f0 SpellCard::OnUpdate (536 bytes)</title></rect>
 <rect width="18.86" height="17.90" x="496.77" y="0" class="named"><title>0x004249e1 MainMenu::LoadingThread (534 bytes)</title></rect>
@@ -1468,7 +1468,7 @@
 <rect width="11.92" height="10.53" x="549.46" y="106.55" class="todo"><title>0x004137d0 Func4137d0 (236 bytes)</title></rect>
 <rect width="11.73" height="10.53" x="564.37" y="106.55" class="named"><title>0x0041a8a2 GameConfig::SetDefaults (233 bytes)</title></rect>
 <rect width="11.73" height="10.53" x="579.10" y="106.55" class="named"><title>0x0042ff70 App::AddPlayTime (233 bytes)</title></rect>
-<rect width="11.66" height="10.53" x="593.83" y="106.55" class="todo"><title>0x0042db50 Func42db50 (232 bytes)</title></rect>
+<rect width="11.66" height="10.53" x="593.83" y="106.55" class="named"><title>0x0042db50 PresentFrame (232 bytes)</title></rect>
 <rect width="11.66" height="10.53" x="608.49" y="106.55" class="named"><title>0x0043eeb0 SoundPlayer::Release (232 bytes)</title></rect>
 <rect width="11.35" height="10.53" x="623.15" y="106.55" class="named"><title>0x00435dc0 AsciiText::AsciiText (227 bytes)</title></rect>
 <rect width="11.28" height="10.53" x="637.50" y="106.55" class="named"><title>0x0040c860 SendExAttack22 (226 bytes)</title></rect>

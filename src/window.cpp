@@ -1,10 +1,13 @@
 // The game's window and Direct3D set-up, as th08's GameWindow object.
 
+#include <direct.h>
+
 #include <windows.h>
 #define NO_SHDOCVW_GUIDS
 #include <shlguid.h>
 #include <shobjidl.h>
 
+#include "gamemanager.h"
 #include "sprite.h"
 #include "unsorted.h"
 
@@ -194,4 +197,39 @@ int ChecksumExecutable()
         return sum;
     }
     return -1;
+}
+
+void PresentFrame()
+{
+    int i;
+    char path[0x100];
+
+    if (g_App.d3dDevice->Present(NULL, NULL, NULL, NULL) < 0)
+    {
+        g_SpriteEngine->ReleaseSurfaces();
+        g_App.d3dDevice->Reset(&g_App.presentParams);
+        SetDefaultRenderStates();
+        g_App.redrawFrames = 2;
+    }
+    g_SpriteEngine->DoPendingCopy();
+    if (g_PlayerInputs[2].IsJustPressed(0x800) && !(g_App.stateFlags >> 10 & 1))
+    {
+        _mkdir("snapshot");
+        for (i = 0; i < 1000; i++)
+        {
+            sprintf(path, "snapshot/th%.3d.bmp", i);
+            if (!FileExists(path))
+            {
+                break;
+            }
+        }
+        if (i < 1000)
+        {
+            g_App.SaveScreenshot(path);
+        }
+    }
+    if (g_App.redrawFrames != 0 && !g_GameManager.isPaused)
+    {
+        g_App.redrawFrames--;
+    }
 }

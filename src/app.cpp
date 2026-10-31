@@ -1557,7 +1557,7 @@ void App::LoadingThread(App *app)
     float vol;
 
     g_App.hideFps = 0;
-    g_App.unknown5a4 = 0;
+    g_App.redrawFrames = 0;
     g_App.lastPlayTimeTick = timeGetTime();
     InitDirectInput(&g_App);
     if (g_App.midi == NULL)

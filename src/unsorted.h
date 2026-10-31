@@ -115,6 +115,13 @@ int CreateD3d();
 // Brings `hwnd` to the front despite the foreground lock, as th08's.
 // __stdcall, unlike the rest of the game (0x42d0c0).
 void __stdcall ForceForegroundWindow(HWND hwnd);
+// Sets the device's render states up, as th08's (0x42d5f0).
+void SetDefaultRenderStates();
+// Presents the frame, as th08's: resets the device if it is lost, runs
+// the pending copies, saves a screenshot if the menu input just pressed
+// 0x800 and bit 10 of g_App's stateFlags is clear, and counts
+// redrawFrames down unless the game is paused (0x42db50).
+void PresentFrame();
 // Sums the executable, as th08's, opening it by its name alone, and
 // keeps the sum and the size in g_App. Returns the sum, or -1
 // (0x42da90).
@@ -709,6 +716,8 @@ struct App
     int GetPreloadBgm();
     int GetNoVsync();
     int GetNoTextRenderDetect();
+    // Saves the back buffer to the bitmap `path` (0x42f540).
+    void SaveScreenshot(char *path);
     // Whether subThread is set, as th08's. Inline; the copy the others
     // call is at 0x42ed70.
     BOOL HasSubThread()
@@ -888,8 +897,9 @@ struct App
     // Set when the game restarts, as th08's isRestarting.
     int unknown59c;
     unsigned char pad_5a0[0x5a4 - 0x5a0];
-    // Cleared by LoadingThread, as th08's redrawFrames.
-    int unknown5a4;
+    // How many more frames to redraw, as th08's: set to 2 when the
+    // device is lost, cleared by LoadingThread.
+    int redrawFrames;
     // Set while the frame rate is not shown, as th08's.
     int hideFps;
     // Set when the config turns vertical sync off.
