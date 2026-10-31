@@ -24,6 +24,35 @@ int EffectUpdate441d30(Effect *effect)
     return 1;
 }
 
+// A fire callback of the shot table (1): on the frame of `sd`, sets the
+// player's unknown3031c to the bullet for 30 frames, keeps the shot's
+// option and offset in the bullet, then fires it as type 2 with an empty
+// trail.
+// Returns 1 if it fired (0x441ef0).
+int ShotFire441ef0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+{
+    int i;
+
+    if (frame != sd->frame)
+    {
+        return 0;
+    }
+    player->unknown3031c.timer = 30;
+    player->unknown3031c.bullet = bullet;
+    bullet->unknown468 = sd->option;
+    bullet->velocity.z = sd->offsetX;
+    bullet->unknown448 = sd->offsetY;
+    bullet->unknown46a = 0xf;
+    FireShot(player, bullet, sd);
+    bullet->type = 2;
+    for (i = 0x1f; i >= 0; i--)
+    {
+        bullet->trail[i].x = -999.0f;
+    }
+    bullet->pos.x = -999.0f;
+    return 1;
+}
+
 // A fire callback of the shot table (2): fires `sd` on its frame,
 // standing still at its angle. Returns 1 if it fired (0x4423d0).
 int ShotFire4423d0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)

@@ -153,7 +153,9 @@ struct PlayerBullet
     D3DXVECTOR3 size;
     // D3DVECTOR, as th08's.
     D3DVECTOR velocity;
-    unsigned char pad_448[0x44c - 0x448];
+    // Character 2's shot fire callback keeps ShotData::offsetY here, and
+    // offsetX in velocity.z.
+    float unknown448;
     float speed;
     // The direction it flies in.
     float angle;
@@ -163,7 +165,11 @@ struct PlayerBullet
     short state;
     // ShotData::type.
     short type;
-    unsigned char pad_466[0x46c - 0x466];
+    unsigned char pad_466[0x468 - 0x466];
+    // Set by character 2's shot fire callback: ShotData::option, and
+    // 15.
+    short unknown468;
+    short unknown46a;
     // Its script, from 5.
     short script;
     // Drawn blue while it is hit; cleared when fired, where th08 set
@@ -189,7 +195,9 @@ ASSERT_SIZE(PlayerBullet, 0x484);
 struct PlayerUnknown3031c
 {
     Timer timer;
-    unsigned char pad_c[0x1c - 0xc];
+    // The bullet character 2's shot fire callback set the timer for.
+    PlayerBullet *bullet;
+    unsigned char pad_10[0x1c - 0x10];
 };
 ASSERT_SIZE(PlayerUnknown3031c, 0x1c);
 

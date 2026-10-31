@@ -981,7 +981,7 @@ address,size,name,symbol
 0x00441c80,165,Func441c80,
 0x00441d30,110,EffectUpdate441d30,?EffectUpdate441d30@@YIHPAUEffect@@@Z
 0x00441da0,327,Func441da0,
-0x00441ef0,151,Func441ef0,
+0x00441ef0,151,ShotFire441ef0,?ShotFire441ef0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00441f90,643,Func441f90,
 0x00442220,204,Func442220,
 0x004422f0,218,Func4422f0,
