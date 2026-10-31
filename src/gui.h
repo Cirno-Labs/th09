@@ -30,6 +30,9 @@ struct GuiMsg
     void UnloadBgm(int firstScript);
     // Zeroes the state, with no script running (0x415c90).
     void Clear();
+    // Loads the dialogue file `path`, and `path2` as side 1's if not
+    // NULL, so it seems. Nonzero is a failure (0x4182e0).
+    int Load(char *path, char *path2, int unknown);
 
     MsgFile *msgFile;
     // The instruction being run.
@@ -64,15 +67,18 @@ struct GuiMsg
 };
 ASSERT_SIZE(GuiMsg, 0x1d70);
 
-// Something of 0x14 bytes with an empty constructor; the linker folded
-// it with D3DXVECTOR3's (0x4343d0).
+// A vertex with a transformed position and a color, as
+// VertexDiffuseXyzrwh, with an empty constructor; the linker folded it
+// with D3DXVECTOR3's (0x4343d0).
 struct GuiUnknownE86c
 {
     GuiUnknownE86c()
     {
     }
 
-    unsigned char pad_0[0x14];
+    D3DXVECTOR3 pos;
+    float w;
+    D3DCOLOR diffuse;
 };
 
 // The front (0x1293c bytes), at GameManager::unknownA8. Only the fields
@@ -129,7 +135,8 @@ public:
     // The front's ANM file; SpellCard::Reset copies it.
     AnmLoaded *anm;
     Sprite unknownC[0x58];
-    GuiUnknownE86c unknownE86c[10];
+    // Two line strips of five vertices, the outlines of the play areas.
+    GuiUnknownE86c unknownE86c[2][5];
     unsigned char pad_e934[0xe944 - 0xe934];
     GuiMsg msg;
     Sprite unknown106b4;

@@ -1,4 +1,5 @@
 #include "gui.h"
+#include "ascii.h"
 #include "gamemanager.h"
 #include "player.h"
 #include "sprite.h"
@@ -154,6 +155,97 @@ void Gui::RemoveChain(Gui *gui)
         g_Chain.Remove(gui->calcElem);
         delete gui;
     }
+}
+
+int Gui::AddedCallback(Gui *gui)
+{
+    int i;
+    int j;
+    SpriteEngine *se = g_SpriteEngine;
+    AnmLoaded *anm = se->GetAnm(10);
+
+    if (anm->file == NULL)
+    {
+        gui->anm = se->PreloadAnm(10, "front.anm");
+    }
+    else
+    {
+        gui->anm = anm;
+    }
+    if (gui->anm == NULL)
+    {
+        return -1;
+    }
+    gui->anm->StartScriptAtOrigin(&gui->unknownC[0], 0);
+    gui->anm->StartScriptAtOrigin(&gui->unknownC[1], 1);
+    gui->anm->StartScriptAtOrigin(&gui->unknownC[2], 2);
+    gui->anm->StartScriptAtOrigin(&gui->unknownC[3], 3);
+    gui->anm->StartScriptAtOrigin(&gui->unknownC[4], 4);
+    gui->anm->StartScriptAtOrigin(&gui->unknownC[5], 5);
+    gui->anm->StartScriptAtOrigin(&gui->unknownC[6], 6);
+    g_AsciiText.anm->StartScriptAtOrigin(&gui->enemyMarkers[0], 0);
+    g_AsciiText.anm->StartScriptAtOrigin(&gui->enemyMarkers[1], 0);
+    gui->enemyMarkers[0].alpha = 0;
+    gui->enemyMarkers[1].alpha = 0;
+    if (g_GameManager.IsMode0() || g_GameManager.IsMode1())
+    {
+        gui->anm->StartScriptAtOrigin(&gui->unknown11eac[0], 0x55);
+        gui->anm->StartScriptAtOrigin(&gui->unknown11eac[1], 0x56);
+        gui->anm->SetSprite(&gui->unknown11eac[1], g_GameManager.unknownFc + 0x49);
+    }
+    for (i = 0; i < 2; i++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            gui->unknownE86c[i][j].w = 1.0f;
+            gui->unknownE86c[i][j].diffuse = 0x80ffffff;
+        }
+    }
+    gui->unknownE86c[0][0].pos.x = 15.0f;
+    gui->unknownE86c[0][0].pos.y = 15.0f;
+    gui->unknownE86c[0][0].pos.z = 0.0f;
+    gui->unknownE86c[0][1].pos.x = 15.0f;
+    gui->unknownE86c[0][1].pos.y = 464.0f;
+    gui->unknownE86c[0][1].pos.z = 0.0f;
+    gui->unknownE86c[0][2].pos.x = 304.0f;
+    gui->unknownE86c[0][2].pos.y = 464.0f;
+    gui->unknownE86c[0][2].pos.z = 0.0f;
+    gui->unknownE86c[0][3].pos.x = 304.0f;
+    gui->unknownE86c[0][3].pos.y = 15.0f;
+    gui->unknownE86c[0][3].pos.z = 0.0f;
+    gui->unknownE86c[0][4].pos = gui->unknownE86c[0][0].pos;
+    gui->unknownE86c[1][0].pos.x = 335.0f;
+    gui->unknownE86c[1][0].pos.y = 15.0f;
+    gui->unknownE86c[1][0].pos.z = 0.0f;
+    gui->unknownE86c[1][1].pos.x = 335.0f;
+    gui->unknownE86c[1][1].pos.y = 464.0f;
+    gui->unknownE86c[1][1].pos.z = 0.0f;
+    gui->unknownE86c[1][2].pos.x = 624.0f;
+    gui->unknownE86c[1][2].pos.y = 464.0f;
+    gui->unknownE86c[1][2].pos.z = 0.0f;
+    gui->unknownE86c[1][3].pos.x = 624.0f;
+    gui->unknownE86c[1][3].pos.y = 15.0f;
+    gui->unknownE86c[1][3].pos.z = 0.0f;
+    gui->unknownE86c[1][4].pos = gui->unknownE86c[1][0].pos;
+    gui->msg.Clear();
+    if (g_GameManager.IsMode0() || g_GameManager.IsMode1())
+    {
+        if (gui->msg.Load(g_CharacterFiles[g_GameManager.sides[0].character][3], NULL,
+                          g_GameManager.sides[1].character * 10) != 0)
+        {
+            return -1;
+        }
+    }
+    else
+    {
+        if (gui->msg.Load(g_CharacterFiles[g_GameManager.sides[0].character][4],
+                          g_CharacterFiles[g_GameManager.sides[1].character][4], 0) != 0)
+        {
+            return -1;
+        }
+    }
+    gui->Reset();
+    return 0;
 }
 
 Gui *Gui::RegisterChain()

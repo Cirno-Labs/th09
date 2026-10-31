@@ -320,8 +320,8 @@ address,size,name,symbol
 0x004181e0,133,Gui::Reset,?Reset@Gui@@QAEXXZ
 0x00418270,34,Gui::FreeResources,?FreeResources@Gui@@SIHPAV1@@Z
 0x004182a0,50,Gui::RemoveChain,?RemoveChain@Gui@@SIXPAV1@@Z
-0x004182e0,398,Func4182e0,
-0x00418480,694,Gui::AddedCallback,?AddedCallback@Gui@@SIHPAV1@@Z
+0x004182e0,398,GuiMsg::Load,?Load@GuiMsg@@QAEHPAD0H@Z
+0x00418480,706,Gui::AddedCallback,?AddedCallback@Gui@@SIHPAV1@@Z
 0x00418750,85,GuiMsg::GuiMsg,??0GuiMsg@@QAE@XZ
 0x004187b0,143,Gui::Gui,??0Gui@@QAE@XZ
 0x00418840,220,Gui::RegisterChain,?RegisterChain@Gui@@SIPAV1@XZ
