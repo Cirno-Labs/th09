@@ -998,7 +998,7 @@ address,size,name,symbol
 0x00442ee0,97,PlayerComboFunc442ee0,?PlayerComboFunc442ee0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00442f50,187,EffectInit442f50,?EffectInit442f50@@YIHPAUEffect@@@Z
 0x00443010,311,EffectDraw443010,?EffectDraw443010@@YIHPAUEffect@@@Z
-0x00443150,248,Func443150,
+0x00443150,248,ShotUpdate443150,?ShotUpdate443150@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00443250,79,EffectUpdate443250,?EffectUpdate443250@@YIHPAUEffect@@@Z
 0x004432a0,86,ShotFire4432a0,?ShotFire4432a0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00443300,293,Func443300,

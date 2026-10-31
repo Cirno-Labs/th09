@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">9.87% (110)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.85% (210)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">9.96% (111)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.76% (209)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="73.76" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="140.82" height="6" x="606.18" y="0" class="todo"/>
+<rect width="74.43" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="140.15" height="6" x="606.85" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1067,7 +1067,7 @@
 <rect width="12" height="12" x="690" y="285" class="decompiled"><title>0x00442ee0 PlayerComboFunc442ee0 (97 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="285" class="decompiled"><title>0x00442f50 EffectInit442f50 (187 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="285" class="decompiled"><title>0x00443010 EffectDraw443010 (311 bytes)</title></rect>
-<rect width="12" height="12" x="735" y="285" class="todo"><title>0x00443150 Func443150 (248 bytes)</title></rect>
+<rect width="12" height="12" x="735" y="285" class="decompiled"><title>0x00443150 ShotUpdate443150 (248 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="300" class="decompiled"><title>0x00443250 EffectUpdate443250 (79 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="300" class="decompiled"><title>0x004432a0 ShotFire4432a0 (86 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="300" class="todo"><title>0x00443300 Func443300 (293 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">5.68%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">52.24%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">5.76%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">52.16%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="42.44" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="390.24" height="6" x="356.76" y="0" class="todo"/>
+<rect width="43.06" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="389.62" height="6" x="357.38" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1498,7 +1498,7 @@
 <rect width="11.83" height="11.77" x="502.78" y="274.46" class="todo"><title>0x00443930 Func443930 (249 bytes)</title></rect>
 <rect width="11.83" height="11.77" x="502.78" y="289.23" class="todo"><title>0x00443b10 Func443b10 (249 bytes)</title></rect>
 <rect width="11.83" height="11.77" x="502.78" y="303.99" class="todo"><title>0x00447620 Func447620 (249 bytes)</title></rect>
-<rect width="11.83" height="11.71" x="502.78" y="318.76" class="todo"><title>0x00443150 Func443150 (248 bytes)</title></rect>
+<rect width="11.83" height="11.71" x="502.78" y="318.76" class="decompiled"><title>0x00443150 ShotUpdate443150 (248 bytes)</title></rect>
 <rect width="11.83" height="11.53" x="502.78" y="333.47" class="named"><title>0x00412830 PlayerUnknown36c::AddTurned (245 bytes)</title></rect>
 <rect width="12.11" height="11.26" x="517.61" y="109.53" class="named"><title>0x0043ec80 SoundPlayer::LoadSounds (245 bytes)</title></rect>
 <rect width="11.98" height="11.26" x="532.72" y="109.53" class="named"><title>0x0041f070 Player::Player (243 bytes)</title></rect>

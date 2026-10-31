@@ -322,6 +322,43 @@ int EffectDraw443010(Effect *effect)
     return 1;
 }
 
+// An update callback of the shot table (12): 30 frames after it fires,
+// aims a flying bullet at the player's unknown30364, turned by its
+// angle, or straight up if that is left of the play area.
+// Returns 0 (0x443150).
+int ShotUpdate443150(Player *player, PlayerBullet *bullet)
+{
+    float angle;
+    float dx;
+    float dy;
+
+    if (bullet->state == 1 && bullet->timer.AsFrames() == 30)
+    {
+        if (player->unknown30364.x >= -144.0f)
+        {
+            dx = player->unknown30364.x - bullet->pos.x;
+            dy = player->unknown30364.y - bullet->pos.y;
+            if (dy == 0.0f && dx == 0.0f)
+            {
+                angle = bullet->angle + 1.5707964f;
+            }
+            else
+            {
+                angle = Atan2(dy, dx) + bullet->angle;
+            }
+        }
+        else
+        {
+            angle = -1.5707964f;
+        }
+        angle = AddNormalizeAngle(angle, 0.0f);
+        bullet->velocity.x = cosf(angle) * bullet->speed;
+        bullet->velocity.y = sinf(angle) * bullet->speed;
+        bullet->angle = angle;
+    }
+    return 0;
+}
+
 // The update callback of effect type 18: grows unknown7c by 0.7 up to
 // 144, sets unknownC9 and puts the effect on its side's player. Returns 1
 // (0x443250).
