@@ -1561,6 +1561,216 @@ int GuiSide::OnUpdate(GuiSide *side)
     return 1;
 }
 
+int GuiSide::OnDraw(GuiSide *side)
+{
+    int i;
+    GameSide *gameSide;
+
+    g_App.cameras[side->sideIdx].shakeX = 0.0f;
+    g_App.cameras[side->sideIdx].shakeY = 0.0f;
+    g_App.SetView2D(side->sideIdx);
+    for (i = 0; i < ARRAY_SIZE(side->unknown0); i++)
+    {
+        side->unknown0[i].pos.x = g_GameManager.ArenaToScreenX(side->unknown0[i].posOffset.x);
+        side->unknown0[i].pos.y = g_GameManager.ArenaToScreenY(side->unknown0[i].posOffset.y);
+        side->unknown0[i].pos.z = 0.0f;
+        g_SpriteEngine->Draw(&side->unknown0[i]);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown1d0c); i++)
+    {
+        side->unknown1d0c[i].pos.x = g_GameManager.ArenaToScreenX(side->unknown1d0c[i].posOffset.x);
+        side->unknown1d0c[i].pos.y = g_GameManager.ArenaToScreenY(side->unknown1d0c[i].posOffset.y);
+        side->unknown1d0c[i].pos.z = 0.0f;
+        g_SpriteEngine->Draw(&side->unknown1d0c[i]);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown2a40); i++)
+    {
+        side->unknown2a40[i].pos.x = g_GameManager.ArenaToScreenX(side->unknown2a40[i].posOffset.x);
+        side->unknown2a40[i].pos.y = g_GameManager.ArenaToScreenY(side->unknown2a40[i].posOffset.y);
+        side->unknown2a40[i].pos.z = 0.0f;
+        g_SpriteEngine->Draw(&side->unknown2a40[i]);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknownA678.sprites); i++)
+    {
+        side->unknownA678.sprites[i].pos.x = g_GameManager.ArenaToScreenX(
+            side->unknownA678.sprites[i].posOffset.x);
+        side->unknownA678.sprites[i].pos.y = g_GameManager.ArenaToScreenY(
+            side->unknownA678.sprites[i].posOffset.y);
+        side->unknownA678.sprites[i].pos.z = 0.0f;
+        g_SpriteEngine->DrawUnrotated(&side->unknownA678.sprites[i]);
+    }
+    side->unknown3cbc.pos.x = g_GameManager.ArenaToScreenX(side->unknown3cbc.posOffset.x);
+    side->unknown3cbc.pos.y = g_GameManager.ArenaToScreenY(side->unknown3cbc.posOffset.y);
+    side->unknown3cbc.pos.z = 0.0f;
+    g_SpriteEngine->DrawUnrotated(&side->unknown3cbc);
+    for (i = 0; i < ARRAY_SIZE(side->unknown3f60); i++)
+    {
+        side->unknown3f60[i].pos.x = g_GameManager.ArenaToScreenX(side->unknown3f60[i].posOffset.x);
+        side->unknown3f60[i].pos.y = g_GameManager.ArenaToScreenY(side->unknown3f60[i].posOffset.y);
+        side->unknown3f60[i].pos.z = 0.0f;
+        g_SpriteEngine->DrawUnrotated(&side->unknown3f60[i]);
+    }
+    side->unknown59c8.pos.x = g_GameManager.ArenaToScreenX(side->unknown59c8.posOffset.x);
+    side->unknown59c8.pos.y = g_GameManager.ArenaToScreenY(side->unknown59c8.posOffset.y);
+    g_SpriteEngine->DrawUnrotated(&side->unknown59c8);
+    for (i = 0; i < ARRAY_SIZE(side->unknown5c6c); i++)
+    {
+        side->unknown5c6c[i].pos.x = g_GameManager.ArenaToScreenX(
+            side->side->player->pos.x + side->unknown5c6c[i].posOffset.x);
+        side->unknown5c6c[i].pos.y = g_GameManager.ArenaToScreenY(
+            side->side->player->pos.y + side->unknown5c6c[i].posOffset.y);
+        g_SpriteEngine->DrawUnrotated(&side->unknown5c6c[i]);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown66fc); i++)
+    {
+        side->unknown66fc[i].pos.x = g_GameManager.ArenaToScreenX(
+            side->side->player->pos.x + side->unknown66fc[i].posOffset.x);
+        side->unknown66fc[i].pos.y = g_GameManager.ArenaToScreenY(
+            side->side->player->pos.y + side->unknown66fc[i].posOffset.y);
+        if (side->unknownA65c != 0)
+        {
+            side->unknown66fc[i].pos.y -= 24.0f;
+        }
+        g_SpriteEngine->DrawUnrotated(&side->unknown66fc[i]);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown76d4); i++)
+    {
+        side->unknown76d4[i].pos.x = g_GameManager.ArenaToScreenX(
+            side->side->player->pos.x + side->unknown76d4[i].posOffset.x);
+        side->unknown76d4[i].pos.y = g_GameManager.ArenaToScreenY(
+            side->side->player->pos.y + side->unknown76d4[i].posOffset.y);
+        g_SpriteEngine->DrawUnrotated(&side->unknown76d4[i]);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown6ee8); i++)
+    {
+        side->unknown6ee8[i].pos.x = g_GameManager.ArenaToScreenX(
+            side->side->player->pos.x + side->unknown6ee8[i].posOffset.x);
+        side->unknown6ee8[i].pos.y = g_GameManager.ArenaToScreenY(
+            side->side->player->pos.y + side->unknown6ee8[i].posOffset.y);
+        g_SpriteEngine->DrawUnrotated(&side->unknown6ee8[i]);
+    }
+    gameSide = side->side;
+    side->unknown7430.pos.x = g_GameManager.ArenaToScreenX(
+        gameSide->player->pos.x + side->unknown7430.posOffset.x);
+    side->unknown7430.pos.y = g_GameManager.ArenaToScreenY(
+        gameSide->player->pos.y + side->unknown7430.posOffset.y);
+    g_SpriteEngine->DrawUnrotated(&side->unknown7430);
+    for (i = 0; i < ARRAY_SIZE(side->unknown86ac); i++)
+    {
+        side->unknown86ac[i].pos.x = g_GameManager.ArenaToScreenX(side->unknown86ac[i].posOffset.x);
+        side->unknown86ac[i].pos.y = g_GameManager.ArenaToScreenY(side->unknown86ac[i].posOffset.y);
+        g_SpriteEngine->DrawUnrotated(&side->unknown86ac[i]);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown9928); i++)
+    {
+        side->unknown9928[i].pos.x = g_GameManager.ArenaToScreenX(side->unknown9928[i].posOffset.x);
+        side->unknown9928[i].pos.y = g_GameManager.ArenaToScreenY(side->unknown9928[i].posOffset.y);
+        g_SpriteEngine->Draw(&side->unknown9928[i]);
+    }
+    if (side->unknownAbcc != 0)
+    {
+        GuiUnknownE86c vertices[4];
+        float t;
+        float dir;
+        float x;
+
+        if (side->timerAbd0.AsFloat() >= 30.0f)
+        {
+            t = 30.0f;
+        }
+        else
+        {
+            t = side->timerAbd0.AsFloat();
+        }
+        dir = 1.0f;
+        if (side->unknownAbcc != 1)
+        {
+            dir = -1.0f;
+        }
+        g_SpriteEngine->FlushQuadBatch();
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_DIFFUSE);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_DIFFUSE);
+        g_App.SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+        g_App.d3dDevice->SetVertexShader(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
+        t *= 448.0f / 30.0f;
+        x = dir * -144.0f;
+        vertices[0].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(x),
+                                      g_GameManager.ArenaToScreenY(0.0f), 0.0f);
+        dir *= 144.0f;
+        vertices[1].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(dir),
+                                      g_GameManager.ArenaToScreenY(0.0f), 0.0f);
+        vertices[2].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(x), g_GameManager.ArenaToScreenY(t), 0.0f);
+        vertices[0].diffuse = vertices[1].diffuse = vertices[2].diffuse = 0xff000000;
+        vertices[0].w = vertices[1].w = vertices[2].w = 1.0f;
+        g_App.d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 1, vertices, sizeof(GuiUnknownE86c));
+        t = 448.0f - side->timerAbd0.AsFloat() * (448.0f / 30.0f);
+        vertices[0].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(x),
+                                      g_GameManager.ArenaToScreenY(448.0f), 0.0f);
+        vertices[1].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(dir),
+                                      g_GameManager.ArenaToScreenY(448.0f), 0.0f);
+        vertices[2].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(dir),
+                                      g_GameManager.ArenaToScreenY(t), 0.0f);
+        vertices[0].diffuse = vertices[1].diffuse = vertices[2].diffuse = 0xff000000;
+        vertices[0].w = vertices[1].w = vertices[2].w = 1.0f;
+        g_App.d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 1, vertices, sizeof(GuiUnknownE86c));
+        t = side->timerAbd0.AsFloat() * (288.0f / 30.0f) - 144.0f;
+        if (side->unknownAbcc == 1)
+        {
+            vertices[0].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(-144.0f),
+                                          g_GameManager.ArenaToScreenY(0.0f), 0.0f);
+            vertices[1].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(-144.0f),
+                                          g_GameManager.ArenaToScreenY(448.0f), 0.0f);
+            vertices[2].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(t),
+                                          g_GameManager.ArenaToScreenY(448.0f), 0.0f);
+        }
+        else
+        {
+            vertices[0].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(-144.0f),
+                                          g_GameManager.ArenaToScreenY(448.0f), 0.0f);
+            vertices[1].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(-144.0f),
+                                          g_GameManager.ArenaToScreenY(0.0f), 0.0f);
+            vertices[2].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(t),
+                                          g_GameManager.ArenaToScreenY(0.0f), 0.0f);
+        }
+        vertices[0].diffuse = vertices[1].diffuse = vertices[2].diffuse = 0xff000000;
+        vertices[0].w = vertices[1].w = vertices[2].w = 1.0f;
+        g_App.d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 1, vertices, sizeof(GuiUnknownE86c));
+        t = 144.0f - side->timerAbd0.AsFloat() * (288.0f / 30.0f);
+        if (side->unknownAbcc == 1)
+        {
+            vertices[0].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(144.0f),
+                                          g_GameManager.ArenaToScreenY(448.0f), 0.0f);
+            vertices[1].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(144.0f),
+                                          g_GameManager.ArenaToScreenY(0.0f), 0.0f);
+            vertices[2].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(t),
+                                          g_GameManager.ArenaToScreenY(0.0f), 0.0f);
+        }
+        else
+        {
+            vertices[0].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(144.0f),
+                                          g_GameManager.ArenaToScreenY(0.0f), 0.0f);
+            vertices[1].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(144.0f),
+                                          g_GameManager.ArenaToScreenY(448.0f), 0.0f);
+            vertices[2].pos = D3DXVECTOR3(g_GameManager.ArenaToScreenX(t),
+                                          g_GameManager.ArenaToScreenY(448.0f), 0.0f);
+        }
+        vertices[0].diffuse = vertices[1].diffuse = vertices[2].diffuse = 0xff000000;
+        vertices[0].w = vertices[1].w = vertices[2].w = 1.0f;
+        g_App.d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 1, vertices, sizeof(GuiUnknownE86c));
+        g_SpriteEngine->ClearVertexFormat();
+        g_SpriteEngine->ClearColorOp();
+        g_SpriteEngine->ClearBlendMode();
+        g_SpriteEngine->ClearZWrite();
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+        g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+    }
+    return 1;
+}
+
 int GuiSide::AddedCallback(GuiSide *side)
 {
     DWORD i;

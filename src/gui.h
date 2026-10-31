@@ -293,7 +293,11 @@ public:
     // chain callback (0x418a90, 0x41a000, 0x4193e0). The update callback
     // steps the sprites and shows the player's combo, bonus, score,
     // lives, unknownA0, unknownA4, unknown30384 and unknown30388 and
-    // the side's wins on them. Returns 1.
+    // the side's wins on them. The draw callback clears the side's
+    // camera shake, places the sprites in its play area (some by the
+    // player) and draws them; while unknownAbcc is set it also sweeps
+    // four black triangles over the play area by timerAbd0 (in for 1,
+    // out for 2). Both return 1.
     static int OnUpdate(GuiSide *side);
     static int AddedCallback(GuiSide *side);
     static int OnDraw(GuiSide *side);

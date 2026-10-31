@@ -329,7 +329,7 @@ address,size,name,symbol
 0x00418930,26,FreeResources,?FreeResources@@YIHPAVGuiSide@@@Z
 0x00418950,319,GuiSide::SetUnknown76d4Time,?SetUnknown76d4Time@GuiSide@@QAEXH@Z
 0x00418a90,2381,GuiSide::OnUpdate,?OnUpdate@GuiSide@@SIHPAV1@@Z
-0x004193e0,3074,GuiSide::OnDraw,?OnDraw@GuiSide@@SIHPAV1@@Z
+0x004193e0,3094,GuiSide::OnDraw,?OnDraw@GuiSide@@SIHPAV1@@Z
 0x0041a000,460,GuiSide::AddedCallback,?AddedCallback@GuiSide@@SIHPAV1@@Z
 0x0041a1d0,59,GuiSide::RemoveChain,?RemoveChain@GuiSide@@SIXPAV1@@Z
 0x0041a210,21,GuiSide::StartUnknown59c8,?StartUnknown59c8@GuiSide@@QAEXXZ
