@@ -187,6 +187,8 @@ public:
     // opens every entry. UpdateState14 puts g_Hscr in the tables and
     // has its name typed in, starting from g_Lsnm's; ending it saves
     // the scores and goes to state 15 (mode 2 goes there at once).
+    // UpdateState11 reads the replays (th9_01 to 25 and up to 25 user
+    // ones) and lets one and its round be chosen, then plays it.
     int UpdateState3();
     int UpdateState8b();
     int UpdateState16();
@@ -237,7 +239,9 @@ public:
     // The headers of the replay files.
     ReplayHeader replays[50];
     void *unknownC8fc;
-    unsigned char pad_c900[0xc908 - 0xc900];
+    // Set to 0 and 50 once UpdateState11 has read the replays.
+    int unknownC900;
+    int unknownC904;
     // The replay slot being saved to.
     int replaySlot;
     unsigned char pad_c90c[0xc910 - 0xc90c];

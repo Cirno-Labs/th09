@@ -1731,8 +1731,8 @@ address,size,name,symbol
 0x0047c3f0,139,_strlen,_strlen
 0x0047c47b,88,_sprintf,_sprintf
 0x0047c4e0,7,strcpy,_strcpy
-0x0047c4f0,232,Func47c4f0,
-0x0047c5d8,273,__chdir,
+0x0047c4f0,232,strcat,_strcat
+0x0047c5d8,273,_chdir,__chdir
 0x0047c71b,44,_mkdir,__mkdir
 0x0047c750,672,_memcpy,
 0x0047ca90,31,_EH_prolog,__EH_prolog

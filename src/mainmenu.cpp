@@ -3,6 +3,8 @@
 // GameManager's. It starts with the copies of the inline functions it
 // calls but does not expand.
 
+#include <direct.h>
+
 #include "mainmenu.h"
 #include "ascii.h"
 #include "midi.h"
@@ -2014,6 +2016,266 @@ int MainMenu::UpdateState14()
     }
     this->stateFrames++;
     this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
+int MainMenu::UpdateState11()
+{
+    int i;
+    int delta;
+    HANDLE findHandle;
+    int size;
+    ReplayHeader *replay;
+    char path[0x40];
+    WIN32_FIND_DATAA fd;
+    char userPath[0x400];
+
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            g_GameManager.stateFlags &= ~8;
+            if (this->prevState != 11 && g_SpriteEngine->LoadSurface(0, "title/replay00.png") != 0)
+            {
+                return 0;
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x16);
+            this->cursor = 0;
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+            memset(this->replays, 0, sizeof(this->replays));
+            for (i = 0; i < 25; i++)
+            {
+                sprintf(path, "./replay/th9_%.2d.rpy", i + 1);
+                replay = (ReplayHeader *)OpenPath(path, &size, 1);
+                if (replay == NULL)
+                {
+                    continue;
+                }
+                replay = ValidateReplay(replay, size);
+                this->unknown681c[i] = replay;
+                if (replay != NULL)
+                {
+                    this->replays[i] = *replay;
+                    strcpy(this->replayPaths[i], path);
+                }
+            }
+            _mkdir("replay");
+            _chdir("replay");
+            findHandle = FindFirstFileA("th9_ud????.rpy", &fd);
+            if (findHandle != INVALID_HANDLE_VALUE)
+            {
+                for (i = 0; i < 25; i++)
+                {
+                    strcpy(userPath, "replay/");
+                    strcat(userPath, fd.cFileName);
+                    replay = (ReplayHeader *)OpenPath(userPath, &size, 1);
+                    if (replay == NULL)
+                    {
+                        continue;
+                    }
+                    replay = ValidateReplay(replay, size);
+                    this->unknown681c[i + 25] = replay;
+                    if (replay != NULL)
+                    {
+                        this->replays[i + 25] = *replay;
+                        sprintf(this->replayPaths[i + 25], "./replay/%s", fd.cFileName);
+                    }
+                    if (!FindNextFileA(findHandle, &fd))
+                    {
+                        break;
+                    }
+                }
+            }
+            FindClose(findHandle);
+            _chdir("../");
+            this->unknownC904 = 50;
+            this->unknownC900 = 0;
+        }
+        if (this->unknown1b230 >= 8)
+        {
+            this->subState = 1;
+            this->stateFrames = 0;
+        }
+        break;
+    case 1:
+        if (g_PlayerInputs[2].IsPressed(0x10))
+        {
+            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            this->cursor--;
+            if (this->cursor < 0)
+            {
+                this->cursor += 50;
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x20))
+        {
+            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            this->cursor++;
+            if (this->cursor >= 50)
+            {
+                this->cursor -= 50;
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x40))
+        {
+            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            this->cursor -= 25;
+            if (this->cursor < 0)
+            {
+                this->cursor += 50;
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x80))
+        {
+            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            this->cursor += 25;
+            if (this->cursor >= 50)
+            {
+                this->cursor -= 50;
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].unknown6 & 10)
+        {
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            this->SetState(1);
+            this->cursor = 3;
+            for (i = 0; i < 50; i++)
+            {
+                if (this->unknown681c[i] != NULL)
+                {
+                    free(this->unknown681c[i]);
+                }
+                this->unknown681c[i] = NULL;
+            }
+            return 1;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            if (*(int *)this->replays[this->cursor].magic != 0)
+            {
+                this->PlaySoundNow(10, 0);
+                this->replaySlot = this->cursor;
+                this->subState = 2;
+                this->stateFrames = 0;
+                this->cursor = 0;
+                this->unknown1b230 = 0;
+                while (this->replays[this->replaySlot].unknown20[0][this->cursor] == NULL)
+                {
+                    this->cursor++;
+                }
+            }
+            else
+            {
+                this->PlaySoundNow(0x27, 0);
+            }
+        }
+        break;
+    case 2:
+        if ((delta = this->MoveCursor(10)) != 0)
+        {
+            while (this->replays[this->replaySlot].unknown20[0][this->cursor] == NULL)
+            {
+                this->cursor += delta;
+                if (this->cursor >= 10)
+                {
+                    this->cursor -= 10;
+                }
+                if (this->cursor < 0)
+                {
+                    this->cursor += 10;
+                }
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 10)
+        {
+            this->subState = 1;
+            this->stateFrames = 0;
+            this->cursor = this->replaySlot;
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            g_GameManager.sides[0].character = this->cursors[0];
+            g_GameManager.sides[1].character = 0;
+            g_GameManager.unknownFc = this->cursor;
+            g_GameManager.difficulty = this->replays[this->replaySlot].info.difficulty;
+            strcpy(g_GameManager.replayFile, this->replayPaths[this->replaySlot]);
+            g_GameManager.stateFlags |= 8;
+            if (this->replays[this->replaySlot].mode == 0)
+            {
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+                g_GameManager.mode = 0;
+                g_GameManager.sides[0].unknown28 = 0;
+            }
+            else if (this->replays[this->replaySlot].mode == 1)
+            {
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+                g_GameManager.mode = 1;
+                g_GameManager.sides[0].unknown28 = 0;
+            }
+            else
+            {
+                if (this->replays[this->replaySlot].unknown1e5 == 0)
+                {
+                    g_GameManager.sides[1].unknown28 = 0;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                    g_GameManager.sides[0].unknown28 = 0;
+                }
+                else if (this->replays[this->replaySlot].unknown1e5 == 1)
+                {
+                    g_GameManager.sides[1].unknown28 = 1;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                    g_GameManager.sides[0].unknown28 = 0;
+                }
+                else if (this->replays[this->replaySlot].unknown1e5 == 2)
+                {
+                    g_GameManager.sides[1].unknown28 = 0;
+                    g_GameManager.sides[0].unknown28 = 1;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                }
+                else if (this->replays[this->replaySlot].unknown1e5 == 3)
+                {
+                    g_GameManager.sides[1].unknown28 = 1;
+                    g_GameManager.sides[0].unknown28 = 1;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                }
+                else if (this->replays[this->replaySlot].unknown1e5 == 4)
+                {
+                    g_GameManager.sides[1].unknown28 = 0;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                    g_GameManager.sides[0].unknown28 = 0;
+                }
+            }
+            for (i = 0; i < 50; i++)
+            {
+                if (this->unknown681c[i] != NULL)
+                {
+                    free(this->unknown681c[i]);
+                }
+                this->unknown681c[i] = NULL;
+            }
+            g_GameManager.difficulty = g_App.config.difficulty;
+            return 0;
+        }
+        break;
+    }
+    this->unknownC910++;
+    this->stateFrames++;
     this->unknown1b230++;
     return 1;
 }
