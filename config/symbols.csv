@@ -1043,7 +1043,7 @@ address,size,name,symbol
 0x00445d80,119,PlayerComboFunc445d80,?PlayerComboFunc445d80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00445e00,96,EffectUpdate445e00,?EffectUpdate445e00@@YIHPAUEffect@@@Z
 0x00445e60,91,PlayerPosFunc445e60,?PlayerPosFunc445e60@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
-0x00445ec0,407,Func445ec0,
+0x00445ec0,407,ExAttackInit445ec0,?ExAttackInit445ec0@@YIHPAUExAttack@@@Z
 0x00446060,698,ExAttackUpdate446060,?ExAttackUpdate446060@@YIHPAUExAttack@@@Z
 0x00446320,379,ExAttackInit446320,?ExAttackInit446320@@YIHPAUExAttack@@@Z
 0x004464a0,799,ExAttackUpdate4464a0,?ExAttackUpdate4464a0@@YIHPAUExAttack@@@Z

@@ -79,6 +79,52 @@ struct ExAttackData08
 };
 ASSERT_SIZE(ExAttackData08, 0x5c);
 
+// The init callback of extra attack type 6: type 8's, flying in from
+// the left or the right of the target's play area, at a random height,
+// heading across it within 30 degrees, turning by up to 3/4 degree a
+// frame. Returns 0 (0x445ec0).
+int ExAttackInit445ec0(ExAttack *attack)
+{
+    ExAttackData08 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData08));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData08 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->velocity, angle, 2.0f);
+    data->state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    if (g_Rng.GetRandomU32InRange(2))
+    {
+        data->targetPos.x = -144.0f;
+        data->heading = g_Rng.GetRandomF32SignedInRange(0.5235988f);
+    data->turn = g_Rng.GetRandomF32SignedInRange(0.01308997f);
+    }
+    else
+    {
+        data->targetPos.x = 144.0f;
+        data->heading = AddNormalizeAngle(3.1415927f, g_Rng.GetRandomF32SignedInRange(0.5235988f));
+    data->turn = g_Rng.GetRandomF32SignedInRange(0.01308997f);
+    }
+    data->targetPos.y = g_Rng.GetRandomF32InRange(320.0f);
+    data->targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    return 0;
+}
+
 // The update callback of extra attack type 6: type 8's, turning as it
 // goes and firing two bullets along its heading every 20 - unknownB4 / 8
 // frames. Returns 1 once it is done (0x446060).
