@@ -7,29 +7,60 @@
 #include "sprite.h"
 #include "timer.h"
 
+// A dialogue file: its scripts, after a count so it seems.
+struct MsgFile
+{
+    int unknown0;
+    struct
+    {
+        void *script;
+        int unknown4;
+    } scripts[1];
+};
+
 // The dialogue state (0x1d70 bytes). Only the fields known so far.
 struct GuiMsg
 {
+    // Starts script `index` of side `side`'s file (msgFile2 for side 1),
+    // as th08's StartMsgScript, with clear text sprites in the text
+    // ANM file's scripts 0 and 1 (0x416160).
+    void Start(int index, int side);
     // Unloads the music the scripts from `firstScript` on, ten of them,
     // play with opcode 7 (0x417520).
     void UnloadBgm(int firstScript);
     // Zeroes the state, with no script running (0x415c90).
     void Clear();
 
-    void *msgFile;
+    MsgFile *msgFile;
     // The instruction being run.
     void *instr;
     // The script running, -1 for none.
     int scriptIndex;
-    unsigned char pad_c[0x14 - 0xc];
+    // Side 1's file.
+    MsgFile *msgFile2;
+    // The side whose script runs.
+    int side;
     Sprite portraits[8];
-    Sprite unknown1534[2];
+    // The two lines of text.
+    Sprite text[2];
     Sprite unknown1a7c;
-    unsigned char pad_1d20[0x1d40 - 0x1d20];
+    // The speakers' text and shadow colors, as th08's.
+    D3DCOLOR textColors[4];
+    D3DCOLOR shadowColors[4];
     Timer unknown1d40;
-    unsigned char pad_1d4c[0x1d58 - 0x1d4c];
+    unsigned char pad_1d4c[0x1d50 - 0x1d4c];
+    int minWaitFrames;
+    int fontSize;
     Timer unknown1d58;
-    unsigned char pad_1d64[0x1d70 - 0x1d64];
+    // As th08's.
+    BYTE speaker;
+    BYTE newPage;
+    BYTE nextLine;
+    BYTE activePortrait;
+    unsigned char pad_1d68[0x1d6c - 0x1d68];
+    BYTE skippable;
+    BYTE unknown1d6d;
+    unsigned char pad_1d6e[0x1d70 - 0x1d6e];
 };
 ASSERT_SIZE(GuiMsg, 0x1d70);
 

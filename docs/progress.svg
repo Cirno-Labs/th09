@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.76% (780)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">26.03% (279)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.85% (781)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">25.93% (278)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="543.53" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="543.53" y="0" class="decompiled"/>
-<rect width="194.42" height="6" x="552.58" y="0" class="todo"/>
+<rect width="544.22" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="544.22" y="0" class="decompiled"/>
+<rect width="193.72" height="6" x="553.28" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -379,7 +379,7 @@
 <rect width="12" height="12" x="120" y="90" class="named"><title>0x00415d70 Gui::CountRoundWin (222 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="90" class="todo"><title>0x00415e50 Func415e50 (553 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="90" class="named"><title>0x00416080 Gui::UpdateEnemyMarker (213 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="90" class="todo"><title>0x00416160 Func416160 (357 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="90" class="named"><title>0x00416160 GuiMsg::Start (357 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="90" class="todo"><title>0x004162d0 Func4162d0 (693 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="90" class="todo"><title>0x00416590 Func416590 (2852 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="90" class="todo"><title>0x00417130 Func417130 (995 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.01%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">57.27%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.13%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">57.15%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="313.78" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="313.78" y="0" class="decompiled"/>
-<rect width="427.83" height="6" x="319.17" y="0" class="todo"/>
+<rect width="314.70" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="314.70" y="0" class="decompiled"/>
+<rect width="426.92" height="6" x="320.08" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1353,7 +1353,7 @@
 <rect width="14.15" height="15.01" x="698.84" y="40.03" class="todo"><title>0x0044c350 Func44c350 (361 bytes)</title></rect>
 <rect width="14.01" height="15.01" x="715.99" y="40.03" class="named"><title>0x0043d5e0 MidiPlayer::ParseFile (358 bytes)</title></rect>
 <rect width="14.01" height="15.01" x="732.99" y="40.03" class="todo"><title>0x00449070 Func449070 (358 bytes)</title></rect>
-<rect width="14.42" height="14.53" x="469.40" y="58.04" class="todo"><title>0x00416160 Func416160 (357 bytes)</title></rect>
+<rect width="14.42" height="14.53" x="469.40" y="58.04" class="named"><title>0x00416160 GuiMsg::Start (357 bytes)</title></rect>
 <rect width="14.42" height="14.53" x="469.40" y="75.57" class="todo"><title>0x00448320 Func448320 (357 bytes)</title></rect>
 <rect width="14.42" height="14.48" x="469.40" y="93.10" class="todo"><title>0x00446c10 Func446c10 (356 bytes)</title></rect>
 <rect width="14.42" height="14.43" x="469.40" y="110.59" class="named"><title>0x0042c970 OpenPath (355 bytes)</title></rect>

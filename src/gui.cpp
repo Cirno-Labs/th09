@@ -13,6 +13,47 @@ void Gui::ReleaseAnm()
     g_SpriteEngine->ReleaseAnm(10);
 }
 
+void GuiMsg::Start(int index, int side)
+{
+    MsgFile *msgFile = this->msgFile;
+    MsgFile *msgFile2 = this->msgFile2;
+
+    memset(this, 0, sizeof(GuiMsg));
+    this->msgFile = msgFile;
+    this->msgFile2 = msgFile2;
+    if (side == 1)
+    {
+        msgFile = msgFile2;
+    }
+    this->side = side;
+    this->scriptIndex = index;
+    this->instr = msgFile->scripts[index].script;
+    this->text[0].scriptIndex = -1;
+    this->text[1].scriptIndex = -1;
+    this->fontSize = 24;
+    this->textColors[0] = 0xe8f0ff;
+    this->textColors[1] = 0xf0e8ff;
+    this->textColors[2] = 0xe8d0ff;
+    this->textColors[3] = 0xd8ffff;
+    this->shadowColors[0] = 0;
+    this->shadowColors[1] = 0;
+    this->shadowColors[2] = 0;
+    this->shadowColors[3] = 0;
+    this->skippable = 1;
+    this->minWaitFrames = 6;
+    this->unknown1d6d = 1;
+    this->speaker = 0;
+    this->newPage = 1;
+    this->nextLine = 0;
+    this->activePortrait = 0xff;
+    g_App.textAnm->StartScript(&this->text[0], 0);
+    g_App.textAnm->StartScript(&this->text[1], 1);
+    this->text[0].fontWidth = this->text[0].fontHeight = this->fontSize;
+    this->text[1].fontWidth = this->text[1].fontHeight = this->fontSize;
+    g_SpriteEngine->RenderText(&this->text[0], this->textColors[this->speaker], this->shadowColors[this->speaker], " ");
+    g_SpriteEngine->RenderText(&this->text[1], this->textColors[this->speaker], this->shadowColors[this->speaker], " ");
+}
+
 void Gui::CountRoundWin(int side)
 {
     this->unknown11ea8 = 1;
