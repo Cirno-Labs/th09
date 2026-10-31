@@ -1,6 +1,10 @@
+#include <string.h>
+
 #include "replay.h"
 #include "gamemanager.h"
 #include "gui.h"
+#include "lzss.h"
+#include "unsorted.h"
 
 void PlayerInput::UpdateRepeat2()
 {
@@ -49,6 +53,88 @@ int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
         return 6;
     }
     return 1;
+}
+
+ReplayHeader *ValidateReplay(void *data, int size)
+{
+    BYTE *bytes;
+    int sum;
+    BYTE b;
+    ReplayHeader *file;
+    int i;
+    ReplayHeader *decoded;
+
+    file = (ReplayHeader *)data;
+    if (file == NULL)
+    {
+        goto fail;
+    }
+    if (*(DWORD *)file->magic != *(DWORD *)"T9RP")
+    {
+        goto fail;
+    }
+    if (file->version != 2)
+    {
+        goto fail;
+    }
+    if (file->unknown6 != 0)
+    {
+        goto fail;
+    }
+    bytes = (BYTE *)&file->compressedSize;
+    b = file->key;
+    for (i = 0; i < file->size - 0x18; i++, bytes++)
+    {
+        *bytes -= b;
+        b += 7;
+    }
+    sum = 0x3f000318;
+    for (i = 0; i < file->size - 0x15; i++)
+    {
+        sum += (&file->key)[i];
+    }
+    if (sum != file->checksum)
+    {
+        goto fail;
+    }
+    decoded = (ReplayHeader *)g_MemoryManager.Alloc(file->dataSize + 0xc0 + (size - file->size), GLOBAL_H);
+    memcpy(decoded, data, 0xc0);
+    LzssDecompress((BYTE *)file + 0xc0, file->compressedSize, (BYTE *)decoded + 0xc0, file->dataSize);
+    memcpy((BYTE *)decoded + file->dataSize + 0xc0, (BYTE *)data + file->size, size - file->size);
+    if (g_App.CheckVersionFile(decoded->exeVersion, decoded->exeSize, decoded->exeChecksum) != 0)
+    {
+        goto failDecoded;
+    }
+    for (i = 0; i < 10; i++)
+    {
+        if (decoded->unknown20[i] != NULL)
+        {
+            decoded->unknown20[i] = (BYTE *)decoded->unknown20[i] + (int)decoded;
+        }
+        if (decoded->unknown48[i] != NULL)
+        {
+            decoded->unknown48[i] = (BYTE *)decoded->unknown48[i] + (int)decoded;
+        }
+        if (decoded->unknown70[i] != NULL)
+        {
+            decoded->unknown70[i] = (BYTE *)decoded->unknown70[i] + (int)decoded;
+        }
+        if (decoded->unknown98[i] != NULL)
+        {
+            decoded->unknown98[i] = (BYTE *)decoded->unknown98[i] + (int)decoded;
+        }
+    }
+    g_MemoryManager.Free(data);
+    return decoded;
+
+fail:
+    g_MemoryManager.Free(data);
+    return NULL;
+
+failDecoded:
+    g_MemoryManager.Free(data);
+    g_MemoryManager.Free(decoded);
+    return NULL;
 }
 
 ReplayInfo::ReplayInfo()

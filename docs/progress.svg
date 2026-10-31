@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.87% (749)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.92% (310)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.96% (750)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.82% (309)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="521.92" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="521.92" y="0" class="decompiled"/>
-<rect width="216.02" height="6" x="530.98" y="0" class="todo"/>
+<rect width="522.62" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="522.62" y="0" class="decompiled"/>
+<rect width="215.32" height="6" x="531.68" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -511,7 +511,7 @@
 <rect width="12" height="12" x="600" y="120" class="todo"><title>0x004202a0 ReplayManager::OnUpdateMode0 (460 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="120" class="named"><title>0x00420470 ReplayManager::OnUpdateMode1b (59 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="120" class="todo"><title>0x004204b0 ReplayManager::OnUpdateMode1 (299 bytes)</title></rect>
-<rect width="12" height="12" x="645" y="120" class="todo"><title>0x004205e0 Func4205e0 (591 bytes)</title></rect>
+<rect width="12" height="12" x="645" y="120" class="named"><title>0x004205e0 ValidateReplay (591 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="120" class="named"><title>0x00420830 ReplayInfo::ReplayInfo (15 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="120" class="todo"><title>0x00420840 ReplayManager::AddedCallbackMode1 (540 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="120" class="named"><title>0x00420a60 FreeResources (104 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.68%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">61.59%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.89%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">61.39%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="281.50" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="281.50" y="0" class="decompiled"/>
-<rect width="460.11" height="6" x="286.89" y="0" class="todo"/>
+<rect width="283.02" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="283.02" y="0" class="decompiled"/>
+<rect width="458.60" height="6" x="288.40" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1267,7 +1267,7 @@
 <rect width="19.20" height="19.97" x="408.28" y="69.13" class="todo"><title>0x00447ce0 Func447ce0 (596 bytes)</title></rect>
 <rect width="19.20" height="19.93" x="408.28" y="92.09" class="named"><title>0x00439a90 SpriteEngine::ProjectSprite3D (595 bytes)</title></rect>
 <rect width="19.20" height="19.77" x="408.28" y="115.02" class="todo"><title>0x00413be0 BulletManager::OnDraw (591 bytes)</title></rect>
-<rect width="19.20" height="19.77" x="408.28" y="137.79" class="todo"><title>0x004205e0 Func4205e0 (591 bytes)</title></rect>
+<rect width="19.20" height="19.77" x="408.28" y="137.79" class="named"><title>0x004205e0 ValidateReplay (591 bytes)</title></rect>
 <rect width="19.20" height="19.27" x="408.28" y="160.57" class="named"><title>0x004407a0 CSoundManager::CreateStreaming (578 bytes)</title></rect>
 <rect width="19.20" height="19" x="408.28" y="182.84" class="named"><title>0x00434020 LzssCompress (571 bytes)</title></rect>
 <rect width="19.20" height="18.69" x="408.28" y="204.84" class="todo"><title>0x0040c530 Func40c530 (563 bytes)</title></rect>

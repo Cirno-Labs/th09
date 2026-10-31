@@ -23,11 +23,44 @@ struct ReplayHeader
     // Constructs info (0x420c40).
     ReplayHeader();
 
-    unsigned char pad_0[0xc0];
+    // "T9RP", version 2, as th08's header.
+    char magic[4];
+    short version;
+    // Must be 0 for the replay to load.
+    BYTE unknown6;
+    unsigned char pad_7[0xc - 0x7];
+    // The size of the file's header and compressed data.
+    int size;
+    // The sum of the bytes from key on, plus 0x3f000318.
+    int checksum;
+    unsigned char pad_14[0x15 - 0x14];
+    // What the bytes from compressedSize on are encrypted with, rising by
+    // 7 a byte.
+    BYTE key;
+    unsigned char pad_16[0x18 - 0x16];
+    int compressedSize;
+    // The size of the data once decompressed.
+    int dataSize;
+    // Offsets in the replay, made pointers once it is loaded.
+    void *unknown20[10];
+    void *unknown48[10];
+    void *unknown70[10];
+    void *unknown98[10];
     ReplayInfo info;
-    unsigned char pad_1a8[0x1ec - 0x1a8];
+    unsigned char pad_1a8[0x1d4 - 0x1a8];
+    // The executable the replay was recorded with, for
+    // App::CheckVersionFile.
+    DWORD exeSize;
+    DWORD exeChecksum;
+    char exeVersion[0x10];
 };
 ASSERT_SIZE(ReplayHeader, 0x1ec);
+
+// Decrypts and checks the replay file `data`, `size` bytes, and returns
+// it decompressed, as th08's ValidateReplay, with what follows the
+// compressed data copied after it and the offsets made pointers. Frees
+// `data`. Returns NULL if the file is not a valid replay (0x4205e0).
+ReplayHeader *ValidateReplay(void *data, int size);
 
 // The replay manager, at GameManager::unknownD4. Only the fields known so
 // far.
