@@ -61,6 +61,10 @@ void ClearScreen(DWORD color);
 // `color`, as th08's (0x422290).
 void ClearViewport(DWORD color);
 
+// Draws `count` lines through `vertices` as one strip, with
+// DrawColorRect's states. New in th09, for Gui's frames (0x422330).
+void DrawColoredLineStrip(struct VertexDiffuseXyzrwh *vertices, int count);
+
 // Fills `rect` (left, top, right, bottom) with `color`, as th08's
 // (0x422960).
 void DrawColorRect(float *rect, DWORD color);

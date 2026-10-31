@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">68.72% (736)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">30.07% (322)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">68.81% (737)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">29.97% (321)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="513.34" height="6" x="0" y="0" class="named"/>
-<rect width="9.07" height="6" x="513.34" y="0" class="decompiled"/>
-<rect width="224.59" height="6" x="522.41" y="0" class="todo"/>
+<rect width="514.04" height="6" x="0" y="0" class="named"/>
+<rect width="9.07" height="6" x="514.04" y="0" class="decompiled"/>
+<rect width="223.89" height="6" x="523.11" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -533,7 +533,7 @@
 <rect width="12" height="12" x="180" y="135" class="todo"><title>0x00422200 ClearScreen (139 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="135" class="named"><title>0x00422290 ClearViewport (38 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="135" class="named"><title>0x004222c0 ScreenEffect::OnUpdateFadeIn (103 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="135" class="todo"><title>0x00422330 Func422330 (318 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="135" class="named"><title>0x00422330 DrawColoredLineStrip (318 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="135" class="todo"><title>0x00422470 Func422470 (123 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="135" class="todo"><title>0x004224f0 Func4224f0 (186 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="135" class="todo"><title>0x004225b0 Func4225b0 (163 bytes)</title></rect>
@@ -1143,11 +1143,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">36.46%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">62.82%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">36.57%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">62.71%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="272.36" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="272.36" y="0" class="decompiled"/>
-<rect width="469.26" height="6" x="277.74" y="0" class="todo"/>
+<rect width="273.17" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="273.17" y="0" class="decompiled"/>
+<rect width="468.44" height="6" x="278.56" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.39" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1389,7 +1389,7 @@
 <rect width="13.83" height="13.26" x="486.83" y="107.89" class="todo"><title>0x0041cc80 Func41cc80 (320 bytes)</title></rect>
 <rect width="13.83" height="13.21" x="486.83" y="124.16" class="named"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>
 <rect width="13.83" height="13.16" x="486.83" y="140.37" class="todo"><title>0x00420ad0 ReplayManager::Release (318 bytes)</title></rect>
-<rect width="13.83" height="13.16" x="486.83" y="156.53" class="todo"><title>0x00422330 Func422330 (318 bytes)</title></rect>
+<rect width="13.83" height="13.16" x="486.83" y="156.53" class="named"><title>0x00422330 DrawColoredLineStrip (318 bytes)</title></rect>
 <rect width="13.83" height="13.16" x="486.83" y="172.70" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>
 <rect width="13.83" height="13.16" x="486.83" y="188.86" class="named"><title>0x0043b7b0 SpriteEngine::DrawColoredFan (318 bytes)</title></rect>
 <rect width="13.83" height="13.06" x="486.83" y="205.02" class="todo"><title>0x00422660 Func422660 (316 bytes)</title></rect>

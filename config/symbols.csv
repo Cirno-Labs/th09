@@ -464,7 +464,7 @@ address,size,name,symbol
 0x00422200,139,ClearScreen,?ClearScreen@@YIXK@Z
 0x00422290,38,ClearViewport,?ClearViewport@@YIXK@Z
 0x004222c0,103,ScreenEffect::OnUpdateFadeIn,?OnUpdateFadeIn@ScreenEffect@@SIHPAV1@@Z
-0x00422330,318,Func422330,
+0x00422330,318,DrawColoredLineStrip,?DrawColoredLineStrip@@YIXPAUVertexDiffuseXyzrwh@@H@Z
 0x00422470,123,Func422470,
 0x004224f0,186,Func4224f0,
 0x004225b0,163,Func4225b0,

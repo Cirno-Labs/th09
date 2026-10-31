@@ -31,6 +31,29 @@ int ScreenEffect::OnUpdateFadeIn(ScreenEffect *effect)
     return 1;
 }
 
+void DrawColoredLineStrip(VertexDiffuseXyzrwh *vertices, int count)
+{
+    g_SpriteEngine->FlushQuadBatch();
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+    g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+    g_App.d3dDevice->SetVertexShader(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
+    g_App.d3dDevice->DrawPrimitiveUP(D3DPT_LINESTRIP, count, vertices, sizeof(VertexDiffuseXyzrwh));
+    g_SpriteEngine->ClearVertexFormat();
+    g_SpriteEngine->ClearSpriteData();
+    g_SpriteEngine->ClearTexture();
+    g_SpriteEngine->ClearColorOp();
+    g_SpriteEngine->ClearBlendMode();
+    g_SpriteEngine->ClearZWrite();
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+}
+
 int ScreenEffect::DeletedCallback(ScreenEffect *effect)
 {
     effect->calcElem->deletedCallback = NULL;
