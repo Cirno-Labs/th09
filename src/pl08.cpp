@@ -22,6 +22,34 @@ int EffectUpdate4475c0(Effect *effect)
     return 1;
 }
 
+// The unknown30404 of character 8: whether `pos` is within the radius
+// of the player's unknown368 of a point sqrt(3)/2 radii from the player, at a
+// right angle to the effect's angle unknown80 and on the side away from
+// `pos` (0x447620).
+int PlayerPosFunc447620(Player *player, D3DXVECTOR3 *pos)
+{
+    D3DXVECTOR3 diff = *pos - player->pos;
+    D3DXVECTOR3 center;
+    float angle = AddNormalizeAngle(player->unknown368->unknown80, 1.5707964f);
+    D3DXVECTOR3 offset;
+
+    SetPolar((Vector2 *)&offset, angle, player->unknown368->unknown7c * 0.8660254f);
+    if (diff.x * offset.x + diff.y * offset.y > 0.0f)
+    {
+        center = player->pos - offset;
+    }
+    else
+    {
+        center = player->pos + offset;
+    }
+    diff = center - *pos;
+    if (diff.x * diff.x + diff.y * diff.y < player->unknown368->unknown7c * player->unknown368->unknown7c)
+    {
+        return 1;
+    }
+    return 0;
+}
+
 // The data of extra attack types 16 and 23 (0x50 bytes): ExAttackData00
 // with a float after the velocity.
 struct ExAttackData16
