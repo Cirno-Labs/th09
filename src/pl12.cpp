@@ -6,6 +6,24 @@
 #include "player.h"
 #include "unsorted.h"
 
+// The update callback of effect type 32: shrinks unknown7c by 32 down
+// to 0, with unknownC9 set while it shrinks, and puts the effect on its
+// side's player. Returns 1 (0x44ab30).
+int EffectUpdate44ab30(Effect *effect)
+{
+    if (effect->unknown7c > 0.0f)
+    {
+        effect->unknownC9 = 1;
+        effect->unknown7c -= 32.0f;
+    }
+    else
+    {
+        effect->unknownC9 = 0;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    return 1;
+}
+
 // A fire callback of the shot table (7): on the frame of `sd`, fires it
 // at unknown30364 turned by its angle, or straight up once that is left
 // of the side. Returns 1 if it fired (0x44ab90).
