@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.40% (744)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">29.38% (315)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.50% (745)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">29.29% (314)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="518.44" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="518.44" y="0" class="decompiled"/>
-<rect width="219.50" height="6" x="527.50" y="0" class="todo"/>
+<rect width="519.14" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="519.14" y="0" class="decompiled"/>
+<rect width="218.80" height="6" x="528.20" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -543,7 +543,7 @@
 <rect width="12" height="12" x="330" y="135" class="named"><title>0x00422900 ScreenEffect::DeletedCallback (47 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="135" class="named"><title>0x00422930 ScreenEffect::Finish (18 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="135" class="todo"><title>0x00422950 Func422950 (15 bytes)</title></rect>
-<rect width="12" height="12" x="375" y="135" class="todo"><title>0x00422960 DrawColorRect (527 bytes)</title></rect>
+<rect width="12" height="12" x="375" y="135" class="named"><title>0x00422960 DrawColorRect (527 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="135" class="named"><title>0x00422b70 ScreenEffect::OnDrawScreen (89 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="135" class="named"><title>0x00422bd0 ScreenEffect::OnDrawPlayArea (62 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="135" class="named"><title>0x00422c10 ScreenEffect::OnDrawWholeScreen (62 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">36.93%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">62.35%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">37.11%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">62.17%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="275.85" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="275.85" y="0" class="decompiled"/>
-<rect width="465.76" height="6" x="281.24" y="0" class="todo"/>
+<rect width="277.20" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="277.20" y="0" class="decompiled"/>
+<rect width="464.41" height="6" x="282.59" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1280,7 +1280,7 @@
 <rect width="19.11" height="17.90" x="452.71" y="0" class="todo"><title>0x00420840 ReplayManager::AddedCallbackMode1 (540 bytes)</title></rect>
 <rect width="18.94" height="17.90" x="474.82" y="0" class="todo"><title>0x004041f0 SpellCard::OnUpdate (536 bytes)</title></rect>
 <rect width="18.86" height="17.90" x="496.76" y="0" class="named"><title>0x004249e1 MainMenu::LoadingThread (534 bytes)</title></rect>
-<rect width="18.57" height="17.90" x="518.62" y="0" class="todo"><title>0x00422960 DrawColorRect (527 bytes)</title></rect>
+<rect width="18.57" height="17.90" x="518.62" y="0" class="named"><title>0x00422960 DrawColorRect (527 bytes)</title></rect>
 <rect width="18.41" height="17.90" x="540.19" y="0" class="named"><title>0x00421c80 LoadScoreDat (523 bytes)</title></rect>
 <rect width="18.37" height="17.90" x="561.60" y="0" class="todo"><title>0x0041e900 Player::OnUpdate (522 bytes)</title></rect>
 <rect width="18.16" height="17.90" x="582.97" y="0" class="named"><title>0x0042eef0 InitDirectInput (517 bytes)</title></rect>
