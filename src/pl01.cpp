@@ -41,3 +41,14 @@ int ShotHit441880(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
     return 0;
 }
 
+// The init callbacks of spell card types 3 and 4, pl00's for types 0 and
+// 1 (0x441b70, 0x441be0).
+int SpellCardInit441b70(SpellCard *card)
+{
+    D3DXVECTOR3 pos;
+
+    card->unknown1360 = g_MemoryManager.Alloc(0x2b8, ".\\pl\\pl01.cpp");
+    g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(0, &pos, 0x1e, -2, 1000, 0);
+    return 0;
+}
+
