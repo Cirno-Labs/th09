@@ -5,6 +5,17 @@
 #include "gamemanager.h"
 #include "player.h"
 
+// A fire callback of the shot table (4): on the frame of `sd`, starts
+// effect 0x23 at the player in reserved slot 5. Returns 0 (0x445530).
+int ShotFire445530(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+{
+    if (frame == sd->frame)
+    {
+        player->side->effectManager->SpawnReservedEffect(0x23, &player->pos, 5, 0xffffffff);
+    }
+    return 0;
+}
+
 // The unknown30404 of character 6: whether `pos` is within the radius
 // of the player's unknown368 across (0x445580).
 int PlayerPosFunc445580(Player *player, D3DXVECTOR3 *pos)
