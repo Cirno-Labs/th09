@@ -923,7 +923,8 @@ struct App
             unsigned int loadsResources : 1;
         };
     };
-    unsigned char pad_5d8[0x6ac - 0x5d8];
+    // The device's capabilities, as th08's.
+    D3DCAPS8 caps;
     // The loading thread, as th08's.
     HANDLE subThread;
     DWORD subThreadId;

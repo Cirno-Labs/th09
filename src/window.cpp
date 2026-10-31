@@ -9,6 +9,7 @@
 
 #include "gamemanager.h"
 #include "sprite.h"
+#include "stage.h"
 #include "unsorted.h"
 
 double GameWindow::GetTime()
@@ -231,5 +232,70 @@ void PresentFrame()
     if (g_App.redrawFrames != 0 && !g_GameManager.isPaused)
     {
         g_App.redrawFrames--;
+    }
+}
+
+void SetDefaultRenderStates()
+{
+    float fogVal;
+
+    g_App.d3dDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
+    g_App.d3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
+    g_App.d3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+    g_App.d3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+    g_App.d3dDevice->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
+    g_App.d3dDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+    g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+    g_App.d3dDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
+    g_App.d3dDevice->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+    g_App.d3dDevice->SetRenderState(D3DRS_ALPHAREF, 4);
+    g_App.d3dDevice->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
+    if (g_App.GetNoFog() == 0)
+    {
+        g_App.d3dDevice->SetRenderState(D3DRS_FOGENABLE, TRUE);
+    }
+    else
+    {
+        g_App.d3dDevice->SetRenderState(D3DRS_FOGENABLE, FALSE);
+    }
+    fogVal = 1.0f;
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGDENSITY, *(DWORD *)&fogVal);
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGTABLEMODE, D3DFOG_NONE);
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGVERTEXMODE, D3DFOG_LINEAR);
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGCOLOR, 0xffa0a0a0);
+    fogVal = 1000.0f;
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGSTART, *(DWORD *)&fogVal);
+    fogVal = 5000.0f;
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGEND, *(DWORD *)&fogVal);
+    // Always true: | where & was meant, as th08's.
+    if (g_App.caps.RasterCaps | D3DPRASTERCAPS_ANTIALIASEDGES)
+    {
+        g_App.d3dDevice->SetRenderState(D3DRS_EDGEANTIALIAS, FALSE);
+    }
+    g_App.d3dDevice->SetRenderState(D3DRS_MULTISAMPLEANTIALIAS, FALSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_TFACTOR);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MIPFILTER, D3DTEXF_NONE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MAGFILTER, D3DTEXF_LINEAR);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MINFILTER, D3DTEXF_LINEAR);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_COUNT2);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSW, D3DTADDRESS_CLAMP);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSU, D3DTADDRESS_WRAP);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSV, D3DTADDRESS_WRAP);
+    if (g_SpriteEngine != NULL)
+    {
+        g_SpriteEngine->ClearBlendMode();
+        g_SpriteEngine->ClearColorOp();
+        g_SpriteEngine->ClearVertexFormat();
+        g_SpriteEngine->ClearTexture();
+        g_SpriteEngine->ClearLastCameraSetupFlag();
+    }
+    if (g_GameManager.sides[0].stage != NULL)
+    {
+        g_GameManager.sides[0].stage->fogColorChanged = 1;
     }
 }

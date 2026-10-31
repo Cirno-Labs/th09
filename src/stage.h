@@ -79,7 +79,9 @@ public:
     D3DCOLOR fogColor;
     unsigned char pad_ca0[0xcbc - 0xca0];
     Timer unknownCbc;
-    unsigned char pad_cc8[0xccc - 0xcc8];
+    // Set by SetDefaultRenderStates, as th08's.
+    unsigned char fogColorChanged;
+    unsigned char pad_cc9[0xccc - 0xcc9];
     // Cleared by Reset. The layers are drawn while it is at most 1.
     int spellCardState;
     int unknownCd0;
