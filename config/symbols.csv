@@ -478,7 +478,7 @@ address,size,name,symbol
 0x00422bd0,62,ScreenEffect::OnDrawPlayArea,?OnDrawPlayArea@ScreenEffect@@SIHPAV1@@Z
 0x00422c10,62,ScreenEffect::OnDrawWholeScreen,?OnDrawWholeScreen@ScreenEffect@@SIHPAV1@@Z
 0x00422c50,113,Func422c50,
-0x00422cd0,68,Func422cd0,
+0x00422cd0,68,ScreenEffect::OnDrawFlash,?OnDrawFlash@ScreenEffect@@SIHPAV1@@Z
 0x00422d20,447,ScreenEffect::StartEffect,?StartEffect@ScreenEffect@@SIPAV1@HHHHHHH@Z
 0x00422f00,23,MusicTune::MusicTune,??0MusicTune@@QAE@XZ
 0x00422f17,34,MainMenu::PlaySoundNow,?PlaySoundNow@MainMenu@@QAEXHH@Z
