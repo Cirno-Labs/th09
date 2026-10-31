@@ -464,6 +464,101 @@ void Player::AddUnknown30454(int script, D3DXVECTOR3 *pos)
     }
 }
 
+void Player::UpdateUnknown30454()
+{
+    PlayerUnknown30454 *entry = this->unknown30454;
+    int i;
+    D3DXVECTOR3 size(this->shtFile->unknown10, this->shtFile->unknown10, 16.0f);
+    D3DXVECTOR3 pos;
+    D3DXVECTOR3 velocity;
+    Effect *effect;
+
+    this->unknown30f64 = -1000.0f;
+    for (i = 0; i < 4; i++, entry++)
+    {
+        if (entry->unknown1c == 0)
+        {
+            continue;
+        }
+        entry->pos += entry->velocity;
+        if (entry->pos.y >= 464.0f)
+        {
+            entry->unknown1c = 0;
+            continue;
+        }
+        if (entry->velocity.y < 3.0f)
+        {
+            entry->velocity.y += 0.03f;
+        }
+        else
+        {
+            entry->velocity.y = 3.0f;
+        }
+        if (this->TouchesGrazeBox(&entry->pos, &size))
+        {
+            switch (entry->script)
+            {
+            case 0:
+                this->AddUnknown30388(400.0f);
+                break;
+            case 1:
+                // i is the loop's counter too, so collecting this one ends
+                // the loop.
+                for (i = 0; i < g_GameManager.rank.unknownB4 + 10 + g_GameManager.difficulty * 2; i++)
+                {
+                    g_App.SetCamera(this->sideIdx);
+                    pos.x = g_GameManager.ArenaToScreenX(this->pos.x) + g_Rng.GetRandomF32SignedInRange(64.0f);
+                    pos.y = g_GameManager.ArenaToScreenY(this->pos.y) + g_Rng.GetRandomF32SignedInRange(64.0f);
+                    pos.z = 0.0f;
+                    g_App.SetCamera(1 - this->sideIdx);
+                    velocity.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+                    velocity.y = g_Rng.GetRandomF32InRange(128.0f);
+                    velocity.z = 0.0f;
+                    effect = g_GameManager.sides[2].effectManager->SpawnParticlesWithVelocity(this->sideIdx + 1, &pos,
+                                                                                              &velocity, 1, 0xffffffff);
+                    effect->unknownA4 = 3;
+                    effect->unknownA6 = 4;
+                    switch (g_GameManager.difficulty)
+                    {
+                    case 0:
+                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.04f + 0.9f;
+                        break;
+                    case 1:
+                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.05f + 1.1f;
+                        break;
+                    case 2:
+                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.08f + 1.3f;
+                        break;
+                    case 3:
+                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.1f + 1.7f;
+                        break;
+                    case 4:
+                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.08f + 1.5f;
+                        break;
+                    }
+                    effect->unknownA8 = this->sideIdx;
+                    effect->unknown98 = i * 2.0f;
+                }
+                g_App.SetCamera(this->sideIdx);
+                break;
+            case 2:
+                this->unknown30410.AddCombo(&this->pos, 1, 0, 400, 0);
+                break;
+            case 3:
+                this->unknown30410.AddCombo(&this->pos, 0, 0, 0, 70000);
+                break;
+        }
+        entry->unknown1c = 0;
+        g_SoundPlayer.PlaySoundByIdx(0x1f, this->sideIdx != 0 ? 500 : -500);
+        }
+        else
+        {
+            this->unknown30f64 = entry->pos.x;
+            this->unknown30f68 = 400.0f - (400.0f - entry->pos.y) * 0.5f;
+        }
+    }
+}
+
 void Player::DrawUnknown30454()
 {
     int i;

@@ -379,6 +379,12 @@ public:
     // 0x46 + `script` of the side's bullet ANM, unless the front's
     // unknown1095c is set (0x41db90).
     void AddUnknown30454(int script, D3DXVECTOR3 *pos);
+    // Moves the entries of unknown30454 down, faster up to 3, and drops
+    // them below 464. One the player touches is collected by its script:
+    // 0 raises unknown30388 by 400, 1 sends particles to the other side,
+    // 2 and 3 count a combo; the lowest one not touched sets unknown30f64
+    // and unknown30f68 (0x41dc20).
+    void UpdateUnknown30454();
     // Draws the sprites of unknown30454 that are set at their positions
     // (0x41df80).
     void DrawUnknown30454();
@@ -505,7 +511,11 @@ public:
     // The character's function from the table at 0x4a19d0.
     PlayerComboFunc unknown30450;
     PlayerUnknown30454 unknown30454[4];
-    unsigned char pad_30f64[0x30f70 - 0x30f64];
+    // The x of the last entry of unknown30454 the player did not touch
+    // (-1000 if none), and its y halfway to 400.
+    float unknown30f64;
+    float unknown30f68;
+    unsigned char pad_30f6c[0x30f70 - 0x30f6c];
 };
 ASSERT_SIZE(Player, 0x30f70);
 
