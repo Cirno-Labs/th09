@@ -65,9 +65,13 @@ struct Effect
     BYTE type;
     // Set to have the effect fade out, as th08's.
     BYTE fadeOut;
-    unsigned char pad_c7[0xc9 - 0xc7];
+    unsigned char pad_c7[0xc8 - 0xc7];
+    // OnUpdate puts the effect on draw list unknown114 when set, or
+    // unknown1ec when unknownCa is.
+    BYTE unknownC8;
     BYTE unknownC9;
-    unsigned char pad_ca[0xcc - 0xca];
+    BYTE unknownCa;
+    unsigned char pad_cb[0xcc - 0xcb];
     // Vertices the effect allocated, freed when its slot is reused, as
     // th08's.
     VertexTex1DiffuseXyzrwh *vertices;
@@ -168,7 +172,9 @@ public:
 
     // Where SpawnParticles starts looking for a free effect.
     int next;
-    unsigned char pad_4[0xc - 0x4];
+    unsigned char pad_4[0x8 - 0x4];
+    // How many effects are active, counted by OnUpdate.
+    int activeCount;
     int sideIdx;
     // The side, and the other one; for the third side, both itself.
     GameSide *side;
@@ -184,7 +190,11 @@ public:
     Effect unknown3c;
     Effect unknown114;
     Effect unknown1ec;
-    unsigned char pad_2c4[0x2d4 - 0x2c4];
+    // The last effects of the draw lists unknown3c, unknown114 and
+    // unknown1ec.
+    Effect *drawListTails[3];
+    // How many frames OnUpdate ran.
+    int frames;
     AnmLoaded *anm;
     unsigned char pad_2d8[0x2dc - 0x2d8];
 };

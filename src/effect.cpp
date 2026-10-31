@@ -164,6 +164,92 @@ Effect *EffectManager::SpawnReservedEffect(int effectIdx, D3DXVECTOR3 *pos, int 
     return effect;
 }
 
+int EffectManager::OnUpdate(EffectManager *mgr)
+{
+    // Not matching yet: the loop bound loads unknown38 before unknown34,
+    // the original the other way round.
+    Effect *effect = mgr->effects;
+    int i;
+    int j;
+    int running;
+
+    if (g_GameManager.stateFlags & 0x1800)
+    {
+        return 1;
+    }
+    if (g_GameManager.sides[0].flag0)
+    {
+        return 1;
+    }
+    g_App.SetCamera(mgr->sideIdx);
+    mgr->activeCount = 0;
+    mgr->drawListTails[0] = &mgr->unknown3c;
+    mgr->drawListTails[1] = &mgr->unknown114;
+    mgr->drawListTails[2] = &mgr->unknown1ec;
+    mgr->unknown3c.next = NULL;
+    mgr->unknown114.next = NULL;
+    mgr->unknown1ec.next = NULL;
+    for (i = 0; i < mgr->unknown34 + mgr->unknown38; i++, effect++)
+    {
+        if (!effect->active)
+        {
+            if (effect->vertices != NULL)
+            {
+                g_MemoryManager.Free(effect->vertices);
+                effect->vertices = NULL;
+            }
+            if (effect->sprites != NULL)
+            {
+                g_MemoryManager.Free(effect->sprites);
+                effect->sprites = NULL;
+            }
+            continue;
+        }
+        mgr->activeCount++;
+        if (effect->update != NULL && effect->update(effect) != 1)
+        {
+            effect->active = 0;
+            continue;
+        }
+        running = effect->spriteCount;
+        for (j = 0; j < effect->spriteCount; j++)
+        {
+            if (g_SpriteEngine->Step(&effect->sprites[j]) != 0)
+            {
+                running--;
+            }
+        }
+        if (running == 0)
+        {
+            effect->active = 0;
+            continue;
+        }
+        effect->unknownAc++;
+        effect->next = NULL;
+        if (effect->unknownD0)
+        {
+            continue;
+        }
+        if (effect->unknownCa)
+        {
+            mgr->drawListTails[2]->next = effect;
+            mgr->drawListTails[2] = effect;
+        }
+        else if (effect->unknownC8)
+        {
+            mgr->drawListTails[1]->next = effect;
+            mgr->drawListTails[1] = effect;
+        }
+        else
+        {
+            mgr->drawListTails[0]->next = effect;
+            mgr->drawListTails[0] = effect;
+        }
+    }
+    mgr->frames++;
+    return 1;
+}
+
 int EffectManager::OnDraw(EffectManager *mgr)
 {
     Effect *effect;
