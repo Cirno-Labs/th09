@@ -1209,6 +1209,22 @@ void GuiSide::StartUnknownAbcc()
     this->timerAbd0 = 0;
 }
 
+void Gui::Reset()
+{
+    if (g_GameManager.IsMode0() || g_GameManager.IsMode1())
+    {
+        this->msg.Start(g_GameManager.unknown100 == 0 ? g_GameManager.unknownF0->unknown6 : 201, 0);
+    }
+    else
+    {
+        this->msg.Start(g_GameManager.unknown100 == 0 ? g_GameManager.unknownF0->unknown6 : 201, 0);
+    }
+    this->unknown1095c = 0;
+    this->unknown10960 = 0;
+    this->unknown10964 = 0;
+    this->unknown11ea8 = 0;
+}
+
 int Gui::FreeResources(Gui *gui)
 {
     if (FreesResources())
