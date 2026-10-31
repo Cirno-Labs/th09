@@ -597,3 +597,305 @@ int SoundPlayer::PlayPreloadedBgm(int slot)
     this->bgmPlaying = slot;
     return 0;
 }
+
+int SoundPlayer::PlayQueuedSounds()
+{
+    int sound;
+    SoundCommand *command;
+    int i;
+    int arg;
+    int advance;
+    int j;
+
+    if (!this->manager)
+    {
+        return 0;
+    }
+    command = this->commands;
+again:
+    advance = 0;
+    switch (command->type)
+    {
+    case 8:
+        if (this->bgm != NULL)
+        {
+            this->bgm->SetVolume(this->bgmVolume);
+        }
+        goto shift;
+    case 1:
+        if (g_App.GetPreloadBgm())
+        {
+            if (command->stage == 0)
+            {
+                this->StopBgm();
+                this->PreloadBgm(command->arg, command->path);
+                advance = 1;
+                goto shift;
+            }
+        }
+        else
+        {
+            this->PreloadBgm(command->arg, command->path);
+            advance = 1;
+            goto shift;
+        }
+        command->stage++;
+        goto done;
+    case 2:
+        if (g_App.GetPreloadBgm() && command->arg >= 0)
+        {
+            if (command->stage == 0)
+            {
+                if (this->PlayPreloadedBgm(command->arg) != 0)
+                {
+                    goto shift;
+                }
+            }
+            else if (command->stage == 2)
+            {
+                if (this->bgm != NULL)
+                {
+                    if (this->bgm->Reset() < 0)
+                    {
+                        goto shift;
+                    }
+                }
+            }
+            else if (command->stage == 5)
+            {
+                LPDIRECTSOUNDBUFFER buffer = this->bgm->GetBuffer(0);
+                command->arg = this->bgm->GetWaveFile()->GetFormat()->loopEnd != 0;
+                if (this->bgm->FillBufferWithSound(buffer, command->arg) < 0)
+                {
+                    goto shift;
+                }
+            }
+            else if (command->stage == 7)
+            {
+                this->bgm->Play(0, DSBPLAY_LOOPING);
+            }
+            else if (command->stage >= 0x14)
+            {
+                goto shift;
+            }
+        }
+        else
+        {
+            if (this->bgm == NULL)
+            {
+                goto shift;
+            }
+            if (command->stage == 0)
+            {
+                this->bgm->Stop();
+            }
+            else if (command->stage == 1)
+            {
+                if (this->bgm->isBuffering != 0)
+                {
+                    goto done;
+                }
+                this->bgm->RecreateBuffers();
+            }
+            else if (command->stage == 2)
+            {
+                char *name = command->arg >= 0 ? this->bgmNames[command->arg] : command->path;
+                int entry = this->FindTrackIndex(name);
+                this->bgm->GetWaveFile()->SwitchTrack(&this->bgmFormat[entry]);
+            }
+            else if (command->stage == 3)
+            {
+                LPDIRECTSOUNDBUFFER buffer = this->bgm->GetBuffer(0);
+                this->bgm->Reset();
+                command->arg = this->bgm->GetWaveFile()->GetFormat()->loopEnd != 0;
+                if (this->bgm->FillBufferWithSound(buffer, command->arg) < 0)
+                {
+                    goto shift;
+                }
+            }
+            else if (command->stage == 4)
+            {
+                this->bgm->Play(0, DSBPLAY_LOOPING);
+            }
+            else if (command->stage >= 7)
+            {
+                goto shift;
+            }
+        }
+        command->stage++;
+        goto done;
+    case 10:
+        if (this->bgm != NULL)
+        {
+            this->bgm->Play(0, DSBPLAY_LOOPING);
+        }
+        goto shift;
+    case 4:
+        if (this->bgm == NULL)
+        {
+            goto shift;
+        }
+        if (command->stage == 0)
+        {
+            this->bgm->Stop();
+        }
+        else if (command->stage == 1)
+        {
+            if (this->notifyThread == NULL)
+            {
+                goto shift;
+            }
+            PostThreadMessageA(this->notifyThreadId, WM_QUIT, 0, 0);
+        }
+        else if (command->stage == 2)
+        {
+            if (WaitForSingleObject(this->notifyThread, 0x100) != WAIT_OBJECT_0)
+            {
+                PostThreadMessageA(this->notifyThreadId, WM_QUIT, 0, 0);
+                command->stage--;
+            }
+            else
+            {
+                this->notifyThread = NULL;
+            }
+        }
+        else if (command->stage == 3)
+        {
+            CloseHandle(this->notifyThread);
+            CloseHandle(this->notifyEvent);
+            this->notifyThread = NULL;
+            if (this->bgm != NULL)
+            {
+                delete this->bgm;
+                this->bgm = NULL;
+            }
+        }
+        else if (command->stage == 10)
+        {
+            goto shift;
+        }
+        command->stage++;
+        goto done;
+    case 3:
+        if (this->bgm == NULL)
+        {
+            goto shift;
+        }
+        if (command->stage == 0)
+        {
+            this->bgm->Stop();
+        }
+        else if (command->stage == 1)
+        {
+            goto shift;
+        }
+        command->stage++;
+        goto done;
+    case 5:
+        g_SoundPlayer.FadeOutBgm(command->arg);
+        goto shift;
+    case 6:
+        if (g_App.config.musicMode == 1)
+        {
+            if (this->bgm->isBuffering != 0)
+            {
+                goto done;
+            }
+            if (this->bgm != NULL)
+            {
+                this->bgm->PauseBuffer();
+            }
+        }
+        goto shift;
+    case 7:
+        if (g_App.config.musicMode == 1)
+        {
+            if (this->bgm->isBuffering != 0)
+            {
+                goto done;
+            }
+            if (this->bgm != NULL)
+            {
+                this->bgm->ResumeBuffer();
+            }
+        }
+        goto shift;
+    case 9:
+        if (g_App.GetPreloadBgm())
+        {
+            if (command->stage == 0)
+            {
+                this->StopBgm();
+                this->FreePreloadedBgm(command->arg);
+                advance = 1;
+                goto shift;
+            }
+        }
+        else
+        {
+            this->FreePreloadedBgm(command->arg);
+            advance = 1;
+            goto shift;
+        }
+        command->stage++;
+        goto done;
+    default:
+        goto done;
+    }
+shift:
+    for (i = 0; i < 0x1f; i++, command++)
+    {
+        if (command->type == 0)
+        {
+            break;
+        }
+        *command = *(command + 1);
+    }
+    if (advance)
+    {
+        goto again;
+    }
+done:
+    if (!g_App.config.playSounds)
+    {
+        return this->commands[0].type;
+    }
+    for (i = 0; i < 0xc; i++)
+    {
+        if (this->queue[i] < 0)
+        {
+            break;
+        }
+        sound = this->queue[i];
+        this->queue[i] = -1;
+        arg = 0;
+        for (j = 0; j < this->queueArgCounts[i]; j++)
+        {
+            arg += this->queueArgs[i][j];
+        }
+        arg /= this->queueArgCounts[i];
+        this->queueArgCounts[i] = 0;
+        if (this->sounds[sound] == NULL)
+        {
+            continue;
+        }
+        this->sounds[sound]->Stop();
+        this->sounds[sound]->SetCurrentPosition(0);
+        // The arguments' average is the pan.
+        this->sounds[sound]->SetPan(arg);
+        // As CSound::SetVolume, by g_SoundPlayer.seVolume with a cube.
+        float scale = g_SoundPlayer.seVolume / 100.0f;
+        if (g_SoundPlayer.seVolume != 0)
+        {
+            scale = (scale = 1.0f - scale) * scale * scale;
+            scale = 1.0f - scale;
+            this->sounds[sound]->SetVolume((LONG)((g_SoundInfos[sound].volume + 5000) * scale) - 5000);
+        }
+        else
+        {
+            this->sounds[sound]->SetVolume(DSBVOLUME_MIN);
+        }
+        this->sounds[sound]->Play(0, 0, 0);
+    }
+    return this->commands[0].type;
+}
