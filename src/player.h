@@ -15,8 +15,11 @@ struct PlayerHitArea
 {
     // Zeroes it, then sets unknown34 to 1, as th08's Reset (0x41bda0).
     void Reset();
-    // Clears active, as th08's (0x41bd90).
-    void Deactivate();
+    // Clears active, as th08's. Inline; the copy is at 0x41bd90.
+    void Deactivate()
+    {
+        this->active = 0;
+    }
 
     float x;
     float y;
@@ -26,7 +29,9 @@ struct PlayerHitArea
     // A box's size, as th08's.
     float width;
     float height;
-    unsigned char pad_18[0x20 - 0x18];
+    // What the box's size grows by each frame.
+    float widthGrowth;
+    float heightGrowth;
     // A box's turn, as th08's.
     float angle;
     // Counts down, as th08's.
@@ -239,7 +244,11 @@ struct PlayerUnknown3031c
     Timer timer;
     // The bullet character 2's shot fire callback set the timer for.
     PlayerBullet *bullet;
-    unsigned char pad_10[0x1c - 0x10];
+    // Cleared each frame the player respawns.
+    int unknown10;
+    unsigned char pad_14[0x18 - 0x14];
+    // Set to 60 while the player respawns, then counted down each frame.
+    int unknown18;
 };
 ASSERT_SIZE(PlayerUnknown3031c, 0x1c);
 
@@ -446,6 +455,12 @@ public:
     // side's screen, turned to their angle when they rotate, blue while
     // unknown46e is set, as th08's DrawHitBullets (0x41f760).
     void DrawHitBullets();
+    // Handles the shot and charge buttons by the side's charge setting
+    // (0x41f810).
+    int UpdateShotInput();
+    // What OnUpdate runs while unknown0 is 2, a function returning 0
+    // folded with others (0x44ab20).
+    static int UpdateUnknown0Is2();
     // Moves the player by its side's input, as th08's HandleInput:
     // picks the direction and focus, starts or stops the focus effects
     // (7 and the character's from g_CharacterValuesA10), sets the move
@@ -504,6 +519,12 @@ public:
             // or by holding the shot button 8 frames with the side's
             // charge setting 1.
             DWORD focused : 2;
+            // Set while a charged attack fires, for the shot file's
+            // unknown28 frames (unknown30398).
+            DWORD charging : 1;
+            // OnUpdate plays sound 0x30 and starts the side's
+            // unknown6ee8 once it is set, and clears it.
+            DWORD unknownFlag3 : 1;
         };
     };
     unsigned char pad_1b84[0x1b88 - 0x1b84];
@@ -523,11 +544,11 @@ public:
     D3DXVECTOR3 hitboxSize;
     D3DXVECTOR3 grazeSize;
     D3DXVECTOR3 unknown1cc0;
-    // x is below 0 or above 0 by the way the player moves across, as
-    // character 10's effect update callback tells; Die sets it one
-    // along unknown1cd8.
-    Vector2 unknown1ccc;
-    unsigned char pad_1cd4[0x1cd8 - 0x1cd4];
+    // The move of the last frame: x is below 0 or above 0 by the way
+    // the player moves across, as character 10's effect update callback
+    // tells; Die sets it one along unknown1cd8, and the player is blown
+    // along it while dying.
+    D3DXVECTOR3 unknown1ccc;
     // An angle; character 2's effect type 17 starts opposite it.
     float unknown1cd8;
     // Character 3's shot callback sets both to 0.5.
@@ -561,10 +582,12 @@ public:
     float velocityY;
     // Where character 12's shot fire callback aims.
     D3DXVECTOR3 unknown30364;
-    unsigned char pad_30370[0x3037c - 0x30370];
+    // Reset to (-999, -999, 0) with unknown30364 each frame.
+    D3DXVECTOR3 unknown30370;
     // An enemy, forgotten when it despawns.
     Enemy *unknown3037c;
-    unsigned char pad_30380[0x30384 - 0x30380];
+    // Cleared each frame.
+    int unknown30380;
     // Die sets it with unknown30388.
     float unknown30384;
     // Lowered by SubUnknown30388, down to 1, and raised by
@@ -577,7 +600,10 @@ public:
     Timer unknown303bc;
     Timer unknown303c8;
     Timer unknown303d4;
-    unsigned char pad_303e0[0x303f0 - 0x303e0];
+    // An effect kept at the player while unknown0 is 3, stopped when
+    // unknown303c8 runs out.
+    Effect *unknown303e0;
+    unsigned char pad_303e4[0x303f0 - 0x303e4];
     // The character's values from the tables at 0x4a1bd0, 0x4a1b90,
     // 0x4a1b50, 0x4a1b10 and 0x4a1ad0.
     int unknown303f0;

@@ -363,7 +363,7 @@ address,size,name,symbol
 0x0041b82a,422,GameManager::DeletedCallback,?DeletedCallback@GameManager@@SIHPAV1@@Z
 0x0041b9d0,127,GameManager::RegisterChain,?RegisterChain@GameManager@@SIHXZ
 0x0041ba4f,47,GameManager::Init,?Init@GameManager@@QAEXXZ
-0x0041ba80,121,Func41ba80,
+0x0041ba80,121,ResetTargets,?ResetTargets@@YIXPAVPlayer@@@Z
 0x0041bb00,101,Player::AngleFromPlayer,?AngleFromPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
 0x0041bb70,101,Player::AngleToPlayer,?AngleToPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
 0x0041bbe0,172,LoadShtFile,?LoadShtFile@@YIHPAPAUShtFile@@PAD@Z
@@ -380,10 +380,10 @@ address,size,name,symbol
 0x0041bee0,209,Player::TouchesGrazeBox,?TouchesGrazeBox@Player@@QAEHPAUD3DXVECTOR3@@0@Z
 0x0041bfc0,422,Player::CheckLaserHit,?CheckLaserHit@Player@@QAEHPAUD3DXVECTOR3@@00MH@Z
 0x0041c170,1835,Player::HandleInput,?HandleInput@Player@@QAEHXZ
-0x0041c8e0,273,Func41c8e0,
-0x0041ca00,335,Func41ca00,
-0x0041cb50,293,Func41cb50,
-0x0041cc80,320,Func41cc80,
+0x0041c8e0,273,UpdateHitAreas,?UpdateHitAreas@@YIXPAVPlayer@@@Z
+0x0041ca00,335,UpdateSpellCardInput,?UpdateSpellCardInput@@YIXPAVPlayer@@@Z
+0x0041cb50,293,UpdateRespawn,?UpdateRespawn@@YIXPAVPlayer@@@Z
+0x0041cc80,320,UpdateInvulnerability,?UpdateInvulnerability@@YIXPAVPlayer@@@Z
 0x0041cdc0,31,Player::OnDraw2,?OnDraw2@Player@@SIHPAV1@@Z
 0x0041cde0,114,Player::LoadAnms,?LoadAnms@Player@@SIHXZ
 0x0041ce60,75,FreeResources,?FreeResources@@YIHPAVPlayer@@@Z
@@ -408,8 +408,8 @@ address,size,name,symbol
 0x0041dff0,855,Player::CheckHitAreas,?CheckHitAreas@Player@@QAEHPAUD3DXVECTOR3@@0PAUBullet@@@Z
 0x0041e350,204,Player::CheckGraze,?CheckGraze@Player@@QAEHPAUD3DXVECTOR3@@0PAUBullet@@@Z
 0x0041e420,753,Player::Die,?Die@Player@@QAEXXZ
-0x0041e720,400,Func41e720,
-0x0041e8b0,74,Func41e8b0,
+0x0041e720,400,UpdateDying,?UpdateDying@@YIHPAVPlayer@@@Z
+0x0041e8b0,74,CheckDeath,?CheckDeath@@YIHPAVPlayer@@@Z
 0x0041e900,522,Player::OnUpdate,?OnUpdate@Player@@SIHPAV1@@Z
 0x0041eb10,166,Player::OnDraw,?OnDraw@Player@@SIHPAV1@@Z
 0x0041ebc0,552,Player::Reset,?Reset@Player@@QAEXXZ
@@ -431,7 +431,7 @@ address,size,name,symbol
 0x0041f580,251,Player::UpdateBullets,?UpdateBullets@Player@@QAEXXZ
 0x0041f680,211,Player::DrawBullets,?DrawBullets@Player@@QAEXXZ
 0x0041f760,164,Player::DrawHitBullets,?DrawHitBullets@Player@@QAEXXZ
-0x0041f810,1210,Func41f810,
+0x0041f810,1210,Player::UpdateShotInput,?UpdateShotInput@Player@@QAEHXZ
 0x0041fcd0,996,Player::CalcDamage,?CalcDamage@Player@@QAEHPAUD3DXVECTOR3@@0PAH11@Z
 0x004200c0,45,FormatAndAdvance,?FormatAndAdvance@@YAPADPADPBDZZ
 0x004200f0,111,PlayerInput::UpdateRepeat2,?UpdateRepeat2@PlayerInput@@QAEXXZ
@@ -1086,7 +1086,7 @@ address,size,name,symbol
 0x0044a670,101,PlayerComboFunc44a670,?PlayerComboFunc44a670@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044a6e0,156,EffectInit44a6e0,?EffectInit44a6e0@@YIHPAUEffect@@@Z
 0x0044a780,921,EffectDraw44a780,?EffectDraw44a780@@YIHPAUEffect@@@Z
-0x0044ab20,3,ReturnZero,?ReturnZero@@YIHPAUExAttack@@@Z ?CheckLifeCallback@Enemy@@QAEHXZ ?CheckTimerCallback@Enemy@@SIHXZ
+0x0044ab20,3,ReturnZero,?ReturnZero@@YIHPAUExAttack@@@Z ?CheckLifeCallback@Enemy@@QAEHXZ ?CheckTimerCallback@Enemy@@SIHXZ ?UpdateUnknown0Is2@Player@@SIHXZ
 0x0044ab30,88,EffectUpdate44ab30,?EffectUpdate44ab30@@YIHPAUEffect@@@Z
 0x0044ab90,139,ShotFire44ab90,?ShotFire44ab90@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x0044ac20,436,ExAttackInit44ac20,?ExAttackInit44ac20@@YIHPAUExAttack@@@Z

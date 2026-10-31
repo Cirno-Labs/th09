@@ -12,6 +12,17 @@ int Player::CallUnknown30404(D3DXVECTOR3 *pos)
     return this->unknown30404(this, pos);
 }
 
+// Puts unknown30364 and unknown30370 back to (-999, -999, 0), clears
+// unknown30380 and sets unknown1ce4 and unknown1ce8 to 1. Static, with
+// the player in esi (0x41ba80).
+static void ResetTargets(Player *player)
+{
+    player->unknown30364 = D3DXVECTOR3(-999.0f, -999.0f, 0.0f);
+    player->unknown30370 = D3DXVECTOR3(-999.0f, -999.0f, 0.0f);
+    player->unknown30380 = 0;
+    player->unknown1ce4 = player->unknown1ce8 = 1.0f;
+}
+
 float Player::AngleFromPlayer(D3DXVECTOR3 *pos)
 {
     float dx = pos->x - this->pos[0];
@@ -92,11 +103,6 @@ void Player::AddUnknown30388(float amount)
     {
         side->gui->StartUnknown66fc(after);
     }
-}
-
-void PlayerHitArea::Deactivate()
-{
-    this->active = 0;
 }
 
 void PlayerHitArea::Reset()
@@ -418,6 +424,216 @@ int Player::HandleInput()
         this->posHistory[0] = this->pos;
     }
     return 0;
+}
+
+// Runs the hit areas in use: one waiting unknown40 frames counts it
+// down, else it counts framesLeft down and grows, and is freed when it
+// runs out. The spare runs the same way and ends the list while it is
+// active. Static, with the player in edi (0x41c8e0).
+static void UpdateHitAreas(Player *player)
+{
+    int i;
+    PlayerHitArea **area;
+    PlayerHitArea **next;
+    PlayerHitArea *spare;
+
+    area = player->activeHitAreas;
+    for (i = 0; i < player->activeHitAreaCount; i++)
+    {
+        if ((*area)->unknown40 > 0)
+        {
+            (*area)->unknown40--;
+        }
+        else
+        {
+            (*area)->framesLeft--;
+            (*area)->radius += (*area)->radiusGrowth;
+            (*area)->width += (*area)->widthGrowth;
+            (*area)->height += (*area)->heightGrowth;
+            if ((*area)->framesLeft <= 0)
+            {
+                (*area)->Deactivate();
+                player->freeHitAreas[player->freeHitAreaCount] = *area;
+                player->freeHitAreaCount++;
+                for (next = area; (*next = next[1]) != NULL; next++)
+                {
+                }
+                player->activeHitAreaCount--;
+                i--;
+                continue;
+            }
+        }
+        area++;
+    }
+    spare = &player->hitAreas[0x200];
+    if (player->hitAreas[0x200].active)
+    {
+        if (spare->unknown40 > 0)
+        {
+            spare->unknown40--;
+        }
+        else
+        {
+            spare->framesLeft--;
+            spare->radius += spare->radiusGrowth;
+            spare->width += spare->widthGrowth;
+            spare->height += spare->heightGrowth;
+            if (spare->framesLeft <= 0)
+            {
+                spare->Deactivate();
+            }
+            else
+            {
+                player->activeHitAreas[player->activeHitAreaCount] = spare;
+            }
+        }
+    }
+    else
+    {
+        player->activeHitAreas[player->activeHitAreaCount] = NULL;
+    }
+}
+
+// While the round runs and the player is not dying, the second button
+// starts a spell card on the other side by unknown30388, as Die does
+// for character 8, using it up. Static, with the player in esi
+// (0x41ca00).
+static void UpdateSpellCardInput(Player *player)
+{
+    if (g_GameManager.gui->unknown1095c != 0)
+    {
+        return;
+    }
+    if (player->GetUnknown0() == 4)
+    {
+        return;
+    }
+    if (!g_PlayerInputs[player->sideIdx].IsHeld2(2))
+    {
+        return;
+    }
+    if (player->unknown30388 >= 400.0f)
+    {
+        if (player->otherSide->enemyManager->FindByUnknownType(3) == NULL)
+        {
+            player->otherSide->spellCard->Start(2, 2, 0, player->shtFile->spellCardNames[2]);
+            player->unknown30384 = 0.0f;
+            player->unknown30388 = 0.0f;
+            player->StartClearCircle3();
+            return;
+        }
+        player->otherSide->spellCard->Start(1, 1, 0, player->shtFile->spellCardNames[1]);
+        player->unknown30384 = 100.0f;
+        player->unknown30388 = 100.0f;
+        player->StartClearCircle2();
+        return;
+    }
+    if (player->unknown30388 >= 300.0f)
+    {
+        player->otherSide->spellCard->Start(1, 1, 0, player->shtFile->spellCardNames[1]);
+        player->unknown30384 = 0.0f;
+        player->unknown30388 = 0.0f;
+        player->StartClearCircle2();
+        return;
+    }
+    if (player->unknown30388 >= 200.0f)
+    {
+        player->otherSide->spellCard->Start(0, 0, 0, player->shtFile->spellCardNames[0]);
+        player->unknown30384 = 0.0f;
+        player->unknown30388 = 0.0f;
+        player->StartClearCircle1();
+    }
+}
+
+// The player comes back in from below over 30 frames of unknown303c8,
+// stretched and fading in, then unknown0 goes to 3. Static, with the
+// player in esi (0x41cb50).
+static void UpdateRespawn(Player *player)
+{
+    float t;
+
+    player->unknown3031c.unknown18 = 60;
+    t = 1.0f - player->unknown303c8.AsFloat() * (1.0f / 30.0f);
+    player->sprite.scaleX = t + t + 1.0f;
+    player->sprite.scaleY = 1.0f - t;
+    player->sprite.SetBlendMode1();
+    player->unknown1cdc = player->unknown1ce0 = 1.0f;
+    player->sprite.color = (player->unknown303c8.AsFrames() * 255 / 30) << 24 | 0xffffff;
+    player->unknown3031c.unknown10 = 0;
+    if (player->sideIdx == 0)
+    {
+        player->pos.x = t * -176.0f;
+    }
+    else
+    {
+        player->pos.x = t * 176.0f;
+    }
+    player->pos.y = t * 64.0f + 384.0f;
+    if (player->unknown303c8.AsFrames() >= 30)
+    {
+        player->SetUnknown0(3);
+        player->sprite.scaleX = player->sprite.scaleY = 1.0f;
+        player->sprite.color = 0xffffffff;
+        player->sprite.ClearBlendMode();
+        player->pos.x = 0.0f;
+        player->pos.y = 384.0f;
+    }
+}
+
+// Counts unknown3031c.unknown18 down; while unknown0 is 3 the player
+// blinks until unknown303c8 runs out, keeping unknown303e0 on it, else
+// unknown303c8 counts up; the player blinks red while unknown1b74
+// runs. Static, with the player in esi (0x41cc80).
+static void UpdateInvulnerability(Player *player)
+{
+    if (player->unknown3031c.unknown18 != 0)
+    {
+        player->unknown3031c.unknown18--;
+    }
+    if (player->GetUnknown0() == 3)
+    {
+        if (player->unknown303e0 != NULL)
+        {
+            player->unknown303e0->pos = player->pos;
+        }
+        player->unknown303c8--;
+        if (player->unknown303c8.AsFrames() <= 0)
+        {
+            if (player->unknown303e0 != NULL)
+            {
+                player->unknown303e0->active = 0;
+                player->unknown303e0 = NULL;
+            }
+            player->SetUnknown0(0);
+            player->unknown303c8 = 0;
+            player->sprite.color = 0xffffffff;
+        }
+        else
+        {
+            player->sprite.color = player->unknown303c8.AsFrames() % 8 < 2 ? 0xfff02020 : 0xffffffff;
+        }
+    }
+    else
+    {
+        player->unknown303c8++;
+    }
+    if (player->unknown1b74 > 0)
+    {
+        if (player->unknown303c8.AsFrames() % 4 < 2)
+        {
+            player->sprite.color = 0xfff02020;
+        }
+        else
+        {
+            player->sprite.color = 0xffffffff;
+        }
+        player->unknown1b74--;
+        if (player->unknown1b74 <= 0)
+        {
+            player->unknown1b74 = 0;
+            player->sprite.color = 0xffffffff;
+        }
+    }
 }
 
 int Player::OnDraw2(Player *player)
@@ -1112,7 +1328,7 @@ void Player::Die()
     this->unknown303c8 = 0;
     angle = g_Rng.GetRandomF32SignedInRange(3.1415927f);
     this->unknown1cd8 = angle;
-    SetPolar(&this->unknown1ccc, angle, 1.0f);
+    SetPolar((Vector2 *)&this->unknown1ccc, angle, 1.0f);
     g_GameManager.gui->unknownE93c[this->sideIdx] = 0x3c;
     g_GameManager.gui->unknownE934[this->sideIdx] = 0x80ff0000;
     if (this->unknown364 != NULL)
@@ -1133,6 +1349,168 @@ void Player::Die()
     }
     this->unknown30410.EndCombo();
     this->unknown24.Reset();
+}
+
+// The player is blown along unknown1ccc, slowing over 60 frames of
+// unknown303c8 and kept in arena2, fading out; then it gets
+// unknown30388 back by its lives, unknown0 goes to 3 and it clears
+// around itself. Returns 0. Static, with the player in esi (0x41e720).
+static int UpdateDying(Player *player)
+{
+    float *pos;
+    float amount;
+
+    if (player->unknown303c8.AsFloat() < 60.0f)
+    {
+        player->pos += player->unknown1ccc * (60.0f - player->unknown303c8.AsFloat()) / 20.0f;
+        pos = player->pos;
+        if (pos[0] < g_GameManager.arena2[0])
+        {
+            pos[0] = g_GameManager.arena2[0];
+        }
+        else if (pos[0] > g_GameManager.arena2[2] + g_GameManager.arena2[0])
+        {
+            pos[0] = g_GameManager.arena2[2] + g_GameManager.arena2[0];
+        }
+        if (pos[1] < g_GameManager.arena2[1])
+        {
+            pos[1] = g_GameManager.arena2[1];
+        }
+        else if (pos[1] > g_GameManager.arena2[3] + g_GameManager.arena2[1])
+        {
+            pos[1] = g_GameManager.arena2[3] + g_GameManager.arena2[1];
+        }
+        player->sprite.color = (player->unknown303c8.AsFrames() * 255 / 10) << 24 | 0xffffff;
+        return 0;
+    }
+    if (player->unknownA8 == 1)
+    {
+        amount = 400.0f;
+    }
+    else
+    {
+        amount = 130.0f - player->unknownA8 * 10.0f;
+    }
+    player->AddUnknown30388(amount);
+    player->SetUnknown0(3);
+    player->unknown303c8 = 60;
+    player->AddHitCircle(&player->pos, 16.0f, 20.0f, 8, 0);
+    player->AddKind4Circle(&player->pos, 16.0f, 20.0f, 10, 8, 0);
+    return 0;
+}
+
+// While unknown0 is 0 and unknown1b74 is not running, a hit of
+// unknown36c kills the player, the bullet behind it set to state 5.
+// Returns whether it did. Static, with the player in esi (0x41e8b0).
+static int CheckDeath(Player *player)
+{
+    PlayerUnknown36cEntry *entry;
+
+    if (player->GetUnknown0() != 0 || player->unknown1b74 > 0)
+    {
+        return 0;
+    }
+    entry = player->unknown36c.CheckHits();
+    if (entry == NULL)
+    {
+        return 0;
+    }
+    if (entry->unknown2c != NULL)
+    {
+        ((Bullet *)entry->unknown2c)->state = 5;
+    }
+    player->Die();
+    return 1;
+}
+
+int Player::OnUpdate(Player *player)
+{
+    GameSide *otherSide;
+
+    if (g_GameManager.stateFlags & 0x1800)
+    {
+        return 1;
+    }
+    if (player->side->flag0 && player->side->character != 2)
+    {
+        return 1;
+    }
+    if (!player->side->flag0)
+    {
+        player->UpdateUnknown30454();
+    }
+    if (player->GetUnknown0() == 5)
+    {
+        return 1;
+    }
+    g_App.SetCamera(player->sideIdx);
+    if (player->GetUnknown0() == 4)
+    {
+        if (UpdateDying(player))
+        {
+            goto respawn;
+        }
+    }
+    else if (player->GetUnknown0() == 2)
+    {
+        if (Player::UpdateUnknown0Is2())
+        {
+            goto respawn;
+        }
+    }
+    else if (player->GetUnknown0() == 1)
+    {
+    respawn:
+        UpdateRespawn(player);
+    }
+    UpdateInvulnerability(player);
+    if (player->unknown20 > 0)
+    {
+        player->unknown24.Run();
+    }
+    UpdateHitAreas(player);
+    if (!g_GameManager.gui->IsMsgRunning())
+    {
+        UpdateSpellCardInput(player);
+    }
+    if (player->GetUnknown0() != 2 && player->GetUnknown0() != 4 && player->GetUnknown0() != 1)
+    {
+        player->HandleInput();
+    }
+    g_SpriteEngine->Step(&player->sprite);
+    player->UpdateBullets();
+    if (!g_GameManager.gui->IsMsgRunning())
+    {
+        player->unknown30410.unknown3c++;
+        if (player->unknownFlag3)
+        {
+            g_SoundPlayer.PlaySoundByIdx(0x30, player->sideIdx != 0 ? 500 : -500);
+            player->side->gui->StartUnknown6ee8(0);
+            player->unknownFlag3 = 0;
+            if (g_GameManager.IsMode1() && player->sideIdx == 0)
+            {
+                otherSide = player->otherSide;
+                player->side->gui->StartUnknown76d4(
+                    g_PlayerCpuLevels[otherSide->unknown2c].seconds5c[2] * 60 -
+                    otherSide->player->unknown24.timer5c.AsFrames());
+            }
+        }
+        if (g_GameManager.gui->unknown1095c == 0)
+        {
+            player->UpdateShotInput();
+        }
+    }
+    if (!player->side->flag0 && g_GameManager.gui->unknown1095c == 0)
+    {
+        CheckDeath(player);
+    }
+    ResetTargets(player);
+    if (!player->side->flag0)
+    {
+        player->unknown30410.Update();
+    }
+    player->unknown36c.count = 0;
+    return 1;
 }
 
 int Player::OnDraw(Player *player)
