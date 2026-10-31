@@ -280,6 +280,46 @@ struct ExAttackData03
 };
 ASSERT_SIZE(ExAttackData03, 0x190);
 
+// The init callback of extra attack type 3, character 2's: five
+// sprites, from scripts 9 to 13, flying on screen from where it is
+// towards the target's player at 3.5, with an attack of type 4 sent
+// along for the target's side. Returns 0 (0x442580).
+int ExAttackInit442580(ExAttack *attack)
+{
+    ExAttackData03 *data;
+    D3DXVECTOR3 targetPos;
+    D3DXVECTOR3 pos;
+    float angle;
+    int i;
+
+    attack->AllocSprites(5, sizeof(ExAttackData03));
+    data = (ExAttackData03 *)attack->data;
+    attack->GetSide()->player->anm->StartScriptAtOrigin(&attack->sprites[0], 9);
+    attack->GetSide()->player->anm->StartScriptAtOrigin(&attack->sprites[1], 10);
+    attack->GetSide()->player->anm->StartScriptAtOrigin(&attack->sprites[2], 11);
+    attack->GetSide()->player->anm->StartScriptAtOrigin(&attack->sprites[3], 12);
+    attack->GetSide()->player->anm->StartScriptAtOrigin(&attack->sprites[4], 13);
+    g_App.SetCamera(attack->targetSide);
+    targetPos.x = g_GameManager.ArenaToScreenX(g_GameManager.sides[attack->targetSide].player->pos.x);
+    targetPos.y = g_GameManager.ArenaToScreenY(g_GameManager.sides[attack->targetSide].player->pos.y);
+    g_App.SetCamera(attack->side);
+    pos.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    pos.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    pos.z = 0.0f;
+    attack->pos = pos;
+    attack->layer = 2;
+    angle = Atan2(targetPos.y - pos.y, targetPos.x - pos.x);
+    attack->angle = angle;
+    SetPolar((Vector2 *)&data->unknown04, angle, 3.5f);
+    data->state = 0;
+    g_GameManager.exAttackManager->AddAttack(4, &pos, attack->side, (D3DXVECTOR3 *)attack);
+    for (i = 0; i < 0x20; i++)
+    {
+        data->trail[i] = attack->pos;
+    }
+    return 0;
+}
+
 // The init callback of extra attack type 4: five sprites, from scripts
 // 14 to 18, on the target's side at the screen position it was sent
 // from, starting from the attack it was sent for: its angle and
