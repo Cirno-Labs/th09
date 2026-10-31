@@ -121,6 +121,45 @@ int ShotFire441ef0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
     return 1;
 }
 
+// An update callback of the shot table (11): keeps the bullet on the
+// player, offset by velocity.z and half as high, with its trail falling
+// behind it, and adds a 4 by 448 box at every other trail point, as many
+// as unknown46a, while the player's unknown3031c timer runs; then frees
+// the bullet. Returns 1 once freed, otherwise 0 (0x441f90).
+int ShotUpdate441f90(Player *player, PlayerBullet *bullet)
+{
+    int i;
+
+    if (player->unknown3031c.timer <= 0)
+    {
+        player->unknown3031c.timer = 0;
+        player->unknown3031c.bullet = NULL;
+        bullet->state = 0;
+        return 1;
+    }
+    bullet->pos = player->pos;
+    bullet->pos.x += bullet->velocity.z;
+    bullet->pos.z = 0.44f;
+    bullet->size.y = bullet->pos.y;
+    bullet->sprite.scaleX = bullet->pos.y * 0.071428575f;
+    bullet->pos.y *= 0.5f;
+    for (i = 0x1f; i > 0; i--)
+    {
+        bullet->trail[i] = bullet->trail[i - 1];
+        bullet->trail[i].y -= 1.0f;
+    }
+    for (i = 0; i < bullet->unknown46a; i++)
+    {
+        if (bullet->trail[i * 2].x >= -900.0f)
+        {
+            player->AddKind4Box(&bullet->trail[i * 2], 4.0f, 448.0f, 1, 1, 0);
+        }
+    }
+    bullet->trail[0] = bullet->pos;
+    player->unknown3031c.timer--;
+    return 0;
+}
+
 // A draw callback of the shot table (18): draws the bullet's sprite at
 // each point of its trail up to the first unused one, twice
 // unknown46a of them, fading out along it. Returns 0 (0x442220).
