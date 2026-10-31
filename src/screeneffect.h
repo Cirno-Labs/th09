@@ -48,6 +48,9 @@ public:
     static int OnDrawPlayArea(ScreenEffect *effect);
     static int OnDrawWholeScreen(ScreenEffect *effect);
     static int OnDrawFlash(ScreenEffect *effect);
+    // Type 6's draw callback, new in th09: both sides' play areas in
+    // color at alpha (0x422c50). Returns 1.
+    static int OnDrawPlayAreas(ScreenEffect *effect);
     // Has the loading screen's fade end: sets finishing and restarts the
     // timer at 0 (0x422930).
     void Finish();
