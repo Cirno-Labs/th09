@@ -22,7 +22,9 @@ struct GameStats
     unsigned char pad_15[0x34 - 0x15];
     // Gets the life the losing side 1 gives up at the end of a round.
     float unknown34;
+    unsigned char pad_38[0xa0 - 0x38];
 };
+ASSERT_SIZE(GameStats, 0xa0);
 
 class Stage;
 class Player;
@@ -71,23 +73,6 @@ struct GameSide
     };
 };
 ASSERT_SIZE(GameSide, 0x38);
-
-// GameManager's fields at 0xb0-0xd3, kept under the offsets in
-// GameManager they had before.
-// Something of shorts GameManager points to; in mode 2 the dialogue
-// plays music unknownC (the copy at 0x416dce, unknown6, 8 and A in the
-// front).
-// What GameManager::unknownE8 points to. Only the fields known so far.
-struct GameManagerUnknownE8
-{
-    unsigned char pad_0[0xac];
-    // Nonzero in mode 0 has Gui::ScoreRoundBonus show sprite 0x41 and
-    // give no bonus.
-    BYTE unknownAc;
-    unsigned char pad_ad[0xb4 - 0xad];
-    // Per side; 1 has a replay track how long it holds button 1.
-    BYTE unknownB4[2];
-};
 
 // An opponent of story mode, or a match's stage: lists of them end with
 // a negative round.
@@ -253,9 +238,9 @@ public:
     // By character; a replay of mode 0 or 1 sets those of side 1's
     // earlier rounds.
     BYTE unknownD8[0x10];
-    // Deleted by DeletedCallback. A copy of the config (a replay
-    // restores its own into it).
-    GameManagerUnknownE8 *unknownE8;
+    // Deleted by DeletedCallback. A copy of the config, made by
+    // LoadingThread (a replay restores its own into it).
+    GameConfig *config;
     // How far the enemy timelines advance a frame.
     float timelineSpeed;
     GameManagerUnknownF0 *unknownF0;
@@ -293,6 +278,10 @@ public:
             // A bit per side, cleared by SpellCard::OnUpdate 30 frames
             // into the side's spell card.
             unsigned int unknownBits134_11 : 2;
+            // Set by AsciiText's continue (13; 14 with it in some modes),
+            // cleared by LoadingThread.
+            unsigned int unknownBit134_13 : 1;
+            unsigned int unknownBit134_14 : 1;
         };
     };
     int unknown138;

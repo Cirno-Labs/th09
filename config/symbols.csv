@@ -421,7 +421,7 @@ address,size,name,symbol
 0x0041f030,44,PlayerBullet::PlayerBullet,??0PlayerBullet@@QAE@XZ
 0x0041f060,15,PlayerUnknown30454::PlayerUnknown30454,??0PlayerUnknown30454@@QAE@XZ
 0x0041f070,243,Player::Player,??0Player@@QAE@XZ
-0x0041f170,328,Player::RegisterChain,?RegisterChain@Player@@SIPAV1@EHH@Z
+0x0041f170,328,Player::RegisterChain,?RegisterChain@Player@@SIPAV1@HHH@Z
 0x0041f2c0,55,GetBox,?GetBox@@YIXAAUD3DXVECTOR3@@0PAU1@1@Z
 0x0041f300,9,Timer::operator-=,??ZTimer@@QAEXH@Z
 0x0041f310,51,Player::SubUnknown30388,?SubUnknown30388@Player@@QAEXM@Z

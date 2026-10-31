@@ -369,8 +369,7 @@ struct PlayerInput
     // How long each button of unknown0 has been held.
     WORD heldFrames[16];
     // How long button 1 of the second set has been held during a
-    // replay, up to 8, for the sides whose GameManagerUnknownE8
-    // unknownB4 is 1.
+    // replay, up to 8, for the sides whose config unknownB4 is 1.
     WORD unknown2a;
     WORD unknown2c;
     WORD unknown2e;
@@ -460,6 +459,8 @@ struct GameConfig
     DWORD version;
     short padThresholdX;
     short padThresholdY;
+    // Nonzero in mode 0 has Gui::ScoreRoundBonus show sprite 0x41 and
+    // give no bonus.
     BYTE unknownAc;
     // Whether the full screen is 16-bit; 0xff until the first start,
     // as th08's.

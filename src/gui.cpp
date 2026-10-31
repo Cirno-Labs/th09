@@ -1140,7 +1140,7 @@ void Gui::ScoreRoundBonus()
             this->anm->StartScriptAtOrigin(&this->unknown10968[4], 0x40);
             g_GameManager.sides[0].stats->extendsGiven = 9999;
         }
-        if (g_GameManager.unknownE8->unknownAc > 0 && g_GameManager.IsMode0())
+        if (g_GameManager.config->unknownAc > 0 && g_GameManager.IsMode0())
         {
             this->anm->StartScriptAtOrigin(&this->unknown10968[5], 0x41);
             this->bonusTotal = 0;

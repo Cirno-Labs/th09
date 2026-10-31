@@ -286,7 +286,7 @@ public:
     // registerChainArg and `unknown20`, and adds it to the chains (update
     // priority sideIdx + 0xf, draw sideIdx + 0xc and sideIdx + 0xe).
     // Returns it, even if adding fails (0x41f170).
-    static Player *RegisterChain(BYTE arg, int sideIdx, int unknown20);
+    static Player *RegisterChain(int arg, int sideIdx, int unknown20);
     // The chain callbacks (0x41e900, 0x41eb10, 0x41cdc0, 0x41ee50).
     static int OnUpdate(Player *player);
     static int OnDraw(Player *player);

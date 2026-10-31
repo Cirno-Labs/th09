@@ -254,7 +254,7 @@ int Player::HandleInput()
     {
         this->direction = 0;
     }
-    this->focused = g_GameManager.unknownE8->unknownB4[this->sideIdx] == 1 ? g_PlayerInputs[side].unknown2a >= 8
+    this->focused = g_GameManager.config->unknownB4[this->sideIdx] == 1 ? g_PlayerInputs[side].unknown2a >= 8
                                                                          : input->IsHeld2(4) != 0;
     if (this->focused)
     {
@@ -1154,7 +1154,7 @@ Player::Player()
 {
 }
 
-Player *Player::RegisterChain(BYTE arg, int sideIdx, int unknown20)
+Player *Player::RegisterChain(int arg, int sideIdx, int unknown20)
 {
     Player *player = (Player *)g_MemoryManager.Register(new Player(), sizeof(Player), "PlayerInf");
 

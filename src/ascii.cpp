@@ -616,7 +616,7 @@ int ContinueMenu::UpdateContinueMenu()
                 GameManager::ResetRound();
                 g_GameManager.unknown108[0] = 0;
                 g_GameManager.unknown108[1] = 0;
-                g_GameManager.sides[0].stats->lives = g_GameManager.unknownE8->unknownAc + 2.0f;
+                g_GameManager.sides[0].stats->lives = g_GameManager.config->unknownAc + 2.0f;
                 g_GameManager.stateFlags |= 0x4000;
                 return 1;
             }

@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.98% (891)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.44% (16)</tspan> · <tspan class="todo">4.22% (47)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.98% (891)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.53% (17)</tspan> · <tspan class="todo">4.13% (46)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="597.47" height="6" x="0" y="0" class="named"/>
 <rect width="107.29" height="6" x="597.47" y="0" class="decompiled"/>
-<rect width="10.73" height="6" x="704.75" y="0" class="nonmatching"/>
-<rect width="31.52" height="6" x="715.48" y="0" class="todo"/>
+<rect width="11.40" height="6" x="704.75" y="0" class="nonmatching"/>
+<rect width="30.85" height="6" x="716.15" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -427,7 +427,7 @@
 <rect width="12" height="12" x="75" y="105" class="named"><title>0x0041a9b8 GameManager::SetPlayArea (79 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="105" class="named"><title>0x0041aa07 GameManager::AddExtend (88 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="105" class="named"><title>0x0041aa5f GameManager::OnUpdate (1230 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="105" class="todo"><title>0x0041af2d GameManager::LoadingThread (1689 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="105" class="nonmatching"><title>0x0041af2d GameManager::LoadingThread (1689 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="105" class="named"><title>0x0041b5c6 GameManager::ResetRound (425 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="105" class="named"><title>0x0041b76f GameManager::AddedCallback (187 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="105" class="named"><title>0x0041b82a GameManager::DeletedCallback (422 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.26%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">12.78%</tspan> · <tspan class="todo">9.13%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">63.26%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.35%</tspan> · <tspan class="todo">8.56%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="472.58" height="6" x="0" y="0" class="named"/>
 <rect width="110.77" height="6" x="472.58" y="0" class="decompiled"/>
-<rect width="95.45" height="6" x="583.35" y="0" class="nonmatching"/>
-<rect width="68.20" height="6" x="678.80" y="0" class="todo"/>
+<rect width="99.70" height="6" x="583.35" y="0" class="nonmatching"/>
+<rect width="63.95" height="6" x="683.05" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1217,7 +1217,7 @@
 <rect width="34.84" height="39.39" x="169.01" y="0" class="named"><title>0x00429662 MainMenu::UpdateState15 (1825 bytes)</title></rect>
 <rect width="34.84" height="37.83" x="169.01" y="42.39" class="nonmatching"><title>0x00411670 DrawEnemies (1758 bytes)</title></rect>
 <rect width="34.84" height="37.32" x="169.01" y="83.23" class="named"><title>0x00434740 PauseMenu::UpdatePauseMenu (1736 bytes)</title></rect>
-<rect width="34.84" height="36.23" x="169.01" y="123.55" class="todo"><title>0x0041af2d GameManager::LoadingThread (1689 bytes)</title></rect>
+<rect width="34.84" height="36.23" x="169.01" y="123.55" class="nonmatching"><title>0x0041af2d GameManager::LoadingThread (1689 bytes)</title></rect>
 <rect width="34.84" height="35" x="169.01" y="162.78" class="named"><title>0x004068a0 GetFloatOperand (1636 bytes)</title></rect>
 <rect width="34.84" height="34.93" x="169.01" y="200.78" class="todo"><title>0x00430aa0 App::UpdateNetPlay (1633 bytes)</title></rect>
 <rect width="34.84" height="33.51" x="169.01" y="238.71" class="named"><title>0x00405760 GetIntOperand (1572 bytes)</title></rect>

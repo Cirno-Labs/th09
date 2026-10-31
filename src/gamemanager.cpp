@@ -13,6 +13,7 @@
 #include "enemy.h"
 #include "exattack.h"
 #include "gui.h"
+#include "mainmenu.h"
 #include "player.h"
 #include "replay.h"
 #include "screeneffect.h"
@@ -342,10 +343,10 @@ int GameManager::DeletedCallback(GameManager *mgr)
     mgr->exAttackManager = NULL;
     EffectManager::RemoveChain(mgr->sides[2].effectManager);
     mgr->sides[2].effectManager = NULL;
-    if (mgr->unknownE8 != NULL)
+    if (mgr->config != NULL)
     {
-        delete mgr->unknownE8;
-        mgr->unknownE8 = NULL;
+        delete mgr->config;
+        mgr->config = NULL;
     }
     while (g_SoundPlayer.PlayQueuedSounds())
     {
@@ -576,4 +577,281 @@ int GameManager::OnUpdate(GameManager *mgr)
     }
     mgr->frames++;
     return 1;
+}
+
+void GameManager::LoadingThread(GameManager *arg)
+{
+    // Not matching yet: 1682/1689. The original places the shared
+    // `unknownC8 = 22` block after case 4 (cases 2 and 3 jump to it) where
+    // ours places it after case 2, and it clears bit 14 of stateFlags after
+    // loading mode.
+    GameManager *mgr = &g_GameManager;
+    int i;
+
+    g_GameManager.ResetState();
+    FormatDate(g_Hscr.date);
+    mgr->stateFlags |= 4;
+    mgr->unknownBits134_11 = 0;
+    g_GameManager.unknown374 = -1;
+    mgr->unknownBit134_14 = 0;
+    g_GameManager.rank.unknownD0 = 0;
+    g_GameManager.frames = 0;
+    g_GameManager.unknown38c = 1;
+    g_GameManager.difficultyMask = 0xff;
+    g_GameManager.rank.unknownB8 = 2;
+    g_GameManager.rank.unknownCc = 0;
+    g_GameManager.rank.unknownC0 = 0;
+    g_GameManager.demoFrames = 0;
+    g_GameManager.unknown100 = 0;
+    g_GameManager.unknown104 = g_GameManager.mode == 2 ? 2 : 1;
+    g_GameManager.unknown108[0] = 0;
+    g_GameManager.unknown108[1] = 0;
+    if (!g_GameManager.IsReplay())
+    {
+        if (g_App.loadsResources)
+        {
+            memset(g_GameManager.unknownD8, 0, sizeof(g_GameManager.unknownD8));
+        }
+        else if (g_GameManager.mode == 0 || g_GameManager.mode == 1)
+        {
+            g_GameManager.unknownFc++;
+        }
+    }
+    else
+    {
+        memset(g_GameManager.unknownD8, 0, sizeof(g_GameManager.unknownD8));
+        if (!g_App.loadsResources && (g_GameManager.mode == 0 || g_GameManager.mode == 1))
+        {
+            g_GameManager.unknownFc++;
+        }
+    }
+    if (g_GameManager.config != NULL)
+    {
+        delete g_GameManager.config;
+        g_GameManager.config = NULL;
+    }
+    g_GameManager.config = new GameConfig;
+    *g_GameManager.config = g_App.config;
+    g_GameManager.timelineSpeed = 1.0f;
+    if (g_App.loadsResources)
+    {
+        mgr->unknownBit134_13 = 0;
+        for (i = 0; i < 2; i++)
+        {
+            if (g_GameManager.sides[i].stats != NULL)
+            {
+                delete g_GameManager.sides[i].stats;
+                g_GameManager.sides[i].stats = NULL;
+            }
+            g_GameManager.sides[i].stats = new GameStats;
+            memset(g_GameManager.sides[i].stats, 0, sizeof(GameStats));
+        }
+        if (g_GameManager.mode == 0)
+        {
+            g_GameManager.sides[0].stats->lives = g_GameManager.config->unknownAc + 2.0f;
+        }
+        else
+        {
+            g_GameManager.sides[0].stats->lives = 0.0f;
+        }
+        ReplayManager::Release(g_GameManager.replayManager);
+        g_GameManager.replayManager = NULL;
+        if (!g_GameManager.IsReplay())
+        {
+            g_GameManager.rngSeed = g_Rng.seed;
+            g_GameManager.PickOpponent();
+            g_GameManager.replayManager = ReplayManager::RegisterChain(0, NULL);
+        }
+        else
+        {
+            g_GameManager.replayManager = ReplayManager::RegisterChain(1, g_GameManager.replayFile);
+            g_GameManager.PickOpponent();
+        }
+    }
+    else
+    {
+        if (mgr->mode == 0 &&
+            mgr->sides[0].stats->guiScore >= mgr->sides[0].stats->extendsGiven * 2000000 + 1000000)
+        {
+            mgr->AddExtend();
+        }
+        if (mgr->mode == 1 &&
+            mgr->sides[0].stats->guiScore >= (mgr->sides[0].stats->extendsGiven + 1) * 500000)
+        {
+            g_GameManager.AddExtend();
+        }
+        if (!g_GameManager.IsReplay())
+        {
+            g_GameManager.rngSeed = g_Rng.seed;
+            g_GameManager.PickOpponent();
+            ReplayManager::RunAddedCallback(g_GameManager.replayManager, 0);
+        }
+        else
+        {
+            ReplayManager::RunAddedCallback(g_GameManager.replayManager, 1);
+            g_GameManager.PickOpponent();
+        }
+        if (g_GameManager.mode == 0 || g_GameManager.mode == 1)
+        {
+            memset(g_GameManager.sides[1].stats, 0, sizeof(GameStats));
+        }
+    }
+    g_App.InitCameras();
+    g_GameManager.rank.unknownB0 = 0;
+    if ((g_GameManager.gui = Gui::RegisterChain()) == NULL)
+    {
+        goto fail;
+    }
+    Player::LoadAnms();
+    for (i = 0; i < 2; i++)
+    {
+        if (g_GameManager.sides[i].unknown28)
+        {
+            g_GameManager.config->unknownB4[i] = 0;
+        }
+        g_GameManager.sides[i].flags &= ~1;
+        if ((g_GameManager.sides[i].stage = Stage::RegisterChain(i)) == NULL)
+        {
+            goto fail;
+        }
+        if ((g_GameManager.sides[i].player = Player::RegisterChain(0, i, g_GameManager.sides[i].unknown28)) == NULL)
+        {
+            goto fail;
+        }
+        if ((g_GameManager.sides[i].bulletManager = BulletManager::RegisterChain(i)) == NULL)
+        {
+            goto fail;
+        }
+        if ((g_GameManager.sides[i].effectManager = EffectManager::RegisterChain(i, 0x100, 7)) == NULL)
+        {
+            goto fail;
+        }
+        if ((g_GameManager.sides[i].enemyManager = EnemyManager::RegisterChain(i)) == NULL)
+        {
+            goto fail;
+        }
+        if ((g_GameManager.sides[i].spellCard = SpellCard::RegisterChain(i)) == NULL)
+        {
+            goto fail;
+        }
+        if ((g_GameManager.sides[i].gui = GuiSide::RegisterChain(i)) == NULL)
+        {
+            goto fail;
+        }
+    }
+    if ((g_GameManager.sides[2].effectManager = EffectManager::RegisterChain(2, 0x320, 1)) == NULL)
+    {
+        goto fail;
+    }
+    if ((g_GameManager.exAttackManager = ExAttackManager::RegisterChain()) == NULL)
+    {
+        goto fail;
+    }
+    switch (g_GameManager.difficulty)
+    {
+    case 4:
+        g_GameManager.rank.unknownB4 = 18;
+        g_GameManager.sides[0].player->unknownA0 = 10;
+        g_GameManager.sides[0].player->unknownA4 = 10;
+        g_GameManager.sides[1].player->unknownA0 = 10;
+        g_GameManager.sides[1].player->unknownA4 = 10;
+        g_GameManager.rank.unknownC4 = 600;
+        g_GameManager.rank.unknownC8 = 22;
+        break;
+    case 3:
+        g_GameManager.rank.unknownB4 = 8;
+        g_GameManager.sides[0].player->unknownA0 = 8;
+        g_GameManager.sides[0].player->unknownA4 = 8;
+        g_GameManager.sides[1].player->unknownA0 = 8;
+        g_GameManager.sides[1].player->unknownA4 = 8;
+        if (g_GameManager.mode == 2)
+        {
+            g_GameManager.rank.unknownC4 = 900;
+            g_GameManager.rank.unknownC8 = 22;
+        }
+        else
+        {
+            g_GameManager.rank.unknownC4 = 720;
+            g_GameManager.rank.unknownB4 = g_GameManager.unknownFc + 6;
+            g_GameManager.rank.unknownC8 = g_GameManager.unknownFc / 2 + 17;
+        }
+        break;
+    case 2:
+        g_GameManager.rank.unknownB4 = 6;
+        g_GameManager.sides[0].player->unknownA0 = 4;
+        g_GameManager.sides[0].player->unknownA4 = 4;
+        g_GameManager.sides[1].player->unknownA0 = 4;
+        g_GameManager.sides[1].player->unknownA4 = 4;
+        if (g_GameManager.mode == 2)
+        {
+            g_GameManager.rank.unknownC4 = 720;
+            g_GameManager.rank.unknownC8 = 22;
+        }
+        else
+        {
+            g_GameManager.rank.unknownC4 = 900;
+            g_GameManager.rank.unknownB4 = g_GameManager.unknownFc + 3;
+            g_GameManager.rank.unknownC8 = g_GameManager.unknownFc / 2 + 15;
+        }
+        break;
+    case 1:
+        g_GameManager.rank.unknownB4 = 1;
+        g_GameManager.sides[0].player->unknownA0 = 1;
+        g_GameManager.sides[0].player->unknownA4 = 1;
+        g_GameManager.sides[1].player->unknownA0 = 1;
+        g_GameManager.sides[1].player->unknownA4 = 1;
+        if (g_GameManager.mode == 2)
+        {
+            g_GameManager.rank.unknownC4 = 900;
+            g_GameManager.rank.unknownC8 = 20;
+        }
+        else
+        {
+            g_GameManager.rank.unknownC4 = 1200;
+            g_GameManager.rank.unknownB4 = g_GameManager.unknownFc + 1;
+            g_GameManager.rank.unknownC8 = g_GameManager.unknownFc + 10;
+        }
+        break;
+    case 0:
+        g_GameManager.rank.unknownB4 = 1;
+        g_GameManager.sides[0].player->unknownA0 = 1;
+        g_GameManager.sides[0].player->unknownA4 = 1;
+        g_GameManager.sides[1].player->unknownA0 = 1;
+        g_GameManager.sides[1].player->unknownA4 = 1;
+        g_GameManager.rank.unknownC4 = 1800;
+        if (g_GameManager.mode != 2)
+        {
+            g_GameManager.rank.unknownB4 = g_GameManager.unknownFc / 3 + 1;
+            g_GameManager.rank.unknownC8 = g_GameManager.unknownFc / 2 + 6;
+        }
+        else
+        {
+            g_GameManager.rank.unknownC8 = 16;
+        }
+        break;
+    }
+    DrawFps(0);
+    g_App.FinishLoadingSprites();
+    while (g_GameManager.stageEndState != 0)
+    {
+        Sleep(17);
+    }
+    g_GameManager.loadingThreadState = 0;
+    g_App.subThread = NULL;
+    g_App.closeSubThread = 0;
+    g_App.unknown6b8 = 0;
+    g_App.redrawFrames = 60;
+    g_App.unknown59c = 0;
+    g_Unknown4ac884 = 2;
+    g_App.lastTotalPlayTimeTick = timeGetTime();
+    return;
+
+fail:
+    g_GameManager.loadingThreadState = 2;
+    g_App.FinishLoadingSprites();
+    g_App.subThread = NULL;
+    g_App.closeSubThread = 0;
+    g_App.unknown6b8 = 0;
+    g_App.unknown59c = 0;
+    g_Unknown4ac884 = 2;
 }

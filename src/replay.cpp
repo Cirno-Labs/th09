@@ -157,7 +157,7 @@ int ReplayManager::OnUpdateMode1(ReplayManager *mgr)
         g_PlayerInputs[0].UpdateRepeat2();
         g_PlayerInputs[1].UpdateRepeat2();
         g_PlayerInputs[2].UpdateRepeat2();
-        types = g_GameManager.unknownE8->unknownB4;
+        types = g_GameManager.config->unknownB4;
         for (i = 0; i < 2; i++, types++)
         {
             if (*types == 1)
@@ -337,7 +337,7 @@ int ReplayManager::AddedCallbackMode1(ReplayManager *mgr)
     mgr->inputCursors[1] = (WORD *)(round1 + 1);
     mgr->inputCursors[2] = (WORD *)(round2 + 1);
     mgr->extraCursor = extra;
-    *(GameConfig *)g_GameManager.unknownE8 = mgr->unknown08->info.config;
+    *g_GameManager.config = mgr->unknown08->info.config;
     g_Rng.SetSeed(round0->rngSeed);
     mgr->unknown4 = 0;
     return 0;
@@ -638,7 +638,7 @@ int ReplayManager::AddedCallbackMode0(ReplayManager *mgr)
         mgr->unknown08->unknown1e8[0] = g_GameManager.sides[0].unknown30;
         mgr->unknown08->unknown1e8[1] = g_GameManager.sides[1].unknown30;
         *(DWORD *)hdr->info.name = *(DWORD *)"NO NAME";
-        hdr->info.config = *(GameConfig *)g_GameManager.unknownE8;
+        hdr->info.config = *g_GameManager.config;
         for (i = 0; i < 10; i++)
         {
             hdr->unknown20[0][i] = NULL;
