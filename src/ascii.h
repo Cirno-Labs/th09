@@ -85,7 +85,9 @@ ASSERT_SIZE(ContinueMenu, 0xfe0);
 class UnknownMenu
 {
 public:
-    // Updates it; nonzero stops AsciiText::OnUpdate (0x4355f0).
+    // Updates it; nonzero stops AsciiText::OnUpdate (0x4355f0). A menu
+    // of three entries (sprites with scripts 0xd-0xf) that leaves for
+    // scene 10, 1 or 6 by the one chosen; a replay leaves for scene 1.
     int UpdateUnknownMenu();
     // Draws it while it is up (0x435a90).
     void DrawUnknownMenu();

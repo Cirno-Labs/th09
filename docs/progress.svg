@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">78.37% (873)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.08% (12)</tspan> · <tspan class="todo">6.19% (69)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">78.46% (874)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.08% (12)</tspan> · <tspan class="todo">6.10% (68)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="585.40" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="585.40" y="0" class="decompiled"/>
-<rect width="8.05" height="6" x="692.68" y="0" class="nonmatching"/>
-<rect width="46.27" height="6" x="700.73" y="0" class="todo"/>
+<rect width="586.07" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="586.07" y="0" class="decompiled"/>
+<rect width="8.05" height="6" x="693.36" y="0" class="nonmatching"/>
+<rect width="45.60" height="6" x="701.40" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -829,7 +829,7 @@
 <rect width="12" height="12" x="105" y="225" class="named"><title>0x00434e90 ContinueMenu::UpdateContinueMenu (1216 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="225" class="named"><title>0x00435370 ContinueMenu::DrawContinueMenu (117 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="225" class="named"><title>0x004353f0 AsciiText::DrawPopups (503 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="225" class="todo"><title>0x004355f0 UnknownMenu::UpdateUnknownMenu (1144 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="225" class="named"><title>0x004355f0 UnknownMenu::UpdateUnknownMenu (1144 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="225" class="named"><title>0x00435a90 UnknownMenu::DrawUnknownMenu (83 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="225" class="named"><title>0x00435af0 AsciiPopup::AsciiPopup (15 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="225" class="named"><title>0x00435b00 AsciiText::OnUpdate (253 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.55%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">11.51%</tspan> · <tspan class="todo">18.11%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">55.93%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">11.51%</tspan> · <tspan class="todo">17.72%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="414.93" height="6" x="0" y="0" class="named"/>
-<rect width="110.77" height="6" x="414.93" y="0" class="decompiled"/>
-<rect width="86.02" height="6" x="525.70" y="0" class="nonmatching"/>
-<rect width="135.28" height="6" x="611.72" y="0" class="todo"/>
+<rect width="417.81" height="6" x="0" y="0" class="named"/>
+<rect width="110.77" height="6" x="417.81" y="0" class="decompiled"/>
+<rect width="86.02" height="6" x="528.58" y="0" class="nonmatching"/>
+<rect width="132.40" height="6" x="614.60" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1241,7 +1241,7 @@
 <rect width="30.64" height="29.09" x="243.79" y="164.72" class="named"><title>0x0043d7f0 MidiPlayer::ProcessEvent (1228 bytes)</title></rect>
 <rect width="30.64" height="28.77" x="243.79" y="196.81" class="named"><title>0x00434e90 ContinueMenu::UpdateContinueMenu (1216 bytes)</title></rect>
 <rect width="30.64" height="28.62" x="243.79" y="228.59" class="todo"><title>0x0041f810 Func41f810 (1210 bytes)</title></rect>
-<rect width="30.64" height="26.89" x="243.79" y="260.20" class="todo"><title>0x004355f0 UnknownMenu::UpdateUnknownMenu (1144 bytes)</title></rect>
+<rect width="30.64" height="26.89" x="243.79" y="260.20" class="named"><title>0x004355f0 UnknownMenu::UpdateUnknownMenu (1144 bytes)</title></rect>
 <rect width="30.64" height="26.84" x="243.79" y="290.10" class="todo"><title>0x004102b0 Enemy::DropItems (1142 bytes)</title></rect>
 <rect width="30.64" height="25.06" x="243.79" y="319.94" class="decompiled"><title>0x0044b500 ExAttackUpdate44b500 (1074 bytes)</title></rect>
 <rect width="27.29" height="27.96" x="277.43" y="0" class="named"><title>0x0043a0f0 SpriteEngine::DrawQuad (1067 bytes)</title></rect>

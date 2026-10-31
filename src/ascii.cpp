@@ -473,6 +473,152 @@ void AsciiText::DrawPopups(int side)
     }
 }
 
+int UnknownMenu::UpdateUnknownMenu()
+{
+    DWORD i;
+
+    if (g_GameManager.IsReplay())
+    {
+        g_GameManager.unknown13e = 0;
+        g_App.scene = 1;
+        return 1;
+    }
+    switch (this->state)
+    {
+    case 0:
+        for (i = 0; i < 3; i++)
+        {
+            g_AsciiText.anm->StartScript(&this->sprites[i], i + 0xd);
+            this->sprites[i].pendingInterrupt = 1;
+        }
+        this->state++;
+        this->stateFrames = 0;
+    case 1:
+        this->sprites[0].color = 0xffffffff;
+        this->sprites[1].color = this->sprites[2].color = 0xff505050;
+        this->sprites[0].posOffset = D3DXVECTOR3(-4.0f, -4.0f, 0.0f);
+        this->sprites[1].posOffset = this->sprites[2].posOffset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+        if (this->stateFrames >= 4)
+        {
+            if (g_PlayerInputs[2].IsJustPressed(0x10))
+            {
+                this->state = 3;
+                g_SoundPlayer.PlaySoundByIdx(0, 0);
+            }
+            if (g_PlayerInputs[2].IsJustPressed(0x20))
+            {
+                this->state = 2;
+                g_SoundPlayer.PlaySoundByIdx(0, 0);
+            }
+            if (g_PlayerInputs[2].IsJustPressed(0x1001))
+            {
+                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                for (i = 0; i < 3; i++)
+                {
+                    this->sprites[i].pendingInterrupt = 2;
+                }
+                this->state = 4;
+                this->stateFrames = 0;
+            }
+        }
+        break;
+    case 2:
+        this->sprites[0].color = this->sprites[2].color = 0xff505050;
+        this->sprites[1].color = 0xffffffff;
+        this->sprites[0].posOffset = this->sprites[2].posOffset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+        this->sprites[1].posOffset = D3DXVECTOR3(-4.0f, -4.0f, 0.0f);
+        if (this->stateFrames >= 4)
+        {
+            if (g_PlayerInputs[2].IsJustPressed(0x10))
+            {
+                this->state = 1;
+                g_SoundPlayer.PlaySoundByIdx(0, 0);
+            }
+            if (g_PlayerInputs[2].IsJustPressed(0x20))
+            {
+                this->state = 3;
+                g_SoundPlayer.PlaySoundByIdx(0, 0);
+            }
+            if (g_PlayerInputs[2].IsJustPressed(0x1001))
+            {
+                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                for (i = 0; i < 3; i++)
+                {
+                    this->sprites[i].pendingInterrupt = 2;
+                }
+                this->state = 5;
+                this->stateFrames = 0;
+            }
+        }
+        break;
+    case 3:
+        this->sprites[0].color = this->sprites[1].color = 0xff505050;
+        this->sprites[2].color = 0xffffffff;
+        this->sprites[0].posOffset = this->sprites[1].posOffset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+        this->sprites[2].posOffset = D3DXVECTOR3(-4.0f, -4.0f, 0.0f);
+        if (this->stateFrames >= 4)
+        {
+            if (g_PlayerInputs[2].IsJustPressed(0x10))
+            {
+                this->state = 2;
+                g_SoundPlayer.PlaySoundByIdx(0, 0);
+            }
+            if (g_PlayerInputs[2].IsJustPressed(0x20))
+            {
+                this->state = 1;
+                g_SoundPlayer.PlaySoundByIdx(0, 0);
+            }
+            if (g_PlayerInputs[2].IsJustPressed(0x1001))
+            {
+                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                for (i = 0; i < 3; i++)
+                {
+                    this->sprites[i].pendingInterrupt = 2;
+                }
+                this->state = 6;
+                this->stateFrames = 0;
+            }
+        }
+        break;
+    case 5:
+        if (this->stateFrames >= 20)
+        {
+            this->state = 0;
+            g_App.scene = 1;
+            g_GameManager.unknown13e = 0;
+            g_App.lastTotalPlayTimeTick = timeGetTime();
+            return 1;
+        }
+        break;
+    case 4:
+        if (this->stateFrames >= 20)
+        {
+            this->state = 0;
+            g_App.scene = 10;
+            g_GameManager.unknown13e = 0;
+            g_App.lastTotalPlayTimeTick = timeGetTime();
+            return 1;
+        }
+        break;
+    case 6:
+        if (this->stateFrames >= 20)
+        {
+            this->state = 0;
+            g_App.scene = 6;
+            g_GameManager.unknown13e = 0;
+            g_App.lastTotalPlayTimeTick = timeGetTime();
+            return 1;
+        }
+        break;
+    }
+    for (i = 0; i < 3; i++)
+    {
+        g_SpriteEngine->Step(&this->sprites[i]);
+    }
+    this->stateFrames++;
+    return 0;
+}
+
 void UnknownMenu::DrawUnknownMenu()
 {
     int i;
