@@ -218,7 +218,10 @@ struct PlayerUnknown30410
     int bonus;
     Timer timer14;
     Timer timer20;
-    unsigned char pad_2c[0x34 - 0x2c];
+    unsigned char pad_2c[0x30 - 0x2c];
+    // Character 7's unknown30450 takes 5 off it for each attack, down
+    // to 0.
+    int unknown30;
     // What the character's unknown30450 spends on extra attacks.
     int unknown34;
     int unknown38;
