@@ -972,7 +972,10 @@ struct App
     // Below 1 when the game runs slow.
     float gameSpeed;
     MidiPlayer *midi;
-    unsigned char pad_5c0[0x5c8 - 0x5c0];
+    // DrawFps's tally of the frames drawn against the frames due, as
+    // th08's, while a game plays.
+    float achievedFrames;
+    float expectedFrames;
     // The frame rate shown, as th08's; a replay puts the recorded one
     // back.
     short roundedFps;
@@ -1008,7 +1011,10 @@ struct App
     // 0 while the loading sprites are hidden, 1 while they show, 2 once
     // they are finishing.
     int loadingState;
-    unsigned char pad_744[0x77c - 0x744];
+    // The performance counter's frequency, or 0 if there is none, as
+    // th08's App::perfFrequency.
+    DWORD perfFrequency[2];
+    unsigned char pad_74c[0x77c - 0x74c];
     int unknown77c;
     // Set when the frame rate is low, as th08's.
     int fpsWarning;

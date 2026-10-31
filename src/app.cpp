@@ -1113,6 +1113,97 @@ void App::InitCameras()
     g_App.cameras[1].offset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 }
 
+void DrawFps(int draw)
+{
+    static DWORD frames;
+    static char fpsText[0x100];
+    static LARGE_INTEGER lastCounter;
+    static DWORD measures;
+    static char speedText[0x100];
+    float fps;
+    float duration;
+
+    frames += 1 + g_App.config.frameSkip;
+    if (g_App.perfFrequency[0] == 0)
+    {
+        static DWORD lastTime = timeGetTime();
+        DWORD now = timeGetTime();
+
+        if (now < lastTime)
+        {
+            lastTime = now;
+            frames = 0;
+        }
+        if (now - lastTime >= 500)
+        {
+            duration = (now - lastTime) * 0.001f;
+            lastTime = now;
+        measured:
+            fps = frames / duration;
+            frames = 0;
+            sprintf(fpsText, "%.02ffps", fps);
+            if ((g_GameManager.stateFlags & 4) && draw)
+            {
+                float target = 60.0f;
+
+                g_App.expectedFrames += target;
+                if (fps > target * 0.9f)
+                {
+                    g_App.achievedFrames += target;
+                }
+                else if (fps > target * 0.7f)
+                {
+                    g_App.achievedFrames += target * 0.8f;
+                }
+                else if (fps > target * 0.5f)
+                {
+                    g_App.achievedFrames += target * 0.6f;
+                }
+                else
+                {
+                    g_App.achievedFrames += target * 0.5f;
+                }
+                if (!g_GameManager.IsReplay())
+                {
+                    g_App.roundedFps = fps + 0.5f;
+                }
+                else
+                {
+                    sprintf(speedText, "%2d", g_App.roundedFps);
+                }
+            }
+        }
+    }
+    else
+    {
+        LARGE_INTEGER counter;
+
+        if (lastCounter.LowPart == 0)
+        {
+            QueryPerformanceCounter(&lastCounter);
+        }
+        QueryPerformanceCounter(&counter);
+        if (counter.LowPart < lastCounter.LowPart)
+        {
+            lastCounter = counter;
+            frames = 0;
+        }
+        if (counter.LowPart >= lastCounter.LowPart + (g_App.perfFrequency[0] >> 1))
+        {
+            duration = (float)(counter.LowPart - lastCounter.LowPart) / (float)g_App.perfFrequency[0];
+            lastCounter = counter;
+            measures++;
+            goto measured;
+        }
+    }
+    if (g_App.hideFps == 0 && draw && (g_GameManager.stateFlags & 4))
+    {
+        D3DXVECTOR3 pos(280.0f, 466.0f, 0.0f);
+
+        g_AsciiText.AddString(&pos, fpsText);
+    }
+}
+
 int App::PlayMusic(int id, int arg)
 {
     DWORD i;
