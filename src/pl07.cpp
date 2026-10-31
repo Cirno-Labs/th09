@@ -4,6 +4,8 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sprite.h"
+#include "unsorted.h"
 
 // The unknown30450 of character 7: while unknown34 reaches 200 -
 // unknownB4 * 3, sends an extra attack of type 6 from `pos` and takes
@@ -52,6 +54,44 @@ int PlayerPosFunc445e60(Player *player, D3DXVECTOR3 *pos)
         return 1;
     }
     return 0;
+}
+
+// The draw callback of effect type 25: EffectDraw4414a0's fan
+// (0x447480).
+int EffectDraw447480(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        float delta = 6.2831855f / (effect->unknown8c - 1);
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        float angle = -3.1415927f;
+        int i;
+
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x40600040;
+        vtx++;
+        for (i = effect->unknown8c; i > 0; i--)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            vtx->pos.z = 0.0f;
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x70600040;
+            vtx++;
+            angle += delta;
+        }
+    }
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    return 1;
 }
 
 // The update callback of effect type 28: grows unknown7c by 8 up to 320,
