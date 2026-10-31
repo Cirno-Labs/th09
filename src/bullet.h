@@ -18,7 +18,9 @@ struct BulletTypeSprites
     Sprite sprite2;
     Sprite sprite3;
     Sprite sprite4;
-    unsigned char pad_d34[0xd48 - 0xd34];
+    unsigned char pad_d34[0xd44 - 0xd34];
+    // 0x14a for the bullets that extra attack type 21 leaves alone.
+    int unknownD44;
 };
 ASSERT_SIZE(BulletTypeSprites, 0xd48);
 
@@ -69,7 +71,16 @@ struct Bullet
 
     unsigned char pad_0[0x4];
     BulletTypeSprites sprites;
-    unsigned char pad_d4c[0xd88 - 0xd4c];
+    // The motion, as th08's.
+    D3DXVECTOR3 pos;
+    D3DXVECTOR3 velocity;
+    D3DXVECTOR3 accel;
+    float speed;
+    float accelSpeed;
+    float turnSpeed;
+    float angle;
+    float angularVelocity;
+    float turnAngle;
     Timer timer;
     Timer grazeDelayTimer;
     unsigned char pad_da0[0xdb4 - 0xda0];
@@ -85,7 +96,11 @@ struct Bullet
     int commandIndex;
     BulletCommand commands[18];
     BulletEx ex[7];
-    unsigned char pad_10bc[0x10c4 - 0x10bc];
+    unsigned char pad_10bc[0x10be - 0x10bc];
+    // Set once extra attack type 21 has doubled the bullet, and on the
+    // copy.
+    char unknown10be;
+    unsigned char pad_10bf[0x10c4 - 0x10bf];
 };
 ASSERT_SIZE(Bullet, 0x10c4);
 
@@ -132,10 +147,10 @@ public:
     static void ReleaseAnm();
     // Fires the shooter's count1 by count2 bullets, as th08's
     // FirePattern. Returns the last bullet spawned (0x4130f0).
-    int FirePattern(EnemyShooter *shooter);
+    Bullet *FirePattern(EnemyShooter *shooter);
     // FirePattern, spawning each bullet with an extra argument of 1
     // (0x4131c0).
-    int FirePattern2(EnemyShooter *shooter);
+    Bullet *FirePattern2(EnemyShooter *shooter);
     // The update chain callback and its added callback, and the draw
     // chain callback (0x4146f0, 0x413e40, 0x413be0).
     static int OnUpdate(BulletManager *mgr);

@@ -258,8 +258,8 @@ address,size,name,symbol
 0x00412830,245,PlayerUnknown36c::AddTurned,?AddTurned@PlayerUnknown36c@@QAEXPAUD3DXVECTOR3@@00MPAX@Z
 0x00412930,40,Bullet::FreeBullet,?FreeBullet@Bullet@@QAEXXZ
 0x00412960,1887,Func412960,
-0x004130f0,200,BulletManager::FirePattern,?FirePattern@BulletManager@@QAEHPAUEnemyShooter@@@Z
-0x004131c0,200,BulletManager::FirePattern2,?FirePattern2@BulletManager@@QAEHPAUEnemyShooter@@@Z
+0x004130f0,200,BulletManager::FirePattern,?FirePattern@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@@Z
+0x004131c0,200,BulletManager::FirePattern2,?FirePattern2@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@@Z
 0x00413290,450,Func413290,
 0x00413460,110,Func413460,
 0x004134d0,179,Func4134d0,
@@ -1096,7 +1096,7 @@ address,size,name,symbol
 0x0044b090,314,EffectDraw44b090,?EffectDraw44b090@@YIHPAUEffect@@@Z
 0x0044b1d0,79,EffectUpdate44b1d0,?EffectUpdate44b1d0@@YIHPAUEffect@@@Z
 0x0044b220,727,ExAttackInit44b220,?ExAttackInit44b220@@YIHPAUExAttack@@@Z
-0x0044b500,1074,Func44b500,
+0x0044b500,1074,ExAttackUpdate44b500,?ExAttackUpdate44b500@@YIHPAUExAttack@@@Z
 0x0044b940,318,ExAttackDraw44b940,?ExAttackDraw44b940@@YIHPAUExAttack@@@Z
 0x0044ba80,101,PlayerComboFunc44ba80,?PlayerComboFunc44ba80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044baf0,314,EffectDraw44baf0,?EffectDraw44baf0@@YIHPAUEffect@@@Z

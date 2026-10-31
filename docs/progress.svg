@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">13.91% (155)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.63% (163)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">14% (156)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">14.54% (162)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="533.76" height="6" x="0" y="0" class="named"/>
-<rect width="103.94" height="6" x="533.76" y="0" class="decompiled"/>
-<rect width="109.30" height="6" x="637.70" y="0" class="todo"/>
+<rect width="104.61" height="6" x="533.76" y="0" class="decompiled"/>
+<rect width="108.63" height="6" x="638.37" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1165,7 +1165,7 @@
 <rect width="12" height="12" x="660" y="315" class="decompiled"><title>0x0044b090 EffectDraw44b090 (314 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="315" class="decompiled"><title>0x0044b1d0 EffectUpdate44b1d0 (79 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="315" class="decompiled"><title>0x0044b220 ExAttackInit44b220 (727 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="315" class="todo"><title>0x0044b500 Func44b500 (1074 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="315" class="decompiled"><title>0x0044b500 ExAttackUpdate44b500 (1074 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="315" class="decompiled"><title>0x0044b940 ExAttackDraw44b940 (318 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="315" class="decompiled"><title>0x0044ba80 PlayerComboFunc44ba80 (101 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="330" class="decompiled"><title>0x0044baf0 EffectDraw44baf0 (314 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">13.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">44.85%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">13.40%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">44.49%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.57" height="6" x="0" y="0" class="named"/>
-<rect width="97.38" height="6" x="314.57" y="0" class="decompiled"/>
-<rect width="335.05" height="6" x="411.95" y="0" class="todo"/>
+<rect width="100.09" height="6" x="314.57" y="0" class="decompiled"/>
+<rect width="332.34" height="6" x="414.66" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.09" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1241,7 +1241,7 @@
 <rect width="30.59" height="28.37" x="243.73" y="228.64" class="todo"><title>0x00434e90 ContinueMenu::UpdateContinueMenu (1198 bytes)</title></rect>
 <rect width="30.59" height="26.96" x="243.73" y="260.01" class="todo"><title>0x004355f0 UnknownMenu::UpdateUnknownMenu (1144 bytes)</title></rect>
 <rect width="30.59" height="26.91" x="243.73" y="289.97" class="todo"><title>0x004102b0 Func4102b0 (1142 bytes)</title></rect>
-<rect width="30.59" height="25.12" x="243.73" y="319.88" class="todo"><title>0x0044b500 Func44b500 (1074 bytes)</title></rect>
+<rect width="30.59" height="25.12" x="243.73" y="319.88" class="decompiled"><title>0x0044b500 ExAttackUpdate44b500 (1074 bytes)</title></rect>
 <rect width="27.31" height="27.96" x="277.32" y="0" class="named"><title>0x0043a0f0 SpriteEngine::DrawQuad (1067 bytes)</title></rect>
 <rect width="27.31" height="27.96" x="277.32" y="30.96" class="named"><title>0x0043a520 SpriteEngine::DrawQuadMirrored (1067 bytes)</title></rect>
 <rect width="27.31" height="27.58" x="277.32" y="61.92" class="named"><title>0x0042f7c0 App::LoadConfig (1054 bytes)</title></rect>

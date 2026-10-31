@@ -343,6 +343,123 @@ int ExAttackInit44b220(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack type 21: flies in along the curve
+// for 90 frames, then appears hidden on the target's side as the disc,
+// its texture turning and its rim wobbling, doubling each bullet on that
+// side within 32 of it once: a copy of type 0x16, faster by 1 for the
+// first set and 0.7 for the second. Returns 1 once its sprite has hidden
+// (0x44b500).
+int ExAttackUpdate44b500(ExAttack *attack)
+{
+    ExAttackData21 *data = (ExAttackData21 *)attack->data;
+    // A rim point's texture offset, then a bullet's offset from the disc.
+    D3DXVECTOR3 v;
+    int i;
+
+    switch (data->disc.base.state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->disc.base.end, &data->disc.base.start,
+                           &data->disc.base.tangent0, &data->disc.base.tangent1, attack->timer.AsFloat(),
+                           90.0f);
+        if (attack->timer > 0x5a)
+        {
+            data->disc.base.state++;
+            attack->pos = data->disc.base.targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 0xb);
+            attack->sprites->visible = 0;
+        }
+        break;
+    case 1:
+    {
+        VertexTex1DiffuseXyzrwh *vtx = &data->disc.vertices[1];
+        float angle = -3.1415927f;
+        float texAngle = data->unknown688;
+        Bullet *bullet;
+
+        for (i = 1; i < 0x21; i++)
+        {
+            SetPolar((Vector2 *)&v, texAngle, 0.5f);
+            vtx->uv.x = v.x + 0.5f;
+            vtx->uv.y = v.y + 0.5f;
+            texAngle = AddNormalizeAngle(texAngle, 0.2026834f);
+            data->disc.radii[i] += data->disc.radiusSpeeds[i];
+            SetPolar((Vector2 *)&data->disc.points[i], angle, data->disc.radii[i]);
+            data->disc.points[i] += data->disc.base.targetPos;
+            angle += 0.2026834f;
+            vtx++;
+        }
+        data->unknown688 = AddNormalizeAngle(data->unknown688, 0.05235988f);
+        bullet = g_GameManager.sides[attack->targetSide].bulletManager->bullets;
+        for (i = 0; i < 0xaf; i++, bullet++)
+        {
+            if (bullet->state != 0 && !bullet->unknown10be && bullet->sprites.unknownD44 != 0x14a)
+            {
+                v = bullet->pos - attack->pos;
+                if (v.x * v.x + v.y * v.y <= 1024.0f)
+                {
+                    bullet->unknown10be = 1;
+                    EnemyShooter shooter;
+                    shooter.pos = bullet->pos;
+                    shooter.sprite = 0x16;
+                    shooter.aimMode = 1;
+                    shooter.count1 = 1;
+                    shooter.count2 = 1;
+                    shooter.color = 0;
+                    shooter.angle1 = bullet->angle;
+                    shooter.speed1 = bullet->speed + 1.0f;
+                    shooter.angle2 = 0.0f;
+                    shooter.speed2 = 0.0f;
+                    shooter.unknown1fa = 0;
+                    shooter.flags = 0;
+                    g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter)->unknown10be = 1;
+                }
+            }
+        }
+        bullet = g_GameManager.sides[attack->targetSide].bulletManager->bullets2;
+        for (i = 0; i < 0x168; i++, bullet++)
+        {
+            if (bullet->state != 0 && !bullet->unknown10be && bullet->sprites.unknownD44 != 0x14a)
+            {
+                v = bullet->pos - attack->pos;
+                if (v.x * v.x + v.y * v.y <= 1024.0f)
+                {
+                    bullet->unknown10be = 1;
+                    EnemyShooter shooter;
+                    shooter.pos = bullet->pos;
+                    shooter.sprite = 0x16;
+                    shooter.aimMode = 1;
+                    shooter.count1 = 1;
+                    shooter.count2 = 1;
+                    shooter.color = 0;
+                    shooter.angle1 = bullet->angle;
+                    shooter.speed1 = bullet->speed + 0.7f;
+                    shooter.angle2 = 0.0f;
+                    shooter.speed2 = 0.0f;
+                    shooter.unknown1fa = 0;
+                    shooter.flags = 0;
+                    g_GameManager.sides[attack->targetSide].bulletManager->FirePattern2(&shooter)->unknown10be = 1;
+                }
+            }
+        }
+        if (!attack->sprites->shown)
+        {
+            return 1;
+        }
+        break;
+    }
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The draw callback of extra attack types 19 and 21: once the attack
 // has landed, the disc as a textured fan through its points, the centre
 // at its sprite's alpha and the rim in light red, closed on the first
