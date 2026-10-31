@@ -21,6 +21,20 @@ int ScreenEffect::DeletedCallback(ScreenEffect *effect)
     return 0;
 }
 
+int ScreenEffect::OnDrawScreen(ScreenEffect *effect)
+{
+    float area[4];
+
+    area[0] = 0.0f;
+    area[1] = 0.0f;
+    area[2] = 640.0f;
+    area[3] = 480.0f;
+    g_SpriteEngine->FlushQuadBatch();
+    g_App.SetView(2);
+    DrawColorRect(area, effect->alpha << 24 | effect->color);
+    return 1;
+}
+
 void ScreenEffect::Finish()
 {
     this->finishing = 1;

@@ -474,7 +474,7 @@ address,size,name,symbol
 0x00422930,18,ScreenEffect::Finish,?Finish@ScreenEffect@@QAEXXZ
 0x00422950,15,Func422950,
 0x00422960,527,DrawColorRect,?DrawColorRect@@YIXPAMK@Z
-0x00422b70,89,Func422b70,
+0x00422b70,89,ScreenEffect::OnDrawScreen,?OnDrawScreen@ScreenEffect@@SIHPAV1@@Z
 0x00422bd0,62,Func422bd0,
 0x00422c10,62,Func422c10,
 0x00422c50,113,Func422c50,
