@@ -59,6 +59,43 @@ int ExAttackInit444f00(ExAttack *attack)
     return 0;
 }
 
+// The init callback of extra attack type 10: type 5's, waiting 40
+// frames and falling where it is on the target's side, drifting a
+// little sideways. Returns 0 (0x445050).
+int ExAttackInit445050(ExAttack *attack)
+{
+    ExAttackData05 *data;
+
+    attack->AllocSprites(1, sizeof(ExAttackData05));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData05 *)attack->data;
+    data->velocity.x = 0.0f;
+    data->velocity.y = 0.0f;
+    data->velocity.z = 0.0f;
+    data->acceleration.x = g_Rng.GetRandomF32SignedInRange(0.001f);
+    data->acceleration.y = 0.025f;
+    data->acceleration.z = 0.0f;
+    data->state = 0;
+    attack->timer = 40;
+    attack->layer = 2;
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->targetPos.x = attack->pos.x;
+    data->targetPos.y = attack->pos.y;
+    data->targetPos.z = 0.0f;
+    data->end.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    return 0;
+}
+
 // The unknown30450 of character 5: while unknown34 reaches 25 -
 // unknownB4 / 2, sends an extra attack of type 5 from `pos` and takes
 // as much off it. Returns 0 (0x445330).
