@@ -1,6 +1,7 @@
 // Character 4's extra attacks and callbacks (pl/pl04.cpp).
 
 #include "enemy.h"
+#include "effect.h"
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
@@ -45,4 +46,18 @@ int ShotUpdate4446a0(Player *player, PlayerBullet *bullet)
     }
     bullet->unknown472 = 1;
     return 0;
+}
+
+// An update callback of the effect table: grows unknown7c by 8 up to
+// 48, sets unknownC9 and puts the effect on its side's player. Returns
+// 1 (0x444eb0).
+int EffectUpdate444eb0(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 48.0f)
+    {
+        effect->unknown7c += 8.0f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    return 1;
 }
