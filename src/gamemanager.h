@@ -276,7 +276,9 @@ public:
     unsigned char pad_140[0x145 - 0x140];
     // The replay to play.
     char replayFile[0x200];
-    unsigned char pad_345[0x348 - 0x345];
+    unsigned char pad_345[0x346 - 0x345];
+    // The seed the game started with, which the replay records.
+    WORD rngSeed;
     int frames;
     unsigned char pad_34c[0x350 - 0x34c];
     float arena[4];

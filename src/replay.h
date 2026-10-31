@@ -13,7 +13,9 @@ struct ReplayInfo
     ReplayInfo();
 
     BYTE randomByte;
-    unsigned char pad_1[0x4 - 0x1];
+    // 'a' and 0x150: the version, 1.50a.
+    char versionLetter;
+    WORD version;
     // g_Hscr's date, and the player's name, when it is saved.
     char date[0xa];
     char name[9];
@@ -86,7 +88,10 @@ struct ReplayHeader
     // App::CheckVersionFile.
     DWORD exeSize;
     DWORD exeChecksum;
-    char exeVersion[0xa];
+    char exeVersion[8];
+    // GameManager::mode and unknown114.
+    BYTE mode;
+    BYTE unknown1e5;
     // GameManager::unknown378 and unknown37c, and each side's unknown30.
     BYTE unknown1e6[2];
     BYTE unknown1e8[2];

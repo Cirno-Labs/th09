@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.56% (864)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0.72% (8)</tspan> · <tspan class="todo">7.36% (82)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.65% (865)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0.72% (8)</tspan> · <tspan class="todo">7.27% (81)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="579.36" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="579.36" y="0" class="decompiled"/>
-<rect width="5.36" height="6" x="686.65" y="0" class="nonmatching"/>
-<rect width="54.99" height="6" x="692.01" y="0" class="todo"/>
+<rect width="580.03" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="580.03" y="0" class="decompiled"/>
+<rect width="5.36" height="6" x="687.32" y="0" class="nonmatching"/>
+<rect width="54.32" height="6" x="692.68" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -520,7 +520,7 @@
 <rect width="12" height="12" x="720" y="120" class="named"><title>0x00420c10 ReplayManager::RemoveChain (42 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="120" class="named"><title>0x00420c40 ReplayHeader::ReplayHeader (18 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="135" class="nonmatching"><title>0x00420c60 ReplayManager::SaveReplay (1238 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="135" class="todo"><title>0x00421140 ReplayManager::AddedCallbackMode0 (1323 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="135" class="named"><title>0x00421140 ReplayManager::AddedCallbackMode0 (1323 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="135" class="named"><title>0x00421670 ReplayManager::RegisterChain (361 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="135" class="named"><title>0x004217e0 ReplayManager::RunAddedCallback (21 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="135" class="named"><title>0x00421800 InsertHighScore (216 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.17%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">9.69%</tspan> · <tspan class="todo">24.31%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">51.61%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">9.69%</tspan> · <tspan class="todo">23.87%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="382.23" height="6" x="0" y="0" class="named"/>
-<rect width="110.80" height="6" x="382.23" y="0" class="decompiled"/>
-<rect width="72.36" height="6" x="493.03" y="0" class="nonmatching"/>
-<rect width="181.61" height="6" x="565.39" y="0" class="todo"/>
+<rect width="385.56" height="6" x="0" y="0" class="named"/>
+<rect width="110.80" height="6" x="385.56" y="0" class="decompiled"/>
+<rect width="72.36" height="6" x="496.36" y="0" class="nonmatching"/>
+<rect width="178.28" height="6" x="568.72" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.09" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1233,7 +1233,7 @@
 <rect width="33.96" height="30.68" x="206.77" y="249.20" class="todo"><title>0x0043f1f0 SoundPlayer::PlayQueuedSounds (1416 bytes)</title></rect>
 <rect width="33.96" height="29.99" x="206.77" y="282.88" class="todo"><title>0x0042689a MainMenu::UpdateState11 (1387 bytes)</title></rect>
 <rect width="33.96" height="29.13" x="206.77" y="315.87" class="named"><title>0x0042e3b0 WinMain (1351 bytes)</title></rect>
-<rect width="30.60" height="31.62" x="243.73" y="0" class="todo"><title>0x00421140 ReplayManager::AddedCallbackMode0 (1323 bytes)</title></rect>
+<rect width="30.60" height="31.62" x="243.73" y="0" class="named"><title>0x00421140 ReplayManager::AddedCallbackMode0 (1323 bytes)</title></rect>
 <rect width="30.60" height="30.49" x="243.73" y="34.62" class="todo"><title>0x004234f6 MainMenu::DrawState11 (1280 bytes)</title></rect>
 <rect width="30.60" height="29.39" x="243.73" y="68.11" class="nonmatching"><title>0x00420c60 ReplayManager::SaveReplay (1238 bytes)</title></rect>
 <rect width="30.60" height="29.26" x="243.73" y="100.50" class="todo"><title>0x004141c0 RunBulletCommands (1233 bytes)</title></rect>
