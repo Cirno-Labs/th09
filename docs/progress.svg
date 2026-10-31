@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">4.58% (51)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">24.24% (270)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">4.67% (52)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">24.15% (269)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="531.75" height="6" x="0" y="0" class="named"/>
-<rect width="34.20" height="6" x="531.75" y="0" class="decompiled"/>
-<rect width="181.05" height="6" x="565.95" y="0" class="todo"/>
+<rect width="34.87" height="6" x="531.75" y="0" class="decompiled"/>
+<rect width="180.38" height="6" x="566.62" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1179,18 +1179,18 @@
 <rect width="12" height="12" x="120" y="330" class="todo"><title>0x0044c2e0 Func44c2e0 (98 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="330" class="todo"><title>0x0044c350 Func44c350 (361 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="330" class="todo"><title>0x0044c4c0 Func44c4c0 (446 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="330" class="todo"><title>0x0044c680 Func44c680 (98 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="330" class="decompiled"><title>0x0044c680 PlayerComboFunc44c680 (98 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="330" class="todo"><title>0x0044c6f0 Func44c6f0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="330" class="todo"><title>0x0044c790 Func44c790 (972 bytes)</title></rect>
 </g>
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">2.17%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.76%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">2.20%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.73%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.26" height="6" x="0" y="0" class="named"/>
-<rect width="16.19" height="6" x="314.26" y="0" class="decompiled"/>
-<rect width="416.56" height="6" x="330.44" y="0" class="todo"/>
+<rect width="16.43" height="6" x="314.26" y="0" class="decompiled"/>
+<rect width="416.31" height="6" x="330.69" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1750,7 +1750,7 @@
 <rect width="6.06" height="6.51" x="601.40" y="272.29" class="todo"><title>0x00449c70 Func449c70 (98 bytes)</title></rect>
 <rect width="6.06" height="6.51" x="601.40" y="281.80" class="todo"><title>0x00449ce0 Func449ce0 (98 bytes)</title></rect>
 <rect width="6.06" height="6.51" x="601.40" y="291.31" class="todo"><title>0x0044c2e0 Func44c2e0 (98 bytes)</title></rect>
-<rect width="6.06" height="6.51" x="601.40" y="300.82" class="todo"><title>0x0044c680 Func44c680 (98 bytes)</title></rect>
+<rect width="6.06" height="6.51" x="601.40" y="300.82" class="decompiled"><title>0x0044c680 PlayerComboFunc44c680 (98 bytes)</title></rect>
 <rect width="6.06" height="6.42" x="601.40" y="310.34" class="named"><title>0x00432340 Network::ReleaseInterfaces (97 bytes)</title></rect>
 <rect width="6.06" height="6.42" x="601.40" y="319.75" class="named"><title>0x0043bf30 SpriteEngine::ReleaseSurface (97 bytes)</title></rect>
 <rect width="6.06" height="6.42" x="601.40" y="329.17" class="decompiled"><title>0x00442ee0 PlayerComboFunc442ee0 (97 bytes)</title></rect>
