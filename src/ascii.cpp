@@ -225,6 +225,166 @@ void PauseMenu::DrawPauseMenu()
     }
 }
 
+int ContinueMenu::UpdateContinueMenu()
+{
+    DWORD i;
+
+    if (g_GameManager.IsReplay())
+    {
+        g_GameManager.isInContinueMenu = 0;
+        g_App.scene = 1;
+        return 1;
+    }
+    if (g_GameManager.sides[0].stats->unknown14 >= 3)
+    {
+        g_GameManager.isInContinueMenu = 0;
+        g_App.scene = 6;
+        return 1;
+    }
+    switch (this->state)
+    {
+    case 0:
+        if (!g_GameManager.IsMode1())
+        {
+            for (i = 0; i < 5; i++)
+            {
+                g_AsciiText.anm->StartScript(&this->sprites[i], i + 8);
+            }
+            for (i = 0; i < 5; i++)
+            {
+                this->sprites[i].pendingInterrupt = 1;
+            }
+            g_AsciiText.anm->SetSprite(&this->sprites[4], 0x78 - g_GameManager.sides[0].stats->unknown14);
+        }
+        else
+        {
+            for (i = 0; i < 3; i++)
+            {
+                g_AsciiText.anm->StartScript(&this->sprites[i], i + 0x11);
+            }
+            for (i = 0; i < 3; i++)
+            {
+                this->sprites[i].pendingInterrupt = 1;
+            }
+        }
+        this->state++;
+        this->stateFrames = 0;
+    case 1:
+        this->sprites[1].color = 0xff505050;
+        this->sprites[2].color = 0xffff8080;
+        this->sprites[1].posOffset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+        this->sprites[2].posOffset = D3DXVECTOR3(-4.0f, -4.0f, 0.0f);
+        if (this->stateFrames >= 4)
+        {
+            if (g_PlayerInputs[2].IsJustPressed(0x10) || g_PlayerInputs[2].IsJustPressed(0x20))
+            {
+                this->state = 2;
+                g_SoundPlayer.PlaySoundByIdx(0, 0);
+            }
+            if (g_PlayerInputs[2].IsJustPressed(0x1001))
+            {
+                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                for (i = 0; i < 5; i++)
+                {
+                    this->sprites[i].pendingInterrupt = 1;
+                }
+                this->state = 4;
+                this->stateFrames = 0;
+            }
+        }
+        break;
+    case 2:
+        this->sprites[2].color = 0xff505050;
+        this->sprites[1].color = 0xffff8080;
+        this->sprites[2].posOffset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+        this->sprites[1].posOffset = D3DXVECTOR3(-4.0f, -4.0f, 0.0f);
+        if (this->stateFrames >= 4)
+        {
+            if (g_PlayerInputs[2].IsJustPressed(0x10) || g_PlayerInputs[2].IsJustPressed(0x20))
+            {
+                this->state = 1;
+                g_SoundPlayer.PlaySoundByIdx(0, 0);
+            }
+            if (g_PlayerInputs[2].IsJustPressed(0x1001))
+            {
+                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                for (i = 0; i < 5; i++)
+                {
+                    this->sprites[i].pendingInterrupt = 1;
+                }
+                this->state = 3;
+                this->stateFrames = 0;
+            }
+        }
+        break;
+    case 4:
+        if (this->stateFrames >= 20)
+        {
+            this->state = 0;
+            this->stateFrames = 0;
+            g_GameManager.isInContinueMenu = 0;
+            g_App.scene = 6;
+            for (i = 0; i < 5; i++)
+            {
+                this->sprites[i].ClearShown();
+            }
+            g_App.lastTotalPlayTimeTick = timeGetTime();
+            return 1;
+        }
+        break;
+    case 3:
+        if (this->stateFrames >= 20)
+        {
+            if (!g_GameManager.IsMode1())
+            {
+                this->state = 0;
+                this->stateFrames = 0;
+                g_GameManager.isInContinueMenu = 0;
+                for (i = 0; i < 5; i++)
+                {
+                    this->sprites[i].ClearShown();
+                }
+                g_GameManager.sides[0].stats->unknown14++;
+                g_GameManager.stateFlags |= 0x2000;
+                g_GameManager.sides[0].stats->guiScore = 0;
+                g_GameManager.sides[0].stats->score = 0;
+                g_GameManager.sides[0].stats->scoreIncrement = 0;
+                g_GameManager.sides[1].stats->guiScore = 0;
+                g_GameManager.sides[1].stats->score = 0;
+                g_GameManager.sides[1].stats->scoreIncrement = 0;
+                g_App.redrawFrames = 8;
+                g_App.lastTotalPlayTimeTick = timeGetTime();
+                g_App.StopBgm();
+                g_App.PlayBgm();
+                GameManager::ResetRound();
+                g_GameManager.unknown108[0] = 0;
+                g_GameManager.unknown108[1] = 0;
+                g_GameManager.sides[0].stats->lives = g_GameManager.unknownE8->unknownAc + 2.0f;
+                g_GameManager.stateFlags |= 0x4000;
+                return 1;
+            }
+            this->state = 0;
+            g_App.scene = 13;
+            this->stateFrames = 0;
+            g_GameManager.unknownFc = 0;
+            g_GameManager.isInContinueMenu = 0;
+            g_App.lastTotalPlayTimeTick = timeGetTime();
+            return 1;
+        }
+        break;
+    }
+    for (i = 0; i < 5; i++)
+    {
+        g_SpriteEngine->Step(&this->sprites[i]);
+    }
+    if ((g_App.stateFlags >> 1) & 1)
+    {
+        g_SpriteEngine->Step(&this->background);
+    }
+    this->stateFrames++;
+    return 0;
+}
+
 void ContinueMenu::DrawContinueMenu()
 {
     int i;

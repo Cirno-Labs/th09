@@ -63,7 +63,12 @@ ASSERT_SIZE(PauseMenu, 0x1528);
 class ContinueMenu
 {
 public:
-    // Updates it; nonzero stops AsciiText::OnUpdate (0x434e90).
+    // Updates it; nonzero stops AsciiText::OnUpdate (0x434e90). In a
+    // replay, or once side 0's stats->unknown14 reaches 3, it leaves for
+    // scene 1 or 6. Otherwise it asks whether to continue: no goes to
+    // scene 6; yes counts unknown14 up, clears both sides' scores,
+    // restarts the music and the round and gives side 0
+    // unknownE8->unknownAc + 2 lives (mode 1 goes to scene 13 instead).
     int UpdateContinueMenu();
     // Draws it while in the continue menu (0x435370).
     void DrawContinueMenu();
