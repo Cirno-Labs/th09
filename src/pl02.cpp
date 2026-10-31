@@ -430,6 +430,73 @@ int ExAttackInit442a60(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack type 4: type 3's twin on the
+// target's side, dragging its trail and sprites the same way and, after
+// 30 frames, flying on by unknown04 as five hit circles on its trail
+// until the parent's trail point 24 leaves the screen. Once the parent
+// is gone or has hit, its sprites are interrupted and it ends 15 frames
+// later. Returns 1 once it is done (0x442bd0).
+int ExAttackUpdate442bd0(ExAttack *attack)
+{
+    ExAttackData03 *data = (ExAttackData03 *)attack->data;
+    int i;
+
+    switch (data->state)
+    {
+    case 0:
+    {
+        for (i = 0x1f; i > 0; i--)
+        {
+            data->trail[i] = data->trail[i - 1];
+        }
+        data->trail[0] = attack->pos;
+        attack->sprites[1].posOffset = data->trail[6] - attack->pos;
+        attack->sprites[2].posOffset = data->trail[12] - attack->pos;
+        attack->sprites[3].posOffset = data->trail[18] - attack->pos;
+        attack->sprites[4].posOffset = data->trail[24] - attack->pos;
+        ExAttackData03 *parentData = (ExAttackData03 *)((ExAttack *)attack->target)->data;
+        D3DXVECTOR3 size;
+        float *s = size;
+        s[0] = 12.0f;
+        s[1] = 12.0f;
+        s[2] = 0.0f;
+        if (parentData == NULL || parentData->state != 0)
+        {
+            attack->timer = 0;
+            data->state = 1;
+            attack->sprites[0].SetPendingInterrupt(1);
+            attack->sprites[1].SetPendingInterrupt(1);
+            attack->sprites[2].SetPendingInterrupt(1);
+            attack->sprites[3].SetPendingInterrupt(1);
+            attack->sprites[4].SetPendingInterrupt(1);
+            break;
+        }
+        if (attack->timer >= 30)
+        {
+            attack->pos += data->unknown04;
+            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&data->trail[6], 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&data->trail[12], 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&data->trail[18], 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&data->trail[24], 12.0f, NULL);
+            if (parentData->trail[24].x < -32.0f || parentData->trail[24].x > 672.0f ||
+                parentData->trail[24].y < -32.0f || parentData->trail[24].y > 512.0f)
+            {
+                return 1;
+            }
+        }
+        break;
+    }
+    case 1:
+        if (attack->timer >= 15)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The free callback of extra attack type 4: frees the data block, which
 // its init allocates apart from the sprites. Returns 0 (0x442ec0).
 int ExAttackFree442ec0(ExAttack *attack)

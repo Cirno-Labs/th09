@@ -993,7 +993,7 @@ address,size,name,symbol
 0x00442580,454,ExAttackInit442580,?ExAttackInit442580@@YIHPAUExAttack@@@Z
 0x00442750,780,ExAttackUpdate442750,?ExAttackUpdate442750@@YIHPAUExAttack@@@Z
 0x00442a60,368,ExAttackInit442a60,?ExAttackInit442a60@@YIHPAUExAttack@@@Z
-0x00442bd0,739,Func442bd0,
+0x00442bd0,739,ExAttackUpdate442bd0,?ExAttackUpdate442bd0@@YIHPAUExAttack@@@Z
 0x00442ec0,32,ExAttackFree442ec0,?ExAttackFree442ec0@@YIHPAUExAttack@@@Z
 0x00442ee0,97,PlayerComboFunc442ee0,?PlayerComboFunc442ee0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00442f50,187,EffectInit442f50,?EffectInit442f50@@YIHPAUEffect@@@Z

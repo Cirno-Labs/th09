@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">12.84% (143)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">15.71% (175)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45% (796)</tspan> · <tspan class="decompiled">12.93% (144)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">15.62% (174)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="533.76" height="6" x="0" y="0" class="named"/>
-<rect width="95.89" height="6" x="533.76" y="0" class="decompiled"/>
-<rect width="117.35" height="6" x="629.65" y="0" class="todo"/>
+<rect width="96.56" height="6" x="533.76" y="0" class="decompiled"/>
+<rect width="116.68" height="6" x="630.32" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1062,7 +1062,7 @@
 <rect width="12" height="12" x="615" y="285" class="decompiled"><title>0x00442580 ExAttackInit442580 (454 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="285" class="decompiled"><title>0x00442750 ExAttackUpdate442750 (780 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="285" class="decompiled"><title>0x00442a60 ExAttackInit442a60 (368 bytes)</title></rect>
-<rect width="12" height="12" x="660" y="285" class="todo"><title>0x00442bd0 Func442bd0 (739 bytes)</title></rect>
+<rect width="12" height="12" x="660" y="285" class="decompiled"><title>0x00442bd0 ExAttackUpdate442bd0 (739 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="285" class="decompiled"><title>0x00442ec0 ExAttackFree442ec0 (32 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="285" class="decompiled"><title>0x00442ee0 PlayerComboFunc442ee0 (97 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="285" class="decompiled"><title>0x00442f50 EffectInit442f50 (187 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">10.79%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">47.10%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.11%</tspan> · <tspan class="decompiled">11.04%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">46.85%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.55" height="6" x="0" y="0" class="named"/>
-<rect width="80.62" height="6" x="314.55" y="0" class="decompiled"/>
-<rect width="351.83" height="6" x="395.17" y="0" class="todo"/>
+<rect width="82.48" height="6" x="314.55" y="0" class="decompiled"/>
+<rect width="349.97" height="6" x="397.03" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1284,7 +1284,7 @@
 <rect width="22.61" height="22.69" x="361.80" y="25.79" class="decompiled"><title>0x00446920 ExAttackUpdate446920 (748 bytes)</title></rect>
 <rect width="22.61" height="22.59" x="361.80" y="51.48" class="todo"><title>0x00421f10 SaveScore (745 bytes)</title></rect>
 <rect width="22.61" height="22.52" x="361.80" y="77.07" class="named"><title>0x004367b0 RenderTextToTexture (743 bytes)</title></rect>
-<rect width="22.61" height="22.38" x="361.80" y="102.58" class="todo"><title>0x00442bd0 Func442bd0 (739 bytes)</title></rect>
+<rect width="22.61" height="22.38" x="361.80" y="102.58" class="decompiled"><title>0x00442bd0 ExAttackUpdate442bd0 (739 bytes)</title></rect>
 <rect width="22.61" height="22.28" x="361.80" y="127.96" class="named"><title>0x004307c0 App::InitCameras (736 bytes)</title></rect>
 <rect width="22.61" height="22.14" x="361.80" y="153.24" class="todo"><title>0x00449d50 Func449d50 (732 bytes)</title></rect>
 <rect width="22.61" height="21.97" x="361.80" y="178.38" class="todo"><title>0x0044b220 Func44b220 (727 bytes)</title></rect>
