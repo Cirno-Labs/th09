@@ -270,7 +270,7 @@ Gui *Gui::RegisterChain()
 // Static, with the side in eax (0x418930).
 static int FreeResources(GuiSide *side)
 {
-    if (side->unknownA678.unknown4 != 0)
+    if (side->unknownA678.unknown4 != NULL)
     {
         g_SpriteEngine->ReleaseAnm(7);
     }
@@ -306,6 +306,61 @@ void GuiSide::SetUnknown76d4Time(int frames)
     hundredths = frames % 60 * 100 / 60;
     this->anm->SetSprite(&this->unknown76d4[4], hundredths / 10 + 0x35);
     this->anm->SetSprite(&this->unknown76d4[5], hundredths % 10 + 0x35);
+}
+
+int GuiSide::AddedCallback(GuiSide *side)
+{
+    DWORD i;
+    int sideIdx;
+
+    side->anm = g_SpriteEngine->GetAnm(10);
+    if (side->anm == NULL)
+    {
+        return -1;
+    }
+    sideIdx = side->sideIdx;
+    side->unknownA678.anm = g_SpriteEngine->GetAnm(sideIdx + 5);
+    if (sideIdx == 0 && g_GameManager.unknownFc == 8 && side->side->character == 6)
+    {
+        side->unknownA678.unknown4 =
+            g_SpriteEngine->PreloadAnm(7, g_Pl06FcAnmFiles[g_GameManager.sides[0].unknown30]);
+        if (side->unknownA678.unknown4 == NULL)
+        {
+            return -1;
+        }
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown0); i++)
+    {
+        side->anm->StartScriptAtOrigin(&side->unknown0[i], i + 7);
+        side->unknown0[i].posOffset = side->unknown0[i].pos;
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown1d0c); i++)
+    {
+        side->anm->StartScriptAtOrigin(&side->unknown1d0c[i], i + 0x23);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown2a40); i++)
+    {
+        side->anm->StartScriptAtOrigin(&side->unknown2a40[i], i + 0x34);
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown3f60); i++)
+    {
+        side->anm->StartScriptAtOrigin(&side->unknown3f60[i], i + 0x14);
+    }
+    side->anm->StartScriptAtOrigin(&side->unknown3cbc, 0x3b);
+    if (!g_GameManager.IsMode2())
+    {
+        for (i = 0; i < ARRAY_SIZE(side->unknown86ac); i++)
+        {
+            side->anm->StartScriptAtOrigin(&side->unknown86ac[i], i + 0x28);
+        }
+    }
+    for (i = 0; i < ARRAY_SIZE(side->unknown9928); i++)
+    {
+        side->anm->StartScriptAtOrigin(&side->unknown9928[i], i + 0x2f);
+    }
+    side->timerAbdc = 0;
+    memset(&side->unknown59c8, 0, sizeof(side->unknown59c8));
+    return 0;
 }
 
 void GuiSide::RemoveChain(GuiSide *side)

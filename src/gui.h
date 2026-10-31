@@ -159,14 +159,19 @@ ASSERT_SIZE(Gui, 0x1293c);
 
 struct GameSide;
 
+// pl06_fc_s.anm and pl06b_fc_s.anm, by GameSide::unknown30.
+extern char *g_Pl06FcAnmFiles[2];
+
 // A part of GuiSide with two sprites (0x554 bytes). Only the fields
 // known so far.
 struct GuiSideA678
 {
     // SpellCard::Start runs scripts of it on the sprites.
     AnmLoaded *anm;
-    // GuiSide's resources include ANM slot 7 while it is set.
-    int unknown4;
+    // pl06_fc_s.anm or pl06b_fc_s.anm in ANM slot 7, loaded on side 0
+    // when unknownFc is 8 and the side plays character 6; GuiSide's
+    // resources include the slot while it is set.
+    AnmLoaded *unknown4;
     int unknown8;
     Sprite sprites[2];
 };
