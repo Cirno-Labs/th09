@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.43% (755)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.36% (304)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.52% (756)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.26% (303)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="526.11" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="526.11" y="0" class="decompiled"/>
-<rect width="211.84" height="6" x="535.16" y="0" class="todo"/>
+<rect width="526.80" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="526.80" y="0" class="decompiled"/>
+<rect width="211.14" height="6" x="535.86" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -662,7 +662,7 @@
 <rect width="12" height="12" x="615" y="165" class="named"><title>0x0042cd10 CreateD3d (46 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="165" class="todo"><title>0x0042cd40 Func42cd40 (74 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="165" class="todo"><title>0x0042cd90 Func42cd90 (809 bytes)</title></rect>
-<rect width="12" height="12" x="660" y="165" class="todo"><title>0x0042d0c0 Func42d0c0 (124 bytes)</title></rect>
+<rect width="12" height="12" x="660" y="165" class="named"><title>0x0042d0c0 ForceForegroundWindow (124 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="165" class="todo"><title>0x0042d140 Func42d140 (225 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="165" class="todo"><title>0x0042d230 Func42d230 (10 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="165" class="todo"><title>0x0042d240 Func42d240 (80 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.41%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.87%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.45%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.83%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="294.39" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="294.39" y="0" class="decompiled"/>
-<rect width="447.22" height="6" x="299.78" y="0" class="todo"/>
+<rect width="294.71" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="294.71" y="0" class="decompiled"/>
+<rect width="446.90" height="6" x="300.10" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1624,7 +1624,7 @@
 <rect width="7.44" height="7.41" x="658.59" y="168.91" class="named"><title>0x0043bd40 SpriteEngine::RenderTextToTextureIndex (127 bytes)</title></rect>
 <rect width="7.36" height="7.41" x="669.03" y="168.91" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
 <rect width="7.19" height="7.41" x="679.39" y="168.91" class="named"><title>0x00422fd1 MainMenu::ShowButtonDigits (124 bytes)</title></rect>
-<rect width="7.19" height="7.41" x="689.58" y="168.91" class="todo"><title>0x0042d0c0 Func42d0c0 (124 bytes)</title></rect>
+<rect width="7.19" height="7.41" x="689.58" y="168.91" class="named"><title>0x0042d0c0 ForceForegroundWindow (124 bytes)</title></rect>
 <rect width="7.11" height="7.41" x="699.77" y="168.91" class="named"><title>0x0040d200 EffectManager::FreeEffects (123 bytes)</title></rect>
 <rect width="7.11" height="7.41" x="709.88" y="168.91" class="named"><title>0x00422470 ScreenEffect::OnUpdateFadeOut (123 bytes)</title></rect>
 <rect width="7.11" height="7.41" x="720" y="168.91" class="todo"><title>0x0042cc90 Func42cc90 (123 bytes)</title></rect>

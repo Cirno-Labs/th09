@@ -81,6 +81,9 @@ extern Log g_Log;
 // Creates g_App.d3d, as th08's. Returns 0, or logs and returns 1
 // (0x42cd10).
 int CreateD3d();
+// Brings `hwnd` to the front despite the foreground lock, as th08's.
+// __stdcall, unlike the rest of the game (0x42d0c0).
+void __stdcall ForceForegroundWindow(HWND hwnd);
 
 // Appends a printf-style message to `log` if it fits, inside critical
 // section 3, as th08's. Returns `fmt` (0x42c5c0).

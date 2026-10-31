@@ -12,3 +12,19 @@ int CreateD3d()
     }
     return 0;
 }
+
+void __stdcall ForceForegroundWindow(HWND hwnd)
+{
+    DWORD activeThread;
+    DWORD thread;
+    DWORD lockTime;
+
+    activeThread = GetWindowThreadProcessId(GetForegroundWindow(), NULL);
+    thread = GetWindowThreadProcessId(hwnd, NULL);
+    AttachThreadInput(thread, activeThread, TRUE);
+    SystemParametersInfoA(SPI_GETFOREGROUNDLOCKTIMEOUT, 0, &lockTime, 0);
+    SystemParametersInfoA(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, NULL, 0);
+    SetActiveWindow(hwnd);
+    SystemParametersInfoA(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, &lockTime, 0);
+    AttachThreadInput(thread, activeThread, FALSE);
+}

@@ -593,7 +593,7 @@ address,size,name,symbol
 0x0042cd10,46,CreateD3d,?CreateD3d@@YIHXZ
 0x0042cd40,74,Func42cd40,
 0x0042cd90,809,Func42cd90,
-0x0042d0c0,124,Func42d0c0,
+0x0042d0c0,124,ForceForegroundWindow,?ForceForegroundWindow@@YGXPAUHWND__@@@Z
 0x0042d140,225,Func42d140,
 0x0042d230,10,Func42d230,
 0x0042d240,80,Func42d240,
