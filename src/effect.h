@@ -147,6 +147,10 @@ public:
     static int OnUpdate(EffectManager *mgr);
     static int OnDraw(EffectManager *mgr);
     static int OnDraw2(EffectManager *mgr);
+    // Draws the second list's effects, with their draw callbacks or their
+    // sprites at their position in the play area; BulletManager::OnDraw
+    // calls it. Returns 1 (0x40d110).
+    static int DrawUnknown114(EffectManager *mgr);
     // The update element's added callback: takes etama.anm from ANM
     // slot 8, loading it if needed. Returns 0 (0x40d1c0).
     static int AddedCallback(EffectManager *mgr);

@@ -164,6 +164,34 @@ Effect *EffectManager::SpawnReservedEffect(int effectIdx, D3DXVECTOR3 *pos, int 
     return effect;
 }
 
+int EffectManager::DrawUnknown114(EffectManager *mgr)
+{
+    Effect *effect;
+    Sprite *sprite;
+    int i;
+
+    for (effect = mgr->unknown114.next; effect != NULL; effect = effect->next)
+    {
+        if (effect->draw != NULL)
+        {
+            effect->draw(effect);
+        }
+        else
+        {
+            sprite = effect->sprites;
+            for (i = effect->spriteCount; i > 0; i--, sprite++)
+            {
+                sprite->pos.x = g_GameManager.ArenaToScreenX(effect->pos.x);
+                sprite->pos.y = g_GameManager.ArenaToScreenY(effect->pos.y);
+                sprite->pos.z = 0.08f;
+                sprite->pos += sprite->posOffset;
+                g_SpriteEngine->Draw(sprite);
+            }
+        }
+    }
+    return 1;
+}
+
 int EffectManager::FreeEffects(EffectManager *mgr)
 {
     int i;
