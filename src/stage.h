@@ -8,6 +8,38 @@
 
 struct GameSide;
 
+// An instruction of the stage script: at `frame`, `opcode` acts on
+// `args`, as th08's.
+struct StageInstr
+{
+    int frame;
+    short opcode;
+    short unusedShort06;
+    D3DXVECTOR3 args;
+};
+
+// D3DRS_FOGSTART, D3DRS_FOGEND and D3DRS_FOGCOLOR, as th08's.
+struct StageFog
+{
+    float nearPlane;
+    float farPlane;
+    D3DCOLOR color;
+};
+
+// A camera of the stage script, as th08's, laid out as App's cameras.
+// Its vectors are D3DVECTORs: the stage's constructor builds none.
+struct StageCamera
+{
+    D3DVECTOR eye;
+    D3DVECTOR at;
+    D3DVECTOR up;
+    D3DVECTOR dir;
+    D3DVECTOR cameraRight;
+    D3DVECTOR offset;
+    float fov;
+    unsigned char pad_4c[0xf0 - 0x4c];
+};
+
 // A side's stage ("BGScrollInf", 0x65c4 bytes). Only the fields known so
 // far.
 class Stage
@@ -36,6 +68,13 @@ public:
     static Stage *RegisterChain(int sideIdx);
     // Draws background layer `layer` (0x4026c0).
     void DrawLayer(int layer);
+    // Jumps the script to the label waitLabel, if set, as th08's
+    // OnUpdate began (0x4018a0).
+    void JumpToWaitLabel();
+    // Runs the stage script up to the current frame, as th08's OnUpdate,
+    // on App's camera of the side. Then fades the cameras and the fog
+    // and shakes the camera (0x4018f0).
+    void RunScript();
     // Sets spellCardState to 1 and clears unknownCd0. Called by the ECL
     // interpreter; the copy is at 0x4067b0.
     void StartSpellCard();
@@ -48,37 +87,49 @@ public:
     // The side, and the other one.
     GameSide *side;
     GameSide *otherSide;
-    unsigned char pad_18[0x24 - 0x18];
+    // The label opcode 31 marks that the script jumps to, as th08's.
+    int waitLabel;
+    unsigned char pad_1c[0x24 - 0x1c];
     // Freed by DeletedCallback.
     void *unknown24;
-    unsigned char pad_28[0x2c - 0x28];
+    StageInstr *script;
     // Drawn under the layers while spellCardState is at most 1; the
     // first is placed by OnDraw.
     Sprite backgroundLayer0;
     Sprite backgroundLayer1;
-    Sprite unknown574;
-    unsigned char pad_818[0x820 - 0x818];
+    Sprite backgroundLayer2;
+    AnmLoaded *anm;
+    unsigned char pad_81c[0x820 - 0x81c];
     // Freed by DeletedCallback.
     void *unknown820;
-    unsigned char pad_824[0xc08 - 0x824];
-    Timer unknownC08[5];
-    unsigned char pad_c44[0xc58 - 0xc44];
-    Timer unknownC58;
-    unsigned char pad_c64[0xc68 - 0xc64];
+    unsigned char pad_824[0x834 - 0x824];
+    // The cameras the fades run between, and the Hermite tangents, as
+    // th08's.
+    StageCamera cameraFrom;
+    StageCamera cameraTo;
+    StageCamera cameraFadeTarget;
+    StageCamera cameraFadeStart;
+    // The fades of eye, at, up, fov and the shake, as th08's.
+    int cameraFadeFrames[5];
+    Timer cameraFadeTimer[5];
+    int cameraFadeMode[5];
+    Timer scriptTime;
+    int scriptIndex;
     // Cleared by RegisterChain.
     int unknownC68;
-    unsigned char pad_c6c[0xc7c - 0xc6c];
+    unsigned char pad_c6c[0xc70 - 0xc6c];
+    D3DVECTOR cameraPos;
     // OnDraw clears to the fog color if this is opaque, draws the fog
     // color over the arena if it is otherwise nonzero.
     D3DCOLOR clearColor;
     unsigned char pad_c80[0xc84 - 0xc80];
     Timer unknownC84;
     unsigned char pad_c90[0xc94 - 0xc90];
-    float fogNear;
-    float fogFar;
-    D3DCOLOR fogColor;
-    unsigned char pad_ca0[0xcbc - 0xca0];
-    Timer unknownCbc;
+    StageFog fog;
+    StageFog fogStart;
+    StageFog fogTarget;
+    int fogFadeFrames;
+    Timer fogFadeTime;
     // Set by SetDefaultRenderStates, as th08's.
     unsigned char fogColorChanged;
     unsigned char pad_cc9[0xccc - 0xcc9];
@@ -95,7 +146,14 @@ public:
     Sprite unknown6160;
     // Called by OnDraw2 once spellCardState is 1, if set.
     void (*spellCardDrawCallback)();
-    unsigned char pad_6408[0x642c - 0x6408];
+    // The script's key positions and their frames, as th08's.
+    D3DVECTOR nextKeyPos;
+    int nextKeyFrame;
+    D3DVECTOR keyPos;
+    int keyFrame;
+    // Set by opcode 4, cleared by opcode 5, as th08's.
+    BYTE cameraOffsetChanged;
+    unsigned char pad_6429[0x642c - 0x6429];
     // OnDraw modulates sprites by it if its alpha is nonzero.
     union
     {
@@ -111,7 +169,10 @@ public:
     // OnDraw stops modulating sprites unless set.
     // OnDraw2 clears it.
     int keepColorModulation;
-    unsigned char pad_6434[0x6440 - 0x6434];
+    unsigned char pad_6434[0x6438 - 0x6434];
+    // The camera shake opcode 33 starts, as th08's.
+    BYTE shakeMode;
+    unsigned char pad_6439[0x6440 - 0x6439];
     // Cleared by OnDraw2.
     int unknown6440;
     D3DXVECTOR3 unknown6444[0x20];

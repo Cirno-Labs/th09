@@ -1,5 +1,5 @@
 address,size,name,symbol
-0x00401000,91,Func401000,
+0x00401000,91,HermiteInterpolate,?HermiteInterpolate@@YIMMMMMM@Z
 0x00401060,12,cosf,@cosf@4
 0x00401070,12,sinf,@sinf@4
 0x00401080,12,Sqrt,?Sqrt@@YIMM@Z
@@ -42,8 +42,8 @@ address,size,name,symbol
 0x00401680,46,GameManager::ArenaToScreenX,?ArenaToScreenX@GameManager@@QAEMM@Z
 0x004016b0,46,GameManager::ArenaToScreenY,?ArenaToScreenY@GameManager@@QAEMM@Z
 0x004016e0,423,Func4016e0,
-0x004018a0,79,Func4018a0,
-0x004018f0,2472,Func4018f0,
+0x004018a0,79,Stage::JumpToWaitLabel,?JumpToWaitLabel@Stage@@QAEXXZ
+0x004018f0,2472,Stage::RunScript,?RunScript@Stage@@QAEXXZ
 0x00402350,377,Stage::OnUpdate,?OnUpdate@Stage@@SIHPAV1@@Z
 0x004024d0,85,Stage::DeletedCallback,?DeletedCallback@Stage@@SIHPAV1@@Z
 0x00402530,59,Stage::RemoveChain,?RemoveChain@Stage@@SIXPAV1@@Z

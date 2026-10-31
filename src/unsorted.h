@@ -689,7 +689,8 @@ struct Camera
     D3DXVECTOR3 eye;
     D3DXVECTOR3 at;
     D3DXVECTOR3 up;
-    unsigned char pad_24[0x30 - 0x24];
+    // `at`, normalized, as th08's Stage camera's.
+    D3DXVECTOR3 dir;
     // A unit to the camera's right, as th08's Stage camera's.
     D3DXVECTOR3 cameraRight;
     D3DXVECTOR3 offset;
