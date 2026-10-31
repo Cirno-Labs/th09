@@ -270,6 +270,50 @@ int PlayerEnemyFunc442550(Player *player, Enemy *enemy)
     return 0;
 }
 
+// The data of extra attack types 3 and 4 (0x190 bytes).
+struct ExAttackData03
+{
+    int state;
+    D3DXVECTOR3 unknown04;
+    // Where it was, newest first.
+    D3DXVECTOR3 trail[0x20];
+};
+ASSERT_SIZE(ExAttackData03, 0x190);
+
+// The init callback of extra attack type 4: five sprites, from scripts
+// 14 to 18, on the target's side at the screen position it was sent
+// from, starting from the attack it was sent for: its angle and
+// unknown04. Returns 0 (0x442a60).
+int ExAttackInit442a60(ExAttack *attack)
+{
+    ExAttackData03 *data;
+    ExAttack *parent;
+    int i;
+
+    attack->spriteCount = 5;
+    attack->sprites = (Sprite *)g_MemoryManager.Alloc(sizeof(Sprite) * 5, "./system\\global.h");
+    g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[0], 0xe);
+    g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[1], 0xf);
+    g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[2], 0x10);
+    g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[3], 0x11);
+    g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[4], 0x12);
+    data = (ExAttackData03 *)g_MemoryManager.Alloc(sizeof(ExAttackData03), "./system\\global.h");
+    attack->data = data;
+    g_App.SetCamera(attack->targetSide);
+    attack->pos.x = g_GameManager.ScreenToArenaX(attack->pos.x);
+    attack->pos.y = g_GameManager.ScreenToArenaY(attack->pos.y);
+    attack->layer = attack->targetSide;
+    parent = (ExAttack *)attack->target;
+    attack->angle = parent->angle;
+    data->unknown04 = ((ExAttackData03 *)parent->data)->unknown04;
+    data->state = 0;
+    for (i = 0; i < 0x20; i++)
+    {
+        data->trail[i] = attack->pos;
+    }
+    return 0;
+}
+
 // The free callback of extra attack type 4: frees the data block, which
 // its init allocates apart from the sprites. Returns 0 (0x442ec0).
 int ExAttackFree442ec0(ExAttack *attack)

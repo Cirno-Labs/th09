@@ -106,6 +106,16 @@ public:
     {
         return g_App.camera->viewport.Y + y - this->arena[1];
     }
+    // The reverse: the play area position of screen position `x` or `y`.
+    // Inline; the copies are pl02.cpp's (0x442420, 0x442450).
+    float ScreenToArenaX(float x)
+    {
+        return x - g_App.camera->viewport.X + this->arena[0];
+    }
+    float ScreenToArenaY(float y)
+    {
+        return y - g_App.camera->viewport.Y + this->arena[1];
+    }
     // Whether a `width` by `height` box centred on (`x`, `y`) touches the
     // play area, as th08's; th09's is centred on x = 0 (0x41a6eb).
     BOOL IsInPlayArea(float x, float y, float width, float height);

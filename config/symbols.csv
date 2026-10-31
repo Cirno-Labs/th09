@@ -986,13 +986,13 @@ address,size,name,symbol
 0x00442220,204,ShotDraw442220,?ShotDraw442220@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x004422f0,218,EffectUpdate4422f0,?EffectUpdate4422f0@@YIHPAUEffect@@@Z
 0x004423d0,68,ShotFire4423d0,?ShotFire4423d0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
-0x00442420,46,Func442420,
-0x00442450,46,Func442450,
+0x00442420,46,GameManager::ScreenToArenaX,?ScreenToArenaX@GameManager@@QAEMM@Z
+0x00442450,46,GameManager::ScreenToArenaY,?ScreenToArenaY@GameManager@@QAEMM@Z
 0x00442480,193,PlayerPosFunc442480,?PlayerPosFunc442480@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00442550,35,PlayerEnemyFunc442550,?PlayerEnemyFunc442550@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00442580,454,Func442580,
 0x00442750,780,Func442750,
-0x00442a60,368,Func442a60,
+0x00442a60,368,ExAttackInit442a60,?ExAttackInit442a60@@YIHPAUExAttack@@@Z
 0x00442bd0,739,Func442bd0,
 0x00442ec0,32,ExAttackFree442ec0,?ExAttackFree442ec0@@YIHPAUExAttack@@@Z
 0x00442ee0,97,PlayerComboFunc442ee0,?PlayerComboFunc442ee0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
