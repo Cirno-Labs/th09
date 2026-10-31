@@ -122,6 +122,24 @@ struct ExAttackData00
 };
 ASSERT_SIZE(ExAttackData00, 0x4c);
 
+// The data of extra attack types 19 and 21 (0x688 bytes): type 0's,
+// then a textured disc whose rim points wobble in and out.
+struct ExAttackData19
+{
+    ExAttackData00 base;
+    // The centre and the rim, in texture coordinates about (0.5, 0.5).
+    VertexTex1DiffuseXyzrwh vertices[0x21];
+    // The centre, then where each rim point is, unknown7c... about it.
+    D3DXVECTOR3 points[0x21];
+    float radii[0x21];
+    float radiusSpeeds[0x21];
+    // How fast the texture scrolls.
+    float scrollU;
+    float scrollV;
+    int unknown684;
+};
+ASSERT_SIZE(ExAttackData19, 0x688);
+
 // An extra attack type's callbacks (0x4a0f78). The first starts the
 // attack and returns nonzero if it fails.
 struct ExAttackType

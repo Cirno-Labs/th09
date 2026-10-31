@@ -7,24 +7,6 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The data of extra attack types 19 and 21 (0x688 bytes): type 0's,
-// then a textured disc whose rim points wobble in and out.
-struct ExAttackData19
-{
-    ExAttackData00 base;
-    // The centre and the rim, in texture coordinates about (0.5, 0.5).
-    VertexTex1DiffuseXyzrwh vertices[0x21];
-    // The centre, then where each rim point is, unknown7c... about it.
-    D3DXVECTOR3 points[0x21];
-    float radii[0x21];
-    float radiusSpeeds[0x21];
-    // How fast the texture scrolls.
-    float scrollU;
-    float scrollV;
-    int unknown684;
-};
-ASSERT_SIZE(ExAttackData19, 0x688);
-
 // The init callback of extra attack type 19, character 11's: type 0's
 // curve to a random spot on the lower half of the other side, and the
 // disc there, 80 in radius give or take 8, each rim point with its own

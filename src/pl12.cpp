@@ -256,3 +256,89 @@ int EffectUpdate44b1d0(Effect *effect)
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }
+
+// The data of extra attack type 21 (0x68c bytes): type 19's disc and
+// an angle.
+struct ExAttackData21
+{
+    ExAttackData19 disc;
+    // -pi to begin with.
+    float unknown688;
+};
+ASSERT_SIZE(ExAttackData21, 0x68c);
+
+// The init callback of extra attack type 21: type 19's disc, at a
+// random spot 128 to 256 down the other side, without a scrolling
+// texture. Returns 0 (0x44b220).
+int ExAttackInit44b220(ExAttack *attack)
+{
+    ExAttackData21 *data;
+    VertexTex1DiffuseXyzrwh *vtx;
+    D3DXVECTOR3 uv;
+    float angle;
+    float speed;
+    int i;
+
+    attack->AllocSprites(1, sizeof(ExAttackData21));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData21 *)attack->data;
+    {
+        float dir = g_Rng.GetRandomF32InRange(-3.1415927f);
+        data->disc.base.velocity.z = 0.0f;
+        SetPolar((Vector2 *)&data->disc.base.velocity, dir, 2.0f);
+    }
+    data->disc.base.state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->disc.base.tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->disc.base.tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->disc.base.start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->disc.base.start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->disc.base.start.z = 0.0f;
+    data->disc.base.targetPos.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 24.0f);
+    data->disc.base.targetPos.y = g_Rng.GetRandomF32InRange(128.0f) + 128.0f;
+    data->disc.base.targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->disc.base.end.x = g_GameManager.ArenaToScreenX(data->disc.base.targetPos.x);
+    data->disc.base.end.y = g_GameManager.ArenaToScreenY(data->disc.base.targetPos.y);
+    data->disc.base.end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    data->disc.points[0] = data->disc.base.targetPos;
+    data->unknown688 = -3.1415927f;
+    vtx = data->disc.vertices;
+    vtx->w = 1.0f;
+    vtx->uv.x = 0.5f;
+    vtx->uv.y = 0.5f;
+    angle = -3.1415927f;
+    vtx++;
+    speed = g_Rng.GetRandomF32SignedInRange(0.06666667f);
+    for (i = 1; i < 0x21; i++)
+    {
+        if (angle >= 3.1415927f)
+        {
+            angle -= 6.2831855f;
+        }
+        vtx->w = 1.0f;
+        SetPolar((Vector2 *)&uv, angle, 0.5f);
+        vtx->uv.x = uv.x + 0.5f;
+        vtx->uv.y = uv.y + 0.5f;
+        vtx++;
+        data->disc.points[i].z = 0.0f;
+        data->disc.radii[i] = g_Rng.GetRandomF32SignedInRange(8.0f) + 80.0f;
+        data->disc.radiusSpeeds[i] = speed;
+        speed += g_Rng.GetRandomF32SignedInRange(0.033333335f);
+        if (speed < -0.06666667f)
+        {
+            speed = -0.06666667f;
+        }
+        else if (speed > 0.06666667f)
+        {
+            speed = 0.06666667f;
+        }
+        SetPolar((Vector2 *)&data->disc.points[i], angle, data->disc.radii[i]);
+        data->disc.points[i] += data->disc.base.targetPos;
+        angle += 0.2026834f;
+    }
+    return 0;
+}
