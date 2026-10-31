@@ -84,6 +84,106 @@ int ExAttackInit443c70(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack types 14 and 22: flies in along
+// the curve for 90 frames, then falls on the target's side until it
+// touches the player there, leaves the bottom or comes within 96 of
+// them; there its sprite stops and hides, and the disc bursts out to 64
+// over 30 frames as a hit circle, then its rings scatter by the time for
+// 30 more. Returns 1 once it is done (0x443df0).
+int ExAttackUpdate443df0(ExAttack *attack)
+{
+    ExAttackData14 *data = (ExAttackData14 *)attack->data;
+    D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
+    D3DXVECTOR3 diff;
+    float t;
+    float angle;
+    int i;
+    int j;
+
+    switch (data->base.state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->base.end, &data->base.start, &data->base.tangent0,
+                           &data->base.tangent1, attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 9);
+            data->base.state++;
+            attack->pos = data->base.targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+        }
+        break;
+    case 1:
+        diff = g_GameManager.sides[attack->targetSide].player->pos - attack->pos;
+        attack->pos += data->base.velocity;
+        if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+        {
+            return 1;
+        }
+        if (attack->pos.y > 480.0f)
+        {
+            return 1;
+        }
+        if (diff.x * diff.x + diff.y * diff.y < 9216.0f)
+        {
+            g_SoundPlayer.PlaySoundByIdx(0x10, attack->targetSide != 0 ? 500 : -500);
+            attack->sprites->shown = 0;
+            attack->sprites->scriptPos = NULL;
+            attack->sprites->color = 0xffffffff;
+            data->base.state++;
+            attack->timer = 0;
+            return 0;
+        }
+        break;
+    case 2:
+        t = 1.0f - attack->timer.AsFloat() * 0.020833334f;
+        data->radius = (1.0f - t * t) * 64.0f;
+        if (attack->timer > 1)
+        {
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->base.state++;
+                attack->timer = 0;
+            }
+            else
+            {
+                g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos,
+                                                                                      data->radius * 0.8f, NULL);
+            }
+            if (attack->timer >= 30)
+            {
+                data->base.state++;
+                attack->timer = 0;
+                return 0;
+            }
+        }
+        break;
+    case 3:
+        angle = -3.1415927f;
+        for (i = 0; i < 4; i++)
+        {
+            for (j = 0; j < 0x20; j++)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                data->rings[i][0].pos.z = 0.0f;
+                data->offsets[i][j] = g_Rng.GetRandomF32SignedInRange(attack->timer.AsFloat());
+                angle += 0.2026834f;
+            }
+            angle += 0.05067085f;
+        }
+        if (attack->timer >= 30)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The unknown30450 of character 4: while unknown34 reaches (28 -
 // unknownB4) * 5, sends an extra attack of type 14 from `pos` and
 // takes as much off it. Returns 0 (0x4444f0).
