@@ -1715,6 +1715,244 @@ int MainMenu::UpdateState1()
     return 1;
 }
 
+int MainMenu::UpdateState3()
+{
+    int i;
+    int n;
+    char characters[2];
+
+    switch (this->subState)
+    {
+    case 1:
+        if (this->cursors[2] == 0)
+        {
+            if (!(g_PlayerInputs[2].unknown0 & 4))
+            {
+                if ((i = this->MovePlayerCursor2(2, 0, 14)) != 0)
+                {
+                    if (g_App.config.difficulty == 4)
+                    {
+                        this->SkipClosedEntries3(0, i, g_StoryCharacters, 14);
+                    }
+                    else
+                    {
+                        this->SkipClosedEntries2(0, i, g_StoryCharacters, 14);
+                    }
+                    characters[0] = g_StoryCharacters[this->cursors[0]];
+                    if (g_App.config.difficulty == 4)
+                    {
+                        this->FlashSprite(0, g_PlayRecord.clearFlags[characters[0]][4]);
+                    }
+                    else
+                    {
+                        this->FlashSprite(0, g_PlayRecord.GetClearFlags(characters[0], g_App.config.difficulty));
+                    }
+                    if (i > 0)
+                    {
+                        this->SelectEntryStep(characters[0], 0x5c, 14, 2);
+                        this->SelectEntryStep(characters[0], 0x3c, 14, 2);
+                    }
+                    else
+                    {
+                        this->SelectEntry2(characters[0], 0x5c, 14, 2);
+                        this->SelectEntry2(characters[0], 0x3c, 14, 2);
+                    }
+                    this->MoveCharacterCursor(0, characters[0], characters[0], g_StoryCharacters);
+                }
+            }
+            else if (this->unknown11b8c != 0)
+            {
+                if (g_PlayerInputs[2].IsPressed(0x40))
+                {
+                    if (this->unknown11b84 > 1)
+                    {
+                        this->unknown11b84--;
+                    }
+                    this->FlashHalves(this->unknown11b84, this->unknown11b88);
+                }
+                if (g_PlayerInputs[2].IsPressed(0x80))
+                {
+                    if (this->unknown11b84 < 10)
+                    {
+                        this->unknown11b84++;
+                    }
+                    this->FlashHalves(this->unknown11b84, this->unknown11b88);
+                }
+            }
+        }
+        characters[0] = g_StoryCharacters[this->cursors[0]];
+        if ((g_PlayerInputs[2].unknown6 & 0x1001) && this->cursors[2] == 0)
+        {
+            this->PlaySoundNow(10, 0);
+            this->cursors[2] = 1;
+            this->sprites[characters[0] * 2 + 92].colorRgb[2] = 0x80;
+            this->sprites[characters[0] * 2 + 92].colorRgb[1] = 0x80;
+            this->sprites[characters[0] * 2 + 92].colorRgb[0] = 0x80;
+            this->sprites[characters[0] * 2 + 60].colorRgb[2] = 0x80;
+            this->sprites[characters[0] * 2 + 60].colorRgb[1] = 0x80;
+            this->sprites[characters[0] * 2 + 60].colorRgb[0] = 0x80;
+            g_GameManager.sides[0].unknown30 = g_PlayerInputs[2].unknown0 >> 2 & 1;
+        }
+        if (this->cursors[2] != 0 && this->cursors[3] != 0)
+        {
+            g_App.StopBgm();
+            g_GameManager.sides[0].character = characters[0];
+            g_GameManager.sides[1].character = 0;
+            g_GameManager.sides[1].unknown30 = g_PlayerInputs[2].unknown0 >> 14 & 1;
+            g_GameManager.unknownFc = 0;
+            if (this->state == 3)
+            {
+                g_GameManager.sides[0].unknown28 = 0;
+                g_GameManager.mode = 0;
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+            }
+            else if (this->state == 5)
+            {
+                g_GameManager.sides[0].unknown28 = 0;
+                g_GameManager.mode = 1;
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+            }
+            else if (g_GameManager.unknown114 == 0)
+            {
+                g_GameManager.sides[0].unknown28 = 0;
+                g_GameManager.sides[1].unknown28 = 0;
+                g_GameManager.mode = 2;
+                g_App.scene = 2;
+            }
+            else if (g_GameManager.unknown114 == 1)
+            {
+                g_GameManager.sides[0].unknown28 = 0;
+                g_GameManager.mode = 2;
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+            }
+            else if (g_GameManager.unknown114 == 2)
+            {
+                g_GameManager.sides[0].unknown28 = 1;
+                g_GameManager.sides[1].unknown28 = 0;
+                g_GameManager.mode = 2;
+                g_App.scene = 2;
+            }
+            else if (g_GameManager.unknown114 == 3)
+            {
+                g_GameManager.sides[0].unknown28 = 1;
+                g_GameManager.mode = 2;
+                g_GameManager.sides[1].unknown28 = 1;
+                g_App.scene = 2;
+            }
+            g_GameManager.difficulty = g_App.config.difficulty;
+            g_GameManager.unknown378 = this->unknown11b84;
+            g_GameManager.unknown37c = this->unknown11b88;
+            return 0;
+        }
+        if ((g_PlayerInputs[2].unknown6 & 0xa) && this->cursors[2] == 0)
+        {
+            g_GameManager.difficulty = this->cursor;
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            g_GameManager.sides[0].character = characters[0];
+            if (this->state == 3)
+            {
+                this->SetState(2);
+                return 1;
+            }
+            if (this->state == 5)
+            {
+                this->SetState(4);
+                return 1;
+            }
+            this->SetState(7);
+            return 1;
+        }
+        break;
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 13);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            n = 0;
+            for (i = 0; i < 14; i++)
+            {
+                if ((g_App.config.difficulty == 4 && g_PlayRecord.openEntries3[g_StoryCharacters[i]]) ||
+                    (g_App.config.difficulty != 4 && g_PlayRecord.openEntries2[g_StoryCharacters[i]]))
+                {
+                    this->anm->SetSprite(&this->sprites[n + 191], g_StoryCharacters[i] + 0xeb);
+                    this->sprites[n + 191].flags |= 2;
+                    n++;
+                }
+            }
+            for (; n < 16; n++)
+            {
+                this->sprites[n + 191].flags &= ~2;
+            }
+            this->sprites[189].flags |= 2;
+            this->sprites[190].flags &= ~2;
+            for (this->cursors[0] = 0; g_StoryCharacters[this->cursors[0]] != g_GameManager.sides[0].character;
+                 this->cursors[0]++)
+            {
+            }
+            if (g_App.config.difficulty == 4)
+            {
+                this->SkipClosedEntries3(0, 1, g_StoryCharacters, 14);
+            }
+            else
+            {
+                this->SkipClosedEntries2(0, 1, g_StoryCharacters, 14);
+            }
+            characters[0] = g_StoryCharacters[this->cursors[0]];
+            characters[1] = g_StoryCharacters[this->cursors[1]];
+            this->sprites[characters[0] * 2 + 93].colorRgb[2] = 0xff;
+            this->sprites[characters[0] * 2 + 93].colorRgb[1] = 0xff;
+            this->sprites[characters[0] * 2 + 93].colorRgb[0] = 0xff;
+            this->sprites[characters[0] * 2 + 61].colorRgb[2] = 0xff;
+            this->sprites[characters[0] * 2 + 61].colorRgb[1] = 0xff;
+            this->sprites[characters[0] * 2 + 61].colorRgb[0] = 0xff;
+            this->sprites[characters[1] * 2 + 93].colorRgb[2] = 0xff;
+            this->sprites[characters[1] * 2 + 93].colorRgb[1] = 0xff;
+            this->sprites[characters[1] * 2 + 93].colorRgb[0] = 0xff;
+            this->sprites[characters[1] * 2 + 61].colorRgb[2] = 0xff;
+            this->sprites[characters[1] * 2 + 61].colorRgb[1] = 0xff;
+            this->sprites[characters[1] * 2 + 61].colorRgb[0] = 0xff;
+            this->SelectEntryStep(characters[0], 0x5c, 14, 2);
+            this->SelectEntryStep(characters[0], 0x3c, 14, 2);
+            this->cursors[2] = 0;
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+            this->unknownC918 = 1;
+            this->cursors[3] = 1;
+            this->MoveCharacterCursor(0, characters[0], characters[0], g_StoryCharacters);
+            this->unknown11b8c = 0;
+            this->unknown11b84 = 10;
+            this->unknown11b88 = 10;
+            if (g_PlayerInputs[2].unknown0 & 4)
+            {
+                this->unknown11b8c = 1;
+                this->FlashHalves(10, 10);
+            }
+            if (g_App.config.difficulty == 4)
+            {
+                this->FlashSprite(0, g_PlayRecord.clearFlags[characters[0]][4]);
+            }
+            else
+            {
+                this->FlashSprite(0, g_PlayRecord.GetClearFlags(characters[0], g_App.config.difficulty));
+            }
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+        }
+        break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState13()
 {
     int i;

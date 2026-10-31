@@ -29,6 +29,9 @@ extern char *g_ReplayMenuMatchNames[4];
 // "1st" to "5th", for the high score tables (0x4a1d68).
 extern char *g_ScoreRankNames[5];
 
+// The characters of states 3 and 5's character select, in its order
+// (0x4a1d7c; the last two are padding).
+extern char g_StoryCharacters[16];
 // The characters in the order the character select lists them
 // (0x4a1d9c), and the open ones of them, then -1s, as UpdateState16
 // found them (0x4ac8c4).
@@ -194,6 +197,11 @@ public:
     // the scores and goes to state 15 (mode 2 goes there at once).
     // UpdateState11 reads the replays (th9_01 to 25 and up to 25 user
     // ones) and lets one and its round be chosen, then plays it.
+    // UpdateState3 is the story character select (g_StoryCharacters,
+    // opened by openEntries2, or openEntries3 on difficulty 4): cursors[0]
+    // and [1] pick the two characters and cursors[2] and [3] mark them
+    // chosen; while button 4 is held, unknown11b84 can be changed. It
+    // starts the game in scene 2, or goes back to state 2, 4 or 7.
     // UpdateState16 is the character select of states 3 and 5 and of
     // mode 2's matches, listing the open characters of
     // g_CharacterOrder; it starts the game in scene 2, or goes back to
@@ -267,7 +275,9 @@ public:
     // Go to GameManager::unknown378 and unknown37c.
     int unknown11b84;
     int unknown11b88;
-    unsigned char pad_11b8c[0x11b90 - 0x11b8c];
+    // Set while UpdateState3 lets left and right change the two
+    // values above.
+    int unknown11b8c;
     // The title's ANM file, and the result screen's text.
     AnmLoaded *anm;
     AnmLoaded *resultTextAnm;
