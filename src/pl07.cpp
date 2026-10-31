@@ -58,7 +58,7 @@ int PlayerPosFunc445e60(Player *player, D3DXVECTOR3 *pos)
     return 0;
 }
 
-// The data of extra attack types 7 to 9, 11 and 12 (0x5c bytes):
+// The data of extra attack types 6 to 9, 11 and 12 (0x5c bytes):
 // ExAttackData00 with the heading it flies at and the angle its bullets
 // turn through.
 struct ExAttackData08
@@ -68,7 +68,8 @@ struct ExAttackData08
     int alternate;
     float heading;
     float spin;
-    int unknown10;
+    // How much the heading turns each frame, for type 6.
+    float turn;
     D3DXVECTOR3 velocity;
     D3DXVECTOR3 start;
     D3DXVECTOR3 end;
@@ -77,6 +78,82 @@ struct ExAttackData08
     D3DXVECTOR3 targetPos;
 };
 ASSERT_SIZE(ExAttackData08, 0x5c);
+
+// The update callback of extra attack type 6: type 8's, turning as it
+// goes and firing two bullets along its heading every 20 - unknownB4 / 8
+// frames. Returns 1 once it is done (0x446060).
+int ExAttackUpdate446060(ExAttack *attack)
+{
+    ExAttackData08 *data = (ExAttackData08 *)attack->data;
+    D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
+
+    switch (data->state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 9);
+            data->state++;
+            attack->pos = data->targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+        }
+        break;
+    case 1:
+        if (attack->timer > 0x14)
+        {
+            if (attack->timer.HasTickedEvery(20 - g_GameManager.unknownB4 / 8))
+            {
+                EnemyShooter shooter;
+
+                shooter.pos = attack->pos;
+                shooter.sprite = 6;
+                shooter.aimMode = 5;
+                shooter.count1 = 2;
+                shooter.count2 = 1;
+                shooter.color = 6;
+                shooter.angle1 = data->heading;
+                shooter.speed1 = 0.0f;
+                shooter.SetCommand20000(0, 0, 0x50);
+                shooter.SetAccelCommand(1, 0, 120, g_GameManager.unknownB4 * 0.00037878787f + 0.015833333f,
+                                        -999.0f);
+                shooter.angle2 = 0.0f;
+                shooter.speed2 = 0.0f;
+                shooter.unknown1fa = 0;
+                shooter.flags = 0x20014;
+                g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
+            }
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->state = 2;
+                attack->timer = 0;
+                attack->sprites->SetPendingInterrupt(1);
+            }
+            else
+            {
+                SetPolar((Vector2 *)&data->velocity, data->heading, 1.5f);
+                data->heading = AddNormalizeAngle(data->heading, data->turn);
+                attack->pos += data->velocity;
+                if (attack->pos.y >= 480.0f || attack->pos.y <= -32.0f || attack->pos.x >= 176.0f ||
+                    attack->pos.x <= -176.0f)
+                {
+                    return 1;
+                }
+            }
+        }
+        attack->angle = data->heading;
+        break;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
 
 // The init callback of extra attack type 7: type 9's, landing at
 // either side of the target's side, lower, heading inwards (0x446320).
