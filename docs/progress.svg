@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">75.13% (837)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">10.50% (117)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">75.22% (838)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">10.41% (116)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="561.26" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="561.26" y="0" class="decompiled"/>
-<rect width="78.46" height="6" x="668.54" y="0" class="todo"/>
+<rect width="561.93" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="561.93" y="0" class="decompiled"/>
+<rect width="77.78" height="6" x="669.22" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -515,7 +515,7 @@
 <rect width="12" height="12" x="660" y="120" class="named"><title>0x00420830 ReplayInfo::ReplayInfo (15 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="120" class="todo"><title>0x00420840 ReplayManager::AddedCallbackMode1 (540 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="120" class="named"><title>0x00420a60 FreeResources (104 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="120" class="todo"><title>0x00420ad0 ReplayManager::Release (318 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="120" class="named"><title>0x00420ad0 ReplayManager::Release (318 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="120" class="named"><title>0x00420c10 ReplayManager::RemoveChain (42 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="120" class="named"><title>0x00420c40 ReplayHeader::ReplayHeader (18 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="135" class="todo"><title>0x00420c60 Func420c60 (1227 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">48.62%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">36.55%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">48.73%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">36.44%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="363.18" height="6" x="0" y="0" class="named"/>
-<rect width="110.81" height="6" x="363.18" y="0" class="decompiled"/>
-<rect width="273.01" height="6" x="473.99" y="0" class="todo"/>
+<rect width="363.98" height="6" x="0" y="0" class="named"/>
+<rect width="110.81" height="6" x="363.98" y="0" class="decompiled"/>
+<rect width="272.21" height="6" x="474.79" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1433,7 +1433,7 @@
 <rect width="13.80" height="13.79" x="469.61" y="247.86" class="named"><title>0x004151f0 ExAttackManager::AddAttack (321 bytes)</title></rect>
 <rect width="13.80" height="13.74" x="469.61" y="264.65" class="todo"><title>0x0041cc80 Func41cc80 (320 bytes)</title></rect>
 <rect width="13.80" height="13.69" x="469.61" y="281.40" class="named"><title>0x00418950 GuiSide::SetUnknown76d4Time (319 bytes)</title></rect>
-<rect width="13.80" height="13.64" x="469.61" y="298.09" class="todo"><title>0x00420ad0 ReplayManager::Release (318 bytes)</title></rect>
+<rect width="13.80" height="13.64" x="469.61" y="298.09" class="named"><title>0x00420ad0 ReplayManager::Release (318 bytes)</title></rect>
 <rect width="13.80" height="13.64" x="469.61" y="314.72" class="named"><title>0x00422330 DrawColoredLineStrip (318 bytes)</title></rect>
 <rect width="13.80" height="13.64" x="469.61" y="331.36" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>
 <rect width="13.68" height="13.76" x="486.41" y="77.55" class="named"><title>0x0043b7b0 SpriteEngine::DrawColoredFan (318 bytes)</title></rect>

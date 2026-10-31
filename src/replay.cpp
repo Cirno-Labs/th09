@@ -107,17 +107,17 @@ ReplayHeader *ValidateReplay(void *data, int size)
     }
     for (i = 0; i < 10; i++)
     {
-        if (decoded->unknown20[i] != NULL)
+        if (decoded->unknown20[0][i] != NULL)
         {
-            decoded->unknown20[i] = (BYTE *)decoded->unknown20[i] + (int)decoded;
+            decoded->unknown20[0][i] = (BYTE *)decoded->unknown20[0][i] + (int)decoded;
         }
-        if (decoded->unknown48[i] != NULL)
+        if (decoded->unknown20[1][i] != NULL)
         {
-            decoded->unknown48[i] = (BYTE *)decoded->unknown48[i] + (int)decoded;
+            decoded->unknown20[1][i] = (BYTE *)decoded->unknown20[1][i] + (int)decoded;
         }
-        if (decoded->unknown70[i] != NULL)
+        if (decoded->unknown20[2][i] != NULL)
         {
-            decoded->unknown70[i] = (BYTE *)decoded->unknown70[i] + (int)decoded;
+            decoded->unknown20[2][i] = (BYTE *)decoded->unknown20[2][i] + (int)decoded;
         }
         if (decoded->unknown98[i] != NULL)
         {
@@ -162,6 +162,67 @@ static int FreeResources(ReplayManager *mgr)
         g_MemoryManager.Free(mgr->unknown110);
     }
     return 0;
+}
+
+void ReplayManager::Release(ReplayManager *mgr)
+{
+    ReplayChunk *chunk;
+    ReplayChunk *cur;
+    int i;
+    int j;
+
+    if (mgr == NULL)
+    {
+        return;
+    }
+    for (i = 0; i < 10; i++)
+    {
+        for (chunk = &mgr->chunks[i]; chunk != NULL;)
+        {
+            cur = chunk;
+            if (chunk->inputs[0] != NULL)
+            {
+                g_MemoryManager.Free(chunk->inputs[0]);
+            }
+            if (chunk->inputs[1] != NULL)
+            {
+                g_MemoryManager.Free(chunk->inputs[1]);
+            }
+            if (chunk->inputs[2] != NULL)
+            {
+                g_MemoryManager.Free(chunk->inputs[2]);
+            }
+            if (chunk->extra != NULL)
+            {
+                g_MemoryManager.Free(chunk->extra);
+            }
+            chunk = chunk->next;
+            memset(cur, 0, sizeof(ReplayChunk));
+            if (cur != &mgr->chunks[i])
+            {
+                g_MemoryManager.Free(cur);
+            }
+        }
+        if (!g_GameManager.IsReplay())
+        {
+            for (j = 0; j < 3; j++)
+            {
+                if (mgr->unknown08->unknown20[j][i] != NULL)
+                {
+                    g_MemoryManager.Free(mgr->unknown08->unknown20[j][i]);
+                }
+                mgr->unknown08->unknown20[j][i] = NULL;
+            }
+            if (mgr->unknown08->unknown98[i] != NULL)
+            {
+                g_MemoryManager.Free(mgr->unknown08->unknown98[i]);
+            }
+            mgr->unknown08->unknown98[i] = NULL;
+        }
+    }
+    FreeResources(mgr);
+    g_Chain.Remove(mgr->calcElem);
+    delete mgr;
 }
 
 void ReplayManager::RemoveChain(ReplayManager *mgr)

@@ -12,7 +12,11 @@ struct ReplayInfo
     // Constructs the config (0x420830).
     ReplayInfo();
 
-    unsigned char pad_0[0x1c];
+    BYTE randomByte;
+    unsigned char pad_1[0x4 - 0x1];
+    // g_Hscr's date, and the player's name, when it is saved.
+    char date[0xa];
+    char name[0xe];
     GameConfig config;
 };
 
@@ -28,12 +32,14 @@ struct ReplayHeader
     short version;
     // Must be 0 for the replay to load.
     BYTE unknown6;
-    unsigned char pad_7[0xc - 0x7];
+    // Set when it is saved.
+    BYTE isSaved;
+    unsigned char pad_8[0xc - 0x8];
     // The size of the file's header and compressed data.
     int size;
     // The sum of the bytes from key on, plus 0x3f000318.
     int checksum;
-    unsigned char pad_14[0x15 - 0x14];
+    BYTE secondaryKey;
     // What the bytes from compressedSize on are encrypted with, rising by
     // 7 a byte.
     BYTE key;
@@ -41,13 +47,15 @@ struct ReplayHeader
     int compressedSize;
     // The size of the data once decompressed.
     int dataSize;
-    // Offsets in the replay, made pointers once it is loaded.
-    void *unknown20[10];
-    void *unknown48[10];
-    void *unknown70[10];
+    // Offsets in the replay, made pointers once it is loaded: by stage,
+    // three 0x20 byte blocks each followed by the inputs of a ReplayChunk
+    // list, and the bytes kept every 30 frames.
+    void *unknown20[3][10];
     void *unknown98[10];
     ReplayInfo info;
-    unsigned char pad_1a8[0x1d4 - 0x1a8];
+    unsigned char pad_1a8[0x1d0 - 0x1a8];
+    // 30.
+    int replayFormatVersion;
     // The executable the replay was recorded with, for
     // App::CheckVersionFile.
     DWORD exeSize;
@@ -61,6 +69,17 @@ ASSERT_SIZE(ReplayHeader, 0x1ec);
 // compressed data copied after it and the offsets made pointers. Frees
 // `data`. Returns NULL if the file is not a valid replay (0x4205e0).
 ReplayHeader *ValidateReplay(void *data, int size);
+
+// A block of a stage's recording: three input streams of `count` WORDs,
+// a byte every 30 frames, and the next block.
+struct ReplayChunk
+{
+    WORD *inputs[3];
+    BYTE *extra;
+    int count;
+    ReplayChunk *next;
+};
+ASSERT_SIZE(ReplayChunk, 0x18);
 
 // The replay manager, at GameManager::unknownD4. Only the fields known so
 // far.
@@ -101,8 +120,11 @@ public:
     // modulo 3.
     int unknown0;
     unsigned char pad_4[0x8 - 0x4];
-    void *unknown08;
-    unsigned char pad_c[0x110 - 0xc];
+    ReplayHeader *unknown08;
+    unsigned char pad_c[0x1c - 0xc];
+    // The recording of each stage.
+    ReplayChunk chunks[10];
+    unsigned char pad_10c[0x110 - 0x10c];
     void *unknown110;
     int mode;
     char *path;
