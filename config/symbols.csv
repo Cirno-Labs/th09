@@ -1062,7 +1062,7 @@ address,size,name,symbol
 0x00447af0,324,Func447af0,
 0x00447c40,155,EffectInit447c40,?EffectInit447c40@@YIHPAUEffect@@@Z
 0x00447ce0,602,Func447ce0,
-0x00447f40,106,Func447f40,
+0x00447f40,106,EffectUpdate447f40,?EffectUpdate447f40@@YIHPAUEffect@@@Z
 0x00447fb0,867,Func447fb0,
 0x00448320,357,Func448320,
 0x00448490,420,Func448490,

@@ -4,6 +4,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "unsorted.h"
 
 // The unknown30450 of character 8: while unknown34 reaches 100 -
 // unknownB4 * 3, sends an extra attack of type 16 from `pos` and takes
@@ -45,4 +46,19 @@ int EffectInit447c40(Effect *effect)
     effect->unknown7c = 16.0f;
     effect->unknownC9 = 1;
     return 0;
+}
+
+// The update callback of effect type 29: grows unknown7c by 4 up to 48,
+// turns unknown80 by pi/60, sets unknownC9 and puts the effect on its
+// side's player. Returns 1 (0x447f40).
+int EffectUpdate447f40(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 48.0f)
+    {
+        effect->unknown7c += 4.0f;
+    }
+    effect->unknown80 = AddNormalizeAngle(effect->unknown80, 0.05235988f);
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    return 1;
 }
