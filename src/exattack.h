@@ -5,6 +5,7 @@
 #include <d3dx8math.h>
 
 #include "chain.h"
+#include "gamemanager.h"
 #include "sprite.h"
 #include "timer.h"
 
@@ -15,6 +16,21 @@ typedef int (*ExAttackCallback)(ExAttack *attack);
 // An extra attack (0x4c bytes). Only the fields known so far.
 struct ExAttack
 {
+    // The side that sent it. Inline; the copy is at 0x440cb0.
+    GameSide *GetSide()
+    {
+        return &g_GameManager.sides[this->side];
+    }
+    // Allocates `count` zeroed sprites with `dataSize` bytes of data
+    // after them. Inline, in global.h; the copy is at 0x440d90.
+    void AllocSprites(int count, int dataSize)
+    {
+        this->spriteCount = count;
+        this->sprites = (Sprite *)g_MemoryManager.Alloc(count * sizeof(Sprite) + dataSize, "./system\\global.h");
+        memset(this->sprites, 0, count * sizeof(Sprite) + dataSize);
+        this->data = (BYTE *)this->sprites + count * sizeof(Sprite);
+    }
+
     // Which of the three lists OnUpdate links it into.
     int layer;
     // The side it attacks and the side that sent it.

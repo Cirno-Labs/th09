@@ -948,19 +948,21 @@ address,size,name,symbol
 0x004409f0,546,CSoundManager::CreateStreamingFromMemory,?CreateStreamingFromMemory@CSoundManager@@QAEJPAPAVCStreamingSound@@PAXKPAUBgmFormat@@KU_GUID@@KK1@Z
 0x00440c20,33,CSound::`scalar deleting destructor',??_GCSound@@UAEPAXI@Z
 0x00440c50,33,CStreamingSound::`scalar deleting destructor',??_GCStreamingSound@@UAEPAXI@Z
-0x00440c80,38,Func440c80,
+0x00440c80,38,EnemyManager::SpawnPlayerEnemy,?SpawnPlayerEnemy@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HHHH@Z
 0x00440cb0,12,Func440cb0,
+0x00440cc0,24,SpellCardUpdate440cc0,?SpellCardUpdate440cc0@@YIHPAVSpellCard@@@Z
+0x00440ce0,79,EffectUpdate440ce0,?EffectUpdate440ce0@@YIHPAUEffect@@@Z
 0x00440d30,95,Func440d30,
 0x00440d90,81,Func440d90,
-0x00440df0,79,Func440df0,
+0x00440df0,79,PlayerPosFunc440df0,?PlayerPosFunc440df0@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00440e40,355,Func440e40,
 0x00440fb0,326,Func440fb0,
 0x00441100,475,Func441100,
-0x00441350,75,Func441350,
-0x004413a0,38,Func4413a0,
-0x004413d0,75,Func4413d0,
-0x00441420,78,Func441420,
-0x00441470,38,Func441470,
+0x00441350,75,SpellCardInit441350,?SpellCardInit441350@@YIHPAVSpellCard@@@Z
+0x004413a0,38,SpellCardFree4413a0,?SpellCardFree4413a0@@YIHPAVSpellCard@@@Z
+0x004413d0,75,SpellCardInit4413d0,?SpellCardInit4413d0@@YIHPAVSpellCard@@@Z
+0x00441420,78,SpellCardInit441420,?SpellCardInit441420@@YIHPAVSpellCard@@@Z
+0x00441470,38,SpellCardFree441470,?SpellCardFree441470@@YIHPAVSpellCard@@@Z
 0x004414a0,314,Func4414a0,
 0x004415e0,471,Func4415e0,
 0x004417c0,38,Func4417c0,

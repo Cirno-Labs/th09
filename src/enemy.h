@@ -512,6 +512,11 @@ public:
     // `score` unless negative. Returns it (0x40f1d0).
     Enemy *SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
                       int usePlayerEcl);
+    // SpawnEnemy from playerEcl. Inline; the copy is at 0x440c80.
+    Enemy *SpawnPlayerEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored)
+    {
+        return this->SpawnEnemy(sub, pos, life, itemDrop, score, mirrored, 1);
+    }
     // SpawnEnemy unmirrored, with the script's variables from `vars`, as
     // th08's SpawnWithVars (0x40f340).
     Enemy *SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EclVars *vars,

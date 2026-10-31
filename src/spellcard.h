@@ -48,6 +48,9 @@ public:
     SpellCardCallback unknown1330;
     unsigned char pad_1334[0x133c - 0x1334];
     SpellCardCallback unknown133c;
-    unsigned char pad_1340[0x1368 - 0x1340];
+    unsigned char pad_1340[0x1360 - 0x1340];
+    // Blocks some types' callbacks allocate and free.
+    void *unknown1360;
+    void *unknown1364;
 };
 ASSERT_SIZE(SpellCard, 0x1368);

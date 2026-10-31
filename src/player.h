@@ -7,6 +7,8 @@
 #include "sprite.h"
 #include "timer.h"
 
+struct Effect;
+
 // One of the player's hit areas (0x44 bytes), th08's PlayerBombHitbox
 // grown. Placeholder name; only the fields known so far.
 struct PlayerHitArea
@@ -86,6 +88,18 @@ struct PlayerUnknown36c
     PlayerUnknown36cEntry *CheckHits();
     // Adds an entry: a box `size` across at `pos`, unturned (0x40f8e0).
     void Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c);
+    // Adds a circle entry of `radius` at `pos`, if one is free. Inline;
+    // the copy is at 0x440d30.
+    void AddCircle(D3DXVECTOR3 *pos, float radius, void *unknown2c)
+    {
+        if (this->count < 0x80)
+        {
+            this->entries[this->count].pos = *pos;
+            this->entries[this->count].radius = radius;
+            this->entries[this->count].unknown2c = unknown2c;
+            this->count++;
+        }
+    }
     // Add, for a box turned by `angle` about `origin`; used by
     // BulletManager::OnUpdate (0x412830).
     void AddTurned(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle, void *unknown2c);
@@ -375,7 +389,10 @@ public:
     // The character's ANM, in slot sideIdx + 5.
     AnmLoaded *anm;
     Sprite sprite;
-    unsigned char pad_364[0x36c - 0x364];
+    unsigned char pad_364[0x368 - 0x364];
+    // An effect whose unknown7c is the radius the character's
+    // unknown30404 tests.
+    Effect *unknown368;
     PlayerUnknown36c unknown36c;
     Timer unknown1b74;
     unsigned char pad_1b80[0x1b88 - 0x1b80];
