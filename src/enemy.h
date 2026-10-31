@@ -35,6 +35,9 @@ struct EclManager
 {
     // Loads the ECL file `path`. Returns 0, or -1 on failure (0x405660).
     int Load(char *path);
+    // Runs `enemy`'s script, as th08's RunEnemy. Returns -1 when the
+    // enemy is gone (0x4086c0).
+    int RunEnemy(Enemy *enemy);
     // Frees the ECL file (0x406830).
     void Unload();
     // Starts subroutine `sub` in `ctx`, unless it is negative, as th08's.
@@ -253,11 +256,16 @@ struct Enemy
     short rankCount2Low;
     short rankCount2High;
     int life;
-    unsigned char pad_2e4c[0x2e54 - 0x2e4c];
+    // As th08's.
+    int maxLife;
+    int phaseStartLife;
     int score;
-    unsigned char pad_2e58[0x2e64 - 0x2e58];
+    // Its index in EnemyManager::enemies.
+    int index;
+    unsigned char pad_2e5c[0x2e64 - 0x2e5c];
     Timer callbackTimer;
-    unsigned char pad_2e70[0x2e74 - 0x2e70];
+    // The primary sprite's color when it spawned, as th08's.
+    D3DCOLOR color;
     EnemyShooter shooter;
     unsigned char pad_3088[0x30b4 - 0x3088];
     int shootInterval;
@@ -265,7 +273,9 @@ struct Enemy
     EnemyShooter unknown30c4;
     unsigned char pad_32d8[0x3358 - 0x32d8];
     int laserIndex;
-    unsigned char pad_335c[0x3368 - 0x335c];
+    // The item it drops, as th08's.
+    int item;
+    unsigned char pad_3360[0x3368 - 0x3360];
     BYTE deathEffect;
     BYTE deathEffectIndex;
     BYTE deathEffectVariant;
@@ -407,7 +417,9 @@ public:
     // The timeline running.
     void *timeline;
     Timer unknown2ac404;
-    unsigned char pad_2ac410[0x2ac430 - 0x2ac410];
+    unsigned char pad_2ac410[0x2ac42c - 0x2ac410];
+    // Whether the last spawn found no free enemy, as th08's.
+    int spawnFailed;
     // The timeline's signals, as th08's.
     int timelineSignals[4];
     unsigned char pad_2ac440[0x2ac450 - 0x2ac440];

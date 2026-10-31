@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.88% (727)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">30.91% (331)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.97% (728)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">30.81% (330)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="507.07" height="6" x="0" y="0" class="named"/>
-<rect width="9.07" height="6" x="507.07" y="0" class="decompiled"/>
-<rect width="230.87" height="6" x="516.13" y="0" class="todo"/>
+<rect width="507.76" height="6" x="0" y="0" class="named"/>
+<rect width="9.07" height="6" x="507.76" y="0" class="decompiled"/>
+<rect width="230.17" height="6" x="516.83" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -194,7 +194,7 @@
 <rect width="12" height="12" x="345" y="30" class="todo"><title>0x00408040 Func408040 (315 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="30" class="todo"><title>0x00408180 Func408180 (967 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="30" class="todo"><title>0x00408560 Func408560 (349 bytes)</title></rect>
-<rect width="12" height="12" x="390" y="30" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
+<rect width="12" height="12" x="390" y="30" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="30" class="named"><title>0x0040c390 Bullet::ClearCommands (41 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="30" class="named"><title>0x0040c3c0 SendExAttack1 (41 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="30" class="named"><title>0x0040c3f0 SetSidesFlag0 (76 bytes)</title></rect>
@@ -263,7 +263,7 @@
 <rect width="12" height="12" x="630" y="45" class="named"><title>0x0040f170 EclManager::GetTimeline (16 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="45" class="named"><title>0x0040f180 Enemy::ResetRankSpeeds (51 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="45" class="named"><title>0x0040f1c0 Fabs (12 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="45" class="todo"><title>0x0040f1d0 EnemyManager::SpawnEnemy (364 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="45" class="named"><title>0x0040f1d0 EnemyManager::SpawnEnemy (364 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="45" class="todo"><title>0x0040f340 Func40f340 (373 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="45" class="todo"><title>0x0040f4c0 Func40f4c0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="45" class="named"><title>0x0040f560 Enemy::ReleaseEffects (64 bytes)</title></rect>
@@ -1143,14 +1143,14 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.93%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.35%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">36.05%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.22%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="268.39" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="268.39" y="0" class="decompiled"/>
-<rect width="473.22" height="6" x="273.78" y="0" class="todo"/>
+<rect width="269.33" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="269.33" y="0" class="decompiled"/>
+<rect width="472.29" height="6" x="274.71" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
-<rect width="77.39" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
+<rect width="77.39" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
 <rect width="77.39" height="96.61" x="0" y="157.25" class="named"><title>0x00436f30 SpriteEngine::Step (9360 bytes)</title></rect>
 <rect width="77.39" height="38.30" x="0" y="256.86" class="todo"><title>0x00410730 EnemyManager::OnUpdate (3881 bytes)</title></rect>
 <rect width="77.39" height="31.84" x="0" y="298.16" class="todo"><title>0x004026c0 Stage::DrawLayer (3274 bytes)</title></rect>
@@ -1345,7 +1345,7 @@
 <rect width="14.64" height="14.99" x="577.52" y="40.04" class="todo"><title>0x00443c70 Func443c70 (371 bytes)</title></rect>
 <rect width="14.49" height="14.99" x="595.16" y="40.04" class="todo"><title>0x00442a60 Func442a60 (368 bytes)</title></rect>
 <rect width="14.35" height="14.99" x="612.66" y="40.04" class="named"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
-<rect width="14.30" height="14.99" x="630.01" y="40.04" class="todo"><title>0x0040f1d0 EnemyManager::SpawnEnemy (364 bytes)</title></rect>
+<rect width="14.30" height="14.99" x="630.01" y="40.04" class="named"><title>0x0040f1d0 EnemyManager::SpawnEnemy (364 bytes)</title></rect>
 <rect width="14.16" height="14.99" x="647.31" y="40.04" class="named"><title>0x00421670 ReplayManager::RegisterChain (361 bytes)</title></rect>
 <rect width="14.16" height="14.99" x="664.47" y="40.04" class="todo"><title>0x004455d0 Func4455d0 (361 bytes)</title></rect>
 <rect width="14.16" height="14.99" x="681.64" y="40.04" class="todo"><title>0x0044bcd0 Func44bcd0 (361 bytes)</title></rect>
