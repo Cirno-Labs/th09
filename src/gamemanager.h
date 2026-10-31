@@ -52,7 +52,7 @@ struct GameSide
     int character;
     int unknown24;
     int unknown28;
-    unsigned char pad_2c[0x30 - 0x2c];
+    int unknown2c;
     // Picks the character's second ANM (plXXb.anm) when set.
     int unknown30;
     union
@@ -219,8 +219,11 @@ public:
     ExAttackManager *exAttackManager;
     GameRank rank;
     ReplayManager *replayManager;
-    unsigned char pad_d8[0xe8 - 0xd8];
-    // Deleted by DeletedCallback.
+    // By character; a replay of mode 0 or 1 sets those of side 1's
+    // earlier rounds.
+    BYTE unknownD8[0x10];
+    // Deleted by DeletedCallback. A copy of the config (a replay
+    // restores its own into it).
     GameManagerUnknownE8 *unknownE8;
     // How far the enemy timelines advance a frame.
     float timelineSpeed;
@@ -261,7 +264,7 @@ public:
             unsigned int unknownBits134_11 : 2;
         };
     };
-    unsigned char pad_138[0x13c - 0x138];
+    int unknown138;
     // 1 once paused, 2 once the pause was drawn.
     BYTE isPaused;
     // Whether the continue menu is up, as th08's.

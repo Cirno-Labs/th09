@@ -16,9 +16,35 @@ struct ReplayInfo
     unsigned char pad_1[0x4 - 0x1];
     // g_Hscr's date, and the player's name, when it is saved.
     char date[0xa];
-    char name[0xe];
+    char name[9];
+    BYTE difficulty;
+    unsigned char pad_18[0x1c - 0x18];
     GameConfig config;
 };
+
+// The 0x20 byte block a replay keeps of each side (and the third input
+// set) of a round, before its inputs.
+struct ReplayRound
+{
+    // Goes to the side's GameStats score and guiScore.
+    DWORD score;
+    // The round's Rng seed (side 0's).
+    WORD rngSeed;
+    BYTE character;
+    // GameSide::unknown28, unknown2c; GameStats::lives.
+    BYTE unknown7;
+    BYTE lives;
+    // GameManager::unknown138 (side 0's).
+    char unknown9;
+    WORD unknownA;
+    // GameManager::stage (side 0's).
+    BYTE stage;
+    unsigned char pad_d[0x10 - 0xd];
+    // GameStats::extendsGiven (side 0's).
+    int extendsGiven;
+    unsigned char pad_14[0x20 - 0x14];
+};
+ASSERT_SIZE(ReplayRound, 0x20);
 
 // A replay's header (0x1ec bytes): ReplayManager allocates one, and the
 // title menu keeps one for each replay file. Only what is known so far.
@@ -60,7 +86,11 @@ struct ReplayHeader
     // App::CheckVersionFile.
     DWORD exeSize;
     DWORD exeChecksum;
-    char exeVersion[0x10];
+    char exeVersion[0xa];
+    // GameManager::unknown378 and unknown37c, and each side's unknown30.
+    BYTE unknown1e6[2];
+    BYTE unknown1e8[2];
+    unsigned char pad_1ea[0x1ec - 0x1ea];
 };
 ASSERT_SIZE(ReplayHeader, 0x1ec);
 

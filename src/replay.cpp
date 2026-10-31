@@ -275,6 +275,73 @@ ReplayInfo::ReplayInfo()
 {
 }
 
+int ReplayManager::AddedCallbackMode1(ReplayManager *mgr)
+{
+    int size;
+    int idx;
+    int i;
+    ReplayRound *round0;
+    ReplayRound *round1;
+    ReplayRound *round2;
+    BYTE *extra;
+
+    mgr->unknown0 = 0;
+    if (mgr->unknown08 == NULL)
+    {
+        mgr->unknown08 = (ReplayHeader *)OpenPath(mgr->path, &size, !(g_GameManager.stateFlags >> 1 & 1));
+        mgr->unknown08 = ValidateReplay(mgr->unknown08, size);
+        if (mgr->unknown08 == NULL)
+        {
+            return -1;
+        }
+        mgr->unknown110 = NULL;
+    }
+    idx = g_GameManager.unknownFc;
+    if (mgr->unknown08->unknown20[idx] == NULL)
+    {
+        return -1;
+    }
+    if (g_GameManager.IsMode0() || g_GameManager.IsMode1())
+    {
+        for (i = 0; i < idx; i++)
+        {
+            g_GameManager.unknownD8[((ReplayRound *)mgr->unknown08->unknown20[1][i])->character] = 1;
+        }
+    }
+    round0 = (ReplayRound *)mgr->unknown08->unknown20[0][idx];
+    round1 = (ReplayRound *)mgr->unknown08->unknown20[1][idx];
+    round2 = (ReplayRound *)mgr->unknown08->unknown20[2][idx];
+    extra = (BYTE *)mgr->unknown08->unknown98[idx];
+    g_GameManager.sides[0].character = round0->character;
+    g_GameManager.sides[1].character = round1->character;
+    g_GameManager.sides[0].unknown28 = round0->unknown7;
+    g_GameManager.sides[1].unknown28 = round1->unknown7;
+    g_GameManager.sides[0].unknown2c = round0->unknownA;
+    g_GameManager.sides[1].unknown2c = round1->unknownA;
+    g_GameManager.stage = round0->stage;
+    g_GameManager.unknown138 = round0->unknown9;
+    g_GameManager.difficulty = mgr->unknown08->info.difficulty;
+    g_GameManager.unknown378 = mgr->unknown08->unknown1e6[0];
+    g_GameManager.unknown37c = mgr->unknown08->unknown1e6[1];
+    g_GameManager.sides[0].unknown30 = mgr->unknown08->unknown1e8[0];
+    g_GameManager.sides[1].unknown30 = mgr->unknown08->unknown1e8[1];
+    g_GameManager.sides[0].stats->score = round0->score;
+    g_GameManager.sides[1].stats->score = round1->score;
+    g_GameManager.sides[0].stats->guiScore = round0->score;
+    g_GameManager.sides[1].stats->guiScore = round1->score;
+    g_GameManager.sides[0].stats->lives = round0->lives;
+    g_GameManager.sides[1].stats->lives = round1->lives;
+    g_GameManager.sides[0].stats->extendsGiven = round0->extendsGiven;
+    mgr->inputCursors[0] = (WORD *)(round0 + 1);
+    mgr->inputCursors[1] = (WORD *)(round1 + 1);
+    mgr->inputCursors[2] = (WORD *)(round2 + 1);
+    mgr->extraCursor = extra;
+    *(GameConfig *)g_GameManager.unknownE8 = mgr->unknown08->info.config;
+    g_Rng.SetSeed(round0->rngSeed);
+    mgr->unknown4 = 0;
+    return 0;
+}
+
 // Removes the chain elements unknownElem158 and unknownElem15c, if set,
 // and frees the blocks. Returns 0. Static, with the manager in eax
 // (0x420a60).
