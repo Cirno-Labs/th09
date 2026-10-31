@@ -287,6 +287,24 @@ int EffectDraw449a10(Effect *effect)
     return 1;
 }
 
+// Which side of the line from a to b p is on: 1 to the left (a positive
+// cross product), -1 to the right, 0 on it. Static, with p, a and b in
+// edx, ecx and eax (0x449b50).
+static int LineSide(D3DXVECTOR3 *p, D3DXVECTOR3 *a, D3DXVECTOR3 *b)
+{
+    float cross = (p->y - a->y) * b->x + (a->y - b->y) * p->x + (b->y - p->y) * a->x;
+
+    if (cross > 0.0f)
+    {
+        return 1;
+    }
+    if (cross < 0.0f)
+    {
+        return -1;
+    }
+    return 0;
+}
+
 // An update callback of the effect table: grows unknown7c by 6 up to
 // 128 and eases unknown80 towards -2pi/3 or -pi/3 by the way the player
 // moves across, else towards -pi/2; sets unknownC9 and puts the effect
@@ -339,5 +357,48 @@ int ShotUpdate449ce0(Player *player, PlayerBullet *bullet)
     bullet->speed = speed = bullet->speed * 0.96f;
     bullet->velocity.x = cosf(angle) * speed;
     bullet->velocity.y = sinf(angle) * speed;
+    return 0;
+}
+
+// The unknown30404 of character 10: whether `pos` is within the
+// pentagram of the player's unknown368, its points unknown7c from the
+// player starting at the angle unknown80, as three triangles from each
+// point to the far inner corners (0x449d50).
+int PlayerPosFunc449d50(Player *player, D3DXVECTOR3 *pos)
+{
+    D3DXVECTOR3 diff = *pos - player->pos;
+    D3DXVECTOR3 pts[10];
+    Effect *effect = player->unknown368;
+    float angle = effect->unknown80;
+
+    SetPolar((Vector2 *)&pts[0], angle, effect->unknown7c);
+    angle = AddNormalizeAngle(angle, 1.2566371f);
+    SetPolar((Vector2 *)&pts[2], angle, effect->unknown7c);
+    angle = AddNormalizeAngle(angle, 1.2566371f);
+    SetPolar((Vector2 *)&pts[4], angle, effect->unknown7c);
+    angle = AddNormalizeAngle(angle, 1.2566371f);
+    SetPolar((Vector2 *)&pts[6], angle, effect->unknown7c);
+    angle = AddNormalizeAngle(angle, 1.2566371f);
+    SetPolar((Vector2 *)&pts[8], angle, effect->unknown7c);
+    pts[1] = (pts[0] - pts[4]) / 1.618f + pts[4];
+    pts[3] = (pts[2] - pts[6]) / 1.618f + pts[6];
+    pts[5] = (pts[4] - pts[8]) / 1.618f + pts[8];
+    pts[7] = (pts[6] - pts[0]) / 1.618f + pts[0];
+    pts[9] = (pts[8] - pts[2]) / 1.618f + pts[2];
+    if (LineSide(&diff, &pts[0], &pts[4]) >= 0 && LineSide(&diff, &pts[4], &pts[7]) >= 0 &&
+        LineSide(&diff, &pts[7], &pts[0]) >= 0)
+    {
+        return 1;
+    }
+    if (LineSide(&diff, &pts[8], &pts[2]) >= 0 && LineSide(&diff, &pts[2], &pts[5]) >= 0 &&
+        LineSide(&diff, &pts[5], &pts[8]) >= 0)
+    {
+        return 1;
+    }
+    if (LineSide(&diff, &pts[6], &pts[0]) >= 0 && LineSide(&diff, &pts[0], &pts[3]) >= 0 &&
+        LineSide(&diff, &pts[3], &pts[6]) >= 0)
+    {
+        return 1;
+    }
     return 0;
 }
