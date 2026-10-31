@@ -15,6 +15,9 @@ public:
     // its chain elements, as th08's, with `unknown` new in th09 and stored
     // in side (0x422d20).
     static ScreenEffect *StartEffect(int type, int duration, int a, int b, int c, int drawPriority, int unknown);
+    // The update element's added callback, as th08's: restarts the
+    // timer. Returns 0 (0x4228f0).
+    static int AddedCallback(ScreenEffect *effect);
     // The update element's deleted callback, as th08's: removes the draw
     // element and deletes the effect. Returns 0 (0x422900).
     static int DeletedCallback(ScreenEffect *effect);
