@@ -70,12 +70,17 @@ public:
     // Empties the buffer and clears hasError (0x42b110).
     Log();
 
+
     char buffer[0x2000];
     // Where the next message goes.
     char *cursor;
     char hasError;
 };
 extern Log g_Log;
+
+// Creates g_App.d3d, as th08's. Returns 0, or logs and returns 1
+// (0x42cd10).
+int CreateD3d();
 
 // Appends a printf-style message to `log` if it fits, inside critical
 // section 3, as th08's. Returns `fmt` (0x42c5c0).
@@ -788,7 +793,9 @@ struct App
     // Zeroes unknown77c to unknown790 (0x423382).
     void ClearUnknown77c();
 
-    unsigned char pad_0[0x8];
+    unsigned char pad_0[0x4];
+    // Created by CreateD3d.
+    IDirect3D8 *d3d;
     IDirect3DDevice8 *d3dDevice;
     // DirectInput, the keyboard and up to two pads, set up by
     // InitDirectInput.

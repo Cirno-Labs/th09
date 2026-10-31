@@ -590,7 +590,7 @@ address,size,name,symbol
 0x0042cc30,33,Func42cc30,
 0x0042cc60,33,Func42cc60,
 0x0042cc90,123,Func42cc90,
-0x0042cd10,46,Func42cd10,
+0x0042cd10,46,CreateD3d,?CreateD3d@@YIHXZ
 0x0042cd40,74,Func42cd40,
 0x0042cd90,809,Func42cd90,
 0x0042d0c0,124,Func42d0c0,
@@ -1073,6 +1073,7 @@ address,size,name,symbol
 0x0044c790,972,Func44c790,
 0x0044e5a0,,DirectInput8Create,_DirectInput8Create@20
 0x0044e5a6,,DirectSoundCreate8,_DirectSoundCreate8@12
+0x0044e5ac,,Direct3DCreate8,_Direct3DCreate8@4
 0x0044e5b2,45,Func44e5b2,
 0x0044e5ec,42,Func44e5ec,
 0x0044e616,142,Func44e616,
