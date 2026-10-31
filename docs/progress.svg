@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">6.73% (75)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">21.99% (245)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">6.82% (76)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">21.90% (244)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="50.29" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="164.29" height="6" x="582.71" y="0" class="todo"/>
+<rect width="50.96" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="163.62" height="6" x="583.38" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1175,7 +1175,7 @@
 <rect width="12" height="12" x="60" y="330" class="todo"><title>0x0044be40 Func44be40 (475 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="330" class="decompiled"><title>0x0044c020 PlayerComboFunc44c020 (101 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="330" class="todo"><title>0x0044c090 Func44c090 (506 bytes)</title></rect>
-<rect width="12" height="12" x="105" y="330" class="todo"><title>0x0044c290 Func44c290 (79 bytes)</title></rect>
+<rect width="12" height="12" x="105" y="330" class="decompiled"><title>0x0044c290 EffectUpdate44c290 (79 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="330" class="decompiled"><title>0x0044c2e0 PlayerPosFunc44c2e0 (98 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="330" class="todo"><title>0x0044c350 Func44c350 (361 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="330" class="todo"><title>0x0044c4c0 Func44c4c0 (446 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">2.85%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.07%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">2.87%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.05%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="21.27" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="411.41" height="6" x="335.59" y="0" class="todo"/>
+<rect width="21.47" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="411.21" height="6" x="335.79" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1831,7 +1831,7 @@
 <rect width="5.02" height="5.66" x="733.96" y="222.67" class="decompiled"><title>0x004454e0 EffectUpdate4454e0 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="741.98" y="222.67" class="decompiled"><title>0x0044b1d0 EffectUpdate44b1d0 (79 bytes)</title></rect>
 <rect width="5.05" height="5.63" x="628.16" y="231.33" class="decompiled"><title>0x0044bc30 EffectUpdate44bc30 (79 bytes)</title></rect>
-<rect width="5.05" height="5.63" x="628.16" y="239.96" class="todo"><title>0x0044c290 Func44c290 (79 bytes)</title></rect>
+<rect width="5.05" height="5.63" x="628.16" y="239.96" class="decompiled"><title>0x0044c290 EffectUpdate44c290 (79 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.16" y="248.59" class="named"><title>0x00435f40 GdiSurface::Release (78 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.16" y="257.11" class="decompiled"><title>0x00441420 SpellCardInit441420 (78 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.16" y="265.63" class="decompiled"><title>0x00441c30 SpellCardInit441c30 (78 bytes)</title></rect>
