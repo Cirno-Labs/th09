@@ -199,7 +199,7 @@ address,size,name,symbol
 0x0040f4c0,151,Func40f4c0,
 0x0040f560,64,Enemy::ReleaseEffects,?ReleaseEffects@Enemy@@QAEXXZ
 0x0040f5a0,56,D3DXVECTOR3::operator/,??KD3DXVECTOR3@@QBE?AU0@M@Z
-0x0040f5e0,91,Func40f5e0,
+0x0040f5e0,91,LerpAngleShort,?LerpAngleShort@@YIMMMM@Z
 0x0040f640,385,Func40f640,
 0x0040f7d0,62,EnemyManager::FindByUnknownType,?FindByUnknownType@EnemyManager@@QAEPAUEnemy@@H@Z
 0x0040f810,17,Timer::HasTicked,?HasTicked@Timer@@QAEHXZ

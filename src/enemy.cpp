@@ -32,6 +32,29 @@ void Enemy::ReleaseEffects()
     this->effectCount = 0;
 }
 
+float LerpAngleShort(float from, float to, float t)
+{
+    float diff;
+    float wrapped;
+
+    if (from < to)
+    {
+        diff = to - from;
+        wrapped = from + 6.2831855f - to;
+    }
+    else
+    {
+        diff = from - to;
+        wrapped = to + 6.2831855f - from;
+        from = to;
+    }
+    if (!(diff < wrapped))
+    {
+        diff = wrapped;
+    }
+    return diff * t + from;
+}
+
 Enemy *EnemyManager::FindByUnknownType(int type)
 {
     int i;

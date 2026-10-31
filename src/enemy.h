@@ -396,3 +396,7 @@ ASSERT_SIZE(EnemyManager, 0x2ac450);
 // The order of the timelines, shared by the sides: an index in the low
 // seven bits, and a random bit 7 (0x4a7c88).
 extern unsigned char g_TimelineOrder[0x100];
+
+// The lesser of the two ways round between angles `from` and `to`,
+// times `t`, added to the smaller of the two (0x40f5e0).
+float LerpAngleShort(float from, float to, float t);
