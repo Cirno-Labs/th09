@@ -445,7 +445,10 @@ public:
     unsigned char pad_3033c[0x30354 - 0x3033c];
     // Counted up by character 1's shot hit callback.
     BYTE unknown30354;
-    unsigned char pad_30355[0x3037c - 0x30355];
+    unsigned char pad_30355[0x30364 - 0x30355];
+    // Where character 12's shot fire callback aims.
+    D3DXVECTOR3 unknown30364;
+    unsigned char pad_30370[0x3037c - 0x30370];
     // An enemy, forgotten when it despawns.
     Enemy *unknown3037c;
     unsigned char pad_30380[0x30388 - 0x30380];

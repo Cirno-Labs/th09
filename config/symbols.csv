@@ -1088,7 +1088,7 @@ address,size,name,symbol
 0x0044a780,921,Func44a780,
 0x0044ab20,3,ReturnZero,
 0x0044ab30,88,Func44ab30,
-0x0044ab90,139,Func44ab90,
+0x0044ab90,139,ShotFire44ab90,?ShotFire44ab90@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x0044ac20,436,Func44ac20,
 0x0044ade0,405,Func44ade0,
 0x0044af80,101,PlayerComboFunc44af80,?PlayerComboFunc44af80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
