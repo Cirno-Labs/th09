@@ -159,6 +159,12 @@ public:
     // `sideIdx`) and draw element (the same, or 0x1e for the third
     // side). Returns it, or NULL if adding fails (0x40d320).
     static EffectManager *RegisterChain(int sideIdx, int count34, int count38);
+    // Reserved slot `slot`, taking unknown34 as 256. Inline; the copy is
+    // at 0x445560.
+    Effect *GetReservedEffect(int slot)
+    {
+        return &this->effects[slot + 0x100];
+    }
 
     // Where SpawnParticles starts looking for a free effect.
     int next;

@@ -4,6 +4,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sprite.h"
 
 // A fire callback of the shot table (4): on the frame of `sd`, starts
 // effect 0x23 at the player in reserved slot 5. Returns 0 (0x445530).
@@ -40,5 +41,18 @@ int PlayerComboFunc445930(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
         g_GameManager.exAttackManager->AddAttack(15, pos, combo->player->sideIdx, NULL);
         combo->unknown34 -= (28 - g_GameManager.unknownB4) * 5;
     }
+    return 0;
+}
+
+// The init callback of effect type 0x23: starts script 7 of the player's
+// ANM on the first sprite, without writing depth and with no offset.
+// Returns 0 (0x445c30).
+int EffectInit445c30(Effect *effect)
+{
+    effect->mgr->side->player->anm->StartScript(effect->sprites, 7);
+    effect->sprites->zWriteDisabled = 1;
+    effect->sprites->posOffset.x = 0.0f;
+    effect->sprites->posOffset.y = 0.0f;
+    effect->sprites->posOffset.z = 0.0f;
     return 0;
 }
