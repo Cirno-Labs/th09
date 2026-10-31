@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.51% (723)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31.28% (335)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.60% (724)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">31.19% (334)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="504.28" height="6" x="0" y="0" class="named"/>
-<rect width="9.07" height="6" x="504.28" y="0" class="decompiled"/>
-<rect width="233.66" height="6" x="513.34" y="0" class="todo"/>
+<rect width="504.97" height="6" x="0" y="0" class="named"/>
+<rect width="9.07" height="6" x="504.97" y="0" class="decompiled"/>
+<rect width="232.96" height="6" x="514.04" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -278,7 +278,7 @@
 <rect width="12" height="12" x="105" y="60" class="named"><title>0x0040f890 AsciiText::SetUnknown2254 (20 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="60" class="named"><title>0x0040f8b0 PlayerUnknown30410::AddComboCounted (12 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="60" class="named"><title>0x0040f8c0 PlayerUnknown30410::ResetCombo (29 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="60" class="todo"><title>0x0040f8e0 Func40f8e0 (205 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="60" class="named"><title>0x0040f8e0 PlayerUnknown36c::Add (205 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="60" class="todo"><title>0x0040f9b0 Func40f9b0 (188 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="60" class="named"><title>0x0040fa70 EnemyManager::Initialize (554 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="60" class="named"><title>0x0040fca0 EclContext::EclContext (28 bytes)</title></rect>
@@ -1143,11 +1143,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.69%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.59%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">35.76%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">63.52%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="266.59" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="266.59" y="0" class="decompiled"/>
-<rect width="475.02" height="6" x="271.98" y="0" class="todo"/>
+<rect width="267.12" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="267.12" y="0" class="decompiled"/>
+<rect width="474.49" height="6" x="272.51" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.39" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 Func4086c0 (14777 bytes)</title></rect>
@@ -1499,7 +1499,7 @@
 <rect width="10.72" height="9.96" x="575.73" y="120.09" class="todo"><title>0x00444a20 Func444a20 (208 bytes)</title></rect>
 <rect width="10.66" height="9.96" x="589.46" y="120.09" class="named"><title>0x00412100 Enemy::Enemy (207 bytes)</title></rect>
 <rect width="10.66" height="9.96" x="603.12" y="120.09" class="named"><title>0x0042fc20 App::LoadBgm (207 bytes)</title></rect>
-<rect width="10.53" height="9.96" x="616.78" y="120.09" class="todo"><title>0x0040f8e0 Func40f8e0 (205 bytes)</title></rect>
+<rect width="10.53" height="9.96" x="616.78" y="120.09" class="named"><title>0x0040f8e0 PlayerUnknown36c::Add (205 bytes)</title></rect>
 <rect width="10.46" height="9.96" x="630.30" y="120.09" class="named"><title>0x0041e350 Player::CheckGraze (204 bytes)</title></rect>
 <rect width="10.46" height="9.96" x="643.76" y="120.09" class="todo"><title>0x00442220 Func442220 (204 bytes)</title></rect>
 <rect width="10.39" height="9.96" x="657.22" y="120.09" class="named"><title>0x00436e30 Sprite::ResolveFloatArgument (203 bytes)</title></rect>

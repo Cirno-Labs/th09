@@ -209,7 +209,7 @@ address,size,name,symbol
 0x0040f890,20,AsciiText::SetUnknown2254,?SetUnknown2254@AsciiText@@QAEXHH@Z
 0x0040f8b0,12,PlayerUnknown30410::AddComboCounted,?AddComboCounted@PlayerUnknown30410@@QAEXPAUD3DXVECTOR3@@HHHH@Z
 0x0040f8c0,29,PlayerUnknown30410::ResetCombo,?ResetCombo@PlayerUnknown30410@@QAEXXZ
-0x0040f8e0,205,Func40f8e0,
+0x0040f8e0,205,PlayerUnknown36c::Add,?Add@PlayerUnknown36c@@QAEXPAUD3DXVECTOR3@@0PAX@Z
 0x0040f9b0,188,Func40f9b0,
 0x0040fa70,554,EnemyManager::Initialize,?Initialize@EnemyManager@@QAEXXZ
 0x0040fca0,28,EclContext::EclContext,??0EclContext@@QAE@XZ

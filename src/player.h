@@ -84,6 +84,8 @@ struct PlayerUnknown36c
     // first `count` entries that touches it, or NULL, or NULL while
     // the player's unknown0 is set or unknown1b74 runs (0x41da70).
     PlayerUnknown36cEntry *CheckHits();
+    // Adds an entry: a box `size` across at `pos`, unturned (0x40f8e0).
+    void Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c);
 
     Player *player;
     PlayerUnknown36cEntry entries[0x80];

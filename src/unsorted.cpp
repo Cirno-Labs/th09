@@ -146,6 +146,21 @@ void PlayerUnknown30410::ResetCombo()
     this->unknown38 = 0;
 }
 
+void PlayerUnknown36c::Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c)
+{
+    if (this->count < 0x80)
+    {
+        this->entries[this->count].pos = *pos;
+        this->entries[this->count].size = *size;
+        this->entries[this->count].size.x /= 2.0f;
+        this->entries[this->count].size.y /= 2.0f;
+        this->entries[this->count].radius = 0.0f;
+        this->entries[this->count].angle = 0.0f;
+        this->entries[this->count].unknown2c = unknown2c;
+        this->count++;
+    }
+}
+
 void SinCos(float *sinOut, float *cosOut, float angle)
 {
     __asm
