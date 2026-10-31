@@ -22,3 +22,18 @@ int EffectUpdate441d30(Effect *effect)
     return 1;
 }
 
+// A fire callback of the shot table (2): fires `sd` on its frame,
+// standing still at its angle. Returns 1 if it fired (0x4423d0).
+int ShotFire4423d0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+{
+    if (frame == sd->frame)
+    {
+        FireShot(player, bullet, sd);
+        bullet->velocity.x = 0.0f;
+        bullet->velocity.y = 0.0f;
+        bullet->angle = sd->angle;
+        return 1;
+    }
+    return 0;
+}
+
