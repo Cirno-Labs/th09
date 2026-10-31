@@ -161,7 +161,13 @@ public:
         memset(this, 0, sizeof(Gui));
     }
     // The update chain callback and its added callback, and the draw
-    // chain callback (0x417630, 0x418480, 0x417c10).
+    // chain callback (0x417630, 0x418480, 0x417c10). The draw callback
+    // draws the frame sprites, the enemy markers, the two line strips
+    // and the dialogue, then while unknown1095c is set the round end
+    // sprites of unknown10968 (placed from their posOffset in the play
+    // area) and, from unknown1095c 2 and past unknown10960 20, the
+    // bonuses on the winner's side (unknown10964), and last the clock
+    // (with the stage outside mode 2). Returns 1.
     static int OnUpdate(Gui *gui);
     static int AddedCallback(Gui *gui);
     static int OnDraw(Gui *gui);

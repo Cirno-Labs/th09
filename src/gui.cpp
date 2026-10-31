@@ -642,6 +642,106 @@ void GuiMsg::UnloadBgm(int firstScript)
     this->Clear();
 }
 
+int Gui::OnDraw(Gui *gui)
+{
+    g_App.SetView2D(2);
+    g_SpriteEngine->DrawUnrotated(&gui->unknownC[0]);
+    g_SpriteEngine->DrawUnrotated(&gui->unknownC[1]);
+    g_SpriteEngine->DrawUnrotated(&gui->unknownC[2]);
+    g_SpriteEngine->DrawUnrotated(&gui->unknownC[3]);
+    g_SpriteEngine->DrawUnrotated(&gui->unknownC[4]);
+    g_SpriteEngine->DrawUnrotated(&gui->unknownC[5]);
+    g_SpriteEngine->DrawUnrotated(&gui->unknownC[6]);
+    g_SpriteEngine->DrawUnrotated(&gui->enemyMarkers[0]);
+    g_SpriteEngine->DrawUnrotated(&gui->enemyMarkers[1]);
+    DrawColoredLineStrip((VertexDiffuseXyzrwh *)gui->unknownE86c[0], 4);
+    DrawColoredLineStrip((VertexDiffuseXyzrwh *)gui->unknownE86c[1], 4);
+    gui->msg.Draw();
+    if (gui->unknown1095c != 0)
+    {
+        D3DXVECTOR3 pos;
+
+        pos.z = 0.0f;
+        g_SpriteEngine->DrawUnrotated(&gui->unknown10968[0]);
+        g_App.SetView2D(0);
+        gui->unknown10968[1].pos.x = g_GameManager.ArenaToScreenX(gui->unknown10968[1].posOffset.x);
+        gui->unknown10968[1].pos.y = g_GameManager.ArenaToScreenY(gui->unknown10968[1].posOffset.y);
+        g_SpriteEngine->DrawUnrotated(&gui->unknown10968[1]);
+        if (gui->unknown1095c >= 2 && gui->unknown10964 == 0)
+        {
+            gui->unknown10968[3].pos.x = g_GameManager.ArenaToScreenX(gui->unknown10968[3].posOffset.x);
+            gui->unknown10968[3].pos.y = g_GameManager.ArenaToScreenY(gui->unknown10968[3].posOffset.y);
+            g_SpriteEngine->DrawUnrotated(&gui->unknown10968[3]);
+            gui->unknown10968[4].pos.x = g_GameManager.ArenaToScreenX(gui->unknown10968[4].posOffset.x);
+            gui->unknown10968[4].pos.y = g_GameManager.ArenaToScreenY(gui->unknown10968[4].posOffset.y);
+            g_SpriteEngine->DrawUnrotated(&gui->unknown10968[4]);
+            gui->unknown10968[5].pos.x = g_GameManager.ArenaToScreenX(gui->unknown10968[5].posOffset.x);
+            gui->unknown10968[5].pos.y = g_GameManager.ArenaToScreenY(gui->unknown10968[5].posOffset.y);
+            g_SpriteEngine->DrawUnrotated(&gui->unknown10968[5]);
+            gui->unknown10968[6].pos.x = g_GameManager.ArenaToScreenX(gui->unknown10968[6].posOffset.x);
+            gui->unknown10968[6].pos.y = g_GameManager.ArenaToScreenY(gui->unknown10968[6].posOffset.y);
+            g_SpriteEngine->DrawUnrotated(&gui->unknown10968[6]);
+            pos.x = 224.0f;
+            pos.y = 226.0f;
+        }
+        g_App.SetView2D(1);
+        gui->unknown10968[2].pos.x = g_GameManager.ArenaToScreenX(gui->unknown10968[2].posOffset.x);
+        gui->unknown10968[2].pos.y = g_GameManager.ArenaToScreenY(gui->unknown10968[2].posOffset.y);
+        g_SpriteEngine->DrawUnrotated(&gui->unknown10968[2]);
+        if (gui->unknown1095c >= 2)
+        {
+            if (gui->unknown10964 == 1)
+            {
+                gui->unknown10968[3].pos.x = g_GameManager.ArenaToScreenX(gui->unknown10968[3].posOffset.x);
+                gui->unknown10968[3].pos.y = g_GameManager.ArenaToScreenY(gui->unknown10968[3].posOffset.y);
+                g_SpriteEngine->DrawUnrotated(&gui->unknown10968[3]);
+                gui->unknown10968[6].pos.x = g_GameManager.ArenaToScreenX(gui->unknown10968[6].posOffset.x);
+                gui->unknown10968[6].pos.y = g_GameManager.ArenaToScreenY(gui->unknown10968[6].posOffset.y);
+                g_SpriteEngine->DrawUnrotated(&gui->unknown10968[6]);
+                pos.x = 544.0f;
+                pos.y = 226.0f;
+            }
+            if (gui->unknown1095c >= 2 && gui->unknown10960 > 20)
+            {
+                g_AsciiText.AddFormat(&pos, "%7d", gui->unknown11e88);
+                pos.y += 16.0f;
+                g_AsciiText.AddFormat(&pos, "%7d", gui->unknown11e8c);
+                pos.y += 16.0f;
+                g_AsciiText.AddFormat(&pos, "%7d", gui->unknown11e90);
+                pos.y += 16.0f;
+                g_AsciiText.AddFormat(&pos, "%7d", gui->unknown11e94);
+                pos.y += 16.0f;
+                g_AsciiText.AddFormat(&pos, "%7d", gui->unknown11e98);
+                pos.y += 16.0f;
+                pos.x -= 9.0f;
+                if (g_GameManager.unknownFc == 8)
+                {
+                    g_AsciiText.AddFormat(&pos, "%8d", gui->unknown11e9c);
+                }
+                pos.y += 32.0f;
+                g_AsciiText.AddFormat(&pos, "%8d", gui->bonusTotal);
+            }
+        }
+    }
+    g_App.SetView2D(2);
+    if (g_GameManager.IsMode2())
+    {
+        D3DXVECTOR3 timePos(297.0f, 0.0f, 0.0f);
+        g_AsciiText.AddFormat(&timePos, "%.2d:%.2d", g_GameManager.rank.unknownD0 / 3600,
+                              g_GameManager.rank.unknownD0 / 60 % 60);
+    }
+    else
+    {
+        D3DXVECTOR3 timePos(260.0f, 0.0f, 0.0f);
+        g_AsciiText.AddFormat(&timePos, "STAGE %d %.2d:%.2d", g_GameManager.unknownFc + 1,
+                              g_GameManager.rank.unknownD0 / 3600, g_GameManager.rank.unknownD0 / 60 % 60);
+    }
+    g_SpriteEngine->DrawUnrotated(&gui->unknown106b4);
+    g_SpriteEngine->DrawUnrotated(&gui->unknown11eac[0]);
+    g_SpriteEngine->DrawUnrotated(&gui->unknown11eac[1]);
+    return 1;
+}
+
 void Gui::CountRoundWin(int side)
 {
     this->unknown11ea8 = 1;
