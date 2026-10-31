@@ -47,21 +47,52 @@ struct PlayerHitArea
 };
 ASSERT_SIZE(PlayerHitArea, 0x44);
 
-// A part of the player at +0x24 with three timers (0x78 bytes).
+class Player;
+
+// How long the CPU player holds back, by GameSide::unknown2c (0x1c
+// bytes).
+struct PlayerCpuLevel
+{
+    // The seconds of PlayerUnknown24's two timers, by the player's
+    // unknownA8 (10 and up, 2 and up, below).
+    int seconds5c[3];
+    int seconds68[3];
+    // Goes to GameManager's rank.unknownBc.
+    int rank;
+};
+ASSERT_SIZE(PlayerCpuLevel, 0x1c);
+
+// The CPU player's state, at +0x24 of the player (0x7c bytes).
 // Placeholder name.
 struct PlayerUnknown24
 {
     // Sets timer5c and timer68 to 0 and clears the low two flags
     // (0x41bdc0).
     void Reset();
+    // Plays the side for the CPU: writes g_PlayerInputs[sideIdx], moving
+    // in the first direction (by its region of the play area) whose
+    // spot no hit area touches, else towards the item or the enemy to
+    // shoot, and bombing, focusing and charging by the timers
+    // (0x4049a0).
+    void Run();
 
     Timer timer0;
-    unsigned char pad_c[0x5c - 0xc];
+    // Set once unknown30388 reaches unknown58, for a charge release.
+    int unknownC;
+    // The buttons of the last directions, newest first; history2 only
+    // while counter is 0.
+    int history[8];
+    int history2[8];
+    // Frames left of a sidestep.
+    int counter;
+    int lastDirection;
+    float unknown58;
     Timer timer5c;
     Timer timer68;
     DWORD flags;
+    Player *player;
 };
-ASSERT_SIZE(PlayerUnknown24, 0x78);
+ASSERT_SIZE(PlayerUnknown24, 0x7c);
 
 // An entry of PlayerUnknown36c (0x30 bytes). Its implicit constructor
 // folds with D3DXVECTOR3's. Placeholder name.
@@ -440,9 +471,9 @@ public:
     ChainElem *drawElem;
     ChainElem *drawElem2;
     int unknown20;
+    // Its player is set by AddedCallback, as are unknownA0 and unknownA4
+    // to 1.
     PlayerUnknown24 unknown24;
-    // Set by AddedCallback: the player, 1, 1.
-    Player *unknown9c;
     int unknownA0;
     int unknownA4;
     // Draws the player whatever the front's unknown1095c and
@@ -565,7 +596,7 @@ public:
     // (-1000 if none), and its y halfway to 400.
     float unknown30f64;
     float unknown30f68;
-    unsigned char pad_30f6c[0x30f70 - 0x30f6c];
+    float unknown30f6c;
 };
 ASSERT_SIZE(Player, 0x30f70);
 
@@ -667,6 +698,15 @@ extern ShotHitFunc g_ShotHitFuncs[4];
 extern PlayerComboFunc g_CharacterFuncs9d0[16];
 // The effect each character's focus starts besides effect 7 (0x4a1a10).
 extern int g_CharacterValuesA10[16];
+// The buttons of each direction (0x48e340), and the two sidesteps of
+// each (0x48e368).
+extern const int g_PlayerCpuDirButtons[9];
+extern const int g_PlayerCpuAltDirs[2][9];
+// The directions the CPU player tries, by region; [1] is set to the last
+// one each frame (0x4a0150).
+extern int g_PlayerCpuDirOrder[12][10];
+// By GameSide::unknown2c (0x4a0330).
+extern PlayerCpuLevel g_PlayerCpuLevels[5];
 extern PlayerPosFunc g_CharacterFuncsA50[16];
 extern PlayerEnemyFunc g_CharacterFuncsA90[16];
 extern int g_CharacterValuesAd0[16];

@@ -82,7 +82,7 @@ address,size,name,symbol
 0x00404950,20,Timer::operator==,??8Timer@@QAEHH@Z
 0x00404970,15,GameManager::IsMode1,?IsMode1@GameManager@@QAEHXZ
 0x00404980,24,Gui::IsMsgRunning,?IsMsgRunning@Gui@@QAEHXZ
-0x004049a0,3231,Func4049a0,
+0x004049a0,3238,PlayerUnknown24::Run,?Run@PlayerUnknown24@@QAEXXZ
 0x00405650,8,BulletManager::Unknown405650,?Unknown405650@BulletManager@@QAEXXZ
 0x00405660,154,EclManager::Load,?Load@EclManager@@QAEHPAD@Z
 0x00405700,15,Atan2,?Atan2@@YIMMM@Z
@@ -2285,6 +2285,8 @@ address,size,name,symbol
 0x0048e284,4,CoInitialize,__imp__CoInitialize@4
 0x0048e288,4,CoCreateInstance,__imp__CoCreateInstance@20
 0x0048e28c,4,CoUninitialize,__imp__CoUninitialize@0
+0x0048e340,,g_PlayerCpuDirButtons,?g_PlayerCpuDirButtons@@3QBHB
+0x0048e368,,g_PlayerCpuAltDirs,?g_PlayerCpuAltDirs@@3QAY08$$CBHA
 0x0048e628,,g_BulletTypeScripts,?g_BulletTypeScripts@@3QAY04$$CBHA
 0x00490f08,,g_SeekOrigins,?g_SeekOrigins@@3QBKB
 0x00490f54,,g_Half,?g_Half@@3MB
@@ -2305,6 +2307,8 @@ address,size,name,symbol
 0x004953c0,,IID_IPersistFile,_IID_IPersistFile
 0x004953d0,,GUID_NULL,_GUID_NULL
 0x004a00c0,,g_SpellCardTypes,?g_SpellCardTypes@@3PAUSpellCardType@@A
+0x004a0150,,g_PlayerCpuDirOrder,?g_PlayerCpuDirOrder@@3PAY09HA
+0x004a0330,,g_PlayerCpuLevels,?g_PlayerCpuLevels@@3PAUPlayerCpuLevel@@A
 0x004a0af4,,g_EnemyScriptInterps,?g_EnemyScriptInterps@@3PAP6IXPAUEnemy@@PAUEclInstr@@M@ZA
 0x004a0b14,,g_EnemyScriptFuncs,?g_EnemyScriptFuncs@@3PAP6IXPAUEnemy@@PAUEclInstr@@@ZA
 0x004a0b48,,g_EffectInfos,?g_EffectInfos@@3PAUEffectInfo@@A
