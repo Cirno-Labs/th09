@@ -4,6 +4,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "unsorted.h"
 
 // The unknown30404 of character 15: whether `pos` is within the radius
 // of the player's unknown368 across or up or down (0x44c2e0).
@@ -16,6 +17,39 @@ int PlayerPosFunc44c2e0(Player *player, D3DXVECTOR3 *pos)
     {
         return 1;
     }
+    return 0;
+}
+
+// The init callback of extra attack type 26: type 0's, landing between
+// 200 and 328 down the other side (0x44c350).
+int ExAttackInit44c350(ExAttack *attack)
+{
+    ExAttackData00 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData00));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData00 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->velocity, angle, 2.0f);
+    data->state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    data->targetPos.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+    data->targetPos.y = g_Rng.GetRandomF32InRange(128.0f) + 200.0f;
+    data->targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
     return 0;
 }
 
