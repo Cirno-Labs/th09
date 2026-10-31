@@ -203,6 +203,42 @@ Chain::Chain()
 {
 }
 
+void UpdatePlayerInput(int player, WORD pressed)
+{
+    PlayerInput *input;
+    int i;
+    WORD *held;
+    WORD bit;
+    WORD buttons;
+
+    input = &g_PlayerInputs[player];
+    input->unknown2 = input->unknown0;
+    input->unknown0 = pressed;
+    buttons = input->unknown0;
+    bit = 1;
+    input->unknown4 = 0;
+    held = input->heldFrames;
+    for (i = 0; i < 16; i++, held++, bit <<= 1)
+    {
+        if (buttons & 1)
+        {
+            (*held)++;
+            if (*held >= 26)
+            {
+                input->unknown4 |= bit;
+                *held -= 8;
+            }
+        }
+        else
+        {
+            *held = 0;
+        }
+        buttons >>= 1;
+    }
+    input->unknown6 = (input->unknown0 ^ input->unknown2) & input->unknown0;
+    input->unknown8 = ~input->unknown0 & (input->unknown0 ^ input->unknown2);
+}
+
 void ResetKeyboard()
 {
     BYTE keyState[0x100];

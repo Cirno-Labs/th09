@@ -548,7 +548,7 @@ address,size,name,symbol
 0x0042ac50,33,ChainElem::`scalar deleting destructor',??_GChainElem@@QAEPAXI@Z
 0x0042ac80,37,SetButtonFromDirectInput,?SetButtonFromDirectInput@@YIHPAGFGPAE@Z
 0x0042acb0,47,SetButtonFromJoystick,?SetButtonFromJoystick@@YIHPAGFGK@Z
-0x0042ace0,131,Func42ace0,
+0x0042ace0,131,UpdatePlayerInput,?UpdatePlayerInput@@YIXHG@Z
 0x0042ad70,65,ResetKeyboard,?ResetKeyboard@@YIXXZ
 0x0042adc0,90,GetDataPath,?GetDataPath@@YGPADPAD@Z
 0x0042ae20,39,Rng::GetRandomU16,?GetRandomU16@Rng@@QAEGXZ

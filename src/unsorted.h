@@ -185,6 +185,12 @@ BYTE *GetPadButtons(int player);
 // The buttons GetPadButtons read (0x4b3028).
 extern BYTE g_PadButtons[0x80];
 
+// Puts `buttons` in g_PlayerInputs[player]: the last ones go to
+// unknown2, those just pressed to unknown6 and just released to
+// unknown8, and unknown4 gets the held ones' repeats, every 8 frames from
+// the 26th (0x42ace0).
+void UpdatePlayerInput(int player, WORD buttons);
+
 // Releases every key in the keyboard state, as th08's (0x42ad70).
 void ResetKeyboard();
 // Opens the game's archive, as th08's. Returns 0, or -1 (0x42f100).
@@ -360,7 +366,8 @@ struct PlayerInput
     WORD unknown4;
     WORD unknown6;
     WORD unknown8;
-    unsigned char pad_a[0x2a - 0xa];
+    // How long each button of unknown0 has been held.
+    WORD heldFrames[16];
     // How long button 1 of the second set has been held during a
     // replay, up to 8, for the sides whose GameManagerUnknownE8
     // unknownB4 is 1.

@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.26% (883)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.26% (14)</tspan> · <tspan class="todo">5.12% (57)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.26% (883)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.35% (15)</tspan> · <tspan class="todo">5.03% (56)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="592.10" height="6" x="0" y="0" class="named"/>
 <rect width="107.29" height="6" x="592.10" y="0" class="decompiled"/>
-<rect width="9.39" height="6" x="699.39" y="0" class="nonmatching"/>
-<rect width="38.22" height="6" x="708.78" y="0" class="todo"/>
+<rect width="10.06" height="6" x="699.39" y="0" class="nonmatching"/>
+<rect width="37.55" height="6" x="709.45" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -618,7 +618,7 @@
 <rect width="12" height="12" x="690" y="150" class="named"><title>0x0042ac50 ChainElem::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="150" class="named"><title>0x0042ac80 SetButtonFromDirectInput (37 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="150" class="named"><title>0x0042acb0 SetButtonFromJoystick (47 bytes)</title></rect>
-<rect width="12" height="12" x="735" y="150" class="todo"><title>0x0042ace0 Func42ace0 (131 bytes)</title></rect>
+<rect width="12" height="12" x="735" y="150" class="nonmatching"><title>0x0042ace0 UpdatePlayerInput (131 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="165" class="named"><title>0x0042ad70 ResetKeyboard (65 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="165" class="named"><title>0x0042adc0 GetDataPath (90 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="165" class="named"><title>0x0042ae20 Rng::GetRandomU16 (39 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">58.35%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">11.98%</tspan> · <tspan class="todo">14.84%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">58.35%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">12.02%</tspan> · <tspan class="todo">14.80%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="435.86" height="6" x="0" y="0" class="named"/>
 <rect width="110.77" height="6" x="435.86" y="0" class="decompiled"/>
-<rect width="89.49" height="6" x="546.63" y="0" class="nonmatching"/>
-<rect width="110.89" height="6" x="636.11" y="0" class="todo"/>
+<rect width="89.82" height="6" x="546.63" y="0" class="nonmatching"/>
+<rect width="110.56" height="6" x="636.44" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.07" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1671,7 +1671,7 @@
 <rect width="7.67" height="8.04" x="646.39" y="174.27" class="named"><title>0x00401560 AnmLoaded::StartScriptAtOrigin (134 bytes)</title></rect>
 <rect width="7.59" height="8.04" x="657.06" y="174.27" class="named"><title>0x0040e4f0 Ending::Load (133 bytes)</title></rect>
 <rect width="7.59" height="8.04" x="667.66" y="174.27" class="todo"><title>0x004181e0 Gui::Reset (133 bytes)</title></rect>
-<rect width="7.43" height="8.04" x="678.25" y="174.27" class="todo"><title>0x0042ace0 Func42ace0 (131 bytes)</title></rect>
+<rect width="7.43" height="8.04" x="678.25" y="174.27" class="nonmatching"><title>0x0042ace0 UpdatePlayerInput (131 bytes)</title></rect>
 <rect width="7.35" height="8.04" x="688.68" y="174.27" class="named"><title>0x0042fd90 App::UnloadBgm (130 bytes)</title></rect>
 <rect width="7.35" height="8.04" x="699.03" y="174.27" class="named"><title>0x004342a0 AsciiText::AddString (130 bytes)</title></rect>
 <rect width="7.27" height="8.04" x="709.39" y="174.27" class="decompiled"><title>0x004417f0 PlayerPosFunc4417f0 (129 bytes)</title></rect>
