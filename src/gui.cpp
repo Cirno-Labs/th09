@@ -42,7 +42,7 @@ void GuiMsg::Start(int index, int side)
     this->shadowColors[3] = 0;
     this->skippable = 1;
     this->minWaitFrames = 6;
-    this->unknown1d6d = 1;
+    this->textBoxShown = 1;
     this->speaker = 0;
     this->newPage = 1;
     this->nextLine = 0;
@@ -116,7 +116,7 @@ void GuiMsg::StartRandom(int side)
     this->shadowColors[3] = 0;
     this->skippable = 1;
     this->minWaitFrames = 6;
-    this->unknown1d6d = 1;
+    this->textBoxShown = 1;
     this->speaker = 0;
     this->newPage = 1;
     this->nextLine = 0;
@@ -127,6 +127,87 @@ void GuiMsg::StartRandom(int side)
     this->text[1].fontWidth = this->text[1].fontHeight = this->fontSize;
     g_SpriteEngine->RenderText(&this->text[0], this->textColors[this->speaker], this->shadowColors[this->speaker], " ");
     g_SpriteEngine->RenderText(&this->text[1], this->textColors[this->speaker], this->shadowColors[this->speaker], " ");
+}
+
+int GuiMsg::Draw()
+{
+    float height;
+
+    if (this->scriptIndex < 0)
+    {
+        return -1;
+    }
+    if (this->speaker < 2)
+    {
+        g_SpriteEngine->DrawUnrotated(&this->portraits[6]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[7]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[4]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[5]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[0]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[1]);
+    }
+    else if (this->speaker == 2)
+    {
+        g_SpriteEngine->DrawUnrotated(&this->portraits[6]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[7]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[0]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[1]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[4]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[5]);
+    }
+    else
+    {
+        g_SpriteEngine->DrawUnrotated(&this->portraits[4]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[5]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[0]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[1]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[6]);
+        g_SpriteEngine->DrawUnrotated(&this->portraits[7]);
+    }
+    g_SpriteEngine->DrawUnrotatedMirrored(&this->portraits[2]);
+    g_SpriteEngine->DrawUnrotatedMirrored(&this->portraits[3]);
+    if (this->timer < 40)
+    {
+        height = this->timer.AsFloat() * 1.5f;
+    }
+    else
+    {
+        height = 60.0f;
+    }
+    if (height > 0.0f)
+    {
+        GuiUnknownE86c vertices[4];
+        vertices[0].pos = D3DXVECTOR3(64.0f, 364.0f, 0.0f);
+        vertices[1].pos = D3DXVECTOR3(576.0f, 364.0f, 0.0f);
+        vertices[2].pos = D3DXVECTOR3(64.0f, 364.0f + height, 0.0f);
+        vertices[3].pos = D3DXVECTOR3(576.0f, 364.0f + height, 0.0f);
+        vertices[0].diffuse = vertices[1].diffuse = 0xd0000000;
+        vertices[2].diffuse = vertices[3].diffuse = 0x90000000;
+        vertices[0].w = vertices[1].w = vertices[2].w = vertices[3].w = 1.0f;
+        g_SpriteEngine->FlushQuadBatch();
+        if (this->textBoxShown)
+        {
+            g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_SELECTARG1);
+            g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_SELECTARG1);
+            g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_DIFFUSE);
+            g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_DIFFUSE);
+            g_App.SetRenderState(D3DRS_ZWRITEENABLE, FALSE);
+            g_App.d3dDevice->SetVertexShader(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
+            g_App.d3dDevice->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, 2, vertices, sizeof(GuiUnknownE86c));
+            g_SpriteEngine->ClearVertexFormat();
+            g_SpriteEngine->ClearColorOp();
+            g_SpriteEngine->ClearBlendMode();
+            g_SpriteEngine->ClearZWrite();
+            g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+            g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+            g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+            g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+        }
+    }
+    g_SpriteEngine->DrawUnrotated(&this->text[0]);
+    g_SpriteEngine->DrawUnrotated(&this->text[1]);
+    g_SpriteEngine->DrawUnrotated(&this->unknown1a7c);
+    return 0;
 }
 
 void GuiMsg::UnloadBgm(int firstScript)

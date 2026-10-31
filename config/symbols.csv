@@ -313,7 +313,7 @@ address,size,name,symbol
 0x00416160,357,GuiMsg::Start,?Start@GuiMsg@@QAEXHH@Z
 0x004162d0,693,GuiMsg::StartRandom,?StartRandom@GuiMsg@@QAEXH@Z
 0x00416590,2852,Func416590,
-0x00417130,995,Func417130,
+0x00417130,995,GuiMsg::Draw,?Draw@GuiMsg@@QAEHXZ
 0x00417520,271,GuiMsg::UnloadBgm,?UnloadBgm@GuiMsg@@QAEXH@Z
 0x00417630,1485,Gui::OnUpdate,?OnUpdate@Gui@@SIHPAV1@@Z
 0x00417c10,1474,Gui::OnDraw,?OnDraw@Gui@@SIHPAV1@@Z

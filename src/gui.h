@@ -45,6 +45,11 @@ struct GuiMsg
     // by weight among the ten of the other side's character, or else
     // among scripts 210-219, script 210 if none is picked (0x4162d0).
     void StartRandom(int side);
+    // Draws the portraits (2 and 3 mirrored, the others in an order by
+    // speaker), the text box growing over its first 40 frames, and the
+    // text, as th08's DrawMsg. Returns 0, or -1 with no script running
+    // (0x417130).
+    int Draw();
     // Unloads the music the scripts from `firstScript` on, ten of them,
     // play with opcode 7 (in mode 2 GameManager::unknownF0's unknownC),
     // then frees the dialogue files and clears the state, if a file is
@@ -79,7 +84,8 @@ struct GuiMsg
     unsigned char pad_1d4c[0x1d50 - 0x1d4c];
     int minWaitFrames;
     int fontSize;
-    Timer unknown1d58;
+    // Frames the script has run so far, as th08's timer.
+    Timer timer;
     // As th08's.
     BYTE speaker;
     BYTE newPage;
@@ -87,7 +93,8 @@ struct GuiMsg
     BYTE activePortrait;
     unsigned char pad_1d68[0x1d6c - 0x1d68];
     BYTE skippable;
-    BYTE unknown1d6d;
+    // Whether Draw shows the text box, as th08's.
+    BYTE textBoxShown;
     unsigned char pad_1d6e[0x1d70 - 0x1d6e];
 };
 ASSERT_SIZE(GuiMsg, 0x1d70);
