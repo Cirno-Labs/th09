@@ -1018,7 +1018,7 @@ address,size,name,symbol
 0x00444560,308,Func444560,
 0x004446a0,86,ShotUpdate4446a0,?ShotUpdate4446a0@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00444700,602,Func444700,
-0x00444960,178,Func444960,
+0x00444960,178,EffectInit444960,?EffectInit444960@@YIHPAUEffect@@@Z
 0x00444a20,208,Func444a20,
 0x00444af0,946,Func444af0,
 0x00444eb0,79,EffectUpdate444eb0,?EffectUpdate444eb0@@YIHPAUEffect@@@Z

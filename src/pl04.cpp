@@ -1,10 +1,25 @@
 // Character 4's extra attacks and callbacks (pl/pl04.cpp).
 
-#include "enemy.h"
 #include "effect.h"
+#include "enemy.h"
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "unsorted.h"
+
+// The state of effect type 34, which it keeps in its vertices (0xef8
+// bytes).
+struct EffectData34
+{
+    // 0 while growing, then 1.
+    int state;
+    unsigned char pad_4[0x50 - 0x4];
+    float unknown50;
+    unsigned char pad_54[0xce8 - 0x54];
+    // Random offsets, 32 of each row's 33 refreshed each frame.
+    float unknownCe8[4][0x21];
+};
+ASSERT_SIZE(EffectData34, 0xef8);
 
 // The unknown30408 of character 4: pl01's, rising up to 1.5 over the 120
 // frames. Returns 0 (0x443c10).
@@ -45,6 +60,40 @@ int ShotUpdate4446a0(Player *player, PlayerBullet *bullet)
         }
     }
     bullet->unknown472 = 1;
+    return 0;
+}
+
+// The init callback of effect type 34: allocates its zeroed state in
+// vertices and sets it up as EffectInit447c40's ring of radius 16.
+// Returns 0, or -1 if the allocation fails (0x444960).
+int EffectInit444960(Effect *effect)
+{
+    EffectData34 *data;
+
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(sizeof(EffectData34), "Effect");
+    if (effect->vertices == NULL)
+    {
+        return -1;
+    }
+    memset(effect->vertices, 0, sizeof(EffectData34));
+    effect->unknown48 = effect->pos;
+    effect->unknown54.x = 0.0f;
+    effect->unknown54.y = 0.0f;
+    effect->unknown54.z = 1.0f;
+    effect->unknown60.x = 0.0f;
+    effect->unknown60.y = -1.0f;
+    effect->unknown60.z = 0.0f;
+    effect->unknown80 = effect->velocity.x;
+    effect->unknown88 = effect->velocity.z;
+    effect->unknown94 = 0.0f;
+    effect->unknown98 = 0.0f;
+    effect->unknown9c = 1.0f;
+    effect->unknown8c = 0x20;
+    effect->unknown7c = 16.0f;
+    effect->unknownC9 = 1;
+    data = (EffectData34 *)effect->vertices;
+    data->unknown50 = 0.0f;
+    data->state = 0;
     return 0;
 }
 
