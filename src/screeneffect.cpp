@@ -35,6 +35,18 @@ int ScreenEffect::OnDrawScreen(ScreenEffect *effect)
     return 1;
 }
 
+int ScreenEffect::OnDrawPlayArea(ScreenEffect *effect)
+{
+    float area[4];
+
+    area[0] = 32.0f;
+    area[1] = 16.0f;
+    area[2] = 416.0f;
+    area[3] = 464.0f;
+    DrawColorRect(area, effect->alpha << 24 | effect->color);
+    return 1;
+}
+
 void ScreenEffect::Finish()
 {
     this->finishing = 1;
