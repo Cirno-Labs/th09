@@ -19,6 +19,13 @@ extern char *g_TitleHelpTexts[8];
 extern char *g_DemoReplayPaths[3];
 // The characters a replay's name is typed with, as th08's (0x4a1cf4).
 extern char *g_NameAlphabet;
+// The replay menu's names of the characters (padded to 8), the
+// difficulties, the modes 0 and 1 and the four kinds of match of mode 2
+// (0x4a1cf8, 0x4a1d3c, 0x4a1d50, 0x4a1d58).
+extern char *g_ReplayMenuCharacterNames[17];
+extern char *g_ReplayMenuDifficultyNames[5];
+extern char *g_ReplayMenuModeNames[2];
+extern char *g_ReplayMenuMatchNames[4];
 
 // Cleared by the title (0x4ac884).
 extern int g_Unknown4ac884;
@@ -83,6 +90,8 @@ public:
     // (0x4234f6, 0x4239f6, 0x423d16, 0x4244a9). State 15's lists the
     // replay slots (subState 2), then moves the chosen one up and shows
     // the name being typed (3), with the alphabet to type it with (4).
+    // State 11's lists the replays (subState 1), then moves the chosen
+    // one up and shows its mode and its rounds' characters (2).
     int DrawState11();
     int DrawState15();
     int DrawState13();
@@ -198,7 +207,11 @@ public:
     int unknown88;
     // The name typed in for the replay being saved.
     char replayName[9];
-    unsigned char pad_95[0x681c - 0x95];
+    unsigned char pad_95[0x28c - 0x95];
+    // The paths of the replay files, as th08's: "./replay/th9_udXXXX.rpy"
+    // for those from 25 on.
+    char replayPaths[50][0x200];
+    unsigned char pad_668c[0x681c - 0x668c];
     // Files ReleaseTitleScene frees.
     void *unknown681c[50];
     // The headers of the replay files.

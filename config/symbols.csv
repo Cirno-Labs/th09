@@ -1728,7 +1728,7 @@ address,size,name,symbol
 0x0047c323,18,_atexit,
 0x0047c335,87,_vsprintf,_vsprintf
 0x0047c390,96,_memset,_memset
-0x0047c3f0,139,_strlen,
+0x0047c3f0,139,_strlen,_strlen
 0x0047c47b,88,_sprintf,_sprintf
 0x0047c4e0,7,strcpy,_strcpy
 0x0047c4f0,232,Func47c4f0,
@@ -2336,6 +2336,10 @@ address,size,name,symbol
 0x004a1cd0,,g_ReplayDifficultyNames,?g_ReplayDifficultyNames@@3PAPADA
 0x004a1ce8,,g_DemoReplayPaths,?g_DemoReplayPaths@@3PAPADA
 0x004a1cf4,,g_NameAlphabet,?g_NameAlphabet@@3PADA
+0x004a1cf8,,g_ReplayMenuCharacterNames,?g_ReplayMenuCharacterNames@@3PAPADA
+0x004a1d3c,,g_ReplayMenuDifficultyNames,?g_ReplayMenuDifficultyNames@@3PAPADA
+0x004a1d50,,g_ReplayMenuModeNames,?g_ReplayMenuModeNames@@3PAPADA
+0x004a1d58,,g_ReplayMenuMatchNames,?g_ReplayMenuMatchNames@@3PAPADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA

@@ -233,6 +233,122 @@ void AsciiText::SetScale(float x, float y)
     this->scaleY = y;
 }
 
+int MainMenu::DrawState11()
+{
+    D3DXVECTOR3 pos;
+    int i;
+    int slot;
+    ReplayHeader *replay;
+    char buf[0x100];
+
+    if (this->subState == 1)
+    {
+        pos.x = 32.0f;
+        pos.y = 90.0f;
+        pos.z = 0.0f;
+        for (i = 0; i < 50; i++)
+        {
+            if (i == 25)
+            {
+                pos.x = 352.0f;
+                pos.y = 90.0f;
+            }
+            g_AsciiText.color = i == this->cursor ? 0xffffffff : 0xff808080;
+            if (i < 25)
+            {
+                g_AsciiText.AddFormat(&pos, "No.%.2d %8s %8s", i + 1,
+                                      *(int *)this->replays[i].magic != 0 ? this->replays[i].info.name : "--------",
+                                      *(int *)this->replays[i].magic != 0 ? this->replays[i].info.date : "--/--/--");
+            }
+            else
+            {
+                g_AsciiText.AddFormat(&pos, "%c%c%c%c  %8s %8s",
+                                      *(int *)this->replays[i].magic != 0 ? this->replayPaths[i][15] : 'u',
+                                      *(int *)this->replays[i].magic != 0 ? this->replayPaths[i][16] : 's',
+                                      *(int *)this->replays[i].magic != 0 ? this->replayPaths[i][17] : 'e',
+                                      *(int *)this->replays[i].magic != 0 ? this->replayPaths[i][18] : 'r',
+                                      *(int *)this->replays[i].magic != 0 ? this->replays[i].info.name : "--------",
+                                      *(int *)this->replays[i].magic != 0 ? this->replays[i].info.date : "--/--/--");
+            }
+            pos.y += 13.0f;
+        }
+    }
+    else if (this->subState == 2)
+    {
+        replay = &this->replays[this->replaySlot];
+        slot = this->replaySlot;
+        pos.x = 32.0f;
+        if (slot >= 25)
+        {
+            pos.x = 352.0f;
+        }
+        pos.y = slot * 13.0f + 90.0f;
+        pos.z = 0.0f;
+        D3DXVECTOR3 end(216.5f, 160.0f, 0.0f);
+        if (this->unknown1b230 < 10)
+        {
+            pos = pos + (end - pos) * (float)this->unknown1b230 * 0.1f;
+        }
+        else
+        {
+            pos = end;
+        }
+        if (slot < 25)
+        {
+            g_AsciiText.AddFormat(&pos, "No.%.2d %8s %8s", slot + 1,
+                                  *(int *)replay->magic != 0 ? replay->info.name : "--------",
+                                  *(int *)replay->magic != 0 ? replay->info.date : "--/--/--");
+        }
+        else
+        {
+            g_AsciiText.AddFormat(&pos, "%c%c%c%c  %8s %8s",
+                                  *(int *)replay->magic != 0 ? this->replayPaths[slot][15] : 'u',
+                                  *(int *)replay->magic != 0 ? this->replayPaths[slot][16] : 's',
+                                  *(int *)replay->magic != 0 ? this->replayPaths[slot][17] : 'e',
+                                  *(int *)replay->magic != 0 ? this->replayPaths[slot][18] : 'r',
+                                  *(int *)replay->magic != 0 ? replay->info.name : "--------",
+                                  *(int *)replay->magic != 0 ? replay->info.date : "--/--/--");
+        }
+        pos.x = 221.0f;
+        pos.y = 240.0f;
+        if (this->replays[slot].mode == 0)
+        {
+            sprintf(buf, "%s  -%s-", g_ReplayMenuModeNames[0], g_ReplayMenuDifficultyNames[replay->info.difficulty]);
+            pos.x = 320.0f - strlen(buf) * 4.5f;
+            g_AsciiText.AddFormat(&pos, buf);
+        }
+        else if (this->replays[slot].mode == 1)
+        {
+            sprintf(buf, "%s", g_ReplayMenuModeNames[1]);
+            pos.x = 320.0f - strlen(buf) * 4.5f;
+            g_AsciiText.AddFormat(&pos, buf);
+        }
+        else if (this->replays[slot].mode == 2)
+        {
+            sprintf(buf, "%s  -%s-", g_ReplayMenuMatchNames[replay->unknown1e5],
+                    g_ReplayMenuDifficultyNames[replay->info.difficulty]);
+            pos.x = 320.0f - strlen(buf) * 4.5f;
+            g_AsciiText.AddFormat(&pos, buf);
+        }
+        pos.x = 230.0f;
+        pos.y = 270.0f;
+        for (i = 0; i < 10; i++)
+        {
+            if (replay->unknown20[0][i] != NULL)
+            {
+                g_AsciiText.color = i == this->cursor ? 0xffffffff : 0xff808080;
+                g_AsciiText.AddFormat(&pos, "%.8s vs %.8s",
+                                      g_ReplayMenuCharacterNames[((ReplayRound *)replay->unknown20[0][i])->character],
+                                      g_ReplayMenuCharacterNames[((ReplayRound *)replay->unknown20[1][i])->character]);
+                pos.y += 13.0f;
+            }
+        }
+    }
+    g_AsciiText.color = 0xffffffff;
+    g_AsciiText.highlight = 0;
+    return 1;
+}
+
 int MainMenu::DrawState15()
 {
     D3DXVECTOR3 pos(32.0f, 64.0f, 0.0f);
