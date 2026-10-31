@@ -1104,7 +1104,7 @@ address,size,name,symbol
 0x0044bc80,71,Func44bc80,
 0x0044bcd0,361,Func44bcd0,
 0x0044be40,475,Func44be40,
-0x0044c020,101,Func44c020,
+0x0044c020,101,PlayerComboFunc44c020,?PlayerComboFunc44c020@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044c090,506,Func44c090,
 0x0044c290,79,Func44c290,
 0x0044c2e0,98,Func44c2e0,
