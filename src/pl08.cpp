@@ -6,6 +6,54 @@
 #include "player.h"
 #include "unsorted.h"
 
+// The data of extra attack types 16 and 23 (0x50 bytes): ExAttackData00
+// with a float after the velocity.
+struct ExAttackData16
+{
+    int state;
+    D3DXVECTOR3 velocity;
+    float unknown10;
+    D3DXVECTOR3 start;
+    D3DXVECTOR3 end;
+    D3DXVECTOR3 tangent1;
+    D3DXVECTOR3 tangent0;
+    D3DXVECTOR3 targetPos;
+};
+ASSERT_SIZE(ExAttackData16, 0x50);
+
+// The init callback of extra attack type 16: type 0's, landing further
+// from the side's edges (0x447720).
+int ExAttackInit447720(ExAttack *attack)
+{
+    ExAttackData16 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData16));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData16 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->velocity, angle, 2.0f);
+    data->state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    data->targetPos.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 64.0f);
+    data->targetPos.y = g_Rng.GetRandomF32InRange(128.0f);
+    data->targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    return 0;
+}
+
 // The unknown30450 of character 8: while unknown34 reaches 100 -
 // unknownB4 * 3, sends an extra attack of type 16 from `pos` and takes
 // as much off it. Returns 0 (0x447a80).

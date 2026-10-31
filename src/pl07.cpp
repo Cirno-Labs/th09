@@ -109,6 +109,7 @@ int EffectUpdate4475c0(Effect *effect)
     return 1;
 }
 
+
 // The draw callback of effect type 28: EffectDraw444700's fan with two
 // 60-degree arcs centred sqrt(3) / 2 unknown7c either side of the
 // effect (0x447ce0).
