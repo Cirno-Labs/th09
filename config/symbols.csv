@@ -607,7 +607,7 @@ address,size,name,symbol
 0x0042d4d0,285,Func42d4d0,
 0x0042d5f0,783,Func42d5f0,
 0x0042d900,391,Func42d900,
-0x0042da90,192,Func42da90,
+0x0042da90,192,ChecksumExecutable,?ChecksumExecutable@@YIHXZ
 0x0042db50,232,Func42db50,
 0x0042dc40,326,Func42dc40,
 0x0042dd90,1561,Func42dd90,

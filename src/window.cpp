@@ -96,3 +96,46 @@ void Log::Flush()
         WriteToFile("./log.txt", this->buffer, strlen(this->buffer));
     }
 }
+
+int ChecksumExecutable()
+{
+    char exePath[0x105];
+    int sum;
+    char *name;
+    int *data;
+    int idx;
+    int *words;
+    int fileSize;
+
+    if (GetModuleFileNameA(NULL, exePath, sizeof(exePath)) != 0)
+    {
+        sum = 0;
+        name = strrchr(exePath, '\\');
+        if (name == NULL)
+        {
+            name = strrchr(exePath, '/');
+        }
+        if (name == NULL)
+        {
+            name = exePath;
+        }
+        else
+        {
+            name++;
+        }
+        data = words = (int *)OpenPath(name, &fileSize, 1);
+        if (words == NULL)
+        {
+            return -1;
+        }
+        for (idx = 0; idx < fileSize / 4 - 1; idx++, words++)
+        {
+            sum += *words;
+        }
+        g_MemoryManager.Free(data);
+        g_App.exeSize = fileSize;
+        g_App.exeChecksum = sum;
+        return sum;
+    }
+    return -1;
+}

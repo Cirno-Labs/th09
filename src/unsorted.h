@@ -90,6 +90,10 @@ int CreateD3d();
 // Brings `hwnd` to the front despite the foreground lock, as th08's.
 // __stdcall, unlike the rest of the game (0x42d0c0).
 void __stdcall ForceForegroundWindow(HWND hwnd);
+// Sums the executable, as th08's, opening it by its name alone, and
+// keeps the sum and the size in g_App. Returns the sum, or -1
+// (0x42da90).
+int ChecksumExecutable();
 // The target of the shortcut `path`, `size` bytes at most, in `out`, as
 // th08's. Returns 1, or 0 if it cannot be resolved (0x42d140).
 int ResolveShortcut(char *path, char *out, int size);
