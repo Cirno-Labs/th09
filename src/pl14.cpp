@@ -4,6 +4,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sprite.h"
 
 // The unknown30404 of character 14: whether `pos` is within the radius
 // of the player's unknown368 up or down (0x44bc80).
@@ -30,6 +31,55 @@ int PlayerComboFunc44c020(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
         combo->unknown34 -= (28 - g_GameManager.unknownB4) * 5;
     }
     return 0;
+}
+
+// The draw callback of effect type 36: a strip across the play area,
+// from unknown7c above the effect to unknown7c below it, faint in the
+// middle, if unknownC9 is set. Returns 1 (0x44c090).
+int EffectDraw44c090(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(effect->unknown7c + vtx->pos.y);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.y = g_GameManager.ArenaToScreenY(effect->unknown7c + vtx->pos.y);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+    }
+    g_SpriteEngine->DrawColoredStrip(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, 6);
+    return 1;
 }
 
 // The update callback of effect type 37: grows unknown7c by 0.5 up to 8,
