@@ -1,4 +1,16 @@
 #include "screeneffect.h"
+#include "sprite.h"
+#include "unsorted.h"
+
+void ClearViewport(DWORD color)
+{
+    if (g_SpriteEngine != NULL)
+    {
+        g_SpriteEngine->FlushQuadBatch();
+    }
+    g_App.SetView(2);
+    ClearScreen(color);
+}
 
 int ScreenEffect::DeletedCallback(ScreenEffect *effect)
 {

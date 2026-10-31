@@ -462,7 +462,7 @@ address,size,name,symbol
 0x00421ea0,98,LoadScore,?LoadScore@@YIHXZ
 0x00421f10,745,SaveScore,?SaveScore@@YIHXZ
 0x00422200,139,ClearScreen,?ClearScreen@@YIXK@Z
-0x00422290,38,Func422290,
+0x00422290,38,ClearViewport,?ClearViewport@@YIXK@Z
 0x004222c0,103,Func4222c0,
 0x00422330,318,Func422330,
 0x00422470,123,Func422470,
