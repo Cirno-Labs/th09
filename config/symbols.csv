@@ -975,13 +975,13 @@ address,size,name,symbol
 0x00441bc0,23,SpellCardUpdate441bc0,?SpellCardUpdate441bc0@@YIHPAVSpellCard@@@Z
 0x00441be0,75,SpellCardInit441be0,?SpellCardInit441be0@@YIHPAVSpellCard@@@Z
 0x00441c30,78,SpellCardInit441c30,?SpellCardInit441c30@@YIHPAVSpellCard@@@Z
-0x00441d30,110,Func441d30,
+0x00441d30,110,EffectUpdate441d30,?EffectUpdate441d30@@YIHPAUEffect@@@Z
 0x00441da0,327,Func441da0,
 0x00441ef0,151,Func441ef0,
 0x00441f90,636,Func441f90,
 0x00442220,204,Func442220,
 0x004422f0,218,Func4422f0,
-0x004423d0,68,Func4423d0,
+0x004423d0,68,ShotFire4423d0,?ShotFire4423d0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00442420,46,Func442420,
 0x00442450,46,Func442450,
 0x00442480,193,Func442480,
@@ -989,7 +989,7 @@ address,size,name,symbol
 0x00442750,780,Func442750,
 0x00442a60,368,Func442a60,
 0x00442bd0,739,Func442bd0,
-0x00442ec0,32,Func442ec0,
+0x00442ec0,32,ExAttackFree442ec0,?ExAttackFree442ec0@@YIHPAUExAttack@@@Z
 0x00442ee0,97,Func442ee0,
 0x00443010,311,Func443010,
 0x00443150,248,Func443150,
