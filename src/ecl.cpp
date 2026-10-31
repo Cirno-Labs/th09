@@ -758,15 +758,15 @@ void SendExAttack22(Enemy *enemy, EclInstr *instr)
 {
     D3DXVECTOR3 target;
 
-    ((Vector2 *)&target)->SetPolar(1.5707964f, 64.0f);
+    SetPolar((Vector2 *)&target, 1.5707964f, 64.0f);
     target += enemy->pos;
     target.z = 1.5707964f;
     g_GameManager.exAttackManager->AddAttack(22, &enemy->pos, 1 - enemy->manager->sideIdx, &target);
-    ((Vector2 *)&target)->SetPolar(1.2566371f, 64.0f);
+    SetPolar((Vector2 *)&target, 1.2566371f, 64.0f);
     target += enemy->pos;
     target.z = 1.2566371f;
     g_GameManager.exAttackManager->AddAttack(22, &enemy->pos, 1 - enemy->manager->sideIdx, &target);
-    ((Vector2 *)&target)->SetPolar(1.8849556f, 64.0f);
+    SetPolar((Vector2 *)&target, 1.8849556f, 64.0f);
     target += enemy->pos;
     target.z = 1.8849556f;
     g_GameManager.exAttackManager->AddAttack(22, &enemy->pos, 1 - enemy->manager->sideIdx, &target);

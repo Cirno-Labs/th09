@@ -356,33 +356,16 @@ void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
     }
 }
 
-// The original's copy is at 0x441890, away from the effect object, but
-// EffectDrawRing does not reload ecx after calling it, so the compiler
-// had seen its body in this file.
-void Vector2::SetPolar(float angle, float radius)
-{
-    __asm
-    {
-        mov eax, this
-        fld angle
-        fsincos
-        fmul radius
-        fstp [eax]
-        fmul radius
-        fstp [eax+4]
-    }
-}
-
 int EffectInit40d520(Effect *effect)
 {
     effect->unknown54 = effect->pos;
     effect->unknown60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);
     effect->unknown60.y = g_GameManager.ArenaToScreenY(effect->velocity.y);
     effect->unknown60.z = effect->velocity.z;
-    ((Vector2 *)&effect->unknown3c)
-        ->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
-    ((Vector2 *)&effect->unknown48)
-        ->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
+    SetPolar((Vector2 *)&effect->unknown3c,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
+    SetPolar((Vector2 *)&effect->unknown48,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
     effect->unknown9c = g_Rng.GetRandomF32InRange(100.0f) + 60.0f;
     effect->unknown98 = 0.0f;
     return 0;
@@ -489,10 +472,10 @@ int EffectInit40d910(Effect *effect)
     effect->unknown60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);
     effect->unknown60.y = g_GameManager.ArenaToScreenY(effect->velocity.y);
     effect->unknown60.z = effect->velocity.z;
-    ((Vector2 *)&effect->unknown3c)
-        ->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
-    ((Vector2 *)&effect->unknown48)
-        ->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
+    SetPolar((Vector2 *)&effect->unknown3c,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
+    SetPolar((Vector2 *)&effect->unknown48,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
     effect->unknown9c = g_Rng.GetRandomF32InRange(100.0f) + 60.0f;
     return 0;
 }
@@ -593,13 +576,13 @@ int EffectDrawRing(Effect *effect)
                     angle -= 6.2831855f;
                 }
                 vtx->pos.z = 0.0f;
-                ((Vector2 *)&vtx->pos)->SetPolar(angle, outer);
+                SetPolar((Vector2 *)&vtx->pos, angle, outer);
                 vtx->pos += effect->unknown48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
                 vtx++;
                 vtx->pos.z = 0.0f;
-                ((Vector2 *)&vtx->pos)->SetPolar(angle, inner);
+                SetPolar((Vector2 *)&vtx->pos, angle, inner);
                 vtx->pos += effect->unknown48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -658,13 +641,13 @@ int EffectDrawRing(Effect *effect)
                     wobbleAngle -= 6.2831855f;
                 }
                 wobble = cosf(wobbleAngle) * effect->unknown94;
-                ((Vector2 *)&vtx->pos)->SetPolar(angle, outer + wobble);
+                SetPolar((Vector2 *)&vtx->pos, angle, outer + wobble);
                 vtx->pos += effect->unknown48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
                 vtx->pos.z = 0.0f;
                 vtx++;
-                ((Vector2 *)&vtx->pos)->SetPolar(angle, inner + wobble);
+                SetPolar((Vector2 *)&vtx->pos, angle, inner + wobble);
                 vtx->pos += effect->unknown48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -684,7 +667,7 @@ int EffectInit40e080(Effect *effect)
 {
     D3DXVECTOR3 offset;
 
-    ((Vector2 *)&offset)->SetPolar(effect->velocity.x, 256.0f);
+    SetPolar((Vector2 *)&offset, effect->velocity.x, 256.0f);
     effect->pos.x += offset.x;
     effect->pos.y += offset.y;
     effect->sprites->rotation.z = AddNormalizeAngle(effect->velocity.x, 1.5707964f);

@@ -263,14 +263,30 @@ void HermiteInterpolate(D3DXVECTOR3 *out, D3DXVECTOR3 *p1, D3DXVECTOR3 *p0, D3DX
 // A 2D vector, as th08's.
 struct Vector2
 {
-    // Sets x and y to `radius` along `angle`, with one fsincos (0x441890).
-    void SetPolar(float angle, float radius);
     // The same with radiusX for x and radiusY for y (0x40d4d0).
     void SetPolarEllipse(float angle, float radiusX, float radiusY);
 
     float x;
     float y;
 };
+
+// Sets v's x and y to `radius` along `angle`, with one fsincos. Static in
+// a header: each file compiles its own copy before its callers, which do
+// not reload ecx after it, and the linker folds them into one at
+// 0x441890.
+static void SetPolar(Vector2 *v, float angle, float radius)
+{
+    __asm
+    {
+        mov eax, v
+        fld angle
+        fsincos
+        fmul radius
+        fstp [eax]
+        fmul radius
+        fstp [eax+4]
+    }
+}
 
 // The config's option bits, as th08's GameConfigFlags but in th09's
 // order: LoadConfig (0x42f7c0) logs them in this order.

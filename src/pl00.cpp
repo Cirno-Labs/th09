@@ -55,11 +55,13 @@ int ExAttackInit440e40(ExAttack *attack)
     data = (ExAttackData00 *)attack->data;
     angle = g_Rng.GetRandomF32InRange(-3.1415927f);
     data->velocity.z = 0.0f;
-    ((Vector2 *)&data->velocity)->SetPolar(angle, 2.0f);
+    SetPolar((Vector2 *)&data->velocity, angle, 2.0f);
     data->state = 0;
     attack->layer = 2;
-    ((Vector2 *)&data->tangent1)->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
-    ((Vector2 *)&data->tangent0)->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
     data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
     data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
     data->start.z = 0.0f;
@@ -87,12 +89,14 @@ int ExAttackInit440fb0(ExAttack *attack)
     data = (ExAttackData00 *)attack->data;
     angle = g_Rng.GetRandomF32InRange(-3.1415927f);
     data->velocity.z = 0.0f;
-    ((Vector2 *)&data->velocity)->SetPolar(angle, 2.0f);
+    SetPolar((Vector2 *)&data->velocity, angle, 2.0f);
     data->state = 0;
     attack->timer = 0x5a;
     attack->layer = 2;
-    ((Vector2 *)&data->tangent1)->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
-    ((Vector2 *)&data->tangent0)->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
     data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
     data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
     data->start.z = 0.0f;
