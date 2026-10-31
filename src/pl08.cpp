@@ -273,3 +273,70 @@ int EffectUpdate447f40(Effect *effect)
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }
+
+// The unknown30404 of character 8: whether `pos` is within the radius of
+// the player's unknown368 or, within 24 more, in reach of one of six
+// points 24 beyond it, a sixth of a turn apart from unknown80 (0x447fb0).
+int PlayerPosFunc447fb0(Player *player, D3DXVECTOR3 *pos)
+{
+    D3DXVECTOR3 v = player->pos - *pos;
+    float dist = v.x * v.x + v.y * v.y;
+    float angle;
+
+    if (dist < player->unknown368->unknown7c * player->unknown368->unknown7c)
+    {
+        return 1;
+    }
+    if (dist > (player->unknown368->unknown7c + 24.0f) * (player->unknown368->unknown7c + 24.0f))
+    {
+        return 0;
+    }
+    SetPolar((Vector2 *)&v, player->unknown368->unknown80, player->unknown368->unknown7c + 24.0f);
+    v += player->pos;
+    v = v - *pos;
+    if (v.x * v.x + v.y * v.y < 576.0f)
+    {
+        return 1;
+    }
+    angle = AddNormalizeAngle(player->unknown368->unknown80, 1.0471976f);
+    SetPolar((Vector2 *)&v, angle, player->unknown368->unknown7c + 24.0f);
+    v += player->pos;
+    v = v - *pos;
+    if (v.x * v.x + v.y * v.y < 576.0f)
+    {
+        return 1;
+    }
+    angle = AddNormalizeAngle(player->unknown368->unknown80, 2.0943952f);
+    SetPolar((Vector2 *)&v, angle, player->unknown368->unknown7c + 24.0f);
+    v += player->pos;
+    v = v - *pos;
+    if (v.x * v.x + v.y * v.y < 576.0f)
+    {
+        return 1;
+    }
+    angle = AddNormalizeAngle(player->unknown368->unknown80, 3.1415927f);
+    SetPolar((Vector2 *)&v, angle, player->unknown368->unknown7c + 24.0f);
+    v += player->pos;
+    v = v - *pos;
+    if (v.x * v.x + v.y * v.y < 576.0f)
+    {
+        return 1;
+    }
+    angle = AddNormalizeAngle(player->unknown368->unknown80, 4.1887903f);
+    SetPolar((Vector2 *)&v, angle, player->unknown368->unknown7c + 24.0f);
+    v += player->pos;
+    v = v - *pos;
+    if (v.x * v.x + v.y * v.y < 576.0f)
+    {
+        return 1;
+    }
+    angle = AddNormalizeAngle(player->unknown368->unknown80, 5.2359877f);
+    SetPolar((Vector2 *)&v, angle, player->unknown368->unknown7c + 24.0f);
+    v += player->pos;
+    v = v - *pos;
+    if (v.x * v.x + v.y * v.y < 576.0f)
+    {
+        return 1;
+    }
+    return 0;
+}
