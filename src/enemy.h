@@ -294,7 +294,9 @@ struct Enemy
     int laserIndex;
     // The item it drops, as th08's.
     int item;
-    unsigned char pad_3360[0x3368 - 0x3360];
+    // Set by the timeline's opcodes 11 and 12, as th08's.
+    int pointItems;
+    int powerItems;
     BYTE deathEffect;
     BYTE deathEffectIndex;
     BYTE deathEffectVariant;
@@ -336,7 +338,8 @@ struct Enemy
         DWORD undying : 1;
         DWORD unusedBits4 : 2;
         DWORD unknown3380 : 3;
-        DWORD unusedBits9 : 1;
+        // Set by the timeline's opcode 17.
+        DWORD unknownBit9 : 1;
         // What EnemyManager::FindByUnknownType looks for.
         DWORD unknownType : 2;
         // Has Move use velocity2, unmirrored.
@@ -374,12 +377,74 @@ struct Enemy
 };
 ASSERT_SIZE(Enemy, 0x5430);
 
-// Two Timers of the timeline. Its implicit constructor is at
-// 0x4120a0.
-struct EnemyTimelineTimers
+// The spawn arguments of the timeline's opcodes, as th08's.
+struct EnemyTimelineSpawn
 {
-    Timer unknown0;
-    Timer unknownC;
+    int sub;
+    float x;
+    float y;
+    int life;
+    int item;
+    int score;
+};
+struct EnemyTimelineSpawnRandomX
+{
+    int sub;
+    float xMin;
+    float xMax;
+    float y;
+    int life;
+    int item;
+    int score;
+};
+struct EnemyTimelineSpawnAnyX
+{
+    int sub;
+    float y;
+    int life;
+    int item;
+    int score;
+};
+struct EnemyTimelineSpawnWithArgs
+{
+    int sub;
+    float x;
+    float y;
+    int life;
+    int pointItems;
+    int powerItems;
+    int score;
+};
+
+// One instruction of a timeline, as th08's: from `time` on, `opcode`
+// runs on the difficulties in the bits of `difficulties`.
+struct EnemyTimelineEntry
+{
+    int time;
+    short opcode;
+    BYTE size;
+    BYTE difficulties;
+    int args[1];
+};
+
+class EnemyManager;
+
+// The side's timeline. Its implicit constructor is at 0x4120a0.
+struct EnemyTimeline
+{
+    // Runs the instructions due, as th08's RunTimeline, then advances
+    // timer by GameManager's timelineSpeed. Waits while a dialogue runs
+    // and until delay runs out. Returns 1 once the timeline ends, else 0
+    // (0x40fcc0).
+    int Run();
+
+    Timer timer;
+    // Counts down before the timeline starts.
+    Timer delay;
+    // Whether spawns are mirrored; set by the mirrored opcodes and kept.
+    int mirror;
+    EnemyManager *mgr;
+    EnemyTimelineEntry *pos;
 };
 
 // A side's enemy manager (0x2ac450 bytes). Only the fields known so far.
@@ -417,7 +482,7 @@ public:
     // Starts the first free enemy as subroutine `sub` (of playerEcl if
     // `usePlayerEcl`) at `pos`, mirrored if `mirrored`, with `life` and
     // `score` unless negative. Returns it (0x40f1d0).
-    Enemy *SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, int mirrored,
+    Enemy *SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
                       int usePlayerEcl);
     // SpawnEnemy unmirrored, with the script's variables from `vars`, as
     // th08's SpawnWithVars (0x40f340).
@@ -447,10 +512,8 @@ public:
     Timer unknown2ac3c8;
     unsigned char unknown2ac3d4;
     unsigned char pad_2ac3d5[0x2ac3e0 - 0x2ac3d5];
-    EnemyTimelineTimers timelineTimers;
-    unsigned char pad_2ac3f8[0x2ac400 - 0x2ac3f8];
     // The timeline running.
-    void *timeline;
+    EnemyTimeline timeline;
     Timer unknown2ac404;
     unsigned char pad_2ac410[0x2ac42c - 0x2ac410];
     // Whether the last spawn found no free enemy, as th08's.

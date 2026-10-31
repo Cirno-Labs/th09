@@ -194,7 +194,7 @@ address,size,name,symbol
 0x0040f170,16,EclManager::GetTimeline,?GetTimeline@EclManager@@QAEPAXH@Z
 0x0040f180,51,Enemy::ResetRankSpeeds,?ResetRankSpeeds@Enemy@@QAEXXZ
 0x0040f1c0,12,Fabs,?Fabs@@YIMM@Z
-0x0040f1d0,364,EnemyManager::SpawnEnemy,?SpawnEnemy@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHHH@Z
+0x0040f1d0,364,EnemyManager::SpawnEnemy,?SpawnEnemy@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HHHHH@Z
 0x0040f340,373,EnemyManager::SpawnEnemyWithVars,?SpawnEnemyWithVars@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHPAUEclVars@@H@Z
 0x0040f4c0,151,Func40f4c0,
 0x0040f560,64,Enemy::ReleaseEffects,?ReleaseEffects@Enemy@@QAEXXZ
@@ -213,7 +213,7 @@ address,size,name,symbol
 0x0040f9b0,188,Enemy::Move,?Move@Enemy@@QAEXXZ
 0x0040fa70,554,EnemyManager::Initialize,?Initialize@EnemyManager@@QAEXXZ
 0x0040fca0,28,EclContext::EclContext,??0EclContext@@QAE@XZ
-0x0040fcc0,974,Func40fcc0,
+0x0040fcc0,976,EnemyTimeline::Run,?Run@EnemyTimeline@@QAEHXZ
 0x004100e0,48,Enemy::FreeUnknown33d8,?FreeUnknown33d8@Enemy@@QAEXXZ
 0x00410110,184,Enemy::Despawn,?Despawn@Enemy@@QAEXXZ
 0x004101d0,127,Enemy::ClampPos,?ClampPos@Enemy@@QAEXXZ
@@ -228,7 +228,7 @@ address,size,name,symbol
 0x00411f80,74,EnemyManager::RemoveChain,?RemoveChain@EnemyManager@@SIXPAV1@@Z
 0x00411fd0,177,EnemyManager::Reset,?Reset@EnemyManager@@QAEXXZ
 0x00412090,15,EclManager::EclManager,??0EclManager@@QAE@XZ
-0x004120a0,20,EnemyTimelineTimers::EnemyTimelineTimers,??0EnemyTimelineTimers@@QAE@XZ
+0x004120a0,20,EnemyTimeline::EnemyTimeline,??0EnemyTimeline@@QAE@XZ
 0x004120c0,15,EnemyUnknown30::EnemyUnknown30,??0EnemyUnknown30@@QAE@XZ
 0x004120d0,47,EnemyUnknown22c::EnemyUnknown22c,??0EnemyUnknown22c@@QAE@XZ
 0x00412100,207,Enemy::Enemy,??0Enemy@@QAE@XZ

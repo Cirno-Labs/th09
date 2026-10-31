@@ -4,9 +4,18 @@
 #include "effect.h"
 #include "enemy.h"
 #include "gamemanager.h"
+#include "gui.h"
 #include "player.h"
 #include "sprite.h"
 #include "unsorted.h"
+
+// Timer::operator== is the original's ordinary function of this object
+// (at 0x404950, before the ECL code): EnemyTimeline::Run relies on it
+// keeping esi and the timeline's fields across the call.
+BOOL Timer::operator==(int frames)
+{
+    return this->current == frames;
+}
 
 void Enemy::ResetRankSpeeds()
 {
@@ -18,7 +27,7 @@ void Enemy::ResetRankSpeeds()
     this->rankCount2High = 0;
 }
 
-Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, int mirrored,
+Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
                                 int usePlayerEcl)
 {
     Enemy *enemy;
@@ -64,7 +73,7 @@ Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, char itemDr
             }
         }
         enemy->color = enemy->primarySprite.color;
-        enemy->item = itemDrop;
+        enemy->item = (char)itemDrop;
         if (score >= 0)
         {
             enemy->score = score;
@@ -340,6 +349,173 @@ void EnemyManager::Initialize()
     enemy->minShootDistSq = 1024.0f;
 }
 
+int EnemyTimeline::Run()
+{
+    if (g_GameManager.gui->IsMsgRunning())
+    {
+        return 0;
+    }
+    if (this->delay.AsFloat() > 0.0f)
+    {
+        this->delay--;
+        return 0;
+    }
+    while (this->pos->time >= 0)
+    {
+        if (this->timer == this->pos->time)
+        {
+            if (!(this->pos->difficulties & g_GameManager.difficultyMask))
+            {
+                goto next;
+            }
+            switch (this->pos->opcode)
+            {
+            case 16:
+                g_GameManager.isInContinueMenu = 1;
+                break;
+            case 0:
+            case 1:
+            {
+                EnemyTimelineSpawn *args = (EnemyTimelineSpawn *)this->pos->args;
+                D3DXVECTOR3 pos;
+
+                pos.x = args->x;
+                pos.y = args->y;
+                pos.z = 0.0f;
+                this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+            }
+                break;
+            case 17:
+            {
+                EnemyTimelineSpawn *args = (EnemyTimelineSpawn *)this->pos->args;
+                D3DXVECTOR3 pos;
+                Enemy *enemy;
+
+                pos.x = args->x;
+                pos.y = args->y;
+                pos.z = 0.0f;
+                enemy = this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+                enemy->unknownBit9 = 1;
+            }
+                break;
+            case 15:
+            {
+                EnemyTimelineSpawn *args = (EnemyTimelineSpawn *)this->pos->args;
+                D3DXVECTOR3 pos;
+
+                pos.x = args->x;
+                pos.y = args->y;
+                pos.z = 0.0f;
+                this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+            }
+                break;
+            case 12:
+                this->mirror = 1;
+            case 11:
+            {
+                EnemyTimelineSpawnWithArgs *args = (EnemyTimelineSpawnWithArgs *)this->pos->args;
+                D3DXVECTOR3 pos;
+                Enemy *enemy;
+
+                pos.x = args->x;
+                pos.y = args->y;
+                pos.z = 0.0f;
+                enemy = this->mgr->SpawnEnemy(args->sub, &pos, args->life, -1, args->score, this->mirror, 0);
+                enemy->pointItems = args->pointItems;
+                enemy->powerItems = args->powerItems;
+            }
+                break;
+            case 4:
+                this->mirror = 1;
+            case 2:
+            {
+                EnemyTimelineSpawnRandomX *args = (EnemyTimelineSpawnRandomX *)this->pos->args;
+                D3DXVECTOR3 pos;
+
+                pos.x = g_Rng.GetRandomF32InRange(args->xMax - args->xMin) + args->xMin;
+                pos.y = args->y;
+                pos.z = 0.0f;
+                this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+            }
+                break;
+            case 5:
+                this->mirror = 1;
+            case 3:
+            {
+                EnemyTimelineSpawnAnyX *args = (EnemyTimelineSpawnAnyX *)this->pos->args;
+                D3DXVECTOR3 pos;
+
+                pos.x = g_Rng.GetRandomF32InRange(384.0f);
+                pos.y = args->y;
+                pos.z = 0.0f;
+                this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+            }
+                break;
+            case 8:
+                this->mgr->bosses[this->pos->args[0]]->pendingInterrupt = this->pos->args[1];
+                break;
+            case 10:
+                if (this->mgr->bosses[this->pos->args[0]] != NULL && this->mgr->bosses[this->pos->args[0]]->active)
+                {
+                    this->timer--;
+                    goto tick;
+                }
+                break;
+            case 13:
+            {
+                int count;
+                int j;
+
+                count = 0;
+                for (j = 0; j < ARRAY_SIZE(this->mgr->timelineSignals); j++)
+                {
+                    if (this->mgr->timelineSignals[j] == this->pos->args[0])
+                    {
+                        count++;
+                        this->mgr->timelineSignals[j] = -1;
+                    }
+                }
+                if (count == 0)
+                {
+                    this->timer--;
+                    goto tick;
+                }
+                break;
+            }
+            case 14:
+            {
+                int k;
+
+                for (k = 0; k < ARRAY_SIZE(this->mgr->timelineSignals); k++)
+                {
+                    if (this->mgr->timelineSignals[k] >= 0)
+                    {
+                        continue;
+                    }
+                    this->mgr->timelineSignals[k] = this->pos->args[0];
+                }
+                break;
+            }
+            }
+        }
+        else if (this->timer < this->pos->time)
+        {
+            break;
+        }
+    next:
+        this->pos = (EnemyTimelineEntry *)((char *)this->pos + this->pos->size);
+    }
+tick:
+    if (this->pos->time < 0)
+    {
+        this->pos = NULL;
+        this->timer = 0;
+        return 1;
+    }
+    this->timer += g_GameManager.timelineSpeed;
+    return 0;
+}
+
 void Enemy::FreeUnknown33d8()
 {
     int i;
@@ -463,9 +639,9 @@ void EnemyManager::Reset()
         }
     }
     this->unknown2ac3d4 = 0;
-    this->timeline = this->ecl.GetTimeline(g_TimelineOrder[0] & 0x7f);
-    this->timelineTimers.unknownC = 200;
-    this->timelineTimers.unknown0 = 0;
+    this->timeline.pos = (EnemyTimelineEntry *)this->ecl.GetTimeline(g_TimelineOrder[0] & 0x7f);
+    this->timeline.delay = 200;
+    this->timeline.timer = 0;
 }
 
 EnemyManager::EnemyManager()

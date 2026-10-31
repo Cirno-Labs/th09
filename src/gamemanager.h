@@ -169,7 +169,9 @@ public:
     unsigned char pad_d8[0xe8 - 0xd8];
     // Deleted by DeletedCallback.
     void *unknownE8;
-    unsigned char pad_ec[0xf4 - 0xec];
+    // How far the enemy timelines advance a frame.
+    float timelineSpeed;
+    unsigned char pad_f0[0xf4 - 0xf0];
     // DeletedCallback copies it to unknownF8, as each side's character
     // to unknown24.
     int unknownF4;
@@ -181,7 +183,10 @@ public:
     int unknown114;
     int mode;
     int difficulty;
-    unsigned char pad_120[0x124 - 0x120];
+    // The difficulty's bit, as th08's: timeline entries run on the
+    // difficulties in their bits.
+    BYTE difficultyMask;
+    unsigned char pad_121[0x124 - 0x121];
     // Set while LoadingThread runs, as th08's.
     int loadingThreadState;
     int unknown128;

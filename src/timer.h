@@ -54,6 +54,7 @@ struct Timer
     BOOL operator>=(int frames);
     BOOL operator<(int frames);
     BOOL operator>(int frames);
+    // Defined with the enemy code, as in the original (0x404950).
     BOOL operator==(int frames);
     BOOL operator<=(int frames);
     // The count modulo `n` (0x40f830).
