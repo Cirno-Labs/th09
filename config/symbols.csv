@@ -1052,7 +1052,7 @@ address,size,name,symbol
 0x00446c10,356,ExAttackInit446c10,?ExAttackInit446c10@@YIHPAUExAttack@@@Z
 0x00446d80,343,ExAttackInit446d80,?ExAttackInit446d80@@YIHPAUExAttack@@@Z
 0x00446ee0,713,ExAttackUpdate446ee0,?ExAttackUpdate446ee0@@YIHPAUExAttack@@@Z
-0x004471b0,710,Func4471b0,
+0x004471b0,710,ExAttackUpdate4471b0,?ExAttackUpdate4471b0@@YIHPAUExAttack@@@Z
 0x00447480,314,EffectDraw447480,?EffectDraw447480@@YIHPAUEffect@@@Z
 0x004475c0,91,EffectUpdate4475c0,?EffectUpdate4475c0@@YIHPAUEffect@@@Z
 0x00447620,249,Func447620,

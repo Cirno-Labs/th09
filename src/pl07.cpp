@@ -349,6 +349,85 @@ int ExAttackUpdate446ee0(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack type 12: type 11's, its bullets
+// fired along the heading while the spin still turns. Returns 1 once it
+// is done (0x4471b0).
+int ExAttackUpdate4471b0(ExAttack *attack)
+{
+    ExAttackData08 *data = (ExAttackData08 *)attack->data;
+    D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
+
+    switch (data->state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 9);
+            data->state++;
+            attack->pos = data->targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+        }
+        break;
+    case 1:
+        if (attack->timer > 0x14)
+        {
+            if (attack->timer.HasTickedEvery(10))
+            {
+                data->spin = AddNormalizeAngle(data->spin, 0.10471976f);
+                EnemyShooter shooter;
+
+                shooter.pos = attack->pos;
+                shooter.sprite = data->alternate != 0 ? 6 : 0;
+                shooter.aimMode = 5;
+                shooter.count1 = 1;
+                shooter.count2 = 1;
+                shooter.color = 2;
+                shooter.angle1 = data->heading;
+                shooter.speed1 = 0.0f;
+                shooter.SetCommand20000(0, 0, 0x50);
+                shooter.SetAccelCommand(
+                    1, 0, 120,
+                    (g_GameManager.sides[1 - attack->targetSide].player->unknownA4 * 0.05f + 2.0f) * 0.008333334f,
+                    -999.0f);
+                shooter.angle2 = 0.0f;
+                shooter.speed2 = 0.0f;
+                shooter.unknown1fa = 0;
+                shooter.flags = 0x20014;
+                g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
+                data->alternate = 1 - data->alternate;
+            }
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->state = 2;
+                attack->timer = 0;
+                attack->sprites->SetPendingInterrupt(1);
+            }
+            else
+            {
+                SetPolar((Vector2 *)&data->velocity, data->heading, 1.5f);
+                attack->pos += data->velocity;
+                if (attack->pos.y >= 480.0f || attack->pos.y <= -32.0f || attack->pos.x >= 176.0f ||
+                    attack->pos.x <= -176.0f)
+                {
+                    return 1;
+                }
+            }
+        }
+        attack->angle = data->heading;
+        break;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The draw callback of effect type 25: EffectDraw4414a0's fan
 // (0x447480).
 int EffectDraw447480(Effect *effect)
