@@ -430,7 +430,8 @@ struct Enemy
             DWORD shootable : 1;
             DWORD contactDamage : 1;
             DWORD hideFollowEffects : 1;
-            DWORD unusedFlag5 : 1;
+            // DrawEnemies skips the primary sprite, as th08's.
+            DWORD hiddenByBomb : 1;
             DWORD hitByShots : 1;
             DWORD grazeable : 1;
             // Set by SpellCard::Start on the other side's enemy of
@@ -508,6 +509,7 @@ struct Enemy
     // The extra script threads, as th08's.
     EnemyScriptThread *threads[4];
     EnemyUnknown1c trailBoxes[0x60];
+    // The trail strip's vertices, as th08's spriteStripVertices.
     EnemyUnknown1c unknown3e68[0xc2];
     // As th08's: whether it has trail boxes, and how many.
     BYTE trailFlags;

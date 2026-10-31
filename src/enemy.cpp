@@ -813,7 +813,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
             }
         }
         kind = 0;
-        if (!enemy->hideFollowEffects && !enemy->unusedFlag5)
+        if (!enemy->hideFollowEffects && !enemy->hiddenByBomb)
         {
             if (enemy->shootable && (!enemy->unknown3380 || mgr->side->character != 11))
             {
@@ -1066,6 +1066,239 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
     }
     mgr->unknown2ac404++;
     return 1;
+}
+
+// Sprite::scaleY and scaleX, as DrawEnemies saves them around a trail,
+// as th08's.
+struct EnemySpriteScale
+{
+    float x;
+    float y;
+};
+
+// Draws the enemies of draw lists `from` to `to` - 1, as th08's, in the
+// side's arena. Static, with `from` in ecx, `to` in eax and the manager
+// in edx (0x411670).
+static int DrawEnemies(EnemyManager *mgr, int from, int to)
+{
+    float uSpan2;
+    float cs2;
+    float theta;
+    float uDecr;
+    VertexTex1DiffuseXyzrwh *out;
+    float lastTheta;
+    float tu;
+    float sinA;
+    int vertices;
+    float width;
+    float height;
+    Enemy *enemy;
+    int b;
+    Sprite *sprite;
+    D3DCOLOR savedColor;
+    int i;
+    EnemySpriteScale savedScale;
+    BYTE taper;
+    int step;
+    int next;
+
+    for (i = from; i < to; i++)
+    {
+        enemy = mgr->drawListHeads[i];
+        while (enemy != NULL)
+        {
+            for (sprite = enemy->sprites, b = 0; b < 1; b++, sprite++)
+            {
+                if (sprite->scriptIndex >= 0)
+                {
+                    if (sprite->autoRotate != 0)
+                    {
+                        sprite->SetRotationZ(enemy->angle);
+                    }
+                    if (!enemy->useMainSpriteOffset)
+                    {
+                        sprite->pos = enemy->absPos + sprite->posOffset;
+                    }
+                    else
+                    {
+                        sprite->pos = enemy->absPos + enemy->primarySprite.posOffset;
+                    }
+                    sprite->pos.z = 0.3f;
+                    sprite->pos.x = g_GameManager.ArenaToScreenX(sprite->pos.x);
+                    sprite->pos.y = g_GameManager.ArenaToScreenY(sprite->pos.y);
+                    g_SpriteEngine->Draw(sprite);
+                }
+            }
+            if (enemy->rotateSprite)
+            {
+                enemy->primarySprite.SetRotationZ(enemy->angle);
+            }
+            enemy->primarySprite.pos = enemy->absPos + enemy->primarySprite.posOffset;
+            enemy->primarySprite.pos.x = g_GameManager.ArenaToScreenX(enemy->primarySprite.pos.x);
+            enemy->primarySprite.pos.y = g_GameManager.ArenaToScreenY(enemy->primarySprite.pos.y);
+            enemy->primarySprite.pos.z = 0.25f;
+            if (enemy->trailFlags)
+            {
+                savedScale = *(EnemySpriteScale *)&enemy->primarySprite.scaleY;
+                savedColor = enemy->primarySprite.color;
+                if (!(enemy->trailFlags & 8))
+                {
+                    for (b = enemy->trailSegmentCount - 1; b > 0; b -= enemy->trailSegmentStep)
+                    {
+                        if (enemy->trailBoxes[b].pos.x < -990.0f)
+                        {
+                            continue;
+                        }
+                        if (enemy->rotateSprite)
+                        {
+                            enemy->primarySprite.SetRotationZ(enemy->trailBoxes[b].angle);
+                        }
+                        if (enemy->trailFlags & 2)
+                        {
+                            enemy->primarySprite.scaleY = savedScale.x - b * savedScale.x / enemy->trailSegmentCount;
+                        }
+                        if (enemy->trailFlags & 4)
+                        {
+                            enemy->primarySprite.alpha =
+                                ((BYTE *)&savedColor)[3] - ((BYTE *)&savedColor)[3] * b / enemy->trailSegmentCount;
+                        }
+                        enemy->primarySprite.pos = enemy->trailBoxes[b].pos + enemy->primarySprite.posOffset;
+                        enemy->primarySprite.pos.z = 0.3f;
+                        enemy->primarySprite.pos.x = g_GameManager.ArenaToScreenX(enemy->primarySprite.pos.x);
+                        enemy->primarySprite.pos.y = g_GameManager.ArenaToScreenY(enemy->primarySprite.pos.y);
+                        g_SpriteEngine->Draw(&enemy->primarySprite);
+                    }
+                }
+                else
+                {
+                    vertices = 0;
+                    for (b = 0; b < enemy->trailSegmentCount; b += enemy->trailSegmentStep)
+                    {
+                        if (enemy->trailBoxes[b].pos.x < -990.0f)
+                        {
+                            break;
+                        }
+                        vertices += 2;
+                    }
+                    if (vertices > 2)
+                    {
+                        uSpan2 = enemy->primarySprite.spriteData->uvEndX - enemy->primarySprite.spriteData->uvStartX;
+                        uDecr = uSpan2 / ((vertices + 1) / 2 - 1);
+                        tu = enemy->primarySprite.spriteData->uvEndX + enemy->primarySprite.uvScrollX;
+                        out = (VertexTex1DiffuseXyzrwh *)enemy->unknown3e68;
+                        for (b = 0; b < enemy->trailSegmentCount; b += enemy->trailSegmentStep, tu -= uDecr)
+                        {
+                            if (enemy->trailBoxes[b].pos.x < -990.0f)
+                            {
+                                break;
+                            }
+                            if (b == 0)
+                            {
+                                theta = enemy->trailBoxes[0].angle;
+                            }
+                            else
+                            {
+                                theta = LerpAngleShort(enemy->trailBoxes[b - 1].angle, enemy->trailBoxes[b].angle, 0.5f);
+                            }
+                            taper = enemy->trailFlags & 2;
+                            if (taper && b > 0)
+                            {
+                                step = enemy->trailSegmentStep;
+                                next = b + step;
+                                if (next < enemy->trailSegmentCount && Fabs(lastTheta - theta) < 0.00001f)
+                                {
+                                    if (Fabs(theta - LerpAngleShort(enemy->trailBoxes[next - 1].angle,
+                                                                    enemy->trailBoxes[step].angle, 0.5f)) < 0.00001f)
+                                    {
+                                        vertices -= 2;
+                                        continue;
+                                    }
+                                }
+                            }
+                            lastTheta = theta;
+                            sinA = sinf(theta);
+                            cs2 = cosf(theta);
+                            width = 0.0f;
+                            height = savedScale.y * enemy->primarySprite.spriteData->height / 2.0f;
+                            if (taper)
+                            {
+                                theta = 1.0f - (float)b / enemy->trailSegmentCount;
+                                width *= theta;
+                                height *= theta;
+                            }
+                            out[1].diffuse = enemy->primarySprite.color;
+                            out[0].diffuse = out[1].diffuse;
+                            if (enemy->trailFlags & 4)
+                            {
+                                ((BYTE *)&out[1].diffuse)[3] =
+                                    ((BYTE *)&savedColor)[3] - ((BYTE *)&savedColor)[3] * b / enemy->trailSegmentCount;
+                                ((BYTE *)&out[0].diffuse)[3] = ((BYTE *)&out[1].diffuse)[3];
+                            }
+                            out->pos = enemy->trailBoxes[b].pos;
+                            out->pos.x = cs2 * width - sinA * height + out->pos.x + 32.0f;
+                            out->pos.y = sinA * width + cs2 * height + out->pos.y + 16.0f;
+                            out->uv.x = tu;
+                            out->uv.y = enemy->primarySprite.spriteData->uvStartY + enemy->primarySprite.uvScrollY;
+                            out++;
+                            out->pos = enemy->trailBoxes[b].pos;
+                            out->pos.x = cs2 * width + sinA * height + out->pos.x + 32.0f;
+                            out->pos.y = sinA * width - cs2 * height + out->pos.y + 16.0f;
+                            out->uv.x = tu;
+                            out->uv.y = enemy->primarySprite.spriteData->uvEndY + enemy->primarySprite.uvScrollY;
+                            out++;
+                        }
+                        if (vertices > 2)
+                        {
+                            g_SpriteEngine->DrawVertexStrip(&enemy->primarySprite,
+                                                            (VertexTex1DiffuseXyzrwh *)enemy->unknown3e68, vertices);
+                        }
+                    }
+                }
+                *(EnemySpriteScale *)&enemy->primarySprite.scaleY = savedScale;
+                enemy->primarySprite.color = savedColor;
+            }
+            if (!(enemy->trailFlags & 0x10) && !enemy->hiddenByBomb)
+            {
+                g_SpriteEngine->Draw(&enemy->primarySprite);
+            }
+            for (b = 1; b < 2; b++, sprite++)
+            {
+                if (sprite->scriptIndex >= 0)
+                {
+                    if (sprite->autoRotate != 0)
+                    {
+                        sprite->SetRotationZ(-enemy->angle);
+                    }
+                    if (!enemy->useMainSpriteOffset)
+                    {
+                        sprite->pos = enemy->absPos + sprite->posOffset;
+                    }
+                    else
+                    {
+                        sprite->pos = enemy->absPos + enemy->primarySprite.posOffset;
+                    }
+                    sprite->pos.z = 0.3f;
+                    sprite->pos.x = g_GameManager.ArenaToScreenX(sprite->pos.x);
+                    sprite->pos.y = g_GameManager.ArenaToScreenY(sprite->pos.y);
+                    g_SpriteEngine->Draw(sprite);
+                }
+            }
+            enemy = enemy->nextInDrawList;
+        }
+    }
+    return 1;
+}
+
+int EnemyManager::OnDraw(EnemyManager *mgr)
+{
+    g_App.SetView2D(mgr->sideIdx);
+    return DrawEnemies(mgr, 0, 2);
+}
+
+int EnemyManager::OnDraw2(EnemyManager *mgr)
+{
+    g_App.SetView2D(mgr->sideIdx);
+    return DrawEnemies(mgr, 2, 4);
 }
 
 int EnemyManager::AddedCallback(EnemyManager *mgr)

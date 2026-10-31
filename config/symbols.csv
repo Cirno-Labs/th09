@@ -220,7 +220,7 @@ address,size,name,symbol
 0x00410250,82,Enemy::CheckPlayerContact,?CheckPlayerContact@Enemy@@QAEXPAUD3DXVECTOR3@@0@Z
 0x004102b0,1142,Enemy::DropItems,?DropItems@Enemy@@QAEXH@Z
 0x00410730,3881,EnemyManager::OnUpdate,?OnUpdate@EnemyManager@@SIHPAV1@@Z
-0x00411670,1752,Func411670,
+0x00411670,1758,DrawEnemies,?DrawEnemies@@YIHPAVEnemyManager@@HH@Z
 0x00411d50,35,EnemyManager::OnDraw,?OnDraw@EnemyManager@@SIHPAV1@@Z
 0x00411d80,38,EnemyManager::OnDraw2,?OnDraw2@EnemyManager@@SIHPAV1@@Z
 0x00411db0,372,EnemyManager::AddedCallback,?AddedCallback@EnemyManager@@SIHPAV1@@Z
