@@ -18,7 +18,12 @@ struct BulletTypeSprites
     Sprite sprite2;
     Sprite sprite3;
     Sprite sprite4;
-    unsigned char pad_d34[0xd44 - 0xd34];
+    // The size of the bullet's hitbox.
+    D3DXVECTOR3 hitboxSize;
+    unsigned char pad_d40[0xd42 - 0xd40];
+    // The draw list the bullet goes into, as th08's.
+    BYTE sizeClass;
+    unsigned char pad_d43[0xd44 - 0xd43];
     // 0x14a for the bullets that extra attack type 21 leaves alone.
     int unknownD44;
 };
@@ -29,7 +34,14 @@ ASSERT_SIZE(BulletTypeSprites, 0xd48);
 struct BulletEx
 {
     Timer timer;
-    unsigned char pad_c[0x2c - 0xc];
+    float turnSpeed;
+    float turnAngle;
+    // Added to the velocity (flag 0x10).
+    D3DXVECTOR3 accel;
+    // How long the behavior runs, in frames.
+    int duration;
+    int maxTurns;
+    int turnCount;
 };
 ASSERT_SIZE(BulletEx, 0x2c);
 
@@ -45,6 +57,8 @@ struct BulletCommand
     int concurrentFlag;
 };
 ASSERT_SIZE(BulletCommand, 0x18);
+
+class BulletManager;
 
 // An enemy bullet (0x10c4 bytes). Only the fields known so far.
 struct Bullet
@@ -62,14 +76,15 @@ struct Bullet
     // Sets command `i` to flag 0x4000, which switches the bullet to
     // bullet type `type` and color `color`, as th08's (0x4126d0).
     void SetSpriteCommand(int i, int concurrent, int type, int color);
-    // Clears the commands, their flags and unknownDb4, and starts over
+    // Clears the commands, their flags and activeFlags, and starts over
     // from the first command (0x40c390).
     void ClearCommands();
     // Frees the bullet: state 0 and both timers reset, as th08's
     // (0x412930).
     void FreeBullet();
 
-    unsigned char pad_0[0x4];
+    // The manager the bullet belongs to.
+    BulletManager *mgr;
     BulletTypeSprites sprites;
     // The motion, as th08's.
     D3DXVECTOR3 pos;
@@ -83,20 +98,36 @@ struct Bullet
     float turnAngle;
     Timer timer;
     Timer grazeDelayTimer;
-    unsigned char pad_da0[0xdb4 - 0xda0];
-    int unknownDb4;
+    unsigned char pad_da0[0xdb0 - 0xda0];
+    // Frames before the bounds check starts, as th08's.
+    int boundsCheckDelay;
+    // The flags of the commands running, as th08's.
+    DWORD activeFlags;
     // The flags of the commands it has.
     DWORD flags;
     unsigned char pad_dbc[0xdbe - 0xdbc];
     // 0 while the slot is free; 6 marks the spare bullet after the last,
     // as th08's.
     unsigned short state;
-    unsigned char pad_dc0[0xdd4 - 0xdc0];
+    WORD outOfBoundsFrames;
+    unsigned char pad_dc2[0xdc3 - 0xdc2];
+    BYTE grazed;
+    // Set while spawning in one of the player's hit areas; the bullet
+    // fades out once spawned.
+    BYTE spawnedInArea;
+    unsigned char pad_dc5[0xdc8 - 0xdc5];
+    // The next bullet in its draw list.
+    Bullet *next;
+    unsigned char pad_dcc[0xdd0 - 0xdcc];
+    // The sound the commands play, if not negative.
+    int sound;
     // The command to start next, as th08's.
     int commandIndex;
     BulletCommand commands[18];
     BulletEx ex[7];
-    unsigned char pad_10bc[0x10be - 0x10bc];
+    // Neither grazed nor hit, as th08's.
+    char harmless;
+    unsigned char pad_10bd[0x10be - 0x10bd];
     // Set once extra attack type 21 has doubled the bullet, and on the
     // copy.
     char unknown10be;
@@ -104,14 +135,33 @@ struct Bullet
 };
 ASSERT_SIZE(Bullet, 0x10c4);
 
+// Starts the bullet's next commands, as th08's (0x4141c0).
+void RunBulletCommands(Bullet *bullet);
+
 // A laser, as th08's (0x59c bytes). Only the fields known so far.
 struct Laser
 {
     Sprite sprite0;
     Sprite sprite1;
-    unsigned char pad_548[0x588 - 0x548];
+    D3DXVECTOR3 pos;
+    float angle;
+    float startOffset;
+    float endOffset;
+    float maxLength;
+    float width;
+    float baseWidth;
+    float speed;
+    int startFrames;
+    int hitStartFrame;
+    int durationFrames;
+    int endFrames;
+    int endHitFrames;
+    int active;
     Timer timer;
-    unsigned char pad_594[0x59c - 0x594];
+    WORD flags;
+    short color;
+    BYTE state;
+    unsigned char pad_599[0x59c - 0x599];
 };
 ASSERT_SIZE(Laser, 0x59c);
 
@@ -126,8 +176,13 @@ public:
     // Calls Unknown412590 with 1. Called by the ECL interpreter; the
     // copy is at 0x405650.
     void Unknown405650();
-    // Clears unknown25e198 (0x412390).
-    void ClearUnknown25e198();
+    // Clears unknown25e198. Inline: OnUpdate reloads its registers after
+    // the copy at 0x412390.
+    void ClearUnknown25e198()
+    {
+        this->unknown25e198[0] = this->unknown25e198[1] = this->unknown25e198[2] = this->unknown25e198[3] =
+            this->unknown25e198[4] = this->unknown25e198[5] = 0;
+    }
     // Zeroes everything, marks the spare bullets and clears the script
     // index of every bullet's sprites, as th08's Reset (0x4123c0).
     void Initialize();
@@ -166,17 +221,23 @@ public:
     Bullet bullets[0xb0];
     Bullet bullets2[0x169];
     Laser lasers[0x30];
-    unsigned char pad_25e164[0x25e174 - 0x25e164];
-    Timer unknown25e174;
-    unsigned char pad_25e180[0x25e184 - 0x25e180];
+    // The live bullets of each set, and of both.
+    int bulletCount1;
+    int bulletCount2;
+    int bulletCount;
+    // Counts down, as th08's clearAllFrames.
+    int clearAllFrames;
+    Timer updateTimer;
+    int updateFrameCount;
     ChainElem *calcElem;
     ChainElem *drawElem;
     int sideIdx;
     // The side, and the other one.
     GameSide *side;
     GameSide *otherSide;
-    // Cleared by ClearUnknown25e198.
-    int unknown25e198[6];
+    // The bullets to draw, one list per size class; cleared by
+    // ClearUnknown25e198.
+    Bullet *unknown25e198[6];
     // Where the searches for a free bullet start, as th08's nextBullet.
     Bullet *nextBullet;
     Bullet *nextBullet2;
