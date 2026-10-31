@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">11.67% (130)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">17.06% (190)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">11.76% (131)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">16.97% (189)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="87.17" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="127.41" height="6" x="619.59" y="0" class="todo"/>
+<rect width="87.84" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="126.74" height="6" x="620.26" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1118,7 +1118,7 @@
 <rect width="12" height="12" x="705" y="300" class="todo"><title>0x004464a0 Func4464a0 (799 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="300" class="decompiled"><title>0x004467c0 ExAttackInit4467c0 (352 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="300" class="decompiled"><title>0x00446920 ExAttackUpdate446920 (748 bytes)</title></rect>
-<rect width="12" height="12" x="0" y="315" class="todo"><title>0x00446c10 Func446c10 (356 bytes)</title></rect>
+<rect width="12" height="12" x="0" y="315" class="decompiled"><title>0x00446c10 ExAttackInit446c10 (356 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="315" class="todo"><title>0x00446d80 Func446d80 (343 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="315" class="todo"><title>0x00446ee0 Func446ee0 (713 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="315" class="todo"><title>0x004471b0 Func4471b0 (710 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">8.30%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">49.62%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">8.42%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">49.50%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="61.98" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="370.70" height="6" x="376.30" y="0" class="todo"/>
+<rect width="62.88" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="369.80" height="6" x="377.20" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1398,7 +1398,7 @@
 <rect width="14.52" height="14.97" x="452.14" y="187.52" class="decompiled"><title>0x00449070 ExAttackInit449070 (358 bytes)</title></rect>
 <rect width="14.52" height="14.92" x="452.14" y="205.49" class="named"><title>0x00416160 GuiMsg::Start (357 bytes)</title></rect>
 <rect width="14.52" height="14.92" x="452.14" y="223.41" class="decompiled"><title>0x00448320 ExAttackInit448320 (357 bytes)</title></rect>
-<rect width="14.52" height="14.87" x="452.14" y="241.33" class="todo"><title>0x00446c10 Func446c10 (356 bytes)</title></rect>
+<rect width="14.52" height="14.87" x="452.14" y="241.33" class="decompiled"><title>0x00446c10 ExAttackInit446c10 (356 bytes)</title></rect>
 <rect width="14.52" height="14.82" x="452.14" y="259.20" class="named"><title>0x0042c970 OpenPath (355 bytes)</title></rect>
 <rect width="14.52" height="14.82" x="452.14" y="277.02" class="decompiled"><title>0x00440e40 ExAttackInit440e40 (355 bytes)</title></rect>
 <rect width="14.52" height="14.82" x="452.14" y="294.84" class="decompiled"><title>0x00447720 ExAttackInit447720 (355 bytes)</title></rect>
