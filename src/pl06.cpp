@@ -64,3 +64,16 @@ int EffectUpdate445c80(Effect *effect)
     FireShots(effect->mgr->side->player, effect->unknownAc.AsFrames(), 2);
     return 1;
 }
+
+// A fire callback of the shot table (5): on the frame of `sd`, fires it
+// unless the effect in reserved slot 5 is running. Returns 1 if it fired
+// (0x445cb0).
+int ShotFire445cb0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+{
+    if (!player->side->effectManager->GetReservedEffect(5)->active && frame == sd->frame)
+    {
+        FireShot(player, bullet, sd);
+        return 1;
+    }
+    return 0;
+}

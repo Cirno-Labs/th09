@@ -1029,7 +1029,7 @@ address,size,name,symbol
 0x004453a0,314,Func4453a0,
 0x004454e0,79,Func4454e0,
 0x00445530,44,ShotFire445530,?ShotFire445530@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
-0x00445560,26,Func445560,
+0x00445560,26,EffectManager::GetReservedEffect,?GetReservedEffect@EffectManager@@QAEPAUEffect@@H@Z
 0x00445580,71,PlayerPosFunc445580,?PlayerPosFunc445580@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x004455d0,361,Func4455d0,
 0x00445740,481,Func445740,
@@ -1038,7 +1038,7 @@ address,size,name,symbol
 0x00445a40,491,Func445a40,
 0x00445c30,72,EffectInit445c30,?EffectInit445c30@@YIHPAUEffect@@@Z
 0x00445c80,38,EffectUpdate445c80,?EffectUpdate445c80@@YIHPAUEffect@@@Z
-0x00445cb0,72,Func445cb0,
+0x00445cb0,72,ShotFire445cb0,?ShotFire445cb0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00445d00,119,Func445d00,
 0x00445d80,119,PlayerComboFunc445d80,?PlayerComboFunc445d80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00445e00,96,Func445e00,
