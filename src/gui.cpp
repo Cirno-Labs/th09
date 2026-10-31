@@ -2,7 +2,9 @@
 #include "ascii.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "screeneffect.h"
 #include "sprite.h"
+#include "stage.h"
 
 int Gui::LoadAnm()
 {
@@ -12,6 +14,30 @@ int Gui::LoadAnm()
 void Gui::ReleaseAnm()
 {
     g_SpriteEngine->ReleaseAnm(10);
+}
+
+// Decodes a dialogue line from `src` into `dst`, as th08's
+// DecodeMsgString but with a key that starts at 0x77 and grows by 7, 23,
+// 39, ... Static, with src in eax (0x415c60).
+static void DecodeMsgString(char *dst, char *src)
+{
+    int i;
+    char c;
+    BYTE key;
+    BYTE step;
+
+    i = 0;
+    key = 0x77;
+    step = 7;
+    do
+    {
+        c = *src ^ key;
+        dst[i] = c;
+        i++;
+        src++;
+        key += step;
+        step += 0x10;
+    } while (c != 0);
 }
 
 void GuiMsg::Start(int index, int side)
@@ -127,6 +153,364 @@ void GuiMsg::StartRandom(int side)
     this->text[1].fontWidth = this->text[1].fontHeight = this->fontSize;
     g_SpriteEngine->RenderText(&this->text[0], this->textColors[this->speaker], this->shadowColors[this->speaker], " ");
     g_SpriteEngine->RenderText(&this->text[1], this->textColors[this->speaker], this->shadowColors[this->speaker], " ");
+}
+
+int GuiMsg::Run()
+{
+    MsgArgs *args;
+
+    if (this->scriptIndex < 0)
+    {
+        return -1;
+    }
+    if (this->timelineRelease > 0)
+    {
+        this->timelineRelease--;
+    }
+    if (this->skippable && g_PlayerInputs[2].IsHeld2(0x100))
+    {
+        this->timer = this->instr->time;
+    }
+    while (this->timer >= this->instr->time)
+    {
+        switch (this->instr->opcode)
+        {
+        case 0:
+            this->scriptIndex = -1;
+            return -1;
+        case 23:
+            g_GameManager.sides[this->instr->i].player->SetUnknown0(1);
+            g_GameManager.sides[this->instr->i].player->unknown303c8 = 0;
+            break;
+        case 15:
+        {
+            MsgPortraitArgs *portraitArgs;
+            int who;
+            int i;
+
+            portraitArgs = &this->instr->portraitArgs;
+            if (portraitArgs->who >= 0)
+            {
+                who = this->side == 0 ? portraitArgs->who : 1 - portraitArgs->who;
+                if (this->activePortrait != who)
+                {
+                    for (i = 0; i < 4; i++)
+                    {
+                        if (i != who)
+                        {
+                            this->portraits[i * 2].pendingInterrupt = 4;
+                            this->portraits[i * 2 + 1].pendingInterrupt = 4;
+                        }
+                    }
+                }
+                this->portraits[who * 2].pendingInterrupt = 3;
+                this->portraits[who * 2 + 1].pendingInterrupt = 3;
+                this->activePortrait = who;
+                this->speaker = who;
+                if (portraitArgs->sprites[0] >= 0)
+                {
+                    g_GameManager.sides[this->side].gui->unknownA678.anm->SetSprite(
+                        &this->portraits[this->side * 2],
+                        g_GameManager.sides[this->side].player->unknown303fc + portraitArgs->sprites[0]);
+                    g_GameManager.sides[this->side].gui->unknownA678.anm->SetSprite(
+                        &this->portraits[this->side * 2 + 1],
+                        g_GameManager.sides[this->side].player->unknown303fc + portraitArgs->sprites[0] + 9);
+                }
+                if (portraitArgs->sprites[1] >= 0)
+                {
+                    g_GameManager.sides[1 - this->side].gui->unknownA678.anm->SetSprite(
+                        &this->portraits[(1 - this->side) * 2],
+                        g_GameManager.sides[1 - this->side].player->unknown303fc + portraitArgs->sprites[1]);
+                    g_GameManager.sides[1 - this->side].gui->unknownA678.anm->SetSprite(
+                        &this->portraits[(1 - this->side) * 2 + 1],
+                        g_GameManager.sides[1 - this->side].player->unknown303fc + portraitArgs->sprites[1] + 9);
+                }
+            }
+            else
+            {
+                this->portraits[0].pendingInterrupt = 4;
+                this->portraits[2].pendingInterrupt = 4;
+                this->portraits[1].pendingInterrupt = 4;
+                this->portraits[3].pendingInterrupt = 4;
+            }
+            this->newPage = 1;
+            break;
+        }
+        case 17:
+        {
+            MsgPortraitArgs *portraitArgs2;
+            int who2;
+            int i;
+
+            portraitArgs2 = &this->instr->portraitArgs;
+            if (portraitArgs2->who < 2)
+            {
+                who2 = this->side == 0 ? portraitArgs2->who : 1 - portraitArgs2->who;
+            }
+            else
+            {
+                who2 = portraitArgs2->who;
+            }
+            if (this->activePortrait != who2)
+            {
+                for (i = 0; i < 4; i++)
+                {
+                    if (i != who2)
+                    {
+                        this->portraits[i * 2].pendingInterrupt = 4;
+                        this->portraits[i * 2 + 1].pendingInterrupt = 4;
+                    }
+                }
+            }
+            this->portraits[who2 * 2].pendingInterrupt = 3;
+            this->portraits[who2 * 2 + 1].pendingInterrupt = 3;
+            this->activePortrait = who2;
+            if (portraitArgs2->sprites[0] >= 0)
+            {
+                if (who2 < 2)
+                {
+                    g_GameManager.sides[who2].gui->unknownA678.anm->SetSprite(
+                        &this->portraits[who2 * 2],
+                        g_GameManager.sides[who2].player->unknown303fc + portraitArgs2->sprites[0]);
+                    g_GameManager.sides[who2].gui->unknownA678.anm->SetSprite(
+                        &this->portraits[who2 * 2 + 1],
+                        g_GameManager.sides[who2].player->unknown303fc + portraitArgs2->sprites[0] + 9);
+                }
+                else
+                {
+                    g_GameManager.sides[0].gui->unknownA678.unknown4->SetSprite(&this->portraits[who2 * 2],
+                                                                               portraitArgs2->sprites[0]);
+                    g_GameManager.sides[0].gui->unknownA678.unknown4->SetSprite(&this->portraits[who2 * 2 + 1],
+                                                                               portraitArgs2->sprites[0] + 6);
+                }
+            }
+            this->speaker = who2;
+            this->newPage = 1;
+            break;
+        }
+        case 26:
+            this->newPage = 1;
+            this->speaker = this->instr->b;
+            break;
+        case 1:
+        {
+            short who3;
+            int idx;
+
+            who3 = this->instr->args.who;
+            if (who3 < 2)
+            {
+                idx = this->side == 0 ? who3 : 1 - who3;
+                g_GameManager.sides[idx].gui->unknownA678.anm->StartScript(
+                    &this->portraits[idx * 2], g_GameManager.sides[idx].player->unknown303f8 + idx);
+                g_GameManager.sides[idx].gui->unknownA678.anm->StartScript(
+                    &this->portraits[idx * 2 + 1], g_GameManager.sides[idx].player->unknown303f8 + idx + 4);
+            }
+            else
+            {
+                g_GameManager.sides[0].gui->unknownA678.unknown4->StartScript(&this->portraits[who3 * 2], who3);
+                g_GameManager.sides[0].gui->unknownA678.unknown4->StartScript(&this->portraits[who3 * 2 + 1],
+                                                                             who3 + 4);
+            }
+            break;
+        }
+        case 2:
+        {
+            short who4;
+            int idx2;
+
+            args = &this->instr->args;
+            if (args->who < 2)
+            {
+                idx2 = this->side == 0 ? args->who : 1 - args->who;
+                g_GameManager.sides[idx2].gui->unknownA678.anm->SetSprite(
+                    &this->portraits[idx2 * 2], args->index + g_GameManager.sides[idx2].player->unknown303fc);
+                g_GameManager.sides[idx2].gui->unknownA678.anm->SetSprite(
+                    &this->portraits[idx2 * 2 + 1], g_GameManager.sides[idx2].player->unknown303fc + args->index + 9);
+            }
+            else
+            {
+                who4 = args->who;
+                g_GameManager.sides[0].gui->unknownA678.unknown4->SetSprite(&this->portraits[who4 * 2], args->index);
+                g_GameManager.sides[0].gui->unknownA678.unknown4->SetSprite(&this->portraits[who4 * 2 + 1],
+                                                                           args->index + 6);
+            }
+            break;
+        }
+        case 3:
+        {
+            char text[0x40];
+
+            args = &this->instr->args;
+            if (args->index == 0 && this->text[1].scriptIndex >= 0)
+            {
+                g_SpriteEngine->RenderText(&this->text[1], this->textColors[args->who], this->shadowColors[args->who],
+                                           " ");
+            }
+            g_App.textAnm->StartScript(&this->text[args->index], args->index);
+            this->text[args->index].fontHeight = this->fontSize;
+            this->text[args->index].fontWidth = this->text[args->index].fontHeight;
+            DecodeMsgString(text, args->text);
+            g_SpriteEngine->RenderText(&this->text[args->index], this->textColors[args->who],
+                                       this->shadowColors[args->who], text);
+            this->waitFrames = 0;
+            break;
+        }
+        case 16:
+        {
+            char text2[0x40];
+
+            args = &this->instr->args;
+            if (this->newPage)
+            {
+                if (this->text[1].scriptIndex >= 0)
+                {
+                    g_SpriteEngine->RenderText(&this->text[1], this->textColors[this->speaker],
+                                               this->shadowColors[this->speaker], " ");
+                }
+                this->nextLine = 0;
+            }
+            g_App.textAnm->StartScript(&this->text[this->nextLine], this->nextLine);
+            this->text[this->nextLine].fontHeight = this->fontSize;
+            this->text[this->nextLine].fontWidth = this->text[this->nextLine].fontHeight;
+            DecodeMsgString(text2, (char *)args);
+            g_SpriteEngine->RenderText(&this->text[this->nextLine], this->textColors[this->speaker],
+                                       this->shadowColors[this->speaker], text2);
+            this->waitFrames = 0;
+            this->newPage = 0;
+            this->nextLine++;
+            break;
+        }
+        case 4:
+            if (!this->skippable || !g_PlayerInputs[2].IsHeld2(0x100))
+            {
+                if (!g_PlayerInputs[2].IsJustPressed2(1) || this->waitFrames < this->minWaitFrames)
+                {
+                    if (this->waitFrames >= this->instr->i)
+                    {
+                        this->newPage = 1;
+                        this->minWaitFrames = 30;
+                        break;
+                    }
+                    this->waitFrames++;
+                    goto stepSprites;
+                }
+                this->newPage = 1;
+                this->minWaitFrames = 8;
+            }
+            break;
+        case 5:
+            args = &this->instr->args;
+            this->portraits[args->who * 2].pendingInterrupt = args->value;
+            this->portraits[args->who * 2 + 1].pendingInterrupt = args->value;
+            break;
+        case 6:
+            this->timelineRelease++;
+            break;
+        case 7:
+        {
+            int track;
+
+            track = this->instr->i;
+            if (track < 0)
+            {
+                g_App.StopBgm();
+            }
+            else if (!g_GameManager.IsMode2())
+            {
+                g_App.PlayMusic(track, 0);
+            }
+            else
+            {
+                g_App.PlayMusic(g_GameManager.unknownF0->unknownC, 0);
+            }
+            break;
+        }
+        case 8:
+            g_GameManager.sides[1].gui->unknownA678.anm->StartScript(
+                &this->unknown1a7c, g_GameManager.sides[1].player->unknown303f0 + 4);
+            this->waitFrames = 0;
+            break;
+        case 9:
+            g_GameManager.gui->ScoreRoundBonus();
+            g_App.FadeOutBgm(4.0f);
+            break;
+        case 10:
+            goto stepSprites;
+        case 12:
+            g_App.FadeOutBgm(4.0f);
+            break;
+        case 14:
+            g_Unknown4a7c80 = ScreenEffect::StartEffect(5, 300, 0xffffff, 0, 0, 0x23, 2);
+            g_App.redrawFrames = 302;
+            break;
+        case 11:
+            if (g_GameManager.IsMode0())
+            {
+                if (this->side == 0)
+                {
+                    g_App.scene = 3;
+                }
+                else
+                {
+                    g_GameManager.isInContinueMenu = 1;
+                }
+            }
+            else if (g_GameManager.IsMode1())
+            {
+                g_App.scene = 3;
+            }
+            else
+            {
+                g_GameManager.unknown13e = 1;
+            }
+            goto stepSprites;
+        case 13:
+            this->skippable = this->instr->b;
+            break;
+        case 18:
+            this->textBoxShown = this->instr->b;
+            break;
+        case 24:
+            this->boxTimer = 1;
+            break;
+        case 25:
+            g_GameManager.sides[0].gui->StartUnknown59c8();
+            g_GameManager.sides[1].gui->StartUnknown59c8();
+            break;
+        case 28:
+            g_GameManager.sides[0].stage->waitLabel = this->instr->i;
+            g_GameManager.sides[1].stage->waitLabel = this->instr->i;
+            break;
+        }
+        this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argSize + 4);
+    }
+    this->timer++;
+stepSprites:
+    g_SpriteEngine->Step(&this->portraits[0]);
+    g_SpriteEngine->Step(&this->portraits[2]);
+    g_SpriteEngine->Step(&this->portraits[1]);
+    g_SpriteEngine->Step(&this->portraits[3]);
+    g_SpriteEngine->Step(&this->portraits[4]);
+    g_SpriteEngine->Step(&this->portraits[6]);
+    g_SpriteEngine->Step(&this->portraits[5]);
+    g_SpriteEngine->Step(&this->portraits[7]);
+    g_SpriteEngine->Step(&this->text[0]);
+    g_SpriteEngine->Step(&this->text[1]);
+    g_SpriteEngine->Step(&this->unknown1a7c);
+    if (this->timer < 60 && this->skippable && g_PlayerInputs[2].IsHeld2(0x100))
+    {
+        this->timer = 60;
+    }
+    if (this->boxTimer >= 1)
+    {
+        if (this->boxTimer < 60 && this->skippable && g_PlayerInputs[2].IsHeld2(0x100))
+        {
+            this->timer = 60;
+        }
+        this->boxTimer++;
+    }
+    return 0;
 }
 
 int GuiMsg::Draw()

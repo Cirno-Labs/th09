@@ -296,7 +296,7 @@ address,size,name,symbol
 0x00415910,799,Func415910,
 0x00415c30,24,Gui::LoadAnm,?LoadAnm@Gui@@SIHXZ
 0x00415c50,14,Gui::ReleaseAnm,?ReleaseAnm@Gui@@SIXXZ
-0x00415c60,39,Func415c60,
+0x00415c60,39,DecodeMsgString,?DecodeMsgString@@YIXPAD0@Z
 0x00415c90,23,GuiMsg::Clear,?Clear@GuiMsg@@QAEXXZ
 0x00415cb0,18,PlayerInput::IsHeld2,?IsHeld2@PlayerInput@@QAEGG@Z
 0x00415cd0,18,PlayerInput::IsJustPressed2,?IsJustPressed2@PlayerInput@@QAEGG@Z
@@ -312,7 +312,7 @@ address,size,name,symbol
 0x00416080,213,Gui::UpdateEnemyMarker,?UpdateEnemyMarker@Gui@@QAEXHPAUD3DXVECTOR3@@@Z
 0x00416160,357,GuiMsg::Start,?Start@GuiMsg@@QAEXHH@Z
 0x004162d0,693,GuiMsg::StartRandom,?StartRandom@GuiMsg@@QAEXH@Z
-0x00416590,2852,Func416590,
+0x00416590,2852,GuiMsg::Run,?Run@GuiMsg@@QAEHXZ
 0x00417130,995,GuiMsg::Draw,?Draw@GuiMsg@@QAEHXZ
 0x00417520,271,GuiMsg::UnloadBgm,?UnloadBgm@GuiMsg@@QAEXH@Z
 0x00417630,1485,Gui::OnUpdate,?OnUpdate@Gui@@SIHPAV1@@Z

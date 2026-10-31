@@ -78,6 +78,10 @@ struct GuiMsg
     // text, as th08's DrawMsg. Returns 0, or -1 with no script running
     // (0x417130).
     int Draw();
+    // Runs the script up to the current frame and steps the sprites, as
+    // th08's RunMsg with th09's opcodes. Returns 0, or -1 once no script
+    // runs (0x416590).
+    int Run();
     // Unloads the music the scripts from `firstScript` on, ten of them,
     // play with opcode 7 (in mode 2 GameManager::unknownF0's unknownC),
     // then frees the dialogue files and clears the state, if a file is
