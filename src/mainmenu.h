@@ -184,7 +184,9 @@ public:
     // g_GameManager's unknown114 is 1 to 3. UpdateState13 runs the high
     // score tables: left and right pick the character among the open
     // ones, a cancel goes back to state 1, and a code of ten buttons
-    // opens every entry.
+    // opens every entry. UpdateState14 puts g_Hscr in the tables and
+    // has its name typed in, starting from g_Lsnm's; ending it saves
+    // the scores and goes to state 15 (mode 2 goes there at once).
     int UpdateState3();
     int UpdateState8b();
     int UpdateState16();

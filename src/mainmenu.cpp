@@ -6,6 +6,7 @@
 #include "mainmenu.h"
 #include "ascii.h"
 #include "midi.h"
+#include "scoredat.h"
 
 // The menu, for LoadingThread. The original keeps it in this object
 // only (0x4ac8c0).
@@ -1831,6 +1832,183 @@ int MainMenu::UpdateState13()
             this->SetState(1);
             this->cursor = 4;
             return 1;
+        }
+        break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
+int MainMenu::UpdateState14()
+{
+    char c;
+
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            g_App.StopBgm();
+            if (g_SpriteEngine->LoadSurface(0, "title/result00.png") != 0)
+            {
+                return 0;
+            }
+            if (this->spriteCount == 0)
+            {
+                this->spriteCount = 0xdf;
+                this->sprites = new Sprite[this->spriteCount];
+                this->anm->StartSpriteSeries(this->sprites, 0, this->spriteCount);
+            }
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 16);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            if (g_GameManager.mode == 2)
+            {
+                this->stateFrames = 0;
+                this->SetState(15);
+                return 1;
+            }
+            this->scoreCharacter = g_GameManager.sides[0].character;
+            this->replayNameCursor = 0;
+            this->SelectEntry3(this->scoreCharacter, 0x3c, 0x10, 2);
+            this->cursor = 0x5f;
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+            this->scoreRank = InsertHighScore(&g_Hscr);
+            if (this->scoreRank >= 5)
+            {
+                this->cursor = 0x5f;
+            }
+            else
+            {
+                strcpy(g_HighScores[this->scoreCharacter][g_GameManager.difficulty][this->scoreRank].name,
+                       g_Lsnm.name);
+            }
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+        }
+        break;
+    case 1:
+        if (this->scoreRank < 5)
+        {
+            if (g_PlayerInputs[2].IsPressed(0x10))
+            {
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                this->cursor -= 16;
+                if (this->cursor < 0)
+                {
+                    this->cursor += 0x60;
+                }
+                if (this->cursor == 0x5d)
+                {
+                    this->cursor = 0x4d;
+                }
+                this->stateFrames = 0;
+            }
+            if (g_PlayerInputs[2].IsPressed(0x20))
+            {
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                this->cursor += 16;
+                if (this->cursor >= 0x60)
+                {
+                    this->cursor -= 0x60;
+                }
+                if (this->cursor == 0x5d)
+                {
+                    this->cursor = 0xd;
+                }
+                this->stateFrames = 0;
+            }
+            if (g_PlayerInputs[2].IsPressed(0x40))
+            {
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                if (this->cursor % 16 == 0)
+                {
+                    this->cursor += 15;
+                }
+                else
+                {
+                    this->cursor--;
+                    if (this->cursor == 0x5d)
+                    {
+                        this->cursor = 0x5c;
+                    }
+                }
+                this->stateFrames = 0;
+            }
+            if (g_PlayerInputs[2].IsPressed(0x80))
+            {
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                if (this->cursor % 16 == 15)
+                {
+                    this->cursor -= 15;
+                }
+                else
+                {
+                    this->cursor++;
+                    if (this->cursor == 0x5d)
+                    {
+                        this->cursor = 0x5e;
+                    }
+                }
+                this->stateFrames = 0;
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            if (this->cursor == 0x5f)
+            {
+                SaveScore();
+                this->PlaySoundNow(11, 0);
+                this->stateFrames = 0;
+                this->SetState(15);
+                if (this->scoreRank < 5)
+                {
+                    strcpy(g_Lsnm.name,
+                           g_HighScores[this->scoreCharacter][g_GameManager.difficulty][this->scoreRank].name);
+                }
+                return 1;
+            }
+            if (this->cursor == 0x5e)
+            {
+                c = ' ';
+            }
+            else
+            {
+                c = g_NameAlphabet[this->cursor];
+            }
+            g_HighScores[this->scoreCharacter][g_GameManager.difficulty][this->scoreRank]
+                .name[this->replayNameCursor] = c;
+            this->PlaySoundNow(10, 0);
+            if (this->replayNameCursor < 7)
+            {
+                this->replayNameCursor++;
+            }
+            else
+            {
+                this->cursor = 0x5f;
+            }
+            this->stateFrames = 0;
+        }
+        if (g_PlayerInputs[2].unknown6 & 10)
+        {
+            this->PlaySoundNow(11, 0);
+            if (this->replayNameCursor == 7 &&
+                g_HighScores[this->scoreCharacter][g_GameManager.difficulty][this->scoreRank].name[7] != ' ')
+            {
+                g_HighScores[this->scoreCharacter][g_GameManager.difficulty][this->scoreRank].name[7] = ' ';
+            }
+            else if (this->replayNameCursor > 0)
+            {
+                this->replayNameCursor--;
+                g_HighScores[this->scoreCharacter][g_GameManager.difficulty][this->scoreRank]
+                    .name[this->replayNameCursor] = ' ';
+            }
+            this->stateFrames = 0;
         }
         break;
     }
