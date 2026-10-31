@@ -12,6 +12,25 @@ void ClearViewport(DWORD color)
     ClearScreen(color);
 }
 
+int ScreenEffect::OnUpdateFadeIn(ScreenEffect *effect)
+{
+    int duration = effect->duration;
+    if (duration != 0)
+    {
+        effect->alpha = 255.0f - effect->timer.AsFloat() * 255.0f / duration;
+        if (effect->alpha < 0)
+        {
+            effect->alpha = 0;
+        }
+    }
+    if (effect->timer >= duration)
+    {
+        return 0;
+    }
+    effect->timer++;
+    return 1;
+}
+
 int ScreenEffect::DeletedCallback(ScreenEffect *effect)
 {
     effect->calcElem->deletedCallback = NULL;

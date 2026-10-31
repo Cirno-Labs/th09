@@ -18,6 +18,9 @@ public:
     // The update element's deleted callback, as th08's: removes the draw
     // element and deletes the effect. Returns 0 (0x422900).
     static int DeletedCallback(ScreenEffect *effect);
+    // Type 0's update callback, as th08's: fades alpha from 255 to 0
+    // over duration frames. Returns 0 when done, else 1 (0x4222c0).
+    static int OnUpdateFadeIn(ScreenEffect *effect);
     // The draw callbacks, as th08's: the screen after flushing and
     // setting view 2, the whole screen, the play area, and the play area
     // in flashColor (0x422b70, 0x422c10, 0x422bd0, 0x422cd0). Return 1.
