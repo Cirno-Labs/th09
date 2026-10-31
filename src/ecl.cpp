@@ -2,6 +2,7 @@
 #include "enemy.h"
 #include "exattack.h"
 #include "gamemanager.h"
+#include "player.h"
 #include "unsorted.h"
 
 void BulletManager::Unknown405650()
@@ -112,6 +113,108 @@ int *ResolveOperand(Enemy *enemy, int *operand, WORD mask, int bit)
         return &enemy->manager->ecl.callArgs.ints[2];
     case 10064:
         return &enemy->manager->ecl.callArgs.ints[3];
+    }
+    return operand;
+}
+
+float *ResolveFloatOperand(Enemy *enemy, float *operand, WORD mask, int bit)
+{
+    if (bit >= 0 && (mask & (1 << bit)) == 0)
+    {
+        return operand;
+    }
+    switch ((int)*operand)
+    {
+    case 10016:
+        return &enemy->currentCtx->floatVars[0];
+    case 10017:
+        return &enemy->currentCtx->floatVars[1];
+    case 10018:
+        return &enemy->currentCtx->floatVars[2];
+    case 10019:
+        return &enemy->currentCtx->floatVars[3];
+    case 10020:
+        return &enemy->currentCtx->floatVars[4];
+    case 10021:
+        return &enemy->currentCtx->floatVars[5];
+    case 10022:
+        return &enemy->currentCtx->floatVars[6];
+    case 10023:
+        return &enemy->currentCtx->floatVars[7];
+    case 10024:
+        return &enemy->enemyFloats[0];
+    case 10025:
+        return &enemy->enemyFloats[1];
+    case 10026:
+        return &enemy->enemyFloats[2];
+    case 10027:
+        return &enemy->enemyFloats[3];
+    case 10028:
+        return &enemy->enemyFloats[4];
+    case 10029:
+        return &enemy->enemyFloats[5];
+    case 10030:
+        return &enemy->enemyFloats[6];
+    case 10031:
+        return &enemy->enemyFloats[7];
+    case 10057:
+        return &enemy->currentCtx->args.floats[0];
+    case 10058:
+        return &enemy->currentCtx->args.floats[1];
+    case 10059:
+        return &enemy->currentCtx->args.floats[2];
+    case 10060:
+        return &enemy->currentCtx->args.floats[3];
+    case 10042:
+        return &enemy->pos.x;
+    case 10043:
+        return &enemy->pos.y;
+    case 10044:
+        return &enemy->pos.z;
+    case 10045:
+        return &enemy->manager->side->player->pos.x;
+    case 10046:
+        return &enemy->manager->side->player->pos.y;
+    case 10047:
+        return &enemy->manager->side->player->pos.z;
+    case 10094:
+        return &enemy->currentCtx->floatVars2[0];
+    case 10095:
+        return &enemy->currentCtx->floatVars2[1];
+    case 10065:
+        return &enemy->manager->ecl.callArgs.floats[0];
+    case 10066:
+        return &enemy->manager->ecl.callArgs.floats[1];
+    case 10067:
+        return &enemy->manager->ecl.callArgs.floats[2];
+    case 10068:
+        return &enemy->manager->ecl.callArgs.floats[3];
+    case 10074:
+        return &enemy->moveStart.x;
+    case 10075:
+        return &enemy->moveStart.y;
+    case 10076:
+        return &enemy->moveStart.z;
+    case 10079:
+        return &enemy->moveDelta.x;
+    case 10080:
+        return &enemy->moveDelta.y;
+    case 10081:
+        return &enemy->moveDelta.z;
+    case 10069:
+        return &enemy->angle;
+    case 10070:
+        return &enemy->angularVelocity;
+    case 10071:
+        return &enemy->speed;
+    case 10072:
+        return &enemy->acceleration;
+    case 10073:
+        return &enemy->orbitRadius;
+    case 10077:
+        return &enemy->orbitAngle;
+    case 10078:
+        return &enemy->orbitAngularVelocity;
     }
     return operand;
 }

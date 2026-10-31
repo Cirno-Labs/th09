@@ -276,14 +276,21 @@ struct Enemy
     D3DXVECTOR3 absPos;
     float angle;
     float angularVelocity;
-    unsigned char pad_2de8[0x2df4 - 0x2de8];
+    // As th08's.
+    float orbitAngle;
+    float orbitAngularVelocity;
+    unsigned char pad_2df0[0x2df4 - 0x2df0];
     float speed;
     float acceleration;
-    unsigned char pad_2dfc[0x2e04 - 0x2dfc];
+    float orbitRadius;
+    unsigned char pad_2e00[0x2e04 - 0x2e00];
     D3DXVECTOR3 shootOffset;
-    unsigned char pad_2e10[0x2e28 - 0x2e10];
-    Timer unknown2e28;
-    unsigned char pad_2e34[0x2e38 - 0x2e34];
+    // A timed move, as th08's: by moveDelta from moveStart over
+    // moveDuration frames.
+    D3DXVECTOR3 moveDelta;
+    D3DXVECTOR3 moveStart;
+    Timer moveTimer;
+    int moveDuration;
     // The range the bullet speed is scaled by with the rank, as th08's.
     float rankSpeedLow;
     float rankSpeedHigh;
