@@ -72,6 +72,8 @@ public:
         DWORD color;
         // Shakes: how far the play area shakes at the start.
         int shakeFrom;
+        // Type 7: the frames the shake rises.
+        int riseFrames;
         // Type 3: how many more times the color flashes.
         int flashes;
     };
@@ -81,8 +83,15 @@ public:
         DWORD flashColor;
         // Shakes: how far the play area shakes at the end.
         int shakeTo;
+        // Type 7: the frames it holds.
+        DWORD holdFrames;
     };
-    int flashCount;
+    union
+    {
+        int flashCount;
+        // Type 7: the frames it falls.
+        DWORD fallFrames;
+    };
     // Set by Finish.
     int finishing;
     Timer timer;

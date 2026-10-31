@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.06% (903)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.71% (19)</tspan> · <tspan class="todo">2.87% (32)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.06% (903)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.80% (20)</tspan> · <tspan class="todo">2.78% (31)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="605.51" height="6" x="0" y="0" class="named"/>
 <rect width="107.29" height="6" x="605.51" y="0" class="decompiled"/>
-<rect width="12.74" height="6" x="712.80" y="0" class="nonmatching"/>
-<rect width="21.46" height="6" x="725.54" y="0" class="todo"/>
+<rect width="13.41" height="6" x="712.80" y="0" class="nonmatching"/>
+<rect width="20.79" height="6" x="726.21" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -539,7 +539,7 @@
 <rect width="12" height="12" x="255" y="135" class="named"><title>0x004224f0 ScreenEffect::OnUpdateLoadingFade (186 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="135" class="named"><title>0x004225b0 ScreenEffect::OnUpdateFlash (163 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="135" class="named"><title>0x00422660 ScreenEffect::OnUpdateShake (316 bytes)</title></rect>
-<rect width="12" height="12" x="300" y="135" class="todo"><title>0x004227a0 ScreenEffect::OnUpdateShakeRamp (336 bytes)</title></rect>
+<rect width="12" height="12" x="300" y="135" class="nonmatching"><title>0x004227a0 ScreenEffect::OnUpdateShakeRamp (336 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="135" class="named"><title>0x004228f0 ScreenEffect::AddedCallback (13 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="135" class="named"><title>0x00422900 ScreenEffect::DeletedCallback (47 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="135" class="named"><title>0x00422930 ScreenEffect::Finish (18 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.82%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.43%</tspan> · <tspan class="todo">5.92%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.82%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.55%</tspan> · <tspan class="todo">5.81%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="491.66" height="6" x="0" y="0" class="named"/>
 <rect width="110.76" height="6" x="491.66" y="0" class="decompiled"/>
-<rect width="100.35" height="6" x="602.43" y="0" class="nonmatching"/>
-<rect width="44.22" height="6" x="702.78" y="0" class="todo"/>
+<rect width="101.20" height="6" x="602.43" y="0" class="nonmatching"/>
+<rect width="43.38" height="6" x="703.62" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1415,7 +1415,7 @@
 <rect width="14.65" height="14.03" x="577.04" y="60.53" class="named"><title>0x0043f890 CStreamingSound::RecreateBuffers (342 bytes)</title></rect>
 <rect width="14.60" height="14.03" x="594.69" y="60.53" class="named"><title>0x00434540 AsciiText::DrawStrings (341 bytes)</title></rect>
 <rect width="14.60" height="14.03" x="612.29" y="60.53" class="named"><title>0x0043ce30 SpriteEngine::SpriteEngine (341 bytes)</title></rect>
-<rect width="14.34" height="14.03" x="629.89" y="60.53" class="todo"><title>0x004227a0 ScreenEffect::OnUpdateShakeRamp (336 bytes)</title></rect>
+<rect width="14.34" height="14.03" x="629.89" y="60.53" class="nonmatching"><title>0x004227a0 ScreenEffect::OnUpdateShakeRamp (336 bytes)</title></rect>
 <rect width="14.29" height="14.03" x="647.23" y="60.53" class="todo"><title>0x0041ca00 Func41ca00 (335 bytes)</title></rect>
 <rect width="14.29" height="14.03" x="664.52" y="60.53" class="named"><title>0x00424bf7 MainMenu::InitTitleScene (335 bytes)</title></rect>
 <rect width="14.24" height="14.03" x="681.82" y="60.53" class="named"><title>0x00404410 SpellCard::OnDraw (334 bytes)</title></rect>

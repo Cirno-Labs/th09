@@ -211,6 +211,67 @@ int ScreenEffect::OnUpdateShake(ScreenEffect *effect)
     return 1;
 }
 
+int ScreenEffect::OnUpdateShakeRamp(ScreenEffect *effect)
+{
+    // Not matching yet (334/336): esi and edi are swapped between the
+    // effect and its timer, and the original adds holdFrames and
+    // fallFrames in registers.
+    float shake;
+
+    if (g_GameManager.frames <= 1)
+    {
+        return 0;
+    }
+    effect->timer++;
+    int rise = effect->riseFrames;
+    if (effect->timer < rise)
+    {
+        shake = effect->timer.AsFloat() / rise;
+    }
+    else if (effect->timer < rise + effect->holdFrames)
+    {
+        shake = 1.0f;
+    }
+    else
+    {
+        rise += effect->holdFrames + effect->fallFrames;
+        if (effect->timer < rise)
+        {
+            shake = ((float)(DWORD)rise - effect->timer.AsFloat()) / effect->fallFrames;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    shake = effect->duration * shake;
+    switch (g_Rng.GetRandomU32InRange(3))
+    {
+    case 0:
+        g_SpriteEngine->shakeX = 0.0f;
+        break;
+    case 1:
+        g_SpriteEngine->shakeX = shake;
+        break;
+    case 2:
+        g_SpriteEngine->shakeX = -shake;
+        break;
+    }
+    switch (g_Rng.GetRandomU32InRange(3))
+    {
+    case 0:
+        g_SpriteEngine->shakeY = 0.0f;
+        break;
+    case 1:
+        g_SpriteEngine->shakeY = shake;
+        break;
+    case 2:
+        g_SpriteEngine->shakeY = -shake;
+        break;
+    }
+    return 1;
+}
+
 int ScreenEffect::AddedCallback(ScreenEffect *effect)
 {
     effect->timer = 0;
