@@ -28,3 +28,21 @@ int PlayerComboFunc4444f0(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
     }
     return 0;
 }
+
+// An update callback of the shot table (14): while unknown470 is 1,
+// stops the bullet, and frees it once it is 90 frames old. Sets
+// unknown472. Returns 0 (0x4446a0).
+int ShotUpdate4446a0(Player *player, PlayerBullet *bullet)
+{
+    if (bullet->unknown470 == 1)
+    {
+        bullet->velocity.x = 0.0f;
+        bullet->velocity.y = 0.0f;
+        if (bullet->timer >= 90)
+        {
+            bullet->state = 0;
+        }
+    }
+    bullet->unknown472 = 1;
+    return 0;
+}

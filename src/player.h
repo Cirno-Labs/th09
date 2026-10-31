@@ -172,7 +172,9 @@ struct PlayerBullet
     unsigned char pad_46f[0x470 - 0x46f];
     // Cleared when fired, where th08 copied the player's focus.
     short unknown470;
-    unsigned char pad_472[0x474 - 0x472];
+    // Set by character 4's shot update callback.
+    BYTE unknown472;
+    unsigned char pad_473[0x474 - 0x473];
     // The shot's callbacks, copied when it fires.
     ShotUpdateFunc update;
     ShotUpdateFunc draw;

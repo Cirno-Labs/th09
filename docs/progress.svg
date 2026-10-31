@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">5.92% (66)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">22.80% (254)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">6.01% (67)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">22.71% (253)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="44.26" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="170.32" height="6" x="576.68" y="0" class="todo"/>
+<rect width="44.93" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="169.65" height="6" x="577.35" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1085,7 +1085,7 @@
 <rect width="12" height="12" x="210" y="300" class="todo"><title>0x00444130 Func444130 (959 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="300" class="decompiled"><title>0x004444f0 PlayerComboFunc4444f0 (101 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="300" class="todo"><title>0x00444560 Func444560 (308 bytes)</title></rect>
-<rect width="12" height="12" x="255" y="300" class="todo"><title>0x004446a0 Func4446a0 (86 bytes)</title></rect>
+<rect width="12" height="12" x="255" y="300" class="decompiled"><title>0x004446a0 ShotUpdate4446a0 (86 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="300" class="todo"><title>0x00444700 Func444700 (602 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="300" class="todo"><title>0x00444960 Func444960 (178 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="300" class="todo"><title>0x00444a20 Func444a20 (208 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">2.57%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.35%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">2.60%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.32%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="19.19" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="413.49" height="6" x="333.51" y="0" class="todo"/>
+<rect width="19.40" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="413.28" height="6" x="333.72" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1795,7 +1795,7 @@
 <rect width="5.66" height="5.74" x="681.14" y="213.93" class="named"><title>0x0041ced0 Player::RemoveChain (86 bytes)</title></rect>
 <rect width="5.66" height="5.74" x="689.80" y="213.93" class="named"><title>0x0043fb80 CSound::Stop (86 bytes)</title></rect>
 <rect width="5.66" height="5.74" x="698.46" y="213.93" class="decompiled"><title>0x004432a0 ShotFire4432a0 (86 bytes)</title></rect>
-<rect width="5.66" height="5.74" x="707.11" y="213.93" class="todo"><title>0x004446a0 Func4446a0 (86 bytes)</title></rect>
+<rect width="5.66" height="5.74" x="707.11" y="213.93" class="decompiled"><title>0x004446a0 ShotUpdate4446a0 (86 bytes)</title></rect>
 <rect width="5.56" height="5.74" x="715.77" y="213.93" class="named"><title>0x004024d0 Stage::DeletedCallback (85 bytes)</title></rect>
 <rect width="5.56" height="5.74" x="724.33" y="213.93" class="named"><title>0x0040cd70 EffectManager::SpawnReservedEffect (85 bytes)</title></rect>
 <rect width="5.56" height="5.74" x="732.89" y="213.93" class="named"><title>0x00418750 GuiMsg::GuiMsg (85 bytes)</title></rect>
