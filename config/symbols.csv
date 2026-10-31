@@ -591,8 +591,8 @@ address,size,name,symbol
 0x0042cc60,33,MidiPlayer::`scalar deleting destructor',??_GMidiPlayer@@QAEPAXI@Z
 0x0042cc90,123,GameWindow::GetTime,?GetTime@GameWindow@@QAENXZ
 0x0042cd10,46,CreateD3d,?CreateD3d@@YIHXZ
-0x0042cd40,74,Func42cd40,
-0x0042cd90,809,Func42cd90,
+0x0042cd40,74,AppendCapsFlagText,?AppendCapsFlagText@@YIPADPADKK0@Z
+0x0042cd90,809,FormatCapsReport,?FormatCapsReport@@YIXPAU_D3DCAPS8@@PAD@Z
 0x0042d0c0,124,ForceForegroundWindow,?ForceForegroundWindow@@YGXPAUHWND__@@@Z
 0x0042d140,225,ResolveShortcut,?ResolveShortcut@@YIHPAD0H@Z
 0x0042d230,10,Log::Reset,?Reset@Log@@QAEXXZ

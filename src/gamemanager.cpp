@@ -123,7 +123,7 @@ void GameConfig::SetDefaults()
     this->playSounds = 1;
     this->difficulty = 1;
     this->unknownAc = 0;
-    this->unknownAd = 0;
+    this->colorMode16Bits = 0;
     this->windowed = 0;
     this->frameSkip = 0;
     this->mappings[0][0] = g_PlayerInputs[0].mappings[0];

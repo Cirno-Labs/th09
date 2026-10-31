@@ -15,6 +15,7 @@
 #include "gamemanager.h"
 #include "midi.h"
 #include "network.h"
+#include "screeneffect.h"
 #include "sprite.h"
 #include "stage.h"
 #include "unsorted.h"
@@ -44,6 +45,70 @@ double GameWindow::GetTime()
         timeEndPeriod(1);
         return time;
     }
+}
+
+// Appends `name` and whether `caps` has `flag`, as th08's. Returns the
+// end of the text.
+static char *AppendCapsFlagText(char *name, DWORD caps, DWORD flag, char *out)
+{
+    out += sprintf(out, name);
+    if ((caps & flag) == 0)
+    {
+        out += sprintf(out, "不可\r\n");
+    }
+    else
+    {
+        out += sprintf(out, "可\r\n");
+    }
+    return out;
+}
+
+// The capabilities' report, as th08's.
+static void FormatCapsReport(D3DCAPS8 *caps, char *buffer)
+{
+    char *p = buffer;
+
+    p += sprintf(p, "現在のビデオカード、及びドライバの能力詳細\r\n");
+    p = AppendCapsFlagText("　走査線取得能力 : ", caps->Caps, 0x20000, p);
+    p = AppendCapsFlagText("　ウィンドウモードのレンダリング : ", caps->Caps2, 0x80000, p);
+    p = AppendCapsFlagText("　プレゼンテーション間隔（直接）: ", caps->PresentationIntervals, 0x80000000, p);
+    p = AppendCapsFlagText("　プレゼンテーション間隔（垂直同期）: ", caps->PresentationIntervals, 0x1, p);
+    p += sprintf(p, "　-- デバイス能力 ------------------------------\r\n");
+    p = AppendCapsFlagText("　System -> 非ローカルVRAMブリット : ", caps->DevCaps, 0x20000, p);
+    p = AppendCapsFlagText("　ハードウェア T&L : ", caps->DevCaps, 0x10000, p);
+    p = AppendCapsFlagText("　非ローカルVRAMからテクスチャ取得 : ", caps->DevCaps, 0x1000, p);
+    p = AppendCapsFlagText("　システムメモリからテクスチャ取得 : ", caps->DevCaps, 0x100, p);
+    p = AppendCapsFlagText("　VRAM からテクスチャ取得 : ", caps->DevCaps, 0x200, p);
+    p = AppendCapsFlagText("　頂点バッファにシステムメモリを使用 : ", caps->DevCaps, 0x40, p);
+    p = AppendCapsFlagText("　頂点バッファにビデオメモリを使用 : ", caps->DevCaps, 0x80, p);
+    p += sprintf(p, "　-- プリミティブ能力 ---------------------------\r\n");
+    p = AppendCapsFlagText("　半透明処理 : ", caps->PrimitiveMiscCaps, 0x800, p);
+    p = AppendCapsFlagText("　ポイントのクリッピング処理 : ", caps->PrimitiveMiscCaps, 0x100, p);
+    p = AppendCapsFlagText("　プリミティブのクリッピング処理 : ", caps->PrimitiveMiscCaps, 0x200, p);
+    p = AppendCapsFlagText("　法線クリップ（反時計周り） : ", caps->PrimitiveMiscCaps, 0x40, p);
+    p = AppendCapsFlagText("　法線クリップ（時計周り） : ", caps->PrimitiveMiscCaps, 0x20, p);
+    p = AppendCapsFlagText("　法線クリップ無し : ", caps->PrimitiveMiscCaps, 0x10, p);
+    p = AppendCapsFlagText("　デプステストON/OFF切り替え : ", caps->PrimitiveMiscCaps, 0x2, p);
+    p += sprintf(p, "　-- ラスタ能力 --------------------------------\r\n");
+    p = AppendCapsFlagText("　異方性フィルタリング : ", caps->RasterCaps, 0x20000, p);
+    p = AppendCapsFlagText("　アンチエイリアシング : ", caps->RasterCaps, 0x1000, p);
+    p = AppendCapsFlagText("　ディザ処理 : ", caps->RasterCaps, 0x1, p);
+    p = AppendCapsFlagText("　範囲ベースのフォグ : ", caps->RasterCaps, 0x10000, p);
+    p = AppendCapsFlagText("　Zベースのフォグ : ", caps->RasterCaps, 0x200000, p);
+    p = AppendCapsFlagText("　テーブルフォグ : ", caps->RasterCaps, 0x100, p);
+    p = AppendCapsFlagText("　頂点フォグ : ", caps->RasterCaps, 0x80, p);
+    p = AppendCapsFlagText("　デプステスト : ", caps->RasterCaps, 0x10, p);
+    p += sprintf(p, "　-- シェーディング能力 -----------------------\r\n");
+    p = AppendCapsFlagText("　グーローシェーディング : ", caps->ShadeCaps, 0x8, p);
+    p = AppendCapsFlagText("　α成分のグーローシェーディング : ", caps->ShadeCaps, 0x4000, p);
+    p = AppendCapsFlagText("　グーローシェーディングでフォグ : ", caps->ShadeCaps, 0x80000, p);
+    p += sprintf(p, "　-- テクスチャ能力 ---------------------------\r\n");
+    p += sprintf(p, "　最大テクスチャサイズ : (%d, %d)\r\n", caps->MaxTextureWidth, caps->MaxTextureHeight);
+    p = AppendCapsFlagText("　α付きテクスチャ : ", caps->TextureCaps, 0x4, p);
+    p = AppendCapsFlagText("　テクスチャトランスフォーム : ", caps->TextureCaps, 0x400, p);
+    p = AppendCapsFlagText("　バイリニア補間（拡大） : ", caps->TextureFilterCaps, 0x2000000, p);
+    p = AppendCapsFlagText("　バイリニア補間（縮小） : ", caps->TextureFilterCaps, 0x200, p);
+    p += sprintf(p, "--------------------------------------------\r\n");
 }
 
 int CreateD3d()
@@ -428,6 +493,205 @@ void PresentFrame()
     {
         g_App.redrawFrames--;
     }
+}
+
+int InitD3dDevice()
+{
+    char buffer[0x2000];
+    D3DDISPLAYMODE displayMode;
+    D3DPRESENT_PARAMETERS params;
+    bool checkFormat = true;
+    int retried;
+
+    memset(&params, 0, sizeof(params));
+    g_App.d3d->GetAdapterDisplayMode(D3DADAPTER_DEFAULT, &displayMode);
+    if (!g_App.config.windowed)
+    {
+        if (g_App.GetForce16BitTextures() == 1)
+        {
+            params.BackBufferFormat = D3DFMT_R5G6B5;
+            g_App.config.colorMode16Bits = 1;
+        }
+        else if (g_App.config.colorMode16Bits == 0xff)
+        {
+            params.BackBufferFormat = D3DFMT_X8R8G8B8;
+            g_App.config.colorMode16Bits = 0;
+            LogPrintf(&g_Log, "初回起動、画面を 32Bits で初期化しました\r\n");
+        }
+        else if (g_App.config.colorMode16Bits == 0)
+        {
+            params.BackBufferFormat = D3DFMT_X8R8G8B8;
+        }
+        else
+        {
+            params.BackBufferFormat = D3DFMT_R5G6B5;
+        }
+        if (g_GameWindow.forceClockPacing)
+        {
+            g_App.noVsync = 1;
+        }
+        if (g_App.noVsync == 0)
+        {
+            params.FullScreen_RefreshRateInHz = 60;
+            params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_ONE;
+            LogPrintf(&g_Log, "リフレッシュレートを60Hzに変更を試みます\r\n");
+            if (g_App.config.frameSkip == 0)
+            {
+                params.SwapEffect = D3DSWAPEFFECT_FLIP;
+            }
+            else
+            {
+                params.SwapEffect = D3DSWAPEFFECT_COPY_VSYNC;
+            }
+        }
+        else
+        {
+            params.FullScreen_RefreshRateInHz = 0;
+            params.SwapEffect = D3DSWAPEFFECT_COPY;
+            params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
+            LogPrintf(&g_Log, "VSync非同期可能かどうかを試みます\r\n");
+        }
+    }
+    else
+    {
+        params.BackBufferFormat = displayMode.Format;
+        params.SwapEffect = D3DSWAPEFFECT_COPY;
+        params.Windowed = TRUE;
+    }
+    params.BackBufferWidth = 640;
+    params.BackBufferHeight = 480;
+    params.EnableAutoDepthStencil = TRUE;
+    params.AutoDepthStencilFormat = D3DFMT_D16;
+    params.Flags = D3DPRESENTFLAG_LOCKABLE_BACKBUFFER;
+    g_App.stateFlags |= 2;
+    g_App.wants60Hz = 1;
+    retried = 0;
+retry:
+    if (g_App.GetReferenceRasterizer())
+    {
+        goto reference;
+    }
+    if (g_App.d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, g_GameWindow.hwnd,
+                                D3DCREATE_HARDWARE_VERTEXPROCESSING, &params, &g_App.d3dDevice) < 0)
+    {
+        if (retried)
+        {
+            LogPrintf(&g_Log, "T&L HAL は使用できないようです\r\n");
+        }
+        if (g_App.d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, g_GameWindow.hwnd,
+                                    D3DCREATE_SOFTWARE_VERTEXPROCESSING, &params, &g_App.d3dDevice) < 0)
+        {
+            if (retried)
+            {
+                LogPrintf(&g_Log, "HAL も使用できないようです\r\n");
+            }
+        reference:
+            if (g_App.d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_REF, g_GameWindow.hwnd,
+                                        D3DCREATE_SOFTWARE_VERTEXPROCESSING, &params, &g_App.d3dDevice) < 0)
+            {
+                if (g_App.noVsync == 0)
+                {
+                    LogPrintf(&g_Log, "リフレッシュレートが変更できません\r\n");
+                    params.FullScreen_RefreshRateInHz = 0;
+                    g_App.wants60Hz = 0;
+                    retried = 1;
+                    goto retry;
+                }
+                if (params.FullScreen_PresentationInterval == D3DPRESENT_INTERVAL_IMMEDIATE)
+                {
+                    LogPrintf(&g_Log, "非同期更新も行えません。一番汚いモードに変更します\r\n");
+                    LogError(&g_Log, "*** リフレッシュレートを60Hzに変更することを推奨します ***\r\n");
+                    params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_ONE;
+                    params.SwapEffect = D3DSWAPEFFECT_COPY;
+                    goto retry;
+                }
+                LogError(&g_Log, "Direct3D の初期化に失敗、これではゲームは出来ません\r\n");
+                if (g_App.d3d != NULL)
+                {
+                    g_App.d3d->Release();
+                    g_App.d3d = NULL;
+                }
+                return 1;
+            }
+            else
+            {
+                LogPrintf(&g_Log, "REF で動作しますが、重すぎて恐らくゲームになりません...\r\n");
+                g_App.stateFlags &= ~1;
+                checkFormat = false;
+            }
+        }
+        else
+        {
+            LogPrintf(&g_Log, "HAL で動作します\r\n");
+            g_App.stateFlags &= ~1;
+        }
+    }
+    else
+    {
+        LogPrintf(&g_Log, "T&L HAL で動作しま～す\r\n");
+        g_App.stateFlags |= 1;
+    }
+    memcpy(&g_App.presentParams, &params, sizeof(params));
+    g_App.cameras[2].eye = D3DXVECTOR3(0.0f, 0.0f, 1000.0f);
+    g_App.cameras[2].at = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+    g_App.cameras[2].up = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+    g_App.cameras[2].fov = 0.5235988f;
+    g_App.cameras[2].viewport.X = 0;
+    g_App.cameras[2].viewport.Y = 0;
+    g_App.cameras[2].viewport.Width = 640;
+    g_App.cameras[2].viewport.Height = 480;
+    g_App.cameras[2].viewport.MinZ = 0.0f;
+    g_App.cameras[2].viewport.MaxZ = 1.0f;
+    g_App.cameras[2].index = 2;
+    g_App.cameras[0].eye = D3DXVECTOR3(0.0f, 0.0f, 1000.0f);
+    g_App.cameras[0].at = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+    g_App.cameras[0].up = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+    g_App.cameras[0].fov = 0.5235988f;
+    g_App.cameras[0].viewport.X = 16;
+    g_App.cameras[0].viewport.Y = 16;
+    g_App.cameras[0].viewport.Width = 288;
+    g_App.cameras[0].viewport.Height = 448;
+    g_App.cameras[0].viewport.MinZ = 0.0f;
+    g_App.cameras[0].viewport.MaxZ = 1.0f;
+    g_App.cameras[0].index = 0;
+    g_App.cameras[1].eye = D3DXVECTOR3(0.0f, 0.0f, 1000.0f);
+    g_App.cameras[1].at = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+    g_App.cameras[1].up = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
+    g_App.cameras[1].fov = 0.5235988f;
+    g_App.cameras[1].viewport.X = 336;
+    g_App.cameras[1].viewport.Y = 16;
+    g_App.cameras[1].viewport.Width = 288;
+    g_App.cameras[1].viewport.Height = 448;
+    g_App.cameras[1].viewport.MinZ = 0.0f;
+    g_App.cameras[1].viewport.MaxZ = 1.0f;
+    g_App.cameras[1].index = 1;
+    g_App.SetView2D(2);
+    g_App.d3dDevice->GetDeviceCaps(&g_App.caps);
+    if (g_App.caps.MaxTextureWidth <= 256)
+    {
+        LogPrintf(&g_Log, "512 以上のテクスチャをサポートしていません。殆どの絵がボケて表示されます。\r\n");
+    }
+    FormatCapsReport(&g_App.caps, buffer);
+    LogPrintf(&g_Log, buffer);
+    if (g_App.GetForce16BitTextures() == 0 && checkFormat)
+    {
+        if (g_App.d3d->CheckDeviceFormat(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, params.BackBufferFormat, 0,
+                                         D3DRTYPE_TEXTURE, D3DFMT_A8R8G8B8) == D3D_OK)
+        {
+            g_App.stateFlags |= 4;
+        }
+        else
+        {
+            g_App.stateFlags &= ~4;
+            g_App.config.flags.force16BitTextures = 1;
+            LogPrintf(&g_Log, "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\r\n");
+        }
+    }
+    SetDefaultRenderStates();
+    ClearViewport(0xff000000);
+    g_GameWindow.isClosing = 0;
+    g_App.clearedOnD3dInit = 0;
+    return 0;
 }
 
 void SetDefaultRenderStates()

@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.20% (774)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">26.59% (285)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.48% (777)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">26.31% (282)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="539.35" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="539.35" y="0" class="decompiled"/>
-<rect width="198.60" height="6" x="548.40" y="0" class="todo"/>
+<rect width="541.44" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="541.44" y="0" class="decompiled"/>
+<rect width="196.51" height="6" x="550.49" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -660,8 +660,8 @@
 <rect width="12" height="12" x="585" y="165" class="named"><title>0x0042cc60 MidiPlayer::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="165" class="named"><title>0x0042cc90 GameWindow::GetTime (123 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="165" class="named"><title>0x0042cd10 CreateD3d (46 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="165" class="todo"><title>0x0042cd40 Func42cd40 (74 bytes)</title></rect>
-<rect width="12" height="12" x="645" y="165" class="todo"><title>0x0042cd90 Func42cd90 (809 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="165" class="named"><title>0x0042cd40 AppendCapsFlagText (74 bytes)</title></rect>
+<rect width="12" height="12" x="645" y="165" class="named"><title>0x0042cd90 FormatCapsReport (809 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="165" class="named"><title>0x0042d0c0 ForceForegroundWindow (124 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="165" class="named"><title>0x0042d140 ResolveShortcut (225 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="165" class="named"><title>0x0042d230 Log::Reset (10 bytes)</title></rect>
@@ -679,7 +679,7 @@
 <rect width="12" height="12" x="120" y="180" class="named"><title>0x0042da90 ChecksumExecutable (192 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="180" class="named"><title>0x0042db50 PresentFrame (232 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="180" class="named"><title>0x0042dc40 GameWindow::RunFrame (326 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="180" class="todo"><title>0x0042dd90 InitD3dDevice (1561 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="180" class="named"><title>0x0042dd90 InitD3dDevice (1561 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="180" class="named"><title>0x0042e3b0 WinMain (1351 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="180" class="named"><title>0x0042e900 Tan (14 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="180" class="named"><title>0x0042e910 tan (14 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">41.01%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">58.27%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">41.85%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">57.43%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="306.35" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="306.35" y="0" class="decompiled"/>
-<rect width="435.26" height="6" x="311.74" y="0" class="todo"/>
+<rect width="312.60" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="312.60" y="0" class="decompiled"/>
+<rect width="429.01" height="6" x="317.99" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1178,7 +1178,7 @@
 <rect width="35.42" height="33.36" x="171.68" y="191.88" class="todo"><title>0x00430aa0 App::UpdateNetPlay (1633 bytes)</title></rect>
 <rect width="35.42" height="32" x="171.68" y="228.24" class="named"><title>0x00405760 GetIntOperand (1572 bytes)</title></rect>
 <rect width="35.42" height="32" x="171.68" y="263.24" class="todo"><title>0x004254a7 MainMenu::UpdateState3 (1572 bytes)</title></rect>
-<rect width="35.42" height="31.76" x="171.68" y="298.24" class="todo"><title>0x0042dd90 InitD3dDevice (1561 bytes)</title></rect>
+<rect width="35.42" height="31.76" x="171.68" y="298.24" class="named"><title>0x0042dd90 InitD3dDevice (1561 bytes)</title></rect>
 <rect width="31.10" height="36.13" x="210.10" y="0" class="named"><title>0x00429e23 MainMenu::UpdateState1 (1560 bytes)</title></rect>
 <rect width="31.10" height="35.02" x="210.10" y="39.13" class="todo"><title>0x0041d150 PlayerUnknown30410::AddCombo (1516 bytes)</title></rect>
 <rect width="31.10" height="34.80" x="210.10" y="77.15" class="todo"><title>0x0042b850 ReadInput (1507 bytes)</title></rect>
@@ -1225,7 +1225,7 @@
 <rect width="23.81" height="23.09" x="332.89" y="26.13" class="todo"><title>0x0044a330 Func44a330 (818 bytes)</title></rect>
 <rect width="23.81" height="22.97" x="332.89" y="52.22" class="todo"><title>0x0041dc20 Func41dc20 (814 bytes)</title></rect>
 <rect width="23.81" height="22.87" x="332.89" y="78.19" class="named"><title>0x0043b1a0 SpriteEngine::Draw3D (811 bytes)</title></rect>
-<rect width="23.81" height="22.81" x="332.89" y="104.06" class="todo"><title>0x0042cd90 Func42cd90 (809 bytes)</title></rect>
+<rect width="23.81" height="22.81" x="332.89" y="104.06" class="named"><title>0x0042cd90 FormatCapsReport (809 bytes)</title></rect>
 <rect width="23.81" height="22.77" x="332.89" y="129.86" class="todo"><title>0x0042b410 Func42b410 (808 bytes)</title></rect>
 <rect width="23.81" height="22.52" x="332.89" y="155.64" class="named"><title>0x0040e580 Ending::AddedCallback (800 bytes)</title></rect>
 <rect width="23.81" height="22.52" x="332.89" y="181.16" class="todo"><title>0x004239f6 MainMenu::DrawState15 (800 bytes)</title></rect>
@@ -1768,7 +1768,7 @@
 <rect width="4.93" height="4.98" x="648.08" y="215.77" class="named"><title>0x00407450 ScriptMoveLinear (74 bytes)</title></rect>
 <rect width="4.93" height="4.98" x="656.01" y="215.77" class="named"><title>0x00411f80 EnemyManager::RemoveChain (74 bytes)</title></rect>
 <rect width="4.93" height="4.98" x="663.94" y="215.77" class="todo"><title>0x0041e8b0 Func41e8b0 (74 bytes)</title></rect>
-<rect width="4.93" height="4.98" x="671.87" y="215.77" class="todo"><title>0x0042cd40 Func42cd40 (74 bytes)</title></rect>
+<rect width="4.93" height="4.98" x="671.87" y="215.77" class="named"><title>0x0042cd40 AppendCapsFlagText (74 bytes)</title></rect>
 <rect width="4.93" height="4.98" x="679.80" y="215.77" class="named"><title>0x0042f770 SpriteEngine::ResetFrameState (74 bytes)</title></rect>
 <rect width="4.93" height="4.98" x="687.73" y="215.77" class="named"><title>0x00433050 DatArchive::FindEntry (74 bytes)</title></rect>
 <rect width="4.93" height="4.98" x="695.66" y="215.77" class="named"><title>0x0043e1a0 FindRiffChunk (74 bytes)</title></rect>

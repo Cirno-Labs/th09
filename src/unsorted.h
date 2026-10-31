@@ -421,7 +421,9 @@ struct GameConfig
     short padThresholdX;
     short padThresholdY;
     BYTE unknownAc;
-    BYTE unknownAd;
+    // Whether the full screen is 16-bit; 0xff until the first start,
+    // as th08's.
+    BYTE colorMode16Bits;
     // 0 for no music, 1 to play waves, 2 MIDI.
     BYTE musicMode;
     // Whether the sound effects play.
@@ -936,7 +938,10 @@ struct App
     int hideFps;
     // Set when the config turns vertical sync off.
     int noVsync;
-    unsigned char pad_5b0[0x5b8 - 0x5b0];
+    // Set while the full screen asks for 60 Hz, as th08's.
+    int wants60Hz;
+    // Cleared by InitD3dDevice, as th08's clearedOnD3dInit.
+    int clearedOnD3dInit;
     // Below 1 when the game runs slow.
     float gameSpeed;
     MidiPlayer *midi;

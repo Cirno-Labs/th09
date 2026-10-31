@@ -1206,7 +1206,7 @@ int MainMenu::UpdateState1()
                 this->stateFrames = 0;
                 this->UpdateState9();
                 this->SelectEntry(g_App.config.unknownAc, 0x12, 5);
-                this->SelectEntry(g_App.config.unknownAd, 0x15, 2);
+                this->SelectEntry(g_App.config.colorMode16Bits, 0x15, 2);
                 this->SelectEntry(g_App.config.musicMode, 0x17, 3);
                 this->SelectEntry(g_App.config.windowed, 0x22, 2);
                 this->subState = 3;
