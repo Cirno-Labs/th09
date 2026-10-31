@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">8.35% (93)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">20.38% (227)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">8.44% (94)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">20.29% (226)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="62.36" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="152.22" height="6" x="594.78" y="0" class="todo"/>
+<rect width="63.03" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="151.55" height="6" x="595.45" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1143,7 +1143,7 @@
 <rect width="12" height="12" x="330" y="315" class="todo"><title>0x004491e0 Func4491e0 (1436 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="315" class="decompiled"><title>0x00449780 PlayerComboFunc449780 (101 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="315" class="todo"><title>0x004497f0 Func4497f0 (327 bytes)</title></rect>
-<rect width="12" height="12" x="375" y="315" class="todo"><title>0x00449940 Func449940 (193 bytes)</title></rect>
+<rect width="12" height="12" x="375" y="315" class="decompiled"><title>0x00449940 EffectInit449940 (193 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="315" class="todo"><title>0x00449a10 Func449a10 (311 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="315" class="todo"><title>0x00449b50 Func449b50 (71 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="315" class="decompiled"><title>0x00449ba0 EffectUpdate449ba0 (198 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">3.71%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">54.21%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">3.77%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">54.15%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="27.69" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="404.99" height="6" x="342.01" y="0" class="todo"/>
+<rect width="28.18" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="404.50" height="6" x="342.50" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1566,7 +1566,7 @@
 <rect width="10.24" height="9.82" x="531.26" y="335.18" class="named"><title>0x004331c0 DatArchive::Decode (193 bytes)</title></rect>
 <rect width="10.11" height="9.95" x="544.50" y="137.13" class="named"><title>0x0043c200 SpriteEngine::CopyBackBufferToTexture (193 bytes)</title></rect>
 <rect width="10.11" height="9.95" x="557.61" y="137.13" class="decompiled"><title>0x00442480 PlayerPosFunc442480 (193 bytes)</title></rect>
-<rect width="10.11" height="9.95" x="570.72" y="137.13" class="todo"><title>0x00449940 Func449940 (193 bytes)</title></rect>
+<rect width="10.11" height="9.95" x="570.72" y="137.13" class="decompiled"><title>0x00449940 EffectInit449940 (193 bytes)</title></rect>
 <rect width="10.04" height="9.95" x="583.84" y="137.13" class="named"><title>0x0042da90 ChecksumExecutable (192 bytes)</title></rect>
 <rect width="9.98" height="9.95" x="596.88" y="137.13" class="named"><title>0x0042eac0 App::InsertRecord (191 bytes)</title></rect>
 <rect width="9.91" height="9.95" x="609.85" y="137.13" class="named"><title>0x0041f4c0 FireShots (190 bytes)</title></rect>
