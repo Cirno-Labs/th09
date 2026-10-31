@@ -46,3 +46,18 @@ int EffectInit4486b0(Effect *effect)
     effect->unknownC9 = 1;
     return 0;
 }
+
+// An update callback of the effect table: grows unknown84 by pi/100 up
+// to pi/2, sets unknownC9, puts the effect on its side's player and sets
+// unknown80 to -pi/2. Returns 1 (0x449000).
+int EffectUpdate449000(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown84 < 1.5707964f)
+    {
+        effect->unknown84 += 0.031415928f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    effect->unknown80 = -1.5707964f;
+    return 1;
+}
