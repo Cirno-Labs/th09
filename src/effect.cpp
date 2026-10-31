@@ -448,7 +448,7 @@ int EffectUpdate40d600(Effect *effect)
     {
         shooter.speed1 += 0.3f;
     }
-    maxSpeed = g_GameManager.unknownB4 * 0.1f + 3.0f;
+    maxSpeed = g_GameManager.rank.unknownB4 * 0.1f + 3.0f;
     if (shooter.speed1 >= maxSpeed)
     {
         shooter.speed1 = maxSpeed;

@@ -514,10 +514,10 @@ int ExAttackFree442ec0(ExAttack *attack)
 // takes as much off it. Returns 0 (0x442ee0).
 int PlayerComboFunc442ee0(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (45 - g_GameManager.unknownB4) * 2)
+    while (combo->unknown34 >= (45 - g_GameManager.rank.unknownB4) * 2)
     {
         g_GameManager.exAttackManager->AddAttack(3, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (45 - g_GameManager.unknownB4) * 2;
+        combo->unknown34 -= (45 - g_GameManager.rank.unknownB4) * 2;
     }
     return 0;
 }

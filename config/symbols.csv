@@ -66,8 +66,8 @@ address,size,name,symbol
 0x00403d90,71,App::SetView2D,?SetView2D@App@@QAEXH@Z
 0x00403de0,20,Timer::operator>,??OTimer@@QAEHH@Z
 0x00403e00,41,AnmLoaded::StartScript,?StartScript@AnmLoaded@@QAEXPAVSprite@@H@Z
-0x00403e30,27,Func403e30,
-0x00403e50,923,Func403e50,
+0x00403e30,27,GameRank::LowerUnknownCc,?LowerUnknownCc@GameRank@@QAEXH@Z
+0x00403e50,923,SpellCard::Start,?Start@SpellCard@@QAEXHHHPAD@Z
 0x004041f0,536,SpellCard::OnUpdate,?OnUpdate@SpellCard@@SIHPAV1@@Z
 0x00404410,334,SpellCard::OnDraw,?OnDraw@SpellCard@@SIHPAV1@@Z
 0x00404560,8,SpellCard::AddedCallback,?AddedCallback@SpellCard@@SIHPAV1@@Z
@@ -2303,6 +2303,7 @@ address,size,name,symbol
 0x004953b0,,CLSID_ShellLink,_CLSID_ShellLink
 0x004953c0,,IID_IPersistFile,_IID_IPersistFile
 0x004953d0,,GUID_NULL,_GUID_NULL
+0x004a00c0,,g_SpellCardTypes,?g_SpellCardTypes@@3PAUSpellCardType@@A
 0x004a0b48,,g_EffectInfos,?g_EffectInfos@@3PAUEffectInfo@@A
 0x004a0ed8,,g_EndingFiles,?g_EndingFiles@@3PAPADA
 0x004a0f18,,g_BulletColorOffsets16,?g_BulletColorOffsets16@@3PAHA

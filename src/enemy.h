@@ -350,7 +350,9 @@ struct Enemy
             DWORD unusedFlag5 : 1;
             DWORD hitByShots : 1;
             DWORD grazeable : 1;
-            DWORD unusedFlag8 : 1;
+            // Set by SpellCard::Start on the other side's enemy of
+            // unknownType 3.
+            DWORD unknownFlag8 : 1;
             DWORD moveMode : 2;
             DWORD moveEasing : 3;
             DWORD holdFire : 1;

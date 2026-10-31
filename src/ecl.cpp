@@ -100,7 +100,7 @@ int GetIntOperand(Enemy *enemy, int id)
     case 10040:
         return g_GameManager.difficulty;
     case 10041:
-        return g_GameManager.unknownB4;
+        return g_GameManager.rank.unknownB4;
     case 10049:
         return enemy->callbackTimer.current;
     case 10051:
@@ -295,7 +295,7 @@ int *ResolveOperand(Enemy *enemy, int *operand, WORD mask, int bit)
     case 10040:
         return &g_GameManager.difficulty;
     case 10041:
-        return &g_GameManager.unknownB4;
+        return &g_GameManager.rank.unknownB4;
     case 10049:
         return &enemy->callbackTimer.current;
     case 10051:
@@ -483,7 +483,7 @@ float GetFloatOperand(Enemy *enemy, float id)
     case 10040:
         return g_GameManager.difficulty;
     case 10041:
-        return g_GameManager.unknownB4;
+        return g_GameManager.rank.unknownB4;
     case 10049:
         return enemy->callbackTimer.current;
     case 10051:

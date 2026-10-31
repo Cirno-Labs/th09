@@ -20,6 +20,21 @@ struct SpellCardCallbacks
     SpellCardCallback end;
 };
 
+// A type of spell card effect: Start calls init and sets the callbacks.
+struct SpellCardType
+{
+    SpellCardCallback init;
+    SpellCardCallbacks callbacks;
+};
+
+// What Start was called with, for each set of callbacks.
+struct SpellCardSlot
+{
+    int unknown0;
+    int type;
+    int kind;
+};
+
 // A side's spell card (0x1368 bytes). Only the fields known so far.
 class SpellCard
 {
@@ -39,6 +54,13 @@ public:
     // element (priority 0x11 + `sideIdx`) and draw element (0x18 +
     // `sideIdx`). Returns it, or NULL if adding fails (0x404600).
     static SpellCard *RegisterChain(int sideIdx);
+    // Starts effect `type` of g_SpellCardTypes, named `name`: in the
+    // second set of callbacks if `kind` is 2, else in the first. Shows
+    // the other player's unknownA0 (unknownA4 for kind 2) and `kind` on
+    // unknown5f4, tints both stages and runs the other side's front
+    // scripts. Does nothing for kind 2 while the side has an enemy of
+    // unknownType 3 (0x403e50).
+    void Start(int type, int kind, int unknown, char *name);
 
     int sideIdx;
     GameSide *side;
@@ -58,9 +80,13 @@ public:
     Sprite unknown5f4[5];
     // Two sets of callbacks of the running effects.
     SpellCardCallbacks callbacks[2];
-    unsigned char pad_1340[0x1360 - 0x1340];
+    unsigned char pad_1340[0x1348 - 0x1340];
+    SpellCardSlot slots[2];
     // Blocks some types' callbacks allocate and free.
     void *unknown1360;
     void *unknown1364;
 };
 ASSERT_SIZE(SpellCard, 0x1368);
+
+// The spell card effects (0x4a00c0).
+extern SpellCardType g_SpellCardTypes[];

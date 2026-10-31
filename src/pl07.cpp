@@ -14,10 +14,10 @@
 // as much off it and 5 off unknown30, down to 0. Returns 0 (0x445d80).
 int PlayerComboFunc445d80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= 200 - g_GameManager.unknownB4 * 3)
+    while (combo->unknown34 >= 200 - g_GameManager.rank.unknownB4 * 3)
     {
         g_GameManager.exAttackManager->AddAttack(6, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= 200 - g_GameManager.unknownB4 * 3;
+        combo->unknown34 -= 200 - g_GameManager.rank.unknownB4 * 3;
         combo->unknown30 -= 5;
         if (combo->unknown30 < 0)
         {
@@ -104,7 +104,7 @@ int ExAttackUpdate446060(ExAttack *attack)
     case 1:
         if (attack->timer > 0x14)
         {
-            if (attack->timer.HasTickedEvery(20 - g_GameManager.unknownB4 / 8))
+            if (attack->timer.HasTickedEvery(20 - g_GameManager.rank.unknownB4 / 8))
             {
                 EnemyShooter shooter;
 
@@ -117,7 +117,7 @@ int ExAttackUpdate446060(ExAttack *attack)
                 shooter.angle1 = data->heading;
                 shooter.speed1 = 0.0f;
                 shooter.SetCommand20000(0, 0, 0x50);
-                shooter.SetAccelCommand(1, 0, 120, g_GameManager.unknownB4 * 0.00037878787f + 0.015833333f,
+                shooter.SetAccelCommand(1, 0, 120, g_GameManager.rank.unknownB4 * 0.00037878787f + 0.015833333f,
                                         -999.0f);
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;

@@ -68,6 +68,37 @@ struct GameSide
 };
 ASSERT_SIZE(GameSide, 0x38);
 
+// GameManager's fields at 0xb0-0xd3, kept under the offsets in
+// GameManager they had before.
+struct GameRank
+{
+    // Lowers unknownCc by `amount`, to at least 0. Inline; the copy is
+    // at 0x403e30.
+    void LowerUnknownCc(int amount)
+    {
+        this->unknownCc -= amount;
+        if (this->unknownCc < 0)
+        {
+            this->unknownCc = 0;
+        }
+    }
+
+    int unknownB0;
+    // ResetRound lowers it by 2 per unknown100, to at least 1, from a
+    // value set by difficulty; in mode 2 by 8, to at least unknown100.
+    int unknownB4;
+    int unknownB8;
+    int unknownBc;
+    int unknownC0;
+    // Set by ResetRound from difficulty, unknown100 and unknownFc.
+    int unknownC4;
+    int unknownC8;
+    // ResetRound lowers it by 1000, to at least 0.
+    int unknownCc;
+    int unknownD0;
+};
+ASSERT_SIZE(GameRank, 0x24);
+
 // th08's GameManager, at 0x4a7d90. Only the fields known so far.
 class GameManager
 {
@@ -162,19 +193,7 @@ public:
     GameSide sides[3];
     Gui *gui;
     ExAttackManager *exAttackManager;
-    int unknownB0;
-    // ResetRound lowers it by 2 per unknown100, to at least 1, from a
-    // value set by difficulty; in mode 2 by 8, to at least unknown100.
-    int unknownB4;
-    int unknownB8;
-    int unknownBc;
-    int unknownC0;
-    // Set by ResetRound from difficulty, unknown100 and unknownFc.
-    int unknownC4;
-    int unknownC8;
-    // ResetRound lowers it by 1000, to at least 0.
-    int unknownCc;
-    int unknownD0;
+    GameRank rank;
     ReplayManager *replayManager;
     unsigned char pad_d8[0xe8 - 0xd8];
     // Deleted by DeletedCallback.

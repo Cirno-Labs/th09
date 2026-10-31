@@ -1,5 +1,6 @@
 #include "spellcard.h"
 #include "effect.h"
+#include "enemy.h"
 #include "gamemanager.h"
 #include "gui.h"
 #include "player.h"
@@ -50,6 +51,114 @@ static int RunEndCallbacks(SpellCard *card)
 void SpellCard::Reset()
 {
     this->anm = g_GameManager.gui->anm;
+}
+
+void SpellCard::Start(int type, int kind, int unknown, char *name)
+{
+    int level;
+    Enemy *enemy;
+
+    if (kind < 2)
+    {
+        level = this->otherSide->player->unknownA0;
+    }
+    else
+    {
+        level = this->otherSide->player->unknownA4;
+    }
+    g_GameManager.rank.LowerUnknownCc(500);
+    if (kind == 2)
+    {
+        if (this->side->enemyManager->FindByUnknownType(3) != NULL)
+        {
+            return;
+        }
+        if (this->otherSide->enemyManager->FindByUnknownType(3) != NULL)
+        {
+            enemy = this->otherSide->enemyManager->FindByUnknownType(3);
+            enemy->flags |= 0x100;
+            this->otherSide->player->unknownB8++;
+        }
+        this->otherSide->player->unknownB4++;
+        if (this->callbacks[1].update != NULL)
+        {
+            this->callbacks[1].end(this);
+            this->callbacks[1].update = NULL;
+            this->callbacks[1].draw = NULL;
+            this->callbacks[1].end = NULL;
+        }
+        this->slots[1].type = type;
+        this->slots[1].unknown0 = unknown;
+        this->unknownA8 = 1;
+        this->slots[1].kind = 2;
+        strcpy(this->name, name);
+        g_SpellCardTypes[this->slots[1].type].init(this);
+        this->callbacks[1].update = g_SpellCardTypes[this->slots[1].type].callbacks.update;
+        this->callbacks[1].draw = g_SpellCardTypes[this->slots[1].type].callbacks.draw;
+        this->callbacks[1].end = g_SpellCardTypes[this->slots[1].type].callbacks.end;
+        if (this->otherSide->player->unknownA4 < 0x10)
+        {
+            this->otherSide->player->unknownA4++;
+        }
+        if (this->side->player->unknownA4 < 0x10)
+        {
+            this->side->player->unknownA4++;
+        }
+        g_SoundPlayer.PlaySoundByIdx(0x35, 0);
+    }
+    else
+    {
+        if (this->callbacks[0].update != NULL)
+        {
+            this->callbacks[0].end(this);
+            this->callbacks[0].update = NULL;
+            this->callbacks[0].draw = NULL;
+            this->callbacks[0].end = NULL;
+        }
+        this->slots[0].type = type;
+        this->unknownA4 = 1;
+        this->slots[0].unknown0 = unknown;
+        this->slots[0].kind = kind;
+        strcpy(this->name, name);
+        this->otherSide->player->unknownB0++;
+        g_SpellCardTypes[this->slots[0].type].init(this);
+        this->callbacks[0].update = g_SpellCardTypes[this->slots[0].type].callbacks.update;
+        this->callbacks[0].draw = g_SpellCardTypes[this->slots[0].type].callbacks.draw;
+        this->callbacks[0].end = g_SpellCardTypes[this->slots[0].type].callbacks.end;
+        if (this->otherSide->player->unknownA0 < 0x10)
+        {
+            this->otherSide->player->unknownA0++;
+        }
+        g_SoundPlayer.PlaySoundByIdx(0xe, 0);
+    }
+    this->anm->StartScript(&this->unknown5f4[0], 0x1e);
+    this->anm->StartScript(&this->unknown5f4[1], 0x1f);
+    this->anm->StartScript(&this->unknown5f4[2], 0x20);
+    this->anm->StartScript(&this->unknown5f4[3], 0x21);
+    this->anm->StartScript(&this->unknown5f4[4], 0x22);
+    this->anm->SetSprite(&this->unknown5f4[3], level / 10 + 0x19);
+    this->anm->SetSprite(&this->unknown5f4[4], level % 10 + 0x19);
+    this->anm->SetSprite(&this->unknown5f4[2], kind + 0x15);
+    g_GameManager.unknownBits134_11 |= 1 << this->sideIdx;
+    this->unknown98 = 0;
+    this->side->stage->tintFadeMode = 1;
+    this->side->stage->tintFadeFrames = 30;
+    this->otherSide->stage->tintFadeMode = 2;
+    this->otherSide->stage->tintFadeFrames = 30;
+    if (this->sideIdx == 1)
+    {
+        this->otherSide->gui->unknownA678.anm->StartScriptAtOrigin(&this->otherSide->gui->unknownA678.sprites[0],
+                                                                   this->otherSide->player->unknown303f0);
+        this->otherSide->gui->unknownA678.anm->StartScriptAtOrigin(&this->otherSide->gui->unknownA678.sprites[1],
+                                                                   this->otherSide->player->unknown303f0 + 1);
+    }
+    else
+    {
+        this->otherSide->gui->unknownA678.anm->StartScriptAtOrigin(&this->otherSide->gui->unknownA678.sprites[0],
+                                                                   this->otherSide->player->unknown303f0 + 2);
+        this->otherSide->gui->unknownA678.anm->StartScriptAtOrigin(&this->otherSide->gui->unknownA678.sprites[1],
+                                                                   this->otherSide->player->unknown303f0 + 3);
+    }
 }
 
 int SpellCard::OnUpdate(SpellCard *card)

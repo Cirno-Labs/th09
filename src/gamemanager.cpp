@@ -76,11 +76,11 @@ void GameManager::ResetState()
     {
         this->sides[i].flags &= ~1;
     }
-    this->unknownB0 = 0;
-    this->unknownB8 = 2;
-    this->unknownC0 = 0;
-    this->unknownD0 = 0;
-    this->unknownBc = 0;
+    this->rank.unknownB0 = 0;
+    this->rank.unknownB8 = 2;
+    this->rank.unknownC0 = 0;
+    this->rank.unknownD0 = 0;
+    this->rank.unknownBc = 0;
     this->unknown110 = 0;
     this->unknown128 = 0;
     this->unknown12c = 0;
@@ -198,10 +198,10 @@ void GameManager::ResetRound()
     g_GameManager.sides[2].effectManager->Reset();
     if (g_GameManager.mode == 2)
     {
-        g_GameManager.unknownB4 -= 8;
-        if (g_GameManager.unknownB4 < g_GameManager.unknown100)
+        g_GameManager.rank.unknownB4 -= 8;
+        if (g_GameManager.rank.unknownB4 < g_GameManager.unknown100)
         {
-            g_GameManager.unknownB4 = g_GameManager.unknown100;
+            g_GameManager.rank.unknownB4 = g_GameManager.unknown100;
         }
     }
     else
@@ -209,43 +209,43 @@ void GameManager::ResetRound()
         switch (g_GameManager.difficulty)
         {
         case 0:
-            g_GameManager.unknownB4 = g_GameManager.unknownFc / 3 + 1;
-            g_GameManager.unknownC8 = g_GameManager.unknownFc / 2 + 6;
-            g_GameManager.unknownC4 = (g_GameManager.unknown100 + 3) * 600;
+            g_GameManager.rank.unknownB4 = g_GameManager.unknownFc / 3 + 1;
+            g_GameManager.rank.unknownC8 = g_GameManager.unknownFc / 2 + 6;
+            g_GameManager.rank.unknownC4 = (g_GameManager.unknown100 + 3) * 600;
             break;
         case 1:
-            g_GameManager.unknownB4 = g_GameManager.unknownFc + 1;
-            g_GameManager.unknownC8 = g_GameManager.unknownFc + 10;
-            g_GameManager.unknownC4 = (g_GameManager.unknown100 + 2) * 600;
+            g_GameManager.rank.unknownB4 = g_GameManager.unknownFc + 1;
+            g_GameManager.rank.unknownC8 = g_GameManager.unknownFc + 10;
+            g_GameManager.rank.unknownC4 = (g_GameManager.unknown100 + 2) * 600;
             break;
         case 2:
-            g_GameManager.unknownB4 = g_GameManager.unknownFc + 3;
-            g_GameManager.unknownC8 = g_GameManager.unknownFc / 2 + 15;
-            g_GameManager.unknownC4 = g_GameManager.unknown100 * 600 + 900;
+            g_GameManager.rank.unknownB4 = g_GameManager.unknownFc + 3;
+            g_GameManager.rank.unknownC8 = g_GameManager.unknownFc / 2 + 15;
+            g_GameManager.rank.unknownC4 = g_GameManager.unknown100 * 600 + 900;
             break;
         case 3:
-            g_GameManager.unknownB4 = g_GameManager.unknownFc + 6;
-            g_GameManager.unknownC8 = g_GameManager.unknownFc / 2 + 17;
-            g_GameManager.unknownC4 = g_GameManager.unknown100 * 600 + 900;
+            g_GameManager.rank.unknownB4 = g_GameManager.unknownFc + 6;
+            g_GameManager.rank.unknownC8 = g_GameManager.unknownFc / 2 + 17;
+            g_GameManager.rank.unknownC4 = g_GameManager.unknown100 * 600 + 900;
             break;
         case 4:
-            g_GameManager.unknownB4 = 18;
-            g_GameManager.unknownC8 = 22;
-            g_GameManager.unknownC4 = (g_GameManager.unknown100 + 1) * 600;
+            g_GameManager.rank.unknownB4 = 18;
+            g_GameManager.rank.unknownC8 = 22;
+            g_GameManager.rank.unknownC4 = (g_GameManager.unknown100 + 1) * 600;
             break;
         }
-        g_GameManager.unknownB4 -= g_GameManager.unknown100 * 2;
-        if (g_GameManager.unknownB4 < 1)
+        g_GameManager.rank.unknownB4 -= g_GameManager.unknown100 * 2;
+        if (g_GameManager.rank.unknownB4 < 1)
         {
-            g_GameManager.unknownB4 = 1;
+            g_GameManager.rank.unknownB4 = 1;
         }
     }
-    g_GameManager.unknownB0 = 0;
+    g_GameManager.rank.unknownB0 = 0;
     g_GameManager.frames = 0;
-    g_GameManager.unknownCc -= 1000;
-    if (g_GameManager.unknownCc < 0)
+    g_GameManager.rank.unknownCc -= 1000;
+    if (g_GameManager.rank.unknownCc < 0)
     {
-        g_GameManager.unknownCc = 0;
+        g_GameManager.rank.unknownCc = 0;
     }
 }
 

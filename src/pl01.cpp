@@ -117,10 +117,10 @@ int ExAttackUpdate441a70(ExAttack *attack)
 // takes (30 - unknownB4) * 4 off it. Returns 0 (0x441b00).
 int PlayerComboFunc441b00(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (40 - g_GameManager.unknownB4) * 3)
+    while (combo->unknown34 >= (40 - g_GameManager.rank.unknownB4) * 3)
     {
         g_GameManager.exAttackManager->AddAttack(2, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (30 - g_GameManager.unknownB4) * 4;
+        combo->unknown34 -= (30 - g_GameManager.rank.unknownB4) * 4;
     }
     return 0;
 }

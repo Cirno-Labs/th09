@@ -156,7 +156,8 @@ struct GameSide;
 // known so far.
 struct GuiSideA678
 {
-    int unknown0;
+    // SpellCard::Start runs scripts of it on the sprites.
+    AnmLoaded *anm;
     // GuiSide's resources include ANM slot 7 while it is set.
     int unknown4;
     int unknown8;

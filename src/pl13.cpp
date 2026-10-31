@@ -12,10 +12,10 @@
 // takes as much off it. Returns 0 (0x44ba80).
 int PlayerComboFunc44ba80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (28 - g_GameManager.unknownB4) * 5)
+    while (combo->unknown34 >= (28 - g_GameManager.rank.unknownB4) * 5)
     {
         g_GameManager.exAttackManager->AddAttack(21, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (28 - g_GameManager.unknownB4) * 5;
+        combo->unknown34 -= (28 - g_GameManager.rank.unknownB4) * 5;
     }
     return 0;
 }
