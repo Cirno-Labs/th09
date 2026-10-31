@@ -25,6 +25,45 @@ static char *FindRiffChunk(char *data, char *name, int *chunkSize, unsigned int 
     return NULL;
 }
 
+int SoundPlayer::FindTrackIndex(char *path)
+{
+    // Not matching yet: the original copies the list pointer for the
+    // inline strcmp after the empty list test, ours before it.
+    char name[0x80];
+    int i;
+    char *p;
+    BgmFormat *fmt;
+    BgmFormat *formats;
+
+    i = 0;
+    p = strrchr(path, '/');
+    if (p == NULL)
+    {
+        p = strrchr(path, '\\');
+    }
+    if (p == NULL)
+    {
+        strcpy(name, path);
+    }
+    else
+    {
+        strcpy(name, p + 1);
+    }
+    formats = this->bgmFormat;
+    for (; (fmt = &formats[i])->name[0] != '\0'; i++)
+    {
+        if (strcmp(fmt->name, name) == 0)
+        {
+            break;
+        }
+    }
+    if (formats[i].name[0] == '\0')
+    {
+        i = 0;
+    }
+    return i;
+}
+
 int SoundPlayer::LoadBgmFormat(char *path)
 {
     this->bgmFormat = (BgmFormat *)OpenPath(path, NULL, 0);
