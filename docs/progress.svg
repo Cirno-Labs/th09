@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.83% (867)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0.81% (9)</tspan> · <tspan class="todo">7% (78)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.83% (867)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0.90% (10)</tspan> · <tspan class="todo">6.91% (77)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="581.37" height="6" x="0" y="0" class="named"/>
 <rect width="107.29" height="6" x="581.37" y="0" class="decompiled"/>
-<rect width="6.04" height="6" x="688.66" y="0" class="nonmatching"/>
-<rect width="52.30" height="6" x="694.70" y="0" class="todo"/>
+<rect width="6.71" height="6" x="688.66" y="0" class="nonmatching"/>
+<rect width="51.63" height="6" x="695.37" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -467,7 +467,7 @@
 <rect width="12" height="12" x="675" y="105" class="named"><title>0x0041d090 Player::AddKind4Box (61 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="105" class="named"><title>0x0041d0d0 Player::AddKind4Circle (49 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="105" class="named"><title>0x0041d110 Player::AddKind2Circle (49 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="105" class="todo"><title>0x0041d150 PlayerUnknown30410::AddCombo (1516 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="105" class="nonmatching"><title>0x0041d150 PlayerUnknown30410::AddCombo (1520 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="105" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="120" class="named"><title>0x0041d7e0 PlayerUnknown30410::EndCombo (41 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="120" class="todo"><title>0x0041d810 Func41d810 (602 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">52.30%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">10.30%</tspan> · <tspan class="todo">22.56%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">52.30%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">10.82%</tspan> · <tspan class="todo">22.05%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="390.70" height="6" x="0" y="0" class="named"/>
-<rect width="110.80" height="6" x="390.70" y="0" class="decompiled"/>
-<rect width="76.98" height="6" x="501.50" y="0" class="nonmatching"/>
-<rect width="168.53" height="6" x="578.47" y="0" class="todo"/>
+<rect width="390.69" height="6" x="0" y="0" class="named"/>
+<rect width="110.80" height="6" x="390.69" y="0" class="decompiled"/>
+<rect width="80.80" height="6" x="501.49" y="0" class="nonmatching"/>
+<rect width="164.71" height="6" x="582.29" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.09" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1223,52 +1223,52 @@
 <rect width="34.80" height="33.56" x="168.97" y="238.57" class="named"><title>0x00405760 GetIntOperand (1572 bytes)</title></rect>
 <rect width="34.80" height="33.56" x="168.97" y="275.13" class="todo"><title>0x004254a7 MainMenu::UpdateState3 (1572 bytes)</title></rect>
 <rect width="34.80" height="33.31" x="168.97" y="311.69" class="named"><title>0x0042dd90 InitD3dDevice (1561 bytes)</title></rect>
-<rect width="33.96" height="34.10" x="206.77" y="0" class="named"><title>0x00429e23 MainMenu::UpdateState1 (1560 bytes)</title></rect>
-<rect width="33.96" height="33.06" x="206.77" y="37.10" class="todo"><title>0x0041d150 PlayerUnknown30410::AddCombo (1516 bytes)</title></rect>
-<rect width="33.96" height="32.84" x="206.77" y="73.16" class="todo"><title>0x0042b850 ReadInput (1507 bytes)</title></rect>
-<rect width="33.96" height="32.65" x="206.77" y="109.01" class="named"><title>0x0040e8a0 Ending::RunScript (1499 bytes)</title></rect>
-<rect width="33.96" height="32.32" x="206.77" y="144.66" class="todo"><title>0x00417630 Gui::OnUpdate (1485 bytes)</title></rect>
-<rect width="33.96" height="32.06" x="206.77" y="179.98" class="todo"><title>0x00417c10 Gui::OnDraw (1474 bytes)</title></rect>
-<rect width="33.96" height="31.16" x="206.77" y="215.04" class="decompiled"><title>0x004491e0 ExAttackUpdate4491e0 (1436 bytes)</title></rect>
-<rect width="33.96" height="30.68" x="206.77" y="249.20" class="todo"><title>0x0043f1f0 SoundPlayer::PlayQueuedSounds (1416 bytes)</title></rect>
-<rect width="33.96" height="29.99" x="206.77" y="282.88" class="todo"><title>0x0042689a MainMenu::UpdateState11 (1387 bytes)</title></rect>
-<rect width="33.96" height="29.13" x="206.77" y="315.87" class="named"><title>0x0042e3b0 WinMain (1351 bytes)</title></rect>
-<rect width="30.60" height="31.62" x="243.73" y="0" class="named"><title>0x00421140 ReplayManager::AddedCallbackMode0 (1323 bytes)</title></rect>
-<rect width="30.60" height="30.49" x="243.73" y="34.62" class="todo"><title>0x004234f6 MainMenu::DrawState11 (1280 bytes)</title></rect>
-<rect width="30.60" height="29.39" x="243.73" y="68.11" class="nonmatching"><title>0x00420c60 ReplayManager::SaveReplay (1238 bytes)</title></rect>
-<rect width="30.60" height="29.26" x="243.73" y="100.50" class="todo"><title>0x004141c0 RunBulletCommands (1233 bytes)</title></rect>
-<rect width="30.60" height="29.18" x="243.73" y="132.76" class="named"><title>0x0041aa5f GameManager::OnUpdate (1230 bytes)</title></rect>
-<rect width="30.60" height="29.13" x="243.73" y="164.95" class="named"><title>0x0043d7f0 MidiPlayer::ProcessEvent (1228 bytes)</title></rect>
-<rect width="30.60" height="28.66" x="243.73" y="197.08" class="todo"><title>0x0041f810 Func41f810 (1210 bytes)</title></rect>
-<rect width="30.60" height="28.35" x="243.73" y="228.74" class="todo"><title>0x00434e90 ContinueMenu::UpdateContinueMenu (1198 bytes)</title></rect>
-<rect width="30.60" height="26.93" x="243.73" y="260.08" class="todo"><title>0x004355f0 UnknownMenu::UpdateUnknownMenu (1144 bytes)</title></rect>
-<rect width="30.60" height="26.88" x="243.73" y="290.02" class="todo"><title>0x004102b0 Enemy::DropItems (1142 bytes)</title></rect>
-<rect width="30.60" height="25.10" x="243.73" y="319.90" class="decompiled"><title>0x0044b500 ExAttackUpdate44b500 (1074 bytes)</title></rect>
-<rect width="27.30" height="27.96" x="277.33" y="0" class="named"><title>0x0043a0f0 SpriteEngine::DrawQuad (1067 bytes)</title></rect>
-<rect width="27.30" height="27.96" x="277.33" y="30.96" class="named"><title>0x0043a520 SpriteEngine::DrawQuadMirrored (1067 bytes)</title></rect>
-<rect width="27.30" height="27.58" x="277.33" y="61.92" class="named"><title>0x0042f7c0 App::LoadConfig (1054 bytes)</title></rect>
-<rect width="27.30" height="26.83" x="277.33" y="92.51" class="named"><title>0x0040dc70 EffectDrawRing (1028 bytes)</title></rect>
-<rect width="27.30" height="25.90" x="277.33" y="122.34" class="named"><title>0x0041fcd0 Player::CalcDamage (996 bytes)</title></rect>
-<rect width="27.30" height="25.87" x="277.33" y="151.24" class="named"><title>0x00417130 GuiMsg::Draw (995 bytes)</title></rect>
-<rect width="27.30" height="25.32" x="277.33" y="180.11" class="named"><title>0x0040fcc0 EnemyTimeline::Run (976 bytes)</title></rect>
-<rect width="27.30" height="25.20" x="277.33" y="208.43" class="decompiled"><title>0x0044c790 EffectDraw44c790 (972 bytes)</title></rect>
-<rect width="27.30" height="25.06" x="277.33" y="236.63" class="named"><title>0x00408180 ScriptUpdateMovement (967 bytes)</title></rect>
-<rect width="27.30" height="25.03" x="277.33" y="264.69" class="todo"><title>0x0042929c MainMenu::UpdateState14 (966 bytes)</title></rect>
-<rect width="27.30" height="24.83" x="277.33" y="292.72" class="decompiled"><title>0x00444130 ExAttackDraw444130 (959 bytes)</title></rect>
-<rect width="27.30" height="24.45" x="277.33" y="320.55" class="decompiled"><title>0x00444af0 EffectDraw444af0 (946 bytes)</title></rect>
-<rect width="25.26" height="25.71" x="307.63" y="0" class="named"><title>0x00403e50 SpellCard::Start (923 bytes)</title></rect>
-<rect width="25.26" height="25.65" x="307.63" y="28.71" class="decompiled"><title>0x0044a780 EffectDraw44a780 (921 bytes)</title></rect>
-<rect width="25.26" height="24.91" x="307.63" y="57.37" class="todo"><title>0x00426334 MainMenu::UpdateState16 (897 bytes)</title></rect>
-<rect width="25.26" height="24.56" x="307.63" y="85.27" class="named"><title>0x0042a45b MainMenu::UpdateState2 (886 bytes)</title></rect>
-<rect width="25.26" height="24.44" x="307.63" y="112.84" class="named"><title>0x00431d10 App::LoadingThread (882 bytes)</title></rect>
-<rect width="25.26" height="23.97" x="307.63" y="140.28" class="decompiled"><title>0x00447fb0 PlayerPosFunc447fb0 (867 bytes)</title></rect>
-<rect width="25.26" height="23.60" x="307.63" y="167.25" class="todo"><title>0x0041dff0 Player::CheckHitAreas (855 bytes)</title></rect>
-<rect width="25.26" height="23.26" x="307.63" y="193.85" class="named"><title>0x00407700 ScriptJumpIf (844 bytes)</title></rect>
-<rect width="25.26" height="23.26" x="307.63" y="220.11" class="named"><title>0x00431110 App::OnUpdate (844 bytes)</title></rect>
-<rect width="25.26" height="22.54" x="307.63" y="246.36" class="todo"><title>0x0044a330 Func44a330 (821 bytes)</title></rect>
-<rect width="25.26" height="22.48" x="307.63" y="271.90" class="todo"><title>0x0042be40 Func42be40 (819 bytes)</title></rect>
-<rect width="25.26" height="22.39" x="307.63" y="297.38" class="named"><title>0x0041dc20 Player::UpdateUnknown30454 (816 bytes)</title></rect>
-<rect width="25.26" height="22.23" x="307.63" y="322.77" class="named"><title>0x0043b1a0 SpriteEngine::Draw3D (811 bytes)</title></rect>
+<rect width="33.97" height="34.09" x="206.77" y="0" class="named"><title>0x00429e23 MainMenu::UpdateState1 (1560 bytes)</title></rect>
+<rect width="33.97" height="33.14" x="206.77" y="37.09" class="nonmatching"><title>0x0041d150 PlayerUnknown30410::AddCombo (1520 bytes)</title></rect>
+<rect width="33.97" height="32.83" x="206.77" y="73.24" class="todo"><title>0x0042b850 ReadInput (1507 bytes)</title></rect>
+<rect width="33.97" height="32.64" x="206.77" y="109.07" class="named"><title>0x0040e8a0 Ending::RunScript (1499 bytes)</title></rect>
+<rect width="33.97" height="32.31" x="206.77" y="144.72" class="todo"><title>0x00417630 Gui::OnUpdate (1485 bytes)</title></rect>
+<rect width="33.97" height="32.05" x="206.77" y="180.03" class="todo"><title>0x00417c10 Gui::OnDraw (1474 bytes)</title></rect>
+<rect width="33.97" height="31.15" x="206.77" y="215.08" class="decompiled"><title>0x004491e0 ExAttackUpdate4491e0 (1436 bytes)</title></rect>
+<rect width="33.97" height="30.67" x="206.77" y="249.22" class="todo"><title>0x0043f1f0 SoundPlayer::PlayQueuedSounds (1416 bytes)</title></rect>
+<rect width="33.97" height="29.98" x="206.77" y="282.89" class="todo"><title>0x0042689a MainMenu::UpdateState11 (1387 bytes)</title></rect>
+<rect width="33.97" height="29.12" x="206.77" y="315.88" class="named"><title>0x0042e3b0 WinMain (1351 bytes)</title></rect>
+<rect width="30.60" height="31.62" x="243.74" y="0" class="named"><title>0x00421140 ReplayManager::AddedCallbackMode0 (1323 bytes)</title></rect>
+<rect width="30.60" height="30.49" x="243.74" y="34.62" class="todo"><title>0x004234f6 MainMenu::DrawState11 (1280 bytes)</title></rect>
+<rect width="30.60" height="29.39" x="243.74" y="68.11" class="nonmatching"><title>0x00420c60 ReplayManager::SaveReplay (1238 bytes)</title></rect>
+<rect width="30.60" height="29.26" x="243.74" y="100.50" class="todo"><title>0x004141c0 RunBulletCommands (1233 bytes)</title></rect>
+<rect width="30.60" height="29.18" x="243.74" y="132.76" class="named"><title>0x0041aa5f GameManager::OnUpdate (1230 bytes)</title></rect>
+<rect width="30.60" height="29.13" x="243.74" y="164.95" class="named"><title>0x0043d7f0 MidiPlayer::ProcessEvent (1228 bytes)</title></rect>
+<rect width="30.60" height="28.66" x="243.74" y="197.08" class="todo"><title>0x0041f810 Func41f810 (1210 bytes)</title></rect>
+<rect width="30.60" height="28.35" x="243.74" y="228.74" class="todo"><title>0x00434e90 ContinueMenu::UpdateContinueMenu (1198 bytes)</title></rect>
+<rect width="30.60" height="26.93" x="243.74" y="260.08" class="todo"><title>0x004355f0 UnknownMenu::UpdateUnknownMenu (1144 bytes)</title></rect>
+<rect width="30.60" height="26.88" x="243.74" y="290.02" class="todo"><title>0x004102b0 Enemy::DropItems (1142 bytes)</title></rect>
+<rect width="30.60" height="25.10" x="243.74" y="319.90" class="decompiled"><title>0x0044b500 ExAttackUpdate44b500 (1074 bytes)</title></rect>
+<rect width="27.30" height="27.96" x="277.34" y="0" class="named"><title>0x0043a0f0 SpriteEngine::DrawQuad (1067 bytes)</title></rect>
+<rect width="27.30" height="27.96" x="277.34" y="30.96" class="named"><title>0x0043a520 SpriteEngine::DrawQuadMirrored (1067 bytes)</title></rect>
+<rect width="27.30" height="27.58" x="277.34" y="61.92" class="named"><title>0x0042f7c0 App::LoadConfig (1054 bytes)</title></rect>
+<rect width="27.30" height="26.83" x="277.34" y="92.51" class="named"><title>0x0040dc70 EffectDrawRing (1028 bytes)</title></rect>
+<rect width="27.30" height="25.90" x="277.34" y="122.34" class="named"><title>0x0041fcd0 Player::CalcDamage (996 bytes)</title></rect>
+<rect width="27.30" height="25.87" x="277.34" y="151.24" class="named"><title>0x00417130 GuiMsg::Draw (995 bytes)</title></rect>
+<rect width="27.30" height="25.32" x="277.34" y="180.11" class="named"><title>0x0040fcc0 EnemyTimeline::Run (976 bytes)</title></rect>
+<rect width="27.30" height="25.20" x="277.34" y="208.43" class="decompiled"><title>0x0044c790 EffectDraw44c790 (972 bytes)</title></rect>
+<rect width="27.30" height="25.06" x="277.34" y="236.63" class="named"><title>0x00408180 ScriptUpdateMovement (967 bytes)</title></rect>
+<rect width="27.30" height="25.03" x="277.34" y="264.69" class="todo"><title>0x0042929c MainMenu::UpdateState14 (966 bytes)</title></rect>
+<rect width="27.30" height="24.83" x="277.34" y="292.72" class="decompiled"><title>0x00444130 ExAttackDraw444130 (959 bytes)</title></rect>
+<rect width="27.30" height="24.45" x="277.34" y="320.55" class="decompiled"><title>0x00444af0 EffectDraw444af0 (946 bytes)</title></rect>
+<rect width="25.26" height="25.71" x="307.64" y="0" class="named"><title>0x00403e50 SpellCard::Start (923 bytes)</title></rect>
+<rect width="25.26" height="25.65" x="307.64" y="28.71" class="decompiled"><title>0x0044a780 EffectDraw44a780 (921 bytes)</title></rect>
+<rect width="25.26" height="24.91" x="307.64" y="57.37" class="todo"><title>0x00426334 MainMenu::UpdateState16 (897 bytes)</title></rect>
+<rect width="25.26" height="24.56" x="307.64" y="85.27" class="named"><title>0x0042a45b MainMenu::UpdateState2 (886 bytes)</title></rect>
+<rect width="25.26" height="24.44" x="307.64" y="112.84" class="named"><title>0x00431d10 App::LoadingThread (882 bytes)</title></rect>
+<rect width="25.26" height="23.97" x="307.64" y="140.28" class="decompiled"><title>0x00447fb0 PlayerPosFunc447fb0 (867 bytes)</title></rect>
+<rect width="25.26" height="23.60" x="307.64" y="167.25" class="todo"><title>0x0041dff0 Player::CheckHitAreas (855 bytes)</title></rect>
+<rect width="25.26" height="23.26" x="307.64" y="193.85" class="named"><title>0x00407700 ScriptJumpIf (844 bytes)</title></rect>
+<rect width="25.26" height="23.26" x="307.64" y="220.11" class="named"><title>0x00431110 App::OnUpdate (844 bytes)</title></rect>
+<rect width="25.26" height="22.54" x="307.64" y="246.36" class="todo"><title>0x0044a330 Func44a330 (821 bytes)</title></rect>
+<rect width="25.26" height="22.48" x="307.64" y="271.90" class="todo"><title>0x0042be40 Func42be40 (819 bytes)</title></rect>
+<rect width="25.26" height="22.39" x="307.64" y="297.38" class="named"><title>0x0041dc20 Player::UpdateUnknown30454 (816 bytes)</title></rect>
+<rect width="25.26" height="22.23" x="307.64" y="322.77" class="named"><title>0x0043b1a0 SpriteEngine::Draw3D (811 bytes)</title></rect>
 <rect width="22.88" height="24.48" x="335.89" y="0" class="named"><title>0x0042cd90 FormatCapsReport (809 bytes)</title></rect>
 <rect width="22.88" height="24.45" x="335.89" y="27.48" class="todo"><title>0x0042b410 Func42b410 (808 bytes)</title></rect>
 <rect width="22.88" height="24.45" x="335.89" y="54.93" class="decompiled"><title>0x00443df0 ExAttackUpdate443df0 (808 bytes)</title></rect>
@@ -1313,14 +1313,14 @@
 <rect width="20.58" height="19.18" x="387.40" y="325.82" class="named"><title>0x00439a90 SpriteEngine::ProjectSprite3D (595 bytes)</title></rect>
 <rect width="21.20" height="18.47" x="410.98" y="0" class="named"><title>0x004205e0 ValidateReplay (591 bytes)</title></rect>
 <rect width="20.67" height="18.47" x="435.18" y="0" class="named"><title>0x004407a0 CSoundManager::CreateStreaming (578 bytes)</title></rect>
-<rect width="20.50" height="18.47" x="458.84" y="0" class="named"><title>0x0040c530 ScatterBullets (574 bytes)</title></rect>
-<rect width="20.38" height="18.47" x="482.34" y="0" class="named"><title>0x00434020 LzssCompress (571 bytes)</title></rect>
-<rect width="19.85" height="18.47" x="505.72" y="0" class="named"><title>0x0043c800 SpriteEngine::LoadAnmSprites (558 bytes)</title></rect>
+<rect width="20.50" height="18.47" x="458.85" y="0" class="named"><title>0x0040c530 ScatterBullets (574 bytes)</title></rect>
+<rect width="20.38" height="18.47" x="482.35" y="0" class="named"><title>0x00434020 LzssCompress (571 bytes)</title></rect>
+<rect width="19.85" height="18.47" x="505.73" y="0" class="named"><title>0x0043c800 SpriteEngine::LoadAnmSprites (558 bytes)</title></rect>
 <rect width="19.68" height="18.47" x="528.57" y="0" class="named"><title>0x0040fa70 EnemyManager::Initialize (554 bytes)</title></rect>
-<rect width="19.64" height="18.47" x="551.25" y="0" class="named"><title>0x00415e50 Gui::ScoreRoundBonus (553 bytes)</title></rect>
+<rect width="19.64" height="18.47" x="551.26" y="0" class="named"><title>0x00415e50 Gui::ScoreRoundBonus (553 bytes)</title></rect>
 <rect width="19.60" height="18.47" x="573.90" y="0" class="todo"><title>0x0041ebc0 Player::Reset (552 bytes)</title></rect>
 <rect width="19.36" height="18.47" x="596.50" y="0" class="named"><title>0x004409f0 CSoundManager::CreateStreamingFromMemory (546 bytes)</title></rect>
-<rect width="19.23" height="18.47" x="618.85" y="0" class="todo"><title>0x0042f540 App::SaveScreenshot (543 bytes)</title></rect>
+<rect width="19.23" height="18.47" x="618.86" y="0" class="todo"><title>0x0042f540 App::SaveScreenshot (543 bytes)</title></rect>
 <rect width="19.11" height="18.47" x="641.09" y="0" class="nonmatching"><title>0x00420840 ReplayManager::AddedCallbackMode1 (540 bytes)</title></rect>
 <rect width="18.95" height="18.47" x="663.20" y="0" class="named"><title>0x004041f0 SpellCard::OnUpdate (536 bytes)</title></rect>
 <rect width="18.86" height="18.47" x="685.14" y="0" class="named"><title>0x004249e1 MainMenu::LoadingThread (534 bytes)</title></rect>
@@ -1342,19 +1342,19 @@
 <rect width="18.60" height="16.78" x="410.98" y="288.90" class="named"><title>0x0043cae0 SpriteEngine::LoadSurface (486 bytes)</title></rect>
 <rect width="18.60" height="16.74" x="410.98" y="308.68" class="todo"><title>0x004266b5 MainMenu::UpdateState13 (485 bytes)</title></rect>
 <rect width="18.60" height="16.58" x="410.98" y="328.42" class="decompiled"><title>0x00445740 ExAttackUpdate445740 (481 bytes)</title></rect>
-<rect width="17.37" height="17.68" x="432.58" y="21.47" class="named"><title>0x00423182 MainMenu::ShowHalves (479 bytes)</title></rect>
-<rect width="17.19" height="17.68" x="452.94" y="21.47" class="named"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
+<rect width="17.36" height="17.68" x="432.58" y="21.47" class="named"><title>0x00423182 MainMenu::ShowHalves (479 bytes)</title></rect>
+<rect width="17.19" height="17.68" x="452.95" y="21.47" class="named"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
 <rect width="17.19" height="17.68" x="473.14" y="21.47" class="todo"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
-<rect width="17.19" height="17.68" x="493.33" y="21.47" class="decompiled"><title>0x00441100 ExAttackUpdate441100 (475 bytes)</title></rect>
+<rect width="17.19" height="17.68" x="493.34" y="21.47" class="decompiled"><title>0x00441100 ExAttackUpdate441100 (475 bytes)</title></rect>
 <rect width="17.19" height="17.68" x="513.53" y="21.47" class="decompiled"><title>0x0044be40 ExAttackUpdate44be40 (475 bytes)</title></rect>
-<rect width="17.07" height="17.68" x="533.72" y="21.47" class="named"><title>0x00435fe0 GdiSurface::InvertAlpha (472 bytes)</title></rect>
+<rect width="17.07" height="17.68" x="533.73" y="21.47" class="named"><title>0x00435fe0 GdiSurface::InvertAlpha (472 bytes)</title></rect>
 <rect width="17.07" height="17.68" x="553.79" y="21.47" class="named"><title>0x0043b9c0 SpriteEngine::CreateQuad (472 bytes)</title></rect>
 <rect width="17.02" height="17.68" x="573.86" y="21.47" class="todo"><title>0x004415e0 Func4415e0 (471 bytes)</title></rect>
 <rect width="16.98" height="17.68" x="593.88" y="21.47" class="named"><title>0x00433aa0 LzssDecompress (470 bytes)</title></rect>
-<rect width="16.85" height="17.68" x="613.86" y="21.47" class="named"><title>0x004333f0 DatArchive::ReadTable (467 bytes)</title></rect>
+<rect width="16.85" height="17.68" x="613.87" y="21.47" class="named"><title>0x004333f0 DatArchive::ReadTable (467 bytes)</title></rect>
 <rect width="16.73" height="17.68" x="633.72" y="21.47" class="decompiled"><title>0x0040d9e0 EffectUpdate40d9e0 (464 bytes)</title></rect>
 <rect width="16.56" height="17.68" x="653.45" y="21.47" class="named"><title>0x0041a000 GuiSide::AddedCallback (460 bytes)</title></rect>
-<rect width="16.56" height="17.68" x="673" y="21.47" class="named"><title>0x004202a0 ReplayManager::OnUpdateMode0 (460 bytes)</title></rect>
+<rect width="16.56" height="17.68" x="673.01" y="21.47" class="named"><title>0x004202a0 ReplayManager::OnUpdateMode0 (460 bytes)</title></rect>
 <rect width="16.30" height="17.68" x="692.56" y="21.47" class="decompiled"><title>0x00442580 ExAttackInit442580 (454 bytes)</title></rect>
 <rect width="16.13" height="17.68" x="711.86" y="21.47" class="todo"><title>0x00413290 BulletManager::SpawnLaser (450 bytes)</title></rect>
 <rect width="16" height="17.68" x="731" y="21.47" class="named"><title>0x00422d20 ScreenEffect::StartEffect (447 bytes)</title></rect>
@@ -1375,13 +1375,13 @@
 <rect width="16.55" height="15.30" x="432.58" y="311.40" class="named"><title>0x0040ca60 EffectManager::StartEffect (407 bytes)</title></rect>
 <rect width="16.55" height="15.30" x="432.58" y="329.70" class="decompiled"><title>0x00445190 ExAttackUpdate445190 (407 bytes)</title></rect>
 <rect width="16.46" height="15.38" x="452.13" y="42.15" class="todo"><title>0x00445ec0 Func445ec0 (407 bytes)</title></rect>
-<rect width="16.37" height="15.38" x="471.59" y="42.15" class="named"><title>0x004182e0 GuiMsg::Load (405 bytes)</title></rect>
+<rect width="16.37" height="15.38" x="471.60" y="42.15" class="named"><title>0x004182e0 GuiMsg::Load (405 bytes)</title></rect>
 <rect width="16.37" height="15.38" x="490.96" y="42.15" class="named"><title>0x00431b70 App::DeletedCallback (405 bytes)</title></rect>
 <rect width="16.37" height="15.38" x="510.33" y="42.15" class="decompiled"><title>0x0044ade0 ExAttackUpdate44ade0 (405 bytes)</title></rect>
-<rect width="16.27" height="15.38" x="529.69" y="42.15" class="decompiled"><title>0x00443440 ExAttackInit443440 (403 bytes)</title></rect>
-<rect width="16.13" height="15.38" x="548.96" y="42.15" class="todo"><title>0x0041e720 Func41e720 (400 bytes)</title></rect>
-<rect width="15.84" height="15.38" x="568.09" y="42.15" class="named"><title>0x0042d900 CheckSingleInstance (394 bytes)</title></rect>
-<rect width="15.75" height="15.38" x="586.93" y="42.15" class="named"><title>0x0040f640 EnemyManager::ClearEnemiesForBonus (392 bytes)</title></rect>
+<rect width="16.27" height="15.38" x="529.70" y="42.15" class="decompiled"><title>0x00443440 ExAttackInit443440 (403 bytes)</title></rect>
+<rect width="16.13" height="15.38" x="548.97" y="42.15" class="todo"><title>0x0041e720 Func41e720 (400 bytes)</title></rect>
+<rect width="15.84" height="15.38" x="568.10" y="42.15" class="named"><title>0x0042d900 CheckSingleInstance (394 bytes)</title></rect>
+<rect width="15.75" height="15.38" x="586.94" y="42.15" class="named"><title>0x0040f640 EnemyManager::ClearEnemiesForBonus (392 bytes)</title></rect>
 <rect width="15.65" height="15.38" x="605.68" y="42.15" class="named"><title>0x0043c610 SpriteEngine::PreloadAnmFile (390 bytes)</title></rect>
 <rect width="15.55" height="15.38" x="624.33" y="42.15" class="named"><title>0x0043ea30 SoundPlayer::PreloadBgm (388 bytes)</title></rect>
 <rect width="15.12" height="15.38" x="642.88" y="42.15" class="decompiled"><title>0x00446320 ExAttackInit446320 (379 bytes)</title></rect>
@@ -1407,7 +1407,7 @@
 <rect width="14.52" height="14.67" x="452.13" y="312.67" class="named"><title>0x0043c2d0 SpriteEngine::CopyBackBufferToSurface (352 bytes)</title></rect>
 <rect width="14.52" height="14.67" x="452.13" y="330.33" class="decompiled"><title>0x004467c0 ExAttackInit4467c0 (352 bytes)</title></rect>
 <rect width="15.03" height="14.02" x="469.65" y="60.53" class="named"><title>0x00408560 ScriptUpdateShooting (349 bytes)</title></rect>
-<rect width="15.03" height="14.02" x="487.67" y="60.53" class="named"><title>0x00425233 MainMenu::MoveCharacterCursor (349 bytes)</title></rect>
+<rect width="15.03" height="14.02" x="487.68" y="60.53" class="named"><title>0x00425233 MainMenu::MoveCharacterCursor (349 bytes)</title></rect>
 <rect width="14.87" height="14.02" x="505.70" y="60.53" class="todo"><title>0x00404710 Func404710 (346 bytes)</title></rect>
 <rect width="14.87" height="14.02" x="523.57" y="60.53" class="named"><title>0x004070a0 ScriptMoveAngle (346 bytes)</title></rect>
 <rect width="14.77" height="14.02" x="541.44" y="60.53" class="decompiled"><title>0x00441910 ExAttackInit441910 (344 bytes)</title></rect>
@@ -1442,10 +1442,10 @@
 <rect width="13.68" height="13.76" x="503.13" y="77.55" class="decompiled"><title>0x0044b940 ExAttackDraw44b940 (318 bytes)</title></rect>
 <rect width="13.57" height="13.76" x="519.81" y="77.55" class="named"><title>0x00422660 ScreenEffect::OnUpdateShake (316 bytes)</title></rect>
 <rect width="13.57" height="13.76" x="536.38" y="77.55" class="decompiled"><title>0x00445050 ExAttackInit445050 (316 bytes)</title></rect>
-<rect width="13.52" height="13.76" x="552.95" y="77.55" class="named"><title>0x00408040 ScriptFireBullets (315 bytes)</title></rect>
-<rect width="13.52" height="13.76" x="569.47" y="77.55" class="named"><title>0x00436310 GdiSurface::CreateInFormat (315 bytes)</title></rect>
+<rect width="13.52" height="13.76" x="552.96" y="77.55" class="named"><title>0x00408040 ScriptFireBullets (315 bytes)</title></rect>
+<rect width="13.52" height="13.76" x="569.48" y="77.55" class="named"><title>0x00436310 GdiSurface::CreateInFormat (315 bytes)</title></rect>
 <rect width="13.47" height="13.76" x="586" y="77.55" class="decompiled"><title>0x004414a0 EffectDraw4414a0 (314 bytes)</title></rect>
-<rect width="13.47" height="13.76" x="602.46" y="77.55" class="decompiled"><title>0x004437f0 EffectDraw4437f0 (314 bytes)</title></rect>
+<rect width="13.47" height="13.76" x="602.47" y="77.55" class="decompiled"><title>0x004437f0 EffectDraw4437f0 (314 bytes)</title></rect>
 <rect width="13.47" height="13.76" x="618.93" y="77.55" class="decompiled"><title>0x004453a0 EffectDraw4453a0 (314 bytes)</title></rect>
 <rect width="13.47" height="13.76" x="635.40" y="77.55" class="decompiled"><title>0x00447480 EffectDraw447480 (314 bytes)</title></rect>
 <rect width="13.47" height="13.76" x="651.87" y="77.55" class="decompiled"><title>0x0044b090 EffectDraw44b090 (314 bytes)</title></rect>
@@ -1471,18 +1471,18 @@
 <rect width="13.32" height="12.35" x="486.45" y="317.41" class="named"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
 <rect width="13.32" height="12.24" x="486.45" y="332.76" class="named"><title>0x004150d0 BulletManager::RegisterChain (283 bytes)</title></rect>
 <rect width="13.30" height="12.26" x="502.77" y="94.32" class="named"><title>0x0041a5d0 GuiSide::RegisterChain (283 bytes)</title></rect>
-<rect width="13.07" height="12.26" x="519.07" y="94.32" class="named"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
-<rect width="13.07" height="12.26" x="535.14" y="94.32" class="named"><title>0x0041da70 PlayerUnknown36c::CheckHits (279 bytes)</title></rect>
+<rect width="13.07" height="12.26" x="519.08" y="94.32" class="named"><title>0x00415340 ExAttackManager::OnUpdate (279 bytes)</title></rect>
+<rect width="13.07" height="12.26" x="535.15" y="94.32" class="named"><title>0x0041da70 PlayerUnknown36c::CheckHits (279 bytes)</title></rect>
 <rect width="13.07" height="12.26" x="551.22" y="94.32" class="named"><title>0x00425390 MainMenu::MoveCharacterCursor2 (279 bytes)</title></rect>
 <rect width="12.90" height="12.26" x="567.29" y="94.32" class="named"><title>0x004328f0 Network::CreateHostAddress (276 bytes)</title></rect>
-<rect width="12.73" height="12.26" x="583.18" y="94.32" class="todo"><title>0x0041c8e0 Func41c8e0 (273 bytes)</title></rect>
+<rect width="12.73" height="12.26" x="583.19" y="94.32" class="todo"><title>0x0041c8e0 Func41c8e0 (273 bytes)</title></rect>
 <rect width="12.61" height="12.26" x="598.91" y="94.32" class="named"><title>0x00417520 GuiMsg::UnloadBgm (271 bytes)</title></rect>
 <rect width="12.38" height="12.26" x="614.52" y="94.32" class="named"><title>0x0042c370 EncryptData (267 bytes)</title></rect>
 <rect width="12.21" height="12.26" x="629.90" y="94.32" class="named"><title>0x00404600 SpellCard::RegisterChain (264 bytes)</title></rect>
 <rect width="12.21" height="12.26" x="645.11" y="94.32" class="named"><title>0x004157d0 ExAttackManager::RegisterChain (264 bytes)</title></rect>
 <rect width="12.21" height="12.26" x="660.31" y="94.32" class="named"><title>0x0042a9cb MainMenu::OnUpdate (264 bytes)</title></rect>
 <rect width="12.03" height="12.26" x="675.52" y="94.32" class="named"><title>0x00407b20 ScriptSetSubSprite (261 bytes)</title></rect>
-<rect width="11.92" height="12.26" x="690.55" y="94.32" class="todo"><title>0x0042b740 Func42b740 (259 bytes)</title></rect>
+<rect width="11.92" height="12.26" x="690.56" y="94.32" class="todo"><title>0x0042b740 Func42b740 (259 bytes)</title></rect>
 <rect width="11.92" height="12.26" x="705.47" y="94.32" class="named"><title>0x0042c180 DecryptData (259 bytes)</title></rect>
 <rect width="11.80" height="12.26" x="720.39" y="94.32" class="todo"><title>0x00420190 ReplayManager::OnUpdateMode0b (257 bytes)</title></rect>
 <rect width="11.80" height="12.26" x="735.20" y="94.32" class="named"><title>0x004306b0 App::SetupCamera3D (257 bytes)</title></rect>
@@ -1510,9 +1510,9 @@
 <rect width="11.68" height="11.26" x="592.27" y="109.58" class="named"><title>0x00432090 App::AddedCallback (238 bytes)</title></rect>
 <rect width="11.68" height="11.26" x="606.95" y="109.58" class="named"><title>0x0043b4d0 SpriteEngine::DrawVertexStrip (238 bytes)</title></rect>
 <rect width="11.61" height="11.26" x="621.62" y="109.58" class="named"><title>0x00430060 App::AddTotalPlayTime (237 bytes)</title></rect>
-<rect width="11.55" height="11.26" x="636.23" y="109.58" class="named"><title>0x004137d0 StopTurnToPlayer (236 bytes)</title></rect>
+<rect width="11.55" height="11.26" x="636.24" y="109.58" class="named"><title>0x004137d0 StopTurnToPlayer (236 bytes)</title></rect>
 <rect width="11.37" height="11.26" x="650.79" y="109.58" class="named"><title>0x0041a8a2 GameConfig::SetDefaults (233 bytes)</title></rect>
-<rect width="11.37" height="11.26" x="665.15" y="109.58" class="named"><title>0x0042ff70 App::AddPlayTime (233 bytes)</title></rect>
+<rect width="11.37" height="11.26" x="665.16" y="109.58" class="named"><title>0x0042ff70 App::AddPlayTime (233 bytes)</title></rect>
 <rect width="11.31" height="11.26" x="679.52" y="109.58" class="named"><title>0x0042db50 PresentFrame (232 bytes)</title></rect>
 <rect width="11.31" height="11.26" x="693.83" y="109.58" class="named"><title>0x0043eeb0 SoundPlayer::Release (232 bytes)</title></rect>
 <rect width="11" height="11.26" x="708.13" y="109.58" class="named"><title>0x00435dc0 AsciiText::AsciiText (227 bytes)</title></rect>
@@ -1543,10 +1543,10 @@
 <rect width="10.78" height="10.33" x="614.32" y="123.84" class="decompiled"><title>0x00443a30 EffectUpdate443a30 (209 bytes)</title></rect>
 <rect width="10.71" height="10.33" x="628.10" y="123.84" class="todo"><title>0x0043e1f0 SoundPlayer::FindTrackIndex (208 bytes)</title></rect>
 <rect width="10.71" height="10.33" x="641.81" y="123.84" class="decompiled"><title>0x00444a20 EffectUpdate444a20 (208 bytes)</title></rect>
-<rect width="10.65" height="10.33" x="655.52" y="123.84" class="named"><title>0x00412100 Enemy::Enemy (207 bytes)</title></rect>
+<rect width="10.65" height="10.33" x="655.53" y="123.84" class="named"><title>0x00412100 Enemy::Enemy (207 bytes)</title></rect>
 <rect width="10.65" height="10.33" x="669.17" y="123.84" class="named"><title>0x0042fc20 App::LoadBgm (207 bytes)</title></rect>
 <rect width="10.52" height="10.33" x="682.82" y="123.84" class="named"><title>0x0040f8e0 PlayerUnknown36c::Add (205 bytes)</title></rect>
-<rect width="10.45" height="10.33" x="696.33" y="123.84" class="named"><title>0x0041e350 Player::CheckGraze (204 bytes)</title></rect>
+<rect width="10.45" height="10.33" x="696.34" y="123.84" class="named"><title>0x0041e350 Player::CheckGraze (204 bytes)</title></rect>
 <rect width="10.45" height="10.33" x="709.78" y="123.84" class="decompiled"><title>0x00442220 ShotDraw442220 (204 bytes)</title></rect>
 <rect width="10.38" height="10.33" x="723.23" y="123.84" class="named"><title>0x004130f0 BulletManager::FirePattern (203 bytes)</title></rect>
 <rect width="10.38" height="10.33" x="736.62" y="123.84" class="named"><title>0x004131c0 BulletManager::FirePattern2 (203 bytes)</title></rect>
@@ -1574,7 +1574,7 @@
 <rect width="9.88" height="9.97" x="609.73" y="137.17" class="named"><title>0x004011d0 Stage::StepObjects (190 bytes)</title></rect>
 <rect width="9.88" height="9.97" x="622.61" y="137.17" class="named"><title>0x0041f4c0 FireShots (190 bytes)</title></rect>
 <rect width="9.81" height="9.97" x="635.49" y="137.17" class="named"><title>0x00436ac0 AnmLoaded::SetSprite (189 bytes)</title></rect>
-<rect width="9.75" height="9.97" x="648.30" y="137.17" class="named"><title>0x004074a0 ScriptMoveHermite (188 bytes)</title></rect>
+<rect width="9.75" height="9.97" x="648.31" y="137.17" class="named"><title>0x004074a0 ScriptMoveHermite (188 bytes)</title></rect>
 <rect width="9.75" height="9.97" x="661.05" y="137.17" class="named"><title>0x0040f9b0 Enemy::Move (188 bytes)</title></rect>
 <rect width="9.75" height="9.97" x="673.80" y="137.17" class="named"><title>0x0042b350 Chain::RemoveLocked (188 bytes)</title></rect>
 <rect width="9.75" height="9.97" x="686.54" y="137.17" class="named"><title>0x0042c7e0 Chain::RunDrawChain (188 bytes)</title></rect>
@@ -1601,12 +1601,12 @@
 <rect width="9.46" height="9.35" x="557.34" y="150.14" class="named"><title>0x00424fb0 MainMenu::SelectEntry2 (175 bytes)</title></rect>
 <rect width="9.46" height="9.35" x="569.80" y="150.14" class="named"><title>0x0042505f MainMenu::SelectEntry3 (175 bytes)</title></rect>
 <rect width="9.32" height="9.35" x="582.26" y="150.14" class="named"><title>0x004123c0 BulletManager::Initialize (173 bytes)</title></rect>
-<rect width="9.32" height="9.35" x="594.57" y="150.14" class="named"><title>0x004302b0 App::StartLoadingSprites (173 bytes)</title></rect>
+<rect width="9.32" height="9.35" x="594.58" y="150.14" class="named"><title>0x004302b0 App::StartLoadingSprites (173 bytes)</title></rect>
 <rect width="9.25" height="9.35" x="606.89" y="150.14" class="named"><title>0x0041bbe0 LoadShtFile (172 bytes)</title></rect>
 <rect width="9.03" height="9.35" x="619.14" y="150.14" class="named"><title>0x0040d110 EffectManager::DrawUnknown114 (169 bytes)</title></rect>
 <rect width="9.03" height="9.35" x="631.17" y="150.14" class="named"><title>0x00431a30 App::PlayMusicFile (169 bytes)</title></rect>
 <rect width="8.96" height="9.35" x="643.20" y="150.14" class="named"><title>0x00425163 MainMenu::FlashHalves (168 bytes)</title></rect>
-<rect width="8.96" height="9.35" x="655.16" y="150.14" class="named"><title>0x00432ac0 Network::Connect (168 bytes)</title></rect>
+<rect width="8.96" height="9.35" x="655.17" y="150.14" class="named"><title>0x00432ac0 Network::Connect (168 bytes)</title></rect>
 <rect width="8.89" height="9.35" x="667.13" y="150.14" class="named"><title>0x0042474a MainMenu::MovePlayerCursor (167 bytes)</title></rect>
 <rect width="8.89" height="9.35" x="679.02" y="150.14" class="named"><title>0x004247f1 MainMenu::MovePlayerCursor2 (167 bytes)</title></rect>
 <rect width="8.89" height="9.35" x="690.91" y="150.14" class="named"><title>0x0042d320 SpriteEngine::DoPendingCopy (167 bytes)</title></rect>
@@ -1632,8 +1632,8 @@
 <rect width="9.17" height="8.20" x="557.34" y="336.80" class="decompiled"><title>0x00447c40 EffectInit447c40 (155 bytes)</title></rect>
 <rect width="8.57" height="8.78" x="569.51" y="162.48" class="decompiled"><title>0x0044aff0 EffectInit44aff0 (155 bytes)</title></rect>
 <rect width="8.49" height="8.78" x="581.07" y="162.48" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
-<rect width="8.49" height="8.78" x="592.56" y="162.48" class="named"><title>0x004346a0 AsciiText::AddPopup (154 bytes)</title></rect>
-<rect width="8.42" height="8.78" x="604.05" y="162.48" class="named"><title>0x0042c5c0 LogPrintf (153 bytes)</title></rect>
+<rect width="8.49" height="8.78" x="592.57" y="162.48" class="named"><title>0x004346a0 AsciiText::AddPopup (154 bytes)</title></rect>
+<rect width="8.42" height="8.78" x="604.06" y="162.48" class="named"><title>0x0042c5c0 LogPrintf (153 bytes)</title></rect>
 <rect width="8.42" height="8.78" x="615.47" y="162.48" class="named"><title>0x0042c660 LogError (153 bytes)</title></rect>
 <rect width="8.42" height="8.78" x="626.89" y="162.48" class="named"><title>0x0043e380 SoundPlayer::QueueSoundPanned (153 bytes)</title></rect>
 <rect width="8.34" height="8.78" x="638.30" y="162.48" class="decompiled"><title>0x004486b0 EffectInit4486b0 (152 bytes)</title></rect>
@@ -1662,13 +1662,13 @@
 <rect width="8.54" height="7.59" x="569.51" y="316.23" class="named"><title>0x00422200 ClearScreen (139 bytes)</title></rect>
 <rect width="8.54" height="7.59" x="569.51" y="326.82" class="named"><title>0x0043bdc0 SpriteEngine::RenderText (139 bytes)</title></rect>
 <rect width="8.54" height="7.59" x="569.51" y="337.41" class="decompiled"><title>0x0044ab90 ShotFire44ab90 (139 bytes)</title></rect>
-<rect width="7.99" height="8.04" x="581.04" y="174.27" class="named"><title>0x0041db90 Player::AddUnknown30454 (138 bytes)</title></rect>
+<rect width="7.99" height="8.04" x="581.05" y="174.27" class="named"><title>0x0041db90 Player::AddUnknown30454 (138 bytes)</title></rect>
 <rect width="7.99" height="8.04" x="592.04" y="174.27" class="named"><title>0x0043bcb0 AnmLoaded::LoadSprite (138 bytes)</title></rect>
 <rect width="7.91" height="8.04" x="603.03" y="174.27" class="named"><title>0x004396a0 SpriteEngine::FlushQuadBatch (137 bytes)</title></rect>
-<rect width="7.91" height="8.04" x="613.94" y="174.27" class="decompiled"><title>0x00441a70 ExAttackUpdate441a70 (137 bytes)</title></rect>
+<rect width="7.91" height="8.04" x="613.95" y="174.27" class="decompiled"><title>0x00441a70 ExAttackUpdate441a70 (137 bytes)</title></rect>
 <rect width="7.75" height="8.04" x="624.86" y="174.27" class="named"><title>0x0042457a MainMenu::MoveCursor (135 bytes)</title></rect>
 <rect width="7.75" height="8.04" x="635.61" y="174.27" class="named"><title>0x00440650 CSound::CSound (135 bytes)</title></rect>
-<rect width="7.67" height="8.04" x="646.36" y="174.27" class="named"><title>0x00401560 AnmLoaded::StartScriptAtOrigin (134 bytes)</title></rect>
+<rect width="7.67" height="8.04" x="646.37" y="174.27" class="named"><title>0x00401560 AnmLoaded::StartScriptAtOrigin (134 bytes)</title></rect>
 <rect width="7.59" height="8.04" x="657.04" y="174.27" class="named"><title>0x0040e4f0 Ending::Load (133 bytes)</title></rect>
 <rect width="7.59" height="8.04" x="667.63" y="174.27" class="todo"><title>0x004181e0 Gui::Reset (133 bytes)</title></rect>
 <rect width="7.44" height="8.04" x="678.23" y="174.27" class="todo"><title>0x0042ace0 Func42ace0 (131 bytes)</title></rect>
@@ -1678,26 +1678,26 @@
 <rect width="7.12" height="8.04" x="719.65" y="174.27" class="named"><title>0x004101d0 Enemy::ClampPos (127 bytes)</title></rect>
 <rect width="7.12" height="8.04" x="729.77" y="174.27" class="named"><title>0x0041b9d0 GameManager::RegisterChain (127 bytes)</title></rect>
 <rect width="7.12" height="8.04" x="739.88" y="174.27" class="named"><title>0x0043bd40 SpriteEngine::RenderTextToTextureIndex (127 bytes)</title></rect>
-<rect width="7.50" height="7.55" x="581.04" y="185.30" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
-<rect width="7.50" height="7.38" x="581.04" y="195.85" class="named"><title>0x00422fd1 MainMenu::ShowButtonDigits (124 bytes)</title></rect>
-<rect width="7.50" height="7.38" x="581.04" y="206.23" class="named"><title>0x0042d0c0 ForceForegroundWindow (124 bytes)</title></rect>
-<rect width="7.50" height="7.29" x="581.04" y="216.60" class="named"><title>0x0040d200 EffectManager::FreeEffects (123 bytes)</title></rect>
-<rect width="7.50" height="7.29" x="581.04" y="226.90" class="named"><title>0x00422470 ScreenEffect::OnUpdateFadeOut (123 bytes)</title></rect>
-<rect width="7.50" height="7.29" x="581.04" y="237.19" class="named"><title>0x0042cc90 GameWindow::GetTime (123 bytes)</title></rect>
-<rect width="7.50" height="7.13" x="581.04" y="247.49" class="named"><title>0x00415050 BulletManager::BulletManager (121 bytes)</title></rect>
-<rect width="7.50" height="7.13" x="581.04" y="257.61" class="todo"><title>0x0041ba80 Func41ba80 (121 bytes)</title></rect>
-<rect width="7.50" height="7.13" x="581.04" y="267.74" class="named"><title>0x0041bdf0 Player::CheckHitBox (121 bytes)</title></rect>
-<rect width="7.50" height="7.13" x="581.04" y="277.87" class="named"><title>0x00433870 MakeFullPath (121 bytes)</title></rect>
-<rect width="7.50" height="7.13" x="581.04" y="287.99" class="named"><title>0x0043f9f0 CSound::RestoreBuffer (121 bytes)</title></rect>
-<rect width="7.50" height="7.04" x="581.04" y="298.12" class="named"><title>0x0042c8f0 InitJoystick (120 bytes)</title></rect>
-<rect width="7.50" height="6.96" x="581.04" y="308.16" class="named"><title>0x0040ef60 Ending::Ending (119 bytes)</title></rect>
-<rect width="7.50" height="6.96" x="581.04" y="318.12" class="named"><title>0x0042eb80 App::PopRecord (119 bytes)</title></rect>
-<rect width="7.50" height="6.96" x="581.04" y="328.08" class="decompiled"><title>0x00445d00 ShotFire445d00 (119 bytes)</title></rect>
-<rect width="7.50" height="6.96" x="581.04" y="338.04" class="decompiled"><title>0x00445d80 PlayerComboFunc445d80 (119 bytes)</title></rect>
+<rect width="7.50" height="7.55" x="581.05" y="185.30" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
+<rect width="7.50" height="7.38" x="581.05" y="195.85" class="named"><title>0x00422fd1 MainMenu::ShowButtonDigits (124 bytes)</title></rect>
+<rect width="7.50" height="7.38" x="581.05" y="206.23" class="named"><title>0x0042d0c0 ForceForegroundWindow (124 bytes)</title></rect>
+<rect width="7.50" height="7.29" x="581.05" y="216.60" class="named"><title>0x0040d200 EffectManager::FreeEffects (123 bytes)</title></rect>
+<rect width="7.50" height="7.29" x="581.05" y="226.90" class="named"><title>0x00422470 ScreenEffect::OnUpdateFadeOut (123 bytes)</title></rect>
+<rect width="7.50" height="7.29" x="581.05" y="237.19" class="named"><title>0x0042cc90 GameWindow::GetTime (123 bytes)</title></rect>
+<rect width="7.50" height="7.13" x="581.05" y="247.49" class="named"><title>0x00415050 BulletManager::BulletManager (121 bytes)</title></rect>
+<rect width="7.50" height="7.13" x="581.05" y="257.61" class="todo"><title>0x0041ba80 Func41ba80 (121 bytes)</title></rect>
+<rect width="7.50" height="7.13" x="581.05" y="267.74" class="named"><title>0x0041bdf0 Player::CheckHitBox (121 bytes)</title></rect>
+<rect width="7.50" height="7.13" x="581.05" y="277.87" class="named"><title>0x00433870 MakeFullPath (121 bytes)</title></rect>
+<rect width="7.50" height="7.13" x="581.05" y="287.99" class="named"><title>0x0043f9f0 CSound::RestoreBuffer (121 bytes)</title></rect>
+<rect width="7.50" height="7.04" x="581.05" y="298.12" class="named"><title>0x0042c8f0 InitJoystick (120 bytes)</title></rect>
+<rect width="7.50" height="6.96" x="581.05" y="308.16" class="named"><title>0x0040ef60 Ending::Ending (119 bytes)</title></rect>
+<rect width="7.50" height="6.96" x="581.05" y="318.12" class="named"><title>0x0042eb80 App::PopRecord (119 bytes)</title></rect>
+<rect width="7.50" height="6.96" x="581.05" y="328.08" class="decompiled"><title>0x00445d00 ShotFire445d00 (119 bytes)</title></rect>
+<rect width="7.50" height="6.96" x="581.05" y="338.04" class="decompiled"><title>0x00445d80 PlayerComboFunc445d80 (119 bytes)</title></rect>
 <rect width="7.17" height="7.20" x="591.55" y="185.30" class="named"><title>0x00440560 CWaveFile::Open (118 bytes)</title></rect>
 <rect width="7.09" height="7.20" x="601.72" y="185.30" class="named"><title>0x004233f4 Sprite::SetColorInterp (117 bytes)</title></rect>
 <rect width="7.09" height="7.20" x="611.81" y="185.30" class="named"><title>0x00435370 ContinueMenu::DrawContinueMenu (117 bytes)</title></rect>
-<rect width="7.09" height="7.20" x="621.89" y="185.30" class="named"><title>0x0043d210 MidiPlayer::SendVolume (117 bytes)</title></rect>
+<rect width="7.09" height="7.20" x="621.90" y="185.30" class="named"><title>0x0043d210 MidiPlayer::SendVolume (117 bytes)</title></rect>
 <rect width="7" height="7.20" x="631.98" y="185.30" class="named"><title>0x0041a6eb GameManager::IsInPlayArea (116 bytes)</title></rect>
 <rect width="7" height="7.20" x="641.98" y="185.30" class="named"><title>0x00436c40 Sprite::ResolveFloatArgumentPtr (116 bytes)</title></rect>
 <rect width="7" height="7.20" x="651.98" y="185.30" class="named"><title>0x0043fa70 CSound::GetFreeBuffer (116 bytes)</title></rect>
@@ -1729,16 +1729,16 @@
 <rect width="6.38" height="6.56" x="601.41" y="195.50" class="decompiled"><title>0x00445330 PlayerComboFunc445330 (102 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="610.79" y="195.50" class="named"><title>0x0040e480 Ending::OnDraw (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="620.08" y="195.50" class="named"><title>0x004121d0 EnemyManager::EnemyManager (101 bytes)</title></rect>
-<rect width="6.29" height="6.56" x="629.36" y="195.50" class="named"><title>0x0041bb00 Player::AngleFromPlayer (101 bytes)</title></rect>
+<rect width="6.29" height="6.56" x="629.37" y="195.50" class="named"><title>0x0041bb00 Player::AngleFromPlayer (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="638.65" y="195.50" class="named"><title>0x0041bb70 Player::AngleToPlayer (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="647.94" y="195.50" class="named"><title>0x0042f420 SpriteEngine::SetPendingSurfaceCopy (101 bytes)</title></rect>
-<rect width="6.29" height="6.56" x="657.22" y="195.50" class="named"><title>0x00436450 GdiSurface::Create (101 bytes)</title></rect>
+<rect width="6.29" height="6.56" x="657.23" y="195.50" class="named"><title>0x00436450 GdiSurface::Create (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="666.51" y="195.50" class="decompiled"><title>0x004412e0 PlayerComboFunc4412e0 (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="675.80" y="195.50" class="decompiled"><title>0x004444f0 PlayerComboFunc4444f0 (101 bytes)</title></rect>
-<rect width="6.29" height="6.56" x="685.08" y="195.50" class="decompiled"><title>0x00445930 PlayerComboFunc445930 (101 bytes)</title></rect>
+<rect width="6.29" height="6.56" x="685.09" y="195.50" class="decompiled"><title>0x00445930 PlayerComboFunc445930 (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="694.37" y="195.50" class="decompiled"><title>0x00449780 PlayerComboFunc449780 (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="703.66" y="195.50" class="decompiled"><title>0x0044a670 PlayerComboFunc44a670 (101 bytes)</title></rect>
-<rect width="6.29" height="6.56" x="712.94" y="195.50" class="decompiled"><title>0x0044af80 PlayerComboFunc44af80 (101 bytes)</title></rect>
+<rect width="6.29" height="6.56" x="712.95" y="195.50" class="decompiled"><title>0x0044af80 PlayerComboFunc44af80 (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="722.23" y="195.50" class="decompiled"><title>0x0044ba80 PlayerComboFunc44ba80 (101 bytes)</title></rect>
 <rect width="6.29" height="6.56" x="731.52" y="195.50" class="decompiled"><title>0x0044c020 PlayerComboFunc44c020 (101 bytes)</title></rect>
 <rect width="6.19" height="6.56" x="740.81" y="195.50" class="named"><title>0x00403cf0 Player::StartClearCircle3 (100 bytes)</title></rect>
@@ -1758,12 +1758,12 @@
 <rect width="6.06" height="6.41" x="601.41" y="329.17" class="decompiled"><title>0x00442ee0 PlayerComboFunc442ee0 (97 bytes)</title></rect>
 <rect width="6.06" height="6.41" x="601.41" y="338.59" class="decompiled"><title>0x00448640 PlayerComboFunc448640 (97 bytes)</title></rect>
 <rect width="6.47" height="5.91" x="610.47" y="205.06" class="named"><title>0x00424d9f MainMenu::DeletedCallback (96 bytes)</title></rect>
-<rect width="6.47" height="5.91" x="619.94" y="205.06" class="decompiled"><title>0x00445e00 EffectUpdate445e00 (96 bytes)</title></rect>
+<rect width="6.47" height="5.91" x="619.95" y="205.06" class="decompiled"><title>0x00445e00 EffectUpdate445e00 (96 bytes)</title></rect>
 <rect width="6.37" height="5.91" x="629.42" y="205.06" class="named"><title>0x00412470 BulletManager::Reset (95 bytes)</title></rect>
 <rect width="6.37" height="5.91" x="638.79" y="205.06" class="named"><title>0x0041a270 GuiSide::StartUnknown5c6c (95 bytes)</title></rect>
 <rect width="6.37" height="5.91" x="648.17" y="205.06" class="named"><title>0x004323b0 Network::Send (95 bytes)</title></rect>
 <rect width="6.37" height="5.91" x="657.54" y="205.06" class="named"><title>0x00440d30 PlayerUnknown36c::AddCircle (95 bytes)</title></rect>
-<rect width="6.37" height="5.91" x="666.91" y="205.06" class="decompiled"><title>0x004418b0 PlayerEnemyFunc4418b0 (95 bytes)</title></rect>
+<rect width="6.37" height="5.91" x="666.92" y="205.06" class="decompiled"><title>0x004418b0 PlayerEnemyFunc4418b0 (95 bytes)</title></rect>
 <rect width="6.37" height="5.91" x="676.29" y="205.06" class="decompiled"><title>0x00443c10 PlayerEnemyFunc443c10 (95 bytes)</title></rect>
 <rect width="6.28" height="5.91" x="685.66" y="205.06" class="named"><title>0x0042ee30 EnumAxesCallback (94 bytes)</title></rect>
 <rect width="6.28" height="5.91" x="694.94" y="205.06" class="named"><title>0x0042ee90 EnumAxesCallback2 (94 bytes)</title></rect>
@@ -1790,7 +1790,7 @@
 <rect width="5.86" height="5.73" x="619.34" y="213.97" class="named"><title>0x004156f0 ExAttackManager::Reset (88 bytes)</title></rect>
 <rect width="5.86" height="5.73" x="628.20" y="213.97" class="named"><title>0x0041aa07 GameManager::AddExtend (88 bytes)</title></rect>
 <rect width="5.86" height="5.73" x="637.06" y="213.97" class="named"><title>0x00433160 DatArchiveEntry::`vector deleting destructor&#x27; (88 bytes)</title></rect>
-<rect width="5.86" height="5.73" x="645.91" y="213.97" class="named"><title>0x0043b0e0 SpriteEngine::DrawProjected (88 bytes)</title></rect>
+<rect width="5.86" height="5.73" x="645.92" y="213.97" class="named"><title>0x0043b0e0 SpriteEngine::DrawProjected (88 bytes)</title></rect>
 <rect width="5.86" height="5.73" x="654.77" y="213.97" class="decompiled"><title>0x0044ab30 EffectUpdate44ab30 (88 bytes)</title></rect>
 <rect width="5.76" height="5.73" x="663.63" y="213.97" class="decompiled"><title>0x0040d470 EffectUpdate40d470 (87 bytes)</title></rect>
 <rect width="5.76" height="5.73" x="672.39" y="213.97" class="named"><title>0x0043cdd0 SpriteEngine::StepAnmLoading (87 bytes)</title></rect>
@@ -1798,7 +1798,7 @@
 <rect width="5.66" height="5.73" x="689.80" y="213.97" class="named"><title>0x0043fb80 CSound::Stop (86 bytes)</title></rect>
 <rect width="5.66" height="5.73" x="698.46" y="213.97" class="decompiled"><title>0x004432a0 ShotFire4432a0 (86 bytes)</title></rect>
 <rect width="5.66" height="5.73" x="707.12" y="213.97" class="decompiled"><title>0x004446a0 ShotUpdate4446a0 (86 bytes)</title></rect>
-<rect width="5.56" height="5.73" x="715.77" y="213.97" class="named"><title>0x004024d0 Stage::DeletedCallback (85 bytes)</title></rect>
+<rect width="5.56" height="5.73" x="715.78" y="213.97" class="named"><title>0x004024d0 Stage::DeletedCallback (85 bytes)</title></rect>
 <rect width="5.56" height="5.73" x="724.33" y="213.97" class="named"><title>0x0040cd70 EffectManager::SpawnReservedEffect (85 bytes)</title></rect>
 <rect width="5.56" height="5.73" x="732.89" y="213.97" class="named"><title>0x00418750 GuiMsg::GuiMsg (85 bytes)</title></rect>
 <rect width="5.56" height="5.73" x="741.44" y="213.97" class="named"><title>0x0042510e MainMenu::SelectEntryInterrupts (85 bytes)</title></rect>
@@ -1824,7 +1824,7 @@
 <rect width="5.22" height="5.66" x="661.37" y="222.70" class="named"><title>0x00440d90 ExAttack::AllocSprites (81 bytes)</title></rect>
 <rect width="5.12" height="5.66" x="669.59" y="222.70" class="named"><title>0x00406740 ScriptSetTurnSprites (80 bytes)</title></rect>
 <rect width="5.12" height="5.66" x="677.71" y="222.70" class="named"><title>0x0042d240 Log::Flush (80 bytes)</title></rect>
-<rect width="5.02" height="5.66" x="685.83" y="222.70" class="named"><title>0x004018a0 Stage::JumpToWaitLabel (79 bytes)</title></rect>
+<rect width="5.02" height="5.66" x="685.84" y="222.70" class="named"><title>0x004018a0 Stage::JumpToWaitLabel (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="693.86" y="222.70" class="named"><title>0x0041a9b8 GameManager::SetPlayArea (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="701.88" y="222.70" class="decompiled"><title>0x00440ce0 EffectUpdate440ce0 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="709.90" y="222.70" class="decompiled"><title>0x00440df0 PlayerPosFunc440df0 (79 bytes)</title></rect>
@@ -1848,13 +1848,13 @@
 <rect width="5.05" height="5.19" x="628.17" y="339.81" class="decompiled"><title>0x00441be0 SpellCardInit441be0 (75 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="636.22" y="231.36" class="named"><title>0x00407450 ScriptMoveLinear (74 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="644.46" y="231.36" class="named"><title>0x00411f80 EnemyManager::RemoveChain (74 bytes)</title></rect>
-<rect width="5.24" height="4.90" x="652.69" y="231.36" class="todo"><title>0x0041e8b0 Func41e8b0 (74 bytes)</title></rect>
+<rect width="5.24" height="4.90" x="652.70" y="231.36" class="todo"><title>0x0041e8b0 Func41e8b0 (74 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="660.93" y="231.36" class="named"><title>0x0042cd40 AppendCapsFlagText (74 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="669.17" y="231.36" class="named"><title>0x0042f770 SpriteEngine::ResetFrameState (74 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="677.41" y="231.36" class="named"><title>0x00433050 DatArchive::FindEntry (74 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="685.65" y="231.36" class="named"><title>0x0043e1a0 FindRiffChunk (74 bytes)</title></rect>
 <rect width="5.13" height="4.90" x="693.89" y="231.36" class="named"><title>0x00406850 EclManager::StartSub (73 bytes)</title></rect>
-<rect width="5.02" height="4.90" x="702.01" y="231.36" class="named"><title>0x00424e95 MainMenu::ShowEntryFrame (72 bytes)</title></rect>
+<rect width="5.02" height="4.90" x="702.02" y="231.36" class="named"><title>0x00424e95 MainMenu::ShowEntryFrame (72 bytes)</title></rect>
 <rect width="5.02" height="4.90" x="710.03" y="231.36" class="named"><title>0x00436de0 SpriteEngine::SendInterruptToLoadedSprites (72 bytes)</title></rect>
 <rect width="5.02" height="4.90" x="718.05" y="231.36" class="named"><title>0x0043e9e0 SoundPlayer::SwitchBgmTrack (72 bytes)</title></rect>
 <rect width="5.02" height="4.90" x="726.06" y="231.36" class="decompiled"><title>0x00445c30 EffectInit445c30 (72 bytes)</title></rect>
@@ -1875,14 +1875,14 @@
 <rect width="4.96" height="4.62" x="636.22" y="332.77" class="named"><title>0x0040c810 SendExAttack12 (69 bytes)</title></rect>
 <rect width="4.96" height="4.62" x="636.22" y="340.38" class="named"><title>0x00431ae0 App::StartSubThread (69 bytes)</title></rect>
 <rect width="4.83" height="4.74" x="644.18" y="239.26" class="named"><title>0x0043d2d0 MidiDevice::Open (69 bytes)</title></rect>
-<rect width="4.72" height="4.74" x="652.01" y="239.26" class="named"><title>0x00411f30 FreeResources (68 bytes)</title></rect>
-<rect width="4.72" height="4.74" x="659.73" y="239.26" class="named"><title>0x00422cd0 ScreenEffect::OnDrawFlash (68 bytes)</title></rect>
+<rect width="4.72" height="4.74" x="652.02" y="239.26" class="named"><title>0x00411f30 FreeResources (68 bytes)</title></rect>
+<rect width="4.72" height="4.74" x="659.74" y="239.26" class="named"><title>0x00422cd0 ScreenEffect::OnDrawFlash (68 bytes)</title></rect>
 <rect width="4.72" height="4.74" x="667.46" y="239.26" class="decompiled"><title>0x004423d0 ShotFire4423d0 (68 bytes)</title></rect>
 <rect width="4.61" height="4.74" x="675.18" y="239.26" class="named"><title>0x0041a2d0 GuiSide::StopUnknown5c6c (67 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="682.78" y="239.26" class="named"><title>0x004045b0 SpellCard::SpellCard (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="690.28" y="239.26" class="named"><title>0x004127b0 Sprite::Initialize (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="697.77" y="239.26" class="named"><title>0x004156a0 ExAttackManager::RemoveChain (66 bytes)</title></rect>
-<rect width="4.49" height="4.74" x="705.26" y="239.26" class="named"><title>0x00415750 ExAttackManager::AddedCallback (66 bytes)</title></rect>
+<rect width="4.49" height="4.74" x="705.27" y="239.26" class="named"><title>0x00415750 ExAttackManager::AddedCallback (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="712.76" y="239.26" class="named"><title>0x00433710 File::Write (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="720.25" y="239.26" class="todo"><title>0x00435f90 GdiSurface::FindFormat (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="727.75" y="239.26" class="named"><title>0x00439630 AnmLoaded::StartSpriteSeries (66 bytes)</title></rect>
@@ -1912,7 +1912,7 @@
 <rect width="4.10" height="4.30" x="701.83" y="247" class="named"><title>0x0043cf90 SpriteEngine::LoadAnm (59 bytes)</title></rect>
 <rect width="3.98" height="4.30" x="708.94" y="247" class="named"><title>0x00414fe0 Bullet::Bullet (58 bytes)</title></rect>
 <rect width="3.98" height="4.30" x="715.92" y="247" class="named"><title>0x0043e090 MidiPlayer::~MidiPlayer (58 bytes)</title></rect>
-<rect width="3.86" height="4.30" x="722.90" y="247" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>
+<rect width="3.86" height="4.30" x="722.91" y="247" class="named"><title>0x00401300 D3DXMatrixIdentity (57 bytes)</title></rect>
 <rect width="3.74" height="4.30" x="729.77" y="247" class="named"><title>0x0040f5a0 D3DXVECTOR3::operator/ (56 bytes)</title></rect>
 <rect width="3.74" height="4.30" x="736.51" y="247" class="named"><title>0x00414fa0 BulletTypeSprites::BulletTypeSprites (56 bytes)</title></rect>
 <rect width="3.74" height="4.30" x="743.26" y="247" class="named"><title>0x0041a380 GuiSide::StartUnknown6ee8 (56 bytes)</title></rect>
@@ -1932,7 +1932,7 @@
 <rect width="4.18" height="3.61" x="651.74" y="341.39" class="named"><title>0x0043fd60 CStreamingSound::UpdateFadeDown (54 bytes)</title></rect>
 <rect width="3.70" height="3.96" x="658.91" y="254.30" class="named"><title>0x0042fcf0 App::PlayBgm (53 bytes)</title></rect>
 <rect width="3.70" height="3.96" x="665.61" y="254.30" class="named"><title>0x00439560 SpriteEngine::StepSprites (53 bytes)</title></rect>
-<rect width="3.57" height="3.96" x="672.30" y="254.30" class="named"><title>0x00401180 D3DXVECTOR3::operator* (52 bytes)</title></rect>
+<rect width="3.57" height="3.96" x="672.31" y="254.30" class="named"><title>0x00401180 D3DXVECTOR3::operator* (52 bytes)</title></rect>
 <rect width="3.57" height="3.96" x="678.87" y="254.30" class="named"><title>0x00414180 BulletManager::RemoveChain (52 bytes)</title></rect>
 <rect width="3.57" height="3.96" x="685.44" y="254.30" class="named"><title>0x00435c60 AsciiText::OnDraw2 (52 bytes)</title></rect>
 <rect width="3.57" height="3.96" x="692.01" y="254.30" class="named"><title>0x0043d060 MidiDevice::SendShortMsg (52 bytes)</title></rect>
@@ -1958,7 +1958,7 @@
 <rect width="3.46" height="3.54" x="658.91" y="334.93" class="named"><title>0x004100e0 Enemy::FreeUnknown33d8 (48 bytes)</title></rect>
 <rect width="3.46" height="3.54" x="658.91" y="341.46" class="named"><title>0x0043bc80 SpriteEngine::ReleaseTexture (48 bytes)</title></rect>
 <rect width="3.59" height="3.27" x="665.37" y="261.26" class="named"><title>0x004120d0 EnemyUnknown22c::EnemyUnknown22c (47 bytes)</title></rect>
-<rect width="3.59" height="3.27" x="671.95" y="261.26" class="named"><title>0x0041ba4f GameManager::Init (47 bytes)</title></rect>
+<rect width="3.59" height="3.27" x="671.96" y="261.26" class="named"><title>0x0041ba4f GameManager::Init (47 bytes)</title></rect>
 <rect width="3.59" height="3.27" x="678.54" y="261.26" class="named"><title>0x00422900 ScreenEffect::DeletedCallback (47 bytes)</title></rect>
 <rect width="3.59" height="3.27" x="685.13" y="261.26" class="named"><title>0x00423469 SpriteEngine::HasTexture (47 bytes)</title></rect>
 <rect width="3.59" height="3.27" x="691.71" y="261.26" class="todo"><title>0x0042acb0 Func42acb0 (47 bytes)</title></rect>
@@ -2014,7 +2014,7 @@
 <rect width="3.10" height="2.62" x="695.59" y="273.56" class="named"><title>0x00415c60 DecodeMsgString (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="701.69" y="273.56" class="named"><title>0x0042ae20 Rng::GetRandomU16 (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="707.79" y="273.56" class="named"><title>0x00435d40 PauseMenu::PauseMenu (39 bytes)</title></rect>
-<rect width="3.10" height="2.62" x="713.88" y="273.56" class="named"><title>0x00435d70 ContinueMenu::ContinueMenu (39 bytes)</title></rect>
+<rect width="3.10" height="2.62" x="713.89" y="273.56" class="named"><title>0x00435d70 ContinueMenu::ContinueMenu (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="719.98" y="273.56" class="named"><title>0x0043e2c0 SoundPlayer::LoadBgmFormat (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="726.08" y="273.56" class="named"><title>0x0043fbe0 CSound::PauseBuffer (39 bytes)</title></rect>
 <rect width="2.94" height="2.62" x="732.18" y="273.56" class="named"><title>0x004010d0 D3DXVECTOR3::operator/= (38 bytes)</title></rect>
@@ -2057,7 +2057,7 @@
 <rect width="2.59" height="2.19" x="683.09" y="337.62" class="named"><title>0x00423361 MidiPlayer::Restart (33 bytes)</title></rect>
 <rect width="2.59" height="2.19" x="683.09" y="342.81" class="named"><title>0x00423382 App::ClearUnknown77c (33 bytes)</title></rect>
 <rect width="2.57" height="2.20" x="688.68" y="284.80" class="named"><title>0x0042ac50 ChainElem::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
-<rect width="2.57" height="2.20" x="694.25" y="284.80" class="named"><title>0x0042cc30 SpriteEngine::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
+<rect width="2.57" height="2.20" x="694.26" y="284.80" class="named"><title>0x0042cc30 SpriteEngine::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="2.57" height="2.20" x="699.83" y="284.80" class="named"><title>0x0042cc60 MidiPlayer::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="2.57" height="2.20" x="705.40" y="284.80" class="named"><title>0x00430530 App::InitCriticalSections (33 bytes)</title></rect>
 <rect width="2.57" height="2.20" x="710.98" y="284.80" class="named"><title>0x00430560 App::DeleteCriticalSections (33 bytes)</title></rect>
@@ -2183,11 +2183,11 @@
 <rect width="0.80" height="0.70" x="715.82" y="312.84" class="named"><title>0x0040e3e0 PlayRecord::OpenEntry2 (16 bytes)</title></rect>
 <rect width="0.80" height="0.70" x="719.62" y="312.84" class="named"><title>0x0040e3f0 PlayRecord::OpenEntry3 (16 bytes)</title></rect>
 <rect width="0.80" height="0.70" x="723.42" y="312.84" class="named"><title>0x0040f170 EclManager::GetTimeline (16 bytes)</title></rect>
-<rect width="0.80" height="0.70" x="727.21" y="312.84" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>
+<rect width="0.80" height="0.70" x="727.22" y="312.84" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>
 <rect width="0.80" height="0.70" x="731.01" y="312.84" class="named"><title>0x004124d0 CopyBulletSprite (16 bytes)</title></rect>
 <rect width="0.80" height="0.70" x="734.81" y="312.84" class="named"><title>0x004302a0 AsciiText::SetAlpha (16 bytes)</title></rect>
 <rect width="0.80" height="0.70" x="738.61" y="312.84" class="named"><title>0x00433040 DatArchive::DatArchive (16 bytes)</title></rect>
-<rect width="0.80" height="0.70" x="742.40" y="312.84" class="named"><title>0x004343c0 AsciiText::SetGlyphWidth (16 bytes)</title></rect>
+<rect width="0.80" height="0.70" x="742.41" y="312.84" class="named"><title>0x004343c0 AsciiText::SetGlyphWidth (16 bytes)</title></rect>
 <rect width="0.80" height="0.70" x="746.20" y="312.84" class="named"><title>0x0043cfd0 MidiDevice::MidiDevice (16 bytes)</title></rect>
 <rect width="0.77" height="0.50" x="715.82" y="316.54" class="named"><title>0x004014a0 Timer::Initialize (15 bytes)</title></rect>
 <rect width="0.77" height="0.50" x="715.82" y="320.04" class="named"><title>0x00404910 Rng::GetRandomF32InRange (15 bytes)</title></rect>
@@ -2198,7 +2198,7 @@
 <rect width="0.77" height="0.50" x="715.82" y="337.51" class="named"><title>0x004120c0 EnemyUnknown30::EnemyUnknown30 (15 bytes)</title></rect>
 <rect width="0.77" height="0.50" x="715.82" y="341.01" class="named"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
 <rect width="0.77" height="0.50" x="715.82" y="344.50" class="named"><title>0x00415d30 GameManager::IsMode2 (15 bytes)</title></rect>
-<rect width="0.80" height="0.47" x="719.59" y="316.54" class="named"><title>0x0041f060 PlayerUnknown30454::PlayerUnknown30454 (15 bytes)</title></rect>
+<rect width="0.80" height="0.47" x="719.60" y="316.54" class="named"><title>0x0041f060 PlayerUnknown30454::PlayerUnknown30454 (15 bytes)</title></rect>
 <rect width="0.80" height="0.47" x="723.40" y="316.54" class="named"><title>0x00420830 ReplayInfo::ReplayInfo (15 bytes)</title></rect>
 <rect width="0.80" height="0.47" x="727.20" y="316.54" class="named"><title>0x00422950 ScreenEffect::ScreenEffect (15 bytes)</title></rect>
 <rect width="0.80" height="0.47" x="731" y="316.54" class="named"><title>0x00423498 SoundPlayer::UnPause (15 bytes)</title></rect>
@@ -2206,14 +2206,14 @@
 <rect width="0.80" height="0.47" x="738.60" y="316.54" class="named"><title>0x00432ea0 NetworkMessageHandler (15 bytes)</title></rect>
 <rect width="0.80" height="0.47" x="742.40" y="316.54" class="named"><title>0x00435af0 AsciiPopup::AsciiPopup (15 bytes)</title></rect>
 <rect width="0.80" height="0.47" x="746.20" y="316.54" class="named"><title>0x00436aa0 Acos (15 bytes)</title></rect>
-<rect width="0.52" height="0.50" x="719.59" y="320.01" class="named"><title>0x00401610 SpriteEngine::ResetColorModulation (14 bytes)</title></rect>
-<rect width="0.52" height="0.50" x="719.59" y="323.51" class="named"><title>0x0040c950 EffectManager::Init (14 bytes)</title></rect>
-<rect width="0.52" height="0.50" x="719.59" y="327.01" class="named"><title>0x0040e470 GameManager::IsMode0 (14 bytes)</title></rect>
-<rect width="0.52" height="0.50" x="719.59" y="330.51" class="named"><title>0x00412600 BulletManager::ReleaseAnm (14 bytes)</title></rect>
-<rect width="0.52" height="0.50" x="719.59" y="334.01" class="named"><title>0x00415c50 Gui::ReleaseAnm (14 bytes)</title></rect>
-<rect width="0.52" height="0.50" x="719.59" y="337.50" class="named"><title>0x00415d40 Gui::Init (14 bytes)</title></rect>
-<rect width="0.52" height="0.50" x="719.59" y="341" class="named"><title>0x00418920 GuiSide::Init (14 bytes)</title></rect>
-<rect width="0.52" height="0.50" x="719.59" y="344.50" class="named"><title>0x00420160 Rng::SetSeed (14 bytes)</title></rect>
+<rect width="0.52" height="0.50" x="719.60" y="320.01" class="named"><title>0x00401610 SpriteEngine::ResetColorModulation (14 bytes)</title></rect>
+<rect width="0.52" height="0.50" x="719.60" y="323.51" class="named"><title>0x0040c950 EffectManager::Init (14 bytes)</title></rect>
+<rect width="0.52" height="0.50" x="719.60" y="327.01" class="named"><title>0x0040e470 GameManager::IsMode0 (14 bytes)</title></rect>
+<rect width="0.52" height="0.50" x="719.60" y="330.51" class="named"><title>0x00412600 BulletManager::ReleaseAnm (14 bytes)</title></rect>
+<rect width="0.52" height="0.50" x="719.60" y="334.01" class="named"><title>0x00415c50 Gui::ReleaseAnm (14 bytes)</title></rect>
+<rect width="0.52" height="0.50" x="719.60" y="337.50" class="named"><title>0x00415d40 Gui::Init (14 bytes)</title></rect>
+<rect width="0.52" height="0.50" x="719.60" y="341" class="named"><title>0x00418920 GuiSide::Init (14 bytes)</title></rect>
+<rect width="0.52" height="0.50" x="719.60" y="344.50" class="named"><title>0x00420160 Rng::SetSeed (14 bytes)</title></rect>
 <rect width="0.45" height="0.56" x="723.11" y="320.01" class="named"><title>0x0042e900 Tan (14 bytes)</title></rect>
 <rect width="0.45" height="0.56" x="726.57" y="320.01" class="named"><title>0x0042e910 tan (14 bytes)</title></rect>
 <rect width="0.45" height="0.56" x="730.02" y="320.01" class="named"><title>0x0042ed70 App::HasSubThread (14 bytes)</title></rect>

@@ -138,7 +138,7 @@ int ExAttackUpdate447890(ExAttack *attack)
     return 0;
 }
 
-// The unknown30450 of character 8: while unknown34 reaches 100 -
+// The combo func of character 8: while unknown34 reaches 100 -
 // unknownB4 * 3, sends an extra attack of type 16 from `pos` and takes
 // as much off it. Returns 0 (0x447a80).
 int PlayerComboFunc447a80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)

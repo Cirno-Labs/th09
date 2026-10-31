@@ -1,4 +1,5 @@
 #include "player.h"
+#include "ascii.h"
 #include "sprite.h"
 #include "bullet.h"
 #include "effect.h"
@@ -580,6 +581,177 @@ PlayerHitArea *Player::AddKind2Circle(D3DXVECTOR3 *pos, float radius, float radi
     return area;
 }
 
+void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
+{
+    int prev = this->unknownC;
+    int value;
+    D3DXVECTOR3 effectPos;
+    D3DXVECTOR3 effectVelocity;
+    Effect *effect;
+
+    if (g_GameManager.gui->GetUnknown11ea8())
+    {
+        return;
+    }
+    this->unknown3c = 0;
+    this->count++;
+    if (this->maxCount < this->count)
+    {
+        this->maxCount = this->count;
+    }
+    this->unknownC += g_GameManager.rank.unknownB4 * d / 10 + d;
+    if (this->unknownC % 10 != 0)
+    {
+        this->unknownC = this->unknownC - this->unknownC % 10 + 10;
+    }
+    if (this->unknownC > 999990)
+    {
+        this->unknownC = 999990;
+        this->player->side->AddScore(5000);
+    }
+    if (this->unknownC >= 500000 && prev < 500000)
+    {
+        this->player->otherSide->spellCard->Start(1, 1, 0, this->player->shtFile->spellCardNames[1]);
+        if (this->player->otherSide->enemyManager->FindByUnknownType(3) == NULL)
+        {
+            this->player->otherSide->spellCard->Start(2, 2, 0, this->player->shtFile->spellCardNames[2]);
+        }
+    }
+    else if (this->unknownC >= 300000 && prev < 300000)
+    {
+        if (this->player->otherSide->enemyManager->FindByUnknownType(3) == NULL)
+        {
+            this->player->otherSide->spellCard->Start(2, 2, 0, this->player->shtFile->spellCardNames[2]);
+        }
+    }
+    else if (this->unknownC >= 100000 && prev < 100000)
+    {
+        this->player->otherSide->spellCard->Start(2, 2, 0, this->player->shtFile->spellCardNames[2]);
+    }
+    value = this->unknownC >= 999990 ? -1 : this->unknownC;
+    if (this->count < 10)
+    {
+        if (this->count % 2 == 0)
+        {
+            g_AsciiText.AddPopup(this->player->sideIdx, pos, value,
+                                 this->unknownC >= 300000   ? 0xffffff00
+                                 : this->unknownC >= 100000 ? 0xffffffc0
+                                                            : 0xffffffff);
+        }
+    }
+    else if (this->count < 30)
+    {
+        if (this->count % 5 == 0)
+        {
+            g_AsciiText.AddPopup(this->player->sideIdx, pos, value,
+                                 this->unknownC >= 300000   ? 0xffffff00
+                                 : this->unknownC >= 100000 ? 0xffffffc0
+                                                            : 0xffffffff);
+        }
+    }
+    else if (this->count % 10 == 0)
+    {
+        g_AsciiText.AddPopup(this->player->sideIdx, pos, value,
+                             this->unknownC >= 300000   ? 0xffffff00
+                             : this->unknownC >= 100000 ? 0xffffffc0
+                                                        : 0xffffffff);
+    }
+    if (a != 0)
+    {
+        if (g_GameManager.difficulty == 2)
+        {
+            a = a * 5 / 4;
+        }
+        else if (g_GameManager.difficulty == 3)
+        {
+            a = a * 4 / 3;
+        }
+        this->unknown30 += b;
+        this->unknown2c += a;
+        this->unknown34 += c;
+        this->func(this, pos);
+        while (this->unknown30 >= 60 - g_GameManager.rank.unknownB4 * 3 / 2)
+        {
+            if (this->player->otherSide->enemyManager->unknown2ac3b8 < 25)
+            {
+                effectPos.x = g_GameManager.ArenaToScreenX(pos->x) + g_Rng.GetRandomF32SignedInRange(32.0f);
+                effectPos.y = g_GameManager.ArenaToScreenY(pos->y) + g_Rng.GetRandomF32SignedInRange(32.0f);
+                effectPos.z = 0.0f;
+                g_App.SetCamera(1 - this->player->sideIdx);
+                effectVelocity.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+                effectVelocity.y = g_Rng.GetRandomF32InRange(128.0f);
+                effectVelocity.z = 0.0f;
+                effect = g_GameManager.sides[2].effectManager->SpawnParticlesWithVelocity(
+                    this->player->sideIdx + 3, &effectPos, &effectVelocity, 1, 0xffffffff);
+                g_App.SetCamera(this->player->sideIdx);
+                effect->unknownA4 = 0;
+                effect->unknownA6 = 1;
+                effect->unknownA0 =
+                    g_Rng.GetRandomF32InRange(0.5f) * 0.016666668f + g_GameManager.rank.unknownB4 * 0.0016666667f;
+                effect->unknownA8 = this->player->sideIdx;
+            }
+            this->unknown30 += g_GameManager.rank.unknownB4 * 2 - 60;
+            this->unknown2c -= 10;
+            if (this->unknown2c < 0)
+            {
+                this->unknown2c = 0;
+            }
+        }
+        while (this->unknown2c >= (30 - g_GameManager.rank.unknownB4) * 4)
+        {
+            effectPos.x = g_GameManager.ArenaToScreenX(pos->x) + g_Rng.GetRandomF32SignedInRange(32.0f);
+            effectPos.y = g_GameManager.ArenaToScreenY(pos->y) + g_Rng.GetRandomF32SignedInRange(32.0f);
+            effectPos.z = 0.0f;
+            g_App.SetCamera(1 - this->player->sideIdx);
+            effectVelocity.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+            effectVelocity.y = g_Rng.GetRandomF32InRange(128.0f);
+            effectVelocity.z = 0.0f;
+            effect = g_GameManager.sides[2].effectManager->SpawnParticlesWithVelocity(
+                this->player->sideIdx + 1, &effectPos, &effectVelocity, 1, 0xffffffff);
+            g_App.SetCamera(this->player->sideIdx);
+            effect->unknownA4 = 0;
+            effect->unknownA6 = 4;
+            switch (g_GameManager.difficulty)
+            {
+            case 0:
+                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.04f + 0.9f;
+                break;
+            case 1:
+                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.05f + 1.1f;
+                break;
+            case 2:
+                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.08f + 1.3f;
+                break;
+            case 3:
+                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.11f + 1.3f;
+                break;
+            case 4:
+                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.04f + 1.6f;
+                break;
+            }
+            effect->unknownA8 = this->player->sideIdx;
+            this->unknown2c += g_GameManager.rank.unknownB4 * 4 - 120;
+        }
+    }
+    if (this->timer20 < 30)
+    {
+        this->timer20 += 30;
+    }
+    else if (this->timer20 < 50)
+    {
+        this->timer20 += 5;
+    }
+    else if (this->timer20 < 60)
+    {
+        this->timer20 += 2;
+    }
+    if (this->bonus <= this->unknownC)
+    {
+        this->bonus = this->unknownC;
+        this->timer14 = this->timer20.AsFrames() + 45;
+    }
+}
+
 void PlayerUnknown30410::Update()
 {
     if (this->timer20 > 0)
@@ -966,7 +1138,7 @@ int Player::AddedCallback(Player *player)
     player->unknown1cc0.z = 5.0f;
     player->unknown30388 = 100.0f;
     player->unknown30410.player = player;
-    player->unknown30450 = g_CharacterFuncs9d0[side->character];
+    player->unknown30410.func = g_CharacterFuncs9d0[side->character];
     player->unknownA4 = player->unknownA0 = 1;
     player->unknown9c = player;
     player->unknown36c.player = player;

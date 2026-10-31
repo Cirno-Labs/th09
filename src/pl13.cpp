@@ -7,7 +7,7 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The unknown30450 of character 13: while unknown34 reaches (28 -
+// The combo func of character 13: while unknown34 reaches (28 -
 // unknownB4) * 5, sends an extra attack of type 21 from `pos` and
 // takes as much off it. Returns 0 (0x44ba80).
 int PlayerComboFunc44ba80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)

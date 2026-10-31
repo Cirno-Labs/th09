@@ -212,7 +212,12 @@ ASSERT_SIZE(PlayerUnknown3031c, 0x1c);
 // bytes). Placeholder name.
 struct PlayerUnknown30410
 {
-    // Counts a hit and scores it; `pos` is where (0x41d150).
+    // Counts a hit at `pos` and adds `d` (more with rank.unknownB4) to
+    // unknownC, which starts the other side's spell cards as it passes
+    // 100000, 300000 and 500000, and shows it in a popup. With `a` set,
+    // adds `a`, `b` and `c` to unknown2c, unknown30 and unknown34, runs
+    // func and sends particles to the other side. Then extends timer20
+    // and keeps the highest unknownC in bonus (0x41d150).
     void AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d);
     // AddCombo, counting unknown38 too (0x40f8b0).
     void AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d);
@@ -235,16 +240,23 @@ struct PlayerUnknown30410
     int bonus;
     Timer timer14;
     Timer timer20;
-    unsigned char pad_2c[0x30 - 0x2c];
-    // Character 7's unknown30450 takes 5 off it for each attack, down
-    // to 0.
+    // AddCombo's first argument, scaled by difficulty: every
+    // (30 - rank.unknownB4) * 4 of it sends a particle of kind 4 to the
+    // other side.
+    int unknown2c;
+    // AddCombo's second argument: every 60 - rank.unknownB4 * 1.5 of
+    // it sends a particle of kind 1 to the other side. Character 7's
+    // func takes 5 off it for each attack, down to 0.
     int unknown30;
-    // What the character's unknown30450 spends on extra attacks.
+    // What the character's func spends on extra attacks.
     int unknown34;
     int unknown38;
     int unknown3c;
+    // The character's function from the table at 0x4a19d0, run by
+    // AddCombo when it is given points.
+    PlayerComboFunc func;
 };
-ASSERT_SIZE(PlayerUnknown30410, 0x40);
+ASSERT_SIZE(PlayerUnknown30410, 0x44);
 
 // One of four sprites of the player at +0x30454 (0x2c4 bytes).
 // Placeholder name.
@@ -540,8 +552,6 @@ public:
     PlayerEnemyFunc unknown30408;
     unsigned char pad_3040c[0x30410 - 0x3040c];
     PlayerUnknown30410 unknown30410;
-    // The character's function from the table at 0x4a19d0.
-    PlayerComboFunc unknown30450;
     PlayerUnknown30454 unknown30454[4];
     // The x of the last entry of unknown30454 the player did not touch
     // (-1000 if none), and its y halfway to 400.
