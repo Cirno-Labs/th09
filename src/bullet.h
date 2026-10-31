@@ -161,7 +161,9 @@ struct Laser
     WORD flags;
     short color;
     BYTE state;
-    unsigned char pad_599[0x59c - 0x599];
+    // Keeps the start sprite hidden until the laser is past state 0.
+    BYTE drawDelayFlag;
+    unsigned char pad_59a[0x59c - 0x59a];
 };
 ASSERT_SIZE(Laser, 0x59c);
 

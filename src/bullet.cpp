@@ -1,4 +1,5 @@
 #include "bullet.h"
+#include "effect.h"
 #include "enemy.h"
 #include "gamemanager.h"
 #include "player.h"
@@ -408,6 +409,95 @@ static void WrapAroundY(Bullet *bullet)
     {
         bullet->ex[6].timer--;
     }
+}
+
+// Draws the bullet's sprite, or that of the spawning state it is in, as
+// th08's DrawBullet (0x413af0).
+static void DrawBullet(Bullet *bullet)
+{
+    Sprite *sprite;
+
+    switch (bullet->state)
+    {
+    case 2:
+        sprite = &bullet->sprites.sprite1;
+        break;
+    case 3:
+        sprite = &bullet->sprites.sprite2;
+        break;
+    case 4:
+        sprite = &bullet->sprites.sprite3;
+        break;
+    case 5:
+        sprite = &bullet->sprites.sprite4;
+        break;
+    default:
+        sprite = &bullet->sprites.sprite0;
+    }
+    sprite->pos[0] = g_GameManager.ArenaToScreenX(bullet->pos[0]);
+    sprite->pos[1] = g_GameManager.ArenaToScreenY(bullet->pos[1]);
+    sprite->pos[2] = 0.05f;
+    sprite->color = sprite->color & 0xff000000 | 0xffffff;
+    if (sprite->autoRotate != 0)
+    {
+        sprite->SetRotationZ(AddNormalizeAngle(bullet->angle + 1.5707964f, 0.0f));
+    }
+    g_SpriteEngine->Draw(sprite);
+}
+
+int BulletManager::OnDraw(BulletManager *mgr)
+{
+    int i;
+    float s;
+    float ca;
+    Laser *laser;
+    float len;
+    float scale;
+    Bullet *bullet;
+
+    g_App.SetView(mgr->sideIdx);
+    laser = mgr->lasers;
+    for (i = 0x30; i != 0; i--, laser++)
+    {
+        if (!laser->active)
+        {
+            continue;
+        }
+        SinCos(&s, &ca, laser->angle);
+        len = (laser->endOffset - laser->startOffset) / 2.0f + laser->startOffset;
+        laser->sprite0.pos[0] = g_GameManager.ArenaToScreenX(len * ca + laser->pos[0]);
+        laser->sprite0.pos[1] = g_GameManager.ArenaToScreenY(len * s + laser->pos[1]);
+        laser->sprite0.pos[2] = 0.07f;
+        laser->color = laser->color & 0xff000000 | 0xffffff;
+        g_SpriteEngine->Draw(&laser->sprite0);
+        if ((laser->startOffset < 16.0f || laser->speed == 0.0f) && (laser->drawDelayFlag == 0 || laser->state != 0))
+        {
+            laser->sprite1.pos[0] = g_GameManager.ArenaToScreenX(ca * laser->startOffset + laser->pos[0]);
+            laser->sprite1.pos[1] = g_GameManager.ArenaToScreenY(s * laser->startOffset + laser->pos[1]);
+            laser->sprite1.pos[2] = 0.05f;
+            laser->sprite1.color = laser->sprite0.color;
+            laser->sprite1.unusedFlag6 = 1;
+            laser->sprite1.color = laser->sprite1.color & 0xffffff | 0xff000000;
+            scale = laser->width / 10.0f;
+            laser->sprite1.scaleX = laser->sprite1.scaleY = scale * ((16.0f - laser->startOffset) / 16.0f);
+            if (laser->sprite1.scaleX <= 0.0f)
+            {
+                laser->sprite1.scaleX = laser->sprite1.scaleY = scale;
+            }
+            g_SpriteEngine->Draw(&laser->sprite1);
+        }
+    }
+    for (i = 0; i < 6; i++)
+    {
+        bullet = mgr->unknown25e198[i];
+        while (bullet != NULL)
+        {
+            DrawBullet(bullet);
+            bullet = bullet->next;
+        }
+    }
+    EffectManager::DrawUnknown114(mgr->side->effectManager);
+    return 1;
 }
 
 int BulletManager::OnUpdate(BulletManager *mgr)

@@ -270,8 +270,8 @@ address,size,name,symbol
 0x004138c0,295,BounceOffWalls,?BounceOffWalls@@YIXPAUBullet@@@Z
 0x004139f0,113,WrapAroundX,?WrapAroundX@@YIXPAUBullet@@@Z
 0x00413a70,113,WrapAroundY,?WrapAroundY@@YIXPAUBullet@@@Z
-0x00413af0,215,Func413af0,
-0x00413be0,591,BulletManager::OnDraw,?OnDraw@BulletManager@@SIHPAV1@@Z
+0x00413af0,215,DrawBullet,?DrawBullet@@YIXPAUBullet@@@Z
+0x00413be0,600,BulletManager::OnDraw,?OnDraw@BulletManager@@SIHPAV1@@Z
 0x00413e40,598,BulletManager::AddedCallback,?AddedCallback@BulletManager@@SIHPAV1@@Z
 0x00414180,52,BulletManager::RemoveChain,?RemoveChain@BulletManager@@SIXPAV1@@Z
 0x004141c0,1233,RunBulletCommands,?RunBulletCommands@@YIXPAUBullet@@@Z
