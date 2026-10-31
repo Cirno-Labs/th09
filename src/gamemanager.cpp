@@ -379,8 +379,8 @@ void GameManager::Init()
     memset(this, 0, sizeof(GameManager));
     this->SetPlayArea();
     this->demoIndex = 0;
-    this->unknown378 = 10;
-    this->unknown37c = 10;
+    this->initialLives[0] = 10;
+    this->initialLives[1] = 10;
 }
 
 int GameManager::OnUpdate(GameManager *mgr)

@@ -1536,6 +1536,87 @@ int Player::OnDraw(Player *player)
     return 1;
 }
 
+void Player::Reset()
+{
+    int i;
+    int level;
+    float *pos;
+
+    this->anm->StartScript(&this->sprite, 0);
+    pos = this->pos;
+    i = 0;
+    pos[i++] = -160.0f;
+    pos[i++] = g_GameManager.arena[3] - 64.0f;
+    pos[i] = 0.49f;
+    for (i = 0; i < 0x200; i++)
+    {
+        this->hitAreas[i].Reset();
+        this->freeHitAreas[i] = &this->hitAreas[i];
+        this->activeHitAreas[i] = NULL;
+    }
+    this->activeHitAreaCount = 0;
+    this->freeHitAreaCount = 0x200;
+    this->direction = 0;
+    this->unknown30410.unknown3c = 0;
+    this->SetUnknown0(5);
+    this->unknown303c8 = 120;
+    this->unknown1b84 = 1;
+    for (i = 0; i < 0x80; i++)
+    {
+        this->bullets[i].state = 0;
+    }
+    this->unknown1cdc = this->unknown1ce0 = 1.0f;
+    this->unknown1ce4 = this->unknown1ce8 = 1.0f;
+    for (i = 0; i < 0x10; i++)
+    {
+        this->posHistory[i] = this->pos;
+    }
+    this->unknown303e8 = 0;
+    this->focused = 2;
+    this->unknown303b0 = 6;
+    this->unknown24.unknown58 = g_Rng.GetRandomF32InRange(400.0f) + 100.0f;
+    if (this->unknown24.unknown58 >= 400.0f)
+    {
+        this->unknown24.unknown58 = 400.0f;
+    }
+    this->unknown30410.EndCombo();
+    this->unknown1b74 = 0;
+    this->unknown30384 = 0.0f;
+    this->unknownA8 = g_GameManager.initialLives[this->sideIdx];
+    level = g_GameManager.unknown100;
+    if (level > 2)
+    {
+        level = 2;
+    }
+    switch (g_GameManager.difficulty)
+    {
+    case 0:
+    case 1:
+        this->unknownA4 = this->unknownA0 = level + 1;
+        break;
+    case 2:
+        this->unknownA4 = this->unknownA0 = level + 4;
+        break;
+    case 3:
+        this->unknownA4 = this->unknownA0 = level + 8;
+        break;
+    case 4:
+        this->unknownA4 = this->unknownA0 = level + 12;
+        this->unknownA8 = 1;
+        this->unknown30388 = 400.0f;
+        break;
+    }
+    if (this->unknownA8 == 1)
+    {
+        this->unknownFlag3 = 1;
+    }
+    this->unknown303a4 = -1;
+    this->unknown1cd8 = -1.5707964f;
+    this->unknown364 = NULL;
+    this->unknown24.Reset();
+    memset(this->unknown30454, 0, sizeof(this->unknown30454));
+}
+
 int Player::AddedCallback(Player *player)
 {
     GameSide *side;

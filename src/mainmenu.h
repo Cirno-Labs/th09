@@ -311,7 +311,7 @@ public:
     int tuneCount;
     int listTop;
     int musicPaused;
-    // Go to GameManager::unknown378 and unknown37c.
+    // Go to GameManager::initialLives.
     int unknown11b84;
     int unknown11b88;
     // Set while UpdateState3 lets left and right change the two

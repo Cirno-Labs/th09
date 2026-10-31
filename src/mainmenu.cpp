@@ -1608,8 +1608,8 @@ int MainMenu::UpdateState1()
                 }
                 this->SetState(2);
                 g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
-                g_GameManager.unknown378 = 10;
-                g_GameManager.unknown37c = 10;
+                g_GameManager.initialLives[0] = 10;
+                g_GameManager.initialLives[1] = 10;
                 return 1;
             case 1:
                 if (g_PlayRecord.openEntries3[12])
@@ -1622,8 +1622,8 @@ int MainMenu::UpdateState1()
                     }
                     this->SetState(4);
                     g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
-                    g_GameManager.unknown378 = 10;
-                    g_GameManager.unknown37c = 10;
+                    g_GameManager.initialLives[0] = 10;
+                    g_GameManager.initialLives[1] = 10;
                     return 1;
                 }
                 this->PlaySoundNow(0x27, 0);
@@ -1634,8 +1634,8 @@ int MainMenu::UpdateState1()
                 this->cursor = g_GameManager.unknown114;
                 this->SetState(6);
                 g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 5);
-                g_GameManager.unknown378 = 10;
-                g_GameManager.unknown37c = 10;
+                g_GameManager.initialLives[0] = 10;
+                g_GameManager.initialLives[1] = 10;
                 return 1;
             case 3:
                 this->PlaySoundNow(10, 0);
@@ -1843,8 +1843,8 @@ int MainMenu::UpdateState3()
                 g_App.scene = 2;
             }
             g_GameManager.difficulty = g_App.config.difficulty;
-            g_GameManager.unknown378 = this->unknown11b84;
-            g_GameManager.unknown37c = this->unknown11b88;
+            g_GameManager.initialLives[0] = this->unknown11b84;
+            g_GameManager.initialLives[1] = this->unknown11b88;
             return 0;
         }
         if ((g_PlayerInputs[2].unknown6 & 0xa) && this->cursors[2] == 0)
@@ -3176,8 +3176,8 @@ int MainMenu::UpdateState8()
         {
             g_GameManager.sides[0].character = characters[0];
             g_GameManager.sides[1].character = characters[1];
-            g_GameManager.unknown378 = this->unknown11b84;
-            g_GameManager.unknown37c = this->unknown11b88;
+            g_GameManager.initialLives[0] = this->unknown11b84;
+            g_GameManager.initialLives[1] = this->unknown11b88;
             this->PlaySoundNow(10, 0);
             this->SetState(16);
             this->UpdateState16();
@@ -3270,8 +3270,8 @@ int MainMenu::UpdateState8()
             this->subState = 0;
             this->stateFrames = 0;
             this->helpSprite = NULL;
-            this->unknown11b84 = g_GameManager.unknown378;
-            this->unknown11b88 = g_GameManager.unknown37c;
+            this->unknown11b84 = g_GameManager.initialLives[0];
+            this->unknown11b88 = g_GameManager.initialLives[1];
             this->FlashHalves(this->unknown11b84, this->unknown11b88);
             this->MoveCharacterCursor(0, characters[0], characters[1], g_VsCharacters);
             this->MoveCharacterCursor(1, characters[1], characters[0], g_VsCharacters);
@@ -3421,8 +3421,8 @@ int MainMenu::UpdateState8b()
         {
             g_GameManager.sides[0].character = characters[0];
             g_GameManager.sides[1].character = characters[1];
-            g_GameManager.unknown378 = this->unknown11b84;
-            g_GameManager.unknown37c = this->unknown11b88;
+            g_GameManager.initialLives[0] = this->unknown11b84;
+            g_GameManager.initialLives[1] = this->unknown11b88;
             this->PlaySoundNow(10, 0);
             this->SetState(16);
             this->UpdateState16();
@@ -3528,8 +3528,8 @@ int MainMenu::UpdateState8b()
             this->subState = 0;
             this->stateFrames = 0;
             this->helpSprite = NULL;
-            this->unknown11b84 = g_GameManager.unknown378;
-            this->unknown11b88 = g_GameManager.unknown37c;
+            this->unknown11b84 = g_GameManager.initialLives[0];
+            this->unknown11b88 = g_GameManager.initialLives[1];
             this->FlashHalves(this->unknown11b84, this->unknown11b88);
             this->MoveCharacterCursor(0, characters[0], characters[0], g_VsCpuCharacters);
         }
@@ -4542,8 +4542,8 @@ int MainMenu::UpdateState16()
                 g_GameManager.mode = 2;
             }
             g_GameManager.difficulty = g_App.config.difficulty;
-            g_GameManager.unknown378 = this->unknown11b84;
-            g_GameManager.unknown37c = this->unknown11b88;
+            g_GameManager.initialLives[0] = this->unknown11b84;
+            g_GameManager.initialLives[1] = this->unknown11b88;
             g_GameManager.unknown138 = g_OpenCharacters[this->cursor];
             if (g_GameManager.unknown138 == 14)
             {

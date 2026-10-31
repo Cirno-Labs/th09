@@ -92,7 +92,7 @@ struct ReplayHeader
     // GameManager::mode and unknown114.
     BYTE mode;
     BYTE unknown1e5;
-    // GameManager::unknown378 and unknown37c, and each side's unknown30.
+    // GameManager::initialLives, and each side's unknown30.
     BYTE unknown1e6[2];
     BYTE unknown1e8[2];
     unsigned char pad_1ea[0x1ec - 0x1ea];

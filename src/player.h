@@ -344,7 +344,11 @@ public:
     // Frees the player's resources, removes its chain elements and
     // deletes it, if any (0x41ced0).
     static void RemoveChain(Player *player);
-    // Resets the player for a new round (0x41ebc0).
+    // Resets the player for a new round: puts it at (-160, arena bottom
+    // - 64), frees the hit areas and bullets, sets unknown0 to 5 for 120
+    // frames, the lives from GameManager::initialLives and unknownA0 and
+    // unknownA4 by difficulty and unknown100 (one life and a full
+    // unknown30388 on difficulty 4) (0x41ebc0).
     void Reset();
     // The player is hit, unless the front's unknown11ea8 is set: queues
     // sound 4 and takes rank.unknownB8 lives (and rank.unknownBc more
@@ -527,7 +531,8 @@ public:
             DWORD unknownFlag3 : 1;
         };
     };
-    unsigned char pad_1b84[0x1b88 - 0x1b84];
+    // Set to 1 by Reset.
+    int unknown1b84;
     D3DXVECTOR3 pos;
     unsigned char pad_1b94[0x1ba0 - 0x1b94];
     // The player's last positions, as th08's.
@@ -603,7 +608,10 @@ public:
     // An effect kept at the player while unknown0 is 3, stopped when
     // unknown303c8 runs out.
     Effect *unknown303e0;
-    unsigned char pad_303e4[0x303f0 - 0x303e4];
+    unsigned char pad_303e4[0x303e8 - 0x303e4];
+    // Cleared by Reset.
+    int unknown303e8;
+    unsigned char pad_303ec[0x303f0 - 0x303ec];
     // The character's values from the tables at 0x4a1bd0, 0x4a1b90,
     // 0x4a1b50, 0x4a1b10 and 0x4a1ad0.
     int unknown303f0;

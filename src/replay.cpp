@@ -365,8 +365,8 @@ int ReplayManager::AddedCallbackMode1(ReplayManager *mgr)
     g_GameManager.stage = round0->stage;
     g_GameManager.unknown138 = round0->unknown9;
     g_GameManager.difficulty = mgr->unknown08->info.difficulty;
-    g_GameManager.unknown378 = mgr->unknown08->unknown1e6[0];
-    g_GameManager.unknown37c = mgr->unknown08->unknown1e6[1];
+    g_GameManager.initialLives[0] = mgr->unknown08->unknown1e6[0];
+    g_GameManager.initialLives[1] = mgr->unknown08->unknown1e6[1];
     g_GameManager.sides[0].unknown30 = mgr->unknown08->unknown1e8[0];
     g_GameManager.sides[1].unknown30 = mgr->unknown08->unknown1e8[1];
     g_GameManager.sides[0].stats->score = round0->score;
@@ -574,8 +574,8 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
             p2 = FormatAndAdvance(p2, "対戦キャラ\t\t%s vs %s\r\n", g_ReplayCharacterNames[g_GameManager.sides[0].character],
                                   g_ReplayCharacterNames[g_GameManager.sides[1].character]);
         }
-        p2 = FormatAndAdvance(p2, "初期体力\t\t%1.1f vs %1.1f\r\n", g_GameManager.unknown378 * 0.5f,
-                              g_GameManager.unknown37c * 0.5f);
+        p2 = FormatAndAdvance(p2, "初期体力\t\t%1.1f vs %1.1f\r\n", g_GameManager.initialLives[0] * 0.5f,
+                              g_GameManager.initialLives[1] * 0.5f);
         p2 = FormatAndAdvance(p2, "ゲームのバージョン\t%s\r\n", "東方花映塚 ver 1.50a");
         user.size = strlen(userInfo) + 1 + 0xc;
         user.size += user.size & 1;
@@ -676,8 +676,8 @@ int ReplayManager::AddedCallbackMode0(ReplayManager *mgr)
         hdr->info.difficulty = g_GameManager.difficulty;
         hdr->mode = g_GameManager.mode;
         hdr->unknown1e5 = g_GameManager.unknown114;
-        hdr->unknown1e6[0] = g_GameManager.unknown378;
-        hdr->unknown1e6[1] = g_GameManager.unknown37c;
+        hdr->unknown1e6[0] = g_GameManager.initialLives[0];
+        hdr->unknown1e6[1] = g_GameManager.initialLives[1];
         mgr->unknown08->unknown1e8[0] = g_GameManager.sides[0].unknown30;
         mgr->unknown08->unknown1e8[1] = g_GameManager.sides[1].unknown30;
         *(DWORD *)hdr->info.name = *(DWORD *)"NO NAME";

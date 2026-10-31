@@ -127,8 +127,8 @@ ASSERT_SIZE(GameRank, 0x24);
 class GameManager
 {
 public:
-    // Zeroes the GameManager, sets the play area, and sets unknown378 and
-    // unknown37c to 10, as th08's constructor did (0x41ba4f).
+    // Zeroes the GameManager, sets the play area, and sets initialLives
+    // to 10, as th08's constructor did (0x41ba4f).
     void Init();
 
     // The draw chain callback, as th08's: moves isPaused on from 1 to 2.
@@ -308,8 +308,9 @@ public:
     unsigned char pad_370[0x374 - 0x370];
     // The item of the last pair of enemies OnUpdate spawned.
     int unknown374;
-    int unknown378;
-    int unknown37c;
+    // Each side's lives at the start of a round, in halves; Player::Reset
+    // sets the player's unknownA8 from it.
+    int initialLives[2];
     int unknown380;
     unsigned char pad_384[0x38c - 0x384];
     // Set by the loading thread, as th08's pendingMusicStart: OnUpdate
