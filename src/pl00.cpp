@@ -121,6 +121,68 @@ int ExAttackInit440fb0(ExAttack *attack)
     return 0;
 }
 
+// The update callback of extra attack types 0 and 1: flies in along the
+// curve for 90 frames, then appears on the target's side and, after 20
+// frames, falls bouncing off the sides as a hit circle until it touches
+// the player there or leaves the bottom. Returns 1 once it is done
+// (0x441100).
+int ExAttackUpdate441100(ExAttack *attack)
+{
+    ExAttackData00 *data = (ExAttackData00 *)attack->data;
+    D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
+
+    switch (data->state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites, 9);
+            data->state++;
+            attack->pos = data->targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+        }
+        break;
+    case 1:
+        if (attack->timer > 0x14)
+        {
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->state = 2;
+                attack->timer = 0;
+                attack->sprites->SetPendingInterrupt(1);
+                return 0;
+            }
+            attack->pos += data->velocity;
+            if ((data->velocity.x < 0.0f && attack->pos.x < -144.0f) ||
+                (data->velocity.x > 0.0f && attack->pos.x > 144.0f))
+            {
+                data->velocity.x = -data->velocity.x;
+            }
+            data->velocity.y += 0.04f;
+            if (data->velocity.y > 3.0f)
+            {
+                data->velocity.y = 3.0f;
+            }
+            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 18.0f, NULL);
+            if (attack->pos.y >= 480.0f)
+            {
+                return 1;
+            }
+        }
+        break;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
 // The init callbacks of spell card types 0 and 1: allocate unknown1360
 // and spawn enemy subroutine 0 or 1 from the player's ECL (0x441350,
 // 0x4413d0). The position is never set. Return 0.
