@@ -26,9 +26,10 @@ struct ExAttack
     void AllocSprites(int count, int dataSize)
     {
         this->spriteCount = count;
-        this->sprites = (Sprite *)g_MemoryManager.Alloc(count * sizeof(Sprite) + dataSize, "./system\\global.h");
-        memset(this->sprites, 0, count * sizeof(Sprite) + dataSize);
-        this->data = (BYTE *)this->sprites + count * sizeof(Sprite);
+        dataSize += count * sizeof(Sprite);
+        this->sprites = (Sprite *)g_MemoryManager.Alloc(dataSize, "./system\\global.h");
+        memset(this->sprites, 0, dataSize);
+        this->data = &this->sprites[count];
     }
 
     // Which of the three lists OnUpdate links it into.
