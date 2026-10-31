@@ -2300,6 +2300,356 @@ int MainMenu::UpdateState12()
     return 1;
 }
 
+int MainMenu::UpdateState9()
+{
+    int i;
+
+    switch (this->subState)
+    {
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 3);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->prevCursor = -1;
+            this->entryCount = this->entryFirst = 9;
+            this->SelectCursorEntry();
+            this->unknownC918 = 1;
+        }
+        this->subState = 1;
+        for (i = 0; i < ARRAY_SIZE(g_OptionsHelpTexts); i++)
+        {
+            g_SpriteEngine->RenderTextCentered(&this->helpSprites[i], 0xfff0e0, 0x300000, g_OptionsHelpTexts[i]);
+        }
+    case 1:
+        if (g_App.config.bgmVolume >= 100)
+        {
+            this->anm->SetSprite(&this->sprites[26], this->sprites[26].baseSpriteIndex);
+            this->sprites[26].alpha = 0xff;
+            this->sprites[26].flags |= 2;
+        }
+        else
+        {
+            this->sprites[26].alpha = 0;
+            this->sprites[26].flags &= ~2;
+        }
+        if (g_App.config.bgmVolume >= 10)
+        {
+            this->anm->SetSprite(&this->sprites[27],
+                                 this->sprites[27].baseSpriteIndex + g_App.config.bgmVolume / 10 % 10 * 2);
+            this->sprites[27].alpha = 0xff;
+            this->sprites[27].flags |= 2;
+        }
+        else
+        {
+            this->sprites[27].alpha = 0;
+            this->sprites[27].flags &= ~2;
+        }
+        this->anm->SetSprite(&this->sprites[28], this->sprites[28].baseSpriteIndex + g_App.config.bgmVolume % 10 * 2);
+        this->anm->SetSprite(&this->sprites[29], this->sprites[29].baseSpriteIndex);
+        if (g_App.config.seVolume >= 100)
+        {
+            this->anm->SetSprite(&this->sprites[30], this->sprites[30].baseSpriteIndex);
+            this->sprites[30].alpha = 0xff;
+            this->sprites[30].flags |= 2;
+        }
+        else
+        {
+            this->sprites[30].alpha = 0;
+            this->sprites[30].flags &= ~2;
+        }
+        if (g_App.config.seVolume >= 10)
+        {
+            this->anm->SetSprite(&this->sprites[31],
+                                 this->sprites[31].baseSpriteIndex + g_App.config.seVolume / 10 % 10 * 2);
+            this->sprites[31].alpha = 0xff;
+            this->sprites[31].flags |= 2;
+        }
+        else
+        {
+            this->sprites[31].alpha = 0;
+            this->sprites[31].flags &= ~2;
+        }
+        if (this->MoveCursor(9) != 0)
+        {
+            this->SelectCursorEntry();
+        }
+        if (this->prevCursor != this->cursor)
+        {
+            this->helpSprite = &this->helpSprites[this->cursor];
+            this->helpSprite->SetPendingInterrupt(1);
+        }
+        this->prevCursor = this->cursor;
+        if (this->unknown1b230 < 4)
+        {
+            break;
+        }
+        if (g_PlayerInputs[2].IsPressed(0x40))
+        {
+            switch (this->cursor)
+            {
+            case 0:
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                if (g_App.config.unknownAc == 0)
+                {
+                    g_App.config.unknownAc = 2;
+                }
+                else
+                {
+                    g_App.config.unknownAc--;
+                }
+                this->SelectEntry(g_App.config.unknownAc, 0x12, 3);
+                break;
+            case 1:
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                if (g_App.config.colorMode16Bits == 0)
+                {
+                    g_App.config.colorMode16Bits = 1;
+                }
+                else
+                {
+                    g_App.config.colorMode16Bits--;
+                }
+                this->SelectEntry(g_App.config.colorMode16Bits, 0x15, 2);
+                break;
+            case 2:
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_App.StopBgm();
+                if (g_App.config.musicMode == 0)
+                {
+                    g_App.config.musicMode = 1;
+                }
+                else
+                {
+                    g_App.config.musicMode--;
+                }
+                g_App.LoadBgm(0);
+                g_App.PlayMusic(0, 0);
+                this->SelectEntry(g_App.config.musicMode, 0x17, 3);
+                break;
+            case 5:
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                if (g_App.config.windowed == 0)
+                {
+                    g_App.config.windowed = 1;
+                }
+                else
+                {
+                    g_App.config.windowed--;
+                }
+                this->SelectEntry(g_App.config.windowed, 0x22, 2);
+                break;
+            default:
+                goto volume;
+            }
+            this->PlaySoundNow(12, 0);
+        }
+    volume:
+        if (g_PlayerInputs[2].unknown6 & 0x40)
+        {
+            switch (this->cursor)
+            {
+            case 3:
+                g_App.config.bgmVolume -= 4;
+                if (g_App.config.bgmVolume < 0)
+                {
+                    g_App.config.bgmVolume = 0;
+                }
+                g_SoundPlayer.QueueSoundCommand(8, 0, "SetVol");
+                break;
+            case 4:
+                g_App.config.seVolume -= 4;
+                if (g_App.config.seVolume < 0)
+                {
+                    g_App.config.seVolume = 0;
+                }
+                g_SoundPlayer.QueueSoundCommand(8, 0, "SetVol");
+                break;
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x80)
+        {
+            switch (this->cursor)
+            {
+            case 3:
+                g_App.config.bgmVolume += 4;
+                if (g_App.config.bgmVolume > 100)
+                {
+                    g_App.config.bgmVolume = 100;
+                }
+                g_SoundPlayer.QueueSoundCommand(8, 0, "SetVol");
+                break;
+            case 4:
+                g_App.config.seVolume += 4;
+                if (g_App.config.seVolume > 100)
+                {
+                    g_App.config.seVolume = 100;
+                }
+                g_SoundPlayer.QueueSoundCommand(8, 0, "SetVol");
+                break;
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x40)
+        {
+            switch (this->cursor)
+            {
+            case 3:
+                if (g_App.config.bgmVolume > 0)
+                {
+                    g_App.config.bgmVolume--;
+                }
+                g_SoundPlayer.QueueSoundCommand(8, 0, "SetVol");
+                break;
+            case 4:
+                if (g_App.config.seVolume > 0)
+                {
+                    g_App.config.seVolume--;
+                }
+                g_SoundPlayer.QueueSoundCommand(8, 0, "SetVol");
+                break;
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 0x80)
+        {
+            switch (this->cursor)
+            {
+            case 3:
+                if (g_App.config.bgmVolume < 100)
+                {
+                    g_App.config.bgmVolume++;
+                }
+                g_SoundPlayer.QueueSoundCommand(8, 0, "SetVol");
+                break;
+            case 4:
+                if (g_App.config.seVolume < 100)
+                {
+                    g_App.config.seVolume++;
+                }
+                g_SoundPlayer.QueueSoundCommand(8, 0, "SetVol");
+                break;
+            }
+        }
+        g_SoundPlayer.bgmVolume = g_App.config.bgmVolume;
+        g_SoundPlayer.seVolume = g_App.config.seVolume;
+        if (g_PlayerInputs[2].IsPressed(0x80))
+        {
+            switch (this->cursor)
+            {
+            case 0:
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                if (g_App.config.unknownAc >= 2)
+                {
+                    g_App.config.unknownAc = 0;
+                }
+                else
+                {
+                    g_App.config.unknownAc++;
+                }
+                this->SelectEntry(g_App.config.unknownAc, 0x12, 3);
+                break;
+            case 1:
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                if (g_App.config.colorMode16Bits >= 1)
+                {
+                    g_App.config.colorMode16Bits = 0;
+                }
+                else
+                {
+                    g_App.config.colorMode16Bits++;
+                }
+                this->SelectEntry(g_App.config.colorMode16Bits, 0x15, 2);
+                break;
+            case 2:
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_App.StopBgm();
+                if (g_App.config.musicMode >= 1)
+                {
+                    g_App.config.musicMode = 0;
+                }
+                else
+                {
+                    g_App.config.musicMode++;
+                }
+                g_App.LoadBgm(0);
+                g_App.PlayMusic(0, 0);
+                this->SelectEntry(g_App.config.musicMode, 0x17, 3);
+                break;
+            case 5:
+                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                if (g_App.config.windowed >= 1)
+                {
+                    g_App.config.windowed = 0;
+                }
+                else
+                {
+                    g_App.config.windowed++;
+                }
+                this->SelectEntry(g_App.config.windowed, 0x22, 2);
+                break;
+            default:
+                goto idle;
+            }
+            this->PlaySoundNow(12, 0);
+        }
+    idle:
+        if (this->cursor >= 3 && this->cursor <= 4 && this->unknown1b230 % 50 == 0)
+        {
+            g_SoundPlayer.PlaySoundByIdx(0x1d, 0);
+        }
+        this->unknownC910 = 0;
+        if (g_PlayerInputs[2].unknown6 & 0x1001)
+        {
+            switch (this->cursor)
+            {
+            case 6:
+                g_App.config.unknownAc = 0;
+                g_App.config.musicMode = 1;
+                g_App.config.playSounds = 1;
+                this->PlaySoundNow(10, 0);
+                this->SelectEntry(g_App.config.unknownAc, 0x12, 3);
+                this->SelectEntry(g_App.config.colorMode16Bits, 0x15, 2);
+                this->SelectEntry(g_App.config.musicMode, 0x17, 3);
+                this->SelectEntry(g_App.config.windowed, 0x22, 2);
+                break;
+            case 7:
+                this->cursor = 0;
+                this->SetState(10);
+                this->PlaySoundNow(10, 0);
+                return 1;
+            case 8:
+                goto leave;
+            }
+        }
+        if (g_PlayerInputs[2].unknown6 & 0xa)
+        {
+            if (this->cursor == 8)
+            {
+            leave:
+                this->cursor = 6;
+                this->SetState(1);
+                this->UpdateState1();
+                this->PlaySoundNow(11, 0);
+                if (this->config.colorMode16Bits != g_App.config.colorMode16Bits ||
+                    this->config.windowed != g_App.config.windowed)
+                {
+                    return 5;
+                }
+                return 1;
+            }
+            this->anm->SetSprite(&this->sprites[this->cursor + 9], this->sprites[this->cursor + 9].baseSpriteIndex + 1);
+            this->cursor = 8;
+            this->anm->SetSprite(&this->sprites[this->cursor + 9], this->sprites[this->cursor + 9].baseSpriteIndex);
+            this->PlaySoundNow(11, 0);
+        }
+    }
+    this->unknownC910++;
+    this->stateFrames++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState13()
 {
     int i;

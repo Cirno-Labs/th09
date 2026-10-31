@@ -29,6 +29,8 @@ extern char *g_ReplayMenuMatchNames[4];
 // "1st" to "5th", for the high score tables (0x4a1d68).
 extern char *g_ScoreRankNames[5];
 
+// The help lines of the options' nine entries (0x4a1ddc).
+extern char *g_OptionsHelpTexts[9];
 // The comment the music room shows for a tune not heard yet (0x4a1dbc).
 extern char *g_MusicNotHeardComment[8];
 // The characters of states 3 and 5's character select, in its order
@@ -204,6 +206,10 @@ public:
     // and [1] pick the two characters and cursors[2] and [3] mark them
     // chosen; while button 4 is held, unknown11b84 can be changed. It
     // starts the game in scene 2, or goes back to state 2, 4 or 7.
+    // UpdateState9 is the options, th08's UpdateOptions: unknownAc, the
+    // colour depth, the music, the two volumes and the window, the
+    // defaults, the key config (state 10) and leaving, which returns 5
+    // when the colour depth or the window changed.
     // UpdateState12 is the music room, th08's music screen: it reads
     // musiccmt.txt into tunes, lists ten tunes from listTop, shows the
     // playing one's comment a line every two frames and plays, pauses
