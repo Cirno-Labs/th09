@@ -23,6 +23,21 @@ int PlayerComboFunc445d80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
     return 0;
 }
 
+// The update callback of effect type 25: grows unknown7c by 4 up to 56,
+// sets unknownC9 and puts the effect on its side's player, raised by 1.5
+// times unknown7c. Returns 1 (0x445e00).
+int EffectUpdate445e00(Effect *effect)
+{
+    effect->unknownC9 = 1;
+    if (effect->unknown7c < 56.0f)
+    {
+        effect->unknown7c += 4.0f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    effect->pos.y -= effect->unknown7c * 1.5f;
+    return 1;
+}
+
 // The unknown30404 of character 7: whether `pos` is within the radius of
 // the player's unknown368 about a point 1.5 radii above the player
 // (0x445e60).

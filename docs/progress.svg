@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">7.45% (83)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">21.27% (237)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">7.54% (84)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">21.18% (236)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="55.66" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="158.92" height="6" x="588.08" y="0" class="todo"/>
+<rect width="56.33" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="158.25" height="6" x="588.75" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1110,7 +1110,7 @@
 <rect width="12" height="12" x="585" y="300" class="decompiled"><title>0x00445cb0 ShotFire445cb0 (72 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="300" class="decompiled"><title>0x00445d00 ShotFire445d00 (119 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="300" class="decompiled"><title>0x00445d80 PlayerComboFunc445d80 (119 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="300" class="todo"><title>0x00445e00 Func445e00 (96 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="300" class="decompiled"><title>0x00445e00 EffectUpdate445e00 (96 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="300" class="decompiled"><title>0x00445e60 PlayerPosFunc445e60 (91 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="300" class="todo"><title>0x00445ec0 Func445ec0 (407 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="300" class="todo"><title>0x00446060 Func446060 (698 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">3.19%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">54.74%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">3.22%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">54.70%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="23.80" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="408.88" height="6" x="338.12" y="0" class="todo"/>
+<rect width="24.04" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="408.64" height="6" x="338.36" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1756,7 +1756,7 @@
 <rect width="6.06" height="6.42" x="601.40" y="329.17" class="decompiled"><title>0x00442ee0 PlayerComboFunc442ee0 (97 bytes)</title></rect>
 <rect width="6.06" height="6.42" x="601.40" y="338.58" class="decompiled"><title>0x00448640 PlayerComboFunc448640 (97 bytes)</title></rect>
 <rect width="6.47" height="5.91" x="610.46" y="205.02" class="named"><title>0x00424d9f MainMenu::DeletedCallback (96 bytes)</title></rect>
-<rect width="6.47" height="5.91" x="619.93" y="205.02" class="todo"><title>0x00445e00 Func445e00 (96 bytes)</title></rect>
+<rect width="6.47" height="5.91" x="619.93" y="205.02" class="decompiled"><title>0x00445e00 EffectUpdate445e00 (96 bytes)</title></rect>
 <rect width="6.38" height="5.91" x="629.41" y="205.02" class="named"><title>0x00412470 BulletManager::Reset (95 bytes)</title></rect>
 <rect width="6.38" height="5.91" x="638.78" y="205.02" class="named"><title>0x0041a270 GuiSide::StartUnknown5c6c (95 bytes)</title></rect>
 <rect width="6.38" height="5.91" x="648.16" y="205.02" class="named"><title>0x004323b0 Network::Send (95 bytes)</title></rect>
