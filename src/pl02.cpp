@@ -82,6 +82,41 @@ int ShotFire441ef0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd
     return 1;
 }
 
+// The update callback of effect type 17: grows unknown84 by pi/60 up to
+// pi/2, sets unknownC9, puts the effect on its side's player and turns
+// unknown80 a quarter of the shorter way towards opposite the player's
+// unknown1cd8. Returns 1 (0x4422f0).
+int EffectUpdate4422f0(Effect *effect)
+{
+    float target;
+    float delta;
+
+    effect->unknownC9 = 1;
+    if (effect->unknown84 < 1.5707964f)
+    {
+        effect->unknown84 += 0.05235988f;
+    }
+    effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
+    target = AddNormalizeAngle(effect->mgr->side->player->unknown1cd8, 3.1415927f);
+    delta = target - effect->unknown80;
+    if (target > effect->unknown80)
+    {
+        if (delta > 3.1415927f)
+        {
+            delta -= 6.2831855f;
+        }
+    }
+    else
+    {
+        if (delta < -3.1415927f)
+        {
+            delta += 6.2831855f;
+        }
+    }
+    effect->unknown80 = AddNormalizeAngle(effect->unknown80, delta * 0.25f);
+    return 1;
+}
+
 // A fire callback of the shot table (2): fires `sd` on its frame,
 // standing still at its angle. Returns 1 if it fired (0x4423d0).
 int ShotFire4423d0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
