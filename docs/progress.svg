@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.14% (915)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">1.08% (12)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.14% (915)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">2.15% (24)</tspan> · <tspan class="todo">0.99% (11)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="613.56" height="6" x="0" y="0" class="named"/>
 <rect width="109.97" height="6" x="613.56" y="0" class="decompiled"/>
-<rect width="15.42" height="6" x="723.53" y="0" class="nonmatching"/>
-<rect width="8.05" height="6" x="738.95" y="0" class="todo"/>
+<rect width="16.09" height="6" x="723.53" y="0" class="nonmatching"/>
+<rect width="7.38" height="6" x="739.62" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -1035,7 +1035,7 @@
 <rect width="12" height="12" x="195" y="285" class="decompiled"><title>0x00441420 SpellCardInit441420 (78 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="285" class="decompiled"><title>0x00441470 SpellCardFree441470 (38 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="285" class="decompiled"><title>0x004414a0 EffectDraw4414a0 (314 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="285" class="todo"><title>0x004415e0 Func4415e0 (471 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="285" class="nonmatching"><title>0x004415e0 ShotUpdate4415e0 (471 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="285" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="285" class="decompiled"><title>0x004417f0 PlayerPosFunc4417f0 (129 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="285" class="decompiled"><title>0x00441880 ShotHit441880 (11 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.01%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.23%</tspan> · <tspan class="todo">3.38%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.01%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.39%</tspan> · <tspan class="todo">3.22%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="500.57" height="6" x="0" y="0" class="named"/>
 <rect width="114.88" height="6" x="500.57" y="0" class="decompiled"/>
-<rect width="106.33" height="6" x="615.45" y="0" class="nonmatching"/>
-<rect width="25.22" height="6" x="721.78" y="0" class="todo"/>
+<rect width="107.51" height="6" x="615.45" y="0" class="nonmatching"/>
+<rect width="24.03" height="6" x="722.97" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1349,7 +1349,7 @@
 <rect width="17.19" height="17.68" x="513.60" y="21.47" class="decompiled"><title>0x0044be40 ExAttackUpdate44be40 (475 bytes)</title></rect>
 <rect width="17.06" height="17.68" x="533.79" y="21.47" class="named"><title>0x00435fe0 GdiSurface::InvertAlpha (472 bytes)</title></rect>
 <rect width="17.06" height="17.68" x="553.85" y="21.47" class="named"><title>0x0043b9c0 SpriteEngine::CreateQuad (472 bytes)</title></rect>
-<rect width="17.02" height="17.68" x="573.91" y="21.47" class="todo"><title>0x004415e0 Func4415e0 (471 bytes)</title></rect>
+<rect width="17.02" height="17.68" x="573.91" y="21.47" class="nonmatching"><title>0x004415e0 ShotUpdate4415e0 (471 bytes)</title></rect>
 <rect width="16.98" height="17.68" x="593.93" y="21.47" class="named"><title>0x00433aa0 LzssDecompress (470 bytes)</title></rect>
 <rect width="16.85" height="17.68" x="613.90" y="21.47" class="named"><title>0x004333f0 DatArchive::ReadTable (467 bytes)</title></rect>
 <rect width="16.72" height="17.68" x="633.75" y="21.47" class="decompiled"><title>0x0040d9e0 EffectUpdate40d9e0 (464 bytes)</title></rect>
