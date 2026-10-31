@@ -69,6 +69,49 @@ static char *FormatAndAdvance(char *buf, const char *fmt, ...)
     return buf + strlen(buf);
 }
 
+int ReplayManager::OnUpdateMode0b(ReplayManager *mgr)
+{
+    int i;
+    GameConfig *config;
+
+    mgr->unknown162 = 0;
+    mgr->seed = g_Rng.GetSeed();
+    g_Rng.ResetGenerated();
+    if (g_GameManager.unknown130)
+    {
+        mgr->unknown162 |= 0x100;
+    }
+    g_GameManager.unknown130 = 0;
+    g_PlayerInputs[0].unknown2e = g_PlayerInputs[0].unknown2c;
+    g_PlayerInputs[0].unknown2c = g_PlayerInputs[0].unknown0;
+    g_PlayerInputs[1].unknown2e = g_PlayerInputs[1].unknown2c;
+    g_PlayerInputs[1].unknown2c = g_PlayerInputs[1].unknown0;
+    g_PlayerInputs[2].unknown2e = g_PlayerInputs[2].unknown2c;
+    g_PlayerInputs[2].unknown2c = g_PlayerInputs[2].unknown0;
+    g_PlayerInputs[0].UpdateRepeat2();
+    g_PlayerInputs[1].UpdateRepeat2();
+    g_PlayerInputs[2].UpdateRepeat2();
+    for (i = 0, config = g_GameManager.config; i < 2; i++)
+    {
+        if (config != NULL && config->unknownB4[i] == 1)
+        {
+            if (g_PlayerInputs[i].IsHeld2(1))
+            {
+                g_PlayerInputs[i].unknown2a++;
+                if (g_PlayerInputs[i].unknown2a >= 8)
+                {
+                    g_PlayerInputs[i].unknown2a = 8;
+                }
+            }
+            else
+            {
+                g_PlayerInputs[i].unknown2a = 0;
+            }
+        }
+    }
+    return 1;
+}
+
 int ReplayManager::OnUpdateMode0(ReplayManager *mgr)
 {
     DWORD flags = g_GameManager.stateFlags;

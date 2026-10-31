@@ -187,6 +187,9 @@ public:
     unsigned char pad_154[0x158 - 0x154];
     ChainElem *unknownElem158;
     ChainElem *unknownElem15c;
-    unsigned char pad_160[0x164 - 0x160];
+    // The RNG seed the recording starts from, and flags; bit 8 is
+    // GameManager::unknown130 at the start.
+    WORD seed;
+    WORD unknown162;
 };
 ASSERT_SIZE(ReplayManager, 0x164);
