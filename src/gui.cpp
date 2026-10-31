@@ -205,6 +205,80 @@ void Gui::RemoveChain(Gui *gui)
     }
 }
 
+int GuiMsg::Load(char *path, char *path2, int firstScript)
+{
+    int i;
+    BYTE loaded[0x100];
+
+    this->UnloadBgm(firstScript);
+    this->Clear();
+    if (g_MsgFile == NULL)
+    {
+        g_MsgFile = this->msgFile = (MsgFile *)OpenPath(path, NULL, 0);
+        if (this->msgFile == NULL)
+        {
+            LogPrintf(&g_Log, "error : メッセージファイル %s が読み込めませんでした\r\n", path);
+            return -1;
+        }
+        for (i = 0; i < this->msgFile->unknown0; i++)
+        {
+            if (this->msgFile->scripts[i].script != NULL)
+            {
+                this->msgFile->scripts[i].script = (BYTE *)this->msgFile->scripts[i].script + (int)this->msgFile;
+            }
+        }
+    }
+    else
+    {
+        this->msgFile = g_MsgFile;
+    }
+    if (!g_GameManager.IsMode2())
+    {
+        memset(loaded, 0, sizeof(loaded));
+        for (i = firstScript; i < firstScript + 10; i++)
+        {
+            if (i >= this->msgFile->unknown0)
+            {
+                break;
+            }
+            this->instr = this->msgFile->scripts[i].script;
+            if (this->instr == NULL)
+            {
+                continue;
+            }
+            while (((MsgInstr *)this->instr)->opcode != 0)
+            {
+                if (((MsgInstr *)this->instr)->opcode == 7 && !loaded[((MsgInstr *)this->instr)->args[0]])
+                {
+                    g_App.LoadBgm(((MsgInstr *)this->instr)->args[0]);
+                    loaded[((MsgInstr *)this->instr)->args[0]] = 1;
+                }
+                this->instr = (BYTE *)this->instr + ((MsgInstr *)this->instr)->argSize + 4;
+            }
+        }
+        return 0;
+    }
+    if (g_MsgFile2 == NULL)
+    {
+        g_MsgFile2 = this->msgFile2 = (MsgFile *)OpenPath(path2, NULL, 0);
+        if (this->msgFile2 == NULL)
+        {
+            LogPrintf(&g_Log, "error : メッセージファイル %s が読み込めませんでした\r\n", path2);
+            return -1;
+        }
+        for (i = 0; i < this->msgFile2->unknown0; i++)
+        {
+            this->msgFile2->scripts[i].script = (BYTE *)this->msgFile2->scripts[i].script + (int)this->msgFile2;
+        }
+    }
+    else
+    {
+        this->msgFile2 = g_MsgFile2;
+    }
+    g_App.LoadBgm(g_GameManager.unknownF0->unknownC);
+    return 0;
+}
+
 int Gui::AddedCallback(Gui *gui)
 {
     int i;

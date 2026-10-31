@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.69% (832)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">10.95% (122)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.78% (833)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">10.86% (121)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="557.90" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="557.90" y="0" class="decompiled"/>
-<rect width="81.81" height="6" x="665.19" y="0" class="todo"/>
+<rect width="558.57" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="558.57" y="0" class="decompiled"/>
+<rect width="81.14" height="6" x="665.86" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -389,7 +389,7 @@
 <rect width="12" height="12" x="270" y="90" class="todo"><title>0x004181e0 Gui::Reset (133 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="90" class="named"><title>0x00418270 Gui::FreeResources (34 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="90" class="named"><title>0x004182a0 Gui::RemoveChain (50 bytes)</title></rect>
-<rect width="12" height="12" x="315" y="90" class="todo"><title>0x004182e0 GuiMsg::Load (405 bytes)</title></rect>
+<rect width="12" height="12" x="315" y="90" class="named"><title>0x004182e0 GuiMsg::Load (405 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="90" class="named"><title>0x00418480 Gui::AddedCallback (706 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="90" class="named"><title>0x00418750 GuiMsg::GuiMsg (85 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="90" class="named"><title>0x004187b0 Gui::Gui (143 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.54%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">37.63%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">47.67%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">37.49%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="355.09" height="6" x="0" y="0" class="named"/>
-<rect width="110.82" height="6" x="355.09" y="0" class="decompiled"/>
-<rect width="281.10" height="6" x="465.90" y="0" class="todo"/>
+<rect width="356.11" height="6" x="0" y="0" class="named"/>
+<rect width="110.82" height="6" x="356.11" y="0" class="decompiled"/>
+<rect width="280.08" height="6" x="466.92" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1373,7 +1373,7 @@
 <rect width="16.55" height="15.30" x="432.55" y="311.40" class="named"><title>0x0040ca60 EffectManager::StartEffect (407 bytes)</title></rect>
 <rect width="16.55" height="15.30" x="432.55" y="329.70" class="decompiled"><title>0x00445190 ExAttackUpdate445190 (407 bytes)</title></rect>
 <rect width="16.46" height="15.39" x="452.10" y="42.12" class="todo"><title>0x00445ec0 Func445ec0 (407 bytes)</title></rect>
-<rect width="16.37" height="15.39" x="471.57" y="42.12" class="todo"><title>0x004182e0 GuiMsg::Load (405 bytes)</title></rect>
+<rect width="16.37" height="15.39" x="471.57" y="42.12" class="named"><title>0x004182e0 GuiMsg::Load (405 bytes)</title></rect>
 <rect width="16.37" height="15.39" x="490.94" y="42.12" class="named"><title>0x00431b70 App::DeletedCallback (405 bytes)</title></rect>
 <rect width="16.37" height="15.39" x="510.31" y="42.12" class="decompiled"><title>0x0044ade0 ExAttackUpdate44ade0 (405 bytes)</title></rect>
 <rect width="16.27" height="15.39" x="529.67" y="42.12" class="decompiled"><title>0x00443440 ExAttackInit443440 (403 bytes)</title></rect>
