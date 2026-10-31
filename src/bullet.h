@@ -21,14 +21,19 @@ struct BulletTypeSprites
     // The size of the bullet's hitbox.
     D3DXVECTOR3 hitboxSize;
     BYTE unknownD40;
-    BYTE unknownD41;
+    // The height of the bullet's sprite.
+    BYTE height;
     // The draw list the bullet goes into, as th08's.
     BYTE sizeClass;
     unsigned char pad_d43[0xd44 - 0xd43];
-    // 0x14a for the bullets that extra attack type 21 leaves alone.
+    // sprite0's first sprite index, from AddedCallback; 0x14a for the
+    // bullets that extra attack type 21 leaves alone.
     int unknownD44;
 };
 ASSERT_SIZE(BulletTypeSprites, 0xd48);
+
+// The scripts of each bullet type's five sprites in etama.anm, as th08's.
+extern const int g_BulletTypeScripts[23][5];
 
 // A bullet's extra behavior state, as th08's BulletEx (0x2c bytes). Only
 // the fields known so far.

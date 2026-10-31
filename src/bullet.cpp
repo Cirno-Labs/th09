@@ -343,7 +343,7 @@ Bullet *BulletManager::SpawnBullet(EnemyShooter *shooter, int col, int row, floa
     cur->sprites.unknownD44 = shooter->typeSprites->unknownD44;
     cur->sprites.hitboxSize = shooter->typeSprites->hitboxSize;
     cur->sprites.unknownD40 = shooter->typeSprites->unknownD40;
-    cur->sprites.unknownD41 = shooter->typeSprites->unknownD41;
+    cur->sprites.height = shooter->typeSprites->height;
     cur->sprites.sizeClass = shooter->typeSprites->sizeClass;
     cur->sound = shooter->bulletSound;
     cur->boundsCheckDelay = 0;
@@ -768,6 +768,121 @@ int BulletManager::OnDraw(BulletManager *mgr)
     }
     EffectManager::DrawUnknown114(mgr->side->effectManager);
     return 1;
+}
+
+int BulletManager::AddedCallback(BulletManager *mgr)
+{
+    DWORD i;
+    SpriteEngine *se = g_SpriteEngine;
+    AnmLoaded *anm = se->GetAnm(8);
+
+    if (anm->file == NULL)
+    {
+        anm = se->PreloadAnm(8, "etama.anm");
+    }
+    mgr->etamaAnm = anm;
+    if (mgr->etamaAnm == NULL)
+    {
+        return -1;
+    }
+    for (i = 0; i < ARRAY_SIZE(g_BulletTypeScripts); i++)
+    {
+        mgr->etamaAnm->StartScript(&mgr->bulletTypes[i].sprite0, g_BulletTypeScripts[i][0]);
+        mgr->etamaAnm->StartScript(&mgr->bulletTypes[i].sprite1, g_BulletTypeScripts[i][1]);
+        mgr->etamaAnm->StartScript(&mgr->bulletTypes[i].sprite2, g_BulletTypeScripts[i][2]);
+        mgr->etamaAnm->StartScript(&mgr->bulletTypes[i].sprite3, g_BulletTypeScripts[i][3]);
+        mgr->etamaAnm->StartScript(&mgr->bulletTypes[i].sprite4, g_BulletTypeScripts[i][4]);
+        mgr->bulletTypes[i].sprite0.flags |= 0x2000;
+        mgr->bulletTypes[i].sprite1.flags |= 0x2000;
+        mgr->bulletTypes[i].sprite2.flags |= 0x2000;
+        mgr->bulletTypes[i].sprite3.flags |= 0x2000;
+        mgr->bulletTypes[i].sprite4.flags |= 0x2000;
+        mgr->bulletTypes[i].unknownD44 = mgr->bulletTypes[i].sprite0.spriteIndex;
+        mgr->bulletTypes[i].sprite0.baseSpriteIndex = mgr->bulletTypes[i].sprite0.spriteIndex;
+        mgr->bulletTypes[i].height = mgr->bulletTypes[i].sprite0.spriteData->height;
+        if (mgr->bulletTypes[i].sprite0.spriteData->height <= 8.0f)
+        {
+            mgr->bulletTypes[i].hitboxSize.x = 4.0f;
+            mgr->bulletTypes[i].hitboxSize.y = 4.0f;
+            mgr->bulletTypes[i].sizeClass = 5;
+        }
+        else if (mgr->bulletTypes[i].sprite0.spriteData->height <= 16.0f)
+        {
+            switch (g_BulletTypeScripts[i][0])
+            {
+            case 2:
+            case 0x65:
+            case 0x66:
+                mgr->bulletTypes[i].hitboxSize.x = 4.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 4.0f;
+                mgr->bulletTypes[i].sizeClass = 4;
+                break;
+            case 4:
+            case 6:
+                mgr->bulletTypes[i].hitboxSize.x = 4.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 4.0f;
+                mgr->bulletTypes[i].sizeClass = 4;
+                break;
+            case 5:
+                mgr->bulletTypes[i].hitboxSize.x = 4.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 4.0f;
+                mgr->bulletTypes[i].sizeClass = 3;
+            case 0x60:
+                mgr->bulletTypes[i].hitboxSize.x = 4.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 4.0f;
+                mgr->bulletTypes[i].sizeClass = 4;
+                break;
+            case 0x61:
+            case 0x62:
+                mgr->bulletTypes[i].hitboxSize.x = 4.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 4.0f;
+                mgr->bulletTypes[i].sizeClass = 4;
+                break;
+            case 0x6a:
+                mgr->bulletTypes[i].hitboxSize.x = 4.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 4.0f;
+                mgr->bulletTypes[i].sizeClass = 4;
+                break;
+            default:
+                mgr->bulletTypes[i].hitboxSize.x = 6.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 6.0f;
+                mgr->bulletTypes[i].sizeClass = 3;
+            }
+        }
+        else if (mgr->bulletTypes[i].sprite0.spriteData->height <= 32.0f)
+        {
+            switch (g_BulletTypeScripts[i][0])
+            {
+            case 8:
+            case 0x67:
+            case 0x68:
+            case 0x69:
+            case 0x6b:
+                mgr->bulletTypes[i].hitboxSize.x = 5.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 5.0f;
+                mgr->bulletTypes[i].sizeClass = 2;
+                break;
+            case 9:
+            case 0x63:
+            case 0x64:
+                mgr->bulletTypes[i].hitboxSize.x = 8.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 8.0f;
+                mgr->bulletTypes[i].sizeClass = 1;
+                break;
+            default:
+                mgr->bulletTypes[i].hitboxSize.x = 10.0f;
+                mgr->bulletTypes[i].hitboxSize.y = 10.0f;
+                mgr->bulletTypes[i].sizeClass = 1;
+            }
+        }
+        else
+        {
+            mgr->bulletTypes[i].sizeClass = 0;
+            mgr->bulletTypes[i].hitboxSize.x = 24.0f;
+            mgr->bulletTypes[i].hitboxSize.y = 24.0f;
+        }
+    }
+    return 0;
 }
 
 int BulletManager::OnUpdate(BulletManager *mgr)
