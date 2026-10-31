@@ -421,7 +421,11 @@ public:
     D3DXVECTOR3 hitboxSize;
     D3DXVECTOR3 grazeSize;
     D3DXVECTOR3 unknown1cc0;
-    unsigned char pad_1ccc[0x1cec - 0x1ccc];
+    unsigned char pad_1ccc[0x1cdc - 0x1ccc];
+    // Character 3's shot callback sets both to 0.5.
+    float unknown1cdc;
+    float unknown1ce0;
+    unsigned char pad_1ce4[0x1cec - 0x1ce4];
     PlayerOption options[4];
     // The hit areas; the last is the spare AllocHitArea hands out when
     // none is free.

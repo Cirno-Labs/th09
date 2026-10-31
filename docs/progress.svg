@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">5.30% (59)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">23.52% (262)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18% (793)</tspan> · <tspan class="decompiled">5.39% (60)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">23.43% (261)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="531.75" height="6" x="0" y="0" class="named"/>
-<rect width="39.56" height="6" x="531.75" y="0" class="decompiled"/>
-<rect width="175.69" height="6" x="571.31" y="0" class="todo"/>
+<rect width="40.23" height="6" x="531.75" y="0" class="decompiled"/>
+<rect width="175.02" height="6" x="571.98" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1069,7 +1069,7 @@
 <rect width="12" height="12" x="720" y="285" class="todo"><title>0x00443010 Func443010 (311 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="285" class="todo"><title>0x00443150 Func443150 (248 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="300" class="todo"><title>0x00443250 Func443250 (79 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="300" class="todo"><title>0x004432a0 Func4432a0 (86 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="300" class="decompiled"><title>0x004432a0 ShotFire4432a0 (86 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="300" class="todo"><title>0x00443300 Func443300 (293 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="300" class="todo"><title>0x00443430 Func443430 (8 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="300" class="todo"><title>0x00443440 Func443440 (403 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">2.42%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.51%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.07%</tspan> · <tspan class="decompiled">2.45%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">55.48%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.26" height="6" x="0" y="0" class="named"/>
-<rect width="18.08" height="6" x="314.26" y="0" class="decompiled"/>
-<rect width="414.66" height="6" x="332.34" y="0" class="todo"/>
+<rect width="18.30" height="6" x="314.26" y="0" class="decompiled"/>
+<rect width="414.45" height="6" x="332.55" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1794,7 +1794,7 @@
 <rect width="5.76" height="5.74" x="672.38" y="213.93" class="named"><title>0x0043cdd0 SpriteEngine::StepAnmLoading (87 bytes)</title></rect>
 <rect width="5.66" height="5.74" x="681.14" y="213.93" class="named"><title>0x0041ced0 Player::RemoveChain (86 bytes)</title></rect>
 <rect width="5.66" height="5.74" x="689.80" y="213.93" class="named"><title>0x0043fb80 CSound::Stop (86 bytes)</title></rect>
-<rect width="5.66" height="5.74" x="698.46" y="213.93" class="todo"><title>0x004432a0 Func4432a0 (86 bytes)</title></rect>
+<rect width="5.66" height="5.74" x="698.46" y="213.93" class="decompiled"><title>0x004432a0 ShotFire4432a0 (86 bytes)</title></rect>
 <rect width="5.66" height="5.74" x="707.11" y="213.93" class="todo"><title>0x004446a0 Func4446a0 (86 bytes)</title></rect>
 <rect width="5.56" height="5.74" x="715.77" y="213.93" class="named"><title>0x004024d0 Stage::DeletedCallback (85 bytes)</title></rect>
 <rect width="5.56" height="5.74" x="724.33" y="213.93" class="named"><title>0x0040cd70 EffectManager::SpawnReservedEffect (85 bytes)</title></rect>
