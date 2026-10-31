@@ -37,6 +37,21 @@ bool GdiSurface::Release()
     return false;
 }
 
+FormatInfo *GdiSurface::FindFormat(int format)
+{
+    int i;
+    FormatInfo *fmt;
+
+    for (i = 0; (fmt = &g_FormatInfos[i])->format != -1 && fmt->format != format; i++)
+    {
+    }
+    if (format == -1)
+    {
+        return NULL;
+    }
+    return &g_FormatInfos[i];
+}
+
 bool GdiSurface::InvertAlpha(int x, int y, int width, int height, int lightShading)
 {
     BYTE *line;

@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.97% (902)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.71% (19)</tspan> · <tspan class="todo">2.96% (33)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.06% (903)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">1.71% (19)</tspan> · <tspan class="todo">2.87% (32)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="604.84" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="604.84" y="0" class="decompiled"/>
-<rect width="12.74" height="6" x="712.13" y="0" class="nonmatching"/>
-<rect width="22.13" height="6" x="724.87" y="0" class="todo"/>
+<rect width="605.51" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="605.51" y="0" class="decompiled"/>
+<rect width="12.74" height="6" x="712.80" y="0" class="nonmatching"/>
+<rect width="21.46" height="6" x="725.54" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -849,7 +849,7 @@
 <rect width="12" height="12" x="405" y="225" class="named"><title>0x00435f10 GdiSurface::IsCreated (11 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="225" class="named"><title>0x00435f20 GdiSurface::GdiSurface (29 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="225" class="named"><title>0x00435f40 GdiSurface::Release (78 bytes)</title></rect>
-<rect width="12" height="12" x="450" y="225" class="todo"><title>0x00435f90 GdiSurface::FindFormat (66 bytes)</title></rect>
+<rect width="12" height="12" x="450" y="225" class="named"><title>0x00435f90 GdiSurface::FindFormat (66 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="225" class="named"><title>0x00435fe0 GdiSurface::InvertAlpha (472 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="225" class="named"><title>0x004361c0 GdiSurface::CopyToSurface (242 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="225" class="named"><title>0x004362c0 CreateTextSurface (26 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.80%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.43%</tspan> · <tspan class="todo">5.94%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">65.82%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">13.43%</tspan> · <tspan class="todo">5.92%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="491.50" height="6" x="0" y="0" class="named"/>
-<rect width="110.76" height="6" x="491.50" y="0" class="decompiled"/>
-<rect width="100.35" height="6" x="602.26" y="0" class="nonmatching"/>
-<rect width="44.39" height="6" x="702.61" y="0" class="todo"/>
+<rect width="491.66" height="6" x="0" y="0" class="named"/>
+<rect width="110.76" height="6" x="491.66" y="0" class="decompiled"/>
+<rect width="100.35" height="6" x="602.43" y="0" class="nonmatching"/>
+<rect width="44.22" height="6" x="702.78" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1884,7 +1884,7 @@
 <rect width="4.49" height="4.74" x="697.79" y="239.26" class="named"><title>0x004156a0 ExAttackManager::RemoveChain (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="705.28" y="239.26" class="named"><title>0x00415750 ExAttackManager::AddedCallback (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="712.77" y="239.26" class="named"><title>0x00433710 File::Write (66 bytes)</title></rect>
-<rect width="4.49" height="4.74" x="720.26" y="239.26" class="todo"><title>0x00435f90 GdiSurface::FindFormat (66 bytes)</title></rect>
+<rect width="4.49" height="4.74" x="720.26" y="239.26" class="named"><title>0x00435f90 GdiSurface::FindFormat (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="727.75" y="239.26" class="named"><title>0x00439630 AnmLoaded::StartSpriteSeries (66 bytes)</title></rect>
 <rect width="4.38" height="4.74" x="735.24" y="239.26" class="named"><title>0x0042ad70 ResetKeyboard (65 bytes)</title></rect>
 <rect width="4.38" height="4.74" x="742.62" y="239.26" class="named"><title>0x0043fc90 CStreamingSound::UpdateFade (65 bytes)</title></rect>
