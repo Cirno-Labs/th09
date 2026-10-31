@@ -434,7 +434,9 @@ public:
     // Below 0 or above 0 by the way the player moves across, as
     // character 10's effect update callback tells.
     float unknown1ccc;
-    unsigned char pad_1cd0[0x1cdc - 0x1cd0];
+    unsigned char pad_1cd0[0x1cd8 - 0x1cd0];
+    // An angle; character 2's effect type 17 starts opposite it.
+    float unknown1cd8;
     // Character 3's shot callback sets both to 0.5.
     float unknown1cdc;
     float unknown1ce0;

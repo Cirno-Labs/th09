@@ -157,6 +157,36 @@ int PlayerComboFunc442ee0(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
     return 0;
 }
 
+// The init callback of effect type 17: a ring of 16 segments, radius
+// 160, around its position, from opposite the player's unknown1cd8, as
+// wide as velocity.z, in 0x294 bytes of vertices. Returns 0, or -1 if
+// the allocation fails (0x442f50).
+int EffectInit442f50(Effect *effect)
+{
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
+    if (effect->vertices == NULL)
+    {
+        return -1;
+    }
+    effect->unknown48 = effect->pos;
+    effect->unknown54.x = 0.0f;
+    effect->unknown54.y = 0.0f;
+    effect->unknown54.z = 1.0f;
+    effect->unknown60.x = 0.0f;
+    effect->unknown60.y = -1.0f;
+    effect->unknown60.z = 0.0f;
+    effect->unknown80 = AddNormalizeAngle(effect->mgr->side->player->unknown1cd8, 3.1415927f);
+    effect->unknown94 = 0.0f;
+    effect->unknown98 = 0.0f;
+    effect->unknown84 = 0.0f;
+    effect->unknown88 = effect->velocity.z;
+    effect->unknown8c = 0x10;
+    effect->unknown9c = 1.0f;
+    effect->unknown7c = 160.0f;
+    effect->unknownC9 = 1;
+    return 0;
+}
+
 // An update callback of the effect table: grows unknown7c by 0.7 up to
 // 144.0, sets unknownC9 and puts the effect on its side's player. Returns
 // 1 (0x443250).
