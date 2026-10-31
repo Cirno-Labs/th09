@@ -28,3 +28,17 @@ int EffectUpdate440ce0(Effect *effect)
     return 1;
 }
 
+// The unknown30404 of characters 0, 3, 5, 12 and 13: whether `pos` is
+// within the radius of the player's unknown368 (0x440df0).
+int PlayerPosFunc440df0(Player *player, D3DXVECTOR3 *pos)
+{
+    D3DXVECTOR3 diff = player->pos - *pos;
+    float radius = player->unknown368->unknown7c;
+
+    if (diff.x * diff.x + diff.y * diff.y < radius * radius)
+    {
+        return 1;
+    }
+    return 0;
+}
+
