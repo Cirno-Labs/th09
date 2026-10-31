@@ -258,7 +258,7 @@ address,size,name,symbol
 0x00412830,245,PlayerUnknown36c::AddTurned,?AddTurned@PlayerUnknown36c@@QAEXPAUD3DXVECTOR3@@00MPAX@Z
 0x00412930,40,Bullet::FreeBullet,?FreeBullet@Bullet@@QAEXXZ
 0x00412960,1896,BulletManager::SpawnBullet,?SpawnBullet@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@HHMH@Z
-0x004130f0,200,BulletManager::FirePattern,?FirePattern@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@@Z
+0x004130f0,203,BulletManager::FirePattern,?FirePattern@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@@Z
 0x004131c0,200,BulletManager::FirePattern2,?FirePattern2@BulletManager@@QAEPAUBullet@@PAUEnemyShooter@@@Z
 0x00413290,450,Func413290,
 0x00413460,110,SlowBulletStart,?SlowBulletStart@@YIXPAUBullet@@@Z
