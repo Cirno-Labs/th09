@@ -58,8 +58,9 @@ int PlayerPosFunc445e60(Player *player, D3DXVECTOR3 *pos)
     return 0;
 }
 
-// The data of extra attack types 8 and 9 (0x5c bytes): ExAttackData00
-// with the heading it flies at and the angle its bullets turn through.
+// The data of extra attack types 7 to 9, 11 and 12 (0x5c bytes):
+// ExAttackData00 with the heading it flies at and the angle its bullets
+// turn through.
 struct ExAttackData08
 {
     int state;
@@ -76,6 +77,50 @@ struct ExAttackData08
     D3DXVECTOR3 targetPos;
 };
 ASSERT_SIZE(ExAttackData08, 0x5c);
+
+// The init callback of extra attack type 7: type 9's, landing at
+// either side of the target's side, lower, heading inwards (0x446320).
+int ExAttackInit446320(ExAttack *attack)
+{
+    ExAttackData08 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData08));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData08 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->velocity, angle, 2.0f);
+    data->state = 0;
+    attack->layer = 2;
+    attack->timer = 0x5a;
+    SetPolar((Vector2 *)&data->tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    if (g_Rng.GetRandomU32InRange(2))
+    {
+        data->targetPos.x = -144.0f;
+        data->heading = 0.0f;
+    }
+    else
+    {
+        data->targetPos.x = 144.0f;
+        data->heading = 3.1415927f;
+    }
+    data->targetPos.y = 224.0f;
+    data->targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
+    data->spin = g_Rng.GetRandomF32SignedInRange(3.1415927f);
+    return 0;
+}
 
 // The init callback of extra attack type 9: type 0's, after 90 frames,
 // landing at the left of the target's side heading right (0x4467c0).
