@@ -89,14 +89,24 @@ struct GameManagerUnknownE8
     BYTE unknownB4[2];
 };
 
+// An opponent of story mode, or a match's stage: lists of them end with
+// a negative round.
 struct GameManagerUnknownF0
 {
-    unsigned char pad_0[0x6];
+    // The story round (GameManager::unknownFc) it can be picked in; 9 in
+    // the match list.
+    short round;
+    short stage;
+    // Side 1's character, or the character whose stage it is.
+    short character;
     short unknown6;
     short unknown8;
     short unknownA;
     short unknownC;
+    // How likely PickOpponent picks it among the round's.
+    short weight;
 };
+ASSERT_SIZE(GameManagerUnknownF0, 0x10);
 
 struct GameRank
 {
@@ -228,6 +238,12 @@ public:
     BOOL IsMode0();
     // Whether mode is 1 (0x404970).
     BOOL IsMode1();
+    // Picks the stage and side 1's character: in modes 0 and 1 a random
+    // opponent of the round from side 0's character's list, by weight,
+    // one not met yet (unknownD8), also setting side 1's unknown2c; else
+    // the match stage of unknown138's character (-1 either side's, -2 a
+    // random open one) (0x415910).
+    void PickOpponent();
 
     GameSide sides[3];
     Gui *gui;
@@ -347,8 +363,15 @@ extern Hscr g_Hscr;
 // difficulty (0x4a8380).
 extern Hscr g_HighScores[16][5][5];
 // Side 1's unknown2c at the start of a round of mode 0 or 1, by
-// difficulty, GameManager::unknownFc and unknown100 (0x4a1504).
-extern int g_Unknown4a1504[5][9][5];
+// difficulty and GameManager::unknownFc: [0] when side 0 has lives and
+// unknown14 is clear, else [1 + unknown100] up to [4] (0x4a1500).
+extern int g_Unknown4a1500[5][9][5];
+// Both sides' unknown2c in mode 2, by difficulty (0x4a1884).
+extern int g_Unknown4a1884[5];
+// Each story character's opponents (0x4a14c8), and the stages of the
+// matches by character (0x4a13b8).
+extern GameManagerUnknownF0 *g_StoryOpponents[14];
+extern GameManagerUnknownF0 g_MatchStages[17];
 // A block GameManager's deleted callback clears (0x4d9698).
 extern unsigned char g_Unknown4d9698[0x2bc0];
 

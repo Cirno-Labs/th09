@@ -293,7 +293,7 @@ address,size,name,symbol
 0x004157b0,28,ExAttackManager::ExAttackManager,??0ExAttackManager@@QAE@XZ
 0x004157d0,264,ExAttackManager::RegisterChain,?RegisterChain@ExAttackManager@@SIPAV1@XZ
 0x004158e0,33,PlayRecord::AddClear5,?AddClear5@PlayRecord@@QAEXD@Z
-0x00415910,799,Func415910,
+0x00415910,799,GameManager::PickOpponent,?PickOpponent@GameManager@@QAEXXZ
 0x00415c30,24,Gui::LoadAnm,?LoadAnm@Gui@@SIHXZ
 0x00415c50,14,Gui::ReleaseAnm,?ReleaseAnm@Gui@@SIXXZ
 0x00415c60,39,DecodeMsgString,?DecodeMsgString@@YIXPAD0@Z
@@ -2316,7 +2316,10 @@ address,size,name,symbol
 0x004a117c,,g_Unknown4a117c,?g_Unknown4a117c@@3PAHA
 0x004a11b8,,g_StageFiles,?g_StageFiles@@3PAY01PADA
 0x004a1238,,g_CharacterFiles,?g_CharacterFiles@@3PAY05PADA
-0x004a1504,,g_Unknown4a1504,?g_Unknown4a1504@@3PAY184HA
+0x004a13b8,,g_MatchStages,?g_MatchStages@@3PAUGameManagerUnknownF0@@A
+0x004a14c8,,g_StoryOpponents,?g_StoryOpponents@@3PAPAUGameManagerUnknownF0@@A
+0x004a1500,,g_Unknown4a1500,?g_Unknown4a1500@@3PAY184HA
+0x004a1884,,g_Unknown4a1884,?g_Unknown4a1884@@3PAHA
 0x004a19c4,,g_Pl06FcAnmFiles,?g_Pl06FcAnmFiles@@3PAPADA
 0x004a19d0,,g_CharacterFuncs9d0,?g_CharacterFuncs9d0@@3PAP6IHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@ZA
 0x004a1a10,,g_CharacterValuesA10,?g_CharacterValuesA10@@3PAHA

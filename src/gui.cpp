@@ -1,11 +1,132 @@
 #include "gui.h"
 #include "ascii.h"
 #include "gamemanager.h"
+#include "network.h"
 #include "player.h"
 #include "screeneffect.h"
 #include "spellcard.h"
 #include "sprite.h"
 #include "stage.h"
+
+// Here rather than with the GameManager: the object before gui.cpp's
+// (after PlayRecord::AddClear5).
+void GameManager::PickOpponent()
+{
+    GameManagerUnknownF0 *opponents[16];
+    GameManagerUnknownF0 *opponent;
+    int count;
+    int total;
+    short weight;
+    int pick;
+    int i;
+    int n;
+
+    if (this->IsMode0() || this->IsMode1())
+    {
+        opponent = g_StoryOpponents[this->sides[0].character];
+        count = 0;
+        total = 0;
+        for (; opponent->round >= 0; opponent++)
+        {
+            if (opponent->round == this->unknownFc)
+            {
+                total += opponent->weight;
+                opponents[count] = opponent;
+                count++;
+            }
+        }
+        weight = g_Rng.GetRandomU32InRange(total);
+        for (i = 0; i < count; i++)
+        {
+            if (weight < opponents[i]->weight && !this->unknownD8[opponents[i]->character])
+            {
+                break;
+            }
+            weight -= opponents[i]->weight;
+        }
+        if (i >= count)
+        {
+            for (i = 0; this->unknownD8[opponents[i]->character]; i++)
+            {
+            }
+        }
+        opponent = opponents[i];
+        this->stage = opponent->stage;
+        this->sides[1].character = opponent->character;
+        g_PlayRecord.AddClear5(opponent->character);
+        this->unknownD8[this->sides[1].character] = 1;
+        this->unknownF0 = opponent;
+        if (!this->sides[0].stats->unknown14 && this->sides[0].stats->lives > 0.0f)
+        {
+            this->sides[1].unknown2c = g_Unknown4a1500[this->difficulty][this->unknownFc][0];
+            return;
+        }
+        this->sides[1].unknown2c =
+            g_Unknown4a1500[this->difficulty][this->unknownFc][(g_GameManager.unknown100 > 3 ? 3 : g_GameManager.unknown100) + 1];
+        return;
+    }
+    this->unknownFc = 9;
+    if (this->unknown138 == -1)
+    {
+        pick = g_Rng.GetRandomU32InRange(2);
+        for (opponent = g_MatchStages; opponent->round >= 0; opponent++)
+        {
+            if (opponent->character == this->sides[pick].character)
+            {
+                break;
+            }
+        }
+    }
+    else if (this->unknown138 == -2)
+    {
+        count = 0;
+        for (i = 0; i <= 13; i++)
+        {
+            if (g_PlayRecord.openEntries[i] || g_Network->unknownA8)
+            {
+                count++;
+            }
+        }
+        pick = g_Rng.GetRandomU32InRange(count);
+        n = 0;
+        for (i = 0; i < 16; i++)
+        {
+            if (g_PlayRecord.openEntries[i] || g_Network->unknownA8)
+            {
+                if (n == pick)
+                {
+                    break;
+                }
+                n++;
+            }
+        }
+        for (opponent = g_MatchStages; opponent->round >= 0; opponent++)
+        {
+            if (opponent->character == i)
+            {
+                break;
+            }
+        }
+    }
+    else
+    {
+        for (opponent = g_MatchStages; opponent->round >= 0; opponent++)
+        {
+            if (opponent->character == this->unknown138)
+            {
+                break;
+            }
+        }
+    }
+    if (opponent->round < 0)
+    {
+        opponent = g_MatchStages;
+    }
+    this->sides[0].unknown2c = g_Unknown4a1884[this->difficulty];
+    this->sides[1].unknown2c = g_Unknown4a1884[this->difficulty];
+    this->stage = opponent->stage;
+    this->unknownF0 = opponent;
+}
 
 int Gui::LoadAnm()
 {
@@ -817,12 +938,12 @@ int Gui::OnUpdate(Gui *gui)
         {
             if (g_GameManager.unknown100 >= 4 && (g_GameManager.stateFlags & 0x4000))
             {
-                g_GameManager.sides[1].unknown2c = g_Unknown4a1504[g_GameManager.difficulty][g_GameManager.unknownFc][3];
+                g_GameManager.sides[1].unknown2c = g_Unknown4a1500[g_GameManager.difficulty][g_GameManager.unknownFc][4];
             }
             else
             {
                 g_GameManager.sides[1].unknown2c =
-                    g_Unknown4a1504[g_GameManager.difficulty][g_GameManager.unknownFc][g_GameManager.unknown100];
+                    g_Unknown4a1500[g_GameManager.difficulty][g_GameManager.unknownFc][g_GameManager.unknown100 + 1];
             }
         }
     }
