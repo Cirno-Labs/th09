@@ -26,6 +26,8 @@ extern char *g_ReplayMenuCharacterNames[17];
 extern char *g_ReplayMenuDifficultyNames[5];
 extern char *g_ReplayMenuModeNames[2];
 extern char *g_ReplayMenuMatchNames[4];
+// "1st" to "5th", for the high score tables (0x4a1d68).
+extern char *g_ScoreRankNames[5];
 
 // Cleared by the title (0x4ac884).
 extern int g_Unknown4ac884;
@@ -92,6 +94,9 @@ public:
     // the name being typed (3), with the alphabet to type it with (4).
     // State 11's lists the replays (subState 1), then moves the chosen
     // one up and shows its mode and its rounds' characters (2).
+    // States 13 and 14 show scoreCharacter's five high score tables,
+    // fading in; state 14 lights only the difficulty's, marks the new
+    // entry at scoreRank and shows the alphabet to name it with.
     int DrawState11();
     int DrawState15();
     int DrawState13();
@@ -194,7 +199,10 @@ public:
     int cursor;
     // Where the next character of replayName goes.
     int replayNameCursor;
-    unsigned char pad_8[0x10 - 0x8];
+    // The character whose high scores state 13 or 14 shows, and the
+    // place of the new entry in state 14.
+    int scoreCharacter;
+    int scoreRank;
     int cursors[5];
     // The entry whose help UpdateState1 last showed.
     int prevCursor;

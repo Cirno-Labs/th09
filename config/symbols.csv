@@ -2340,6 +2340,7 @@ address,size,name,symbol
 0x004a1d3c,,g_ReplayMenuDifficultyNames,?g_ReplayMenuDifficultyNames@@3PAPADA
 0x004a1d50,,g_ReplayMenuModeNames,?g_ReplayMenuModeNames@@3PAPADA
 0x004a1d58,,g_ReplayMenuMatchNames,?g_ReplayMenuMatchNames@@3PAPADA
+0x004a1d68,,g_ScoreRankNames,?g_ScoreRankNames@@3PAPADA
 0x004a1e3c,,g_TitleHelpTexts,?g_TitleHelpTexts@@3PAPADA
 0x004a1e60,,g_CryptParams,?g_CryptParams@@3PAUCryptParams@@A
 0x004a1ec0,,g_CryptMagic,?g_CryptMagic@@3PAEA

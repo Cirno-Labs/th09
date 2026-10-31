@@ -448,6 +448,243 @@ int MainMenu::DrawState15()
     return 1;
 }
 
+int MainMenu::DrawState13()
+{
+    D3DXVECTOR3 pos;
+    int row;
+    int col;
+    int mask;
+    int highlight;
+    int alpha;
+    float scale;
+    char str[16];
+    Hscr (*scores)[5];
+
+    scores = g_HighScores[this->scoreCharacter];
+    if (this->state == 13)
+    {
+        mask = 0xff;
+        highlight = 99;
+    }
+    else if (this->state == 14)
+    {
+        mask = 1 << g_GameManager.difficulty;
+        highlight = this->scoreRank;
+    }
+    alpha = this->unknown1b230 < 30 ? this->unknown1b230 * 255 / 30 : 255;
+    g_AsciiText.color = mask & 1 ? (alpha << 24) | 0xd0ffd0 : (alpha << 24) | 0x808080;
+    pos.x = 102.0f;
+    pos.y = 80.0f;
+    pos.z = 0.0f;
+    g_AsciiText.AddFormat(&pos, "Easy Ranking");
+    pos.y += 16.0f;
+    // Each table's index is a variable of its own, so that they take
+    // the stack slots the original's do.
+    {
+        int i;
+
+        for (i = 0; i < 5; i++)
+        {
+            if (mask & 1)
+            {
+                g_AsciiText.color = highlight == i ? (alpha << 24) | 0xfff0ef : (alpha << 24) | 0xc0f0ff;
+            }
+            else
+            {
+                g_AsciiText.color = (alpha << 24) | 0x809090;
+            }
+            if (mask & 1 && highlight == i)
+            {
+                pos.x += (this->replayNameCursor + 4) * 9;
+                g_AsciiText.AddFormat(&pos, "%.8s", "_");
+                pos.x -= (this->replayNameCursor + 4) * 9;
+            }
+            g_AsciiText.AddFormat(&pos, "%s %.8s %.9d%d", g_ScoreRankNames[i], (*scores)[i].name, (*scores)[i].score,
+                                  (char)(*scores)[i].unknown2b);
+            pos.y += 16.0f;
+        }
+    }
+    scores++;
+    g_AsciiText.color = mask & 2 ? (alpha << 24) | 0xd0ffd0 : (alpha << 24) | 0x808080;
+    pos.x = 358.0f;
+    pos.y = 80.0f;
+    pos.z = 0.0f;
+    g_AsciiText.AddFormat(&pos, "Normal Ranking");
+    pos.y += 16.0f;
+    {
+        int i;
+        for (i = 0; i < 5; i++)
+        {
+            if (mask & 2)
+            {
+                g_AsciiText.color = highlight == i ? (alpha << 24) | 0xfff0ef : (alpha << 24) | 0xc0f0ff;
+            }
+            else
+            {
+                g_AsciiText.color = (alpha << 24) | 0x809090;
+            }
+            if (mask & 2 && highlight == i)
+            {
+                pos.x += (this->replayNameCursor + 4) * 9;
+                g_AsciiText.AddFormat(&pos, "%.8s", "_");
+                pos.x -= (this->replayNameCursor + 4) * 9;
+            }
+            g_AsciiText.AddFormat(&pos, "%s %.8s %.9d%d", g_ScoreRankNames[i], (*scores)[i].name, (*scores)[i].score,
+                                  (char)(*scores)[i].unknown2b);
+            pos.y += 16.0f;
+        }
+    }
+    scores++;
+    g_AsciiText.color = mask & 4 ? (alpha << 24) | 0xfff0d0 : (alpha << 24) | 0x808080;
+    pos.x = 102.0f;
+    pos.y = 192.0f;
+    pos.z = 0.0f;
+    g_AsciiText.AddFormat(&pos, "Hard Ranking");
+    pos.y += 16.0f;
+    {
+        int i;
+        for (i = 0; i < 5; i++)
+        {
+            if (mask & 4)
+            {
+                g_AsciiText.color = highlight == i ? (alpha << 24) | 0xfff0ef : (alpha << 24) | 0xc0f0ff;
+            }
+            else
+            {
+                g_AsciiText.color = (alpha << 24) | 0x809090;
+            }
+            if (mask & 4 && highlight == i)
+            {
+                pos.x += (this->replayNameCursor + 4) * 9;
+                g_AsciiText.AddFormat(&pos, "%.8s", "_");
+                pos.x -= (this->replayNameCursor + 4) * 9;
+            }
+            g_AsciiText.AddFormat(&pos, "%s %.8s %.9d%d", g_ScoreRankNames[i], (*scores)[i].name, (*scores)[i].score,
+                                  (char)(*scores)[i].unknown2b);
+            pos.y += 16.0f;
+        }
+    }
+    scores++;
+    g_AsciiText.color = mask & 8 ? (alpha << 24) | 0xffc0c0 : (alpha << 24) | 0x808080;
+    pos.x = 358.0f;
+    pos.y = 192.0f;
+    pos.z = 0.0f;
+    g_AsciiText.AddFormat(&pos, "Lunatic Ranking");
+    pos.y += 16.0f;
+    {
+        int i;
+        for (i = 0; i < 5; i++)
+        {
+            if (mask & 8)
+            {
+                g_AsciiText.color = highlight == i ? (alpha << 24) | 0xfff0ef : (alpha << 24) | 0xc0f0ff;
+            }
+            else
+            {
+                g_AsciiText.color = (alpha << 24) | 0x809090;
+            }
+            if (mask & 8 && highlight == i)
+            {
+                pos.x += (this->replayNameCursor + 4) * 9;
+                g_AsciiText.AddFormat(&pos, "%.8s", "_");
+                pos.x -= (this->replayNameCursor + 4) * 9;
+            }
+            g_AsciiText.AddFormat(&pos, "%s %.8s %.9d%d", g_ScoreRankNames[i], (*scores)[i].name, (*scores)[i].score,
+                                  (char)(*scores)[i].unknown2b);
+            pos.y += 16.0f;
+        }
+    }
+    scores++;
+    g_AsciiText.color = mask & 16 ? (alpha << 24) | 0xffc0f0 : (alpha << 24) | 0x808080;
+    pos.x = 102.0f;
+    pos.y = 304.0f;
+    pos.z = 0.0f;
+    g_AsciiText.AddFormat(&pos, "Extra Ranking");
+    pos.y += 16.0f;
+    {
+        int i;
+        for (i = 0; i < 5; i++)
+        {
+            if (mask & 16)
+            {
+                g_AsciiText.color = highlight == i ? (alpha << 24) | 0xfff0ef : (alpha << 24) | 0xc0f0ff;
+            }
+            else
+            {
+                g_AsciiText.color = (alpha << 24) | 0x809090;
+            }
+            if (mask & 16 && highlight == i)
+            {
+                pos.x += (this->replayNameCursor + 4) * 9;
+                g_AsciiText.AddFormat(&pos, "%.8s", "_");
+                pos.x -= (this->replayNameCursor + 4) * 9;
+            }
+            g_AsciiText.AddFormat(&pos, "%s %.8s %.9d%d", g_ScoreRankNames[i], (*scores)[i].name, (*scores)[i].score,
+                                  (char)(*scores)[i].unknown2b);
+            pos.y += 16.0f;
+        }
+    }
+    if (this->state == 13)
+    {
+    }
+    else if (this->state == 14 && this->scoreRank < 5 && this->subState >= 1)
+    {
+        pos.z = 0.0f;
+        pos.y = 336.0f;
+        for (row = 0; row < 6; row++)
+        {
+            pos.x = 348.0f;
+            for (col = 0; col < 16; col++)
+            {
+                pos.x += 12.0f;
+                float offsetX = 0.0f;
+                float offsetY = 0.0f;
+                if (this->cursor == col + row * 16)
+                {
+                    g_AsciiText.color = 0xffffffc0;
+                    if (this->stateFrames % 64 < 32)
+                    {
+                        scale = this->stateFrames % 32 * 0.025f + 1.2f;
+                    }
+                    else
+                    {
+                        scale = 2.0f - this->stateFrames % 32 * 0.025f;
+                    }
+                    g_AsciiText.scaleX = scale;
+                    g_AsciiText.scaleY = scale;
+                    offsetY = offsetX = (scale - 1.0f) * -8.0f;
+                }
+                else
+                {
+                    g_AsciiText.color = 0xc0c0c0c0;
+                    g_AsciiText.scaleX = 1.0f;
+                    g_AsciiText.scaleY = 1.0f;
+                }
+                D3DXVECTOR3 charPos = D3DXVECTOR3(offsetX, offsetY, 0.0f) + pos;
+                str[0] = g_NameAlphabet[row * 16 + col];
+                str[1] = 0;
+                if (row == 5)
+                {
+                    if (col == 14)
+                    {
+                        str[0] = 0x7f;
+                    }
+                    else if (col == 15)
+                    {
+                        str[0] = 0x80;
+                    }
+                }
+                g_AsciiText.AddString(&charPos, str);
+            }
+            pos.y += 16.0f;
+        }
+    }
+    g_AsciiText.color = 0xffffffff;
+    g_AsciiText.scaleX = 1.0f;
+    g_AsciiText.scaleY = 1.0f;
+    return 1;
+}
+
 int MainMenu::DrawState12()
 {
     if (this->subState == 1)
