@@ -43,6 +43,34 @@ int EffectUpdate443a30(Effect *effect)
     return 1;
 }
 
+// The unknown30404 of character 4: whether `pos` is within the radius
+// of the player's unknown368 of a point half a radius from the player, at a
+// right angle to the effect's angle unknown80 and on the side away from
+// `pos` (0x443b10).
+int PlayerPosFunc443b10(Player *player, D3DXVECTOR3 *pos)
+{
+    D3DXVECTOR3 diff = *pos - player->pos;
+    D3DXVECTOR3 center;
+    float angle = AddNormalizeAngle(player->unknown368->unknown80, 1.5707964f);
+    D3DXVECTOR3 offset;
+
+    SetPolar((Vector2 *)&offset, angle, player->unknown368->unknown7c * 0.5f);
+    if (diff.x * offset.x + diff.y * offset.y > 0.0f)
+    {
+        center = player->pos - offset;
+    }
+    else
+    {
+        center = player->pos + offset;
+    }
+    diff = center - *pos;
+    if (diff.x * diff.x + diff.y * diff.y < player->unknown368->unknown7c * player->unknown368->unknown7c)
+    {
+        return 1;
+    }
+    return 0;
+}
+
 // The state of effect type 34, which it keeps in its vertices (0xef8
 // bytes), laid out as ExAttackData14 from unknown4c on.
 struct EffectData34
