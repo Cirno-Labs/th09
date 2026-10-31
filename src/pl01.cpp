@@ -72,3 +72,12 @@ int SpellCardInit441be0(SpellCard *card)
     return 0;
 }
 
+// The init callback of spell card type 5, pl00's for type 2 (0x441c30).
+int SpellCardInit441c30(SpellCard *card)
+{
+    D3DXVECTOR3 pos;
+
+    card->unknown1364 = g_MemoryManager.Alloc(0x2b8, ".\\pl\\pl01.cpp");
+    g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(2, &pos, 0x578, -2, 1000, 0);
+    return 0;
+}
