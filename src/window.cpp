@@ -28,3 +28,9 @@ void __stdcall ForceForegroundWindow(HWND hwnd)
     SystemParametersInfoA(SPI_SETFOREGROUNDLOCKTIMEOUT, 0, &lockTime, 0);
     AttachThreadInput(thread, activeThread, FALSE);
 }
+
+void Log::Reset()
+{
+    this->cursor = this->buffer;
+    *this->cursor = '\0';
+}

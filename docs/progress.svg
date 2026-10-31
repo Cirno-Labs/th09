@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.52% (756)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.26% (303)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.62% (757)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.17% (302)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="526.80" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="526.80" y="0" class="decompiled"/>
-<rect width="211.14" height="6" x="535.86" y="0" class="todo"/>
+<rect width="527.50" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="527.50" y="0" class="decompiled"/>
+<rect width="210.44" height="6" x="536.56" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -664,7 +664,7 @@
 <rect width="12" height="12" x="645" y="165" class="todo"><title>0x0042cd90 Func42cd90 (809 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="165" class="named"><title>0x0042d0c0 ForceForegroundWindow (124 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="165" class="todo"><title>0x0042d140 Func42d140 (225 bytes)</title></rect>
-<rect width="12" height="12" x="690" y="165" class="todo"><title>0x0042d230 Func42d230 (10 bytes)</title></rect>
+<rect width="12" height="12" x="690" y="165" class="named"><title>0x0042d230 Log::Reset (10 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="165" class="todo"><title>0x0042d240 Func42d240 (80 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="165" class="named"><title>0x0042d2b0 App::GetForce16BitTextures (10 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="165" class="named"><title>0x0042d2c0 App::GetReferenceRasterizer (12 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.45%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.83%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">39.46%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">59.82%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="294.71" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="294.71" y="0" class="decompiled"/>
-<rect width="446.90" height="6" x="300.10" y="0" class="todo"/>
+<rect width="294.74" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="294.74" y="0" class="decompiled"/>
+<rect width="446.88" height="6" x="300.12" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -2172,7 +2172,7 @@
 <rect width="0.10" height="0.12" x="731.24" y="329.88" class="named"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>
 <rect width="0.15" height="0.10" x="734.26" y="314.26" class="named"><title>0x00401380 MemoryManager::Register (10 bytes)</title></rect>
 <rect width="0.15" height="0.10" x="737.41" y="314.26" class="named"><title>0x00406670 Timer::operator-- (10 bytes)</title></rect>
-<rect width="0.15" height="0.10" x="740.55" y="314.26" class="todo"><title>0x0042d230 Func42d230 (10 bytes)</title></rect>
+<rect width="0.15" height="0.10" x="740.55" y="314.26" class="named"><title>0x0042d230 Log::Reset (10 bytes)</title></rect>
 <rect width="0.15" height="0.10" x="743.70" y="314.26" class="named"><title>0x0042d2b0 App::GetForce16BitTextures (10 bytes)</title></rect>
 <rect width="0.15" height="0.10" x="746.85" y="314.26" class="named"><title>0x00434370 Sprite::IsShown (10 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="734.26" y="316.97" class="todo"><title>0x004343b0 Func4343b0 (10 bytes)</title></rect>

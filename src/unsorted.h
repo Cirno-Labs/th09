@@ -70,6 +70,8 @@ public:
     // Empties the buffer and clears hasError (0x42b110).
     Log();
 
+    // Empties the buffer, as th08's (0x42d230).
+    void Reset();
 
     char buffer[0x2000];
     // Where the next message goes.
