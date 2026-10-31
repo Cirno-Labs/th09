@@ -42,3 +42,15 @@ int PlayerPosFunc440df0(Player *player, D3DXVECTOR3 *pos)
     return 0;
 }
 
+// The init callbacks of spell card types 0 and 1: allocate unknown1360
+// and spawn enemy subroutine 0 or 1 from the player's ECL (0x441350,
+// 0x4413d0). The position is never set. Return 0.
+int SpellCardInit441350(SpellCard *card)
+{
+    D3DXVECTOR3 pos;
+
+    card->unknown1360 = g_MemoryManager.Alloc(0x2b8, ".\\pl\\pl00.cpp");
+    g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(0, &pos, 0x1e, -2, 1000, 0);
+    return 0;
+}
+
