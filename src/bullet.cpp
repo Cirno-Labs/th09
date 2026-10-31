@@ -431,6 +431,34 @@ done:
     return bullet;
 }
 
+Bullet *BulletManager::FirePattern2(EnemyShooter *shooter)
+{
+    int col;
+    int row;
+    float aimAngle;
+    Bullet *bullet;
+
+    shooter->typeSprites = &this->bulletTypes[shooter->sprite];
+    aimAngle = this->side->player->AngleToPlayer(&shooter->pos);
+    for (row = 0; row < shooter->count2; row++)
+    {
+        for (col = 0; col < shooter->count1; col++)
+        {
+            bullet = this->SpawnBullet(shooter, col, row, aimAngle, 1);
+            if (bullet == &this->bullets2[0x168])
+            {
+                goto done;
+            }
+        }
+    }
+done:
+    if (shooter->flags & 0x200)
+    {
+        g_SoundPlayer.QueueSoundPanned(shooter->sound, shooter->pos.x);
+    }
+    return bullet;
+}
+
 // Flag 1: the bullet starts 5 faster and slows to its speed over 16
 // frames, as th08's (0x413460).
 static void SlowBulletStart(Bullet *bullet)
