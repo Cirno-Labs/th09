@@ -41,7 +41,7 @@ address,size,name,symbol
 0x00401660,20,SpriteEngine::GetAnm,?GetAnm@SpriteEngine@@QAEPAVAnmLoaded@@H@Z
 0x00401680,46,GameManager::ArenaToScreenX,?ArenaToScreenX@GameManager@@QAEMM@Z
 0x004016b0,46,GameManager::ArenaToScreenY,?ArenaToScreenY@GameManager@@QAEMM@Z
-0x004016e0,423,Func4016e0,
+0x004016e0,423,UpdateEasedVector,?UpdateEasedVector@@YIXPAVStage@@PAUD3DXVECTOR3@@H1111@Z
 0x004018a0,79,Stage::JumpToWaitLabel,?JumpToWaitLabel@Stage@@QAEXXZ
 0x004018f0,2472,Stage::RunScript,?RunScript@Stage@@QAEXXZ
 0x00402350,377,Stage::OnUpdate,?OnUpdate@Stage@@SIHPAV1@@Z

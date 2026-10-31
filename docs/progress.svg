@@ -61,12 +61,12 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.57% (853)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0.09% (1)</tspan> · <tspan class="todo">8.98% (100)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.57% (853)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">0.18% (2)</tspan> · <tspan class="todo">8.89% (99)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="571.98" height="6" x="0" y="0" class="named"/>
 <rect width="107.29" height="6" x="571.98" y="0" class="decompiled"/>
-<rect width="0.67" height="6" x="679.27" y="0" class="nonmatching"/>
-<rect width="67.06" height="6" x="679.94" y="0" class="todo"/>
+<rect width="1.34" height="6" x="679.27" y="0" class="nonmatching"/>
+<rect width="66.39" height="6" x="680.61" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -111,7 +111,7 @@
 <rect width="12" height="12" x="585" y="0" class="named"><title>0x00401660 SpriteEngine::GetAnm (20 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="0" class="named"><title>0x00401680 GameManager::ArenaToScreenX (46 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="0" class="named"><title>0x004016b0 GameManager::ArenaToScreenY (46 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="0" class="todo"><title>0x004016e0 Func4016e0 (423 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="0" class="nonmatching"><title>0x004016e0 UpdateEasedVector (423 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="0" class="named"><title>0x004018a0 Stage::JumpToWaitLabel (79 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="0" class="named"><title>0x004018f0 Stage::RunScript (2472 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="0" class="named"><title>0x00402350 Stage::OnUpdate (377 bytes)</title></rect>
@@ -1187,12 +1187,12 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.57%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">4.98%</tspan> · <tspan class="todo">29.62%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">50.57%</tspan> · <tspan class="decompiled">14.83%</tspan> · <tspan class="nonmatching">5.13%</tspan> · <tspan class="todo">29.47%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="377.75" height="6" x="0" y="0" class="named"/>
 <rect width="110.81" height="6" x="377.75" y="0" class="decompiled"/>
-<rect width="37.22" height="6" x="488.55" y="0" class="nonmatching"/>
-<rect width="221.23" height="6" x="525.77" y="0" class="todo"/>
+<rect width="38.29" height="6" x="488.55" y="0" class="nonmatching"/>
+<rect width="220.16" height="6" x="526.84" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.09" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1364,7 +1364,7 @@
 <rect width="16.55" height="16.69" x="432.55" y="101.73" class="named"><title>0x00433e00 LzssInsertNode (438 bytes)</title></rect>
 <rect width="16.55" height="16.60" x="432.55" y="121.42" class="decompiled"><title>0x0044ac20 ExAttackInit44ac20 (436 bytes)</title></rect>
 <rect width="16.55" height="16.11" x="432.55" y="141.03" class="named"><title>0x0041b5c6 GameManager::ResetRound (425 bytes)</title></rect>
-<rect width="16.55" height="16.02" x="432.55" y="160.14" class="todo"><title>0x004016e0 Func4016e0 (423 bytes)</title></rect>
+<rect width="16.55" height="16.02" x="432.55" y="160.14" class="nonmatching"><title>0x004016e0 UpdateEasedVector (423 bytes)</title></rect>
 <rect width="16.55" height="16.02" x="432.55" y="179.16" class="named"><title>0x0043d3a0 MidiPlayer::MidiPlayer (423 bytes)</title></rect>
 <rect width="16.55" height="15.98" x="432.55" y="198.18" class="named"><title>0x0041b82a GameManager::DeletedCallback (422 bytes)</title></rect>
 <rect width="16.55" height="15.98" x="432.55" y="217.15" class="named"><title>0x0041bfc0 Player::CheckLaserHit (422 bytes)</title></rect>
