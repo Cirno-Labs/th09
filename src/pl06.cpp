@@ -72,6 +72,55 @@ int EffectInit4459a0(Effect *effect)
     return 0;
 }
 
+// The draw callback of effect type 27: a strip down the play area, from
+// unknown7c left of the effect to unknown7c right of it, faint in the
+// middle, if unknownC9 is set. Returns 1 (0x445a40).
+int EffectDraw445a40(Effect *effect)
+{
+    if (effect->unknownC9)
+    {
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x - effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(0.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x - effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(448.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(0.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(448.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x30600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(effect->unknown7c + vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(0.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+        vtx++;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(effect->unknown7c + vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(448.0f);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x70600040;
+    }
+    g_SpriteEngine->DrawColoredStrip(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, 6);
+    return 1;
+}
+
 // The init callback of effect type 0x23: starts script 7 of the player's
 // ANM on the first sprite, without writing depth and with no offset.
 // Returns 0 (0x445c30).
