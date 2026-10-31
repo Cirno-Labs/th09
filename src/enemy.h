@@ -205,9 +205,13 @@ struct EnemyShooter
     // The sounds of shooting and of the bullets, as th08's.
     int sound;
     int bulletSound;
-    unsigned char pad_208[0x20c - 0x208];
+    // The command each bullet starts from, as th08's.
+    int commandIndex;
+    // Copied into each bullet's unknown10bd.
     char unknown20c;
-    unsigned char pad_20d[0x214 - 0x20d];
+    unsigned char pad_20d[0x210 - 0x20d];
+    // The bullet type's sprites, as th08's.
+    BulletTypeSprites *typeSprites;
 };
 ASSERT_SIZE(EnemyShooter, 0x214);
 

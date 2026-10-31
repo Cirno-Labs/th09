@@ -20,7 +20,8 @@ struct BulletTypeSprites
     Sprite sprite4;
     // The size of the bullet's hitbox.
     D3DXVECTOR3 hitboxSize;
-    unsigned char pad_d40[0xd42 - 0xd40];
+    BYTE unknownD40;
+    BYTE unknownD41;
     // The draw list the bullet goes into, as th08's.
     BYTE sizeClass;
     unsigned char pad_d43[0xd44 - 0xd43];
@@ -110,7 +111,8 @@ struct Bullet
     // as th08's.
     unsigned short state;
     WORD outOfBoundsFrames;
-    unsigned char pad_dc2[0xdc3 - 0xdc2];
+    // Set on spawning, as th08's spawnedFlag.
+    BYTE spawnedFlag;
     BYTE grazed;
     // Set while spawning in one of the player's hit areas; the bullet
     // fades out once spawned.
@@ -118,7 +120,8 @@ struct Bullet
     unsigned char pad_dc5[0xdc8 - 0xdc5];
     // The next bullet in its draw list.
     Bullet *next;
-    unsigned char pad_dcc[0xdd0 - 0xdcc];
+    // Cleared on spawning, as th08's scriptFuncState.
+    int unknownDcc;
     // The sound the commands play, if not negative.
     int sound;
     // The command to start next, as th08's.
@@ -127,13 +130,22 @@ struct Bullet
     BulletEx ex[7];
     // Neither grazed nor hit, as th08's.
     char harmless;
-    unsigned char pad_10bd[0x10be - 0x10bd];
+    // The shooter's unknown20c.
+    char unknown10bd;
     // Set once extra attack type 21 has doubled the bullet, and on the
     // copy.
     char unknown10be;
-    unsigned char pad_10bf[0x10c4 - 0x10bf];
+    unsigned char pad_10bf[0x10c0 - 0x10bf];
+    // The shooter's bullet type and color.
+    short sprite;
+    short color;
 };
 ASSERT_SIZE(Bullet, 0x10c4);
+
+// The sprite offsets of each color for the bullets up to 16 and up to
+// 32 high (0x4a0f18, 0x4a0f58).
+extern int g_BulletColorOffsets16[16];
+extern int g_BulletColorOffsets32[8];
 
 // Starts the bullet's next commands, as th08's (0x4141c0).
 void RunBulletCommands(Bullet *bullet);
@@ -202,6 +214,13 @@ public:
     static int LoadAnm();
     // Releases ANM slot 8 (0x412600).
     static void ReleaseAnm();
+    // Sets `dst`, a copy of `src`, to the sprite of `color`, through the
+    // color offsets of `sprites`' size class (0x4124e0).
+    void ShowSpawnSprite(Sprite *dst, Sprite *src, BulletTypeSprites *sprites, int color);
+    // Spawns the shooter's bullet `col` of row `row` into the first set,
+    // or the second if `set`, as th08's. Returns it, or the cursor if
+    // the set is full (0x412960).
+    Bullet *SpawnBullet(EnemyShooter *shooter, int col, int row, float aimAngle, int set);
     // Fires the shooter's count1 by count2 bullets, as th08's
     // FirePattern. Returns the last bullet spawned (0x4130f0).
     Bullet *FirePattern(EnemyShooter *shooter);
