@@ -99,6 +99,9 @@ struct EclInstr
     EclArg args[9];
 };
 
+// `id`, or the int variable it names, as th08's GetIntOperand
+// (0x405760).
+int GetIntOperand(Enemy *enemy, int id);
 // The int variable `operand` names when bit `bit` of `mask` is set,
 // as th08's (0x405f20).
 int *ResolveOperand(Enemy *enemy, int *operand, WORD mask, int bit);
@@ -379,7 +382,8 @@ struct Enemy
     float lowerBound[2];
     float upperBound[2];
     float minShootDistSq;
-    unsigned char pad_33ac[0x33b0 - 0x33ac];
+    // Where th08's lastDamage is, which ECL reads as variable 10083.
+    int lastDamage;
     int lifeCallbackLife[4];
     unsigned char pad_33c0[0x33d0 - 0x33c0];
     int timerCallbackTime;

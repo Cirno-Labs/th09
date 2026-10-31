@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.15% (752)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.64% (307)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.24% (753)</tspan> · <tspan class="decompiled">1.21% (13)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">28.54% (306)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="524.01" height="6" x="0" y="0" class="named"/>
-<rect width="9.06" height="6" x="524.01" y="0" class="decompiled"/>
-<rect width="213.93" height="6" x="533.07" y="0" class="todo"/>
+<rect width="524.71" height="6" x="0" y="0" class="named"/>
+<rect width="9.06" height="6" x="524.71" y="0" class="decompiled"/>
+<rect width="213.23" height="6" x="533.77" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -157,7 +157,7 @@
 <rect width="12" height="12" x="540" y="15" class="named"><title>0x00405700 Atan2 (15 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="15" class="named"><title>0x00405710 Fmod (18 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="15" class="named"><title>0x00405730 D3DXVECTOR3::operator+= (36 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="15" class="todo"><title>0x00405760 Func405760 (1572 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="15" class="named"><title>0x00405760 GetIntOperand (1572 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="15" class="named"><title>0x00405f20 ResolveOperand (491 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="15" class="named"><title>0x00406200 Rng::GetRandomF32SignedInRange (15 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="15" class="named"><title>0x00406210 ResolveFloatOperand (704 bytes)</title></rect>
@@ -1144,11 +1144,11 @@
 </g>
 <g transform="translate(0 501)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.30%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">60.98%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">38.83%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">60.44%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="286.07" height="6" x="0" y="0" class="named"/>
-<rect width="5.39" height="6" x="286.07" y="0" class="decompiled"/>
-<rect width="455.54" height="6" x="291.46" y="0" class="todo"/>
+<rect width="290.09" height="6" x="0" y="0" class="named"/>
+<rect width="5.39" height="6" x="290.09" y="0" class="decompiled"/>
+<rect width="451.52" height="6" x="295.48" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="77.38" height="154.25" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1176,7 +1176,7 @@
 <rect width="35.41" height="34.61" x="171.69" y="117.87" class="todo"><title>0x0041af2d GameManager::LoadingThread (1689 bytes)</title></rect>
 <rect width="35.41" height="33.37" x="171.69" y="155.49" class="todo"><title>0x004068a0 GetFloatOperand (1633 bytes)</title></rect>
 <rect width="35.41" height="33.37" x="171.69" y="191.85" class="todo"><title>0x00430aa0 App::UpdateNetPlay (1633 bytes)</title></rect>
-<rect width="35.41" height="32.01" x="171.69" y="228.22" class="todo"><title>0x00405760 Func405760 (1572 bytes)</title></rect>
+<rect width="35.41" height="32.01" x="171.69" y="228.22" class="named"><title>0x00405760 GetIntOperand (1572 bytes)</title></rect>
 <rect width="35.41" height="32.01" x="171.69" y="263.23" class="todo"><title>0x004254a7 MainMenu::UpdateState3 (1572 bytes)</title></rect>
 <rect width="35.41" height="31.76" x="171.69" y="298.24" class="todo"><title>0x0042dd90 Func42dd90 (1561 bytes)</title></rect>
 <rect width="31.11" height="36.13" x="210.10" y="0" class="named"><title>0x00429e23 MainMenu::UpdateState1 (1560 bytes)</title></rect>
