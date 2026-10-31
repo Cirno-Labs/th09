@@ -202,7 +202,11 @@ int MeasureRefreshRate();
 // th08's; shows it if `draw` is set (0x4316b0).
 void DrawFps(int draw);
 // Reads player `player`'s keyboard and pad buttons into
-// g_PlayerInputs[player] and returns them (0x42b850).
+// g_PlayerInputs[player] and returns them (0x42b850). The keyboard layout
+// is the player's pad setting: 2 (always for player 2) the arrows and
+// numpad with Z, X and shift, 3 TFHB with RYVN as the diagonals, 4 the
+// numpad with down, right and left as shot, bomb and focus. Player 2
+// also reads both pads.
 WORD ReadInput(int player);
 // Reads the local keyboard and the pads of both players' settings
 // into one set of buttons, for network play (0x42be40).
