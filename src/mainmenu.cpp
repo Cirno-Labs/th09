@@ -3000,6 +3000,294 @@ int MainMenu::UpdateState10()
     return 1;
 }
 
+int MainMenu::UpdateState8()
+{
+    int i;
+    int n;
+    char characters[2];
+
+    switch (this->subState)
+    {
+    case 1:
+        if (g_GameManager.unknown114 == 4 && g_Network->unknownA8 == 0)
+        {
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            if (this->state == 3)
+            {
+                this->SetState(2);
+                return 1;
+            }
+            if (this->state == 5)
+            {
+                this->SetState(4);
+                return 1;
+            }
+            this->SetState(7);
+            return 1;
+        }
+        if (this->cursors[2] == 0)
+        {
+            if (!(g_PlayerInputs[0].unknown0 & 4))
+            {
+                if ((i = this->MovePlayerCursor(0, 16)) != 0)
+                {
+                    this->SkipClosedEntries(0, i, g_VsCharacters, 16);
+                    characters[0] = g_VsCharacters[this->cursors[0]];
+                    characters[1] = g_VsCharacters[this->cursors[1]];
+                    if (i > 0)
+                    {
+                        this->SelectEntryStep(characters[0], 0x5c, 16, 2);
+                        this->SelectEntryStep(characters[0], 0x3c, 16, 2);
+                    }
+                    else
+                    {
+                        this->SelectEntry2(characters[0], 0x5c, 16, 2);
+                        this->SelectEntry2(characters[0], 0x3c, 16, 2);
+                    }
+                    this->MoveCharacterCursor(0, characters[0], characters[1], g_VsCharacters);
+                }
+            }
+            else
+            {
+                if (g_PlayerInputs[0].IsPressed(0x40))
+                {
+                    if (this->unknown11b84 > 1)
+                    {
+                        this->unknown11b84--;
+                    }
+                    this->FlashHalves(this->unknown11b84, this->unknown11b88);
+                }
+                if (g_PlayerInputs[0].IsPressed(0x80))
+                {
+                    if (this->unknown11b84 < 10)
+                    {
+                        this->unknown11b84++;
+                    }
+                    this->FlashHalves(this->unknown11b84, this->unknown11b88);
+                }
+            }
+            if (g_PlayerInputs[0].unknown0 & 0x100)
+            {
+                this->cursors[0] += g_Rng.GetRandomU32() & 0xf;
+                if (this->cursors[0] >= 16)
+                {
+                    this->cursors[0] -= 16;
+                }
+                this->SkipClosedEntries(0, 1, g_VsCharacters, 16);
+                characters[0] = g_VsCharacters[this->cursors[0]];
+                characters[1] = g_VsCharacters[this->cursors[1]];
+                this->SelectEntryStep(characters[0], 0x5c, 16, 2);
+                this->SelectEntryStep(characters[0], 0x3c, 16, 2);
+                this->MoveCharacterCursor(0, characters[0], characters[1], g_VsCharacters);
+            }
+        }
+        if (this->cursors[3] == 0)
+        {
+            if (!(g_PlayerInputs[1].unknown0 & 4))
+            {
+                if ((i = this->MovePlayerCursor(1, 16)) != 0)
+                {
+                    this->SkipClosedEntries(1, i, g_VsCharacters, 16);
+                    characters[0] = g_VsCharacters[this->cursors[0]];
+                    characters[1] = g_VsCharacters[this->cursors[1]];
+                    if (i < 0)
+                    {
+                        this->SelectEntryStep(characters[1], 0x5d, 16, 2);
+                        this->SelectEntryStep(characters[1], 0x3d, 16, 2);
+                    }
+                    else
+                    {
+                        this->SelectEntry2(characters[1], 0x5d, 16, 2);
+                        this->SelectEntry2(characters[1], 0x3d, 16, 2);
+                    }
+                    this->MoveCharacterCursor(1, characters[1], characters[0], g_VsCharacters);
+                }
+            }
+            else
+            {
+                if (g_PlayerInputs[1].IsPressed(0x40))
+                {
+                    if (this->unknown11b88 > 1)
+                    {
+                        this->unknown11b88--;
+                    }
+                    this->FlashHalves(this->unknown11b84, this->unknown11b88);
+                }
+                if (g_PlayerInputs[1].IsPressed(0x80))
+                {
+                    if (this->unknown11b88 < 10)
+                    {
+                        this->unknown11b88++;
+                    }
+                    this->FlashHalves(this->unknown11b84, this->unknown11b88);
+                }
+            }
+            if (g_PlayerInputs[1].unknown0 & 0x100)
+            {
+                this->cursors[1] += g_Rng.GetRandomU32() & 0xf;
+                if (this->cursors[1] >= 16)
+                {
+                    this->cursors[1] -= 16;
+                }
+                this->SkipClosedEntries(1, 1, g_VsCharacters, 16);
+                characters[0] = g_VsCharacters[this->cursors[0]];
+                characters[1] = g_VsCharacters[this->cursors[1]];
+                this->SelectEntryStep(characters[1], 0x5d, 16, 2);
+                this->SelectEntryStep(characters[1], 0x3d, 16, 2);
+                this->MoveCharacterCursor(1, characters[1], characters[0], g_VsCharacters);
+            }
+        }
+        characters[0] = g_VsCharacters[this->cursors[0]];
+        characters[1] = g_VsCharacters[this->cursors[1]];
+        if ((g_PlayerInputs[0].unknown6 & 0x1001) && this->cursors[2] == 0)
+        {
+            this->PlaySoundNow(10, 0);
+            this->cursors[2] = 1;
+            this->sprites[characters[0] * 2 + 92].colorRgb[2] = 0x80;
+            this->sprites[characters[0] * 2 + 92].colorRgb[1] = 0x80;
+            this->sprites[characters[0] * 2 + 92].colorRgb[0] = 0x80;
+            this->sprites[characters[0] * 2 + 60].colorRgb[2] = 0x80;
+            this->sprites[characters[0] * 2 + 60].colorRgb[1] = 0x80;
+            this->sprites[characters[0] * 2 + 60].colorRgb[0] = 0x80;
+            g_GameManager.sides[0].unknown30 = g_PlayerInputs[0].unknown0 >> 2 & 1;
+            if (this->cursors[3] != 0 && characters[0] == characters[1])
+            {
+                g_GameManager.sides[0].unknown30 = 1 - g_GameManager.sides[1].unknown30;
+            }
+        }
+        if ((g_PlayerInputs[1].unknown6 & 0x1001) && this->cursors[3] == 0)
+        {
+            this->PlaySoundNow(10, 0);
+            this->cursors[3] = 1;
+            this->sprites[characters[1] * 2 + 93].colorRgb[2] = 0x80;
+            this->sprites[characters[1] * 2 + 93].colorRgb[1] = 0x80;
+            this->sprites[characters[1] * 2 + 93].colorRgb[0] = 0x80;
+            this->sprites[characters[1] * 2 + 61].colorRgb[2] = 0x80;
+            this->sprites[characters[1] * 2 + 61].colorRgb[1] = 0x80;
+            this->sprites[characters[1] * 2 + 61].colorRgb[0] = 0x80;
+            g_GameManager.sides[1].unknown30 = g_PlayerInputs[1].unknown0 >> 2 & 1;
+            if (this->cursors[2] != 0 && characters[0] == characters[1])
+            {
+                g_GameManager.sides[1].unknown30 = 1 - g_GameManager.sides[0].unknown30;
+            }
+        }
+        if (this->cursors[2] != 0 && this->cursors[3] != 0)
+        {
+            g_GameManager.sides[0].character = characters[0];
+            g_GameManager.sides[1].character = characters[1];
+            g_GameManager.unknown378 = this->unknown11b84;
+            g_GameManager.unknown37c = this->unknown11b88;
+            this->PlaySoundNow(10, 0);
+            this->SetState(16);
+            this->UpdateState16();
+            return 1;
+        }
+        if ((g_PlayerInputs[0].unknown6 & 0xa) && this->cursors[2] == 0 ||
+            (g_PlayerInputs[1].unknown6 & 0xa) && this->cursors[3] == 0)
+        {
+            g_GameManager.difficulty = this->cursor;
+            this->PlaySoundNow(11, 0);
+            this->stateFrames = 0;
+            g_GameManager.sides[0].character = characters[0];
+            g_GameManager.sides[1].character = characters[1];
+            if (this->state == 3)
+            {
+                this->SetState(2);
+                return 1;
+            }
+            if (this->state == 5)
+            {
+                this->SetState(4);
+                return 1;
+            }
+            this->SetState(7);
+            return 1;
+        }
+        if ((g_PlayerInputs[0].unknown6 & 0xa) && this->cursors[2] == 1)
+        {
+            this->cursors[2] = 0;
+            this->PlaySoundNow(11, 0);
+            this->sprites[characters[0] * 2 + 92].colorRgb[2] = 0xff;
+            this->sprites[characters[0] * 2 + 92].colorRgb[1] = 0xff;
+            this->sprites[characters[0] * 2 + 92].colorRgb[0] = 0xff;
+            this->sprites[characters[0] * 2 + 60].colorRgb[2] = 0xff;
+            this->sprites[characters[0] * 2 + 60].colorRgb[1] = 0xff;
+            this->sprites[characters[0] * 2 + 60].colorRgb[0] = 0xff;
+        }
+        if ((g_PlayerInputs[1].unknown6 & 0xa) && this->cursors[3] == 1)
+        {
+            this->cursors[3] = 0;
+            this->PlaySoundNow(11, 0);
+            this->sprites[characters[1] * 2 + 93].colorRgb[2] = 0xff;
+            this->sprites[characters[1] * 2 + 93].colorRgb[1] = 0xff;
+            this->sprites[characters[1] * 2 + 93].colorRgb[0] = 0xff;
+            this->sprites[characters[1] * 2 + 61].colorRgb[2] = 0xff;
+            this->sprites[characters[1] * 2 + 61].colorRgb[1] = 0xff;
+            this->sprites[characters[1] * 2 + 61].colorRgb[0] = 0xff;
+        }
+        break;
+    case 0:
+        if (this->unknown1b230 == 0)
+        {
+            g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 13);
+            g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
+            n = 0;
+            for (i = 0; i < 16; i++)
+            {
+                if (g_PlayRecord.openEntries[g_VsCharacters[i]] || g_Network->unknownA8)
+                {
+                    this->anm->SetSprite(&this->sprites[n + 191], g_VsCharacters[i] + 0xeb);
+                    this->sprites[n + 191].flags |= 2;
+                    n++;
+                }
+            }
+            for (; n < 16; n++)
+            {
+                this->sprites[n + 191].flags &= ~2;
+            }
+            this->sprites[189].flags |= 2;
+            this->sprites[190].flags |= 2;
+            for (this->cursors[0] = 0; g_VsCharacters[this->cursors[0]] != g_GameManager.sides[0].character;
+                 this->cursors[0]++)
+            {
+            }
+            for (this->cursors[1] = 0; g_VsCharacters[this->cursors[1]] != g_GameManager.sides[1].character;
+                 this->cursors[1]++)
+            {
+            }
+            this->SkipClosedEntries(0, 1, g_VsCharacters, 16);
+            this->SkipClosedEntries(1, 1, g_VsCharacters, 16);
+            characters[0] = g_VsCharacters[this->cursors[0]];
+            characters[1] = g_VsCharacters[this->cursors[1]];
+            this->SelectEntryStep(g_VsCharacters[this->cursors[0]], 0x5c, 16, 2);
+            this->SelectEntryStep(g_VsCharacters[this->cursors[1]], 0x5d, 16, 2);
+            this->SelectEntryStep(g_VsCharacters[this->cursors[0]], 0x3c, 16, 2);
+            this->SelectEntryStep(g_VsCharacters[this->cursors[1]], 0x3d, 16, 2);
+            this->unknownC918 = 1;
+            this->cursors[3] = 0;
+            this->cursors[2] = 0;
+            this->subState = 0;
+            this->stateFrames = 0;
+            this->helpSprite = NULL;
+            this->unknown11b84 = g_GameManager.unknown378;
+            this->unknown11b88 = g_GameManager.unknown37c;
+            this->FlashHalves(this->unknown11b84, this->unknown11b88);
+            this->MoveCharacterCursor(0, characters[0], characters[1], g_VsCharacters);
+            this->MoveCharacterCursor(1, characters[1], characters[0], g_VsCharacters);
+        }
+        if (this->unknown1b230 == 8)
+        {
+            this->subState = 1;
+        }
+        break;
+    }
+    this->stateFrames++;
+    this->unknownC910++;
+    this->unknown1b230++;
+    return 1;
+}
+
 int MainMenu::UpdateState13()
 {
     int i;

@@ -37,6 +37,9 @@ extern char *g_KeyConfigHelpTexts[10];
 extern short g_LastPressedKey;
 // The comment the music room shows for a tune not heard yet (0x4a1dbc).
 extern char *g_MusicNotHeardComment[8];
+// The characters of state 8's character select, in its order
+// (0x4a1e2c).
+extern char g_VsCharacters[16];
 // The characters of states 3 and 5's character select, in its order
 // (0x4a1d7c; the last two are padding).
 extern char g_StoryCharacters[16];
@@ -210,6 +213,10 @@ public:
     // and [1] pick the two characters and cursors[2] and [3] mark them
     // chosen; while button 4 is held, unknown11b84 can be changed. It
     // starts the game in scene 2, or goes back to state 2, 4 or 7.
+    // UpdateState8 is the versus character select of two players
+    // (g_VsCharacters, opened by openEntries or network play), each with
+    // their own input, cursors[0] and [1], and chosen marks cursors[2]
+    // and [3]; once both chose it goes to state 16.
     // UpdateState9 is the options, th08's UpdateOptions: unknownAc, the
     // colour depth, the music, the two volumes and the window, the
     // defaults, the key config (state 10) and leaving, which returns 5
