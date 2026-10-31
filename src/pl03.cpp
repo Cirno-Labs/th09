@@ -81,6 +81,33 @@ int EffectDraw4437f0(Effect *effect)
     return 1;
 }
 
+// An update callback of the shot table (13): keeps the bullet on the
+// player, raised by its velocity.y as that falls by 1 a frame, and sets
+// the player's unknown1cdc and unknown1ce0 to 1 after 15 frames. While
+// it flies, adds a damage box and a hit box above it that widen with
+// its age. Returns 0 (0x443930).
+int ShotUpdate443930(Player *player, PlayerBullet *bullet)
+{
+    bullet->pos = player->pos;
+    bullet->pos.y += bullet->velocity.y;
+    bullet->velocity.y -= 1.0f;
+    if (bullet->timer >= 15)
+    {
+        player->unknown1cdc = player->unknown1ce0 = 1.0f;
+    }
+    if (bullet->state == 1)
+    {
+        float width = bullet->timer.AsFloat() + 80.0f;
+        D3DXVECTOR3 pos = bullet->pos;
+
+        pos.y -= 16.0f;
+        pos.x -= (width - 96.0f) * 0.5f;
+        player->AddDamageBox(&pos, width, 40.0f, 15, 0, 0);
+        player->AddHitBox(&pos, width, 30.0f, 0, 0);
+    }
+    return 0;
+}
+
 // The update callback of effect type 26: grows unknown7c by 8 up to 112,
 // sets unknownC9, puts the effect on its side's player and turns
 // unknown80 an eighth of the shorter way towards opposite the player's

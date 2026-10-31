@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">9.96% (111)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.76% (209)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">10.05% (112)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.67% (208)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="74.43" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="140.15" height="6" x="606.85" y="0" class="todo"/>
+<rect width="75.10" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="139.48" height="6" x="607.52" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1076,7 +1076,7 @@
 <rect width="12" height="12" x="75" y="300" class="todo"><title>0x004435e0 Func4435e0 (422 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="300" class="decompiled"><title>0x00443790 PlayerComboFunc443790 (85 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="300" class="decompiled"><title>0x004437f0 EffectDraw4437f0 (314 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="300" class="todo"><title>0x00443930 Func443930 (249 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="300" class="decompiled"><title>0x00443930 ShotUpdate443930 (249 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="300" class="decompiled"><title>0x00443a30 EffectUpdate443a30 (209 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="300" class="todo"><title>0x00443b10 Func443b10 (249 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="300" class="decompiled"><title>0x00443c10 PlayerEnemyFunc443c10 (95 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">5.76%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">52.16%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">5.85%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">52.07%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="43.06" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="389.62" height="6" x="357.38" y="0" class="todo"/>
+<rect width="43.69" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="388.99" height="6" x="358.01" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1495,7 +1495,7 @@
 <rect width="11.83" height="11.89" x="502.78" y="229.92" class="named"><title>0x0041f580 Player::UpdateBullets (251 bytes)</title></rect>
 <rect width="11.83" height="11.89" x="502.78" y="244.81" class="named"><title>0x004343e0 AsciiText::Initialize (251 bytes)</title></rect>
 <rect width="11.83" height="11.77" x="502.78" y="259.69" class="named"><title>0x0042d3d0 WindowProc (249 bytes)</title></rect>
-<rect width="11.83" height="11.77" x="502.78" y="274.46" class="todo"><title>0x00443930 Func443930 (249 bytes)</title></rect>
+<rect width="11.83" height="11.77" x="502.78" y="274.46" class="decompiled"><title>0x00443930 ShotUpdate443930 (249 bytes)</title></rect>
 <rect width="11.83" height="11.77" x="502.78" y="289.23" class="todo"><title>0x00443b10 Func443b10 (249 bytes)</title></rect>
 <rect width="11.83" height="11.77" x="502.78" y="303.99" class="todo"><title>0x00447620 Func447620 (249 bytes)</title></rect>
 <rect width="11.83" height="11.71" x="502.78" y="318.76" class="decompiled"><title>0x00443150 ShotUpdate443150 (248 bytes)</title></rect>
