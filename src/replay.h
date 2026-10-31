@@ -134,7 +134,10 @@ public:
     int unknown0;
     unsigned char pad_4[0x8 - 0x4];
     ReplayHeader *unknown08;
-    unsigned char pad_c[0x1c - 0xc];
+    // Where each player's recorded inputs and the recorded frame rates
+    // are read from, as th08's cursor and extraCursor.
+    WORD *inputCursors[3];
+    BYTE *extraCursor;
     // The recording of each stage.
     ReplayChunk chunks[10];
     unsigned char pad_10c[0x110 - 0x10c];

@@ -80,6 +80,9 @@ struct GameManagerUnknownE8
     // Nonzero in mode 0 has Gui::ScoreRoundBonus show sprite 0x41 and
     // give no bonus.
     BYTE unknownAc;
+    unsigned char pad_ad[0xb4 - 0xad];
+    // Per side; 1 has a replay track how long it holds button 1.
+    BYTE unknownB4[2];
 };
 
 struct GameManagerUnknownF0

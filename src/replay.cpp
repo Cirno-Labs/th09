@@ -78,6 +78,55 @@ int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
     return 1;
 }
 
+int ReplayManager::OnUpdateMode1(ReplayManager *mgr)
+{
+    int i;
+    BYTE *types;
+
+    if ((g_GameManager.stateFlags & 4) && !(g_GameManager.stateFlags & 0x200))
+    {
+        g_PlayerInputs[0].unknown2e = g_PlayerInputs[0].unknown2c;
+        g_PlayerInputs[1].unknown2e = g_PlayerInputs[1].unknown2c;
+        g_PlayerInputs[2].unknown2e = g_PlayerInputs[2].unknown2c;
+        g_PlayerInputs[0].unknown2c = *mgr->inputCursors[0];
+        g_PlayerInputs[1].unknown2c = *mgr->inputCursors[1];
+        g_PlayerInputs[2].unknown2c = *mgr->inputCursors[2];
+        g_PlayerInputs[0].UpdateRepeat2();
+        g_PlayerInputs[1].UpdateRepeat2();
+        g_PlayerInputs[2].UpdateRepeat2();
+        types = g_GameManager.unknownE8->unknownB4;
+        for (i = 0; i < 2; i++, types++)
+        {
+            if (*types == 1)
+            {
+                if (g_PlayerInputs[i].IsHeld2(1))
+                {
+                    g_PlayerInputs[i].unknown2a++;
+                    if (g_PlayerInputs[i].unknown2a >= 8)
+                    {
+                        g_PlayerInputs[i].unknown2a = 8;
+                    }
+                }
+                else
+                {
+                    g_PlayerInputs[i].unknown2a = 0;
+                }
+            }
+        }
+        mgr->inputCursors[0]++;
+        mgr->inputCursors[1]++;
+        mgr->inputCursors[2]++;
+        if (mgr->unknown0 % 30 == 0)
+        {
+            g_App.roundedFps = (char)mgr->extraCursor[1] & 0x7f;
+            g_App.fpsWarning = (char)mgr->extraCursor[1] >> 7;
+            mgr->extraCursor++;
+        }
+        mgr->unknown0++;
+    }
+    return 1;
+}
+
 ReplayHeader *ValidateReplay(void *data, int size)
 {
     BYTE *bytes;

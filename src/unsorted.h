@@ -347,7 +347,11 @@ struct PlayerInput
     unsigned char pad_2[0x2];
     WORD unknown4;
     WORD unknown6;
-    unsigned char pad_8[0x2c - 0x8];
+    unsigned char pad_8[0x2a - 0x8];
+    // How long button 1 of the second set has been held during a
+    // replay, up to 8, for the sides whose GameManagerUnknownE8
+    // unknownB4 is 1.
+    WORD unknown2a;
     WORD unknown2c;
     WORD unknown2e;
     WORD unknown30;
@@ -968,7 +972,11 @@ struct App
     // Below 1 when the game runs slow.
     float gameSpeed;
     MidiPlayer *midi;
-    unsigned char pad_5c0[0x5cc - 0x5c0];
+    unsigned char pad_5c0[0x5c8 - 0x5c0];
+    // The frame rate shown, as th08's; a replay puts the recorded one
+    // back.
+    short roundedFps;
+    unsigned char pad_5ca[0x5cc - 0x5ca];
     // The ANM file of the menus' text, as th08's.
     AnmLoaded *textAnm;
     // The ANM file of the loading sprites.
@@ -1002,7 +1010,8 @@ struct App
     int loadingState;
     unsigned char pad_744[0x77c - 0x744];
     int unknown77c;
-    unsigned char pad_780[0x784 - 0x780];
+    // Set when the frame rate is low, as th08's.
+    int fpsWarning;
     int unknown784;
     int unknown788;
     int unknown78c;
