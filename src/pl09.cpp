@@ -4,6 +4,7 @@
 #include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sprite.h"
 #include "unsorted.h"
 
 // The data of extra attack type 17 (0x50 bytes): ExAttackData00 with
@@ -52,6 +53,67 @@ int ExAttackInit448320(ExAttack *attack)
     data->velocity.x = 0.0f;
     data->velocity.y = g_Rng.GetRandomF32InRange(2.0f) + 0.5f;
     data->velocity.z = 0.0f;
+    return 0;
+}
+
+// The update callback of extra attack type 17: flies in along the curve
+// for 90 frames, then appears on the target's side as one of four
+// sprites and, after 20 frames, falls as a hit circle, bigger for the
+// first two, until it touches the player there or leaves the bottom.
+// Returns 1 once it is done (0x448490).
+int ExAttackUpdate448490(ExAttack *attack)
+{
+    ExAttackData17 *data = (ExAttackData17 *)attack->data;
+    D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
+
+    switch (data->state)
+    {
+    case 0:
+        HermiteInterpolate(&attack->pos, &data->end, &data->start, &data->tangent0, &data->tangent1,
+                           attack->timer.AsFloat(), 90.0f);
+        if (attack->timer > 0x5a)
+        {
+            data->variant = g_Rng.GetRandomU16InRange(4);
+            g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(attack->sprites,
+                                                                               data->variant + 9);
+            data->state++;
+            attack->pos = data->targetPos;
+            attack->layer = attack->targetSide;
+            attack->timer = 0;
+        }
+        break;
+    case 1:
+        if (attack->timer > 0x14)
+        {
+            if (g_GameManager.sides[attack->targetSide].player->CheckHitAreas(&attack->pos, &size, NULL) == 2)
+            {
+                data->state = 2;
+                attack->timer = 0;
+                attack->sprites->SetPendingInterrupt(1);
+                return 0;
+            }
+            attack->pos += data->velocity;
+            if (data->variant < 2)
+            {
+                g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 28.0f, NULL);
+            }
+            else
+            {
+                g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 18.0f, NULL);
+            }
+            if (attack->pos.y >= 512.0f)
+            {
+                return 1;
+            }
+        }
+        break;
+    case 2:
+        if (attack->timer > 0x14)
+        {
+            return 1;
+        }
+        break;
+    }
     return 0;
 }
 
