@@ -296,6 +296,39 @@ int PlayerComboFunc4444f0(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
     return 0;
 }
 
+// The init callback of extra attack type 22: type 14's, flying in to
+// the x and y of AddAttack's target and falling at its z as an angle.
+// Returns 0 (0x444560).
+int ExAttackInit444560(ExAttack *attack)
+{
+    ExAttackData14 *data;
+
+    attack->AllocSprites(1, sizeof(ExAttackData14));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    D3DXVECTOR3 target = *attack->target;
+    data = (ExAttackData14 *)attack->data;
+    data->base.velocity.z = 0.0f;
+    SetPolar((Vector2 *)&data->base.velocity, target.z, 2.0f);
+    data->base.state = 0;
+    attack->layer = 2;
+    SetPolar((Vector2 *)&data->base.tangent1,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    SetPolar((Vector2 *)&data->base.tangent0,
+             g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->base.start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->base.start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->base.start.z = 0.0f;
+    data->base.targetPos.x = target.x;
+    data->base.targetPos.y = target.y;
+    data->base.targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->base.end.x = g_GameManager.ArenaToScreenX(data->base.targetPos.x);
+    data->base.end.y = g_GameManager.ArenaToScreenY(data->base.targetPos.y);
+    data->base.end.z = 0.0f;
+    data->radius = 4.0f;
+    return 0;
+}
+
 // An update callback of the shot table (14): while unknown470 is 1,
 // stops the bullet, and frees it once it is 90 frames old. Sets
 // unknown472. Returns 0 (0x4446a0).
