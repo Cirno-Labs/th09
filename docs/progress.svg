@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">10.32% (115)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.40% (205)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.27% (794)</tspan> · <tspan class="decompiled">10.41% (116)</tspan> · <tspan class="nonmatching">0% (0)</tspan> · <tspan class="todo">18.31% (204)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="532.42" height="6" x="0" y="0" class="named"/>
-<rect width="77.11" height="6" x="532.42" y="0" class="decompiled"/>
-<rect width="137.46" height="6" x="609.54" y="0" class="todo"/>
+<rect width="77.78" height="6" x="532.42" y="0" class="decompiled"/>
+<rect width="136.79" height="6" x="610.21" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="todo"><title>0x00401000 Func401000 (91 bytes)</title></rect>
@@ -1100,7 +1100,7 @@
 <rect width="12" height="12" x="435" y="300" class="decompiled"><title>0x00445530 ShotFire445530 (44 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="300" class="named"><title>0x00445560 EffectManager::GetReservedEffect (26 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="300" class="decompiled"><title>0x00445580 PlayerPosFunc445580 (71 bytes)</title></rect>
-<rect width="12" height="12" x="480" y="300" class="todo"><title>0x004455d0 Func4455d0 (361 bytes)</title></rect>
+<rect width="12" height="12" x="480" y="300" class="decompiled"><title>0x004455d0 ExAttackInit4455d0 (361 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="300" class="todo"><title>0x00445740 Func445740 (481 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="300" class="decompiled"><title>0x00445930 PlayerComboFunc445930 (101 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="300" class="decompiled"><title>0x004459a0 EffectInit4459a0 (148 bytes)</title></rect>
@@ -1186,11 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">6.20%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">51.72%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">42.08%</tspan> · <tspan class="decompiled">6.32%</tspan> · <tspan class="nonmatching">0%</tspan> · <tspan class="todo">51.60%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="314.32" height="6" x="0" y="0" class="named"/>
-<rect width="46.32" height="6" x="314.32" y="0" class="decompiled"/>
-<rect width="386.36" height="6" x="360.64" y="0" class="todo"/>
+<rect width="47.23" height="6" x="314.32" y="0" class="decompiled"/>
+<rect width="385.45" height="6" x="361.55" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.08" height="161.34" x="0" y="0" class="todo"><title>0x004086c0 EclManager::RunEnemy (14777 bytes)</title></rect>
@@ -1391,7 +1391,7 @@
 <rect width="14.52" height="15.32" x="452.14" y="60.48" class="named"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
 <rect width="14.52" height="15.27" x="452.14" y="78.80" class="named"><title>0x0040f1d0 EnemyManager::SpawnEnemy (364 bytes)</title></rect>
 <rect width="14.52" height="15.12" x="452.14" y="97.07" class="named"><title>0x00421670 ReplayManager::RegisterChain (361 bytes)</title></rect>
-<rect width="14.52" height="15.12" x="452.14" y="115.19" class="todo"><title>0x004455d0 Func4455d0 (361 bytes)</title></rect>
+<rect width="14.52" height="15.12" x="452.14" y="115.19" class="decompiled"><title>0x004455d0 ExAttackInit4455d0 (361 bytes)</title></rect>
 <rect width="14.52" height="15.12" x="452.14" y="133.31" class="todo"><title>0x0044bcd0 Func44bcd0 (361 bytes)</title></rect>
 <rect width="14.52" height="15.12" x="452.14" y="151.43" class="todo"><title>0x0044c350 Func44c350 (361 bytes)</title></rect>
 <rect width="14.52" height="14.97" x="452.14" y="169.55" class="named"><title>0x0043d5e0 MidiPlayer::ParseFile (358 bytes)</title></rect>
