@@ -280,6 +280,82 @@ void Gui::CountRoundWin(int side)
     this->unknown11ea4 = 0;
 }
 
+void Gui::ScoreRoundBonus()
+{
+    int side;
+
+    this->anm->StartScriptAtOrigin(&this->unknown10968[3], 0x3f);
+    this->anm->StartScriptAtOrigin(&this->unknown10968[6], 0x42);
+    side = this->unknown10964;
+    this->unknown10960 = 0;
+    this->unknown1095c = 2;
+    this->unknown11e88 = g_GameManager.sides[side].player->unknownA8 * 100000;
+    if (g_GameManager.sides[side].player->unknown30410.maxCount < 1000)
+    {
+        this->unknown11e8c = g_GameManager.sides[side].player->unknown30410.maxCount * 10000;
+    }
+    else
+    {
+        this->unknown11e8c = 9999990;
+    }
+    if (g_GameManager.sides[side].player->unknownB0 > 66)
+    {
+        this->unknown11e90 = 9999990;
+    }
+    else
+    {
+        this->unknown11e90 = g_GameManager.sides[side].player->unknownB0 * 150000;
+    }
+    if (g_GameManager.sides[side].player->unknownB4 > 33)
+    {
+        this->unknown11e94 = 9999990;
+    }
+    else
+    {
+        this->unknown11e94 = g_GameManager.sides[side].player->unknownB4 * 300000;
+    }
+    if (g_GameManager.sides[side].player->unknownB8 > 33)
+    {
+        this->unknown11e98 = 9999990;
+    }
+    else
+    {
+        this->unknown11e98 = g_GameManager.sides[side].player->unknownB8 * 300000;
+    }
+    if (g_GameManager.unknownFc == 8)
+    {
+        if (g_GameManager.sides[side].stats->lives >= 10.0f)
+        {
+            this->unknown11e9c = 99999990;
+        }
+        else
+        {
+            this->unknown11e9c = (int)g_GameManager.sides[side].stats->lives * 10000000;
+        }
+    }
+    else
+    {
+        this->unknown11e9c = 0;
+    }
+    this->bonusTotal = this->unknown11e88 + this->unknown11e8c + this->unknown11e90 + this->unknown11e94 +
+                       this->unknown11e98 + this->unknown11e9c;
+    if ((g_GameManager.IsMode0() || g_GameManager.IsMode1()) && side == 0)
+    {
+        g_PlayRecord.OpenEntry(g_GameManager.sides[1].character);
+        if (g_GameManager.unknownFc == 8)
+        {
+            this->anm->StartScriptAtOrigin(&this->unknown10968[4], 0x40);
+            g_GameManager.sides[0].stats->extendsGiven = 9999;
+        }
+        if (g_GameManager.unknownE8->unknownAc > 0 && g_GameManager.IsMode0())
+        {
+            this->anm->StartScriptAtOrigin(&this->unknown10968[5], 0x41);
+            this->bonusTotal = 0;
+        }
+    }
+    g_GameManager.sides[this->unknown10964].AddScore(this->bonusTotal);
+}
+
 void Gui::UpdateEnemyMarker(int side, D3DXVECTOR3 *pos)
 {
     float dist;

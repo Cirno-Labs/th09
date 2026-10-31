@@ -151,6 +151,12 @@ public:
     // area, more transparent the nearer the player is, or hides it while
     // pos is out of the play area (0x416080).
     void UpdateEnemyMarker(int side, D3DXVECTOR3 *pos);
+    // Ends the round for the winner, side unknown10964: starts sprites
+    // 0x3f and 0x42, sets unknown1095c to 2, works out the bonuses from
+    // its player (and in unknownFc 8 its lives) and adds their total to
+    // its score; in modes 0 and 1, when side 0 won, opens the record's
+    // entry for the other's character (0x415e50).
+    void ScoreRoundBonus();
     // Resets the front for a new round (0x4181e0).
     void Reset();
     // Returns unknown11ea8 (0x40d4f0).
@@ -181,7 +187,15 @@ public:
     int unknown10960;
     int unknown10964;
     Sprite unknown10968[8];
-    unsigned char pad_11e88[0x11ea4 - 0x11e88];
+    // The round's bonuses, from the winner's player and stats, and their
+    // total, set by ScoreRoundBonus.
+    int unknown11e88;
+    int unknown11e8c;
+    int unknown11e90;
+    int unknown11e94;
+    int unknown11e98;
+    int unknown11e9c;
+    int bonusTotal;
     int unknown11ea4;
     // Nonzero stops the player's combo from counting hits.
     int unknown11ea8;

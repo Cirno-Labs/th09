@@ -73,6 +73,15 @@ ASSERT_SIZE(GameSide, 0x38);
 // Something of shorts GameManager points to; in mode 2 the dialogue
 // plays music unknownC (the copy at 0x416dce, unknown6, 8 and A in the
 // front).
+// What GameManager::unknownE8 points to. Only the fields known so far.
+struct GameManagerUnknownE8
+{
+    unsigned char pad_0[0xac];
+    // Nonzero in mode 0 has Gui::ScoreRoundBonus show sprite 0x41 and
+    // give no bonus.
+    BYTE unknownAc;
+};
+
 struct GameManagerUnknownF0
 {
     unsigned char pad_0[0x6];
@@ -209,7 +218,7 @@ public:
     ReplayManager *replayManager;
     unsigned char pad_d8[0xe8 - 0xd8];
     // Deleted by DeletedCallback.
-    void *unknownE8;
+    GameManagerUnknownE8 *unknownE8;
     // How far the enemy timelines advance a frame.
     float timelineSpeed;
     GameManagerUnknownF0 *unknownF0;
