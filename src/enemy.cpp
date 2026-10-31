@@ -17,16 +17,6 @@ BOOL Timer::operator==(int frames)
     return this->current == frames;
 }
 
-void Enemy::ResetRankSpeeds()
-{
-    this->rankSpeedLow = -0.5f;
-    this->rankSpeedHigh = 0.5f;
-    this->rankCount1Low = 0;
-    this->rankCount1High = 0;
-    this->rankCount2Low = 0;
-    this->rankCount2High = 0;
-}
-
 Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
                                 int usePlayerEcl)
 {
@@ -144,6 +134,33 @@ Enemy *EnemyManager::SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, cha
     }
     this->spawnFailed = i == 0x80;
     return enemy;
+}
+
+// Moves the effects that follow the enemy with it, out to effectRadius
+// and round, as th08's.
+static void MoveEnemyEffects(Enemy *enemy)
+{
+    Effect *eff;
+    int i;
+
+    for (i = 0; i < enemy->effectCount; i++)
+    {
+        eff = enemy->effects[i];
+        if (eff == NULL)
+        {
+            continue;
+        }
+        eff->unknown48 = enemy->pos;
+        if (eff->unknown7c < enemy->effectRadius)
+        {
+            eff->unknown7c += 0.3f;
+        }
+        else
+        {
+            eff->unknown7c = enemy->effectRadius;
+        }
+        eff->unknown80 = AddNormalizeAngle(eff->unknown80, 0.031415928f);
+    }
 }
 
 void Enemy::ReleaseEffects()
@@ -589,6 +606,466 @@ void Enemy::ClampPos()
             pos[1] = this->upperBound[1];
         }
     }
+}
+
+int EnemyManager::OnUpdate(EnemyManager *mgr)
+{
+    int bomb = 0;
+    int i;
+    D3DXVECTOR3 boxSize;
+    int hurt;
+    int hit;
+    int seg;
+    int kind;
+    Enemy *enemy;
+    Player *player;
+    Enemy **head;
+
+    if (g_GameManager.unknownBits134_11)
+    {
+        return 1;
+    }
+    g_GameManager.gui->UpdateEnemyMarker(mgr->sideIdx, &D3DXVECTOR3(-999.0f, 0.0f, 0.0f));
+    g_App.SetCamera(mgr->sideIdx);
+    mgr->drawListHeads[3] = NULL;
+    mgr->drawListHeads[2] = NULL;
+    mgr->drawListHeads[1] = NULL;
+    mgr->drawListHeads[0] = NULL;
+    if (!g_GameManager.gui->unknown1095c)
+    {
+        if (mgr->timeline.pos != NULL)
+        {
+            mgr->timeline.Run();
+        }
+        else if (!mgr->unknown2ac3b0 || mgr->unknown2ac3c8 > 0)
+        {
+            mgr->timeline.mirror = g_TimelineOrder[mgr->unknown2ac3d4] >> 7;
+            mgr->timeline.pos =
+                (EnemyTimelineEntry *)mgr->ecl.GetTimeline(g_TimelineOrder[mgr->unknown2ac3d4++] & 0x7f);
+            mgr->timeline.timer = 0;
+        }
+    }
+    mgr->enemyCount = 0;
+    mgr->unknown2ac3b0 = 0;
+    mgr->unknown2ac444 = NULL;
+    mgr->unknown2ac448 = NULL;
+    mgr->unknown2ac3b4 = 0;
+    mgr->unknown2ac3b8 = 0;
+    enemy = mgr->enemies;
+    if (mgr->side->player->unknown364 != NULL)
+    {
+        mgr->unknown2ac3c8 = 0;
+    }
+    else
+    {
+        mgr->unknown2ac3c8++;
+    }
+    for (i = 0; i < 0x80; i++, enemy++)
+    {
+        if (!enemy->active)
+        {
+            if (mgr->side->player->unknown3037c == enemy)
+            {
+                mgr->side->player->unknown3037c = NULL;
+            }
+            continue;
+        }
+        if (mgr->side->flag0 && enemy->unknownType != 1 && enemy->unknownType != 2)
+        {
+            if (enemy->hideFollowEffects)
+            {
+                continue;
+            }
+            head = &mgr->drawListHeads[enemy->drawListIndex];
+            enemy->nextInDrawList = *head;
+            *head = enemy;
+            continue;
+        }
+        hit = 0;
+        if (enemy->unknownFlag8)
+        {
+            enemy->absPos = enemy->pos + enemy->posOrigin;
+            enemy->absPos.z = 0.0f;
+            goto die;
+        }
+        mgr->enemyCount++;
+        if (!(enemy->flags2 & 0x4dc0))
+        {
+            mgr->unknown2ac3b0++;
+        }
+        if (enemy->unknownType)
+        {
+            mgr->unknown2ac3b4++;
+        }
+        if (enemy->unknown3380)
+        {
+            mgr->unknown2ac3b8++;
+        }
+        if (enemy->useVelocity2)
+        {
+            if (enemy->unknown5424.HasTickedEvery(2))
+            {
+                mgr->side->effectManager->SpawnParticles(9, &enemy->pos, 1, 0xffffffff);
+            }
+            if (enemy->unknown5424 > mgr->unknown2ac44c)
+            {
+                EnemyShooter shooter;
+
+                shooter.pos = enemy->pos;
+                shooter.sprite = 1;
+                shooter.aimMode = 0;
+                shooter.speed1 = g_GameManager.rank.unknownB4 * 0.1f + 2.0f;
+                shooter.count2 = 1;
+                shooter.angle1 = 0.0f;
+                shooter.angle2 = 0.15707964f;
+                shooter.speed2 = 0.0f;
+                shooter.unknown1fa = 0;
+                shooter.flags = 4;
+                shooter.count1 = (mgr->side->character != 13) * 2 + 1;
+                shooter.color = 2;
+                mgr->side->bulletManager->FirePattern(&shooter);
+                enemy->active = 0;
+                enemy->Despawn();
+                continue;
+            }
+        }
+        if ((enemy->haltedByBomb && mgr->side->player->GetUnknown0()) || enemy->halted)
+        {
+            enemy->callbackTimer--;
+            goto flash;
+        }
+    again:
+        if (mgr->ecl.RunEnemy(enemy) == -1)
+        {
+            enemy->active = 0;
+            enemy->Despawn();
+            continue;
+        }
+        if (!enemy->isWarpingToBoss)
+        {
+            enemy->ClampPos();
+            enemy->Move();
+            enemy->ClampPos();
+            enemy->absPos = enemy->pos + enemy->posOrigin;
+            enemy->absPos.z = 0.0f;
+        }
+        else
+        {
+            enemy->absPos = enemy->pos + enemy->posOrigin;
+            enemy->absPos.z = 0.0f;
+        }
+        if (enemy->trailFlags)
+        {
+            for (seg = enemy->trailSegmentCount - 1; seg > 0; seg--)
+            {
+                enemy->trailBoxes[seg].pos = enemy->trailBoxes[seg - 1].pos;
+                enemy->trailBoxes[seg].velocity = enemy->trailBoxes[seg - 1].velocity;
+                enemy->trailBoxes[seg].angle = enemy->trailBoxes[seg - 1].angle;
+            }
+            enemy->trailBoxes[0].pos = enemy->absPos;
+            enemy->trailBoxes[0].velocity = enemy->velocity;
+            enemy->trailBoxes[0].angle = enemy->angle;
+        }
+        if (enemy->primarySprite.spriteData == NULL)
+        {
+            enemy->hideFollowEffects = 1;
+        }
+        if (!enemy->hideFollowEffects && !enemy->onScreen &&
+            g_GameManager.IsInPlayArea(enemy->absPos[0], enemy->absPos[1], enemy->primarySprite.spriteData->width,
+                                       enemy->primarySprite.spriteData->height))
+        {
+            enemy->onScreen = 1;
+        }
+        else if (enemy->onScreen == 1 && !enemy->staysOffscreen &&
+                 ((!enemy->trailFlags &&
+                   !g_GameManager.IsInPlayArea(enemy->absPos.x, enemy->absPos.y,
+                                               enemy->primarySprite.spriteData->width,
+                                               enemy->primarySprite.spriteData->height)) ||
+                  (enemy->trailFlags &&
+                   !g_GameManager.IsInPlayArea(enemy->absPos.x, enemy->absPos.y,
+                                               enemy->primarySprite.spriteData->width,
+                                               enemy->primarySprite.spriteData->height) &&
+                   !g_GameManager.IsInPlayArea(enemy->trailBoxes[enemy->trailSegmentCount - 1].pos.x,
+                                               enemy->trailBoxes[enemy->trailSegmentCount - 1].pos.y,
+                                               enemy->primarySprite.spriteData->width,
+                                               enemy->primarySprite.spriteData->height))))
+        {
+            enemy->active = 0;
+            enemy->Despawn();
+            continue;
+        }
+        if (enemy->CheckLifeCallback())
+        {
+            goto again;
+        }
+        if (enemy->timerCallbackTime >= 0 && Enemy::CheckTimerCallback())
+        {
+            goto again;
+        }
+        enemy->primarySprite.color = enemy->color;
+        g_SpriteEngine->Step(&enemy->primarySprite);
+        enemy->color = enemy->primarySprite.color;
+        for (seg = 0; seg < 2; seg++)
+        {
+            if (enemy->sprites[seg].scriptIndex >= 0 && g_SpriteEngine->Step(&enemy->sprites[seg]))
+            {
+                enemy->sprites[seg].scriptIndex = -1;
+            }
+        }
+        kind = 0;
+        if (!enemy->hideFollowEffects && !enemy->unusedFlag5)
+        {
+            if (enemy->shootable && (!enemy->unknown3380 || mgr->side->character != 11))
+            {
+                enemy->CheckPlayerContact(&enemy->absPos, &enemy->hitboxSize);
+                if (enemy->trailFlags)
+                {
+                    boxSize = enemy->hitboxSize;
+                    for (seg = 1; seg < enemy->trailContactSegments; seg += 6)
+                    {
+                        if (enemy->trailFlags & 2)
+                        {
+                            boxSize = enemy->hitboxSize -
+                                      enemy->hitboxSize * (float)seg / (float)enemy->trailContactSegments;
+                        }
+                        enemy->CheckPlayerContact(&enemy->trailBoxes[seg].pos, &boxSize);
+                    }
+                }
+            }
+            enemy->lastDamage = 0;
+            if (enemy->hitByShots)
+            {
+                hurt = mgr->side->player->CalcDamage(&enemy->absPos, &enemy->hitboxSize, &enemy->unknown2e5c,
+                                                     &bomb, &enemy->unknown2e60);
+                if (enemy->extraHitboxSize.x > 0.0f)
+                {
+                    mgr->side->player->CalcDamage(&enemy->absPos, &enemy->extraHitboxSize, &enemy->unknown2e5c,
+                                                  &bomb, &enemy->unknown2e60);
+                }
+                if (hurt > 0)
+                {
+                    if (enemy->contactDamage)
+                    {
+                        if (enemy->unknown53a8 > 0)
+                        {
+                            if (enemy->isBoss)
+                            {
+                                hurt /= 9;
+                            }
+                            else
+                            {
+                                hurt = 0;
+                            }
+                        }
+                        if (hurt == enemy->unknown2e5c)
+                        {
+                            kind = 1;
+                        }
+                        if (hurt == enemy->unknown2e60)
+                        {
+                            kind = 2;
+                        }
+                        if (enemy->unknown3380)
+                        {
+                            if (!enemy->useVelocity2)
+                            {
+                                hurt = (hurt - enemy->unknown2e5c) * 4 + enemy->unknown2e5c / 4;
+                            }
+                            else
+                            {
+                                hurt = (hurt - enemy->unknown2e5c) * 4 + enemy->unknown2e5c / 2;
+                            }
+                        }
+                        enemy->life -= hurt;
+                        enemy->lastDamage = hurt;
+                    }
+                    hit = 1;
+                }
+                D3DXVECTOR3 targetDiff = mgr->side->player->unknown30364 - mgr->side->player->pos;
+                D3DXVECTOR3 toward = enemy->absPos - mgr->side->player->pos;
+                if (targetDiff.x * targetDiff.x + targetDiff.y * targetDiff.y > toward.x * toward.x + toward.y * toward.y)
+                {
+                    mgr->side->player->unknown30364 = enemy->absPos;
+                }
+                player = mgr->side->player;
+                if (Fabs(enemy->absPos.x - player->pos.x) < 64.0f &&
+                    (player->unknown3037c == NULL || player->unknown3037c->pos.y > enemy->absPos.y))
+                {
+                    player->unknown3037c = enemy;
+                }
+            }
+        }
+        if (enemy->hasDied && enemy->life > 0)
+        {
+            enemy->hasDied = 0;
+        }
+        if (enemy->life <= 0 && !enemy->hasDied && !enemy->undying)
+        {
+            int k;
+
+        die:
+            enemy->hasDied = 1;
+            enemy->phaseEndSecondsLeft = (enemy->timerCallbackTime - enemy->callbackTimer.AsFrames()) / 60;
+            enemy->timerCallbackTime = -1;
+            for (k = 0; k < 4; k++)
+            {
+                enemy->lifeCallbackLife[k] = -1;
+            }
+            for (k = 0; k < 4; k++)
+            {
+                if (enemy->threads[k] != NULL)
+                {
+                    g_MemoryManager.Free(enemy->threads[k]);
+                    enemy->threads[k] = NULL;
+                }
+            }
+            switch (enemy->deathMode)
+            {
+            case 3:
+                enemy->contactDamage = 0;
+                enemy->deathMode = 0;
+                enemy->life = 1;
+                if (enemy->deathEffect >= 0)
+                {
+                    mgr->side->effectManager->SpawnParticles(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
+                    mgr->side->effectManager->SpawnParticles(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
+                    mgr->side->effectManager->SpawnParticles(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
+                }
+                if (mgr->side->player->GetUnknown0() == 0)
+                {
+                    mgr->side->player->unknown303c8 = 90;
+                    mgr->side->player->SetUnknown0(3);
+                }
+                enemy->haltedByBomb = 0;
+                enemy->intangibleDuringBomb = 0;
+                break;
+            case 1:
+                mgr->side->AddScore(enemy->score);
+                enemy->unusedFlag20 = 1;
+                enemy->shootable = 0;
+                enemy->contactDamage = 0;
+                enemy->hitByShots = 0;
+                goto dead;
+            case 0:
+                mgr->side->AddScore(enemy->score);
+                enemy->active = 0;
+            dead:
+                if (enemy->isBoss)
+                {
+                    enemy->ReleaseEffects();
+                }
+            case 2:
+                enemy->life = 0;
+                break;
+            }
+            if (!enemy->unknownFlag8)
+            {
+                enemy->DropItems(kind);
+            }
+            if (enemy->deathSub >= 0)
+            {
+                int l;
+
+                enemy->ResetRankSpeeds();
+                enemy->stackDepth = 0;
+                for (l = 0; l < 4; l++)
+                {
+                    enemy->lifeCallbackLife[l] = -1;
+                }
+                enemy->timerCallbackTime = -1;
+                enemy->FreeUnknown33d8();
+                enemy->shooter = enemy->manager->enemyTemplate.shooter;
+                enemy->shootInterval = 0;
+                mgr->ecl.StartSub(&enemy->ctx, enemy->deathSub);
+                enemy->deathSub = -1;
+            }
+        }
+    flash:
+        if (enemy->hitFlashTimer)
+        {
+            enemy->hitFlashTimer--;
+            enemy->primarySprite.useColor2 = 0;
+        }
+        else if (hit)
+        {
+            if (enemy->lifeCallbackProximity < 2)
+            {
+                g_SoundPlayer.QueueSoundPanned(0x14, enemy->absPos.x);
+            }
+            else
+            {
+                g_SoundPlayer.QueueSoundPanned(0x25, enemy->absPos.x);
+            }
+            enemy->primarySprite.color2Rgb[2] = 0xff;
+            enemy->primarySprite.color2Rgb[1] = 0x60;
+            enemy->primarySprite.color2Rgb[0] = 0x80;
+            enemy->primarySprite.color2Alpha = enemy->primarySprite.alpha;
+            enemy->primarySprite.useColor2 = 1;
+            enemy->hitFlashTimer = 1;
+        }
+        else
+        {
+            enemy->primarySprite.useColor2 = 0;
+        }
+        if (enemy->isBoss)
+        {
+            D3DXVECTOR3 markerPos;
+
+            if (enemy->isBoss < 4)
+            {
+                if (!enemy->hideFollowEffects)
+                {
+                    markerPos.x = enemy->absPos.x + 32.0f;
+                }
+                else
+                {
+                    markerPos.x = -999.0f;
+                }
+                markerPos.y = 472.0f;
+                markerPos.z = 0.0f;
+                g_AsciiText.SetUnknown17c4Pos(enemy->bossIndex, &markerPos);
+                if (enemy->lifeCallbackProximity == 0)
+                {
+                    g_AsciiText.SetUnknown2254(enemy->bossIndex, enemy->primarySprite.useColor2);
+                }
+                else
+                {
+                    g_AsciiText.SetUnknown2254(enemy->bossIndex, enemy->lifeCallbackProximity + 1);
+                }
+            }
+        }
+        if ((enemy->unknownBit9 && mgr->unknown2ac444 == NULL) || enemy->useVelocity2)
+        {
+            mgr->unknown2ac444 = enemy;
+        }
+        if (mgr->unknown2ac448 == NULL)
+        {
+            mgr->unknown2ac448 = enemy;
+        }
+        if (enemy->unknownType == 3)
+        {
+            g_GameManager.gui->UpdateEnemyMarker(mgr->sideIdx, &enemy->pos);
+            mgr->unknown2ac444 = enemy;
+        }
+        else if (enemy->unknownBit13)
+        {
+            mgr->unknown2ac444 = enemy;
+        }
+        MoveEnemyEffects(enemy);
+        enemy->callbackTimer++;
+        if (enemy->unknown53a8 > 0)
+        {
+            enemy->unknown53a8--;
+        }
+        if (!enemy->hideFollowEffects && enemy->active)
+        {
+            head = &mgr->drawListHeads[enemy->drawListIndex];
+            enemy->nextInDrawList = *head;
+            *head = enemy;
+        }
+    }
+    mgr->unknown2ac404++;
+    return 1;
 }
 
 int EnemyManager::AddedCallback(EnemyManager *mgr)

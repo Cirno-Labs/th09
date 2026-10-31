@@ -276,7 +276,9 @@ struct EnemyUnknown1c
     }
 
     D3DXVECTOR3 pos;
-    unsigned char pad_c[0x1c - 0xc];
+    // The enemy's, as th08's trail boxes keep them.
+    D3DXVECTOR3 velocity;
+    float angle;
 };
 ASSERT_SIZE(EnemyUnknown1c, 0x1c);
 
@@ -284,8 +286,17 @@ ASSERT_SIZE(EnemyUnknown1c, 0x1c);
 // shows it. Only the fields known so far.
 struct Enemy
 {
-    // Resets the rank speeds and counts, as th08's inline (0x40f180).
-    void ResetRankSpeeds();
+    // Resets the rank speeds and counts. Inline, as th08's; the copy is
+    // at 0x40f180.
+    void ResetRankSpeeds()
+    {
+        this->rankSpeedLow = -0.5f;
+        this->rankSpeedHigh = 0.5f;
+        this->rankCount1Low = 0;
+        this->rankCount1High = 0;
+        this->rankCount2Low = 0;
+        this->rankCount2High = 0;
+    }
     // Fades out and forgets the effects, as th08's ReleaseEnemyEffects
     // (0x40f560).
     void ReleaseEffects();
@@ -300,9 +311,21 @@ struct Enemy
     // Moves the enemy by its velocity (or velocity2) times the game
     // speed in x and y, as th08's (0x40f9b0).
     void Move();
+    // Hurts the player with its body (a box of `size` at `pos`), as
+    // th08's (0x410250).
+    void CheckPlayerContact(D3DXVECTOR3 *pos, D3DXVECTOR3 *size);
+    // Drops the items, as th08's DropItems; `kind` is 1 or 2 when the
+    // damage taken was all of one of CalcDamage's kinds (0x4102b0).
+    void DropItems(int kind);
+    // The life and timer callbacks, as th08's; th09's return 0 and are
+    // folded with ReturnZero, and the timer one takes no enemy
+    // (0x44ab20).
+    int CheckLifeCallback();
+    static int CheckTimerCallback();
 
     EnemyManager *manager;
-    unsigned char pad_4[0x8 - 0x4];
+    // The next enemy in its draw list, as th08's.
+    Enemy *nextInDrawList;
     Sprite primarySprite;
     Sprite sprites[2];
     // The main context, and its call stack, as th08's.
@@ -367,7 +390,9 @@ struct Enemy
     int score;
     // Its index in EnemyManager::enemies.
     int index;
-    unsigned char pad_2e5c[0x2e64 - 0x2e5c];
+    // What Player::CalcDamage takes as the damage of its two kinds.
+    int unknown2e5c;
+    int unknown2e60;
     Timer callbackTimer;
     // The primary sprite's color when it spawned, as th08's.
     D3DCOLOR color;
@@ -385,7 +410,8 @@ struct Enemy
     // Set by the timeline's opcodes 11 and 12, as th08's.
     int pointItems;
     int powerItems;
-    BYTE deathEffect;
+    // The particles of its death, as th08's; none if negative.
+    char deathEffect;
     BYTE deathEffectIndex;
     BYTE deathEffectVariant;
     // Its slot in EnemyManager::bosses, as th08's.
@@ -423,7 +449,7 @@ struct Enemy
             DWORD disableCallStack : 1;
             DWORD keepSpellCard : 1;
             DWORD staysOffscreen : 1;
-            DWORD unusedFlag26 : 1;
+            DWORD isWarpingToBoss : 1;
             DWORD haltedByBomb : 1;
             DWORD intangibleDuringBomb : 1;
             DWORD unusedFlag29 : 2;
@@ -431,22 +457,29 @@ struct Enemy
             DWORD useStageAnm : 1;
         };
     };
-    struct
+    union
     {
-        DWORD unusedBits0 : 3;
-        // Not cleared for the bonus, as th08's.
-        DWORD undying : 1;
-        DWORD unusedBit4 : 1;
-        DWORD useMainSpriteOffset : 1;
-        DWORD unknown3380 : 3;
-        // Set by the timeline's opcode 17.
-        DWORD unknownBit9 : 1;
-        // What EnemyManager::FindByUnknownType looks for.
-        DWORD unknownType : 2;
-        // Has Move use velocity2, unmirrored.
-        DWORD useVelocity2 : 1;
-        DWORD unusedBit13 : 1;
-        DWORD unknownBit14 : 1;
+        DWORD flags2;
+        struct
+        {
+            // As th08's.
+            DWORD hasDied : 1;
+            DWORD lifeCallbackProximity : 2;
+            // Not cleared for the bonus, as th08's.
+            DWORD undying : 1;
+            DWORD halted : 1;
+            DWORD useMainSpriteOffset : 1;
+            DWORD unknown3380 : 3;
+            // Set by the timeline's opcode 17.
+            DWORD unknownBit9 : 1;
+            // What EnemyManager::FindByUnknownType looks for.
+            DWORD unknownType : 2;
+            // Has Move use velocity2, unmirrored; OnUpdate fires bullets
+            // when unknown5424 passes EnemyManager::unknown2ac44c.
+            DWORD useVelocity2 : 1;
+            DWORD unknownBit13 : 1;
+            DWORD unknownBit14 : 1;
+        };
     };
     unsigned char pad_3384[0x3386 - 0x3384];
     // 0 still, 1 left, 2 right, or 0xff before the first, as th08's.
@@ -487,7 +520,9 @@ struct Enemy
     struct Effect *effects[0x18];
     int effectCount;
     float effectRadius;
-    unsigned char pad_541c[0x5424 - 0x541c];
+    unsigned char pad_541c[0x5420 - 0x541c];
+    // The seconds left of the phase when it died, as th08's.
+    int phaseEndSecondsLeft;
     Timer unknown5424;
 };
 ASSERT_SIZE(Enemy, 0x5430);
@@ -631,7 +666,13 @@ public:
     Enemy enemies[0x81];
     // The bosses, as th08's.
     Enemy *bosses[4];
-    unsigned char pad_2ac398[0x2ac3b8 - 0x2ac398];
+    unsigned char pad_2ac398[0x2ac3ac - 0x2ac398];
+    // The active enemies OnUpdate counted, as th08's enemyCount, and of
+    // those the ones with none of the bits 0x4dc0 of flags2, an
+    // unknownType or an unknown3380.
+    int enemyCount;
+    int unknown2ac3b0;
+    int unknown2ac3b4;
     int unknown2ac3b8;
     unsigned char pad_2ac3bc[0x2ac3c8 - 0x2ac3bc];
     Timer unknown2ac3c8;
@@ -654,7 +695,11 @@ public:
     // The timeline's signals, as th08's.
     int timelineSignals[4];
     int holdTimelineSpawns;
-    unsigned char pad_2ac444[0x2ac44c - 0x2ac444];
+    // Enemies OnUpdate picks: the last of unknownType 3 or with
+    // unknownBit13 (or useVelocity2, or the first with unknownBit9),
+    // and the first active one.
+    Enemy *unknown2ac444;
+    Enemy *unknown2ac448;
     // Set by AddedCallback: 200 if the side's character is 5, else 160.
     int unknown2ac44c;
 };

@@ -196,7 +196,7 @@ address,size,name,symbol
 0x0040f1c0,12,Fabs,?Fabs@@YIMM@Z
 0x0040f1d0,364,EnemyManager::SpawnEnemy,?SpawnEnemy@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HHHHH@Z
 0x0040f340,373,EnemyManager::SpawnEnemyWithVars,?SpawnEnemyWithVars@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHPAUEclVars@@H@Z
-0x0040f4c0,151,Func40f4c0,
+0x0040f4c0,151,MoveEnemyEffects,?MoveEnemyEffects@@YIXPAUEnemy@@@Z
 0x0040f560,64,Enemy::ReleaseEffects,?ReleaseEffects@Enemy@@QAEXXZ
 0x0040f5a0,56,D3DXVECTOR3::operator/,??KD3DXVECTOR3@@QBE?AU0@M@Z
 0x0040f5e0,91,LerpAngleShort,?LerpAngleShort@@YIMMMM@Z
@@ -217,8 +217,8 @@ address,size,name,symbol
 0x004100e0,48,Enemy::FreeUnknown33d8,?FreeUnknown33d8@Enemy@@QAEXXZ
 0x00410110,184,Enemy::Despawn,?Despawn@Enemy@@QAEXXZ
 0x004101d0,127,Enemy::ClampPos,?ClampPos@Enemy@@QAEXXZ
-0x00410250,82,Func410250,
-0x004102b0,1142,Func4102b0,
+0x00410250,82,Enemy::CheckPlayerContact,?CheckPlayerContact@Enemy@@QAEXPAUD3DXVECTOR3@@0@Z
+0x004102b0,1142,Enemy::DropItems,?DropItems@Enemy@@QAEXH@Z
 0x00410730,3881,EnemyManager::OnUpdate,?OnUpdate@EnemyManager@@SIHPAV1@@Z
 0x00411670,1752,Func411670,
 0x00411d50,35,EnemyManager::OnDraw,?OnDraw@EnemyManager@@SIHPAV1@@Z
@@ -749,7 +749,7 @@ address,size,name,symbol
 0x00434390,18,AnmLoaded::GetSprite,?GetSprite@AnmLoaded@@QAEPAUSpriteData@@H@Z
 0x004343b0,10,Func4343b0,
 0x004343c0,16,AsciiText::SetGlyphWidth,?SetGlyphWidth@AsciiText@@QAEXH@Z
-0x004343d0,3,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@XZ ??0AsciiString@@QAE@XZ ??0PlayerUnknown36cEntry@@QAE@XZ
+0x004343d0,3,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@XZ ??0AsciiString@@QAE@XZ ??0PlayerUnknown36cEntry@@QAE@XZ ??BD3DXVECTOR3@@QAEPAMXZ
 0x004343e0,251,AsciiText::Initialize,?Initialize@AsciiText@@QAEXXZ
 0x004344e0,89,AsciiText::AddedCallback,?AddedCallback@AsciiText@@SIHPAV1@@Z
 0x00434540,341,AsciiText::DrawStrings,?DrawStrings@AsciiText@@QAEXXZ
@@ -1086,7 +1086,7 @@ address,size,name,symbol
 0x0044a670,101,PlayerComboFunc44a670,?PlayerComboFunc44a670@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044a6e0,156,EffectInit44a6e0,?EffectInit44a6e0@@YIHPAUEffect@@@Z
 0x0044a780,921,EffectDraw44a780,?EffectDraw44a780@@YIHPAUEffect@@@Z
-0x0044ab20,3,ReturnZero,?ReturnZero@@YIHPAUExAttack@@@Z
+0x0044ab20,3,ReturnZero,?ReturnZero@@YIHPAUExAttack@@@Z ?CheckLifeCallback@Enemy@@QAEHXZ ?CheckTimerCallback@Enemy@@SIHXZ
 0x0044ab30,88,EffectUpdate44ab30,?EffectUpdate44ab30@@YIHPAUEffect@@@Z
 0x0044ab90,139,ShotFire44ab90,?ShotFire44ab90@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x0044ac20,436,ExAttackInit44ac20,?ExAttackInit44ac20@@YIHPAUExAttack@@@Z
