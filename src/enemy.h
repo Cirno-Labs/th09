@@ -521,6 +521,11 @@ public:
     // th08's SpawnWithVars (0x40f340).
     Enemy *SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EclVars *vars,
                               int usePlayerEcl);
+    // SpawnEnemyWithVars from playerEcl. Inline; the copy is at 0x4417c0.
+    Enemy *SpawnPlayerEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EclVars *vars)
+    {
+        return this->SpawnEnemyWithVars(sub, pos, life, itemDrop, score, vars, 1);
+    }
 
     // enemy.ecl, and the character's plXX.ecl.
     EclManager ecl;

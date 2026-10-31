@@ -966,13 +966,13 @@ address,size,name,symbol
 0x00441470,38,SpellCardFree441470,?SpellCardFree441470@@YIHPAVSpellCard@@@Z
 0x004414a0,314,Func4414a0,
 0x004415e0,471,Func4415e0,
-0x004417c0,38,Func4417c0,
+0x004417c0,38,EnemyManager::SpawnPlayerEnemyWithVars,?SpawnPlayerEnemyWithVars@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHPAUEclVars@@@Z
 0x004417f0,129,PlayerPosFunc4417f0,?PlayerPosFunc4417f0@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00441880,11,ShotHit441880,?ShotHit441880@@YIHPAVPlayer@@PAUPlayerBullet@@PAUD3DXVECTOR3@@@Z
 0x00441890,32,Vector2::SetPolar,?SetPolar@Vector2@@QAEXMM@Z
 0x004418b0,95,Func4418b0,
-0x00441910,344,Func441910,
-0x00441a70,137,Func441a70,
+0x00441910,344,ExAttackInit441910,?ExAttackInit441910@@YIHPAUExAttack@@@Z
+0x00441a70,137,ExAttackUpdate441a70,?ExAttackUpdate441a70@@YIHPAUExAttack@@@Z
 0x00441b00,100,Func441b00,
 0x00441b70,75,SpellCardInit441b70,?SpellCardInit441b70@@YIHPAVSpellCard@@@Z
 0x00441bc0,23,SpellCardUpdate441bc0,?SpellCardUpdate441bc0@@YIHPAVSpellCard@@@Z

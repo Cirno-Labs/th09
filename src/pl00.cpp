@@ -42,22 +42,6 @@ int PlayerPosFunc440df0(Player *player, D3DXVECTOR3 *pos)
     return 0;
 }
 
-// The data of extra attack types 0 and 1 (0x4c bytes).
-struct ExAttackData00
-{
-    int state;
-    // Its speed while it falls; x and y start along a random angle.
-    D3DXVECTOR3 velocity;
-    // The Hermite curve it flies in on: from start to end on screen, with
-    // two random tangents.
-    D3DXVECTOR3 start;
-    D3DXVECTOR3 end;
-    D3DXVECTOR3 tangent1;
-    D3DXVECTOR3 tangent0;
-    // Where it appears on the target's side.
-    D3DXVECTOR3 targetPos;
-};
-
 // The init callback of extra attack type 0: one sprite, flying in to a
 // random spot on the upper half of the other side, a curve whose end it
 // places in that side's view. Returns 0 (0x440e40).

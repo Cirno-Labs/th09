@@ -105,6 +105,23 @@ public:
 };
 ASSERT_SIZE(ExAttackManager, 0x4c80);
 
+// The data of extra attack types 0, 1 and 2 (0x4c bytes).
+struct ExAttackData00
+{
+    int state;
+    // Its speed while it falls; x and y start along a random angle.
+    D3DXVECTOR3 velocity;
+    // The Hermite curve it flies in on: from start to end on screen, with
+    // two random tangents.
+    D3DXVECTOR3 start;
+    D3DXVECTOR3 end;
+    D3DXVECTOR3 tangent1;
+    D3DXVECTOR3 tangent0;
+    // Where it appears on the target's side.
+    D3DXVECTOR3 targetPos;
+};
+ASSERT_SIZE(ExAttackData00, 0x4c);
+
 // An extra attack type's callbacks (0x4a0f78). The first starts the
 // attack and returns nonzero if it fails.
 struct ExAttackType

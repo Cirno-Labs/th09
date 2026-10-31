@@ -2,9 +2,11 @@
 
 #include "effect.h"
 #include "enemy.h"
+#include "exattack.h"
 #include "gamemanager.h"
 #include "player.h"
 #include "spellcard.h"
+#include "unsorted.h"
 
 // The unknown30404 of character 1: whether `pos` is above the player,
 // within a parabola about it that the player's unknown368 widens by its
@@ -38,6 +40,37 @@ int PlayerPosFunc4417f0(Player *player, D3DXVECTOR3 *pos)
 int ShotHit441880(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
 {
     player->unknown30354++;
+    return 0;
+}
+
+// The init callback of extra attack type 2: pl00's type 0, flying in to
+// a random spot on the bottom of the other side. Returns 0 (0x441910).
+int ExAttackInit441910(ExAttack *attack)
+{
+    ExAttackData00 *data;
+    float angle;
+
+    attack->AllocSprites(1, sizeof(ExAttackData00));
+    attack->GetSide()->effectManager->anm->StartScriptAtOrigin(attack->sprites, 0x25);
+    data = (ExAttackData00 *)attack->data;
+    angle = g_Rng.GetRandomF32InRange(-3.1415927f);
+    data->velocity.z = 0.0f;
+    ((Vector2 *)&data->velocity)->SetPolar(angle, 2.0f);
+    data->state = 0;
+    attack->layer = 2;
+    ((Vector2 *)&data->tangent1)->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    ((Vector2 *)&data->tangent0)->SetPolar(g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(192.0f));
+    data->start.x = g_GameManager.ArenaToScreenX(attack->pos.x);
+    data->start.y = g_GameManager.ArenaToScreenY(attack->pos.y);
+    data->start.z = 0.0f;
+    data->targetPos.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+    data->targetPos.y = 448.0f;
+    data->targetPos.z = 0.0f;
+    g_App.SetCamera(attack->targetSide);
+    data->end.x = g_GameManager.ArenaToScreenX(data->targetPos.x);
+    data->end.y = g_GameManager.ArenaToScreenY(data->targetPos.y);
+    data->end.z = 0.0f;
+    g_App.SetCamera(attack->side);
     return 0;
 }
 
