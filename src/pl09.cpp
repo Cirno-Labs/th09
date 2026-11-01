@@ -158,3 +158,239 @@ int EffectInit4486b0(Effect *effect)
     effect->unknownC9 = 1;
     return 0;
 }
+
+// The draw callback of effect type 29: while unknownC9 is set, a ring
+// fan of unknown8c segments at radius unknown7c about the effect, and
+// six fans of half as many at radius 24 around it, a sixth of a turn
+// apart from unknown80. Returns 1 (0x448750).
+int EffectDraw448750(Effect *effect)
+{
+    float angle;
+
+    if (effect->unknownC9)
+    {
+        int n = effect->unknown8c;
+        VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
+        VertexDiffuseXyzrwh *fan = vtx;
+        float step = 6.2831855f / (n - 1);
+        int i;
+
+        angle = -3.1415927f;
+        vtx->pos = effect->pos;
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+        vtx->w = 1.0f;
+        vtx->diffuse = 0x40600040;
+        vtx++;
+        for (i = 0; i < n; i++)
+        {
+            if (angle >= 3.1415927f)
+            {
+                angle -= 6.2831855f;
+            }
+            vtx->pos.z = 0.0f;
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            vtx->pos += effect->pos;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x70600040;
+            vtx++;
+            angle += step;
+        }
+        g_SpriteEngine->DrawColoredFan(effect->sprites, fan, n + 1);
+        n /= 2;
+        {
+            float step = 6.2831855f / (n - 1);
+            angle = effect->unknown80;
+            D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
+            fan = vtx;
+            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            centre += effect->pos;
+            vtx->pos = centre;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x40600040;
+            vtx++;
+            for (i = 0; i < n; i++)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                vtx->pos.z = 0.0f;
+                SetPolar((Vector2 *)&vtx->pos, angle, 24.0f);
+                vtx->pos += centre;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->w = 1.0f;
+                vtx->diffuse = 0x70600040;
+                vtx++;
+                angle += step;
+            }
+            g_SpriteEngine->DrawColoredFan(effect->sprites, fan, n + 1);
+        }
+        {
+            float step = 6.2831855f / (n - 1);
+            angle = effect->unknown80;
+            D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
+            angle = AddNormalizeAngle(angle, 1.0471976f);
+            fan = vtx;
+            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            centre += effect->pos;
+            vtx->pos = centre;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x40600040;
+            vtx++;
+            for (i = 0; i < n; i++)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                vtx->pos.z = 0.0f;
+                SetPolar((Vector2 *)&vtx->pos, angle, 24.0f);
+                vtx->pos += centre;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->w = 1.0f;
+                vtx->diffuse = 0x70600040;
+                vtx++;
+                angle += step;
+            }
+            g_SpriteEngine->DrawColoredFan(effect->sprites, fan, n + 1);
+        }
+        {
+            float step = 6.2831855f / (n - 1);
+            angle = effect->unknown80;
+            D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
+            angle = AddNormalizeAngle(angle, 2.0943952f);
+            fan = vtx;
+            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            centre += effect->pos;
+            vtx->pos = centre;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x40600040;
+            vtx++;
+            for (i = 0; i < n; i++)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                vtx->pos.z = 0.0f;
+                SetPolar((Vector2 *)&vtx->pos, angle, 24.0f);
+                vtx->pos += centre;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->w = 1.0f;
+                vtx->diffuse = 0x70600040;
+                vtx++;
+                angle += step;
+            }
+            g_SpriteEngine->DrawColoredFan(effect->sprites, fan, n + 1);
+        }
+        {
+            float step = 6.2831855f / (n - 1);
+            angle = effect->unknown80;
+            D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
+            angle = AddNormalizeAngle(angle, 3.1415927f);
+            fan = vtx;
+            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            centre += effect->pos;
+            vtx->pos = centre;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x40600040;
+            vtx++;
+            for (i = 0; i < n; i++)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                vtx->pos.z = 0.0f;
+                SetPolar((Vector2 *)&vtx->pos, angle, 24.0f);
+                vtx->pos += centre;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->w = 1.0f;
+                vtx->diffuse = 0x70600040;
+                vtx++;
+                angle += step;
+            }
+            g_SpriteEngine->DrawColoredFan(effect->sprites, fan, n + 1);
+        }
+        {
+            float step = 6.2831855f / (n - 1);
+            angle = effect->unknown80;
+            D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
+            angle = AddNormalizeAngle(angle, 4.1887903f);
+            fan = vtx;
+            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            centre += effect->pos;
+            vtx->pos = centre;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x40600040;
+            vtx++;
+            for (i = 0; i < n; i++)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                vtx->pos.z = 0.0f;
+                SetPolar((Vector2 *)&vtx->pos, angle, 24.0f);
+                vtx->pos += centre;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->w = 1.0f;
+                vtx->diffuse = 0x70600040;
+                vtx++;
+                angle += step;
+            }
+            g_SpriteEngine->DrawColoredFan(effect->sprites, fan, n + 1);
+        }
+        {
+            float step = 6.2831855f / (n - 1);
+            angle = effect->unknown80;
+            D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
+            angle = AddNormalizeAngle(angle, 5.2359877f);
+            fan = vtx;
+            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            centre += effect->pos;
+            vtx->pos = centre;
+            vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+            vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+            vtx->w = 1.0f;
+            vtx->diffuse = 0x40600040;
+            vtx++;
+            for (i = 0; i < n; i++)
+            {
+                if (angle >= 3.1415927f)
+                {
+                    angle -= 6.2831855f;
+                }
+                vtx->pos.z = 0.0f;
+                SetPolar((Vector2 *)&vtx->pos, angle, 24.0f);
+                vtx->pos += centre;
+                vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
+                vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
+                vtx->w = 1.0f;
+                vtx->diffuse = 0x70600040;
+                vtx++;
+                angle += step;
+            }
+            g_SpriteEngine->DrawColoredFan(effect->sprites, fan, n + 1);
+        }
+    }
+    return 1;
+}
