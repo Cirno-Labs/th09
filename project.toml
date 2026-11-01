@@ -33,3 +33,33 @@ libs = ["libcmt.lib", "d3dx8.lib", "d3d8.lib", "dsound.lib", "dinput8.lib", "dxg
 
 [hooks]
 progress = true
+# Every commit builds and matches, but for these functions, committed
+# though they don't match yet (`just farm` permutes them).
+compare = true
+allow_diff = [
+    "UpdateEasedVector",
+    "Stage::DrawLayer",
+    "EclManager::RunEnemy",
+    "EffectManager::OnUpdate",
+    "EffectManager::AddedCallback",
+    "EnemyManager::OnUpdate",
+    "DrawEnemies",
+    "GuiMsg::Run",
+    "GameManager::LoadingThread",
+    "Player::HandleInput",
+    "PlayerUnknown30410::AddCombo",
+    "ReplayManager::AddedCallbackMode1",
+    "ReplayManager::SaveReplay",
+    "SaveScore",
+    "ScreenEffect::OnUpdateShakeRamp",
+    "MainMenu::DrawState11",
+    "MainMenu::DrawState15",
+    "MainMenu::UpdateState16",
+    "MainMenu::UpdateState13",
+    "MainMenu::UpdateState8",
+    "UpdatePlayerInput",
+    "SoundPlayer::FindTrackIndex",
+    "ShotUpdate4415e0",
+    "EffectDraw448750",
+    "ExAttackUpdate44a330",
+]
