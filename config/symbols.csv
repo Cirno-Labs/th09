@@ -274,7 +274,7 @@ address,size,name,symbol
 0x00413be0,600,BulletManager::OnDraw,?OnDraw@BulletManager@@SIHPAV1@@Z
 0x00413e40,600,BulletManager::AddedCallback,?AddedCallback@BulletManager@@SIHPAV1@@Z
 0x00414180,52,BulletManager::RemoveChain,?RemoveChain@BulletManager@@SIXPAV1@@Z
-0x004141c0,1233,RunBulletCommands,?RunBulletCommands@@YIXPAUBullet@@@Z
+0x004141c0,1236,RunBulletCommands,?RunBulletCommands@@YIXPAUBullet@@@Z
 0x004146f0,2195,BulletManager::OnUpdate,?OnUpdate@BulletManager@@SIHPAV1@@Z
 0x00414fa0,56,BulletTypeSprites::BulletTypeSprites,??0BulletTypeSprites@@QAE@XZ
 0x00414fe0,58,Bullet::Bullet,??0Bullet@@QAE@XZ
