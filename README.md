@@ -18,14 +18,21 @@ our own analysis or, for library code, from the libraries themselves.
 
 ## Status
 
-The toolchain is up, the compiler flags are found, and the first
-functions match.
+1084 of the 1114 game functions match, 247 KB of 297 KB (83%). 25
+more are decompiled but not matching yet: their code is complete and
+the right size, or within a few bytes, and differs only in register
+choice, scheduling or stack layout. `just compare` lists them as DIFF,
+and the progress image shows them as not matching. Four functions are
+left to decompile.
 
 Ghidra finds 2042 functions. Unlike th06–th08, the game code is
 optimized (`/O2`) but keeps its frame pointer (`/Oy-`), and functions
-default to `__fastcall` (`/Gr`), as th08's. That puts the game code at
-`0x401000`–`0x44cb5c`: 1038 functions, about 289 KB. D3DX8's tables
-follow it, then D3DX8 and the CRT from `0x47b08c`.
+default to `__fastcall` (`/Gr`), as th08's. The game code runs from
+`0x401000` to `0x44cb5c`: 1114 functions, about 297 KB, counting the
+callbacks only reached through function tables, which Ghidra misses.
+The last part, from `0x440c80`, is one file per character
+(`src/pl00.cpp` to `pl15.cpp`). D3DX8's tables follow, then D3DX8 and
+the CRT from `0x47b08c`.
 
 ```sh
 just analyze   # writes build/functions_150a.csv
