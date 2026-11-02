@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.59% (920)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">2.24% (25)</tspan> · <tspan class="todo">0.45% (5)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.68% (921)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">2.15% (24)</tspan> · <tspan class="todo">0.45% (5)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="616.91" height="6" x="0" y="0" class="named"/>
-<rect width="109.97" height="6" x="616.91" y="0" class="decompiled"/>
-<rect width="16.76" height="6" x="726.88" y="0" class="nonmatching"/>
+<rect width="617.58" height="6" x="0" y="0" class="named"/>
+<rect width="109.97" height="6" x="617.58" y="0" class="decompiled"/>
+<rect width="16.09" height="6" x="727.55" y="0" class="nonmatching"/>
 <rect width="3.35" height="6" x="743.65" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
@@ -467,7 +467,7 @@
 <rect width="12" height="12" x="675" y="105" class="named"><title>0x0041d090 Player::AddKind4Box (61 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="105" class="named"><title>0x0041d0d0 Player::AddKind4Circle (49 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="105" class="named"><title>0x0041d110 Player::AddKind2Circle (49 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="105" class="nonmatching"><title>0x0041d150 PlayerUnknown30410::AddCombo (1520 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="105" class="named"><title>0x0041d150 PlayerUnknown30410::AddCombo (1520 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="105" class="named"><title>0x0041d760 PlayerUnknown30410::Update (126 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="120" class="named"><title>0x0041d7e0 PlayerUnknown30410::EndCombo (41 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="120" class="named"><title>0x0041d810 PlayerUnknown36c::CheckHitsAt (602 bytes)</title></rect>
@@ -1187,11 +1187,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">67.93%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">15.14%</tspan> · <tspan class="todo">1.55%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">68.44%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.63%</tspan> · <tspan class="todo">1.55%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="507.41" height="6" x="0" y="0" class="named"/>
-<rect width="114.88" height="6" x="507.41" y="0" class="decompiled"/>
-<rect width="113.10" height="6" x="622.29" y="0" class="nonmatching"/>
+<rect width="511.23" height="6" x="0" y="0" class="named"/>
+<rect width="114.88" height="6" x="511.23" y="0" class="decompiled"/>
+<rect width="109.27" height="6" x="626.11" y="0" class="nonmatching"/>
 <rect width="11.61" height="6" x="735.39" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
@@ -1224,7 +1224,7 @@
 <rect width="34.84" height="33.51" x="169.02" y="275.23" class="named"><title>0x004254a7 MainMenu::UpdateState3 (1572 bytes)</title></rect>
 <rect width="34.84" height="33.26" x="169.02" y="311.74" class="named"><title>0x0042dd90 InitD3dDevice (1561 bytes)</title></rect>
 <rect width="33.97" height="34.08" x="206.86" y="0" class="named"><title>0x00429e23 MainMenu::UpdateState1 (1560 bytes)</title></rect>
-<rect width="33.97" height="33.13" x="206.86" y="37.08" class="nonmatching"><title>0x0041d150 PlayerUnknown30410::AddCombo (1520 bytes)</title></rect>
+<rect width="33.97" height="33.13" x="206.86" y="37.08" class="named"><title>0x0041d150 PlayerUnknown30410::AddCombo (1520 bytes)</title></rect>
 <rect width="33.97" height="32.82" x="206.86" y="73.21" class="named"><title>0x0042b850 ReadInput (1507 bytes)</title></rect>
 <rect width="33.97" height="32.63" x="206.86" y="109.03" class="named"><title>0x0040e8a0 Ending::RunScript (1499 bytes)</title></rect>
 <rect width="33.97" height="32.44" x="206.86" y="144.66" class="named"><title>0x00417630 Gui::OnUpdate (1491 bytes)</title></rect>

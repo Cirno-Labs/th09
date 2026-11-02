@@ -882,8 +882,8 @@ void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
         {
             a = a * 4 / 3;
         }
-        this->unknown30 += b;
         this->unknown2c += a;
+        this->unknown30 += b;
         this->unknown34 += c;
         this->func(this, pos);
         while (this->unknown30 >= 60 - g_GameManager.rank.unknownB4 * 3 / 2)

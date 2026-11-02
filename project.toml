@@ -47,7 +47,6 @@ allow_diff = [
     "GuiMsg::Run",
     "GameManager::LoadingThread",
     "Player::HandleInput",
-    "PlayerUnknown30410::AddCombo",
     "ReplayManager::AddedCallbackMode1",
     "ReplayManager::SaveReplay",
     "SaveScore",
