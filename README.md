@@ -18,11 +18,13 @@ our own analysis or, for library code, from the libraries themselves.
 
 ## Status
 
-1084 of the 1114 game functions match, 247 KB of 297 KB (83%). 25
+1086 of the 1114 game functions match, 250 KB of 297 KB (84%). 23
 more are decompiled but not matching yet: their code is complete and
 the right size, or within a few bytes, and differs only in register
 choice, scheduling or stack layout. `just compare` lists them as DIFF,
-and the progress image shows them as not matching. Four functions are
+the progress image shows them as not matching, and `hooks.allow_diff`
+in `project.toml` lists them, the only functions a commit may leave
+differing. `just farm` searches source variants of them for a match. Four functions are
 left to decompile.
 
 Ghidra finds 2042 functions. Unlike th06–th08, the game code is
