@@ -49,7 +49,6 @@ allow_diff = [
     "Player::HandleInput",
     "ReplayManager::AddedCallbackMode1",
     "ReplayManager::SaveReplay",
-    "SaveScore",
     "ScreenEffect::OnUpdateShakeRamp",
     "MainMenu::DrawState11",
     "MainMenu::DrawState15",

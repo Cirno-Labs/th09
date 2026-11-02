@@ -279,23 +279,24 @@ int LoadScore()
 
 int SaveScore()
 {
-    int left;
     int size;
-    BYTE *buf;
-    ScoreDat *dat;
-    Th9k th9k;
     Vrsm vrsm;
-    void *packed;
-    BYTE *encrypted;
-    int m;
-    BYTE *p;
     BYTE key;
+    ScoreDat *dat;
+    BYTE *p;
+    BYTE *encrypted;
     BYTE prev;
+    int m;
+    Th9k th9k;
+    void *packed;
+    BYTE *buf;
+    int left;
 
     left = 7;
     if (g_ScoreDatHeader.version == 0)
     {
-        return 1;
+        size = 1;
+        return size;
     }
     buf = (BYTE *)g_MemoryManager.Alloc(0x640000, "scoretmp");
     memcpy(buf, &g_ScoreDatHeader, sizeof(ScoreDat));
@@ -353,21 +354,21 @@ int SaveScore()
     dat->key = g_Rng.GetRandomU16InRange(256);
     dat->secondaryKey = g_Rng.GetRandomU16InRange(256);
     dat->version = 4;
-    for (m = 4; m < size; m++)
+    m = 4;
+    while (m < size)
     {
-        dat->checksum += buf[m];
+        dat->checksum = dat->checksum + buf[m];
+        m += 1;
     }
     key = dat->key;
     p = (BYTE *)dat + 1;
-    m = size - 2;
-    while (m > 0)
+    for (m = size - 2; m > 0; m--)
     {
         prev = p[1];
         key = ((key & 0xe0) >> 5) | ((key & 0x1f) << 3);
         p[1] ^= key;
-        key += prev;
         p++;
-        m--;
+        key += prev;
     }
     encrypted = EncryptData(buf, size, 0x3a, 0xcd, 0x100, 0xc00);
     WriteToFile("score.dat", encrypted, size);
