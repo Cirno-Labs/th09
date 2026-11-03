@@ -51,7 +51,6 @@ allow_diff = [
     "ReplayManager::SaveReplay",
     "ScreenEffect::OnUpdateShakeRamp",
     "MainMenu::DrawState11",
-    "MainMenu::DrawState15",
     "MainMenu::UpdateState16",
     "MainMenu::UpdateState13",
     "MainMenu::UpdateState8",

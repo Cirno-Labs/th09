@@ -356,7 +356,6 @@ int MainMenu::DrawState15()
 {
     D3DXVECTOR3 pos(32.0f, 64.0f, 0.0f);
     int i;
-    int slot;
     int row;
     int col;
     float scale;
@@ -376,8 +375,8 @@ int MainMenu::DrawState15()
     }
     else if (this->subState == 3 || this->subState == 4)
     {
-        slot = this->replaySlot;
-        pos.y = slot * 13.0f + 90.0f;
+        row = this->replaySlot;
+        pos.y = row * 13.0f + 90.0f;
         D3DXVECTOR3 end = pos;
         end.x = end.y = 224.0f;
         if (this->unknown1b230 < 10)
@@ -389,7 +388,7 @@ int MainMenu::DrawState15()
             pos = end;
         }
         g_AsciiText.color = 0xffffffff;
-        g_AsciiText.AddFormat(&pos, "No.%.2d %.8s %8s", slot + 1, this->replayName, "");
+        g_AsciiText.AddFormat(&pos, "No.%.2d %.8s %8s", row + 1, this->replayName, g_Hscr.date);
         pos.x += (this->replayNameCursor + 6) * 9;
         g_AsciiText.AddFormat(&pos, "%.8s", "_");
         if (this->subState == 4)

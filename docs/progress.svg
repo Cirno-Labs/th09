@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">98.11% (1093)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">1.89% (21)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">98.20% (1094)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">1.80% (20)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="732.92" height="6" x="0" y="0" class="named"/>
-<rect width="14.08" height="6" x="732.92" y="0" class="nonmatching"/>
+<rect width="733.59" height="6" x="0" y="0" class="named"/>
+<rect width="13.41" height="6" x="733.59" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -568,7 +568,7 @@
 <rect width="12" height="12" x="720" y="135" class="named"><title>0x004234a7 PlayRecord::GetClearFlags (54 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="135" class="named"><title>0x004234dd AsciiText::SetScale (25 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="150" class="nonmatching"><title>0x004234f6 MainMenu::DrawState11 (1280 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="150" class="nonmatching"><title>0x004239f6 MainMenu::DrawState15 (800 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="150" class="named"><title>0x004239f6 MainMenu::DrawState15 (800 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="150" class="named"><title>0x00423d16 MainMenu::DrawState13 (1939 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="150" class="named"><title>0x004244a9 MainMenu::DrawState12 (209 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="150" class="named"><title>0x0042457a MainMenu::MoveCursor (135 bytes)</title></rect>
@@ -1185,10 +1185,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.47%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">14.53%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.74%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">14.26%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="638.48" height="6" x="0" y="0" class="named"/>
-<rect width="108.52" height="6" x="638.48" y="0" class="nonmatching"/>
+<rect width="640.49" height="6" x="0" y="0" class="named"/>
+<rect width="106.51" height="6" x="640.49" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1269,7 +1269,7 @@
 <rect width="22.87" height="24.45" x="336.02" y="27.48" class="named"><title>0x0042b410 ReadPad (808 bytes)</title></rect>
 <rect width="22.87" height="24.45" x="336.02" y="54.93" class="named"><title>0x00443df0 UpdateExAttackTypes14And22 (808 bytes)</title></rect>
 <rect width="22.87" height="24.17" x="336.02" y="82.37" class="named"><title>0x0040e580 Ending::AddedCallback (800 bytes)</title></rect>
-<rect width="22.87" height="24.17" x="336.02" y="109.55" class="nonmatching"><title>0x004239f6 MainMenu::DrawState15 (800 bytes)</title></rect>
+<rect width="22.87" height="24.17" x="336.02" y="109.55" class="named"><title>0x004239f6 MainMenu::DrawState15 (800 bytes)</title></rect>
 <rect width="22.87" height="24.14" x="336.02" y="136.72" class="named"><title>0x00415910 GameManager::PickOpponent (799 bytes)</title></rect>
 <rect width="22.87" height="24.14" x="336.02" y="163.86" class="named"><title>0x004464a0 UpdateExAttackType7 (799 bytes)</title></rect>
 <rect width="22.87" height="23.60" x="336.02" y="191" class="named"><title>0x0042d5f0 SetDefaultRenderStates (783 bytes)</title></rect>
