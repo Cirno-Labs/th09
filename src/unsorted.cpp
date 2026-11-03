@@ -188,7 +188,7 @@ Chain::Chain()
 {
 }
 
-void UpdatePlayerInput(int player, WORD pressed)
+int UpdatePlayerInput(int player, int pressed)
 {
     PlayerInput *input;
     int i;
@@ -198,9 +198,9 @@ void UpdatePlayerInput(int player, WORD pressed)
 
     input = &g_PlayerInputs[player];
     input->unknown2 = input->unknown0;
-    input->unknown0 = pressed;
-    buttons = input->unknown0;
+    input->unknown0 = (WORD)pressed;
     bit = 1;
+    buttons = (WORD)pressed;
     input->unknown4 = 0;
     held = input->heldFrames;
     for (i = 0; i < 16; i++, held++, bit <<= 1)
@@ -222,6 +222,7 @@ void UpdatePlayerInput(int player, WORD pressed)
     }
     input->unknown6 = (input->unknown0 ^ input->unknown2) & input->unknown0;
     input->unknown8 = ~input->unknown0 & (input->unknown0 ^ input->unknown2);
+    return pressed;
 }
 
 void ResetKeyboard()

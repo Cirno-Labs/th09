@@ -189,7 +189,7 @@ extern BYTE g_PadButtons[0x80];
 // unknown2, those just pressed to unknown6 and just released to
 // unknown8, and unknown4 gets the held ones' repeats, every 8 frames from
 // the 26th (0x42ace0).
-void UpdatePlayerInput(int player, WORD buttons);
+int UpdatePlayerInput(int player, int buttons);
 
 // Releases every key in the keyboard state, as th08's (0x42ad70).
 void ResetKeyboard();

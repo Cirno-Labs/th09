@@ -61,11 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.76% (922)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0.45% (5)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.85% (923)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">1.97% (22)</tspan> · <tspan class="todo">0.45% (5)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="618.25" height="6" x="0" y="0" class="named"/>
-<rect width="109.97" height="6" x="618.25" y="0" class="decompiled"/>
-<rect width="15.42" height="6" x="728.22" y="0" class="nonmatching"/>
+<rect width="618.92" height="6" x="0" y="0" class="named"/>
+<rect width="109.97" height="6" x="618.92" y="0" class="decompiled"/>
+<rect width="14.75" height="6" x="728.89" y="0" class="nonmatching"/>
 <rect width="3.35" height="6" x="743.65" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
@@ -618,7 +618,7 @@
 <rect width="12" height="12" x="690" y="150" class="named"><title>0x0042ac50 ChainElem::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="150" class="named"><title>0x0042ac80 SetButtonFromDirectInput (37 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="150" class="named"><title>0x0042acb0 SetButtonFromJoystick (47 bytes)</title></rect>
-<rect width="12" height="12" x="735" y="150" class="nonmatching"><title>0x0042ace0 UpdatePlayerInput (131 bytes)</title></rect>
+<rect width="12" height="12" x="735" y="150" class="named"><title>0x0042ace0 UpdatePlayerInput (131 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="165" class="named"><title>0x0042ad70 ResetKeyboard (65 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="165" class="named"><title>0x0042adc0 GetDataPath (90 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="165" class="named"><title>0x0042ae20 Rng::GetRandomU16 (39 bytes)</title></rect>
@@ -1187,11 +1187,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">68.69%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.38%</tspan> · <tspan class="todo">1.55%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">68.73%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.33%</tspan> · <tspan class="todo">1.55%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="513.11" height="6" x="0" y="0" class="named"/>
-<rect width="114.88" height="6" x="513.11" y="0" class="decompiled"/>
-<rect width="107.40" height="6" x="627.99" y="0" class="nonmatching"/>
+<rect width="513.44" height="6" x="0" y="0" class="named"/>
+<rect width="114.88" height="6" x="513.44" y="0" class="decompiled"/>
+<rect width="107.07" height="6" x="628.32" y="0" class="nonmatching"/>
 <rect width="11.61" height="6" x="735.39" y="0" class="todo"/>
 </g>
 <g transform="translate(0 31)">
@@ -1671,7 +1671,7 @@
 <rect width="7.67" height="8.04" x="646.40" y="174.27" class="named"><title>0x00401560 AnmLoaded::StartScriptAtOrigin (134 bytes)</title></rect>
 <rect width="7.59" height="8.04" x="657.07" y="174.27" class="named"><title>0x0040e4f0 Ending::Load (133 bytes)</title></rect>
 <rect width="7.59" height="8.04" x="667.66" y="174.27" class="named"><title>0x004181e0 Gui::Reset (133 bytes)</title></rect>
-<rect width="7.43" height="8.04" x="678.25" y="174.27" class="nonmatching"><title>0x0042ace0 UpdatePlayerInput (131 bytes)</title></rect>
+<rect width="7.43" height="8.04" x="678.25" y="174.27" class="named"><title>0x0042ace0 UpdatePlayerInput (131 bytes)</title></rect>
 <rect width="7.35" height="8.04" x="688.68" y="174.27" class="named"><title>0x0042fd90 App::UnloadBgm (130 bytes)</title></rect>
 <rect width="7.35" height="8.04" x="699.03" y="174.27" class="named"><title>0x004342a0 AsciiText::AddString (130 bytes)</title></rect>
 <rect width="7.27" height="8.04" x="709.39" y="174.27" class="decompiled"><title>0x004417f0 PlayerPosFunc4417f0 (129 bytes)</title></rect>
