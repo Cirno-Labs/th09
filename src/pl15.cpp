@@ -145,7 +145,7 @@ int SendComboAttacksCharacter15(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // The init callback of effect type 37: InitEffectTypes10And18And24And25And26And28And33's ring with
 // 0xf0 bytes of vertices and a radius of 0. Returns 0, or -1 if the
 // allocation fails (0x44c6f0).
-int EffectInit44c6f0(Effect *effect)
+int InitEffectType37(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0xf0, "Effect");
     if (effect->vertices == NULL)
