@@ -3143,12 +3143,13 @@ int MainMenu::UpdateState8()
         {
             this->PlaySoundNow(10, 0);
             this->cursors[2] = 1;
-            this->sprites[characters[0] * 2 + 92].colorRgb[2] = 0x80;
-            this->sprites[characters[0] * 2 + 92].colorRgb[1] = 0x80;
-            this->sprites[characters[0] * 2 + 92].colorRgb[0] = 0x80;
-            this->sprites[characters[0] * 2 + 60].colorRgb[2] = 0x80;
-            this->sprites[characters[0] * 2 + 60].colorRgb[1] = 0x80;
-            this->sprites[characters[0] * 2 + 60].colorRgb[0] = 0x80;
+            i = characters[0];
+            this->sprites[92 + i * 2].colorRgb[2] = 0x80;
+            this->sprites[92 + i * 2].colorRgb[1] = 0x80;
+            this->sprites[92 + i * 2].colorRgb[0] = 0x80;
+            this->sprites[60 + i * 2].colorRgb[2] = 0x80;
+            this->sprites[60 + i * 2].colorRgb[1] = 0x80;
+            this->sprites[60 + i * 2].colorRgb[0] = 0x80;
             g_GameManager.sides[0].unknown30 = g_PlayerInputs[0].unknown0 >> 2 & 1;
             if (this->cursors[3] != 0 && characters[0] == characters[1])
             {

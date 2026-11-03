@@ -52,7 +52,6 @@ allow_diff = [
     "MainMenu::DrawState11",
     "MainMenu::UpdateState16",
     "MainMenu::UpdateState13",
-    "MainMenu::UpdateState8",
     "DrawEffectType29",
     "UpdateExAttackType19",
 ]
