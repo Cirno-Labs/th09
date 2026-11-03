@@ -182,7 +182,7 @@ int SendComboAttacksCharacter8(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // The init callback of extra attack type 23: type 16's, after 90
 // frames, landing where it is on the target's side. Returns 0
 // (0x447af0).
-int ExAttackInit447af0(ExAttack *attack)
+int InitExAttackType23(ExAttack *attack)
 {
     ExAttackData16 *data;
     float angle;
