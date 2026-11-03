@@ -550,7 +550,7 @@ int UpdateEffectType34(Effect *effect)
 // The draw callback of effect type 34: DrawExAttackTypes14And22's fan and
 // rings about the effect, the fan in red, fading out over 50 frames once
 // grown. Clears unknown4c. Returns 1 (0x444af0).
-int EffectDraw444af0(Effect *effect)
+int DrawEffectType34(Effect *effect)
 {
     EffectData34 *data = (EffectData34 *)effect->vertices;
     float angle = -3.1415927f;
