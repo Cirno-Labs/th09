@@ -197,7 +197,7 @@ public:
     void ClearBulletsForTransition();
     // Clears unknown25e198. Inline: OnUpdate reloads its registers after
     // the copy at 0x412390.
-    void ClearUnknown25e198()
+    void ClearDrawBuckets()
     {
         this->unknown25e198[0] = this->unknown25e198[1] = this->unknown25e198[2] = this->unknown25e198[3] =
             this->unknown25e198[4] = this->unknown25e198[5] = 0;
@@ -266,7 +266,7 @@ public:
     GameSide *side;
     GameSide *otherSide;
     // The bullets to draw, one list per size class; cleared by
-    // ClearUnknown25e198.
+    // ClearDrawBuckets.
     Bullet *unknown25e198[6];
     // Where the searches for a free bullet start, as th08's nextBullet.
     Bullet *nextBullet;

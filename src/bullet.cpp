@@ -1128,7 +1128,7 @@ int BulletManager::OnUpdate(BulletManager *mgr)
     mgr->bulletCount = 0;
     mgr->bulletCount1 = 0;
     mgr->bulletCount2 = 0;
-    mgr->ClearUnknown25e198();
+    mgr->ClearDrawBuckets();
     for (i = 0; i < 0x218; bullet++, i++)
     {
         if (bullet->state == 0 || bullet->state == 6)

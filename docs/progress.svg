@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.93% (935)</tspan> · <tspan class="decompiled">14% (156)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.02% (936)</tspan> · <tspan class="decompiled">13.91% (155)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="626.97" height="6" x="0" y="0" class="named"/>
-<rect width="104.61" height="6" x="626.97" y="0" class="decompiled"/>
+<rect width="627.64" height="6" x="0" y="0" class="named"/>
+<rect width="103.94" height="6" x="627.64" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -303,7 +303,7 @@
 <rect width="12" height="12" x="480" y="60" class="named"><title>0x00412100 Enemy::Enemy (207 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="60" class="named"><title>0x004121d0 EnemyManager::EnemyManager (101 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="60" class="named"><title>0x00412240 EnemyManager::RegisterChain (328 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="60" class="decompiled"><title>0x00412390 BulletManager::ClearUnknown25e198 (39 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="60" class="named"><title>0x00412390 BulletManager::ClearDrawBuckets (39 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="60" class="named"><title>0x004123c0 BulletManager::Initialize (173 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="60" class="named"><title>0x00412470 BulletManager::Reset (95 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="60" class="named"><title>0x004124d0 CopyBulletSprite (16 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.45%</tspan> · <tspan class="decompiled">14.71%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.46%</tspan> · <tspan class="decompiled">14.69%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="526.26" height="6" x="0" y="0" class="named"/>
-<rect width="109.85" height="6" x="526.26" y="0" class="decompiled"/>
+<rect width="526.36" height="6" x="0" y="0" class="named"/>
+<rect width="109.75" height="6" x="526.36" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2005,7 +2005,7 @@
 <rect width="2.70" height="3.16" x="671.62" y="323.50" class="named"><title>0x0042b160 App::LeaveCriticalSection (40 bytes)</title></rect>
 <rect width="2.70" height="3.16" x="671.62" y="329.66" class="named"><title>0x004337a0 File::Seek (40 bytes)</title></rect>
 <rect width="2.70" height="3.16" x="671.62" y="335.82" class="named"><title>0x0043cfe0 MidiDevice::Close (40 bytes)</title></rect>
-<rect width="2.70" height="3.01" x="671.62" y="341.99" class="decompiled"><title>0x00412390 BulletManager::ClearUnknown25e198 (39 bytes)</title></rect>
+<rect width="2.70" height="3.01" x="671.62" y="341.99" class="named"><title>0x00412390 BulletManager::ClearDrawBuckets (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="677.32" y="273.56" class="named"><title>0x00412680 Bullet::SetAccelCommand (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="683.42" y="273.56" class="named"><title>0x00412700 EnemyShooter::SetAngleAccelCommand (39 bytes)</title></rect>
 <rect width="3.10" height="2.62" x="689.51" y="273.56" class="named"><title>0x00412730 EnemyShooter::SetAccelCommand (39 bytes)</title></rect>

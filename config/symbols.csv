@@ -234,7 +234,7 @@ address,size,name,symbol
 0x00412100,207,Enemy::Enemy,??0Enemy@@QAE@XZ
 0x004121d0,101,EnemyManager::EnemyManager,??0EnemyManager@@QAE@XZ
 0x00412240,328,EnemyManager::RegisterChain,?RegisterChain@EnemyManager@@SIPAV1@H@Z
-0x00412390,39,BulletManager::ClearUnknown25e198,?ClearUnknown25e198@BulletManager@@QAEXXZ
+0x00412390,39,BulletManager::ClearDrawBuckets,?ClearDrawBuckets@BulletManager@@QAEXXZ
 0x004123c0,173,BulletManager::Initialize,?Initialize@BulletManager@@QAEXXZ
 0x00412470,95,BulletManager::Reset,?Reset@BulletManager@@QAEXXZ
 0x004124d0,16,CopyBulletSprite,?CopyBulletSprite@@YIXPAVSprite@@0@Z
