@@ -320,7 +320,7 @@ int UpdateEffectType29(Effect *effect)
 // The unknown30404 of character 8: whether `pos` is within the radius of
 // the player's unknown368 or, within 24 more, in reach of one of six
 // points 24 beyond it, a sixth of a turn apart from unknown80 (0x447fb0).
-int PlayerPosFunc447fb0(Player *player, D3DXVECTOR3 *pos)
+int CheckFocusAreaCharacter9(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 v = player->pos - *pos;
     float dist = v.x * v.x + v.y * v.y;

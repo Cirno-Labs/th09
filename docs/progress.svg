@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.81% (1045)</tspan> · <tspan class="decompiled">4.13% (46)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.90% (1046)</tspan> · <tspan class="decompiled">4.04% (45)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="700.73" height="6" x="0" y="0" class="named"/>
-<rect width="30.85" height="6" x="700.73" y="0" class="decompiled"/>
+<rect width="701.40" height="6" x="0" y="0" class="named"/>
+<rect width="30.18" height="6" x="701.40" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1132,7 +1132,7 @@
 <rect width="12" height="12" x="165" y="315" class="named"><title>0x00447c40 InitEffectTypes10And18And24And25And26And28And33 (155 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="315" class="named"><title>0x00447ce0 DrawEffectType28 (602 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="315" class="named"><title>0x00447f40 UpdateEffectType29 (106 bytes)</title></rect>
-<rect width="12" height="12" x="210" y="315" class="decompiled"><title>0x00447fb0 PlayerPosFunc447fb0 (867 bytes)</title></rect>
+<rect width="12" height="12" x="210" y="315" class="named"><title>0x00447fb0 CheckFocusAreaCharacter9 (867 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="315" class="decompiled"><title>0x00448320 ExAttackInit448320 (357 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="315" class="decompiled"><title>0x00448490 ExAttackUpdate448490 (420 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="315" class="decompiled"><title>0x00448640 PlayerComboFunc448640 (97 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.82%</tspan> · <tspan class="decompiled">5.33%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.12%</tspan> · <tspan class="decompiled">5.04%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="596.29" height="6" x="0" y="0" class="named"/>
-<rect width="39.83" height="6" x="596.29" y="0" class="decompiled"/>
+<rect width="598.47" height="6" x="0" y="0" class="named"/>
+<rect width="37.65" height="6" x="598.47" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1259,7 +1259,7 @@
 <rect width="25.25" height="24.91" x="307.76" y="57.37" class="nonmatching"><title>0x00426334 MainMenu::UpdateState16 (897 bytes)</title></rect>
 <rect width="25.25" height="24.56" x="307.76" y="85.27" class="named"><title>0x0042a45b MainMenu::UpdateState2 (886 bytes)</title></rect>
 <rect width="25.25" height="24.44" x="307.76" y="112.84" class="named"><title>0x00431d10 App::LoadingThread (882 bytes)</title></rect>
-<rect width="25.25" height="23.97" x="307.76" y="140.28" class="decompiled"><title>0x00447fb0 PlayerPosFunc447fb0 (867 bytes)</title></rect>
+<rect width="25.25" height="23.97" x="307.76" y="140.28" class="named"><title>0x00447fb0 CheckFocusAreaCharacter9 (867 bytes)</title></rect>
 <rect width="25.25" height="23.60" x="307.76" y="167.25" class="nonmatching"><title>0x0041dff0 Player::CheckHitAreas (855 bytes)</title></rect>
 <rect width="25.25" height="23.26" x="307.76" y="193.85" class="named"><title>0x00407700 ScriptJumpIf (844 bytes)</title></rect>
 <rect width="25.25" height="23.26" x="307.76" y="220.11" class="named"><title>0x00431110 App::OnUpdate (844 bytes)</title></rect>
