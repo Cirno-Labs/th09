@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">88.15% (982)</tspan> · <tspan class="decompiled">9.78% (109)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">88.24% (983)</tspan> · <tspan class="decompiled">9.69% (108)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="658.49" height="6" x="0" y="0" class="named"/>
-<rect width="73.09" height="6" x="658.49" y="0" class="decompiled"/>
+<rect width="659.16" height="6" x="0" y="0" class="named"/>
+<rect width="72.42" height="6" x="659.16" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1068,7 +1068,7 @@
 <rect width="12" height="12" x="705" y="285" class="named"><title>0x00442f50 InitEffectType17 (187 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="285" class="named"><title>0x00443010 DrawEffectType17 (311 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="285" class="named"><title>0x00443150 UpdatePlayerShotType3 (248 bytes)</title></rect>
-<rect width="12" height="12" x="0" y="300" class="decompiled"><title>0x00443250 EffectUpdate443250 (79 bytes)</title></rect>
+<rect width="12" height="12" x="0" y="300" class="named"><title>0x00443250 UpdateEffectType18 (79 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="300" class="decompiled"><title>0x004432a0 ShotFire4432a0 (86 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="300" class="decompiled"><title>0x00443300 ShotDraw443300 (293 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="300" class="decompiled"><title>0x00443430 ShotHit443430 (8 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.33%</tspan> · <tspan class="decompiled">11.82%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.36%</tspan> · <tspan class="decompiled">11.80%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="547.80" height="6" x="0" y="0" class="named"/>
-<rect width="88.32" height="6" x="547.80" y="0" class="decompiled"/>
+<rect width="548" height="6" x="0" y="0" class="named"/>
+<rect width="88.12" height="6" x="548" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1826,7 +1826,7 @@
 <rect width="5.02" height="5.66" x="693.87" y="222.71" class="named"><title>0x0041a9b8 GameManager::SetPlayArea (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="701.89" y="222.71" class="named"><title>0x00440ce0 UpdateEffectType10 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="709.91" y="222.71" class="named"><title>0x00440df0 IsWithinCircularFocusArea (79 bytes)</title></rect>
-<rect width="5.02" height="5.66" x="717.93" y="222.71" class="decompiled"><title>0x00443250 EffectUpdate443250 (79 bytes)</title></rect>
+<rect width="5.02" height="5.66" x="717.93" y="222.71" class="named"><title>0x00443250 UpdateEffectType18 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="725.94" y="222.71" class="decompiled"><title>0x00444eb0 EffectUpdate444eb0 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="733.96" y="222.71" class="decompiled"><title>0x004454e0 EffectUpdate4454e0 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="741.98" y="222.71" class="decompiled"><title>0x0044b1d0 EffectUpdate44b1d0 (79 bytes)</title></rect>

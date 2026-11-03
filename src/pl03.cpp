@@ -10,7 +10,7 @@
 // The update callback of effect type 18: grows unknown7c by 0.7 up to
 // 144, sets unknownC9 and puts the effect on its side's player. Returns 1
 // (0x443250).
-int EffectUpdate443250(Effect *effect)
+int UpdateEffectType18(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknown7c < 144.0f)
