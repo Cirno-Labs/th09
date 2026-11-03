@@ -433,7 +433,7 @@ EffectManager *EffectManager::RegisterChain(int sideIdx, int count34, int count3
     return mgr;
 }
 
-int EffectUpdate40d470(Effect *effect)
+int UpdateEffectFromSprite(Effect *effect)
 {
     effect->unknown8c = effect->sprites->scriptVar0;
     effect->unknown9c = effect->sprites->scriptVar1;

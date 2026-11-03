@@ -34,7 +34,7 @@ struct Effect
     D3DXVECTOR3 unknown54;
     D3DXVECTOR3 unknown60;
     unsigned char pad_6c[0x7c - 0x6c];
-    // Taken from the first sprite by EffectUpdate40d470: its posOffset.x,
+    // Taken from the first sprite by UpdateEffectFromSprite: its posOffset.x,
     // rotation.z, scaleY, scriptVar0, posOffset.y, rotation.y and
     // scriptVar1.
     float unknown7c;
@@ -213,7 +213,7 @@ int EffectUpdateFollowPlayer(Effect *effect);
 // An effect update callback of the effect table: takes the first
 // sprite's offset, rotation, y scale and script variables into the
 // effect and sets unknownC9. Returns 1 (0x40d470).
-int EffectUpdate40d470(Effect *effect);
+int UpdateEffectFromSprite(Effect *effect);
 
 // The init callback of effect type 8: allocates 0x1c38 bytes of
 // vertices, filled from the first sprite, and takes the position and
