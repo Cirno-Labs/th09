@@ -680,7 +680,7 @@ int UpdateExAttackType12(ExAttack *attack)
 
 // The draw callback of effect type 25: DrawEffectType10's fan
 // (0x447480).
-int EffectDraw447480(Effect *effect)
+int DrawEffectType25(Effect *effect)
 {
     if (effect->unknownC9)
     {

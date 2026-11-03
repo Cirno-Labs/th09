@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">92.91% (1035)</tspan> · <tspan class="decompiled">5.03% (56)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93% (1036)</tspan> · <tspan class="decompiled">4.94% (55)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="694.03" height="6" x="0" y="0" class="named"/>
-<rect width="37.55" height="6" x="694.03" y="0" class="decompiled"/>
+<rect width="694.70" height="6" x="0" y="0" class="named"/>
+<rect width="36.88" height="6" x="694.70" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1122,7 +1122,7 @@
 <rect width="12" height="12" x="15" y="315" class="named"><title>0x00446d80 InitExAttackTypes11And12 (343 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="315" class="named"><title>0x00446ee0 UpdateExAttackType11 (713 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="315" class="named"><title>0x004471b0 UpdateExAttackType12 (710 bytes)</title></rect>
-<rect width="12" height="12" x="60" y="315" class="decompiled"><title>0x00447480 EffectDraw447480 (314 bytes)</title></rect>
+<rect width="12" height="12" x="60" y="315" class="named"><title>0x00447480 DrawEffectType25 (314 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="315" class="decompiled"><title>0x004475c0 EffectUpdate4475c0 (91 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="315" class="decompiled"><title>0x00447620 PlayerPosFunc447620 (249 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="315" class="decompiled"><title>0x00447720 ExAttackInit447720 (355 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">78.88%</tspan> · <tspan class="decompiled">6.27%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">78.99%</tspan> · <tspan class="decompiled">6.17%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="589.27" height="6" x="0" y="0" class="named"/>
-<rect width="46.85" height="6" x="589.27" y="0" class="decompiled"/>
+<rect width="590.06" height="6" x="0" y="0" class="named"/>
+<rect width="46.06" height="6" x="590.06" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1445,7 +1445,7 @@
 <rect width="13.46" height="13.76" x="586.04" y="77.56" class="named"><title>0x004414a0 DrawEffectType10 (314 bytes)</title></rect>
 <rect width="13.46" height="13.76" x="602.51" y="77.56" class="named"><title>0x004437f0 DrawEffectType18 (314 bytes)</title></rect>
 <rect width="13.46" height="13.76" x="618.97" y="77.56" class="named"><title>0x004453a0 DrawEffectType24 (314 bytes)</title></rect>
-<rect width="13.46" height="13.76" x="635.43" y="77.56" class="decompiled"><title>0x00447480 EffectDraw447480 (314 bytes)</title></rect>
+<rect width="13.46" height="13.76" x="635.43" y="77.56" class="named"><title>0x00447480 DrawEffectType25 (314 bytes)</title></rect>
 <rect width="13.46" height="13.76" x="651.90" y="77.56" class="decompiled"><title>0x0044b090 EffectDraw44b090 (314 bytes)</title></rect>
 <rect width="13.46" height="13.76" x="668.36" y="77.56" class="decompiled"><title>0x0044baf0 EffectDraw44baf0 (314 bytes)</title></rect>
 <rect width="13.36" height="13.76" x="684.83" y="77.56" class="named"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
