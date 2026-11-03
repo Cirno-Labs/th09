@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.39% (929)</tspan> · <tspan class="decompiled">14.54% (162)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.48% (930)</tspan> · <tspan class="decompiled">14.45% (161)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="622.95" height="6" x="0" y="0" class="named"/>
-<rect width="108.63" height="6" x="622.95" y="0" class="decompiled"/>
+<rect width="623.62" height="6" x="0" y="0" class="named"/>
+<rect width="107.96" height="6" x="623.62" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -229,7 +229,7 @@
 <rect width="12" height="12" x="120" y="45" class="named"><title>0x0040d4d0 Vector2::SetPolarEllipse (32 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="45" class="named"><title>0x0040d4f0 Gui::GetUnknown11ea8 (7 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="45" class="named"><title>0x0040d500 EnemyShooter::EnemyShooter (28 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="45" class="decompiled"><title>0x0040d520 EffectInit40d520 (210 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="45" class="named"><title>0x0040d520 InitEffectTypes1And2 (210 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="45" class="decompiled"><title>0x0040d600 EffectUpdate40d600 (775 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="45" class="decompiled"><title>0x0040d910 EffectInit40d910 (200 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="45" class="decompiled"><title>0x0040d9e0 EffectUpdate40d9e0 (464 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.81%</tspan> · <tspan class="decompiled">15.35%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.88%</tspan> · <tspan class="decompiled">15.28%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="521.48" height="6" x="0" y="0" class="named"/>
-<rect width="114.64" height="6" x="521.48" y="0" class="decompiled"/>
+<rect width="522" height="6" x="0" y="0" class="named"/>
+<rect width="114.11" height="6" x="522" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1534,7 +1534,7 @@
 <rect width="10.65" height="10.72" x="517.66" y="334.28" class="named"><title>0x0042e9e0 App::AddRecord (213 bytes)</title></rect>
 <rect width="10.91" height="10.33" x="531.31" y="123.85" class="named"><title>0x0041f680 Player::DrawBullets (211 bytes)</title></rect>
 <rect width="10.91" height="10.33" x="545.22" y="123.85" class="named"><title>0x00424edd MainMenu::SelectEntryStep (211 bytes)</title></rect>
-<rect width="10.84" height="10.33" x="559.12" y="123.85" class="decompiled"><title>0x0040d520 EffectInit40d520 (210 bytes)</title></rect>
+<rect width="10.84" height="10.33" x="559.12" y="123.85" class="named"><title>0x0040d520 InitEffectTypes1And2 (210 bytes)</title></rect>
 <rect width="10.84" height="10.33" x="572.96" y="123.85" class="named"><title>0x0042c4e0 WriteToFile (210 bytes)</title></rect>
 <rect width="10.78" height="10.33" x="586.81" y="123.85" class="named"><title>0x0041bee0 Player::TouchesGrazeBox (209 bytes)</title></rect>
 <rect width="10.78" height="10.33" x="600.58" y="123.85" class="named"><title>0x004244a9 MainMenu::DrawState12 (209 bytes)</title></rect>

@@ -460,7 +460,7 @@ void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
     }
 }
 
-int EffectInit40d520(Effect *effect)
+int InitEffectTypes1And2(Effect *effect)
 {
     effect->unknown54 = effect->pos;
     effect->unknown60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);

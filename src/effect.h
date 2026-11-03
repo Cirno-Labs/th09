@@ -27,7 +27,7 @@ struct Effect
     D3DXVECTOR3 velocity;
     unsigned char pad_24[0x3c - 0x24];
     // Set by the init callbacks: EffectInit40dbb0's start position and
-    // two directions, EffectInit40d520's two random offsets in 3c and
+    // two directions, InitEffectTypes1And2's two random offsets in 3c and
     // 48, its start position in 54 and velocity on screen in 60.
     D3DXVECTOR3 unknown3c;
     D3DXVECTOR3 unknown48;
@@ -224,9 +224,9 @@ int EffectInit40dbb0(Effect *effect);
 // An init callback of the effect table: keeps the start position and the
 // velocity moved to the screen, and picks two random offsets and
 // unknown9c. Returns 0 (0x40d520).
-int EffectInit40d520(Effect *effect);
+int InitEffectTypes1And2(Effect *effect);
 
-// An init callback of the effect table: EffectInit40d520 without
+// An init callback of the effect table: InitEffectTypes1And2 without
 // clearing unknown98. Returns 0 (0x40d910).
 int EffectInit40d910(Effect *effect);
 
