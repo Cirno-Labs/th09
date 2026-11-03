@@ -334,7 +334,7 @@ int UpdateEffectType31(Effect *effect)
 
 // An update callback of the shot table (15): turns the bullet by pi/40
 // and slows it down by 0.96 each frame. Returns 0 (0x449c70).
-int ShotUpdate449c70(Player *player, PlayerBullet *bullet)
+int UpdatePlayerShotType6(Player *player, PlayerBullet *bullet)
 {
     float angle;
     float speed;
@@ -346,7 +346,7 @@ int ShotUpdate449c70(Player *player, PlayerBullet *bullet)
     return 0;
 }
 
-// An update callback of the shot table (16): ShotUpdate449c70 turning
+// An update callback of the shot table (16): UpdatePlayerShotType6 turning
 // the other way. Returns 0 (0x449ce0).
 int ShotUpdate449ce0(Player *player, PlayerBullet *bullet)
 {
