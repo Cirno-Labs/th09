@@ -4447,20 +4447,27 @@ int MainMenu::UpdateState16()
             n = 0;
             for (i = 0; i < 16; i++)
             {
-                if (g_CharacterOrder[i] > 13 || g_PlayRecord.openEntries[g_CharacterOrder[i]] ||
+                char entryCharacter = g_CharacterOrder[i];
+                if (entryCharacter > 13 || g_PlayRecord.openEntries[entryCharacter] ||
                     g_Network->unknownA8)
                 {
-                    this->anm->SetSprite(&this->sprites[n + 207], g_CharacterOrder[i] + 0xfb);
+                    this->anm->SetSprite(&this->sprites[n + 207], entryCharacter + 0xfb);
                     this->sprites[n + 207].flags |= 2;
                     g_OpenCharacters[n] = g_CharacterOrder[i];
                     n++;
                 }
             }
             this->cursor = n - 2;
-            for (; n < 16; n++)
+            if (n < 16)
             {
-                this->sprites[n + 207].flags &= ~2;
-                g_OpenCharacters[n] = -1;
+                int index = n;
+                char *entry = g_OpenCharacters + index;
+                do
+                {
+                    this->sprites[207 + index].flags &= ~2;
+                    index++;
+                    *entry++ = -1;
+                } while (index < 16);
             }
             this->sprites[189].flags |= 2;
             this->sprites[190].flags |= 2;
@@ -4513,33 +4520,36 @@ int MainMenu::UpdateState16()
                 g_GameManager.mode = 1;
                 g_GameManager.sides[0].unknown28 = 0;
             }
-            else if (g_GameManager.unknown114 == 0 || g_GameManager.unknown114 == 4)
+            else
             {
-                g_GameManager.sides[1].unknown28 = 0;
-                g_App.scene = 2;
-                g_GameManager.mode = 2;
-                g_GameManager.sides[0].unknown28 = 0;
-            }
-            else if (g_GameManager.unknown114 == 1)
-            {
-                g_GameManager.sides[1].unknown28 = 1;
-                g_App.scene = 2;
-                g_GameManager.mode = 2;
-                g_GameManager.sides[0].unknown28 = 0;
-            }
-            else if (g_GameManager.unknown114 == 2)
-            {
-                g_GameManager.sides[1].unknown28 = 0;
-                g_GameManager.sides[0].unknown28 = 1;
-                g_App.scene = 2;
-                g_GameManager.mode = 2;
-            }
-            else if (g_GameManager.unknown114 == 3)
-            {
-                g_GameManager.sides[1].unknown28 = 1;
-                g_GameManager.sides[0].unknown28 = 1;
-                g_App.scene = 2;
-                g_GameManager.mode = 2;
+                if (g_GameManager.unknown114 == 0 || g_GameManager.unknown114 == 4)
+                {
+                    g_GameManager.sides[1].unknown28 = 0;
+                    g_GameManager.sides[0].unknown28 = 0;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                }
+                else if (g_GameManager.unknown114 == 1)
+                {
+                    g_GameManager.sides[1].unknown28 = 1;
+                    g_GameManager.sides[0].unknown28 = 0;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                }
+                else if (g_GameManager.unknown114 == 2)
+                {
+                    g_GameManager.sides[1].unknown28 = 0;
+                    g_GameManager.sides[0].unknown28 = 1;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                }
+                else if (g_GameManager.unknown114 == 3)
+                {
+                    g_GameManager.sides[1].unknown28 = 1;
+                    g_GameManager.sides[0].unknown28 = 1;
+                    g_App.scene = 2;
+                    g_GameManager.mode = 2;
+                }
             }
             g_GameManager.difficulty = g_App.config.difficulty;
             g_GameManager.initialLives[0] = this->unknown11b84;
