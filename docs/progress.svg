@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">95.51% (1064)</tspan> · <tspan class="decompiled">2.42% (27)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">95.60% (1065)</tspan> · <tspan class="decompiled">2.33% (26)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="713.47" height="6" x="0" y="0" class="named"/>
-<rect width="18.11" height="6" x="713.47" y="0" class="decompiled"/>
+<rect width="714.14" height="6" x="0" y="0" class="named"/>
+<rect width="17.43" height="6" x="714.14" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1154,7 +1154,7 @@
 <rect width="12" height="12" x="495" y="315" class="nonmatching"><title>0x0044a330 UpdateExAttackType19 (821 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="315" class="named"><title>0x0044a670 SendComboAttacksCharacter11 (101 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="315" class="named"><title>0x0044a6e0 InitEffectType31 (156 bytes)</title></rect>
-<rect width="12" height="12" x="540" y="315" class="decompiled"><title>0x0044a780 EffectDraw44a780 (921 bytes)</title></rect>
+<rect width="12" height="12" x="540" y="315" class="named"><title>0x0044a780 DrawEffectType31 (921 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="315" class="named"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="315" class="decompiled"><title>0x0044ab30 EffectUpdate44ab30 (88 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="315" class="decompiled"><title>0x0044ab90 ShotFire44ab90 (139 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.14%</tspan> · <tspan class="decompiled">3.02%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.45%</tspan> · <tspan class="decompiled">2.71%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="613.55" height="6" x="0" y="0" class="named"/>
-<rect width="22.56" height="6" x="613.55" y="0" class="decompiled"/>
+<rect width="615.87" height="6" x="0" y="0" class="named"/>
+<rect width="20.25" height="6" x="615.87" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1255,7 +1255,7 @@
 <rect width="27.29" height="24.83" x="277.47" y="292.72" class="named"><title>0x00444130 DrawExAttackTypes14And22 (959 bytes)</title></rect>
 <rect width="27.29" height="24.45" x="277.47" y="320.55" class="named"><title>0x00444af0 DrawEffectType34 (946 bytes)</title></rect>
 <rect width="25.25" height="25.71" x="307.76" y="0" class="named"><title>0x00403e50 SpellCard::Start (923 bytes)</title></rect>
-<rect width="25.25" height="25.65" x="307.76" y="28.71" class="decompiled"><title>0x0044a780 EffectDraw44a780 (921 bytes)</title></rect>
+<rect width="25.25" height="25.65" x="307.76" y="28.71" class="named"><title>0x0044a780 DrawEffectType31 (921 bytes)</title></rect>
 <rect width="25.25" height="24.91" x="307.76" y="57.37" class="nonmatching"><title>0x00426334 MainMenu::UpdateState16 (897 bytes)</title></rect>
 <rect width="25.25" height="24.56" x="307.76" y="85.27" class="named"><title>0x0042a45b MainMenu::UpdateState2 (886 bytes)</title></rect>
 <rect width="25.25" height="24.44" x="307.76" y="112.84" class="named"><title>0x00431d10 App::LoadingThread (882 bytes)</title></rect>

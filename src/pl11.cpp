@@ -229,7 +229,7 @@ int InitEffectType31(Effect *effect)
 // pentagram of radius unknown7c turned by unknown80 around the effect,
 // as a fan from its centre through the five points and the corners
 // between them. Returns 1 (0x44a780).
-int EffectDraw44a780(Effect *effect)
+int DrawEffectType31(Effect *effect)
 {
     if (effect->unknownC9)
     {
