@@ -89,7 +89,12 @@ int Stage::StepObjects()
 // slow down, 4 to 6 speed up, 7 follows a Hermite curve with tangents m0
 // and m1. Clears the frame count once the timer reaches it. As th08's;
 // static, taking the stage in ecx, `i` in eax and `out` in edi (0x4016e0).
-// Not matching yet: the original picks eax and ecx where this picks edx.
+// Its visible body lets camera interpolation retain unmodified registers.
+BOOL Timer::operator<(int frames)
+{
+    return this->current < frames;
+}
+
 static void UpdateEasedVector(Stage *stage, D3DXVECTOR3 *out, int i, D3DXVECTOR3 *from, D3DXVECTOR3 *to,
                               D3DXVECTOR3 *m0, D3DXVECTOR3 *m1)
 {
