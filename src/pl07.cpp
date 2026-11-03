@@ -30,7 +30,7 @@ int SendComboAttacksCharacter7(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // The update callback of effect type 25: grows unknown7c by 4 up to 56,
 // sets unknownC9 and puts the effect on its side's player, raised by 1.5
 // times unknown7c. Returns 1 (0x445e00).
-int EffectUpdate445e00(Effect *effect)
+int UpdateEffectType25(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknown7c < 56.0f)
