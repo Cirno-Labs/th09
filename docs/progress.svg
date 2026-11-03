@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.37% (951)</tspan> · <tspan class="decompiled">12.57% (140)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.46% (952)</tspan> · <tspan class="decompiled">12.48% (139)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="637.70" height="6" x="0" y="0" class="named"/>
-<rect width="93.88" height="6" x="637.70" y="0" class="decompiled"/>
+<rect width="638.37" height="6" x="0" y="0" class="named"/>
+<rect width="93.21" height="6" x="638.37" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1032,7 +1032,7 @@
 <rect width="12" height="12" x="165" y="285" class="named"><title>0x004413a0 FreePrimarySpellCardData (38 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="285" class="named"><title>0x004413d0 InitSpellCardType1 (75 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="285" class="named"><title>0x00441420 InitSpellCardType2 (78 bytes)</title></rect>
-<rect width="12" height="12" x="210" y="285" class="decompiled"><title>0x00441470 SpellCardFree441470 (38 bytes)</title></rect>
+<rect width="12" height="12" x="210" y="285" class="named"><title>0x00441470 FreeSecondarySpellCardData (38 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="285" class="decompiled"><title>0x004414a0 EffectDraw4414a0 (314 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="285" class="nonmatching"><title>0x004415e0 ShotUpdate4415e0 (471 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="285" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.06%</tspan> · <tspan class="decompiled">14.10%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.07%</tspan> · <tspan class="decompiled">14.08%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="530.82" height="6" x="0" y="0" class="named"/>
-<rect width="105.29" height="6" x="530.82" y="0" class="decompiled"/>
+<rect width="530.92" height="6" x="0" y="0" class="named"/>
+<rect width="105.20" height="6" x="530.92" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2024,7 +2024,7 @@
 <rect width="2.79" height="2.77" x="677.32" y="296.50" class="named"><title>0x0043e440 CStreamingSound::FadeOut (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="302.27" class="named"><title>0x00440c80 EnemyManager::SpawnPlayerEnemy (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="308.05" class="named"><title>0x004413a0 FreePrimarySpellCardData (38 bytes)</title></rect>
-<rect width="2.79" height="2.77" x="677.32" y="313.82" class="decompiled"><title>0x00441470 SpellCardFree441470 (38 bytes)</title></rect>
+<rect width="2.79" height="2.77" x="677.32" y="313.82" class="named"><title>0x00441470 FreeSecondarySpellCardData (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="319.59" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="325.37" class="decompiled"><title>0x00445c80 EffectUpdate445c80 (38 bytes)</title></rect>
 <rect width="2.79" height="2.62" x="677.32" y="331.14" class="named"><title>0x0040e3a0 PlayRecord::AddClear (37 bytes)</title></rect>
