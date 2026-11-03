@@ -203,7 +203,7 @@ int UpdateExAttackType6(ExAttack *attack)
 
 // The init callback of extra attack type 7: type 9's, landing at
 // either side of the target's side, lower, heading inwards (0x446320).
-int ExAttackInit446320(ExAttack *attack)
+int InitExAttackType7(ExAttack *attack)
 {
     ExAttackData08 *data;
     float angle;

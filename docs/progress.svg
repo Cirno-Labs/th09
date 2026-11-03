@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">92.19% (1027)</tspan> · <tspan class="decompiled">5.75% (64)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">92.28% (1028)</tspan> · <tspan class="decompiled">5.66% (63)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="688.66" height="6" x="0" y="0" class="named"/>
-<rect width="42.92" height="6" x="688.66" y="0" class="decompiled"/>
+<rect width="689.33" height="6" x="0" y="0" class="named"/>
+<rect width="42.25" height="6" x="689.33" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1114,7 +1114,7 @@
 <rect width="12" height="12" x="645" y="300" class="named"><title>0x00445e60 CheckFocusAreaCharacter7 (91 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="300" class="named"><title>0x00445ec0 InitExAttackType6 (407 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="300" class="named"><title>0x00446060 UpdateExAttackType6 (698 bytes)</title></rect>
-<rect width="12" height="12" x="690" y="300" class="decompiled"><title>0x00446320 ExAttackInit446320 (379 bytes)</title></rect>
+<rect width="12" height="12" x="690" y="300" class="named"><title>0x00446320 InitExAttackType7 (379 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="300" class="decompiled"><title>0x004464a0 ExAttackUpdate4464a0 (799 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="300" class="decompiled"><title>0x004467c0 ExAttackInit4467c0 (352 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="300" class="decompiled"><title>0x00446920 ExAttackUpdate446920 (748 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.40%</tspan> · <tspan class="decompiled">7.75%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.53%</tspan> · <tspan class="decompiled">7.63%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="578.20" height="6" x="0" y="0" class="named"/>
-<rect width="57.91" height="6" x="578.20" y="0" class="decompiled"/>
+<rect width="579.15" height="6" x="0" y="0" class="named"/>
+<rect width="56.96" height="6" x="579.15" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1382,7 +1382,7 @@
 <rect width="15.74" height="15.38" x="586.98" y="42.15" class="named"><title>0x0040f640 EnemyManager::ClearEnemiesForBonus (392 bytes)</title></rect>
 <rect width="15.64" height="15.38" x="605.72" y="42.15" class="named"><title>0x0043c610 SpriteEngine::PreloadAnmFile (390 bytes)</title></rect>
 <rect width="15.55" height="15.38" x="624.36" y="42.15" class="named"><title>0x0043ea30 SoundPlayer::PreloadBgm (388 bytes)</title></rect>
-<rect width="15.12" height="15.38" x="642.91" y="42.15" class="decompiled"><title>0x00446320 ExAttackInit446320 (379 bytes)</title></rect>
+<rect width="15.12" height="15.38" x="642.91" y="42.15" class="named"><title>0x00446320 InitExAttackType7 (379 bytes)</title></rect>
 <rect width="15.02" height="15.38" x="661.03" y="42.15" class="named"><title>0x00402350 Stage::OnUpdate (377 bytes)</title></rect>
 <rect width="14.83" height="15.38" x="679.06" y="42.15" class="named"><title>0x0040f340 EnemyManager::SpawnEnemyWithVars (373 bytes)</title></rect>
 <rect width="14.78" height="15.38" x="696.89" y="42.15" class="named"><title>0x00411db0 EnemyManager::AddedCallback (372 bytes)</title></rect>
