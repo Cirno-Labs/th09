@@ -686,7 +686,7 @@ address,size,name,symbol
 0x00431d10,882,App::LoadingThread,?LoadingThread@App@@SIXPAU1@@Z
 0x00432090,238,App::AddedCallback,?AddedCallback@App@@SIHPAU1@@Z
 0x00432180,182,App::RegisterChain,?RegisterChain@App@@SIHXZ
-0x00432240,240,Func432240,
+0x00432240,243,ReadConfigValue,?ReadConfigValue@@YIPADPADPAH00@Z
 0x00432340,97,Network::ReleaseInterfaces,?ReleaseInterfaces@Network@@QAEXXZ
 0x004323b0,95,Network::Send,?Send@Network@@QAEJPAXK@Z
 0x00432410,164,LogNetworkError,?LogNetworkError@@YIXJ@Z

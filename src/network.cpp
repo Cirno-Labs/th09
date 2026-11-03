@@ -1,3 +1,4 @@
+// cflags: /Ob1
 #include "network.h"
 #include "unsorted.h"
 
@@ -9,6 +10,71 @@ extern "C"
 
 // The application GUID of the game's DirectPlay sessions (0x490c3c).
 static const GUID g_SessionGuid = {0x9fd5ec50, 0x740a, 0x4fdb, {0x90, 0x9d, 0x2f, 0x24, 0xe1, 0x52, 0x82, 0xea}};
+
+// Reconstruction hints: see docs/references.md.
+// This helper is inline so its early exits stay inside the parser.
+static inline bool SkipConfigValueSpaces(char *&cursor, int *remaining, char *value)
+{
+    while (*cursor == ' ' || *cursor == '\t')
+    {
+        if (*remaining <= 0)
+        {
+            return false;
+        }
+        if (*cursor == '\n')
+        {
+            value[0] = '\0';
+            return false;
+        }
+        cursor++;
+        (*remaining)--;
+    }
+    return true;
+}
+
+// Reads the value of `key` from the IP.txt line at `cursor` into `value`
+// (0x100 bytes): "key = value", where the value ends at a blank, a line
+// end or a ';' comment. Counts the bytes read off `remaining`. Returns
+// where it stopped, or NULL if the line is not `key`'s (0x432240).
+static char *ReadConfigValue(char *cursor, int *remaining, char *key, char *value)
+{
+    int i;
+
+    memset(value, 0, 0x100);
+    if (strncmp(cursor, key, strlen(key)) == 0)
+    {
+        cursor += strlen(key);
+        while (*cursor == ' ' || *cursor == '\t')
+        {
+            if (*remaining <= 0 || *cursor == '\n')
+            {
+                return cursor;
+            }
+            cursor++;
+            (*remaining)--;
+        }
+        if (*remaining > 0 && *cursor == '=')
+        {
+            cursor++;
+            (*remaining)--;
+            if (SkipConfigValueSpaces(cursor, remaining, value))
+            {
+                if (*remaining > 0 && *cursor != ';')
+                {
+                    for (i = 0; *cursor != ' ' && *cursor != '\t' && *cursor != '\n' && *cursor != '\r' &&
+                                *cursor != ';' && *remaining > 0 && i < 0xff; i++)
+                    {
+                        value[i] = *cursor;
+                        cursor++;
+                        (*remaining)--;
+                    }
+                }
+            }
+        }
+        return cursor;
+    }
+    return NULL;
+}
 
 void Network::ReleaseInterfaces()
 {
