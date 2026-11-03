@@ -592,7 +592,7 @@ int DrawEffectType17(Effect *effect)
 // aims a flying bullet at the player's unknown30364, turned by its
 // angle, or straight up if that is left of the play area.
 // Returns 0 (0x443150).
-int ShotUpdate443150(Player *player, PlayerBullet *bullet)
+int UpdatePlayerShotType3(Player *player, PlayerBullet *bullet)
 {
     float angle;
     float dx;
