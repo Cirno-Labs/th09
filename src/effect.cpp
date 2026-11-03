@@ -626,7 +626,7 @@ int UpdateEffectTypes3And4(Effect *effect)
     return 0;
 }
 
-int EffectInit40dbb0(Effect *effect)
+int InitRingEffect(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x1c38, "Effect");
     if (effect->vertices == NULL)

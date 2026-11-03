@@ -26,7 +26,7 @@ struct Effect
     // As spawned; some types' init callbacks take an angle in x.
     D3DXVECTOR3 velocity;
     unsigned char pad_24[0x3c - 0x24];
-    // Set by the init callbacks: EffectInit40dbb0's start position and
+    // Set by the init callbacks: InitRingEffect's start position and
     // two directions, InitEffectTypes1And2's two random offsets in 3c and
     // 48, its start position in 54 and velocity on screen in 60.
     D3DXVECTOR3 unknown3c;
@@ -219,7 +219,7 @@ int UpdateEffectFromSprite(Effect *effect);
 // vertices, filled from the first sprite, and takes the position and
 // velocity's parts into the effect. Returns 0, or -1 if the allocation
 // fails (0x40dbb0).
-int EffectInit40dbb0(Effect *effect);
+int InitRingEffect(Effect *effect);
 
 // An init callback of the effect table: keeps the start position and the
 // velocity moved to the screen, and picks two random offsets and

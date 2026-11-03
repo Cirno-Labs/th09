@@ -164,7 +164,7 @@ address,size,name,symbol
 0x0040d600,775,UpdateEffectTypes1And2,?UpdateEffectTypes1And2@@YIHPAUEffect@@@Z
 0x0040d910,200,InitEffectTypes3And4,?InitEffectTypes3And4@@YIHPAUEffect@@@Z
 0x0040d9e0,464,UpdateEffectTypes3And4,?UpdateEffectTypes3And4@@YIHPAUEffect@@@Z
-0x0040dbb0,184,EffectInit40dbb0,?EffectInit40dbb0@@YIHPAUEffect@@@Z
+0x0040dbb0,184,InitRingEffect,?InitRingEffect@@YIHPAUEffect@@@Z
 0x0040dc70,1028,EffectDrawRing,?EffectDrawRing@@YIHPAUEffect@@@Z
 0x0040e080,71,EffectInit40e080,?EffectInit40e080@@YIHPAUEffect@@@Z
 0x0040e0d0,84,Ending::ReadInt,?ReadInt@Ending@@QAEHXZ

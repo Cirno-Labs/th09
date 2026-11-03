@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.75% (933)</tspan> · <tspan class="decompiled">14.18% (158)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.84% (934)</tspan> · <tspan class="decompiled">14.09% (157)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="625.63" height="6" x="0" y="0" class="named"/>
-<rect width="105.95" height="6" x="625.63" y="0" class="decompiled"/>
+<rect width="626.30" height="6" x="0" y="0" class="named"/>
+<rect width="105.28" height="6" x="626.30" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -233,7 +233,7 @@
 <rect width="12" height="12" x="180" y="45" class="named"><title>0x0040d600 UpdateEffectTypes1And2 (775 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="45" class="named"><title>0x0040d910 InitEffectTypes3And4 (200 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="45" class="named"><title>0x0040d9e0 UpdateEffectTypes3And4 (464 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="45" class="decompiled"><title>0x0040dbb0 EffectInit40dbb0 (184 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="45" class="named"><title>0x0040dbb0 InitRingEffect (184 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="45" class="named"><title>0x0040dc70 EffectDrawRing (1028 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="45" class="decompiled"><title>0x0040e080 EffectInit40e080 (71 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="45" class="named"><title>0x0040e0d0 Ending::ReadInt (84 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.36%</tspan> · <tspan class="decompiled">14.79%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.43%</tspan> · <tspan class="decompiled">14.73%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="525.62" height="6" x="0" y="0" class="named"/>
-<rect width="110.49" height="6" x="525.62" y="0" class="decompiled"/>
+<rect width="526.09" height="6" x="0" y="0" class="named"/>
+<rect width="110.03" height="6" x="526.09" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1581,7 +1581,7 @@
 <rect width="9.67" height="9.97" x="724.72" y="137.18" class="decompiled"><title>0x00442f50 EffectInit442f50 (187 bytes)</title></rect>
 <rect width="9.61" height="9.97" x="737.39" y="137.18" class="named"><title>0x004224f0 ScreenEffect::OnUpdateLoadingFade (186 bytes)</title></rect>
 <rect width="9.83" height="9.61" x="544.56" y="150.15" class="named"><title>0x0040cc00 EffectManager::SpawnParticles (184 bytes)</title></rect>
-<rect width="9.83" height="9.61" x="544.56" y="162.75" class="decompiled"><title>0x0040dbb0 EffectInit40dbb0 (184 bytes)</title></rect>
+<rect width="9.83" height="9.61" x="544.56" y="162.75" class="named"><title>0x0040dbb0 InitRingEffect (184 bytes)</title></rect>
 <rect width="9.83" height="9.61" x="544.56" y="175.36" class="named"><title>0x00410110 Enemy::Despawn (184 bytes)</title></rect>
 <rect width="9.83" height="9.61" x="544.56" y="187.96" class="named"><title>0x0042c700 Chain::RunCalcChain (184 bytes)</title></rect>
 <rect width="9.83" height="9.61" x="544.56" y="200.57" class="named"><title>0x0043ed80 BgmNotificationProc (184 bytes)</title></rect>
