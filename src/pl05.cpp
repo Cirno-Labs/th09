@@ -76,7 +76,7 @@ int InitExAttackType5(ExAttack *attack)
 // The init callback of extra attack type 10: type 5's, waiting 40
 // frames and falling where it is on the target's side, drifting a
 // little sideways. Returns 0 (0x445050).
-int ExAttackInit445050(ExAttack *attack)
+int InitExAttackType10(ExAttack *attack)
 {
     ExAttackData05 *data;
 
