@@ -1038,7 +1038,7 @@ address,size,name,symbol
 0x00445a40,491,DrawEffectType27,?DrawEffectType27@@YIHPAUEffect@@@Z
 0x00445c30,72,InitEffectType35,?InitEffectType35@@YIHPAUEffect@@@Z
 0x00445c80,38,UpdateEffectType35,?UpdateEffectType35@@YIHPAUEffect@@@Z
-0x00445cb0,72,ShotFire445cb0,?ShotFire445cb0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
+0x00445cb0,72,FirePlayerShotType5,?FirePlayerShotType5@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00445d00,119,ShotFire445d00,?ShotFire445d00@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00445d80,119,PlayerComboFunc445d80,?PlayerComboFunc445d80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00445e00,96,EffectUpdate445e00,?EffectUpdate445e00@@YIHPAUEffect@@@Z

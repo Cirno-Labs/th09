@@ -253,7 +253,7 @@ int UpdateEffectType35(Effect *effect)
 // A fire callback of the shot table (5): on the frame of `sd`, fires it
 // unless the effect in reserved slot 5 is running. Returns 1 if it fired
 // (0x445cb0).
-int ShotFire445cb0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+int FirePlayerShotType5(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
     if (!player->side->effectManager->GetReservedEffect(5)->active && frame == sd->frame)
     {
