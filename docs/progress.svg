@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">90.22% (1005)</tspan> · <tspan class="decompiled">7.72% (86)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">90.31% (1006)</tspan> · <tspan class="decompiled">7.63% (85)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="673.91" height="6" x="0" y="0" class="named"/>
-<rect width="57.67" height="6" x="673.91" y="0" class="decompiled"/>
+<rect width="674.58" height="6" x="0" y="0" class="named"/>
+<rect width="57" height="6" x="674.58" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1091,7 +1091,7 @@
 <rect width="12" height="12" x="300" y="300" class="named"><title>0x00444a20 UpdateEffectType34 (208 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="300" class="named"><title>0x00444af0 DrawEffectType34 (946 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="300" class="named"><title>0x00444eb0 UpdateEffectType24 (79 bytes)</title></rect>
-<rect width="12" height="12" x="345" y="300" class="decompiled"><title>0x00444f00 ExAttackInit444f00 (322 bytes)</title></rect>
+<rect width="12" height="12" x="345" y="300" class="named"><title>0x00444f00 InitExAttackType5 (322 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="300" class="decompiled"><title>0x00445050 ExAttackInit445050 (316 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="300" class="decompiled"><title>0x00445190 ExAttackUpdate445190 (407 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="300" class="decompiled"><title>0x00445330 PlayerComboFunc445330 (102 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">75.74%</tspan> · <tspan class="decompiled">9.42%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">75.85%</tspan> · <tspan class="decompiled">9.31%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="565.75" height="6" x="0" y="0" class="named"/>
-<rect width="70.36" height="6" x="565.75" y="0" class="decompiled"/>
+<rect width="566.56" height="6" x="0" y="0" class="named"/>
+<rect width="69.55" height="6" x="566.56" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1428,7 +1428,7 @@
 <rect width="13.80" height="14.06" x="469.73" y="163.15" class="named"><title>0x0042dc40 GameWindow::RunFrame (326 bytes)</title></rect>
 <rect width="13.80" height="14.06" x="469.73" y="180.21" class="named"><title>0x00440fb0 InitExAttackType1 (326 bytes)</title></rect>
 <rect width="13.80" height="13.95" x="469.73" y="197.27" class="decompiled"><title>0x00447af0 ExAttackInit447af0 (324 bytes)</title></rect>
-<rect width="13.80" height="13.85" x="469.73" y="214.22" class="decompiled"><title>0x00444f00 ExAttackInit444f00 (322 bytes)</title></rect>
+<rect width="13.80" height="13.85" x="469.73" y="214.22" class="named"><title>0x00444f00 InitExAttackType5 (322 bytes)</title></rect>
 <rect width="13.80" height="13.79" x="469.73" y="231.06" class="named"><title>0x00402570 Stage::Load (321 bytes)</title></rect>
 <rect width="13.80" height="13.79" x="469.73" y="247.86" class="named"><title>0x004151f0 ExAttackManager::AddAttack (321 bytes)</title></rect>
 <rect width="13.80" height="13.74" x="469.73" y="264.65" class="named"><title>0x0041cc80 UpdateInvulnerability (320 bytes)</title></rect>

@@ -39,7 +39,7 @@ ASSERT_SIZE(ExAttackData05, 0x58);
 // The init callback of extra attack type 5: one sprite, flying in to
 // near the target's player at the top of its side, then falling.
 // Returns 0 (0x444f00).
-int ExAttackInit444f00(ExAttack *attack)
+int InitExAttackType5(ExAttack *attack)
 {
     ExAttackData05 *data;
 
