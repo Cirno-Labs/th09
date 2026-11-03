@@ -61,7 +61,7 @@ int InitExAttackType17(ExAttack *attack)
 // sprites and, after 20 frames, falls as a hit circle, bigger for the
 // first two, until it touches the player there or leaves the bottom.
 // Returns 1 once it is done (0x448490).
-int ExAttackUpdate448490(ExAttack *attack)
+int UpdateExAttackType17(ExAttack *attack)
 {
     ExAttackData17 *data = (ExAttackData17 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
