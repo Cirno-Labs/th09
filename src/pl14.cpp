@@ -148,7 +148,7 @@ int SendComboAttacksCharacter14(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // The draw callback of effect type 36: a strip across the play area,
 // from unknown7c above the effect to unknown7c below it, faint in the
 // middle, if unknownC9 is set. Returns 1 (0x44c090).
-int EffectDraw44c090(Effect *effect)
+int DrawEffectType36(Effect *effect)
 {
     if (effect->unknownC9)
     {
