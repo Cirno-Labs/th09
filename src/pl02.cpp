@@ -526,7 +526,7 @@ int SendComboAttacksCharacter2(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // 160, around its position, from opposite the player's unknown1cd8, as
 // wide as velocity.z, in 0x294 bytes of vertices. Returns 0, or -1 if
 // the allocation fails (0x442f50).
-int EffectInit442f50(Effect *effect)
+int InitEffectType17(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)

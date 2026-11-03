@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.88% (979)</tspan> · <tspan class="decompiled">10.05% (112)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.97% (980)</tspan> · <tspan class="decompiled">9.96% (111)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="656.47" height="6" x="0" y="0" class="named"/>
-<rect width="75.10" height="6" x="656.47" y="0" class="decompiled"/>
+<rect width="657.15" height="6" x="0" y="0" class="named"/>
+<rect width="74.43" height="6" x="657.15" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1065,7 +1065,7 @@
 <rect width="12" height="12" x="660" y="285" class="named"><title>0x00442bd0 UpdateExAttackType4 (739 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="285" class="named"><title>0x00442ec0 FreeExAttackType4 (32 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="285" class="named"><title>0x00442ee0 SendComboAttacksCharacter2 (97 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="285" class="decompiled"><title>0x00442f50 EffectInit442f50 (187 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="285" class="named"><title>0x00442f50 InitEffectType17 (187 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="285" class="decompiled"><title>0x00443010 EffectDraw443010 (311 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="285" class="decompiled"><title>0x00443150 ShotUpdate443150 (248 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="300" class="decompiled"><title>0x00443250 EffectUpdate443250 (79 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.08%</tspan> · <tspan class="decompiled">12.07%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.14%</tspan> · <tspan class="decompiled">12.01%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="545.92" height="6" x="0" y="0" class="named"/>
-<rect width="90.19" height="6" x="545.92" y="0" class="decompiled"/>
+<rect width="546.39" height="6" x="0" y="0" class="named"/>
+<rect width="89.72" height="6" x="546.39" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1578,7 +1578,7 @@
 <rect width="9.74" height="9.97" x="686.56" y="137.18" class="named"><title>0x0042c7e0 Chain::RunDrawChain (188 bytes)</title></rect>
 <rect width="9.74" height="9.97" x="699.30" y="137.18" class="named"><title>0x0043a030 SpriteEngine::SetBlendModeForSprite (188 bytes)</title></rect>
 <rect width="9.67" height="9.97" x="712.04" y="137.18" class="named"><title>0x0041b76f GameManager::AddedCallback (187 bytes)</title></rect>
-<rect width="9.67" height="9.97" x="724.72" y="137.18" class="decompiled"><title>0x00442f50 EffectInit442f50 (187 bytes)</title></rect>
+<rect width="9.67" height="9.97" x="724.72" y="137.18" class="named"><title>0x00442f50 InitEffectType17 (187 bytes)</title></rect>
 <rect width="9.61" height="9.97" x="737.39" y="137.18" class="named"><title>0x004224f0 ScreenEffect::OnUpdateLoadingFade (186 bytes)</title></rect>
 <rect width="9.83" height="9.61" x="544.56" y="150.15" class="named"><title>0x0040cc00 EffectManager::SpawnParticles (184 bytes)</title></rect>
 <rect width="9.83" height="9.61" x="544.56" y="162.75" class="named"><title>0x0040dbb0 InitRingEffect (184 bytes)</title></rect>

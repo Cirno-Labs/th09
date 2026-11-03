@@ -222,7 +222,7 @@ int ExAttackInit4497f0(ExAttack *attack)
     return 0;
 }
 
-// The init callback of effect type 30: EffectInit442f50's ring of
+// The init callback of effect type 30: InitEffectType17's ring of
 // radius 128, turned to -pi/2 after all. Returns 0, or -1 if the
 // allocation fails (0x449940).
 int EffectInit449940(Effect *effect)
