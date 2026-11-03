@@ -426,7 +426,17 @@ public:
     // and turn to their hit script (0x41fcd0).
     int CalcDamage(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, int *damageTaken, int *hitByBomb, int *kind4Damage);
     // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
-    void SubUnknown30388(float amount);
+    void SubUnknown30388(float amount)
+    {
+        if (this->unknown30388 - amount < 1.0f)
+        {
+            this->unknown30388 = 1.0f;
+        }
+        else
+        {
+            this->unknown30388 -= amount;
+        }
+    }
     // Moves the bullets and runs their update callbacks, freeing those
     // that leave the play area or end, unless the side is frozen
     // (flags bit 0), as th08's UpdateBullets (0x41f580).
@@ -693,7 +703,10 @@ struct ShtFile
     float speedFocused;
     float speedDiagonal;
     float speedDiagonalFocused;
-    unsigned char pad_24[0x2c - 0x24];
+    // How fast the charge rises, times App::gameSpeed.
+    float unknown24;
+    // How long a charged attack fires, in frames.
+    float unknown28;
     // The names of the character's three spell cards, by level.
     char spellCardNames[3][0x40];
     unsigned char pad_ec[0x42c - 0xec];

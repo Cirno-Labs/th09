@@ -1797,18 +1797,6 @@ static void GetBox(D3DXVECTOR3 &min, D3DXVECTOR3 &max, D3DXVECTOR3 *pos, D3DXVEC
     max.y = size->y / 2.0f + pos->y;
 }
 
-void Player::SubUnknown30388(float amount)
-{
-    if (this->unknown30388 - amount < 1.0f)
-    {
-        this->unknown30388 = 1.0f;
-    }
-    else
-    {
-        this->unknown30388 -= amount;
-    }
-}
-
 void FireShot(Player *player, PlayerBullet *bullet, ShotData *sd)
 {
     if (sd->option == 0)
@@ -1995,6 +1983,139 @@ void Player::DrawHitBullets()
         }
         g_SpriteEngine->DrawSprite(&bullet->sprite);
     }
+}
+
+int Player::UpdateShotInput()
+{
+    int side;
+    BYTE chargeType;
+    int before;
+
+    side = this->sideIdx;
+    if ((g_PlayerInputs[side].IsJustPressed2(1) && !(g_GameManager.config->unknownB4[side] == 1 && g_PlayerInputs[side].IsHeld2(4))) ||
+        ((chargeType = g_GameManager.config->unknownB4[side]) == 1 && g_PlayerInputs[side].IsHeld2(1) &&
+         !g_PlayerInputs[side].IsHeld2(4)))
+    {
+        if (this->unknown303b0 == 0)
+        {
+            if (this->unknown303a4 < 0)
+            {
+                this->unknown303a4 = 0;
+            }
+            else if (this->unknown303a4 >= 10)
+            {
+                this->unknown303a4 -= 10;
+            }
+            else if (this->unknown303a4 >= 5)
+            {
+                this->unknown303a4 -= 5;
+            }
+            this->unknown303b0 = 3;
+            this->unknown303bc = 1;
+        }
+        else if (this->unknown303b0 > 0)
+        {
+            this->unknown303b0--;
+        }
+        if (g_GameManager.config->unknownB4[this->sideIdx] != 1)
+        {
+            goto fire;
+        }
+    }
+    else if ((chargeType == 1 && g_PlayerInputs[side].IsHeld2(4)) || (chargeType == 0 && g_PlayerInputs[side].IsHeld2(1)))
+    {
+        this->unknown303bc++;
+        if (this->unknown303bc >= 10 && !this->charging)
+        {
+            if (this->unknown30384 == 0.0f)
+            {
+                g_SoundPlayer.PlaySoundByIdx(0x2b, this->sideIdx != 0 ? 500 : -500);
+                this->side->gui->StartUnknown5c6c();
+            }
+            before = (int)this->unknown30384 / 100;
+            this->unknown30384 += g_App.gameSpeed * this->shtFile->unknown24;
+            if (this->unknown30384 >= this->unknown30388)
+            {
+                this->unknown30384 = this->unknown30388;
+                this->unknown3038c++;
+                if (this->unknown3038c >= 300)
+                {
+                    goto release;
+                }
+            }
+            else
+            {
+                this->unknown3038c = 0;
+            }
+            if (before < (int)this->unknown30384 / 100)
+            {
+                g_SoundPlayer.PlaySoundByIdx(0x32, this->sideIdx != 0 ? 500 : -500);
+            }
+        }
+        goto fire;
+    }
+release:
+    if (this->unknown30384 >= 100.0f)
+    {
+        this->charging = 1;
+        this->unknown30398 = 0;
+        this->unknown1b74 = 8;
+        if (this->unknown30384 >= 400.0f && this->otherSide->enemyManager->FindByUnknownType(3) == NULL)
+        {
+            this->otherSide->spellCard->Start(2, 2, 0, this->shtFile->spellCardNames[2]);
+            this->SubUnknown30388(300.0f);
+            this->unknown1b74 = 8;
+            this->StartClearCircle3();
+        }
+        else if (this->unknown30384 >= 300.0f)
+        {
+            this->otherSide->spellCard->Start(1, 1, 0, this->shtFile->spellCardNames[1]);
+            this->SubUnknown30388(200.0f);
+            this->unknown1b74 = 8;
+            this->StartClearCircle2();
+        }
+        else if (this->unknown30384 >= 200.0f)
+        {
+            this->otherSide->spellCard->Start(0, 0, 0, this->shtFile->spellCardNames[0]);
+            this->unknown1b74 = 8;
+            this->SubUnknown30388(100.0f);
+            this->StartClearCircle1();
+        }
+    }
+    this->side->gui->StopUnknown5c6c();
+    this->unknown303bc = -1;
+    this->unknown30384 = 0.0f;
+    if (this->unknown303b0 > 0)
+    {
+        this->unknown303b0--;
+    }
+fire:
+    if (this->charging)
+    {
+        if (this->unknown30398.HasTicked())
+        {
+            FireShots(this, this->unknown30398.AsFrames(), 1);
+        }
+        this->unknown30398++;
+        if (this->unknown30398.AsFloat() >= this->shtFile->unknown28)
+        {
+            this->unknown30398 = 0;
+            this->charging = 0;
+        }
+    }
+    if (this->unknown303a4 >= 0)
+    {
+        if (this->unknown303a4.HasTicked())
+        {
+            FireShots(this, this->unknown303a4.AsFrames(), 0);
+        }
+        this->unknown303a4++;
+        if (this->unknown303a4 >= 15)
+        {
+            this->unknown303a4 = -1;
+        }
+    }
+    return 0;
 }
 
 int Player::CalcDamage(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, int *damageTaken, int *hitByBomb, int *kind4Damage)

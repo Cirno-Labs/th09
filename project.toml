@@ -37,6 +37,7 @@ progress = true
 # though they don't match yet (`just farm` permutes them).
 compare = true
 allow_diff = [
+    "Player::UpdateShotInput",
     "Player::CheckHitAreas",
     "Stage::DrawLayer",
     "EclManager::RunEnemy",
