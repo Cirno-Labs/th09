@@ -120,7 +120,7 @@ ASSERT_SIZE(ExAttackData14, 0xf48);
 // The init callback of extra attack type 14, character 4's: type 0's,
 // starting off at around pi/2, with a disc of radius 4. Returns 0
 // (0x443c70).
-int ExAttackInit443c70(ExAttack *attack)
+int InitExAttackType14(ExAttack *attack)
 {
     ExAttackData14 *data;
     float angle;
