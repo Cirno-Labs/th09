@@ -43,7 +43,6 @@ allow_diff = [
     "EffectManager::OnUpdate",
     "EffectManager::AddedCallback",
     "EnemyManager::OnUpdate",
-    "DrawEnemies",
     "GuiMsg::Run",
     "GameManager::LoadingThread",
     "Player::HandleInput",

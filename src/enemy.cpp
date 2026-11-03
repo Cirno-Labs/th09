@@ -1382,8 +1382,10 @@ static int DrawEnemies(EnemyManager *mgr, int from, int to)
                                 next = b + step;
                                 if (next < enemy->trailSegmentCount && Fabs(lastTheta - theta) < 0.00001f)
                                 {
-                                    if (Fabs(theta - LerpAngleShort(enemy->trailBoxes[next - 1].angle,
-                                                                    enemy->trailBoxes[step].angle, 0.5f)) < 0.00001f)
+                                    float interpolated = LerpAngleShort(enemy->trailBoxes[next - 1].angle,
+                                                                       enemy->trailBoxes[step].angle, 0.5f);
+                                    long double difference = theta - interpolated;
+                                    if (Fabs((float)difference) < 0.00001f)
                                     {
                                         vertices -= 2;
                                         continue;
