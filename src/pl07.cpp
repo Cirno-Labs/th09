@@ -602,7 +602,7 @@ int UpdateExAttackType11(ExAttack *attack)
 // The update callback of extra attack type 12: type 11's, its bullets
 // fired along the heading while the spin still turns. Returns 1 once it
 // is done (0x4471b0).
-int ExAttackUpdate4471b0(ExAttack *attack)
+int UpdateExAttackType12(ExAttack *attack)
 {
     ExAttackData08 *data = (ExAttackData08 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
