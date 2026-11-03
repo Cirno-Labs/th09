@@ -261,7 +261,7 @@ int CheckFocusAreaCharacters2And10(Player *player, D3DXVECTOR3 *pos)
 
 // The unknown30408 of character 2: stops the enemy's velocity2.
 // Returns 0 (0x442550).
-int PlayerEnemyFunc442550(Player *player, Enemy *enemy)
+int UpdateFocusedEnemyCharacter2(Player *player, Enemy *enemy)
 {
     enemy->velocity2.x = 0.0f;
     enemy->velocity2.y = 0.0f;

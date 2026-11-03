@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.25% (972)</tspan> · <tspan class="decompiled">10.68% (119)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.34% (973)</tspan> · <tspan class="decompiled">10.59% (118)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="651.78" height="6" x="0" y="0" class="named"/>
-<rect width="79.80" height="6" x="651.78" y="0" class="decompiled"/>
+<rect width="652.45" height="6" x="0" y="0" class="named"/>
+<rect width="79.13" height="6" x="652.45" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1058,7 +1058,7 @@
 <rect width="12" height="12" x="555" y="285" class="named"><title>0x00442420 GameManager::ScreenToArenaX (46 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="285" class="named"><title>0x00442450 GameManager::ScreenToArenaY (46 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="285" class="named"><title>0x00442480 CheckFocusAreaCharacters2And10 (193 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="285" class="decompiled"><title>0x00442550 PlayerEnemyFunc442550 (35 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="285" class="named"><title>0x00442550 UpdateFocusedEnemyCharacter2 (35 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="285" class="decompiled"><title>0x00442580 ExAttackInit442580 (454 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="285" class="decompiled"><title>0x00442750 ExAttackUpdate442750 (780 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="285" class="decompiled"><title>0x00442a60 ExAttackInit442a60 (368 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.24%</tspan> · <tspan class="decompiled">12.92%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.25%</tspan> · <tspan class="decompiled">12.91%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="539.62" height="6" x="0" y="0" class="named"/>
-<rect width="96.49" height="6" x="539.62" y="0" class="decompiled"/>
+<rect width="539.71" height="6" x="0" y="0" class="named"/>
+<rect width="96.41" height="6" x="539.71" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2039,7 +2039,7 @@
 <rect width="2.63" height="2.62" x="717.33" y="279.18" class="named"><title>0x0043ffd0 CWaveFile::Close (36 bytes)</title></rect>
 <rect width="2.47" height="2.62" x="722.96" y="279.18" class="named"><title>0x00411d50 EnemyManager::OnDraw (35 bytes)</title></rect>
 <rect width="2.47" height="2.62" x="728.43" y="279.18" class="named"><title>0x0042ae70 Rng::GetRandomF32ZeroToOne (35 bytes)</title></rect>
-<rect width="2.47" height="2.62" x="733.90" y="279.18" class="decompiled"><title>0x00442550 PlayerEnemyFunc442550 (35 bytes)</title></rect>
+<rect width="2.47" height="2.62" x="733.90" y="279.18" class="named"><title>0x00442550 UpdateFocusedEnemyCharacter2 (35 bytes)</title></rect>
 <rect width="2.31" height="2.62" x="739.37" y="279.18" class="named"><title>0x004048e0 Rng::GetRandomU32InRange (34 bytes)</title></rect>
 <rect width="2.31" height="2.62" x="744.69" y="279.18" class="named"><title>0x00415020 Laser::Laser (34 bytes)</title></rect>
 <rect width="2.59" height="2.34" x="683.11" y="284.81" class="named"><title>0x00418270 Gui::FreeResources (34 bytes)</title></rect>
