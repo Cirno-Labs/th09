@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">91.20% (1016)</tspan> · <tspan class="decompiled">6.73% (75)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">91.29% (1017)</tspan> · <tspan class="decompiled">6.64% (74)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="681.29" height="6" x="0" y="0" class="named"/>
-<rect width="50.29" height="6" x="681.29" y="0" class="decompiled"/>
+<rect width="681.96" height="6" x="0" y="0" class="named"/>
+<rect width="49.62" height="6" x="681.96" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1103,7 +1103,7 @@
 <rect width="12" height="12" x="480" y="300" class="named"><title>0x004455d0 InitExAttackType15 (361 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="300" class="named"><title>0x00445740 UpdateExAttackType15 (481 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="300" class="named"><title>0x00445930 SendComboAttacksCharacter6 (101 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="300" class="decompiled"><title>0x004459a0 EffectInit4459a0 (148 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="300" class="named"><title>0x004459a0 InitEffectTypes27And36 (148 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="300" class="decompiled"><title>0x00445a40 EffectDraw445a40 (491 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="300" class="decompiled"><title>0x00445c30 EffectInit445c30 (72 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="300" class="decompiled"><title>0x00445c80 EffectUpdate445c80 (38 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.61%</tspan> · <tspan class="decompiled">8.54%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.66%</tspan> · <tspan class="decompiled">8.49%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="572.29" height="6" x="0" y="0" class="named"/>
-<rect width="63.83" height="6" x="572.29" y="0" class="decompiled"/>
+<rect width="572.66" height="6" x="0" y="0" class="named"/>
+<rect width="63.46" height="6" x="572.66" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1642,7 +1642,7 @@
 <rect width="8.19" height="8.78" x="694.65" y="162.49" class="named"><title>0x0043bbe0 SpriteEngine::PreloadAnmTexture (150 bytes)</title></rect>
 <rect width="8.11" height="8.78" x="705.84" y="162.49" class="named"><title>0x00407a80 ScriptCallSub (149 bytes)</title></rect>
 <rect width="8.04" height="8.78" x="716.95" y="162.49" class="named"><title>0x0042fe20 App::FadeOutBgm (148 bytes)</title></rect>
-<rect width="8.04" height="8.78" x="727.99" y="162.49" class="decompiled"><title>0x004459a0 EffectInit4459a0 (148 bytes)</title></rect>
+<rect width="8.04" height="8.78" x="727.99" y="162.49" class="named"><title>0x004459a0 InitEffectTypes27And36 (148 bytes)</title></rect>
 <rect width="7.97" height="8.78" x="739.03" y="162.49" class="named"><title>0x00406680 ScriptReturn (147 bytes)</title></rect>
 <rect width="8.53" height="8.12" x="569.56" y="174.28" class="named"><title>0x0040d070 EffectManager::OnDraw2 (146 bytes)</title></rect>
 <rect width="8.53" height="8.12" x="569.56" y="185.40" class="named"><title>0x004337d0 File::ReadAll (146 bytes)</title></rect>
