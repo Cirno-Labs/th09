@@ -108,7 +108,7 @@ int InitExAttackType20(ExAttack *attack)
 // other frame for 30 frames, fires a ring of 8 bullets there, each
 // faster and turned on by angleStep, in three colors in turn. Returns 1
 // once it is done (0x44ade0).
-int ExAttackUpdate44ade0(ExAttack *attack)
+int UpdateExAttackType20(ExAttack *attack)
 {
     ExAttackData20 *data = (ExAttackData20 *)attack->data;
 

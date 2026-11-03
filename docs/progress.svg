@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">95.87% (1068)</tspan> · <tspan class="decompiled">2.06% (23)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">95.96% (1069)</tspan> · <tspan class="decompiled">1.97% (22)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="716.15" height="6" x="0" y="0" class="named"/>
-<rect width="15.42" height="6" x="716.15" y="0" class="decompiled"/>
+<rect width="716.82" height="6" x="0" y="0" class="named"/>
+<rect width="14.75" height="6" x="716.82" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1159,7 +1159,7 @@
 <rect width="12" height="12" x="570" y="315" class="named"><title>0x0044ab30 UpdateEffectType32 (88 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="315" class="named"><title>0x0044ab90 FirePlayerShotType7 (139 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="315" class="named"><title>0x0044ac20 InitExAttackType20 (436 bytes)</title></rect>
-<rect width="12" height="12" x="615" y="315" class="decompiled"><title>0x0044ade0 ExAttackUpdate44ade0 (405 bytes)</title></rect>
+<rect width="12" height="12" x="615" y="315" class="named"><title>0x0044ade0 UpdateExAttackType20 (405 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="315" class="decompiled"><title>0x0044af80 PlayerComboFunc44af80 (101 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="315" class="decompiled"><title>0x0044aff0 EffectInit44aff0 (155 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="315" class="decompiled"><title>0x0044b090 EffectDraw44b090 (314 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.67%</tspan> · <tspan class="decompiled">2.49%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.81%</tspan> · <tspan class="decompiled">2.35%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="617.54" height="6" x="0" y="0" class="named"/>
-<rect width="18.58" height="6" x="617.54" y="0" class="decompiled"/>
+<rect width="618.56" height="6" x="0" y="0" class="named"/>
+<rect width="17.56" height="6" x="618.56" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1375,7 +1375,7 @@
 <rect width="16.46" height="15.38" x="452.21" y="42.15" class="named"><title>0x00445ec0 InitExAttackType6 (407 bytes)</title></rect>
 <rect width="16.36" height="15.38" x="471.67" y="42.15" class="named"><title>0x004182e0 GuiMsg::Load (405 bytes)</title></rect>
 <rect width="16.36" height="15.38" x="491.03" y="42.15" class="named"><title>0x00431b70 App::DeletedCallback (405 bytes)</title></rect>
-<rect width="16.36" height="15.38" x="510.39" y="42.15" class="decompiled"><title>0x0044ade0 ExAttackUpdate44ade0 (405 bytes)</title></rect>
+<rect width="16.36" height="15.38" x="510.39" y="42.15" class="named"><title>0x0044ade0 UpdateExAttackType20 (405 bytes)</title></rect>
 <rect width="16.27" height="15.38" x="529.76" y="42.15" class="named"><title>0x00443440 InitExAttackType13 (403 bytes)</title></rect>
 <rect width="16.12" height="15.38" x="549.02" y="42.15" class="named"><title>0x0041e720 UpdateDying (400 bytes)</title></rect>
 <rect width="15.84" height="15.38" x="568.14" y="42.15" class="named"><title>0x0042d900 CheckSingleInstance (394 bytes)</title></rect>
