@@ -189,7 +189,7 @@ int SendComboAttacksCharacter0(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // The init callbacks of spell card types 0 and 1: allocate unknown1360
 // and spawn enemy subroutine 0 or 1 from the player's ECL (0x441350,
 // 0x4413d0). The position is never set. Return 0.
-int SpellCardInit441350(SpellCard *card)
+int InitSpellCardType0(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
