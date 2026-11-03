@@ -73,7 +73,7 @@ int InitExAttackType26(ExAttack *attack)
 // for 90 frames, then appears on the target's side and, after 20
 // frames, fires a speeding bullet every 3 frames until it is 50 frames
 // there. Returns 1 once it is done (0x44c4c0).
-int ExAttackUpdate44c4c0(ExAttack *attack)
+int UpdateExAttackType26(ExAttack *attack)
 {
     ExAttackData00 *data = (ExAttackData00 *)attack->data;
 

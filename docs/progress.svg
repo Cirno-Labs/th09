@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">97.58% (1087)</tspan> · <tspan class="decompiled">0.36% (4)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">97.67% (1088)</tspan> · <tspan class="decompiled">0.27% (3)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="728.89" height="6" x="0" y="0" class="named"/>
-<rect width="2.68" height="6" x="728.89" y="0" class="decompiled"/>
+<rect width="729.57" height="6" x="0" y="0" class="named"/>
+<rect width="2.01" height="6" x="729.57" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1178,7 +1178,7 @@
 <rect width="12" height="12" x="105" y="330" class="named"><title>0x0044c290 UpdateEffectType37 (79 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="330" class="named"><title>0x0044c2e0 CheckFocusAreaCharacter15 (98 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="330" class="named"><title>0x0044c350 InitExAttackType26 (361 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="330" class="decompiled"><title>0x0044c4c0 ExAttackUpdate44c4c0 (446 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="330" class="named"><title>0x0044c4c0 UpdateExAttackType26 (446 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="330" class="decompiled"><title>0x0044c680 PlayerComboFunc44c680 (98 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="330" class="decompiled"><title>0x0044c6f0 EffectInit44c6f0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="330" class="decompiled"><title>0x0044c790 EffectDraw44c790 (972 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.59%</tspan> · <tspan class="decompiled">0.56%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.74%</tspan> · <tspan class="decompiled">0.41%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="631.92" height="6" x="0" y="0" class="named"/>
-<rect width="4.19" height="6" x="631.92" y="0" class="decompiled"/>
+<rect width="633.04" height="6" x="0" y="0" class="named"/>
+<rect width="3.07" height="6" x="633.04" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1356,7 +1356,7 @@
 <rect width="16.30" height="17.68" x="692.58" y="21.47" class="named"><title>0x00442580 InitExAttackType3 (454 bytes)</title></rect>
 <rect width="16.13" height="17.68" x="711.87" y="21.47" class="named"><title>0x00413290 BulletManager::SpawnLaser (450 bytes)</title></rect>
 <rect width="16" height="17.68" x="731" y="21.47" class="named"><title>0x00422d20 ScreenEffect::StartEffect (447 bytes)</title></rect>
-<rect width="16.54" height="17.05" x="432.67" y="42.15" class="decompiled"><title>0x0044c4c0 ExAttackUpdate44c4c0 (446 bytes)</title></rect>
+<rect width="16.54" height="17.05" x="432.67" y="42.15" class="named"><title>0x0044c4c0 UpdateExAttackType26 (446 bytes)</title></rect>
 <rect width="16.54" height="16.83" x="432.67" y="62.20" class="named"><title>0x004218e0 LoadHscrChunks (441 bytes)</title></rect>
 <rect width="16.54" height="16.69" x="432.67" y="82.03" class="named"><title>0x0041ee50 Player::AddedCallback (438 bytes)</title></rect>
 <rect width="16.54" height="16.69" x="432.67" y="101.73" class="named"><title>0x00433e00 LzssInsertNode (438 bytes)</title></rect>
