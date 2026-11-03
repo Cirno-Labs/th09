@@ -127,7 +127,7 @@ int SendComboAttacksCharacter1(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 
 // The init callbacks of spell card types 3 and 4, pl00's for types 0 and
 // 1 (0x441b70, 0x441be0).
-int SpellCardInit441b70(SpellCard *card)
+int InitSpellCardTypes3And6(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
