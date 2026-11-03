@@ -266,7 +266,7 @@ int FirePlayerShotType5(Player *player, PlayerBullet *bullet, int frame, ShotDat
 // A fire callback of the shot table (6): on the frame of `sd`, fires it
 // from the effect in reserved slot 5, straight up at its speed. Returns
 // 1 if it fired (0x445d00).
-int ShotFire445d00(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+int FirePlayerShotType6(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
     if (frame == sd->frame)
     {
