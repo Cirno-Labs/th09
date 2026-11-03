@@ -980,7 +980,7 @@ address,size,name,symbol
 0x00441c30,78,InitSpellCardTypes5And8,?InitSpellCardTypes5And8@@YIHPAVSpellCard@@@Z
 0x00441c80,165,InitEffectType16,?InitEffectType16@@YIHPAUEffect@@@Z
 0x00441d30,110,UpdateEffectType16,?UpdateEffectType16@@YIHPAUEffect@@@Z
-0x00441da0,327,EffectDraw441da0,?EffectDraw441da0@@YIHPAUEffect@@@Z
+0x00441da0,327,DrawEffectType16,?DrawEffectType16@@YIHPAUEffect@@@Z
 0x00441ef0,151,ShotFire441ef0,?ShotFire441ef0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00441f90,643,ShotUpdate441f90,?ShotUpdate441f90@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00442220,204,ShotDraw442220,?ShotDraw442220@@YIHPAVPlayer@@PAUPlayerBullet@@@Z

@@ -57,7 +57,7 @@ int UpdateEffectType16(Effect *effect)
 // The draw callback of effect type 16: a fan from 432 above the effect
 // down over a half circle 448 in radius, squeezed across by unknown84,
 // if unknownC9 is set. Returns 1 (0x441da0).
-int EffectDraw441da0(Effect *effect)
+int DrawEffectType16(Effect *effect)
 {
     if (effect->unknownC9)
     {
