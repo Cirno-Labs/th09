@@ -232,7 +232,7 @@ int DrawEffectType27(Effect *effect)
 // The init callback of effect type 0x23: starts script 7 of the player's
 // ANM on the first sprite, without writing depth and with no offset.
 // Returns 0 (0x445c30).
-int EffectInit445c30(Effect *effect)
+int InitEffectType35(Effect *effect)
 {
     effect->mgr->side->player->anm->StartScript(effect->sprites, 7);
     effect->sprites->zWriteDisabled = 1;
