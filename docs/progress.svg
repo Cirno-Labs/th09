@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.65% (943)</tspan> · <tspan class="decompiled">13.29% (148)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.74% (944)</tspan> · <tspan class="decompiled">13.20% (147)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="632.33" height="6" x="0" y="0" class="named"/>
-<rect width="99.24" height="6" x="632.33" y="0" class="decompiled"/>
+<rect width="633.01" height="6" x="0" y="0" class="named"/>
+<rect width="98.57" height="6" x="633.01" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1024,7 +1024,7 @@
 <rect width="12" height="12" x="45" y="285" class="named"><title>0x00440d30 PlayerUnknown36c::AddCircle (95 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="285" class="named"><title>0x00440d90 ExAttack::AllocSprites (81 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="285" class="named"><title>0x00440df0 IsWithinCircularFocusArea (79 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="285" class="decompiled"><title>0x00440e40 ExAttackInit440e40 (355 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="285" class="named"><title>0x00440e40 InitExAttackType0 (355 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="285" class="decompiled"><title>0x00440fb0 ExAttackInit440fb0 (326 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="285" class="decompiled"><title>0x00441100 ExAttackUpdate441100 (475 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="285" class="decompiled"><title>0x004412e0 PlayerComboFunc4412e0 (101 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.55%</tspan> · <tspan class="decompiled">14.61%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.67%</tspan> · <tspan class="decompiled">14.49%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="526.99" height="6" x="0" y="0" class="named"/>
-<rect width="109.12" height="6" x="526.99" y="0" class="decompiled"/>
+<rect width="527.88" height="6" x="0" y="0" class="named"/>
+<rect width="108.23" height="6" x="527.88" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1400,7 +1400,7 @@
 <rect width="14.51" height="14.92" x="452.21" y="223.44" class="decompiled"><title>0x00448320 ExAttackInit448320 (357 bytes)</title></rect>
 <rect width="14.51" height="14.87" x="452.21" y="241.35" class="decompiled"><title>0x00446c10 ExAttackInit446c10 (356 bytes)</title></rect>
 <rect width="14.51" height="14.82" x="452.21" y="259.22" class="named"><title>0x0042c970 OpenPath (355 bytes)</title></rect>
-<rect width="14.51" height="14.82" x="452.21" y="277.04" class="decompiled"><title>0x00440e40 ExAttackInit440e40 (355 bytes)</title></rect>
+<rect width="14.51" height="14.82" x="452.21" y="277.04" class="named"><title>0x00440e40 InitExAttackType0 (355 bytes)</title></rect>
 <rect width="14.51" height="14.82" x="452.21" y="294.85" class="decompiled"><title>0x00447720 ExAttackInit447720 (355 bytes)</title></rect>
 <rect width="14.51" height="14.67" x="452.21" y="312.67" class="named"><title>0x0043c2d0 SpriteEngine::CopyBackBufferToSurface (352 bytes)</title></rect>
 <rect width="14.51" height="14.67" x="452.21" y="330.33" class="decompiled"><title>0x004467c0 ExAttackInit4467c0 (352 bytes)</title></rect>

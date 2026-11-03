@@ -47,7 +47,7 @@ int IsWithinCircularFocusArea(Player *player, D3DXVECTOR3 *pos)
 // The init callback of extra attack type 0: one sprite, flying in to a
 // random spot on the upper half of the other side, a curve whose end it
 // places in that side's view. Returns 0 (0x440e40).
-int ExAttackInit440e40(ExAttack *attack)
+int InitExAttackType0(ExAttack *attack)
 {
     ExAttackData00 *data;
     float angle;
