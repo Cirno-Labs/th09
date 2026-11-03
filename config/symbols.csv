@@ -1066,7 +1066,7 @@ address,size,name,symbol
 0x00447fb0,867,CheckFocusAreaCharacter9,?CheckFocusAreaCharacter9@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00448320,357,InitExAttackType17,?InitExAttackType17@@YIHPAUExAttack@@@Z
 0x00448490,420,UpdateExAttackType17,?UpdateExAttackType17@@YIHPAUExAttack@@@Z
-0x00448640,97,PlayerComboFunc448640,?PlayerComboFunc448640@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
+0x00448640,97,SendComboAttacksCharacter9,?SendComboAttacksCharacter9@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x004486b0,152,EffectInit4486b0,?EffectInit4486b0@@YIHPAUEffect@@@Z
 0x00448750,2220,EffectDraw448750,?EffectDraw448750@@YIHPAUEffect@@@Z
 0x00449000,100,EffectUpdate449000,?EffectUpdate449000@@YIHPAUEffect@@@Z

@@ -120,7 +120,7 @@ int UpdateExAttackType17(ExAttack *attack)
 // The combo func of character 9: while unknown34 reaches (30 -
 // unknownB4) * 2, sends an extra attack of type 17 from `pos` and
 // takes as much off it. Returns 0 (0x448640).
-int PlayerComboFunc448640(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
+int SendComboAttacksCharacter9(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
     while (combo->unknown34 >= (30 - g_GameManager.rank.unknownB4) * 2)
     {
