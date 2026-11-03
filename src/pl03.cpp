@@ -77,7 +77,7 @@ int DrawPlayerShotType2(Player *player, PlayerBullet *bullet)
 
 // A hit callback of the shot table (23): does nothing. Returns 1
 // (0x443430).
-int ShotHit443430(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
+int HitPlayerShotType2(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
 {
     return 1;
 }

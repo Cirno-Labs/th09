@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">88.42% (985)</tspan> · <tspan class="decompiled">9.52% (106)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">88.51% (986)</tspan> · <tspan class="decompiled">9.43% (105)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="660.50" height="6" x="0" y="0" class="named"/>
-<rect width="71.08" height="6" x="660.50" y="0" class="decompiled"/>
+<rect width="661.17" height="6" x="0" y="0" class="named"/>
+<rect width="70.41" height="6" x="661.17" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1071,7 +1071,7 @@
 <rect width="12" height="12" x="0" y="300" class="named"><title>0x00443250 UpdateEffectType18 (79 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="300" class="named"><title>0x004432a0 FirePlayerShotType3 (86 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="300" class="named"><title>0x00443300 DrawPlayerShotType2 (293 bytes)</title></rect>
-<rect width="12" height="12" x="45" y="300" class="decompiled"><title>0x00443430 ShotHit443430 (8 bytes)</title></rect>
+<rect width="12" height="12" x="45" y="300" class="named"><title>0x00443430 HitPlayerShotType2 (8 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="300" class="decompiled"><title>0x00443440 ExAttackInit443440 (403 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="300" class="decompiled"><title>0x004435e0 ExAttackUpdate4435e0 (422 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="300" class="decompiled"><title>0x00443790 PlayerComboFunc443790 (85 bytes)</title></rect>
@@ -1188,8 +1188,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.49%</tspan> · <tspan class="decompiled">11.67%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="548.95" height="6" x="0" y="0" class="named"/>
-<rect width="87.17" height="6" x="548.95" y="0" class="decompiled"/>
+<rect width="548.97" height="6" x="0" y="0" class="named"/>
+<rect width="87.15" height="6" x="548.97" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2278,7 +2278,7 @@
 <rect width="0.10" height="0.10" x="741.32" y="335.39" class="named"><title>0x0042d2d0 App::GetWindowed (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="744.21" y="335.39" class="named"><title>0x0042d2e0 SpriteEngine::ClearLastCameraSetupFlag (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="747.11" y="335.39" class="named"><title>0x00434380 Sprite::ClearShown (8 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="738.43" y="337.82" class="decompiled"><title>0x00443430 ShotHit443430 (8 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="738.43" y="337.82" class="named"><title>0x00443430 HitPlayerShotType2 (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="738.43" y="340.63" class="named"><title>0x0040d4f0 Gui::GetUnknown11ea8 (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="738.43" y="343.09" class="named"><title>0x0040f160 EclManager::GetTimelineCount (7 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="738.43" y="345.54" class="named"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
