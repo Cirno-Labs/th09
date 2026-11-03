@@ -200,7 +200,7 @@ int InitSpellCardType0(SpellCard *card)
 
 // The free callback of spell card types 0, 1, 3, 4, 6 and 7: frees
 // unknown1360. Returns 0 (0x4413a0).
-int SpellCardFree4413a0(SpellCard *card)
+int FreePrimarySpellCardData(SpellCard *card)
 {
     if (card->unknown1360 != NULL)
     {

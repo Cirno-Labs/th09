@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.10% (948)</tspan> · <tspan class="decompiled">12.84% (143)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.19% (949)</tspan> · <tspan class="decompiled">12.75% (142)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="635.69" height="6" x="0" y="0" class="named"/>
-<rect width="95.89" height="6" x="635.69" y="0" class="decompiled"/>
+<rect width="636.36" height="6" x="0" y="0" class="named"/>
+<rect width="95.22" height="6" x="636.36" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1029,7 +1029,7 @@
 <rect width="12" height="12" x="120" y="285" class="named"><title>0x00441100 UpdateExAttackTypes0And1 (475 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="285" class="named"><title>0x004412e0 SendComboAttacksCharacter0 (101 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="285" class="named"><title>0x00441350 InitSpellCardType0 (75 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="285" class="decompiled"><title>0x004413a0 SpellCardFree4413a0 (38 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="285" class="named"><title>0x004413a0 FreePrimarySpellCardData (38 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="285" class="decompiled"><title>0x004413d0 SpellCardInit4413d0 (75 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="285" class="decompiled"><title>0x00441420 SpellCardInit441420 (78 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="285" class="decompiled"><title>0x00441470 SpellCardFree441470 (38 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71%</tspan> · <tspan class="decompiled">14.16%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.01%</tspan> · <tspan class="decompiled">14.15%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="530.34" height="6" x="0" y="0" class="named"/>
-<rect width="105.77" height="6" x="530.34" y="0" class="decompiled"/>
+<rect width="530.44" height="6" x="0" y="0" class="named"/>
+<rect width="105.68" height="6" x="530.44" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2023,7 +2023,7 @@
 <rect width="2.79" height="2.77" x="677.32" y="290.73" class="named"><title>0x0043d120 SwapBytes32 (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="296.50" class="named"><title>0x0043e440 CStreamingSound::FadeOut (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="302.27" class="named"><title>0x00440c80 EnemyManager::SpawnPlayerEnemy (38 bytes)</title></rect>
-<rect width="2.79" height="2.77" x="677.32" y="308.05" class="decompiled"><title>0x004413a0 SpellCardFree4413a0 (38 bytes)</title></rect>
+<rect width="2.79" height="2.77" x="677.32" y="308.05" class="named"><title>0x004413a0 FreePrimarySpellCardData (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="313.82" class="decompiled"><title>0x00441470 SpellCardFree441470 (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="319.59" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="325.37" class="decompiled"><title>0x00445c80 EffectUpdate445c80 (38 bytes)</title></rect>
