@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.07% (970)</tspan> · <tspan class="decompiled">10.86% (121)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.16% (971)</tspan> · <tspan class="decompiled">10.77% (120)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="650.44" height="6" x="0" y="0" class="named"/>
-<rect width="81.14" height="6" x="650.44" y="0" class="decompiled"/>
+<rect width="651.11" height="6" x="0" y="0" class="named"/>
+<rect width="80.47" height="6" x="651.11" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1054,7 +1054,7 @@
 <rect width="12" height="12" x="495" y="285" class="named"><title>0x00441f90 UpdatePlayerShotType2 (643 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="285" class="named"><title>0x00442220 DrawPlayerShotType1 (204 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="285" class="named"><title>0x004422f0 UpdateEffectType17 (218 bytes)</title></rect>
-<rect width="12" height="12" x="540" y="285" class="decompiled"><title>0x004423d0 ShotFire4423d0 (68 bytes)</title></rect>
+<rect width="12" height="12" x="540" y="285" class="named"><title>0x004423d0 FirePlayerShotType2 (68 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="285" class="named"><title>0x00442420 GameManager::ScreenToArenaX (46 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="285" class="named"><title>0x00442450 GameManager::ScreenToArenaY (46 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="285" class="decompiled"><title>0x00442480 PlayerPosFunc442480 (193 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.15%</tspan> · <tspan class="decompiled">13.01%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.17%</tspan> · <tspan class="decompiled">12.98%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="538.96" height="6" x="0" y="0" class="named"/>
-<rect width="97.15" height="6" x="538.96" y="0" class="decompiled"/>
+<rect width="539.14" height="6" x="0" y="0" class="named"/>
+<rect width="96.98" height="6" x="539.14" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1875,7 +1875,7 @@
 <rect width="4.83" height="4.74" x="644.21" y="239.27" class="named"><title>0x0043d2d0 MidiDevice::Open (69 bytes)</title></rect>
 <rect width="4.72" height="4.74" x="652.04" y="239.27" class="named"><title>0x00411f30 FreeResources (68 bytes)</title></rect>
 <rect width="4.72" height="4.74" x="659.76" y="239.27" class="named"><title>0x00422cd0 ScreenEffect::OnDrawFlash (68 bytes)</title></rect>
-<rect width="4.72" height="4.74" x="667.48" y="239.27" class="decompiled"><title>0x004423d0 ShotFire4423d0 (68 bytes)</title></rect>
+<rect width="4.72" height="4.74" x="667.48" y="239.27" class="named"><title>0x004423d0 FirePlayerShotType2 (68 bytes)</title></rect>
 <rect width="4.61" height="4.74" x="675.20" y="239.27" class="named"><title>0x0041a2d0 GuiSide::StopUnknown5c6c (67 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="682.80" y="239.27" class="named"><title>0x004045b0 SpellCard::SpellCard (66 bytes)</title></rect>
 <rect width="4.49" height="4.74" x="690.29" y="239.27" class="named"><title>0x004127b0 Sprite::Initialize (66 bytes)</title></rect>

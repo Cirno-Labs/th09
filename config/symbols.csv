@@ -985,7 +985,7 @@ address,size,name,symbol
 0x00441f90,643,UpdatePlayerShotType2,?UpdatePlayerShotType2@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00442220,204,DrawPlayerShotType1,?DrawPlayerShotType1@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x004422f0,218,UpdateEffectType17,?UpdateEffectType17@@YIHPAUEffect@@@Z
-0x004423d0,68,ShotFire4423d0,?ShotFire4423d0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
+0x004423d0,68,FirePlayerShotType2,?FirePlayerShotType2@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00442420,46,GameManager::ScreenToArenaX,?ScreenToArenaX@GameManager@@QAEMM@Z
 0x00442450,46,GameManager::ScreenToArenaY,?ScreenToArenaY@GameManager@@QAEMM@Z
 0x00442480,193,PlayerPosFunc442480,?PlayerPosFunc442480@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
