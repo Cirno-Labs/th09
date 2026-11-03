@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">90.93% (1013)</tspan> · <tspan class="decompiled">7% (78)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">91.02% (1014)</tspan> · <tspan class="decompiled">6.91% (77)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="679.27" height="6" x="0" y="0" class="named"/>
-<rect width="52.30" height="6" x="679.27" y="0" class="decompiled"/>
+<rect width="679.94" height="6" x="0" y="0" class="named"/>
+<rect width="51.63" height="6" x="679.94" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1100,7 +1100,7 @@
 <rect width="12" height="12" x="435" y="300" class="named"><title>0x00445530 FirePlayerShotType4 (44 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="300" class="named"><title>0x00445560 EffectManager::GetReservedEffect (26 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="300" class="named"><title>0x00445580 CheckFocusAreaCharacter6 (71 bytes)</title></rect>
-<rect width="12" height="12" x="480" y="300" class="decompiled"><title>0x004455d0 ExAttackInit4455d0 (361 bytes)</title></rect>
+<rect width="12" height="12" x="480" y="300" class="named"><title>0x004455d0 InitExAttackType15 (361 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="300" class="decompiled"><title>0x00445740 ExAttackUpdate445740 (481 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="300" class="decompiled"><title>0x00445930 PlayerComboFunc445930 (101 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="300" class="decompiled"><title>0x004459a0 EffectInit4459a0 (148 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.29%</tspan> · <tspan class="decompiled">8.86%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.42%</tspan> · <tspan class="decompiled">8.74%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="569.92" height="6" x="0" y="0" class="named"/>
-<rect width="66.20" height="6" x="569.92" y="0" class="decompiled"/>
+<rect width="570.82" height="6" x="0" y="0" class="named"/>
+<rect width="65.29" height="6" x="570.82" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1391,7 +1391,7 @@
 <rect width="14.51" height="15.32" x="452.21" y="60.53" class="named"><title>0x00440060 CSound::FillBufferWithSound (365 bytes)</title></rect>
 <rect width="14.51" height="15.27" x="452.21" y="78.85" class="named"><title>0x0040f1d0 EnemyManager::SpawnEnemy (364 bytes)</title></rect>
 <rect width="14.51" height="15.12" x="452.21" y="97.12" class="named"><title>0x00421670 ReplayManager::RegisterChain (361 bytes)</title></rect>
-<rect width="14.51" height="15.12" x="452.21" y="115.23" class="decompiled"><title>0x004455d0 ExAttackInit4455d0 (361 bytes)</title></rect>
+<rect width="14.51" height="15.12" x="452.21" y="115.23" class="named"><title>0x004455d0 InitExAttackType15 (361 bytes)</title></rect>
 <rect width="14.51" height="15.12" x="452.21" y="133.35" class="decompiled"><title>0x0044bcd0 ExAttackInit44bcd0 (361 bytes)</title></rect>
 <rect width="14.51" height="15.12" x="452.21" y="151.47" class="decompiled"><title>0x0044c350 ExAttackInit44c350 (361 bytes)</title></rect>
 <rect width="14.51" height="14.97" x="452.21" y="169.59" class="named"><title>0x0043d5e0 MidiPlayer::ParseFile (358 bytes)</title></rect>

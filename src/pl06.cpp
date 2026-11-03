@@ -50,7 +50,7 @@ int CheckFocusAreaCharacter6(Player *player, D3DXVECTOR3 *pos)
 
 // The init callback of extra attack type 15: type 0's, landing between
 // 128 and 328 down the other side (0x4455d0).
-int ExAttackInit4455d0(ExAttack *attack)
+int InitExAttackType15(ExAttack *attack)
 {
     ExAttackData00 *data;
     float angle;

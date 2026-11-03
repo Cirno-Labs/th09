@@ -1031,7 +1031,7 @@ address,size,name,symbol
 0x00445530,44,FirePlayerShotType4,?FirePlayerShotType4@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00445560,26,EffectManager::GetReservedEffect,?GetReservedEffect@EffectManager@@QAEPAUEffect@@H@Z
 0x00445580,71,CheckFocusAreaCharacter6,?CheckFocusAreaCharacter6@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
-0x004455d0,361,ExAttackInit4455d0,?ExAttackInit4455d0@@YIHPAUExAttack@@@Z
+0x004455d0,361,InitExAttackType15,?InitExAttackType15@@YIHPAUExAttack@@@Z
 0x00445740,481,ExAttackUpdate445740,?ExAttackUpdate445740@@YIHPAUExAttack@@@Z
 0x00445930,101,PlayerComboFunc445930,?PlayerComboFunc445930@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x004459a0,148,EffectInit4459a0,?EffectInit4459a0@@YIHPAUEffect@@@Z
