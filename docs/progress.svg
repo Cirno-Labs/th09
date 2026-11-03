@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.70% (977)</tspan> · <tspan class="decompiled">10.23% (114)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.79% (978)</tspan> · <tspan class="decompiled">10.14% (113)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="655.13" height="6" x="0" y="0" class="named"/>
-<rect width="76.44" height="6" x="655.13" y="0" class="decompiled"/>
+<rect width="655.80" height="6" x="0" y="0" class="named"/>
+<rect width="75.77" height="6" x="655.80" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1063,7 +1063,7 @@
 <rect width="12" height="12" x="630" y="285" class="named"><title>0x00442750 UpdateExAttackType3 (780 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="285" class="named"><title>0x00442a60 InitExAttackType4 (368 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="285" class="named"><title>0x00442bd0 UpdateExAttackType4 (739 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="285" class="decompiled"><title>0x00442ec0 ExAttackFree442ec0 (32 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="285" class="named"><title>0x00442ec0 FreeExAttackType4 (32 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="285" class="decompiled"><title>0x00442ee0 PlayerComboFunc442ee0 (97 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="285" class="decompiled"><title>0x00442f50 EffectInit442f50 (187 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="285" class="decompiled"><title>0x00443010 EffectDraw443010 (311 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.04%</tspan> · <tspan class="decompiled">12.12%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.05%</tspan> · <tspan class="decompiled">12.11%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="545.60" height="6" x="0" y="0" class="named"/>
-<rect width="90.52" height="6" x="545.60" y="0" class="decompiled"/>
+<rect width="545.68" height="6" x="0" y="0" class="named"/>
+<rect width="90.44" height="6" x="545.68" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2072,7 +2072,7 @@
 <rect width="2.30" height="2.30" x="688.70" y="311.38" class="named"><title>0x0043d0a0 MmTimer::MmTimer (32 bytes)</title></rect>
 <rect width="2.30" height="2.30" x="688.70" y="316.69" class="named"><title>0x0043d150 ReadVarLen (32 bytes)</title></rect>
 <rect width="2.30" height="2.30" x="688.70" y="321.99" class="named"><title>0x00441890 SetPolar (32 bytes)</title></rect>
-<rect width="2.30" height="2.30" x="688.70" y="327.29" class="decompiled"><title>0x00442ec0 ExAttackFree442ec0 (32 bytes)</title></rect>
+<rect width="2.30" height="2.30" x="688.70" y="327.29" class="named"><title>0x00442ec0 FreeExAttackType4 (32 bytes)</title></rect>
 <rect width="2.30" height="2.14" x="688.70" y="332.59" class="named"><title>0x004012c0 D3DXVec3LengthSq (31 bytes)</title></rect>
 <rect width="2.30" height="2.14" x="688.70" y="337.73" class="named"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
 <rect width="2.30" height="2.14" x="688.70" y="342.86" class="named"><title>0x004126b0 Bullet::SetWaitCommand (31 bytes)</title></rect>
