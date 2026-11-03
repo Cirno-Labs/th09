@@ -141,6 +141,105 @@ void LogNetworkError(HRESULT hr)
     LogError(&g_Log, text);
 }
 
+void Network::Init()
+{
+    char value[0x100];
+    char *next;
+    char *data;
+    int size;
+    char *cursor;
+
+    this->unknownA8 = 0;
+    if (!FileExists("IP.txt"))
+    {
+        return;
+    }
+    data = (char *)OpenPath("IP.txt", &size, 1);
+    memset(this->hostName, 0, sizeof(this->hostName));
+    this->isLan = 0;
+    this->syncFrames = 30;
+    cursor = data;
+    while (size > 0)
+    {
+        char c = *cursor;
+        if (c == ' ' || c == '\n' || c == '\t' || c == '\r')
+        {
+            goto skipCharacter;
+        }
+        if (c == ';')
+        {
+            do
+            {
+                if (size <= 0)
+                {
+                    goto done;
+                }
+                cursor++;
+                size--;
+            } while (*cursor != '\n');
+            continue;
+        }
+        if ((next = ReadConfigValue(cursor, &size, "IPAddress", value)) != NULL)
+        {
+            cursor = next;
+            strcpy(this->hostName, value);
+        }
+        else if ((next = ReadConfigValue(cursor, &size, "Port", value)) != NULL)
+        {
+            cursor = next;
+            this->port = atoi(value);
+        }
+        else if ((next = ReadConfigValue(cursor, &size, "Sync", value)) != NULL)
+        {
+            cursor = next;
+            if (strcmp(value, "LAN") == 0)
+            {
+                this->isLan = 1;
+                this->syncFrames = 60;
+            }
+            else if (strcmp(value, "High") == 0)
+            {
+                this->isLan = 0;
+                this->syncFrames = 60;
+            }
+            else if (strcmp(value, "Low") == 0)
+            {
+                this->isLan = 0;
+                this->syncFrames = 30;
+            }
+            else if (strcmp(value, "Bad") == 0)
+            {
+                this->isLan = 0;
+                this->syncFrames = 20;
+            }
+        }
+        else if ((next = ReadConfigValue(cursor, &size, "Side", value)) != NULL)
+        {
+            cursor = next;
+            if (strcmp(value, "Auto") == 0)
+            {
+                this->side = 2;
+            }
+            else if (strcmp(value, "1P") == 0)
+            {
+                this->side = 0;
+            }
+            else if (strcmp(value, "2P") == 0)
+            {
+                this->side = 1;
+            }
+        }
+        else
+        {
+        skipCharacter:
+            cursor++;
+            size--;
+        }
+    }
+done:
+    g_MemoryManager.Free(data);
+}
+
 BOOL Network::IsServiceProviderValid(const GUID *serviceProvider)
 {
     HRESULT hr;
