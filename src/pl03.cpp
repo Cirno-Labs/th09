@@ -41,7 +41,7 @@ int FirePlayerShotType3(Player *player, PlayerBullet *bullet, int frame, ShotDat
 // once for each of the first four points of its trail up to the first
 // unused one, shrinking and brightening from a quarter of its color,
 // without moving it. Returns 0 (0x443300).
-int ShotDraw443300(Player *player, PlayerBullet *bullet)
+int DrawPlayerShotType2(Player *player, PlayerBullet *bullet)
 {
     int red;
     int green;
