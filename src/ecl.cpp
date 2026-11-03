@@ -9,7 +9,7 @@
 #include "stage.h"
 #include "unsorted.h"
 
-void BulletManager::Unknown405650()
+void BulletManager::ClearBulletsForTransition()
 {
     this->Unknown412590(1);
 }
@@ -2318,7 +2318,7 @@ loop:
             break;
         // 0x40b5a6
         case 112:
-            enemy->manager->side->bulletManager->Unknown405650();
+            enemy->manager->side->bulletManager->ClearBulletsForTransition();
             break;
         // 0x40b5c4
         case 113:

@@ -83,7 +83,7 @@ address,size,name,symbol
 0x00404970,15,GameManager::IsMode1,?IsMode1@GameManager@@QAEHXZ
 0x00404980,24,Gui::IsMsgRunning,?IsMsgRunning@Gui@@QAEHXZ
 0x004049a0,3238,PlayerUnknown24::Run,?Run@PlayerUnknown24@@QAEXXZ
-0x00405650,8,BulletManager::Unknown405650,?Unknown405650@BulletManager@@QAEXXZ
+0x00405650,8,BulletManager::ClearBulletsForTransition,?ClearBulletsForTransition@BulletManager@@QAEXXZ
 0x00405660,154,EclManager::Load,?Load@EclManager@@QAEHPAD@Z
 0x00405700,15,Atan2,?Atan2@@YIMMM@Z
 0x00405710,18,Fmod,?Fmod@@YIMMM@Z

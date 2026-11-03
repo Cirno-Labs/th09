@@ -194,7 +194,7 @@ public:
 
     // Calls Unknown412590 with 1. Called by the ECL interpreter; the
     // copy is at 0x405650.
-    void Unknown405650();
+    void ClearBulletsForTransition();
     // Clears unknown25e198. Inline: OnUpdate reloads its registers after
     // the copy at 0x412390.
     void ClearUnknown25e198()

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.21% (927)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.30% (928)</tspan> · <tspan class="decompiled">14.63% (163)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="621.61" height="6" x="0" y="0" class="named"/>
-<rect width="109.97" height="6" x="621.61" y="0" class="decompiled"/>
+<rect width="622.28" height="6" x="0" y="0" class="named"/>
+<rect width="109.30" height="6" x="622.28" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -152,7 +152,7 @@
 <rect width="12" height="12" x="465" y="15" class="named"><title>0x00404970 GameManager::IsMode1 (15 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="15" class="named"><title>0x00404980 Gui::IsMsgRunning (24 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="15" class="named"><title>0x004049a0 PlayerUnknown24::Run (3238 bytes)</title></rect>
-<rect width="12" height="12" x="510" y="15" class="decompiled"><title>0x00405650 BulletManager::Unknown405650 (8 bytes)</title></rect>
+<rect width="12" height="12" x="510" y="15" class="named"><title>0x00405650 BulletManager::ClearBulletsForTransition (8 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="15" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="15" class="named"><title>0x00405700 Atan2 (15 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="15" class="named"><title>0x00405710 Fmod (18 bytes)</title></rect>
@@ -1188,8 +1188,8 @@
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
 <text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.78%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="521.24" height="6" x="0" y="0" class="named"/>
-<rect width="114.88" height="6" x="521.24" y="0" class="decompiled"/>
+<rect width="521.26" height="6" x="0" y="0" class="named"/>
+<rect width="114.86" height="6" x="521.26" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2268,7 +2268,7 @@
 <rect width="0.10" height="0.10" x="738.72" y="332.82" class="named"><title>0x004338f0 FileBase::FileBase (9 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="741.79" y="332.82" class="named"><title>0x00401510 Timer::operator++ (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="744.53" y="332.82" class="named"><title>0x00404560 SpellCard::AddedCallback (8 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="747.26" y="332.82" class="decompiled"><title>0x00405650 BulletManager::Unknown405650 (8 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="747.26" y="332.82" class="named"><title>0x00405650 BulletManager::ClearBulletsForTransition (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="735.64" y="335.39" class="named"><title>0x0040e370 SpriteEngine::ClearBlendMode (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="735.64" y="337.91" class="named"><title>0x0040e380 SpriteEngine::ClearVertexFormat (8 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="735.64" y="340.44" class="named"><title>0x00415d00 SpriteEngine::ClearColorOp (8 bytes)</title></rect>
