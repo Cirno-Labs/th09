@@ -447,7 +447,7 @@ int UpdateExAttackTypes8And9(ExAttack *attack)
 
 // The init callback of extra attack type 8: type 9's, landing at the
 // right heading left (0x446c10).
-int ExAttackInit446c10(ExAttack *attack)
+int InitExAttackType8(ExAttack *attack)
 {
     ExAttackData08 *data;
     float angle;
