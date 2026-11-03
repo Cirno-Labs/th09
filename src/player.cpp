@@ -1237,6 +1237,100 @@ void Player::DrawUnknown30454()
     }
 }
 
+int Player::CheckHitAreas(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet)
+{
+    PlayerHitArea **area;
+    // The point from the area's centre, then turned into its frame;
+    // also the particle's position and velocity.
+    D3DXVECTOR3 d;
+    D3DXVECTOR3 rot;
+    // A box's half size, or its corners.
+    D3DXVECTOR3 half;
+    D3DXVECTOR3 max;
+    float dx;
+    float dy;
+    Effect *effect;
+
+    for (area = this->activeHitAreas;; area++)
+    {
+        if (*area == NULL)
+        {
+            return 0;
+        }
+        if ((*area)->kind != 1 && (*area)->kind != 2 && (*area)->kind != 3)
+        {
+            continue;
+        }
+        if ((*area)->unknown40 > 0)
+        {
+            continue;
+        }
+        if ((*area)->radius != 0.0)
+        {
+            dx = pos->x - (*area)->x;
+            dy = pos->y - (*area)->y;
+            if (dx * dx + dy * dy < (*area)->radius * (*area)->radius)
+            {
+            hit:
+                if ((*area)->kind != 2 && (*area)->kind != 3)
+                {
+                    (*area)->hits++;
+                    return 2;
+                }
+                if (bullet != NULL && bullet->sprite == 0)
+                {
+                    break;
+                }
+            }
+        }
+        else if ((*area)->angle != 0.0f)
+        {
+            d.x = pos->x - (*area)->x;
+            d.y = pos->y - (*area)->y;
+            Rotate2D(&rot, &d, -(*area)->angle);
+            half.x = (*area)->width;
+            half.y = (*area)->height;
+            if (-half.x <= rot.x && rot.x <= half.x && -half.y <= rot.y && rot.y <= half.y)
+            {
+                goto hit;
+            }
+        }
+        else
+        {
+            half.x = (*area)->x - (*area)->width;
+            half.y = (*area)->y - (*area)->height;
+            max.x = (*area)->width + (*area)->x;
+            max.y = (*area)->height + (*area)->y;
+            if (!(half.x > pos->x || max.x < pos->x || half.y > pos->y || max.y < pos->y))
+            {
+                goto hit;
+            }
+        }
+    }
+    d.x = g_GameManager.ArenaToScreenX(pos->x);
+    d.y = g_GameManager.ArenaToScreenY(pos->y);
+    d.z = 0.0f;
+    g_App.SetCamera(1 - this->sideIdx);
+    rot.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
+    rot.y = g_Rng.GetRandomF32InRange(128.0f);
+    rot.z = 0.0f;
+    effect = g_GameManager.sides[2].effectManager->SpawnParticlesWithVelocity(this->sideIdx + 1, &d, &rot, 1,
+                                                                              0xffffffff);
+    g_App.SetCamera(this->sideIdx);
+    effect->unknownA4 = bullet->sprite;
+    effect->unknownA6 = bullet->color;
+    effect->unknownA0 = bullet->speed;
+    effect->unknownA8 = bullet->mgr->sideIdx;
+    effect->unknownAa = (BYTE)bullet->unknown10bd;
+    this->AddUnknown30388(0.2f);
+    g_SoundPlayer.PlaySoundByIdx(0x2e, this->sideIdx != 0 ? 500 : -500);
+    this->unknown30410.AddCombo(pos, (g_GameManager.difficulty >= 3) + 2, 2, 0,
+                                this->unknown30410.unknown38 > 100 ? 1000 : this->unknown30410.unknown38 * 10);
+    this->side->AddScore(50);
+    (*area)->hits++;
+    return 2;
+}
+
 int Player::CheckGraze(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet)
 {
     D3DXVECTOR3 start;
