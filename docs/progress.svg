@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">98.03% (1092)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">1.97% (22)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">98.11% (1093)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">1.89% (21)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="732.25" height="6" x="0" y="0" class="named"/>
-<rect width="14.75" height="6" x="732.25" y="0" class="nonmatching"/>
+<rect width="732.92" height="6" x="0" y="0" class="named"/>
+<rect width="14.08" height="6" x="732.92" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -214,7 +214,7 @@
 <rect width="12" height="12" x="660" y="30" class="named"><title>0x0040cc00 EffectManager::SpawnParticles (184 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="30" class="named"><title>0x0040ccc0 EffectManager::SpawnParticlesWithVelocity (175 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="30" class="named"><title>0x0040cd70 EffectManager::SpawnReservedEffect (85 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="30" class="nonmatching"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="30" class="named"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="30" class="named"><title>0x0040cfb0 EffectManager::OnDraw (183 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="30" class="named"><title>0x0040d070 EffectManager::OnDraw2 (146 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="45" class="named"><title>0x0040d110 EffectManager::DrawUnknown114 (169 bytes)</title></rect>
@@ -1185,10 +1185,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.31%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">14.69%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.47%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">14.53%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="637.30" height="6" x="0" y="0" class="named"/>
-<rect width="109.70" height="6" x="637.30" y="0" class="nonmatching"/>
+<rect width="638.49" height="6" x="0" y="0" class="named"/>
+<rect width="108.51" height="6" x="638.49" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1340,7 +1340,7 @@
 <rect width="18.59" height="16.58" x="411.08" y="328.42" class="named"><title>0x00445740 UpdateExAttackType15 (481 bytes)</title></rect>
 <rect width="17.36" height="17.68" x="432.67" y="21.47" class="named"><title>0x00423182 MainMenu::ShowHalves (479 bytes)</title></rect>
 <rect width="17.19" height="17.68" x="453.03" y="21.47" class="named"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
-<rect width="17.19" height="17.68" x="473.22" y="21.47" class="nonmatching"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
+<rect width="17.19" height="17.68" x="473.22" y="21.47" class="named"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
 <rect width="17.19" height="17.68" x="493.41" y="21.47" class="named"><title>0x00441100 UpdateExAttackTypes0And1 (475 bytes)</title></rect>
 <rect width="17.19" height="17.68" x="513.60" y="21.47" class="named"><title>0x0044be40 UpdateExAttackType25 (475 bytes)</title></rect>
 <rect width="17.06" height="17.68" x="533.78" y="21.47" class="named"><title>0x00435fe0 GdiSurface::InvertAlpha (472 bytes)</title></rect>

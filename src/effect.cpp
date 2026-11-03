@@ -166,8 +166,6 @@ Effect *EffectManager::SpawnReservedEffect(int effectIdx, D3DXVECTOR3 *pos, int 
 
 int EffectManager::OnUpdate(EffectManager *mgr)
 {
-    // Not matching yet: the loop bound loads unknown38 before unknown34,
-    // the original the other way round.
     Effect *effect = mgr->effects;
     int i;
     int j;
@@ -189,7 +187,8 @@ int EffectManager::OnUpdate(EffectManager *mgr)
     mgr->unknown3c.next = NULL;
     mgr->unknown114.next = NULL;
     mgr->unknown1ec.next = NULL;
-    for (i = 0; i < mgr->unknown34 + mgr->unknown38; i++, effect++)
+    // Preserve the original order of the two live pool-bound reads.
+    for (i = 0; i < static_cast<const volatile int &>(mgr->unknown34) + mgr->unknown38; i++, effect++)
     {
         if (!effect->active)
         {

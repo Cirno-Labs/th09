@@ -42,7 +42,6 @@ allow_diff = [
     "Player::CheckHitAreas",
     "Stage::DrawLayer",
     "EclManager::RunEnemy",
-    "EffectManager::OnUpdate",
     "EffectManager::AddedCallback",
     "EnemyManager::OnUpdate",
     "GuiMsg::Run",
