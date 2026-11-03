@@ -36,7 +36,7 @@ int FirePlayerShotType4(Player *player, PlayerBullet *bullet, int frame, ShotDat
 
 // The unknown30404 of character 6: whether `pos` is within the radius
 // of the player's unknown368 across (0x445580).
-int PlayerPosFunc445580(Player *player, D3DXVECTOR3 *pos)
+int CheckFocusAreaCharacter6(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
     float radius = player->unknown368->unknown7c;

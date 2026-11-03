@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">90.84% (1012)</tspan> · <tspan class="decompiled">7.09% (79)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">90.93% (1013)</tspan> · <tspan class="decompiled">7% (78)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="678.60" height="6" x="0" y="0" class="named"/>
-<rect width="52.97" height="6" x="678.60" y="0" class="decompiled"/>
+<rect width="679.27" height="6" x="0" y="0" class="named"/>
+<rect width="52.30" height="6" x="679.27" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1099,7 +1099,7 @@
 <rect width="12" height="12" x="420" y="300" class="named"><title>0x004454e0 UpdateEffectType27 (79 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="300" class="named"><title>0x00445530 FirePlayerShotType4 (44 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="300" class="named"><title>0x00445560 EffectManager::GetReservedEffect (26 bytes)</title></rect>
-<rect width="12" height="12" x="465" y="300" class="decompiled"><title>0x00445580 PlayerPosFunc445580 (71 bytes)</title></rect>
+<rect width="12" height="12" x="465" y="300" class="named"><title>0x00445580 CheckFocusAreaCharacter6 (71 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="300" class="decompiled"><title>0x004455d0 ExAttackInit4455d0 (361 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="300" class="decompiled"><title>0x00445740 ExAttackUpdate445740 (481 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="300" class="decompiled"><title>0x00445930 PlayerComboFunc445930 (101 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.27%</tspan> · <tspan class="decompiled">8.89%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.29%</tspan> · <tspan class="decompiled">8.86%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="569.74" height="6" x="0" y="0" class="named"/>
-<rect width="66.38" height="6" x="569.74" y="0" class="decompiled"/>
+<rect width="569.92" height="6" x="0" y="0" class="named"/>
+<rect width="66.20" height="6" x="569.92" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1863,7 +1863,7 @@
 <rect width="4.96" height="4.84" x="636.25" y="254.94" class="named"><title>0x0042b300 Chain::CreateElem (71 bytes)</title></rect>
 <rect width="4.96" height="4.84" x="636.25" y="262.78" class="named"><title>0x0042ed80 App::OnDrawLoading (71 bytes)</title></rect>
 <rect width="4.96" height="4.84" x="636.25" y="270.62" class="named"><title>0x0042f4f0 App::TickTimer (71 bytes)</title></rect>
-<rect width="4.96" height="4.84" x="636.25" y="278.45" class="decompiled"><title>0x00445580 PlayerPosFunc445580 (71 bytes)</title></rect>
+<rect width="4.96" height="4.84" x="636.25" y="278.45" class="named"><title>0x00445580 CheckFocusAreaCharacter6 (71 bytes)</title></rect>
 <rect width="4.96" height="4.84" x="636.25" y="286.29" class="named"><title>0x00449b50 LineSide (71 bytes)</title></rect>
 <rect width="4.96" height="4.84" x="636.25" y="294.13" class="decompiled"><title>0x0044bc80 PlayerPosFunc44bc80 (71 bytes)</title></rect>
 <rect width="4.96" height="4.73" x="636.25" y="301.97" class="named"><title>0x0040c770 SendExAttack10 (70 bytes)</title></rect>
