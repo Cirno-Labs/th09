@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">98.20% (1094)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">1.80% (20)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">98.29% (1095)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">1.71% (19)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="733.59" height="6" x="0" y="0" class="named"/>
-<rect width="13.41" height="6" x="733.59" y="0" class="nonmatching"/>
+<rect width="734.26" height="6" x="0" y="0" class="named"/>
+<rect width="12.74" height="6" x="734.26" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -956,7 +956,7 @@
 <rect width="12" height="12" x="540" y="255" class="named"><title>0x0043e130 MidiPlayer::Load (54 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="255" class="named"><title>0x0043e170 CSoundManager::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="255" class="named"><title>0x0043e1a0 FindRiffChunk (74 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="255" class="nonmatching"><title>0x0043e1f0 SoundPlayer::FindTrackIndex (208 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="255" class="named"><title>0x0043e1f0 SoundPlayer::FindTrackIndex (208 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="255" class="named"><title>0x0043e2c0 SoundPlayer::LoadBgmFormat (39 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="255" class="named"><title>0x0043e2f0 SoundPlayer::PlaySoundByIdx (140 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="255" class="named"><title>0x0043e380 SoundPlayer::QueueSoundPanned (153 bytes)</title></rect>
@@ -1185,10 +1185,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.74%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">14.26%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.81%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">14.19%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="640.49" height="6" x="0" y="0" class="named"/>
-<rect width="106.51" height="6" x="640.49" y="0" class="nonmatching"/>
+<rect width="641.02" height="6" x="0" y="0" class="named"/>
+<rect width="105.98" height="6" x="641.02" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1537,7 +1537,7 @@
 <rect width="10.77" height="10.33" x="586.81" y="123.85" class="named"><title>0x0041bee0 Player::TouchesGrazeBox (209 bytes)</title></rect>
 <rect width="10.77" height="10.33" x="600.58" y="123.85" class="named"><title>0x004244a9 MainMenu::DrawState12 (209 bytes)</title></rect>
 <rect width="10.77" height="10.33" x="614.36" y="123.85" class="named"><title>0x00443a30 UpdateEffectType26 (209 bytes)</title></rect>
-<rect width="10.71" height="10.33" x="628.13" y="123.85" class="nonmatching"><title>0x0043e1f0 SoundPlayer::FindTrackIndex (208 bytes)</title></rect>
+<rect width="10.71" height="10.33" x="628.13" y="123.85" class="named"><title>0x0043e1f0 SoundPlayer::FindTrackIndex (208 bytes)</title></rect>
 <rect width="10.71" height="10.33" x="641.84" y="123.85" class="named"><title>0x00444a20 UpdateEffectType34 (208 bytes)</title></rect>
 <rect width="10.64" height="10.33" x="655.55" y="123.85" class="named"><title>0x00412100 Enemy::Enemy (207 bytes)</title></rect>
 <rect width="10.64" height="10.33" x="669.20" y="123.85" class="named"><title>0x0042fc20 App::LoadBgm (207 bytes)</title></rect>

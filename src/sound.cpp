@@ -27,8 +27,6 @@ static char *FindRiffChunk(char *data, char *name, int *chunkSize, unsigned int 
 
 int SoundPlayer::FindTrackIndex(char *path)
 {
-    // Not matching yet: the original copies the list pointer for the
-    // inline strcmp after the empty list test, ours before it.
     char name[0x80];
     int i;
     char *p;
@@ -50,11 +48,14 @@ int SoundPlayer::FindTrackIndex(char *path)
         strcpy(name, p + 1);
     }
     formats = this->bgmFormat;
-    for (; (fmt = &formats[i])->name[0] != '\0'; i++)
+    if (formats[0].name[0] != '\0')
     {
-        if (strcmp(fmt->name, name) == 0)
+        for (; (fmt = &formats[i])->name[0] != '\0'; i++)
         {
-            break;
+            if (strcmp(fmt->name, name) == 0)
+            {
+                break;
+            }
         }
     }
     if (formats[i].name[0] == '\0')
