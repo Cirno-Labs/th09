@@ -20,7 +20,7 @@ int PlayerComboFunc44ba80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
     return 0;
 }
 
-// The draw callback of effect type 33: EffectDraw4414a0's fan
+// The draw callback of effect type 33: DrawEffectType10's fan
 // (0x44baf0).
 int EffectDraw44baf0(Effect *effect)
 {

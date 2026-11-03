@@ -678,7 +678,7 @@ int ExAttackUpdate4471b0(ExAttack *attack)
     return 0;
 }
 
-// The draw callback of effect type 25: EffectDraw4414a0's fan
+// The draw callback of effect type 25: DrawEffectType10's fan
 // (0x447480).
 int EffectDraw447480(Effect *effect)
 {

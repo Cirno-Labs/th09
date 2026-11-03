@@ -246,7 +246,7 @@ int FreeSecondarySpellCardData(SpellCard *card)
 // The draw callback of effect type 10: a fan of unknown8c - 1 triangles
 // about the effect, unknown7c in radius, if unknownC9 is set. Returns 1
 // (0x4414a0).
-int EffectDraw4414a0(Effect *effect)
+int DrawEffectType10(Effect *effect)
 {
     if (effect->unknownC9)
     {

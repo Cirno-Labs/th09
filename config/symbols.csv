@@ -964,7 +964,7 @@ address,size,name,symbol
 0x004413d0,75,InitSpellCardType1,?InitSpellCardType1@@YIHPAVSpellCard@@@Z
 0x00441420,78,InitSpellCardType2,?InitSpellCardType2@@YIHPAVSpellCard@@@Z
 0x00441470,38,FreeSecondarySpellCardData,?FreeSecondarySpellCardData@@YIHPAVSpellCard@@@Z
-0x004414a0,314,EffectDraw4414a0,?EffectDraw4414a0@@YIHPAUEffect@@@Z
+0x004414a0,314,DrawEffectType10,?DrawEffectType10@@YIHPAUEffect@@@Z
 0x004415e0,471,ShotUpdate4415e0,?ShotUpdate4415e0@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x004417c0,38,EnemyManager::SpawnPlayerEnemyWithVars,?SpawnPlayerEnemyWithVars@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHPAUEclVars@@@Z
 0x004417f0,129,PlayerPosFunc4417f0,?PlayerPosFunc4417f0@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z

@@ -205,7 +205,7 @@ int EffectInit44aff0(Effect *effect)
     return 0;
 }
 
-// The draw callback of effect type 32: EffectDraw4414a0's fan, drawn only if unknownC9 is set
+// The draw callback of effect type 32: DrawEffectType10's fan, drawn only if unknownC9 is set
 // (0x44b090).
 int EffectDraw44b090(Effect *effect)
 {
