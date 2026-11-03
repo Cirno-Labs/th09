@@ -419,7 +419,7 @@ int UpdatePlayerShotType5(Player *player, PlayerBullet *bullet)
 // arcs of unknown7c in radius, 120 degrees each, centred unknown7c / 2
 // either side of it across unknown80, if unknownC9 is set. Returns 1
 // (0x444700).
-int EffectDraw444700(Effect *effect)
+int DrawEffectType26(Effect *effect)
 {
     if (effect->unknownC9)
     {
