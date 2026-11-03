@@ -242,7 +242,7 @@ int DrawEffectType18(Effect *effect)
 // the player's unknown1cdc and unknown1ce0 to 1 after 15 frames. While
 // it flies, adds a damage box and a hit box above it that widen with
 // its age. Returns 0 (0x443930).
-int ShotUpdate443930(Player *player, PlayerBullet *bullet)
+int UpdatePlayerShotType4(Player *player, PlayerBullet *bullet)
 {
     bullet->pos = player->pos;
     bullet->pos.y += bullet->velocity.y;
