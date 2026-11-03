@@ -228,7 +228,7 @@ int InitEffectTypes1And2(Effect *effect);
 
 // An init callback of the effect table: InitEffectTypes1And2 without
 // clearing unknown98. Returns 0 (0x40d910).
-int EffectInit40d910(Effect *effect);
+int InitEffectTypes3And4(Effect *effect);
 
 // An update callback of the effect table: moves the effect along a
 // Hermite curve for unknown9c, then spawns enemy subroutine unknownA4

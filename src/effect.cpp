@@ -570,7 +570,7 @@ int UpdateEffectTypes1And2(Effect *effect)
     return 0;
 }
 
-int EffectInit40d910(Effect *effect)
+int InitEffectTypes3And4(Effect *effect)
 {
     effect->unknown54 = effect->pos;
     effect->unknown60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);

@@ -162,7 +162,7 @@ address,size,name,symbol
 0x0040d500,28,EnemyShooter::EnemyShooter,??0EnemyShooter@@QAE@XZ
 0x0040d520,210,InitEffectTypes1And2,?InitEffectTypes1And2@@YIHPAUEffect@@@Z
 0x0040d600,775,UpdateEffectTypes1And2,?UpdateEffectTypes1And2@@YIHPAUEffect@@@Z
-0x0040d910,200,EffectInit40d910,?EffectInit40d910@@YIHPAUEffect@@@Z
+0x0040d910,200,InitEffectTypes3And4,?InitEffectTypes3And4@@YIHPAUEffect@@@Z
 0x0040d9e0,464,EffectUpdate40d9e0,?EffectUpdate40d9e0@@YIHPAUEffect@@@Z
 0x0040dbb0,184,EffectInit40dbb0,?EffectInit40dbb0@@YIHPAUEffect@@@Z
 0x0040dc70,1028,EffectDrawRing,?EffectDrawRing@@YIHPAUEffect@@@Z

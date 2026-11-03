@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.57% (931)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.66% (932)</tspan> · <tspan class="decompiled">14.27% (159)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="624.29" height="6" x="0" y="0" class="named"/>
-<rect width="107.29" height="6" x="624.29" y="0" class="decompiled"/>
+<rect width="624.96" height="6" x="0" y="0" class="named"/>
+<rect width="106.62" height="6" x="624.96" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -231,7 +231,7 @@
 <rect width="12" height="12" x="150" y="45" class="named"><title>0x0040d500 EnemyShooter::EnemyShooter (28 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="45" class="named"><title>0x0040d520 InitEffectTypes1And2 (210 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="45" class="named"><title>0x0040d600 UpdateEffectTypes1And2 (775 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="45" class="decompiled"><title>0x0040d910 EffectInit40d910 (200 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="45" class="named"><title>0x0040d910 InitEffectTypes3And4 (200 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="45" class="decompiled"><title>0x0040d9e0 EffectUpdate40d9e0 (464 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="45" class="decompiled"><title>0x0040dbb0 EffectInit40dbb0 (184 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="45" class="named"><title>0x0040dc70 EffectDrawRing (1028 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.14%</tspan> · <tspan class="decompiled">15.02%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.21%</tspan> · <tspan class="decompiled">14.95%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="523.95" height="6" x="0" y="0" class="named"/>
-<rect width="112.16" height="6" x="523.95" y="0" class="decompiled"/>
+<rect width="524.46" height="6" x="0" y="0" class="named"/>
+<rect width="111.66" height="6" x="524.46" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1551,7 +1551,7 @@
 <rect width="10.25" height="10.46" x="531.31" y="137.18" class="named"><title>0x00436e30 Sprite::ResolveFloatArgument (203 bytes)</title></rect>
 <rect width="10.25" height="10.40" x="531.31" y="150.64" class="named"><title>0x00413630 StopTurnAndRestart (202 bytes)</title></rect>
 <rect width="10.25" height="10.33" x="531.31" y="164.04" class="named"><title>0x0042ab13 SetUpTitleScene (201 bytes)</title></rect>
-<rect width="10.25" height="10.26" x="531.31" y="177.37" class="decompiled"><title>0x0040d910 EffectInit40d910 (200 bytes)</title></rect>
+<rect width="10.25" height="10.26" x="531.31" y="177.37" class="named"><title>0x0040d910 InitEffectTypes3And4 (200 bytes)</title></rect>
 <rect width="10.25" height="10.26" x="531.31" y="190.63" class="named"><title>0x00432f70 Network::Close (200 bytes)</title></rect>
 <rect width="10.25" height="10.26" x="531.31" y="203.90" class="named"><title>0x0043b8f0 SpriteEngine::DrawVertexFan (200 bytes)</title></rect>
 <rect width="10.25" height="10.26" x="531.31" y="217.16" class="named"><title>0x0043f7c0 CSoundManager::SetPrimaryBufferFormat (200 bytes)</title></rect>
