@@ -188,7 +188,7 @@ Chain::Chain()
 {
 }
 
-int UpdatePlayerInput(int player, int pressed)
+WORD UpdatePlayerInput(int player, WORD pressed)
 {
     PlayerInput *input;
     int i;
