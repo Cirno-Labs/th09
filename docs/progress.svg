@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.36% (962)</tspan> · <tspan class="decompiled">11.58% (129)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.45% (963)</tspan> · <tspan class="decompiled">11.49% (128)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="645.08" height="6" x="0" y="0" class="named"/>
-<rect width="86.50" height="6" x="645.08" y="0" class="decompiled"/>
+<rect width="645.75" height="6" x="0" y="0" class="named"/>
+<rect width="85.83" height="6" x="645.75" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1046,7 +1046,7 @@
 <rect width="12" height="12" x="375" y="285" class="named"><title>0x00441b70 InitSpellCardTypes3And6 (75 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="285" class="named"><title>0x00441bc0 IsSpellCardDurationOver (23 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="285" class="named"><title>0x00441be0 InitSpellCardTypes4And7 (75 bytes)</title></rect>
-<rect width="12" height="12" x="420" y="285" class="decompiled"><title>0x00441c30 SpellCardInit441c30 (78 bytes)</title></rect>
+<rect width="12" height="12" x="420" y="285" class="named"><title>0x00441c30 InitSpellCardTypes5And8 (78 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="285" class="decompiled"><title>0x00441c80 EffectInit441c80 (165 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="285" class="decompiled"><title>0x00441d30 EffectUpdate441d30 (110 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="285" class="decompiled"><title>0x00441da0 EffectDraw441da0 (327 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.51%</tspan> · <tspan class="decompiled">13.64%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.54%</tspan> · <tspan class="decompiled">13.62%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="534.20" height="6" x="0" y="0" class="named"/>
-<rect width="101.92" height="6" x="534.20" y="0" class="decompiled"/>
+<rect width="534.39" height="6" x="0" y="0" class="named"/>
+<rect width="101.72" height="6" x="534.39" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1834,7 +1834,7 @@
 <rect width="5.05" height="5.63" x="628.20" y="240" class="decompiled"><title>0x0044c290 EffectUpdate44c290 (79 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.20" y="248.62" class="named"><title>0x00435f40 GdiSurface::Release (78 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.20" y="257.14" class="named"><title>0x00441420 InitSpellCardType2 (78 bytes)</title></rect>
-<rect width="5.05" height="5.52" x="628.20" y="265.66" class="decompiled"><title>0x00441c30 SpellCardInit441c30 (78 bytes)</title></rect>
+<rect width="5.05" height="5.52" x="628.20" y="265.66" class="named"><title>0x00441c30 InitSpellCardTypes5And8 (78 bytes)</title></rect>
 <rect width="5.05" height="5.30" x="628.20" y="274.18" class="named"><title>0x0040c3f0 SetSidesFlag0 (76 bytes)</title></rect>
 <rect width="5.05" height="5.19" x="628.20" y="282.48" class="named"><title>0x0040e400 PlayRecord::HasCleared (75 bytes)</title></rect>
 <rect width="5.05" height="5.19" x="628.20" y="290.67" class="named"><title>0x0041ce60 FreeResources (75 bytes)</title></rect>

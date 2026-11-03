@@ -157,7 +157,7 @@ int InitSpellCardTypes4And7(SpellCard *card)
 }
 
 // The init callback of spell card type 5, pl00's for type 2 (0x441c30).
-int SpellCardInit441c30(SpellCard *card)
+int InitSpellCardTypes5And8(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
