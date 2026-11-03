@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">97.67% (1088)</tspan> · <tspan class="decompiled">0.27% (3)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">97.76% (1089)</tspan> · <tspan class="decompiled">0.18% (2)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="729.57" height="6" x="0" y="0" class="named"/>
-<rect width="2.01" height="6" x="729.57" y="0" class="decompiled"/>
+<rect width="730.24" height="6" x="0" y="0" class="named"/>
+<rect width="1.34" height="6" x="730.24" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1179,17 +1179,17 @@
 <rect width="12" height="12" x="120" y="330" class="named"><title>0x0044c2e0 CheckFocusAreaCharacter15 (98 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="330" class="named"><title>0x0044c350 InitExAttackType26 (361 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="330" class="named"><title>0x0044c4c0 UpdateExAttackType26 (446 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="330" class="decompiled"><title>0x0044c680 PlayerComboFunc44c680 (98 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="330" class="named"><title>0x0044c680 SendComboAttacksCharacter15 (98 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="330" class="decompiled"><title>0x0044c6f0 EffectInit44c6f0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="330" class="decompiled"><title>0x0044c790 EffectDraw44c790 (972 bytes)</title></rect>
 </g>
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.74%</tspan> · <tspan class="decompiled">0.41%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.78%</tspan> · <tspan class="decompiled">0.38%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="633.04" height="6" x="0" y="0" class="named"/>
-<rect width="3.07" height="6" x="633.04" y="0" class="decompiled"/>
+<rect width="633.29" height="6" x="0" y="0" class="named"/>
+<rect width="2.82" height="6" x="633.29" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1750,7 +1750,7 @@
 <rect width="6.06" height="6.51" x="601.45" y="272.31" class="named"><title>0x00449c70 UpdatePlayerShotType6 (98 bytes)</title></rect>
 <rect width="6.06" height="6.51" x="601.45" y="281.82" class="named"><title>0x00449ce0 UpdatePlayerShotType7 (98 bytes)</title></rect>
 <rect width="6.06" height="6.51" x="601.45" y="291.33" class="named"><title>0x0044c2e0 CheckFocusAreaCharacter15 (98 bytes)</title></rect>
-<rect width="6.06" height="6.51" x="601.45" y="300.84" class="decompiled"><title>0x0044c680 PlayerComboFunc44c680 (98 bytes)</title></rect>
+<rect width="6.06" height="6.51" x="601.45" y="300.84" class="named"><title>0x0044c680 SendComboAttacksCharacter15 (98 bytes)</title></rect>
 <rect width="6.06" height="6.41" x="601.45" y="310.35" class="named"><title>0x00432340 Network::ReleaseInterfaces (97 bytes)</title></rect>
 <rect width="6.06" height="6.41" x="601.45" y="319.76" class="named"><title>0x0043bf30 SpriteEngine::ReleaseSurface (97 bytes)</title></rect>
 <rect width="6.06" height="6.41" x="601.45" y="329.18" class="named"><title>0x00442ee0 SendComboAttacksCharacter2 (97 bytes)</title></rect>
