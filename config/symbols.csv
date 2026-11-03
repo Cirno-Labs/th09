@@ -2398,6 +2398,8 @@ address,size,name,symbol
 0x004b30f8,,g_LoadingScreenEffect,?g_LoadingScreenEffect@@3PAVScreenEffect@@A
 0x004b3100,,g_App,?g_App@@3UApp@@A
 0x004b38b0,,g_LoadingSprites,?g_LoadingSprites@@3PAVSprite@@A
+0x004b409c,,g_NetInputPacket,?g_NetInputPacket@@3UNetPacket@@A
+0x004b40a8,,g_NetSetupPacket,?g_NetSetupPacket@@3UNetPacket@@A
 0x004b42d0,,g_Network,?g_Network@@3PAUNetwork@@A
 0x004b4420,,g_LzssTree,?g_LzssTree@@3PAULzssNode@@A
 0x004cc430,,g_LzssWindow,?g_LzssWindow@@3PAEA

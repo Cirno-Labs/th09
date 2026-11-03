@@ -983,7 +983,8 @@ struct App
     RunRecord lastRecords[2];
     // Drawn by OnDraw while unknown478 is set.
     Sprite *unknown584;
-    unsigned char pad_588[0x58c - 0x588];
+    // When the current connection attempt started.
+    DWORD connectStartTime;
     // The scene running, as th08's.
     int curScene;
     // The scene to go to.

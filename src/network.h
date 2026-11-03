@@ -18,7 +18,15 @@ struct NetPacket
     // The setup sends the sync frames in it.
     int value;
     // The input, or the setup's isLan.
-    int unknown8;
+    union
+    {
+        int unknown8;
+        struct
+        {
+            WORD input;
+            WORD checksum;
+        };
+    };
 };
 ASSERT_SIZE(NetPacket, 0xc);
 
@@ -84,7 +92,8 @@ struct Network
     int unknownAc;
     // Set when a send completes, or a check packet matches.
     int unknownB0;
-    unsigned char pad_b4[4];
+    // Set after the initial frame records and setup packet are sent.
+    int initialFramesQueued;
     // Cleared by App::ResetRun.
     int unknownB8;
     // Set by IP.txt's Sync LAN.

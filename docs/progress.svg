@@ -61,12 +61,11 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.21% (927)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">1.97% (22)</tspan> · <tspan class="todo">0.09% (1)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.21% (927)</tspan> · <tspan class="decompiled">14.72% (164)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="621.61" height="6" x="0" y="0" class="named"/>
 <rect width="109.97" height="6" x="621.61" y="0" class="decompiled"/>
-<rect width="14.75" height="6" x="731.58" y="0" class="nonmatching"/>
-<rect width="0.67" height="6" x="746.33" y="0" class="todo"/>
+<rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -743,7 +742,7 @@
 <rect width="12" height="12" x="315" y="195" class="named"><title>0x00430590 App::SetupCamera (285 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="195" class="named"><title>0x004306b0 App::SetupCamera3D (257 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="195" class="named"><title>0x004307c0 App::InitCameras (736 bytes)</title></rect>
-<rect width="12" height="12" x="360" y="195" class="todo"><title>0x00430aa0 App::UpdateNetPlay (1633 bytes)</title></rect>
+<rect width="12" height="12" x="360" y="195" class="nonmatching"><title>0x00430aa0 App::UpdateNetPlay (1633 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="195" class="named"><title>0x00431110 App::OnUpdate (844 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="195" class="named"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="195" class="named"><title>0x00431680 MidiTimer::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
@@ -1187,12 +1186,11 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.78%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.29%</tspan> · <tspan class="todo">0.55%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.78%</tspan> · <tspan class="decompiled">15.38%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
 <rect width="521.24" height="6" x="0" y="0" class="named"/>
 <rect width="114.88" height="6" x="521.24" y="0" class="decompiled"/>
-<rect width="106.78" height="6" x="636.12" y="0" class="nonmatching"/>
-<rect width="4.11" height="6" x="742.89" y="0" class="todo"/>
+<rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1219,7 +1217,7 @@
 <rect width="34.84" height="37.32" x="169.02" y="83.23" class="named"><title>0x00434740 PauseMenu::UpdatePauseMenu (1736 bytes)</title></rect>
 <rect width="34.84" height="36.23" x="169.02" y="123.55" class="nonmatching"><title>0x0041af2d GameManager::LoadingThread (1689 bytes)</title></rect>
 <rect width="34.84" height="35" x="169.02" y="162.78" class="named"><title>0x004068a0 GetFloatOperand (1636 bytes)</title></rect>
-<rect width="34.84" height="34.93" x="169.02" y="200.78" class="todo"><title>0x00430aa0 App::UpdateNetPlay (1633 bytes)</title></rect>
+<rect width="34.84" height="34.93" x="169.02" y="200.78" class="nonmatching"><title>0x00430aa0 App::UpdateNetPlay (1633 bytes)</title></rect>
 <rect width="34.84" height="33.51" x="169.02" y="238.71" class="named"><title>0x00405760 GetIntOperand (1572 bytes)</title></rect>
 <rect width="34.84" height="33.51" x="169.02" y="275.23" class="named"><title>0x004254a7 MainMenu::UpdateState3 (1572 bytes)</title></rect>
 <rect width="34.84" height="33.26" x="169.02" y="311.74" class="named"><title>0x0042dd90 InitD3dDevice (1561 bytes)</title></rect>
