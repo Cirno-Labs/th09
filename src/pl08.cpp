@@ -103,7 +103,7 @@ int InitExAttackType16(ExAttack *attack)
 // away from its middle and, after 20 frames, falls as a hit circle,
 // turning back past the edges, until it touches the player there or
 // leaves the bottom. Returns 1 once it is done (0x447890).
-int ExAttackUpdate447890(ExAttack *attack)
+int UpdateExAttackTypes16And23(ExAttack *attack)
 {
     ExAttackData16 *data = (ExAttackData16 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);

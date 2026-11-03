@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.27% (1039)</tspan> · <tspan class="decompiled">4.67% (52)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.36% (1040)</tspan> · <tspan class="decompiled">4.58% (51)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="696.71" height="6" x="0" y="0" class="named"/>
-<rect width="34.87" height="6" x="696.71" y="0" class="decompiled"/>
+<rect width="697.38" height="6" x="0" y="0" class="named"/>
+<rect width="34.20" height="6" x="697.38" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1126,7 +1126,7 @@
 <rect width="12" height="12" x="75" y="315" class="named"><title>0x004475c0 UpdateEffectType28 (91 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="315" class="named"><title>0x00447620 CheckFocusAreaCharacter8 (249 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="315" class="named"><title>0x00447720 InitExAttackType16 (355 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="315" class="decompiled"><title>0x00447890 ExAttackUpdate447890 (496 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="315" class="named"><title>0x00447890 UpdateExAttackTypes16And23 (496 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="315" class="decompiled"><title>0x00447a80 PlayerComboFunc447a80 (98 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="315" class="decompiled"><title>0x00447af0 ExAttackInit447af0 (324 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="315" class="decompiled"><title>0x00447c40 EffectInit447c40 (155 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.22%</tspan> · <tspan class="decompiled">5.93%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.39%</tspan> · <tspan class="decompiled">5.76%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="591.81" height="6" x="0" y="0" class="named"/>
-<rect width="44.31" height="6" x="591.81" y="0" class="decompiled"/>
+<rect width="593.05" height="6" x="0" y="0" class="named"/>
+<rect width="43.06" height="6" x="593.05" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1333,7 +1333,7 @@
 <rect width="18.59" height="17.59" x="411.08" y="147.15" class="decompiled"><title>0x0044c090 EffectDraw44c090 (506 bytes)</title></rect>
 <rect width="18.59" height="17.55" x="411.08" y="167.74" class="named"><title>0x0043de90 MidiPlayer::OnTimer (505 bytes)</title></rect>
 <rect width="18.59" height="17.47" x="411.08" y="188.30" class="named"><title>0x004353f0 AsciiText::DrawPopups (503 bytes)</title></rect>
-<rect width="18.59" height="17.19" x="411.08" y="208.77" class="decompiled"><title>0x00447890 ExAttackUpdate447890 (496 bytes)</title></rect>
+<rect width="18.59" height="17.19" x="411.08" y="208.77" class="named"><title>0x00447890 UpdateExAttackTypes16And23 (496 bytes)</title></rect>
 <rect width="18.59" height="16.98" x="411.08" y="228.95" class="named"><title>0x00405f20 ResolveOperand (491 bytes)</title></rect>
 <rect width="18.59" height="16.98" x="411.08" y="248.94" class="named"><title>0x0043ab50 SpriteEngine::Draw (491 bytes)</title></rect>
 <rect width="18.59" height="16.98" x="411.08" y="268.92" class="named"><title>0x00445a40 DrawEffectType27 (491 bytes)</title></rect>
