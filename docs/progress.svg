@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.83% (945)</tspan> · <tspan class="decompiled">13.11% (146)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.92% (946)</tspan> · <tspan class="decompiled">13.02% (145)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="633.68" height="6" x="0" y="0" class="named"/>
-<rect width="97.90" height="6" x="633.68" y="0" class="decompiled"/>
+<rect width="634.35" height="6" x="0" y="0" class="named"/>
+<rect width="97.23" height="6" x="634.35" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1026,7 +1026,7 @@
 <rect width="12" height="12" x="75" y="285" class="named"><title>0x00440df0 IsWithinCircularFocusArea (79 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="285" class="named"><title>0x00440e40 InitExAttackType0 (355 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="285" class="named"><title>0x00440fb0 InitExAttackType1 (326 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="285" class="decompiled"><title>0x00441100 ExAttackUpdate441100 (475 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="285" class="named"><title>0x00441100 UpdateExAttackTypes0And1 (475 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="285" class="decompiled"><title>0x004412e0 PlayerComboFunc4412e0 (101 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="285" class="decompiled"><title>0x00441350 SpellCardInit441350 (75 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="285" class="decompiled"><title>0x004413a0 SpellCardFree4413a0 (38 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.78%</tspan> · <tspan class="decompiled">14.38%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.94%</tspan> · <tspan class="decompiled">14.22%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="528.70" height="6" x="0" y="0" class="named"/>
-<rect width="107.41" height="6" x="528.70" y="0" class="decompiled"/>
+<rect width="529.90" height="6" x="0" y="0" class="named"/>
+<rect width="106.22" height="6" x="529.90" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1343,7 +1343,7 @@
 <rect width="17.36" height="17.68" x="432.67" y="21.47" class="named"><title>0x00423182 MainMenu::ShowHalves (479 bytes)</title></rect>
 <rect width="17.19" height="17.68" x="453.03" y="21.47" class="named"><title>0x00403830 Stage::AddedCallback (475 bytes)</title></rect>
 <rect width="17.19" height="17.68" x="473.22" y="21.47" class="nonmatching"><title>0x0040cdd0 EffectManager::OnUpdate (475 bytes)</title></rect>
-<rect width="17.19" height="17.68" x="493.41" y="21.47" class="decompiled"><title>0x00441100 ExAttackUpdate441100 (475 bytes)</title></rect>
+<rect width="17.19" height="17.68" x="493.41" y="21.47" class="named"><title>0x00441100 UpdateExAttackTypes0And1 (475 bytes)</title></rect>
 <rect width="17.19" height="17.68" x="513.60" y="21.47" class="decompiled"><title>0x0044be40 ExAttackUpdate44be40 (475 bytes)</title></rect>
 <rect width="17.06" height="17.68" x="533.78" y="21.47" class="named"><title>0x00435fe0 GdiSurface::InvertAlpha (472 bytes)</title></rect>
 <rect width="17.06" height="17.68" x="553.85" y="21.47" class="named"><title>0x0043b9c0 SpriteEngine::CreateQuad (472 bytes)</title></rect>

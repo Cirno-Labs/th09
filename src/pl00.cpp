@@ -116,7 +116,7 @@ int InitExAttackType1(ExAttack *attack)
 // frames, falls bouncing off the sides as a hit circle until it touches
 // the player there or leaves the bottom. Returns 1 once it is done
 // (0x441100).
-int ExAttackUpdate441100(ExAttack *attack)
+int UpdateExAttackTypes0And1(ExAttack *attack)
 {
     ExAttackData00 *data = (ExAttackData00 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
