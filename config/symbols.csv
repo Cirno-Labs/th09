@@ -1089,7 +1089,7 @@ address,size,name,symbol
 0x0044ab20,3,ReturnZero,?ReturnZero@@YIHPAUExAttack@@@Z ?CheckLifeCallback@Enemy@@QAEHXZ ?CheckTimerCallback@Enemy@@SIHXZ ?UpdateUnknown0Is2@Player@@SIHXZ
 0x0044ab30,88,UpdateEffectType32,?UpdateEffectType32@@YIHPAUEffect@@@Z
 0x0044ab90,139,FirePlayerShotType7,?FirePlayerShotType7@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
-0x0044ac20,436,ExAttackInit44ac20,?ExAttackInit44ac20@@YIHPAUExAttack@@@Z
+0x0044ac20,436,InitExAttackType20,?InitExAttackType20@@YIHPAUExAttack@@@Z
 0x0044ade0,405,ExAttackUpdate44ade0,?ExAttackUpdate44ade0@@YIHPAUExAttack@@@Z
 0x0044af80,101,PlayerComboFunc44af80,?PlayerComboFunc44af80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044aff0,155,EffectInit44aff0,?EffectInit44aff0@@YIHPAUEffect@@@Z

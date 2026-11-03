@@ -68,7 +68,7 @@ ASSERT_SIZE(ExAttackData20, 0x5c);
 // The init callback of extra attack type 20, character 12's: type 0's
 // curve to a random spot near the top of the other side, with a spiral
 // from a random angle turning pi/30 either way. Returns 0 (0x44ac20).
-int ExAttackInit44ac20(ExAttack *attack)
+int InitExAttackType20(ExAttack *attack)
 {
     ExAttackData20 *data;
     float angle;

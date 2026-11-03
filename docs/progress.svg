@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">95.78% (1067)</tspan> · <tspan class="decompiled">2.15% (24)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">95.87% (1068)</tspan> · <tspan class="decompiled">2.06% (23)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="715.48" height="6" x="0" y="0" class="named"/>
-<rect width="16.09" height="6" x="715.48" y="0" class="decompiled"/>
+<rect width="716.15" height="6" x="0" y="0" class="named"/>
+<rect width="15.42" height="6" x="716.15" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1158,7 +1158,7 @@
 <rect width="12" height="12" x="555" y="315" class="named"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="315" class="named"><title>0x0044ab30 UpdateEffectType32 (88 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="315" class="named"><title>0x0044ab90 FirePlayerShotType7 (139 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="315" class="decompiled"><title>0x0044ac20 ExAttackInit44ac20 (436 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="315" class="named"><title>0x0044ac20 InitExAttackType20 (436 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="315" class="decompiled"><title>0x0044ade0 ExAttackUpdate44ade0 (405 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="315" class="decompiled"><title>0x0044af80 PlayerComboFunc44af80 (101 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="315" class="decompiled"><title>0x0044aff0 EffectInit44aff0 (155 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.52%</tspan> · <tspan class="decompiled">2.63%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.67%</tspan> · <tspan class="decompiled">2.49%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="616.44" height="6" x="0" y="0" class="named"/>
-<rect width="19.67" height="6" x="616.44" y="0" class="decompiled"/>
+<rect width="617.54" height="6" x="0" y="0" class="named"/>
+<rect width="18.58" height="6" x="617.54" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1360,7 +1360,7 @@
 <rect width="16.54" height="16.83" x="432.67" y="62.20" class="named"><title>0x004218e0 LoadHscrChunks (441 bytes)</title></rect>
 <rect width="16.54" height="16.69" x="432.67" y="82.03" class="named"><title>0x0041ee50 Player::AddedCallback (438 bytes)</title></rect>
 <rect width="16.54" height="16.69" x="432.67" y="101.73" class="named"><title>0x00433e00 LzssInsertNode (438 bytes)</title></rect>
-<rect width="16.54" height="16.60" x="432.67" y="121.42" class="decompiled"><title>0x0044ac20 ExAttackInit44ac20 (436 bytes)</title></rect>
+<rect width="16.54" height="16.60" x="432.67" y="121.42" class="named"><title>0x0044ac20 InitExAttackType20 (436 bytes)</title></rect>
 <rect width="16.54" height="16.11" x="432.67" y="141.03" class="named"><title>0x0041b5c6 GameManager::ResetRound (425 bytes)</title></rect>
 <rect width="16.54" height="16.02" x="432.67" y="160.14" class="named"><title>0x004016e0 UpdateEasedVector (423 bytes)</title></rect>
 <rect width="16.54" height="16.02" x="432.67" y="179.16" class="named"><title>0x0043d3a0 MidiPlayer::MidiPlayer (423 bytes)</title></rect>
