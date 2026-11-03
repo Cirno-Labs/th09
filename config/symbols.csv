@@ -1099,7 +1099,7 @@ address,size,name,symbol
 0x0044b500,1074,UpdateExAttackType21,?UpdateExAttackType21@@YIHPAUExAttack@@@Z
 0x0044b940,318,DrawExAttackTypes19And21,?DrawExAttackTypes19And21@@YIHPAUExAttack@@@Z
 0x0044ba80,101,SendComboAttacksCharacter13,?SendComboAttacksCharacter13@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
-0x0044baf0,314,EffectDraw44baf0,?EffectDraw44baf0@@YIHPAUEffect@@@Z
+0x0044baf0,314,DrawEffectType33,?DrawEffectType33@@YIHPAUEffect@@@Z
 0x0044bc30,79,EffectUpdate44bc30,?EffectUpdate44bc30@@YIHPAUEffect@@@Z
 0x0044bc80,71,PlayerPosFunc44bc80,?PlayerPosFunc44bc80@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x0044bcd0,361,ExAttackInit44bcd0,?ExAttackInit44bcd0@@YIHPAUExAttack@@@Z
