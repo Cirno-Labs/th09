@@ -183,7 +183,7 @@ int InitEffectTypes27And36(Effect *effect)
 // The draw callback of effect type 27: a strip down the play area, from
 // unknown7c left of the effect to unknown7c right of it, faint in the
 // middle, if unknownC9 is set. Returns 1 (0x445a40).
-int EffectDraw445a40(Effect *effect)
+int DrawEffectType27(Effect *effect)
 {
     if (effect->unknownC9)
     {
