@@ -1044,7 +1044,7 @@ address,size,name,symbol
 0x00445e00,96,UpdateEffectType25,?UpdateEffectType25@@YIHPAUEffect@@@Z
 0x00445e60,91,CheckFocusAreaCharacter7,?CheckFocusAreaCharacter7@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00445ec0,407,InitExAttackType6,?InitExAttackType6@@YIHPAUExAttack@@@Z
-0x00446060,698,ExAttackUpdate446060,?ExAttackUpdate446060@@YIHPAUExAttack@@@Z
+0x00446060,698,UpdateExAttackType6,?UpdateExAttackType6@@YIHPAUExAttack@@@Z
 0x00446320,379,ExAttackInit446320,?ExAttackInit446320@@YIHPAUExAttack@@@Z
 0x004464a0,799,ExAttackUpdate4464a0,?ExAttackUpdate4464a0@@YIHPAUExAttack@@@Z
 0x004467c0,352,ExAttackInit4467c0,?ExAttackInit4467c0@@YIHPAUExAttack@@@Z

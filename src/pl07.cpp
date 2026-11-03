@@ -128,7 +128,7 @@ int InitExAttackType6(ExAttack *attack)
 // The update callback of extra attack type 6: type 8's, turning as it
 // goes and firing two bullets along its heading every 20 - unknownB4 / 8
 // frames. Returns 1 once it is done (0x446060).
-int ExAttackUpdate446060(ExAttack *attack)
+int UpdateExAttackType6(ExAttack *attack)
 {
     ExAttackData08 *data = (ExAttackData08 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
