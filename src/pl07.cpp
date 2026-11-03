@@ -329,7 +329,7 @@ int UpdateExAttackType7(ExAttack *attack)
 
 // The init callback of extra attack type 9: type 0's, after 90 frames,
 // landing at the left of the target's side heading right (0x4467c0).
-int ExAttackInit4467c0(ExAttack *attack)
+int InitExAttackType9(ExAttack *attack)
 {
     ExAttackData08 *data;
     float angle;
