@@ -11,7 +11,7 @@
 // The update callback of effect type 37: grows unknown7c by 0.5 up to 8,
 // sets unknownC9 and puts the effect on its side's player. Returns 1
 // (0x44c290).
-int EffectUpdate44c290(Effect *effect)
+int UpdateEffectType37(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknown7c < 8.0f)

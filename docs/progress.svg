@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">97.31% (1084)</tspan> · <tspan class="decompiled">0.63% (7)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">97.40% (1085)</tspan> · <tspan class="decompiled">0.54% (6)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="726.88" height="6" x="0" y="0" class="named"/>
-<rect width="4.69" height="6" x="726.88" y="0" class="decompiled"/>
+<rect width="727.55" height="6" x="0" y="0" class="named"/>
+<rect width="4.02" height="6" x="727.55" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1175,7 +1175,7 @@
 <rect width="12" height="12" x="60" y="330" class="named"><title>0x0044be40 UpdateExAttackType25 (475 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="330" class="named"><title>0x0044c020 SendComboAttacksCharacter14 (101 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="330" class="named"><title>0x0044c090 DrawEffectType36 (506 bytes)</title></rect>
-<rect width="12" height="12" x="105" y="330" class="decompiled"><title>0x0044c290 EffectUpdate44c290 (79 bytes)</title></rect>
+<rect width="12" height="12" x="105" y="330" class="named"><title>0x0044c290 UpdateEffectType37 (79 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="330" class="decompiled"><title>0x0044c2e0 PlayerPosFunc44c2e0 (98 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="330" class="decompiled"><title>0x0044c350 ExAttackInit44c350 (361 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="330" class="decompiled"><title>0x0044c4c0 ExAttackUpdate44c4c0 (446 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.41%</tspan> · <tspan class="decompiled">0.74%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.44%</tspan> · <tspan class="decompiled">0.72%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="630.57" height="6" x="0" y="0" class="named"/>
-<rect width="5.55" height="6" x="630.57" y="0" class="decompiled"/>
+<rect width="630.77" height="6" x="0" y="0" class="named"/>
+<rect width="5.35" height="6" x="630.77" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1831,7 +1831,7 @@
 <rect width="5.02" height="5.66" x="733.96" y="222.71" class="named"><title>0x004454e0 UpdateEffectType27 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="741.98" y="222.71" class="named"><title>0x0044b1d0 UpdateEffectType33 (79 bytes)</title></rect>
 <rect width="5.05" height="5.63" x="628.20" y="231.37" class="named"><title>0x0044bc30 UpdateEffectType36 (79 bytes)</title></rect>
-<rect width="5.05" height="5.63" x="628.20" y="240" class="decompiled"><title>0x0044c290 EffectUpdate44c290 (79 bytes)</title></rect>
+<rect width="5.05" height="5.63" x="628.20" y="240" class="named"><title>0x0044c290 UpdateEffectType37 (79 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.20" y="248.62" class="named"><title>0x00435f40 GdiSurface::Release (78 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.20" y="257.14" class="named"><title>0x00441420 InitSpellCardType2 (78 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.20" y="265.66" class="named"><title>0x00441c30 InitSpellCardTypes5And8 (78 bytes)</title></rect>
