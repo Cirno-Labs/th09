@@ -25,7 +25,7 @@ ASSERT_SIZE(ExAttackData17, 0x50);
 // The init callback of extra attack type 17, character 9's: type 0's,
 // falling straight down at 0.5 to 2.5 once it lands. Returns 0
 // (0x448320).
-int ExAttackInit448320(ExAttack *attack)
+int InitExAttackType17(ExAttack *attack)
 {
     ExAttackData17 *data;
 
