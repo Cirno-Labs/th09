@@ -1012,7 +1012,7 @@ address,size,name,symbol
 0x00443b10,249,CheckFocusAreaCharacter4,?CheckFocusAreaCharacter4@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00443c10,95,UpdateFocusedEnemyCharacter4,?UpdateFocusedEnemyCharacter4@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00443c70,371,InitExAttackType14,?InitExAttackType14@@YIHPAUExAttack@@@Z
-0x00443df0,808,ExAttackUpdate443df0,?ExAttackUpdate443df0@@YIHPAUExAttack@@@Z
+0x00443df0,808,UpdateExAttackTypes14And22,?UpdateExAttackTypes14And22@@YIHPAUExAttack@@@Z
 0x00444130,959,ExAttackDraw444130,?ExAttackDraw444130@@YIHPAUExAttack@@@Z
 0x004444f0,101,PlayerComboFunc4444f0,?PlayerComboFunc4444f0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00444560,308,ExAttackInit444560,?ExAttackInit444560@@YIHPAUExAttack@@@Z

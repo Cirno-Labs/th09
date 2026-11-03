@@ -158,7 +158,7 @@ int InitExAttackType14(ExAttack *attack)
 // them; there its sprite stops and hides, and the disc bursts out to 64
 // over 30 frames as a hit circle, then its rings scatter by the time for
 // 30 more. Returns 1 once it is done (0x443df0).
-int ExAttackUpdate443df0(ExAttack *attack)
+int UpdateExAttackTypes14And22(ExAttack *attack)
 {
     ExAttackData14 *data = (ExAttackData14 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
