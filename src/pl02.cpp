@@ -40,7 +40,7 @@ int InitEffectType16(Effect *effect)
 // An update callback of the effect table: after 30 frames, grows
 // unknown84 by 0.001 up to 0.08; sets unknownC9 and puts the effect on
 // its side's player. Returns 1 (0x441d30).
-int EffectUpdate441d30(Effect *effect)
+int UpdateEffectType16(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknownAc >= 0x1e)

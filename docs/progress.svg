@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.54% (964)</tspan> · <tspan class="decompiled">11.40% (127)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.62% (965)</tspan> · <tspan class="decompiled">11.31% (126)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="646.42" height="6" x="0" y="0" class="named"/>
-<rect width="85.16" height="6" x="646.42" y="0" class="decompiled"/>
+<rect width="647.09" height="6" x="0" y="0" class="named"/>
+<rect width="84.49" height="6" x="647.09" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1048,7 +1048,7 @@
 <rect width="12" height="12" x="405" y="285" class="named"><title>0x00441be0 InitSpellCardTypes4And7 (75 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="285" class="named"><title>0x00441c30 InitSpellCardTypes5And8 (78 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="285" class="named"><title>0x00441c80 InitEffectType16 (165 bytes)</title></rect>
-<rect width="12" height="12" x="450" y="285" class="decompiled"><title>0x00441d30 EffectUpdate441d30 (110 bytes)</title></rect>
+<rect width="12" height="12" x="450" y="285" class="named"><title>0x00441d30 UpdateEffectType16 (110 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="285" class="decompiled"><title>0x00441da0 EffectDraw441da0 (327 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="285" class="decompiled"><title>0x00441ef0 ShotFire441ef0 (151 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="285" class="decompiled"><title>0x00441f90 ShotUpdate441f90 (643 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.59%</tspan> · <tspan class="decompiled">13.56%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.63%</tspan> · <tspan class="decompiled">13.53%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="534.81" height="6" x="0" y="0" class="named"/>
-<rect width="101.31" height="6" x="534.81" y="0" class="decompiled"/>
+<rect width="535.08" height="6" x="0" y="0" class="named"/>
+<rect width="101.03" height="6" x="535.08" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1712,7 +1712,7 @@
 <rect width="6.86" height="6.80" x="591.59" y="205.40" class="named"><title>0x00413460 SlowBulletStart (110 bytes)</title></rect>
 <rect width="6.86" height="6.80" x="591.59" y="215.21" class="named"><title>0x0041cf30 Player::AllocHitArea (110 bytes)</title></rect>
 <rect width="6.86" height="6.80" x="591.59" y="225.01" class="named"><title>0x0043d170 MidiPlayer::Rewind (110 bytes)</title></rect>
-<rect width="6.86" height="6.80" x="591.59" y="234.81" class="decompiled"><title>0x00441d30 EffectUpdate441d30 (110 bytes)</title></rect>
+<rect width="6.86" height="6.80" x="591.59" y="234.81" class="named"><title>0x00441d30 UpdateEffectType16 (110 bytes)</title></rect>
 <rect width="6.86" height="6.63" x="591.59" y="244.62" class="named"><title>0x00430230 App::CloseSubThread (108 bytes)</title></rect>
 <rect width="6.86" height="6.63" x="591.59" y="254.24" class="named"><title>0x00436cd0 Sprite::ResolveIntArgumentPtr (108 bytes)</title></rect>
 <rect width="6.86" height="6.54" x="591.59" y="263.87" class="named"><title>0x0043fb10 CSound::SetVolume (107 bytes)</title></rect>
