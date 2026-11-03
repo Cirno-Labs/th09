@@ -86,7 +86,7 @@ void BulletManager::ShowSpawnSprite(Sprite *dst, Sprite *src, BulletTypeSprites 
     }
 }
 
-void BulletManager::Unknown412590(int arg)
+void BulletManager::CancelBullets(int arg)
 {
 }
 

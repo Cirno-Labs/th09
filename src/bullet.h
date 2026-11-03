@@ -192,7 +192,7 @@ public:
     // Constructs the members and initializes (0x415050).
     BulletManager();
 
-    // Calls Unknown412590 with 1. Called by the ECL interpreter; the
+    // Calls CancelBullets with 1. Called by the ECL interpreter; the
     // copy is at 0x405650.
     void ClearBulletsForTransition();
     // Clears unknown25e198. Inline: OnUpdate reloads its registers after
@@ -211,7 +211,7 @@ public:
     // Clears the bullets for a new round (0x412470).
     void Reset();
     // Empty; called by the ECL interpreter (0x412590).
-    void Unknown412590(int arg);
+    void CancelBullets(int arg);
     // Empty; called by the ECL interpreter with the enemy's position and
     // an argument, where th08 turns bullets into items (0x4125a0).
     void Unknown4125a0(D3DXVECTOR3 *pos, float arg);

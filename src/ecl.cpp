@@ -11,7 +11,7 @@
 
 void BulletManager::ClearBulletsForTransition()
 {
-    this->Unknown412590(1);
+    this->CancelBullets(1);
 }
 
 int EclManager::Load(char *path)
@@ -2387,7 +2387,7 @@ loop:
         // 0x40b8fa
         case 162:
             // th08's g_BulletManager.ClearAll(4).
-            enemy->manager->side->bulletManager->Unknown412590(4);
+            enemy->manager->side->bulletManager->CancelBullets(4);
             break;
         // 0x40b91a
         case 165:
