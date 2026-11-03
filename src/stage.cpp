@@ -713,7 +713,7 @@ int Stage::DrawLayer(int layer)
                 goto next;
             }
             dotVal = D3DXVec3Dot(&centre, &g_App.cameras->dir);
-            range = D3DXVec3Length(&objData->size) / 2.0f + 960.0f;
+            range = D3DXVec3Length(&objData->size) / 2.0f + 1280.0f;
             if (dotVal > range || dotVal < 80.0f)
             {
                 goto next;
