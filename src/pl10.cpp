@@ -348,7 +348,7 @@ int UpdatePlayerShotType6(Player *player, PlayerBullet *bullet)
 
 // An update callback of the shot table (16): UpdatePlayerShotType6 turning
 // the other way. Returns 0 (0x449ce0).
-int ShotUpdate449ce0(Player *player, PlayerBullet *bullet)
+int UpdatePlayerShotType7(Player *player, PlayerBullet *bullet)
 {
     float angle;
     float speed;
