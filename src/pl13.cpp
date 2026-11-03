@@ -10,7 +10,7 @@
 // The combo func of character 13: while unknown34 reaches (28 -
 // unknownB4) * 5, sends an extra attack of type 21 from `pos` and
 // takes as much off it. Returns 0 (0x44ba80).
-int PlayerComboFunc44ba80(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
+int SendComboAttacksCharacter13(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
     while (combo->unknown34 >= (28 - g_GameManager.rank.unknownB4) * 5)
     {
