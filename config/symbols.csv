@@ -950,7 +950,7 @@ address,size,name,symbol
 0x00440c50,33,CStreamingSound::`scalar deleting destructor',??_GCStreamingSound@@UAEPAXI@Z
 0x00440c80,38,EnemyManager::SpawnPlayerEnemy,?SpawnPlayerEnemy@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HHHH@Z
 0x00440cb0,12,ExAttack::GetSide,?GetSide@ExAttack@@QAEPAUGameSide@@XZ
-0x00440cc0,24,SpellCardUpdate440cc0,?SpellCardUpdate440cc0@@YIHPAVSpellCard@@@Z
+0x00440cc0,24,IsSpellCardEnemyDefeated,?IsSpellCardEnemyDefeated@@YIHPAVSpellCard@@@Z
 0x00440ce0,79,EffectUpdate440ce0,?EffectUpdate440ce0@@YIHPAUEffect@@@Z
 0x00440d30,95,PlayerUnknown36c::AddCircle,?AddCircle@PlayerUnknown36c@@QAEXPAUD3DXVECTOR3@@MPAX@Z
 0x00440d90,81,ExAttack::AllocSprites,?AllocSprites@ExAttack@@QAEXHH@Z

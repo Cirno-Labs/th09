@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.38% (940)</tspan> · <tspan class="decompiled">13.55% (151)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.47% (941)</tspan> · <tspan class="decompiled">13.46% (150)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="630.32" height="6" x="0" y="0" class="named"/>
-<rect width="101.25" height="6" x="630.32" y="0" class="decompiled"/>
+<rect width="630.99" height="6" x="0" y="0" class="named"/>
+<rect width="100.58" height="6" x="630.99" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1019,7 +1019,7 @@
 <rect width="12" height="12" x="720" y="270" class="named"><title>0x00440c50 CStreamingSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="270" class="named"><title>0x00440c80 EnemyManager::SpawnPlayerEnemy (38 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="285" class="named"><title>0x00440cb0 ExAttack::GetSide (12 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="285" class="decompiled"><title>0x00440cc0 SpellCardUpdate440cc0 (24 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="285" class="named"><title>0x00440cc0 IsSpellCardEnemyDefeated (24 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="285" class="decompiled"><title>0x00440ce0 EffectUpdate440ce0 (79 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="285" class="named"><title>0x00440d30 PlayerUnknown36c::AddCircle (95 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="285" class="named"><title>0x00440d90 ExAttack::AllocSprites (81 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.49%</tspan> · <tspan class="decompiled">14.67%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.49%</tspan> · <tspan class="decompiled">14.66%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="526.53" height="6" x="0" y="0" class="named"/>
-<rect width="109.58" height="6" x="526.53" y="0" class="decompiled"/>
+<rect width="526.59" height="6" x="0" y="0" class="named"/>
+<rect width="109.52" height="6" x="526.59" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2119,7 +2119,7 @@
 <rect width="1.48" height="1.71" x="699.13" y="333.88" class="named"><title>0x00415d50 GuiSide::StartUnknownAbcc (24 bytes)</title></rect>
 <rect width="1.48" height="1.71" x="699.13" y="338.59" class="named"><title>0x0042ae50 Rng::GetRandomU32 (24 bytes)</title></rect>
 <rect width="1.48" height="1.71" x="699.13" y="343.29" class="named"><title>0x00433140 DatArchiveEntry::~DatArchiveEntry (24 bytes)</title></rect>
-<rect width="1.84" height="1.36" x="703.61" y="300.15" class="decompiled"><title>0x00440cc0 SpellCardUpdate440cc0 (24 bytes)</title></rect>
+<rect width="1.84" height="1.36" x="703.61" y="300.15" class="named"><title>0x00440cc0 IsSpellCardEnemyDefeated (24 bytes)</title></rect>
 <rect width="1.64" height="1.36" x="708.45" y="300.15" class="named"><title>0x00415c90 GuiMsg::Clear (23 bytes)</title></rect>
 <rect width="1.64" height="1.36" x="713.09" y="300.15" class="named"><title>0x0041bda0 PlayerHitArea::Reset (23 bytes)</title></rect>
 <rect width="1.64" height="1.36" x="717.73" y="300.15" class="named"><title>0x0041ee30 PlayerUnknown30410::PlayerUnknown30410 (23 bytes)</title></rect>
