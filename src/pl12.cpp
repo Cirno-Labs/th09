@@ -349,7 +349,7 @@ int InitExAttackType21(ExAttack *attack)
 // side within 32 of it once: a copy of type 0x16, faster by 1 for the
 // first set and 0.7 for the second. Returns 1 once its sprite has hidden
 // (0x44b500).
-int ExAttackUpdate44b500(ExAttack *attack)
+int UpdateExAttackType21(ExAttack *attack)
 {
     ExAttackData21 *data = (ExAttackData21 *)attack->data;
     // A rim point's texture offset, then a bullet's offset from the disc.
