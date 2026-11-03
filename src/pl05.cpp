@@ -10,7 +10,7 @@
 // An update callback of the effect table: grows unknown7c by 8 up to
 // 48, sets unknownC9 and puts the effect on its side's player. Returns
 // 1 (0x444eb0).
-int EffectUpdate444eb0(Effect *effect)
+int UpdateEffectType24(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknown7c < 48.0f)

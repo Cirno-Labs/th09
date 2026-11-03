@@ -1021,7 +1021,7 @@ address,size,name,symbol
 0x00444960,178,InitEffectType34,?InitEffectType34@@YIHPAUEffect@@@Z
 0x00444a20,208,UpdateEffectType34,?UpdateEffectType34@@YIHPAUEffect@@@Z
 0x00444af0,946,DrawEffectType34,?DrawEffectType34@@YIHPAUEffect@@@Z
-0x00444eb0,79,EffectUpdate444eb0,?EffectUpdate444eb0@@YIHPAUEffect@@@Z
+0x00444eb0,79,UpdateEffectType24,?UpdateEffectType24@@YIHPAUEffect@@@Z
 0x00444f00,322,ExAttackInit444f00,?ExAttackInit444f00@@YIHPAUExAttack@@@Z
 0x00445050,316,ExAttackInit445050,?ExAttackInit445050@@YIHPAUExAttack@@@Z
 0x00445190,407,ExAttackUpdate445190,?ExAttackUpdate445190@@YIHPAUExAttack@@@Z
