@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">96.86% (1079)</tspan> · <tspan class="decompiled">1.08% (12)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">96.95% (1080)</tspan> · <tspan class="decompiled">0.99% (11)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="723.53" height="6" x="0" y="0" class="named"/>
-<rect width="8.05" height="6" x="723.53" y="0" class="decompiled"/>
+<rect width="724.20" height="6" x="0" y="0" class="named"/>
+<rect width="7.38" height="6" x="724.20" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1170,7 +1170,7 @@
 <rect width="12" height="12" x="735" y="315" class="named"><title>0x0044ba80 SendComboAttacksCharacter13 (101 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="330" class="named"><title>0x0044baf0 DrawEffectType33 (314 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="330" class="named"><title>0x0044bc30 UpdateEffectType36 (79 bytes)</title></rect>
-<rect width="12" height="12" x="30" y="330" class="decompiled"><title>0x0044bc80 PlayerPosFunc44bc80 (71 bytes)</title></rect>
+<rect width="12" height="12" x="30" y="330" class="named"><title>0x0044bc80 CheckFocusAreaCharacter14 (71 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="330" class="decompiled"><title>0x0044bcd0 ExAttackInit44bcd0 (361 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="330" class="decompiled"><title>0x0044be40 ExAttackUpdate44be40 (475 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="330" class="decompiled"><title>0x0044c020 PlayerComboFunc44c020 (101 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.90%</tspan> · <tspan class="decompiled">1.25%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.93%</tspan> · <tspan class="decompiled">1.23%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="626.76" height="6" x="0" y="0" class="named"/>
-<rect width="9.35" height="6" x="626.76" y="0" class="decompiled"/>
+<rect width="626.94" height="6" x="0" y="0" class="named"/>
+<rect width="9.18" height="6" x="626.94" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1865,7 +1865,7 @@
 <rect width="4.96" height="4.84" x="636.25" y="270.62" class="named"><title>0x0042f4f0 App::TickTimer (71 bytes)</title></rect>
 <rect width="4.96" height="4.84" x="636.25" y="278.45" class="named"><title>0x00445580 CheckFocusAreaCharacter6 (71 bytes)</title></rect>
 <rect width="4.96" height="4.84" x="636.25" y="286.29" class="named"><title>0x00449b50 LineSide (71 bytes)</title></rect>
-<rect width="4.96" height="4.84" x="636.25" y="294.13" class="decompiled"><title>0x0044bc80 PlayerPosFunc44bc80 (71 bytes)</title></rect>
+<rect width="4.96" height="4.84" x="636.25" y="294.13" class="named"><title>0x0044bc80 CheckFocusAreaCharacter14 (71 bytes)</title></rect>
 <rect width="4.96" height="4.73" x="636.25" y="301.97" class="named"><title>0x0040c770 SendExAttack10 (70 bytes)</title></rect>
 <rect width="4.96" height="4.73" x="636.25" y="309.69" class="named"><title>0x00415650 FreeAttacks (70 bytes)</title></rect>
 <rect width="4.96" height="4.73" x="636.25" y="317.42" class="named"><title>0x0043d010 MidiDevice::SendLongMsg (70 bytes)</title></rect>
