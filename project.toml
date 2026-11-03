@@ -58,6 +58,6 @@ allow_diff = [
     "MainMenu::UpdateState8",
     "SoundPlayer::FindTrackIndex",
     "UpdatePlayerShotType1",
-    "EffectDraw448750",
+    "DrawEffectType29",
     "ExAttackUpdate44a330",
 ]

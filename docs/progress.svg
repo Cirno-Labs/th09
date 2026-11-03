@@ -1137,7 +1137,7 @@
 <rect width="12" height="12" x="240" y="315" class="named"><title>0x00448490 UpdateExAttackType17 (420 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="315" class="named"><title>0x00448640 SendComboAttacksCharacter9 (97 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="315" class="named"><title>0x004486b0 InitEffectType29 (152 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="315" class="nonmatching"><title>0x00448750 EffectDraw448750 (2220 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="315" class="nonmatching"><title>0x00448750 DrawEffectType29 (2220 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="315" class="decompiled"><title>0x00449000 EffectUpdate449000 (100 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="315" class="decompiled"><title>0x00449070 ExAttackInit449070 (358 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="315" class="decompiled"><title>0x004491e0 ExAttackUpdate4491e0 (1436 bytes)</title></rect>
@@ -1205,7 +1205,7 @@
 <rect width="45.23" height="40.39" x="79.06" y="263.47" class="named"><title>0x00418a90 GuiSide::OnUpdate (2381 bytes)</title></rect>
 <rect width="45.23" height="38.14" x="79.06" y="306.86" class="named"><title>0x00426e05 MainMenu::UpdateState12 (2258 bytes)</title></rect>
 <rect width="38.73" height="44.20" x="127.29" y="0" class="nonmatching"><title>0x004289db MainMenu::UpdateState8 (2241 bytes)</title></rect>
-<rect width="38.73" height="43.75" x="127.29" y="47.20" class="nonmatching"><title>0x00448750 EffectDraw448750 (2220 bytes)</title></rect>
+<rect width="38.73" height="43.75" x="127.29" y="47.20" class="nonmatching"><title>0x00448750 DrawEffectType29 (2220 bytes)</title></rect>
 <rect width="38.73" height="43.23" x="127.29" y="93.95" class="named"><title>0x004146f0 BulletManager::OnUpdate (2195 bytes)</title></rect>
 <rect width="38.73" height="42.34" x="127.29" y="140.18" class="named"><title>0x00425acb MainMenu::UpdateState8b (2153 bytes)</title></rect>
 <rect width="38.73" height="40.07" x="127.29" y="185.52" class="named"><title>0x004276eb MainMenu::UpdateState9 (2045 bytes)</title></rect>

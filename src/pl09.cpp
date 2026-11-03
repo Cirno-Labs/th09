@@ -163,7 +163,7 @@ int InitEffectType29(Effect *effect)
 // fan of unknown8c segments at radius unknown7c about the effect, and
 // six fans of half as many at radius 24 around it, a sixth of a turn
 // apart from unknown80. Returns 1 (0x448750).
-int EffectDraw448750(Effect *effect)
+int DrawEffectType29(Effect *effect)
 {
     float angle;
 
