@@ -284,7 +284,7 @@ ASSERT_SIZE(ExAttackData03, 0x190);
 // sprites, from scripts 9 to 13, flying on screen from where it is
 // towards the target's player at 3.5, with an attack of type 4 sent
 // along for the target's side. Returns 0 (0x442580).
-int ExAttackInit442580(ExAttack *attack)
+int InitExAttackType3(ExAttack *attack)
 {
     ExAttackData03 *data;
     D3DXVECTOR3 targetPos;
