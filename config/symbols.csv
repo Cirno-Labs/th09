@@ -1000,7 +1000,7 @@ address,size,name,symbol
 0x00443010,311,DrawEffectType17,?DrawEffectType17@@YIHPAUEffect@@@Z
 0x00443150,248,UpdatePlayerShotType3,?UpdatePlayerShotType3@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00443250,79,UpdateEffectType18,?UpdateEffectType18@@YIHPAUEffect@@@Z
-0x004432a0,86,ShotFire4432a0,?ShotFire4432a0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
+0x004432a0,86,FirePlayerShotType3,?FirePlayerShotType3@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00443300,293,ShotDraw443300,?ShotDraw443300@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00443430,8,ShotHit443430,?ShotHit443430@@YIHPAVPlayer@@PAUPlayerBullet@@PAUD3DXVECTOR3@@@Z
 0x00443440,403,ExAttackInit443440,?ExAttackInit443440@@YIHPAUExAttack@@@Z

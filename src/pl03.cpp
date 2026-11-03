@@ -24,7 +24,7 @@ int UpdateEffectType18(Effect *effect)
 // A fire callback of the shot table (3): fires `sd` on its frame, going
 // up at 24, and sets the player's unknown1cdc and unknown1ce0 to 0.5.
 // Returns 1 if it fired (0x4432a0).
-int ShotFire4432a0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+int FirePlayerShotType3(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
     if (frame == sd->frame)
     {
