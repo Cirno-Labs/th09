@@ -32,7 +32,7 @@ int UpdateEffectType10(Effect *effect)
 
 // The unknown30404 of characters 0, 3, 5, 12 and 13: whether `pos` is
 // within the radius of the player's unknown368 (0x440df0).
-int PlayerPosFunc440df0(Player *player, D3DXVECTOR3 *pos)
+int IsWithinCircularFocusArea(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
     float radius = player->unknown368->unknown7c;

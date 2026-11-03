@@ -954,7 +954,7 @@ address,size,name,symbol
 0x00440ce0,79,UpdateEffectType10,?UpdateEffectType10@@YIHPAUEffect@@@Z
 0x00440d30,95,PlayerUnknown36c::AddCircle,?AddCircle@PlayerUnknown36c@@QAEXPAUD3DXVECTOR3@@MPAX@Z
 0x00440d90,81,ExAttack::AllocSprites,?AllocSprites@ExAttack@@QAEXHH@Z
-0x00440df0,79,PlayerPosFunc440df0,?PlayerPosFunc440df0@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
+0x00440df0,79,IsWithinCircularFocusArea,?IsWithinCircularFocusArea@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00440e40,355,ExAttackInit440e40,?ExAttackInit440e40@@YIHPAUExAttack@@@Z
 0x00440fb0,326,ExAttackInit440fb0,?ExAttackInit440fb0@@YIHPAUExAttack@@@Z
 0x00441100,475,ExAttackUpdate441100,?ExAttackUpdate441100@@YIHPAUExAttack@@@Z
