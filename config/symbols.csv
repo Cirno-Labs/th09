@@ -1084,7 +1084,7 @@ address,size,name,symbol
 0x0044a030,763,InitExAttackType19,?InitExAttackType19@@YIHPAUExAttack@@@Z
 0x0044a330,821,UpdateExAttackType19,?UpdateExAttackType19@@YIHPAUExAttack@@@Z
 0x0044a670,101,SendComboAttacksCharacter11,?SendComboAttacksCharacter11@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
-0x0044a6e0,156,EffectInit44a6e0,?EffectInit44a6e0@@YIHPAUEffect@@@Z
+0x0044a6e0,156,InitEffectType31,?InitEffectType31@@YIHPAUEffect@@@Z
 0x0044a780,921,EffectDraw44a780,?EffectDraw44a780@@YIHPAUEffect@@@Z
 0x0044ab20,3,ReturnZero,?ReturnZero@@YIHPAUExAttack@@@Z ?CheckLifeCallback@Enemy@@QAEHXZ ?CheckTimerCallback@Enemy@@SIHXZ ?UpdateUnknown0Is2@Player@@SIHXZ
 0x0044ab30,88,EffectUpdate44ab30,?EffectUpdate44ab30@@YIHPAUEffect@@@Z
