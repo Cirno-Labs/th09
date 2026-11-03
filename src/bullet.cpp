@@ -204,7 +204,7 @@ void EnemyShooter::SetAccelCommand(int i, int concurrent, int frames, float arg0
     cmd->arg1 = arg1;
 }
 
-void EnemyShooter::SetCommand20000(int i, int concurrent, int frames)
+void EnemyShooter::SetWaitCommand(int i, int concurrent, int frames)
 {
     BulletCommand *cmd = this->SetCommand(i, concurrent, 0x20000);
 

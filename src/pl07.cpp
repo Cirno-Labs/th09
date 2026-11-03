@@ -162,7 +162,7 @@ int ExAttackUpdate446060(ExAttack *attack)
                 shooter.color = 6;
                 shooter.angle1 = data->heading;
                 shooter.speed1 = 0.0f;
-                shooter.SetCommand20000(0, 0, 0x50);
+                shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(1, 0, 120, g_GameManager.rank.unknownB4 * 0.00037878787f + 0.015833333f,
                                         -999.0f);
                 shooter.angle2 = 0.0f;
@@ -283,7 +283,7 @@ int ExAttackUpdate4464a0(ExAttack *attack)
                 shooter.color = 2;
                 shooter.angle1 = angle;
                 shooter.speed1 = 0.0f;
-                shooter.SetCommand20000(0, 0, 0x50);
+                shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(
                     1, 0, 120,
                     (g_GameManager.sides[1 - attack->targetSide].player->unknownA0 * 0.1f + 2.0f) * 0.008333334f,
@@ -405,7 +405,7 @@ int ExAttackUpdate446920(ExAttack *attack)
                 shooter.color = 2;
                 shooter.angle1 = angle;
                 shooter.speed1 = 0.0f;
-                shooter.SetCommand20000(0, 0, 0x50);
+                shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(
                     1, 0, 120,
                     (g_GameManager.sides[1 - attack->targetSide].player->unknownA0 * 0.1f + 2.0f) * 0.008333334f,
@@ -558,7 +558,7 @@ int ExAttackUpdate446ee0(ExAttack *attack)
                 shooter.color = 2;
                 shooter.angle1 = angle;
                 shooter.speed1 = 0.0f;
-                shooter.SetCommand20000(0, 0, 0x50);
+                shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(
                     1, 0, 120,
                     (g_GameManager.sides[1 - attack->targetSide].player->unknownA4 * 0.05f + 2.0f) * 0.008333334f,
@@ -637,7 +637,7 @@ int ExAttackUpdate4471b0(ExAttack *attack)
                 shooter.color = 2;
                 shooter.angle1 = data->heading;
                 shooter.speed1 = 0.0f;
-                shooter.SetCommand20000(0, 0, 0x50);
+                shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(
                     1, 0, 120,
                     (g_GameManager.sides[1 - attack->targetSide].player->unknownA4 * 0.05f + 2.0f) * 0.008333334f,

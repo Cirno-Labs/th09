@@ -232,7 +232,7 @@ struct EnemyShooter
     // Bullet::SetAccelCommand for the shooter (0x412730).
     void SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1);
     // Bullet::SetWaitCommand for the shooter (0x412760).
-    void SetCommand20000(int i, int concurrent, int frames);
+    void SetWaitCommand(int i, int concurrent, int frames);
 
     // The bullet type, and its color, as th08's BulletShooter.
     short sprite;
