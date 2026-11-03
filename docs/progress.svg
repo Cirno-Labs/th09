@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">94.79% (1056)</tspan> · <tspan class="decompiled">3.14% (35)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">94.88% (1057)</tspan> · <tspan class="decompiled">3.05% (34)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="708.11" height="6" x="0" y="0" class="named"/>
-<rect width="23.47" height="6" x="708.11" y="0" class="decompiled"/>
+<rect width="708.78" height="6" x="0" y="0" class="named"/>
+<rect width="22.80" height="6" x="708.78" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1144,7 +1144,7 @@
 <rect width="12" height="12" x="345" y="315" class="named"><title>0x00449780 SendComboAttacksCharacter10 (101 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="315" class="named"><title>0x004497f0 InitExAttackType24 (327 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="315" class="named"><title>0x00449940 InitEffectType30 (193 bytes)</title></rect>
-<rect width="12" height="12" x="390" y="315" class="decompiled"><title>0x00449a10 EffectDraw449a10 (311 bytes)</title></rect>
+<rect width="12" height="12" x="390" y="315" class="named"><title>0x00449a10 DrawEffectType30 (311 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="315" class="named"><title>0x00449b50 LineSide (71 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="315" class="decompiled"><title>0x00449ba0 EffectUpdate449ba0 (198 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="315" class="decompiled"><title>0x00449c70 ShotUpdate449c70 (98 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.31%</tspan> · <tspan class="decompiled">3.85%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.41%</tspan> · <tspan class="decompiled">3.74%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="607.37" height="6" x="0" y="0" class="named"/>
-<rect width="28.74" height="6" x="607.37" y="0" class="decompiled"/>
+<rect width="608.16" height="6" x="0" y="0" class="named"/>
+<rect width="27.96" height="6" x="608.16" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1450,7 +1450,7 @@
 <rect width="13.46" height="13.76" x="668.36" y="77.56" class="decompiled"><title>0x0044baf0 EffectDraw44baf0 (314 bytes)</title></rect>
 <rect width="13.36" height="13.76" x="684.83" y="77.56" class="named"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
 <rect width="13.31" height="13.76" x="701.18" y="77.56" class="named"><title>0x00443010 DrawEffectType17 (311 bytes)</title></rect>
-<rect width="13.31" height="13.76" x="717.49" y="77.56" class="decompiled"><title>0x00449a10 EffectDraw449a10 (311 bytes)</title></rect>
+<rect width="13.31" height="13.76" x="717.49" y="77.56" class="named"><title>0x00449a10 DrawEffectType30 (311 bytes)</title></rect>
 <rect width="13.20" height="13.76" x="733.80" y="77.56" class="named"><title>0x0041f350 FireShot (309 bytes)</title></rect>
 <rect width="13.32" height="13.59" x="486.52" y="94.32" class="named"><title>0x00444560 InitExAttackType22 (308 bytes)</title></rect>
 <rect width="13.32" height="13.54" x="486.52" y="110.91" class="named"><title>0x00403ae0 Stage::RegisterChain (307 bytes)</title></rect>

@@ -254,7 +254,7 @@ int InitEffectType30(Effect *effect)
 
 // The draw callback of effect type 30: DrawEffectType17's sector
 // (0x449a10).
-int EffectDraw449a10(Effect *effect)
+int DrawEffectType30(Effect *effect)
 {
     if (effect->unknownC9)
     {
