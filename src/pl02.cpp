@@ -126,7 +126,7 @@ int FirePlayerShotType1(Player *player, PlayerBullet *bullet, int frame, ShotDat
 // behind it, and adds a 4 by 448 box at every other trail point, as many
 // as unknown46a, while the player's unknown3031c timer runs; then frees
 // the bullet. Returns 1 once freed, otherwise 0 (0x441f90).
-int ShotUpdate441f90(Player *player, PlayerBullet *bullet)
+int UpdatePlayerShotType2(Player *player, PlayerBullet *bullet)
 {
     int i;
 

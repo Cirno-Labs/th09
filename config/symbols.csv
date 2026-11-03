@@ -982,7 +982,7 @@ address,size,name,symbol
 0x00441d30,110,UpdateEffectType16,?UpdateEffectType16@@YIHPAUEffect@@@Z
 0x00441da0,327,DrawEffectType16,?DrawEffectType16@@YIHPAUEffect@@@Z
 0x00441ef0,151,FirePlayerShotType1,?FirePlayerShotType1@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
-0x00441f90,643,ShotUpdate441f90,?ShotUpdate441f90@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
+0x00441f90,643,UpdatePlayerShotType2,?UpdatePlayerShotType2@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00442220,204,ShotDraw442220,?ShotDraw442220@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x004422f0,218,EffectUpdate4422f0,?EffectUpdate4422f0@@YIHPAUEffect@@@Z
 0x004423d0,68,ShotFire4423d0,?ShotFire4423d0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
