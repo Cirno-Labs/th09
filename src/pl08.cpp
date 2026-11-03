@@ -26,7 +26,7 @@ int UpdateEffectType28(Effect *effect)
 // of the player's unknown368 of a point sqrt(3)/2 radii from the player, at a
 // right angle to the effect's angle unknown80 and on the side away from
 // `pos` (0x447620).
-int PlayerPosFunc447620(Player *player, D3DXVECTOR3 *pos)
+int CheckFocusAreaCharacter8(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = *pos - player->pos;
     D3DXVECTOR3 center;
