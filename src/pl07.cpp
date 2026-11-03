@@ -83,7 +83,7 @@ ASSERT_SIZE(ExAttackData08, 0x5c);
 // the left or the right of the target's play area, at a random height,
 // heading across it within 30 degrees, turning by up to 3/4 degree a
 // frame. Returns 0 (0x445ec0).
-int ExAttackInit445ec0(ExAttack *attack)
+int InitExAttackType6(ExAttack *attack)
 {
     ExAttackData08 *data;
     float angle;
