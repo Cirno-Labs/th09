@@ -11,7 +11,7 @@
 // The init callback of effect type 16: EffectInit447c40's ring of
 // radius 16, with unknown84 at 0.01. Returns 0, or -1 if the allocation
 // fails (0x441c80).
-int EffectInit441c80(Effect *effect)
+int InitEffectType16(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)

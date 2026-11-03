@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.45% (963)</tspan> · <tspan class="decompiled">11.49% (128)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.54% (964)</tspan> · <tspan class="decompiled">11.40% (127)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="645.75" height="6" x="0" y="0" class="named"/>
-<rect width="85.83" height="6" x="645.75" y="0" class="decompiled"/>
+<rect width="646.42" height="6" x="0" y="0" class="named"/>
+<rect width="85.16" height="6" x="646.42" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1047,7 +1047,7 @@
 <rect width="12" height="12" x="390" y="285" class="named"><title>0x00441bc0 IsSpellCardDurationOver (23 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="285" class="named"><title>0x00441be0 InitSpellCardTypes4And7 (75 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="285" class="named"><title>0x00441c30 InitSpellCardTypes5And8 (78 bytes)</title></rect>
-<rect width="12" height="12" x="435" y="285" class="decompiled"><title>0x00441c80 EffectInit441c80 (165 bytes)</title></rect>
+<rect width="12" height="12" x="435" y="285" class="named"><title>0x00441c80 InitEffectType16 (165 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="285" class="decompiled"><title>0x00441d30 EffectUpdate441d30 (110 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="285" class="decompiled"><title>0x00441da0 EffectDraw441da0 (327 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="285" class="decompiled"><title>0x00441ef0 ShotFire441ef0 (151 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.54%</tspan> · <tspan class="decompiled">13.62%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.59%</tspan> · <tspan class="decompiled">13.56%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="534.39" height="6" x="0" y="0" class="named"/>
-<rect width="101.72" height="6" x="534.39" y="0" class="decompiled"/>
+<rect width="534.81" height="6" x="0" y="0" class="named"/>
+<rect width="101.31" height="6" x="534.81" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1612,7 +1612,7 @@
 <rect width="8.82" height="9.35" x="714.70" y="150.15" class="named"><title>0x0041eb10 Player::OnDraw (166 bytes)</title></rect>
 <rect width="8.74" height="9.35" x="726.51" y="150.15" class="named"><title>0x00432840 Network::CreateDeviceAddress (165 bytes)</title></rect>
 <rect width="8.74" height="9.35" x="738.26" y="150.15" class="named"><title>0x00439730 SpriteEngine::AddQuadToBatch (165 bytes)</title></rect>
-<rect width="9.17" height="8.92" x="557.39" y="162.49" class="decompiled"><title>0x00441c80 EffectInit441c80 (165 bytes)</title></rect>
+<rect width="9.17" height="8.92" x="557.39" y="162.49" class="named"><title>0x00441c80 InitEffectType16 (165 bytes)</title></rect>
 <rect width="9.17" height="8.85" x="557.39" y="174.41" class="named"><title>0x0041f760 Player::DrawHitBullets (164 bytes)</title></rect>
 <rect width="9.17" height="8.85" x="557.39" y="186.26" class="named"><title>0x00432410 LogNetworkError (164 bytes)</title></rect>
 <rect width="9.17" height="8.77" x="557.39" y="198.11" class="named"><title>0x004225b0 ScreenEffect::OnUpdateFlash (163 bytes)</title></rect>
