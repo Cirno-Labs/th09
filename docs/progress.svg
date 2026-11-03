@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.89% (968)</tspan> · <tspan class="decompiled">11.04% (123)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.98% (969)</tspan> · <tspan class="decompiled">10.95% (122)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="649.10" height="6" x="0" y="0" class="named"/>
-<rect width="82.48" height="6" x="649.10" y="0" class="decompiled"/>
+<rect width="649.77" height="6" x="0" y="0" class="named"/>
+<rect width="81.81" height="6" x="649.77" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1052,7 +1052,7 @@
 <rect width="12" height="12" x="465" y="285" class="named"><title>0x00441da0 DrawEffectType16 (327 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="285" class="named"><title>0x00441ef0 FirePlayerShotType1 (151 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="285" class="named"><title>0x00441f90 UpdatePlayerShotType2 (643 bytes)</title></rect>
-<rect width="12" height="12" x="510" y="285" class="decompiled"><title>0x00442220 ShotDraw442220 (204 bytes)</title></rect>
+<rect width="12" height="12" x="510" y="285" class="named"><title>0x00442220 DrawPlayerShotType1 (204 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="285" class="decompiled"><title>0x004422f0 EffectUpdate4422f0 (218 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="285" class="decompiled"><title>0x004423d0 ShotFire4423d0 (68 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="285" class="named"><title>0x00442420 GameManager::ScreenToArenaX (46 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.01%</tspan> · <tspan class="decompiled">13.15%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.08%</tspan> · <tspan class="decompiled">13.08%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="537.90" height="6" x="0" y="0" class="named"/>
-<rect width="98.21" height="6" x="537.90" y="0" class="decompiled"/>
+<rect width="538.42" height="6" x="0" y="0" class="named"/>
+<rect width="97.70" height="6" x="538.42" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1545,7 +1545,7 @@
 <rect width="10.64" height="10.33" x="669.19" y="123.85" class="named"><title>0x0042fc20 App::LoadBgm (207 bytes)</title></rect>
 <rect width="10.51" height="10.33" x="682.84" y="123.85" class="named"><title>0x0040f8e0 PlayerUnknown36c::Add (205 bytes)</title></rect>
 <rect width="10.45" height="10.33" x="696.35" y="123.85" class="named"><title>0x0041e350 Player::CheckGraze (204 bytes)</title></rect>
-<rect width="10.45" height="10.33" x="709.79" y="123.85" class="decompiled"><title>0x00442220 ShotDraw442220 (204 bytes)</title></rect>
+<rect width="10.45" height="10.33" x="709.79" y="123.85" class="named"><title>0x00442220 DrawPlayerShotType1 (204 bytes)</title></rect>
 <rect width="10.38" height="10.33" x="723.24" y="123.85" class="named"><title>0x004130f0 BulletManager::FirePattern (203 bytes)</title></rect>
 <rect width="10.38" height="10.33" x="736.62" y="123.85" class="named"><title>0x004131c0 BulletManager::FirePattern2 (203 bytes)</title></rect>
 <rect width="10.25" height="10.46" x="531.31" y="137.18" class="named"><title>0x00436e30 Sprite::ResolveFloatArgument (203 bytes)</title></rect>

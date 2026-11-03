@@ -163,7 +163,7 @@ int UpdatePlayerShotType2(Player *player, PlayerBullet *bullet)
 // A draw callback of the shot table (18): draws the bullet's sprite at
 // each point of its trail up to the first unused one, twice
 // unknown46a of them, fading out along it. Returns 0 (0x442220).
-int ShotDraw442220(Player *player, PlayerBullet *bullet)
+int DrawPlayerShotType1(Player *player, PlayerBullet *bullet)
 {
     int alpha = bullet->sprite.alpha;
     int i;
