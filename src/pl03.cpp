@@ -131,7 +131,7 @@ int InitExAttackType13(ExAttack *attack)
 // frames, sits there as a hit circle shedding particles until it touches
 // the player there or 300 frames pass. Returns 1 once it is done
 // (0x4435e0).
-int ExAttackUpdate4435e0(ExAttack *attack)
+int UpdateExAttackType13(ExAttack *attack)
 {
     ExAttackData00 *data = (ExAttackData00 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
