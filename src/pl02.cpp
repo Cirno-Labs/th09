@@ -555,7 +555,7 @@ int InitEffectType17(Effect *effect)
 // The draw callback of effect type 17: a fan of unknown8c - 1 triangles
 // about the effect, unknown7c in radius, over unknown84 radians centred
 // on unknown80, if unknownC9 is set. Returns 1 (0x443010).
-int EffectDraw443010(Effect *effect)
+int DrawEffectType17(Effect *effect)
 {
     if (effect->unknownC9)
     {

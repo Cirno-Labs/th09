@@ -997,7 +997,7 @@ address,size,name,symbol
 0x00442ec0,32,FreeExAttackType4,?FreeExAttackType4@@YIHPAUExAttack@@@Z
 0x00442ee0,97,SendComboAttacksCharacter2,?SendComboAttacksCharacter2@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00442f50,187,InitEffectType17,?InitEffectType17@@YIHPAUEffect@@@Z
-0x00443010,311,EffectDraw443010,?EffectDraw443010@@YIHPAUEffect@@@Z
+0x00443010,311,DrawEffectType17,?DrawEffectType17@@YIHPAUEffect@@@Z
 0x00443150,248,ShotUpdate443150,?ShotUpdate443150@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00443250,79,EffectUpdate443250,?EffectUpdate443250@@YIHPAUEffect@@@Z
 0x004432a0,86,ShotFire4432a0,?ShotFire4432a0@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z

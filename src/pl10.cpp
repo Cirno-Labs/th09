@@ -252,7 +252,7 @@ int EffectInit449940(Effect *effect)
     return 0;
 }
 
-// The draw callback of effect type 30: EffectDraw443010's sector
+// The draw callback of effect type 30: DrawEffectType17's sector
 // (0x449a10).
 int EffectDraw449a10(Effect *effect)
 {

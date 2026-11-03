@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.97% (980)</tspan> · <tspan class="decompiled">9.96% (111)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">88.06% (981)</tspan> · <tspan class="decompiled">9.87% (110)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="657.15" height="6" x="0" y="0" class="named"/>
-<rect width="74.43" height="6" x="657.15" y="0" class="decompiled"/>
+<rect width="657.82" height="6" x="0" y="0" class="named"/>
+<rect width="73.76" height="6" x="657.82" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1066,7 +1066,7 @@
 <rect width="12" height="12" x="675" y="285" class="named"><title>0x00442ec0 FreeExAttackType4 (32 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="285" class="named"><title>0x00442ee0 SendComboAttacksCharacter2 (97 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="285" class="named"><title>0x00442f50 InitEffectType17 (187 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="285" class="decompiled"><title>0x00443010 EffectDraw443010 (311 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="285" class="named"><title>0x00443010 DrawEffectType17 (311 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="285" class="decompiled"><title>0x00443150 ShotUpdate443150 (248 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="300" class="decompiled"><title>0x00443250 EffectUpdate443250 (79 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="300" class="decompiled"><title>0x004432a0 ShotFire4432a0 (86 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.14%</tspan> · <tspan class="decompiled">12.01%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">73.25%</tspan> · <tspan class="decompiled">11.91%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="546.39" height="6" x="0" y="0" class="named"/>
-<rect width="89.72" height="6" x="546.39" y="0" class="decompiled"/>
+<rect width="547.17" height="6" x="0" y="0" class="named"/>
+<rect width="88.94" height="6" x="547.17" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1449,7 +1449,7 @@
 <rect width="13.46" height="13.76" x="651.90" y="77.56" class="decompiled"><title>0x0044b090 EffectDraw44b090 (314 bytes)</title></rect>
 <rect width="13.46" height="13.76" x="668.36" y="77.56" class="decompiled"><title>0x0044baf0 EffectDraw44baf0 (314 bytes)</title></rect>
 <rect width="13.36" height="13.76" x="684.83" y="77.56" class="named"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
-<rect width="13.31" height="13.76" x="701.18" y="77.56" class="decompiled"><title>0x00443010 EffectDraw443010 (311 bytes)</title></rect>
+<rect width="13.31" height="13.76" x="701.18" y="77.56" class="named"><title>0x00443010 DrawEffectType17 (311 bytes)</title></rect>
 <rect width="13.31" height="13.76" x="717.49" y="77.56" class="decompiled"><title>0x00449a10 EffectDraw449a10 (311 bytes)</title></rect>
 <rect width="13.20" height="13.76" x="733.80" y="77.56" class="named"><title>0x0041f350 FireShot (309 bytes)</title></rect>
 <rect width="13.32" height="13.59" x="486.52" y="94.32" class="decompiled"><title>0x00444560 ExAttackInit444560 (308 bytes)</title></rect>
