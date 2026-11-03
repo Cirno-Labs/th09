@@ -400,7 +400,7 @@ int InitExAttackType22(ExAttack *attack)
 // An update callback of the shot table (14): while unknown470 is 1,
 // stops the bullet, and frees it once it is 90 frames old. Sets
 // unknown472. Returns 0 (0x4446a0).
-int ShotUpdate4446a0(Player *player, PlayerBullet *bullet)
+int UpdatePlayerShotType5(Player *player, PlayerBullet *bullet)
 {
     if (bullet->unknown470 == 1)
     {
