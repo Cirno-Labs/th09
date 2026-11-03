@@ -10,7 +10,7 @@
 // The update callback of effect type 28: grows unknown7c by 8 up to 320,
 // sets unknownC9, puts the effect on its side's player and clears
 // unknown80. Returns 1 (0x4475c0).
-int EffectUpdate4475c0(Effect *effect)
+int UpdateEffectType28(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknown7c < 320.0f)
