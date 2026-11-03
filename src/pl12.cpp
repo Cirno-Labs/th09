@@ -180,7 +180,7 @@ int SendComboAttacksCharacter12(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // vertices and sets the effect up as a ring of 32 segments, radius 640,
 // around its position, from the angle in velocity.x, as wide as
 // velocity.z. Returns 0, or -1 if the allocation fails (0x44aff0).
-int EffectInit44aff0(Effect *effect)
+int InitEffectType32(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)
