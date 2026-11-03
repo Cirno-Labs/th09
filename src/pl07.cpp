@@ -485,7 +485,7 @@ int InitExAttackType8(ExAttack *attack)
 // The init callback of extra attack types 11 and 12: type 9's, heading
 // at the angle AddAttack passed as pos.z, which it clears, and landing
 // where it is on the target's side (0x446d80).
-int ExAttackInit446d80(ExAttack *attack)
+int InitExAttackTypes11And12(ExAttack *attack)
 {
     ExAttackData08 *data;
 
