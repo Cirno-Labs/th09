@@ -138,7 +138,7 @@ int InitSpellCardTypes3And6(SpellCard *card)
 
 // The update callback of spell card types 0, 1, 3, 4, 6 and 7: whether
 // unknown98 passed 192 frames (0x441bc0).
-int SpellCardUpdate441bc0(SpellCard *card)
+int IsSpellCardDurationOver(SpellCard *card)
 {
     if (card->unknown98 > 0xc0)
     {

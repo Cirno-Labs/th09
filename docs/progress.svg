@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.18% (960)</tspan> · <tspan class="decompiled">11.76% (131)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.27% (961)</tspan> · <tspan class="decompiled">11.67% (130)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="643.73" height="6" x="0" y="0" class="named"/>
-<rect width="87.84" height="6" x="643.73" y="0" class="decompiled"/>
+<rect width="644.40" height="6" x="0" y="0" class="named"/>
+<rect width="87.17" height="6" x="644.40" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1044,7 +1044,7 @@
 <rect width="12" height="12" x="345" y="285" class="named"><title>0x00441a70 UpdateExAttackType2 (137 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="285" class="named"><title>0x00441b00 SendComboAttacksCharacter1 (100 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="285" class="named"><title>0x00441b70 InitSpellCardTypes3And6 (75 bytes)</title></rect>
-<rect width="12" height="12" x="390" y="285" class="decompiled"><title>0x00441bc0 SpellCardUpdate441bc0 (23 bytes)</title></rect>
+<rect width="12" height="12" x="390" y="285" class="named"><title>0x00441bc0 IsSpellCardDurationOver (23 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="285" class="decompiled"><title>0x00441be0 SpellCardInit441be0 (75 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="285" class="decompiled"><title>0x00441c30 SpellCardInit441c30 (78 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="285" class="decompiled"><title>0x00441c80 EffectInit441c80 (165 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.48%</tspan> · <tspan class="decompiled">13.68%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.49%</tspan> · <tspan class="decompiled">13.67%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="533.95" height="6" x="0" y="0" class="named"/>
-<rect width="102.17" height="6" x="533.95" y="0" class="decompiled"/>
+<rect width="534.01" height="6" x="0" y="0" class="named"/>
+<rect width="102.11" height="6" x="534.01" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2127,7 +2127,7 @@
 <rect width="1.64" height="1.36" x="727.01" y="300.15" class="named"><title>0x00422f00 MusicTune::MusicTune (23 bytes)</title></rect>
 <rect width="1.64" height="1.36" x="731.64" y="300.15" class="named"><title>0x0043e4e0 SoundPlayer::FadeOutBgm (23 bytes)</title></rect>
 <rect width="1.64" height="1.36" x="736.28" y="300.15" class="named"><title>0x0043f7a0 CSoundManager::~CSoundManager (23 bytes)</title></rect>
-<rect width="1.64" height="1.36" x="740.92" y="300.15" class="decompiled"><title>0x00441bc0 SpellCardUpdate441bc0 (23 bytes)</title></rect>
+<rect width="1.64" height="1.36" x="740.92" y="300.15" class="named"><title>0x00441bc0 IsSpellCardDurationOver (23 bytes)</title></rect>
 <rect width="1.44" height="1.36" x="745.56" y="300.15" class="named"><title>0x00433960 File::~File (22 bytes)</title></rect>
 <rect width="1.22" height="1.37" x="703.61" y="304.51" class="named"><title>0x004012e0 D3DXVec3Dot (21 bytes)</title></rect>
 <rect width="1.22" height="1.37" x="703.61" y="308.88" class="named"><title>0x004065e0 Timer::Sub (21 bytes)</title></rect>
