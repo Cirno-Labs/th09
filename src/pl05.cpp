@@ -115,7 +115,7 @@ int InitExAttackType10(ExAttack *attack)
 // 12 frames, falls as a hit box, its fall capped at 4.5, until it
 // touches the player there or leaves the bottom. Returns 1 once it is
 // done (0x445190).
-int ExAttackUpdate445190(ExAttack *attack)
+int UpdateExAttackTypes5And10(ExAttack *attack)
 {
     ExAttackData05 *data = (ExAttackData05 *)attack->data;
     D3DXVECTOR3 size(6.0f, 32.0f, 0.0f);
