@@ -48,7 +48,7 @@ struct Effect
     float unknown98;
     float unknown9c;
     float unknownA0;
-    // EffectUpdate40d9e0 spawns enemy subroutine unknownA4 on the side
+    // UpdateEffectTypes3And4 spawns enemy subroutine unknownA4 on the side
     // other than unknownA8.
     short unknownA4;
     short unknownA6;
@@ -234,7 +234,7 @@ int InitEffectTypes3And4(Effect *effect);
 // Hermite curve for unknown9c, then spawns enemy subroutine unknownA4
 // at its velocity on the other side, aimed near the player there or
 // straight down. Returns 1 while moving, else 0 (0x40d9e0).
-int EffectUpdate40d9e0(Effect *effect);
+int UpdateEffectTypes3And4(Effect *effect);
 
 // An update callback of the effect table: while unknown98 is set, waits
 // it out and plays sound 0x2e; else moves the effect along a Hermite
