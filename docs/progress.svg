@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">89.50% (997)</tspan> · <tspan class="decompiled">8.44% (94)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">89.59% (998)</tspan> · <tspan class="decompiled">8.35% (93)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="668.54" height="6" x="0" y="0" class="named"/>
-<rect width="63.03" height="6" x="668.54" y="0" class="decompiled"/>
+<rect width="669.22" height="6" x="0" y="0" class="named"/>
+<rect width="62.36" height="6" x="669.22" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1083,7 +1083,7 @@
 <rect width="12" height="12" x="180" y="300" class="named"><title>0x00443c70 InitExAttackType14 (371 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="300" class="named"><title>0x00443df0 UpdateExAttackTypes14And22 (808 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="300" class="named"><title>0x00444130 DrawExAttackTypes14And22 (959 bytes)</title></rect>
-<rect width="12" height="12" x="225" y="300" class="decompiled"><title>0x004444f0 PlayerComboFunc4444f0 (101 bytes)</title></rect>
+<rect width="12" height="12" x="225" y="300" class="named"><title>0x004444f0 SendComboAttacksCharacter4 (101 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="300" class="decompiled"><title>0x00444560 ExAttackInit444560 (308 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="300" class="decompiled"><title>0x004446a0 ShotUpdate4446a0 (86 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="300" class="decompiled"><title>0x00444700 EffectDraw444700 (602 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.89%</tspan> · <tspan class="decompiled">10.26%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.93%</tspan> · <tspan class="decompiled">10.23%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="559.44" height="6" x="0" y="0" class="named"/>
-<rect width="76.67" height="6" x="559.44" y="0" class="decompiled"/>
+<rect width="559.70" height="6" x="0" y="0" class="named"/>
+<rect width="76.42" height="6" x="559.70" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1732,7 +1732,7 @@
 <rect width="6.28" height="6.56" x="647.97" y="195.51" class="named"><title>0x0042f420 SpriteEngine::SetPendingSurfaceCopy (101 bytes)</title></rect>
 <rect width="6.28" height="6.56" x="657.25" y="195.51" class="named"><title>0x00436450 GdiSurface::Create (101 bytes)</title></rect>
 <rect width="6.28" height="6.56" x="666.53" y="195.51" class="named"><title>0x004412e0 SendComboAttacksCharacter0 (101 bytes)</title></rect>
-<rect width="6.28" height="6.56" x="675.82" y="195.51" class="decompiled"><title>0x004444f0 PlayerComboFunc4444f0 (101 bytes)</title></rect>
+<rect width="6.28" height="6.56" x="675.82" y="195.51" class="named"><title>0x004444f0 SendComboAttacksCharacter4 (101 bytes)</title></rect>
 <rect width="6.28" height="6.56" x="685.10" y="195.51" class="decompiled"><title>0x00445930 PlayerComboFunc445930 (101 bytes)</title></rect>
 <rect width="6.28" height="6.56" x="694.39" y="195.51" class="decompiled"><title>0x00449780 PlayerComboFunc449780 (101 bytes)</title></rect>
 <rect width="6.28" height="6.56" x="703.67" y="195.51" class="decompiled"><title>0x0044a670 PlayerComboFunc44a670 (101 bytes)</title></rect>
