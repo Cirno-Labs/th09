@@ -436,7 +436,7 @@ int InitExAttackType4(ExAttack *attack)
 // until the parent's trail point 24 leaves the screen. Once the parent
 // is gone or has hit, its sprites are interrupted and it ends 15 frames
 // later. Returns 1 once it is done (0x442bd0).
-int ExAttackUpdate442bd0(ExAttack *attack)
+int UpdateExAttackType4(ExAttack *attack)
 {
     ExAttackData03 *data = (ExAttackData03 *)attack->data;
     int i;
