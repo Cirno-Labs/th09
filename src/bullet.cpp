@@ -90,7 +90,7 @@ void BulletManager::CancelBullets(int arg)
 {
 }
 
-void BulletManager::Unknown4125a0(D3DXVECTOR3 *pos, float arg)
+void BulletManager::CancelBulletsInRadius(D3DXVECTOR3 *pos, float arg)
 {
 }
 

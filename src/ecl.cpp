@@ -2382,7 +2382,7 @@ loop:
         // 0x40b8b8
         case 161:
             // th08's g_BulletManager.ConvertBulletsToItems.
-            enemy->manager->side->bulletManager->Unknown4125a0(&enemy->absPos, FLOAT_ARG(0));
+            enemy->manager->side->bulletManager->CancelBulletsInRadius(&enemy->absPos, FLOAT_ARG(0));
             break;
         // 0x40b8fa
         case 162:

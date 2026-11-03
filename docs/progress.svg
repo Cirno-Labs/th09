@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.11% (937)</tspan> · <tspan class="decompiled">13.82% (154)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">84.20% (938)</tspan> · <tspan class="decompiled">13.73% (153)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="628.31" height="6" x="0" y="0" class="named"/>
-<rect width="103.27" height="6" x="628.31" y="0" class="decompiled"/>
+<rect width="628.98" height="6" x="0" y="0" class="named"/>
+<rect width="102.60" height="6" x="628.98" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -309,7 +309,7 @@
 <rect width="12" height="12" x="570" y="60" class="named"><title>0x004124d0 CopyBulletSprite (16 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="60" class="named"><title>0x004124e0 BulletManager::ShowSpawnSprite (161 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="60" class="named"><title>0x00412590 BulletManager::CancelBullets (3 bytes)</title></rect>
-<rect width="12" height="12" x="615" y="60" class="decompiled"><title>0x004125a0 BulletManager::Unknown4125a0 (3 bytes)</title></rect>
+<rect width="12" height="12" x="615" y="60" class="named"><title>0x004125a0 BulletManager::CancelBulletsInRadius (3 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="60" class="named"><title>0x004125b0 D3DXVECTOR3::operator-= (36 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="60" class="named"><title>0x004125e0 BulletManager::LoadAnm (24 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="60" class="named"><title>0x00412600 BulletManager::ReleaseAnm (14 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.46%</tspan> · <tspan class="decompiled">14.69%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.47%</tspan> · <tspan class="decompiled">14.69%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="526.37" height="6" x="0" y="0" class="named"/>
-<rect width="109.75" height="6" x="526.37" y="0" class="decompiled"/>
+<rect width="526.38" height="6" x="0" y="0" class="named"/>
+<rect width="109.74" height="6" x="526.38" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2302,7 +2302,7 @@
 <rect width="0.10" height="0.10" x="744.86" y="343.90" class="named"><title>0x0043e430 CSound::GetWaveFile (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="744.86" y="345.95" class="named"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.57" y="343.90" class="named"><title>0x00412590 BulletManager::CancelBullets (3 bytes)</title></rect>
-<rect width="0.10" height="0.10" x="748.29" y="343.90" class="decompiled"><title>0x004125a0 BulletManager::Unknown4125a0 (3 bytes)</title></rect>
+<rect width="0.10" height="0.10" x="748.29" y="343.90" class="named"><title>0x004125a0 BulletManager::CancelBulletsInRadius (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.57" y="345.44" class="named"><title>0x004343d0 D3DXVECTOR3::D3DXVECTOR3 (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="746.57" y="346.72" class="named"><title>0x00435ec0 GdiSurface::GetFormat (3 bytes)</title></rect>
 <rect width="0.10" height="0.10" x="748.63" y="345.44" class="named"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>
