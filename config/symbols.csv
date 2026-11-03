@@ -1081,7 +1081,7 @@ address,size,name,symbol
 0x00449c70,98,UpdatePlayerShotType6,?UpdatePlayerShotType6@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00449ce0,98,UpdatePlayerShotType7,?UpdatePlayerShotType7@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00449d50,732,CheckFocusAreaCharacter11,?CheckFocusAreaCharacter11@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
-0x0044a030,763,ExAttackInit44a030,?ExAttackInit44a030@@YIHPAUExAttack@@@Z
+0x0044a030,763,InitExAttackType19,?InitExAttackType19@@YIHPAUExAttack@@@Z
 0x0044a330,821,ExAttackUpdate44a330,?ExAttackUpdate44a330@@YIHPAUExAttack@@@Z
 0x0044a670,101,PlayerComboFunc44a670,?PlayerComboFunc44a670@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044a6e0,156,EffectInit44a6e0,?EffectInit44a6e0@@YIHPAUEffect@@@Z

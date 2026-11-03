@@ -11,7 +11,7 @@
 // curve to a random spot on the lower half of the other side, and the
 // disc there, 80 in radius give or take 8, each rim point with its own
 // speed. Returns 0 (0x44a030).
-int ExAttackInit44a030(ExAttack *attack)
+int InitExAttackType19(ExAttack *attack)
 {
     ExAttackData19 *data;
     VertexTex1DiffuseXyzrwh *vtx;
