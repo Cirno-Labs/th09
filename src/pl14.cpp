@@ -74,7 +74,7 @@ int InitExAttackType25(ExAttack *attack)
 // for 90 frames, then appears on the target's side and, after 20
 // frames, fires a turning bullet down every 3 frames until it is 60
 // frames there. Returns 1 once it is done (0x44be40).
-int ExAttackUpdate44be40(ExAttack *attack)
+int UpdateExAttackType25(ExAttack *attack)
 {
     ExAttackData00 *data = (ExAttackData00 *)attack->data;
 
