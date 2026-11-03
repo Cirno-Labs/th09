@@ -270,7 +270,7 @@ ASSERT_SIZE(ExAttackData21, 0x68c);
 // The init callback of extra attack type 21: type 19's disc, at a
 // random spot 128 to 256 down the other side, without a scrolling
 // texture. Returns 0 (0x44b220).
-int ExAttackInit44b220(ExAttack *attack)
+int InitExAttackType21(ExAttack *attack)
 {
     ExAttackData21 *data;
     VertexTex1DiffuseXyzrwh *vtx;
