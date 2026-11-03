@@ -210,7 +210,7 @@ int FreePrimarySpellCardData(SpellCard *card)
     return 0;
 }
 
-int SpellCardInit4413d0(SpellCard *card)
+int InitSpellCardType1(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
