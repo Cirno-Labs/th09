@@ -1040,7 +1040,7 @@ address,size,name,symbol
 0x00445c80,38,UpdateEffectType35,?UpdateEffectType35@@YIHPAUEffect@@@Z
 0x00445cb0,72,FirePlayerShotType5,?FirePlayerShotType5@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00445d00,119,FirePlayerShotType6,?FirePlayerShotType6@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
-0x00445d80,119,PlayerComboFunc445d80,?PlayerComboFunc445d80@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
+0x00445d80,119,SendComboAttacksCharacter7,?SendComboAttacksCharacter7@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00445e00,96,EffectUpdate445e00,?EffectUpdate445e00@@YIHPAUEffect@@@Z
 0x00445e60,91,PlayerPosFunc445e60,?PlayerPosFunc445e60@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00445ec0,407,ExAttackInit445ec0,?ExAttackInit445ec0@@YIHPAUExAttack@@@Z
