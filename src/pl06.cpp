@@ -25,7 +25,7 @@ int UpdateEffectType27(Effect *effect)
 
 // A fire callback of the shot table (4): on the frame of `sd`, starts
 // effect 0x23 at the player in reserved slot 5. Returns 0 (0x445530).
-int ShotFire445530(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+int FirePlayerShotType4(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
     if (frame == sd->frame)
     {
