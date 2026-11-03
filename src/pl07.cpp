@@ -248,7 +248,7 @@ int InitExAttackType7(ExAttack *attack)
 // The update callback of extra attack type 7: type 8's, firing each
 // ring twice, the second mirrored, of bullet type 0 aimed with mode 3.
 // Returns 1 once it is done (0x4464a0).
-int ExAttackUpdate4464a0(ExAttack *attack)
+int UpdateExAttackType7(ExAttack *attack)
 {
     ExAttackData08 *data = (ExAttackData08 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">92.28% (1028)</tspan> · <tspan class="decompiled">5.66% (63)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">92.37% (1029)</tspan> · <tspan class="decompiled">5.57% (62)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="689.33" height="6" x="0" y="0" class="named"/>
-<rect width="42.25" height="6" x="689.33" y="0" class="decompiled"/>
+<rect width="690" height="6" x="0" y="0" class="named"/>
+<rect width="41.57" height="6" x="690" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1115,7 +1115,7 @@
 <rect width="12" height="12" x="660" y="300" class="named"><title>0x00445ec0 InitExAttackType6 (407 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="300" class="named"><title>0x00446060 UpdateExAttackType6 (698 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="300" class="named"><title>0x00446320 InitExAttackType7 (379 bytes)</title></rect>
-<rect width="12" height="12" x="705" y="300" class="decompiled"><title>0x004464a0 ExAttackUpdate4464a0 (799 bytes)</title></rect>
+<rect width="12" height="12" x="705" y="300" class="named"><title>0x004464a0 UpdateExAttackType7 (799 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="300" class="decompiled"><title>0x004467c0 ExAttackInit4467c0 (352 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="300" class="decompiled"><title>0x00446920 ExAttackUpdate446920 (748 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="315" class="decompiled"><title>0x00446c10 ExAttackInit446c10 (356 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.53%</tspan> · <tspan class="decompiled">7.63%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">77.80%</tspan> · <tspan class="decompiled">7.36%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="579.15" height="6" x="0" y="0" class="named"/>
-<rect width="56.96" height="6" x="579.15" y="0" class="decompiled"/>
+<rect width="581.16" height="6" x="0" y="0" class="named"/>
+<rect width="54.95" height="6" x="581.16" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1273,7 +1273,7 @@
 <rect width="22.87" height="24.17" x="336.01" y="82.37" class="named"><title>0x0040e580 Ending::AddedCallback (800 bytes)</title></rect>
 <rect width="22.87" height="24.17" x="336.01" y="109.55" class="nonmatching"><title>0x004239f6 MainMenu::DrawState15 (800 bytes)</title></rect>
 <rect width="22.87" height="24.14" x="336.01" y="136.72" class="named"><title>0x00415910 GameManager::PickOpponent (799 bytes)</title></rect>
-<rect width="22.87" height="24.14" x="336.01" y="163.86" class="decompiled"><title>0x004464a0 ExAttackUpdate4464a0 (799 bytes)</title></rect>
+<rect width="22.87" height="24.14" x="336.01" y="163.86" class="named"><title>0x004464a0 UpdateExAttackType7 (799 bytes)</title></rect>
 <rect width="22.87" height="23.60" x="336.01" y="191" class="named"><title>0x0042d5f0 SetDefaultRenderStates (783 bytes)</title></rect>
 <rect width="22.87" height="23.49" x="336.01" y="217.60" class="named"><title>0x00442750 UpdateExAttackType3 (780 bytes)</title></rect>
 <rect width="22.87" height="23.33" x="336.01" y="244.09" class="named"><title>0x0040d600 UpdateEffectTypes1And2 (775 bytes)</title></rect>
