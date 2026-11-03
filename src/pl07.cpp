@@ -45,7 +45,7 @@ int UpdateEffectType25(Effect *effect)
 // The unknown30404 of character 7: whether `pos` is within the radius of
 // the player's unknown368 about a point 1.5 radii above the player
 // (0x445e60).
-int PlayerPosFunc445e60(Player *player, D3DXVECTOR3 *pos)
+int CheckFocusAreaCharacter7(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
     Effect *circle = player->unknown368;
