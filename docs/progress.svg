@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">95.69% (1066)</tspan> · <tspan class="decompiled">2.24% (25)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">95.78% (1067)</tspan> · <tspan class="decompiled">2.15% (24)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="714.81" height="6" x="0" y="0" class="named"/>
-<rect width="16.76" height="6" x="714.81" y="0" class="decompiled"/>
+<rect width="715.48" height="6" x="0" y="0" class="named"/>
+<rect width="16.09" height="6" x="715.48" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1157,7 +1157,7 @@
 <rect width="12" height="12" x="540" y="315" class="named"><title>0x0044a780 DrawEffectType31 (921 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="315" class="named"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="315" class="named"><title>0x0044ab30 UpdateEffectType32 (88 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="315" class="decompiled"><title>0x0044ab90 ShotFire44ab90 (139 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="315" class="named"><title>0x0044ab90 FirePlayerShotType7 (139 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="315" class="decompiled"><title>0x0044ac20 ExAttackInit44ac20 (436 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="315" class="decompiled"><title>0x0044ade0 ExAttackUpdate44ade0 (405 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="315" class="decompiled"><title>0x0044af80 PlayerComboFunc44af80 (101 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.48%</tspan> · <tspan class="decompiled">2.68%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">82.52%</tspan> · <tspan class="decompiled">2.63%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="616.09" height="6" x="0" y="0" class="named"/>
-<rect width="20.02" height="6" x="616.09" y="0" class="decompiled"/>
+<rect width="616.44" height="6" x="0" y="0" class="named"/>
+<rect width="19.67" height="6" x="616.44" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1659,7 +1659,7 @@
 <rect width="8.53" height="7.67" x="569.56" y="305.56" class="named"><title>0x0043e2f0 SoundPlayer::PlaySoundByIdx (140 bytes)</title></rect>
 <rect width="8.53" height="7.59" x="569.56" y="316.23" class="named"><title>0x00422200 ClearScreen (139 bytes)</title></rect>
 <rect width="8.53" height="7.59" x="569.56" y="326.82" class="named"><title>0x0043bdc0 SpriteEngine::RenderText (139 bytes)</title></rect>
-<rect width="8.53" height="7.59" x="569.56" y="337.41" class="decompiled"><title>0x0044ab90 ShotFire44ab90 (139 bytes)</title></rect>
+<rect width="8.53" height="7.59" x="569.56" y="337.41" class="named"><title>0x0044ab90 FirePlayerShotType7 (139 bytes)</title></rect>
 <rect width="7.99" height="8.04" x="581.09" y="174.28" class="named"><title>0x0041db90 Player::AddUnknown30454 (138 bytes)</title></rect>
 <rect width="7.99" height="8.04" x="592.08" y="174.28" class="named"><title>0x0043bcb0 AnmLoaded::LoadSprite (138 bytes)</title></rect>
 <rect width="7.91" height="8.04" x="603.07" y="174.28" class="named"><title>0x004396a0 SpriteEngine::FlushQuadBatch (137 bytes)</title></rect>

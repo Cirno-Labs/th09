@@ -30,7 +30,7 @@ int UpdateEffectType32(Effect *effect)
 // A fire callback of the shot table (7): on the frame of `sd`, fires it
 // at unknown30364 turned by its angle, or straight up once that is left
 // of the side. Returns 1 if it fired (0x44ab90).
-int ShotFire44ab90(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+int FirePlayerShotType7(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
     float angle;
 
