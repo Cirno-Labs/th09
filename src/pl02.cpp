@@ -400,7 +400,7 @@ int UpdateExAttackType3(ExAttack *attack)
 // 14 to 18, on the target's side at the screen position it was sent
 // from, starting from the attack it was sent for: its angle and
 // unknown04. Returns 0 (0x442a60).
-int ExAttackInit442a60(ExAttack *attack)
+int InitExAttackType4(ExAttack *attack)
 {
     ExAttackData03 *data;
     ExAttack *parent;
