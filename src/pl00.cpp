@@ -81,7 +81,7 @@ int InitExAttackType0(ExAttack *attack)
 // The init callback of extra attack type 1: type 0's, flying in to near
 // its own position on screen after waiting 90 frames. Returns 0
 // (0x440fb0).
-int ExAttackInit440fb0(ExAttack *attack)
+int InitExAttackType1(ExAttack *attack)
 {
     ExAttackData00 *data;
     float angle;
