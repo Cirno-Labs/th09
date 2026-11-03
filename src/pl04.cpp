@@ -513,7 +513,7 @@ int InitEffectType34(Effect *effect)
 // unknown50 out to 64; then for 30 frames fills unknownCe8 with random
 // offsets as wide as the frames passed. Returns 0 once done, else 1
 // (0x444a20).
-int EffectUpdate444a20(Effect *effect)
+int UpdateEffectType34(Effect *effect)
 {
     EffectData34 *data = (EffectData34 *)effect->vertices;
     float t;

@@ -1019,7 +1019,7 @@ address,size,name,symbol
 0x004446a0,86,UpdatePlayerShotType5,?UpdatePlayerShotType5@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00444700,602,DrawEffectType26,?DrawEffectType26@@YIHPAUEffect@@@Z
 0x00444960,178,InitEffectType34,?InitEffectType34@@YIHPAUEffect@@@Z
-0x00444a20,208,EffectUpdate444a20,?EffectUpdate444a20@@YIHPAUEffect@@@Z
+0x00444a20,208,UpdateEffectType34,?UpdateEffectType34@@YIHPAUEffect@@@Z
 0x00444af0,946,EffectDraw444af0,?EffectDraw444af0@@YIHPAUEffect@@@Z
 0x00444eb0,79,EffectUpdate444eb0,?EffectUpdate444eb0@@YIHPAUEffect@@@Z
 0x00444f00,322,ExAttackInit444f00,?ExAttackInit444f00@@YIHPAUExAttack@@@Z
