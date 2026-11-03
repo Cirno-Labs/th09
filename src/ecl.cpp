@@ -2683,7 +2683,7 @@ void ScatterBullets(Enemy *enemy, EclInstr *instr)
         bullet->velocity.y = 0.0f;
         bullet->velocity.z = 0.0f;
         bullet->ClearCommands();
-        bullet->SetCommand20000(0, 0, 0x3c);
+        bullet->SetWaitCommand(0, 0, 0x3c);
         bullet->SetAccelCommand(1, 0, 0x3c, enemy->currentCtx->floatVars[0], -999.0f);
     }
     bullet = enemy->manager->otherSide->bulletManager->bullets;
@@ -2711,12 +2711,12 @@ void ScatterBullets(Enemy *enemy, EclInstr *instr)
         {
             bullet->sprite = 0;
             bullet->SetSpriteCommand(0, 0, 0, 0xf);
-            bullet->SetCommand20000(1, 0, 0x3c);
+            bullet->SetWaitCommand(1, 0, 0x3c);
             bullet->SetAccelCommand(2, 0, 0x3c, enemy->currentCtx->floatVars[0], -999.0f);
         }
         else
         {
-            bullet->SetCommand20000(0, 0, 0x3c);
+            bullet->SetWaitCommand(0, 0, 0x3c);
             bullet->SetAccelCommand(1, 0, 0x3c, enemy->currentCtx->floatVars[0], -999.0f);
         }
     }
