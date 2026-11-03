@@ -287,7 +287,7 @@ int DrawEffectType10(Effect *effect)
 // unknown30364, by up to a quarter of its speed and at 1 to 10 pixels
 // a frame, or speeds it up by a third up to 10 without a target; turns
 // it to its velocity. Returns 0 (0x4415e0).
-int ShotUpdate4415e0(Player *player, PlayerBullet *bullet)
+int UpdatePlayerShotType1(Player *player, PlayerBullet *bullet)
 {
     float x;
     float y;

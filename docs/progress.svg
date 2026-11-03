@@ -1034,7 +1034,7 @@
 <rect width="12" height="12" x="195" y="285" class="named"><title>0x00441420 InitSpellCardType2 (78 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="285" class="named"><title>0x00441470 FreeSecondarySpellCardData (38 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="285" class="named"><title>0x004414a0 DrawEffectType10 (314 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="285" class="nonmatching"><title>0x004415e0 ShotUpdate4415e0 (471 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="285" class="nonmatching"><title>0x004415e0 UpdatePlayerShotType1 (471 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="285" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="285" class="decompiled"><title>0x004417f0 PlayerPosFunc4417f0 (129 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="285" class="decompiled"><title>0x00441880 ShotHit441880 (11 bytes)</title></rect>
@@ -1347,7 +1347,7 @@
 <rect width="17.19" height="17.68" x="513.60" y="21.47" class="decompiled"><title>0x0044be40 ExAttackUpdate44be40 (475 bytes)</title></rect>
 <rect width="17.06" height="17.68" x="533.78" y="21.47" class="named"><title>0x00435fe0 GdiSurface::InvertAlpha (472 bytes)</title></rect>
 <rect width="17.06" height="17.68" x="553.85" y="21.47" class="named"><title>0x0043b9c0 SpriteEngine::CreateQuad (472 bytes)</title></rect>
-<rect width="17.02" height="17.68" x="573.91" y="21.47" class="nonmatching"><title>0x004415e0 ShotUpdate4415e0 (471 bytes)</title></rect>
+<rect width="17.02" height="17.68" x="573.91" y="21.47" class="nonmatching"><title>0x004415e0 UpdatePlayerShotType1 (471 bytes)</title></rect>
 <rect width="16.98" height="17.68" x="593.93" y="21.47" class="named"><title>0x00433aa0 LzssDecompress (470 bytes)</title></rect>
 <rect width="16.85" height="17.68" x="613.90" y="21.47" class="named"><title>0x004333f0 DatArchive::ReadTable (467 bytes)</title></rect>
 <rect width="16.72" height="17.68" x="633.75" y="21.47" class="named"><title>0x0040d9e0 UpdateEffectTypes3And4 (464 bytes)</title></rect>

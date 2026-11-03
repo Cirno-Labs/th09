@@ -57,7 +57,7 @@ allow_diff = [
     "MainMenu::UpdateState13",
     "MainMenu::UpdateState8",
     "SoundPlayer::FindTrackIndex",
-    "ShotUpdate4415e0",
+    "UpdatePlayerShotType1",
     "EffectDraw448750",
     "ExAttackUpdate44a330",
 ]
