@@ -12,7 +12,7 @@
 // The update callback of effect type 32: shrinks unknown7c by 32 down
 // to 0, with unknownC9 set while it shrinks, and puts the effect on its
 // side's player. Returns 1 (0x44ab30).
-int EffectUpdate44ab30(Effect *effect)
+int UpdateEffectType32(Effect *effect)
 {
     if (effect->unknown7c > 0.0f)
     {

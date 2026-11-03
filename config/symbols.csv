@@ -1087,7 +1087,7 @@ address,size,name,symbol
 0x0044a6e0,156,InitEffectType31,?InitEffectType31@@YIHPAUEffect@@@Z
 0x0044a780,921,DrawEffectType31,?DrawEffectType31@@YIHPAUEffect@@@Z
 0x0044ab20,3,ReturnZero,?ReturnZero@@YIHPAUExAttack@@@Z ?CheckLifeCallback@Enemy@@QAEHXZ ?CheckTimerCallback@Enemy@@SIHXZ ?UpdateUnknown0Is2@Player@@SIHXZ
-0x0044ab30,88,EffectUpdate44ab30,?EffectUpdate44ab30@@YIHPAUEffect@@@Z
+0x0044ab30,88,UpdateEffectType32,?UpdateEffectType32@@YIHPAUEffect@@@Z
 0x0044ab90,139,ShotFire44ab90,?ShotFire44ab90@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x0044ac20,436,ExAttackInit44ac20,?ExAttackInit44ac20@@YIHPAUExAttack@@@Z
 0x0044ade0,405,ExAttackUpdate44ade0,?ExAttackUpdate44ade0@@YIHPAUExAttack@@@Z
