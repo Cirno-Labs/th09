@@ -92,7 +92,7 @@ ASSERT_SIZE(EffectData34, 0xef8);
 
 // The unknown30408 of character 4: pl01's, rising up to 1.5 over the 120
 // frames. Returns 0 (0x443c10).
-int PlayerEnemyFunc443c10(Player *player, Enemy *enemy)
+int UpdateFocusedEnemyCharacter4(Player *player, Enemy *enemy)
 {
     enemy->velocity2.x = g_Rng.GetRandomF32SignedInRange(0.1f);
     enemy->velocity2.y = enemy->unknown5424 > 0x78 ? -1.5f : enemy->unknown5424.AsFloat() * (-1.5f / 120.0f);

@@ -1010,7 +1010,7 @@ address,size,name,symbol
 0x00443930,249,UpdatePlayerShotType4,?UpdatePlayerShotType4@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00443a30,209,UpdateEffectType26,?UpdateEffectType26@@YIHPAUEffect@@@Z
 0x00443b10,249,CheckFocusAreaCharacter4,?CheckFocusAreaCharacter4@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
-0x00443c10,95,PlayerEnemyFunc443c10,?PlayerEnemyFunc443c10@@YIHPAVPlayer@@PAUEnemy@@@Z
+0x00443c10,95,UpdateFocusedEnemyCharacter4,?UpdateFocusedEnemyCharacter4@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00443c70,371,ExAttackInit443c70,?ExAttackInit443c70@@YIHPAUExAttack@@@Z
 0x00443df0,808,ExAttackUpdate443df0,?ExAttackUpdate443df0@@YIHPAUExAttack@@@Z
 0x00444130,959,ExAttackDraw444130,?ExAttackDraw444130@@YIHPAUExAttack@@@Z

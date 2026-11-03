@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">89.14% (993)</tspan> · <tspan class="decompiled">8.80% (98)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">89.23% (994)</tspan> · <tspan class="decompiled">8.71% (97)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="665.86" height="6" x="0" y="0" class="named"/>
-<rect width="65.71" height="6" x="665.86" y="0" class="decompiled"/>
+<rect width="666.53" height="6" x="0" y="0" class="named"/>
+<rect width="65.04" height="6" x="666.53" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1079,7 +1079,7 @@
 <rect width="12" height="12" x="120" y="300" class="named"><title>0x00443930 UpdatePlayerShotType4 (249 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="300" class="named"><title>0x00443a30 UpdateEffectType26 (209 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="300" class="named"><title>0x00443b10 CheckFocusAreaCharacter4 (249 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="300" class="decompiled"><title>0x00443c10 PlayerEnemyFunc443c10 (95 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="300" class="named"><title>0x00443c10 UpdateFocusedEnemyCharacter4 (95 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="300" class="decompiled"><title>0x00443c70 ExAttackInit443c70 (371 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="300" class="decompiled"><title>0x00443df0 ExAttackUpdate443df0 (808 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="300" class="decompiled"><title>0x00444130 ExAttackDraw444130 (959 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.14%</tspan> · <tspan class="decompiled">11.02%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.17%</tspan> · <tspan class="decompiled">10.98%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="553.83" height="6" x="0" y="0" class="named"/>
-<rect width="82.29" height="6" x="553.83" y="0" class="decompiled"/>
+<rect width="554.07" height="6" x="0" y="0" class="named"/>
+<rect width="82.05" height="6" x="554.07" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1762,7 +1762,7 @@
 <rect width="6.37" height="5.91" x="648.19" y="205.07" class="named"><title>0x004323b0 Network::Send (95 bytes)</title></rect>
 <rect width="6.37" height="5.91" x="657.57" y="205.07" class="named"><title>0x00440d30 PlayerUnknown36c::AddCircle (95 bytes)</title></rect>
 <rect width="6.37" height="5.91" x="666.94" y="205.07" class="named"><title>0x004418b0 UpdateFocusedEnemyDrift (95 bytes)</title></rect>
-<rect width="6.37" height="5.91" x="676.31" y="205.07" class="decompiled"><title>0x00443c10 PlayerEnemyFunc443c10 (95 bytes)</title></rect>
+<rect width="6.37" height="5.91" x="676.31" y="205.07" class="named"><title>0x00443c10 UpdateFocusedEnemyCharacter4 (95 bytes)</title></rect>
 <rect width="6.27" height="5.91" x="685.68" y="205.07" class="named"><title>0x0042ee30 EnumAxesCallback (94 bytes)</title></rect>
 <rect width="6.27" height="5.91" x="694.95" y="205.07" class="named"><title>0x0042ee90 EnumAxesCallback2 (94 bytes)</title></rect>
 <rect width="6.27" height="5.91" x="704.23" y="205.07" class="named"><title>0x0043e0d0 MidiPlayer::LoadFile (94 bytes)</title></rect>
