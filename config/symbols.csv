@@ -988,7 +988,7 @@ address,size,name,symbol
 0x004423d0,68,FirePlayerShotType2,?FirePlayerShotType2@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
 0x00442420,46,GameManager::ScreenToArenaX,?ScreenToArenaX@GameManager@@QAEMM@Z
 0x00442450,46,GameManager::ScreenToArenaY,?ScreenToArenaY@GameManager@@QAEMM@Z
-0x00442480,193,PlayerPosFunc442480,?PlayerPosFunc442480@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
+0x00442480,193,CheckFocusAreaCharacters2And10,?CheckFocusAreaCharacters2And10@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00442550,35,PlayerEnemyFunc442550,?PlayerEnemyFunc442550@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00442580,454,ExAttackInit442580,?ExAttackInit442580@@YIHPAUExAttack@@@Z
 0x00442750,780,ExAttackUpdate442750,?ExAttackUpdate442750@@YIHPAUExAttack@@@Z

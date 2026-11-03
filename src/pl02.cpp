@@ -238,7 +238,7 @@ int FirePlayerShotType2(Player *player, PlayerBullet *bullet, int frame, ShotDat
 // The unknown30404 of characters 2 and 10: whether `pos` is within the
 // radius of the player's unknown368 and the arc of unknown84 radians
 // about its angle unknown80 (0x442480).
-int PlayerPosFunc442480(Player *player, D3DXVECTOR3 *pos)
+int CheckFocusAreaCharacters2And10(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
     Effect *circle = player->unknown368;

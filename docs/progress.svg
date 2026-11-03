@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.16% (971)</tspan> · <tspan class="decompiled">10.77% (120)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.25% (972)</tspan> · <tspan class="decompiled">10.68% (119)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="651.11" height="6" x="0" y="0" class="named"/>
-<rect width="80.47" height="6" x="651.11" y="0" class="decompiled"/>
+<rect width="651.78" height="6" x="0" y="0" class="named"/>
+<rect width="79.80" height="6" x="651.78" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1057,7 +1057,7 @@
 <rect width="12" height="12" x="540" y="285" class="named"><title>0x004423d0 FirePlayerShotType2 (68 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="285" class="named"><title>0x00442420 GameManager::ScreenToArenaX (46 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="285" class="named"><title>0x00442450 GameManager::ScreenToArenaY (46 bytes)</title></rect>
-<rect width="12" height="12" x="585" y="285" class="decompiled"><title>0x00442480 PlayerPosFunc442480 (193 bytes)</title></rect>
+<rect width="12" height="12" x="585" y="285" class="named"><title>0x00442480 CheckFocusAreaCharacters2And10 (193 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="285" class="decompiled"><title>0x00442550 PlayerEnemyFunc442550 (35 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="285" class="decompiled"><title>0x00442580 ExAttackInit442580 (454 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="285" class="decompiled"><title>0x00442750 ExAttackUpdate442750 (780 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.17%</tspan> · <tspan class="decompiled">12.98%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.24%</tspan> · <tspan class="decompiled">12.92%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="539.14" height="6" x="0" y="0" class="named"/>
-<rect width="96.98" height="6" x="539.14" y="0" class="decompiled"/>
+<rect width="539.62" height="6" x="0" y="0" class="named"/>
+<rect width="96.49" height="6" x="539.62" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1565,7 +1565,7 @@
 <rect width="10.25" height="9.80" x="531.31" y="322.40" class="named"><title>0x00415580 ExAttackManager::OnDraw2 (193 bytes)</title></rect>
 <rect width="10.25" height="9.80" x="531.31" y="335.20" class="named"><title>0x004331c0 DatArchive::Decode (193 bytes)</title></rect>
 <rect width="10.08" height="9.97" x="544.56" y="137.18" class="named"><title>0x0043c200 SpriteEngine::CopyBackBufferToTexture (193 bytes)</title></rect>
-<rect width="10.08" height="9.97" x="557.64" y="137.18" class="decompiled"><title>0x00442480 PlayerPosFunc442480 (193 bytes)</title></rect>
+<rect width="10.08" height="9.97" x="557.64" y="137.18" class="named"><title>0x00442480 CheckFocusAreaCharacters2And10 (193 bytes)</title></rect>
 <rect width="10.08" height="9.97" x="570.72" y="137.18" class="decompiled"><title>0x00449940 EffectInit449940 (193 bytes)</title></rect>
 <rect width="10.01" height="9.97" x="583.81" y="137.18" class="named"><title>0x0042da90 ChecksumExecutable (192 bytes)</title></rect>
 <rect width="9.95" height="9.97" x="596.82" y="137.18" class="named"><title>0x0042eac0 App::InsertRecord (191 bytes)</title></rect>
