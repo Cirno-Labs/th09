@@ -367,7 +367,7 @@ int SendComboAttacksCharacter4(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // The init callback of extra attack type 22: type 14's, flying in to
 // the x and y of AddAttack's target and falling at its z as an angle.
 // Returns 0 (0x444560).
-int ExAttackInit444560(ExAttack *attack)
+int InitExAttackType22(ExAttack *attack)
 {
     ExAttackData14 *data;
 

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">89.59% (998)</tspan> · <tspan class="decompiled">8.35% (93)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">89.68% (999)</tspan> · <tspan class="decompiled">8.26% (92)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="669.22" height="6" x="0" y="0" class="named"/>
-<rect width="62.36" height="6" x="669.22" y="0" class="decompiled"/>
+<rect width="669.89" height="6" x="0" y="0" class="named"/>
+<rect width="61.69" height="6" x="669.89" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1084,7 +1084,7 @@
 <rect width="12" height="12" x="195" y="300" class="named"><title>0x00443df0 UpdateExAttackTypes14And22 (808 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="300" class="named"><title>0x00444130 DrawExAttackTypes14And22 (959 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="300" class="named"><title>0x004444f0 SendComboAttacksCharacter4 (101 bytes)</title></rect>
-<rect width="12" height="12" x="240" y="300" class="decompiled"><title>0x00444560 ExAttackInit444560 (308 bytes)</title></rect>
+<rect width="12" height="12" x="240" y="300" class="named"><title>0x00444560 InitExAttackType22 (308 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="300" class="decompiled"><title>0x004446a0 ShotUpdate4446a0 (86 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="300" class="decompiled"><title>0x00444700 EffectDraw444700 (602 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="300" class="decompiled"><title>0x00444960 EffectInit444960 (178 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">74.93%</tspan> · <tspan class="decompiled">10.23%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">75.03%</tspan> · <tspan class="decompiled">10.13%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="559.70" height="6" x="0" y="0" class="named"/>
-<rect width="76.42" height="6" x="559.70" y="0" class="decompiled"/>
+<rect width="560.47" height="6" x="0" y="0" class="named"/>
+<rect width="75.64" height="6" x="560.47" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1452,7 +1452,7 @@
 <rect width="13.31" height="13.76" x="701.18" y="77.56" class="named"><title>0x00443010 DrawEffectType17 (311 bytes)</title></rect>
 <rect width="13.31" height="13.76" x="717.49" y="77.56" class="decompiled"><title>0x00449a10 EffectDraw449a10 (311 bytes)</title></rect>
 <rect width="13.20" height="13.76" x="733.80" y="77.56" class="named"><title>0x0041f350 FireShot (309 bytes)</title></rect>
-<rect width="13.32" height="13.59" x="486.52" y="94.32" class="decompiled"><title>0x00444560 ExAttackInit444560 (308 bytes)</title></rect>
+<rect width="13.32" height="13.59" x="486.52" y="94.32" class="named"><title>0x00444560 InitExAttackType22 (308 bytes)</title></rect>
 <rect width="13.32" height="13.54" x="486.52" y="110.91" class="named"><title>0x00403ae0 Stage::RegisterChain (307 bytes)</title></rect>
 <rect width="13.32" height="13.54" x="486.52" y="127.44" class="named"><title>0x0041a490 GuiSide::GuiSide (307 bytes)</title></rect>
 <rect width="13.32" height="13.37" x="486.52" y="143.98" class="named"><title>0x0043bfa0 SpriteEngine::CopySurfaceToBackBuffer (304 bytes)</title></rect>
