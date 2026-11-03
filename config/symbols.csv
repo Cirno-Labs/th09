@@ -1112,7 +1112,7 @@ address,size,name,symbol
 0x0044c4c0,446,UpdateExAttackType26,?UpdateExAttackType26@@YIHPAUExAttack@@@Z
 0x0044c680,98,SendComboAttacksCharacter15,?SendComboAttacksCharacter15@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044c6f0,151,InitEffectType37,?InitEffectType37@@YIHPAUEffect@@@Z
-0x0044c790,972,EffectDraw44c790,?EffectDraw44c790@@YIHPAUEffect@@@Z
+0x0044c790,972,DrawEffectType37,?DrawEffectType37@@YIHPAUEffect@@@Z
 0x0044e5a0,,DirectInput8Create,_DirectInput8Create@20
 0x0044e5a6,,DirectSoundCreate8,_DirectSoundCreate8@12
 0x0044e5ac,,Direct3DCreate8,_Direct3DCreate8@4

@@ -174,7 +174,7 @@ int InitEffectType37(Effect *effect)
 // vertical and then a horizontal beam through the effect, each a strip
 // 2 * unknown7c wide across the playfield, brighter at the edges than
 // in the middle. Returns 1 (0x44c790).
-int EffectDraw44c790(Effect *effect)
+int DrawEffectType37(Effect *effect)
 {
     if (effect->unknownC9)
     {
