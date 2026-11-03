@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.98% (969)</tspan> · <tspan class="decompiled">10.95% (122)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.07% (970)</tspan> · <tspan class="decompiled">10.86% (121)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="649.77" height="6" x="0" y="0" class="named"/>
-<rect width="81.81" height="6" x="649.77" y="0" class="decompiled"/>
+<rect width="650.44" height="6" x="0" y="0" class="named"/>
+<rect width="81.14" height="6" x="650.44" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1053,7 +1053,7 @@
 <rect width="12" height="12" x="480" y="285" class="named"><title>0x00441ef0 FirePlayerShotType1 (151 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="285" class="named"><title>0x00441f90 UpdatePlayerShotType2 (643 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="285" class="named"><title>0x00442220 DrawPlayerShotType1 (204 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="285" class="decompiled"><title>0x004422f0 EffectUpdate4422f0 (218 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="285" class="named"><title>0x004422f0 UpdateEffectType17 (218 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="285" class="decompiled"><title>0x004423d0 ShotFire4423d0 (68 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="285" class="named"><title>0x00442420 GameManager::ScreenToArenaX (46 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="285" class="named"><title>0x00442450 GameManager::ScreenToArenaY (46 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.08%</tspan> · <tspan class="decompiled">13.08%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">72.15%</tspan> · <tspan class="decompiled">13.01%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="538.42" height="6" x="0" y="0" class="named"/>
-<rect width="97.70" height="6" x="538.42" y="0" class="decompiled"/>
+<rect width="538.96" height="6" x="0" y="0" class="named"/>
+<rect width="97.15" height="6" x="538.96" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1522,7 +1522,7 @@
 <rect width="10.65" height="11.17" x="517.66" y="166.99" class="named"><title>0x00418840 Gui::RegisterChain (220 bytes)</title></rect>
 <rect width="10.65" height="11.17" x="517.66" y="181.16" class="named"><title>0x0042c290 DecryptFileData (220 bytes)</title></rect>
 <rect width="10.65" height="11.04" x="517.66" y="195.32" class="named"><title>0x0043fef0 CWaveFile::Read (218 bytes)</title></rect>
-<rect width="10.65" height="11.04" x="517.66" y="209.36" class="decompiled"><title>0x004422f0 EffectUpdate4422f0 (218 bytes)</title></rect>
+<rect width="10.65" height="11.04" x="517.66" y="209.36" class="named"><title>0x004422f0 UpdateEffectType17 (218 bytes)</title></rect>
 <rect width="10.65" height="10.97" x="517.66" y="223.40" class="named"><title>0x00424671 MainMenu::MoveCursor4 (217 bytes)</title></rect>
 <rect width="10.65" height="10.97" x="517.66" y="237.37" class="named"><title>0x0043be50 SpriteEngine::RenderTextCentered (217 bytes)</title></rect>
 <rect width="10.65" height="10.91" x="517.66" y="251.35" class="named"><title>0x00421800 InsertHighScore (216 bytes)</title></rect>

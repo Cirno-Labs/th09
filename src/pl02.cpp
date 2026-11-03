@@ -189,7 +189,7 @@ int DrawPlayerShotType1(Player *player, PlayerBullet *bullet)
 // pi/2, sets unknownC9, puts the effect on its side's player and turns
 // unknown80 a quarter of the shorter way towards opposite the player's
 // unknown1cd8. Returns 1 (0x4422f0).
-int EffectUpdate4422f0(Effect *effect)
+int UpdateEffectType17(Effect *effect)
 {
     float target;
     float delta;
