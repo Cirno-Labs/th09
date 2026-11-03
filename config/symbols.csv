@@ -972,7 +972,7 @@ address,size,name,symbol
 0x00441890,32,SetPolar,?SetPolar@@YIXPAUVector2@@MM@Z
 0x004418b0,95,UpdateFocusedEnemyDrift,?UpdateFocusedEnemyDrift@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00441910,344,InitExAttackType2,?InitExAttackType2@@YIHPAUExAttack@@@Z
-0x00441a70,137,ExAttackUpdate441a70,?ExAttackUpdate441a70@@YIHPAUExAttack@@@Z
+0x00441a70,137,UpdateExAttackType2,?UpdateExAttackType2@@YIHPAUExAttack@@@Z
 0x00441b00,100,PlayerComboFunc441b00,?PlayerComboFunc441b00@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00441b70,75,SpellCardInit441b70,?SpellCardInit441b70@@YIHPAVSpellCard@@@Z
 0x00441bc0,23,SpellCardUpdate441bc0,?SpellCardUpdate441bc0@@YIHPAVSpellCard@@@Z

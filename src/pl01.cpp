@@ -92,7 +92,7 @@ int InitExAttackType2(ExAttack *attack)
 // for 90 frames, then spawns enemy subroutine 8 of the target's player
 // ECL there, its first float variable -pi/2. Returns 1 once it did
 // (0x441a70).
-int ExAttackUpdate441a70(ExAttack *attack)
+int UpdateExAttackType2(ExAttack *attack)
 {
     ExAttackData00 *data = (ExAttackData00 *)attack->data;
     EclVars vars;
