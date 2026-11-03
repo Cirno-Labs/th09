@@ -1008,7 +1008,7 @@ address,size,name,symbol
 0x00443790,85,SendComboAttacksCharacter3,?SendComboAttacksCharacter3@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x004437f0,314,DrawEffectType18,?DrawEffectType18@@YIHPAUEffect@@@Z
 0x00443930,249,UpdatePlayerShotType4,?UpdatePlayerShotType4@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
-0x00443a30,209,EffectUpdate443a30,?EffectUpdate443a30@@YIHPAUEffect@@@Z
+0x00443a30,209,UpdateEffectType26,?UpdateEffectType26@@YIHPAUEffect@@@Z
 0x00443b10,249,PlayerPosFunc443b10,?PlayerPosFunc443b10@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00443c10,95,PlayerEnemyFunc443c10,?PlayerEnemyFunc443c10@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00443c70,371,ExAttackInit443c70,?ExAttackInit443c70@@YIHPAUExAttack@@@Z

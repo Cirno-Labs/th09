@@ -12,7 +12,7 @@
 // sets unknownC9, puts the effect on its side's player and turns
 // unknown80 an eighth of the shorter way towards opposite the player's
 // unknown1cd8, as UpdateEffectType17. Returns 1 (0x443a30).
-int EffectUpdate443a30(Effect *effect)
+int UpdateEffectType26(Effect *effect)
 {
     float target;
     float delta;
