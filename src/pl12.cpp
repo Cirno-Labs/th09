@@ -464,7 +464,7 @@ int UpdateExAttackType21(ExAttack *attack)
 // has landed, the disc as a textured fan through its points, the centre
 // at its sprite's alpha and the rim in light red, closed on the first
 // rim point. Clears unknown684. Returns 0 (0x44b940).
-int ExAttackDraw44b940(ExAttack *attack)
+int DrawExAttackTypes19And21(ExAttack *attack)
 {
     ExAttackData19 *data = (ExAttackData19 *)attack->data;
 

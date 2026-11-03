@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">96.50% (1075)</tspan> · <tspan class="decompiled">1.44% (16)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">96.59% (1076)</tspan> · <tspan class="decompiled">1.35% (15)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="720.85" height="6" x="0" y="0" class="named"/>
-<rect width="10.73" height="6" x="720.85" y="0" class="decompiled"/>
+<rect width="721.52" height="6" x="0" y="0" class="named"/>
+<rect width="10.06" height="6" x="721.52" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1166,7 +1166,7 @@
 <rect width="12" height="12" x="675" y="315" class="named"><title>0x0044b1d0 UpdateEffectType33 (79 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="315" class="named"><title>0x0044b220 InitExAttackType21 (727 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="315" class="named"><title>0x0044b500 UpdateExAttackType21 (1074 bytes)</title></rect>
-<rect width="12" height="12" x="720" y="315" class="decompiled"><title>0x0044b940 ExAttackDraw44b940 (318 bytes)</title></rect>
+<rect width="12" height="12" x="720" y="315" class="named"><title>0x0044b940 DrawExAttackTypes19And21 (318 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="315" class="decompiled"><title>0x0044ba80 PlayerComboFunc44ba80 (101 bytes)</title></rect>
 <rect width="12" height="12" x="0" y="330" class="decompiled"><title>0x0044baf0 EffectDraw44baf0 (314 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="330" class="decompiled"><title>0x0044bc30 EffectUpdate44bc30 (79 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.63%</tspan> · <tspan class="decompiled">1.53%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.74%</tspan> · <tspan class="decompiled">1.42%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="624.72" height="6" x="0" y="0" class="named"/>
-<rect width="11.40" height="6" x="624.72" y="0" class="decompiled"/>
+<rect width="625.52" height="6" x="0" y="0" class="named"/>
+<rect width="10.60" height="6" x="625.52" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1437,7 +1437,7 @@
 <rect width="13.80" height="13.64" x="469.73" y="314.72" class="named"><title>0x00422330 DrawColoredLineStrip (318 bytes)</title></rect>
 <rect width="13.80" height="13.64" x="469.73" y="331.36" class="named"><title>0x0043b670 SpriteEngine::DrawColoredStrip (318 bytes)</title></rect>
 <rect width="13.67" height="13.76" x="486.52" y="77.56" class="named"><title>0x0043b7b0 SpriteEngine::DrawColoredFan (318 bytes)</title></rect>
-<rect width="13.67" height="13.76" x="503.20" y="77.56" class="decompiled"><title>0x0044b940 ExAttackDraw44b940 (318 bytes)</title></rect>
+<rect width="13.67" height="13.76" x="503.20" y="77.56" class="named"><title>0x0044b940 DrawExAttackTypes19And21 (318 bytes)</title></rect>
 <rect width="13.57" height="13.76" x="519.87" y="77.56" class="named"><title>0x00422660 ScreenEffect::OnUpdateShake (316 bytes)</title></rect>
 <rect width="13.57" height="13.76" x="536.44" y="77.56" class="named"><title>0x00445050 InitExAttackType10 (316 bytes)</title></rect>
 <rect width="13.52" height="13.76" x="553.01" y="77.56" class="named"><title>0x00408040 ScriptFireBullets (315 bytes)</title></rect>
