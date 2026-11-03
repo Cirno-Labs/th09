@@ -370,7 +370,7 @@ int InitExAttackType9(ExAttack *attack)
 // ring of bullets every 10 - difficulty frames, until it touches the
 // player there or leaves the side. Returns 1 once it is done
 // (0x446920).
-int ExAttackUpdate446920(ExAttack *attack)
+int UpdateExAttackTypes8And9(ExAttack *attack)
 {
     ExAttackData08 *data = (ExAttackData08 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
