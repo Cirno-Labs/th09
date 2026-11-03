@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">89.86% (1001)</tspan> · <tspan class="decompiled">8.08% (90)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">89.95% (1002)</tspan> · <tspan class="decompiled">7.99% (89)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="671.23" height="6" x="0" y="0" class="named"/>
-<rect width="60.35" height="6" x="671.23" y="0" class="decompiled"/>
+<rect width="671.90" height="6" x="0" y="0" class="named"/>
+<rect width="59.68" height="6" x="671.90" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1087,7 +1087,7 @@
 <rect width="12" height="12" x="240" y="300" class="named"><title>0x00444560 InitExAttackType22 (308 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="300" class="named"><title>0x004446a0 UpdatePlayerShotType5 (86 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="300" class="named"><title>0x00444700 DrawEffectType26 (602 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="300" class="decompiled"><title>0x00444960 EffectInit444960 (178 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="300" class="named"><title>0x00444960 InitEffectType34 (178 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="300" class="decompiled"><title>0x00444a20 EffectUpdate444a20 (208 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="300" class="decompiled"><title>0x00444af0 EffectDraw444af0 (946 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="300" class="decompiled"><title>0x00444eb0 EffectUpdate444eb0 (79 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">75.26%</tspan> · <tspan class="decompiled">9.89%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">75.32%</tspan> · <tspan class="decompiled">9.83%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="562.20" height="6" x="0" y="0" class="named"/>
-<rect width="73.91" height="6" x="562.20" y="0" class="decompiled"/>
+<rect width="562.65" height="6" x="0" y="0" class="named"/>
+<rect width="73.46" height="6" x="562.65" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1591,7 +1591,7 @@
 <rect width="9.83" height="9.26" x="544.56" y="250.72" class="named"><title>0x004134d0 AccelerateAlongVelocity (179 bytes)</title></rect>
 <rect width="9.83" height="9.26" x="544.56" y="262.98" class="named"><title>0x004335e0 DatArchive::Open (179 bytes)</title></rect>
 <rect width="9.83" height="9.19" x="544.56" y="275.24" class="named"><title>0x00421b80 LoadPlstChunk (178 bytes)</title></rect>
-<rect width="9.83" height="9.19" x="544.56" y="287.44" class="decompiled"><title>0x00444960 EffectInit444960 (178 bytes)</title></rect>
+<rect width="9.83" height="9.19" x="544.56" y="287.44" class="named"><title>0x00444960 InitEffectType34 (178 bytes)</title></rect>
 <rect width="9.83" height="9.13" x="544.56" y="299.63" class="named"><title>0x00411fd0 EnemyManager::Reset (177 bytes)</title></rect>
 <rect width="9.83" height="9.13" x="544.56" y="311.76" class="named"><title>0x0042ec30 App::ResetRun (177 bytes)</title></rect>
 <rect width="9.83" height="9.13" x="544.56" y="323.89" class="named"><title>0x0043ebc0 SoundPlayer::StopBgm (177 bytes)</title></rect>
