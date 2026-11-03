@@ -182,7 +182,7 @@ int SendComboAttacksCharacter5(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 
 // The draw callback of effect type 24: DrawEffectType10's fan
 // (0x4453a0).
-int EffectDraw4453a0(Effect *effect)
+int DrawEffectType24(Effect *effect)
 {
     if (effect->unknownC9)
     {
