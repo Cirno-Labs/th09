@@ -86,7 +86,7 @@ int HitPlayerShotType2(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
 // sprite and curve, flying in to within 128 of the target's player,
 // kept in the play area across and above its bottom. Returns 0
 // (0x443440).
-int ExAttackInit443440(ExAttack *attack)
+int InitExAttackType13(ExAttack *attack)
 {
     ExAttackData00 *data;
 
