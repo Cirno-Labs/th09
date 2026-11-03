@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86% (958)</tspan> · <tspan class="decompiled">11.94% (133)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.09% (959)</tspan> · <tspan class="decompiled">11.85% (132)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="642.39" height="6" x="0" y="0" class="named"/>
-<rect width="89.18" height="6" x="642.39" y="0" class="decompiled"/>
+<rect width="643.06" height="6" x="0" y="0" class="named"/>
+<rect width="88.51" height="6" x="643.06" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1042,7 +1042,7 @@
 <rect width="12" height="12" x="315" y="285" class="named"><title>0x004418b0 UpdateFocusedEnemyDrift (95 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="285" class="named"><title>0x00441910 InitExAttackType2 (344 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="285" class="named"><title>0x00441a70 UpdateExAttackType2 (137 bytes)</title></rect>
-<rect width="12" height="12" x="360" y="285" class="decompiled"><title>0x00441b00 PlayerComboFunc441b00 (100 bytes)</title></rect>
+<rect width="12" height="12" x="360" y="285" class="named"><title>0x00441b00 SendComboAttacksCharacter1 (100 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="285" class="decompiled"><title>0x00441b70 SpellCardInit441b70 (75 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="285" class="decompiled"><title>0x00441bc0 SpellCardUpdate441bc0 (23 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="285" class="decompiled"><title>0x00441be0 SpellCardInit441be0 (75 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.42%</tspan> · <tspan class="decompiled">13.74%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.45%</tspan> · <tspan class="decompiled">13.70%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="533.51" height="6" x="0" y="0" class="named"/>
-<rect width="102.61" height="6" x="533.51" y="0" class="decompiled"/>
+<rect width="533.76" height="6" x="0" y="0" class="named"/>
+<rect width="102.36" height="6" x="533.76" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1741,7 +1741,7 @@
 <rect width="6.28" height="6.56" x="731.52" y="195.51" class="decompiled"><title>0x0044c020 PlayerComboFunc44c020 (101 bytes)</title></rect>
 <rect width="6.19" height="6.56" x="740.81" y="195.51" class="named"><title>0x00403cf0 Player::StartClearCircle3 (100 bytes)</title></rect>
 <rect width="6.06" height="6.70" x="601.45" y="205.07" class="named"><title>0x0041a7c3 GameManager::ResetState (100 bytes)</title></rect>
-<rect width="6.06" height="6.70" x="601.45" y="214.77" class="decompiled"><title>0x00441b00 PlayerComboFunc441b00 (100 bytes)</title></rect>
+<rect width="6.06" height="6.70" x="601.45" y="214.77" class="named"><title>0x00441b00 SendComboAttacksCharacter1 (100 bytes)</title></rect>
 <rect width="6.06" height="6.70" x="601.45" y="224.48" class="decompiled"><title>0x00449000 EffectUpdate449000 (100 bytes)</title></rect>
 <rect width="6.06" height="6.61" x="601.45" y="234.18" class="named"><title>0x0041df80 Player::DrawUnknown30454 (99 bytes)</title></rect>
 <rect width="6.06" height="6.51" x="601.45" y="243.79" class="named"><title>0x0041a827 RemoveGameManagerChain (98 bytes)</title></rect>
