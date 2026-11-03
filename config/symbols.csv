@@ -958,7 +958,7 @@ address,size,name,symbol
 0x00440e40,355,InitExAttackType0,?InitExAttackType0@@YIHPAUExAttack@@@Z
 0x00440fb0,326,InitExAttackType1,?InitExAttackType1@@YIHPAUExAttack@@@Z
 0x00441100,475,UpdateExAttackTypes0And1,?UpdateExAttackTypes0And1@@YIHPAUExAttack@@@Z
-0x004412e0,101,PlayerComboFunc4412e0,?PlayerComboFunc4412e0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
+0x004412e0,101,SendComboAttacksCharacter0,?SendComboAttacksCharacter0@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00441350,75,SpellCardInit441350,?SpellCardInit441350@@YIHPAVSpellCard@@@Z
 0x004413a0,38,SpellCardFree4413a0,?SpellCardFree4413a0@@YIHPAVSpellCard@@@Z
 0x004413d0,75,SpellCardInit4413d0,?SpellCardInit4413d0@@YIHPAVSpellCard@@@Z
