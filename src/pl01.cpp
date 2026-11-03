@@ -37,7 +37,7 @@ int CheckFocusAreaCharacter1(Player *player, D3DXVECTOR3 *pos)
 
 // A hit callback of the shot table (22): counts unknown30354 up.
 // Returns 0 (0x441880).
-int ShotHit441880(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
+int HitPlayerShotType1(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
 {
     player->unknown30354++;
     return 0;

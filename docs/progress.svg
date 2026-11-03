@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.64% (954)</tspan> · <tspan class="decompiled">12.30% (137)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.73% (955)</tspan> · <tspan class="decompiled">12.21% (136)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="639.71" height="6" x="0" y="0" class="named"/>
-<rect width="91.87" height="6" x="639.71" y="0" class="decompiled"/>
+<rect width="640.38" height="6" x="0" y="0" class="named"/>
+<rect width="91.20" height="6" x="640.38" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1037,7 +1037,7 @@
 <rect width="12" height="12" x="240" y="285" class="nonmatching"><title>0x004415e0 UpdatePlayerShotType1 (471 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="285" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
 <rect width="12" height="12" x="270" y="285" class="named"><title>0x004417f0 CheckFocusAreaCharacter1 (129 bytes)</title></rect>
-<rect width="12" height="12" x="285" y="285" class="decompiled"><title>0x00441880 ShotHit441880 (11 bytes)</title></rect>
+<rect width="12" height="12" x="285" y="285" class="named"><title>0x00441880 HitPlayerShotType1 (11 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="285" class="named"><title>0x00441890 SetPolar (32 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="285" class="decompiled"><title>0x004418b0 PlayerEnemyFunc4418b0 (95 bytes)</title></rect>
 <rect width="12" height="12" x="330" y="285" class="decompiled"><title>0x00441910 ExAttackInit441910 (344 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.22%</tspan> · <tspan class="decompiled">13.93%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.23%</tspan> · <tspan class="decompiled">13.93%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="532.03" height="6" x="0" y="0" class="named"/>
-<rect width="104.08" height="6" x="532.03" y="0" class="decompiled"/>
+<rect width="532.06" height="6" x="0" y="0" class="named"/>
+<rect width="104.06" height="6" x="532.06" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2252,7 +2252,7 @@
 <rect width="0.17" height="0.10" x="729.86" y="335.81" class="named"><title>0x00430220 AsciiText::ClearStrings (11 bytes)</title></rect>
 <rect width="0.17" height="0.10" x="729.86" y="338.86" class="named"><title>0x00435f10 GdiSurface::IsCreated (11 bytes)</title></rect>
 <rect width="0.17" height="0.10" x="729.86" y="341.91" class="named"><title>0x00440790 CStreamingSound::~CStreamingSound (11 bytes)</title></rect>
-<rect width="0.17" height="0.10" x="729.86" y="344.95" class="decompiled"><title>0x00441880 ShotHit441880 (11 bytes)</title></rect>
+<rect width="0.17" height="0.10" x="729.86" y="344.95" class="named"><title>0x00441880 HitPlayerShotType1 (11 bytes)</title></rect>
 <rect width="0.10" height="0.11" x="733.03" y="329.72" class="named"><title>0x00401380 MemoryManager::Register (10 bytes)</title></rect>
 <rect width="0.10" height="0.11" x="735.86" y="329.72" class="named"><title>0x00406670 Timer::operator-- (10 bytes)</title></rect>
 <rect width="0.10" height="0.11" x="738.69" y="329.72" class="named"><title>0x0042d230 Log::Reset (10 bytes)</title></rect>
