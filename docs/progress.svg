@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.27% (961)</tspan> · <tspan class="decompiled">11.67% (130)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.36% (962)</tspan> · <tspan class="decompiled">11.58% (129)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="644.40" height="6" x="0" y="0" class="named"/>
-<rect width="87.17" height="6" x="644.40" y="0" class="decompiled"/>
+<rect width="645.08" height="6" x="0" y="0" class="named"/>
+<rect width="86.50" height="6" x="645.08" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1045,7 +1045,7 @@
 <rect width="12" height="12" x="360" y="285" class="named"><title>0x00441b00 SendComboAttacksCharacter1 (100 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="285" class="named"><title>0x00441b70 InitSpellCardTypes3And6 (75 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="285" class="named"><title>0x00441bc0 IsSpellCardDurationOver (23 bytes)</title></rect>
-<rect width="12" height="12" x="405" y="285" class="decompiled"><title>0x00441be0 SpellCardInit441be0 (75 bytes)</title></rect>
+<rect width="12" height="12" x="405" y="285" class="named"><title>0x00441be0 InitSpellCardTypes4And7 (75 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="285" class="decompiled"><title>0x00441c30 SpellCardInit441c30 (78 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="285" class="decompiled"><title>0x00441c80 EffectInit441c80 (165 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="285" class="decompiled"><title>0x00441d30 EffectUpdate441d30 (110 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.49%</tspan> · <tspan class="decompiled">13.67%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.51%</tspan> · <tspan class="decompiled">13.64%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="534.01" height="6" x="0" y="0" class="named"/>
-<rect width="102.11" height="6" x="534.01" y="0" class="decompiled"/>
+<rect width="534.20" height="6" x="0" y="0" class="named"/>
+<rect width="101.92" height="6" x="534.20" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1843,7 +1843,7 @@
 <rect width="5.05" height="5.19" x="628.20" y="315.24" class="named"><title>0x00441350 InitSpellCardType0 (75 bytes)</title></rect>
 <rect width="5.05" height="5.19" x="628.20" y="323.43" class="named"><title>0x004413d0 InitSpellCardType1 (75 bytes)</title></rect>
 <rect width="5.05" height="5.19" x="628.20" y="331.62" class="named"><title>0x00441b70 InitSpellCardTypes3And6 (75 bytes)</title></rect>
-<rect width="5.05" height="5.19" x="628.20" y="339.81" class="decompiled"><title>0x00441be0 SpellCardInit441be0 (75 bytes)</title></rect>
+<rect width="5.05" height="5.19" x="628.20" y="339.81" class="named"><title>0x00441be0 InitSpellCardTypes4And7 (75 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="636.25" y="231.37" class="named"><title>0x00407450 ScriptMoveLinear (74 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="644.48" y="231.37" class="named"><title>0x00411f80 EnemyManager::RemoveChain (74 bytes)</title></rect>
 <rect width="5.24" height="4.90" x="652.72" y="231.37" class="named"><title>0x0041e8b0 CheckDeath (74 bytes)</title></rect>

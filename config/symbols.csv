@@ -976,7 +976,7 @@ address,size,name,symbol
 0x00441b00,100,SendComboAttacksCharacter1,?SendComboAttacksCharacter1@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x00441b70,75,InitSpellCardTypes3And6,?InitSpellCardTypes3And6@@YIHPAVSpellCard@@@Z
 0x00441bc0,23,IsSpellCardDurationOver,?IsSpellCardDurationOver@@YIHPAVSpellCard@@@Z
-0x00441be0,75,SpellCardInit441be0,?SpellCardInit441be0@@YIHPAVSpellCard@@@Z
+0x00441be0,75,InitSpellCardTypes4And7,?InitSpellCardTypes4And7@@YIHPAVSpellCard@@@Z
 0x00441c30,78,SpellCardInit441c30,?SpellCardInit441c30@@YIHPAVSpellCard@@@Z
 0x00441c80,165,EffectInit441c80,?EffectInit441c80@@YIHPAUEffect@@@Z
 0x00441d30,110,EffectUpdate441d30,?EffectUpdate441d30@@YIHPAUEffect@@@Z

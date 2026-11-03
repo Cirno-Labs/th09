@@ -147,7 +147,7 @@ int IsSpellCardDurationOver(SpellCard *card)
     return 0;
 }
 
-int SpellCardInit441be0(SpellCard *card)
+int InitSpellCardTypes4And7(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
