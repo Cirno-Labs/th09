@@ -309,7 +309,7 @@ static int LineSide(D3DXVECTOR3 *p, D3DXVECTOR3 *a, D3DXVECTOR3 *b)
 // 128 and eases unknown80 towards -2pi/3 or -pi/3 by the way the player
 // moves across, else towards -pi/2; sets unknownC9 and puts the effect
 // on its side's player. Returns 1 (0x449ba0).
-int EffectUpdate449ba0(Effect *effect)
+int UpdateEffectType31(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknown7c < 128.0f)

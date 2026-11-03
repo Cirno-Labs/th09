@@ -1077,7 +1077,7 @@ address,size,name,symbol
 0x00449940,193,InitEffectType30,?InitEffectType30@@YIHPAUEffect@@@Z
 0x00449a10,311,DrawEffectType30,?DrawEffectType30@@YIHPAUEffect@@@Z
 0x00449b50,71,LineSide,?LineSide@@YIHPAUD3DXVECTOR3@@00@Z
-0x00449ba0,198,EffectUpdate449ba0,?EffectUpdate449ba0@@YIHPAUEffect@@@Z
+0x00449ba0,198,UpdateEffectType31,?UpdateEffectType31@@YIHPAUEffect@@@Z
 0x00449c70,98,ShotUpdate449c70,?ShotUpdate449c70@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00449ce0,98,ShotUpdate449ce0,?ShotUpdate449ce0@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x00449d50,732,PlayerPosFunc449d50,?PlayerPosFunc449d50@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
