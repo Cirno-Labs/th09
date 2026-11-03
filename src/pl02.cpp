@@ -97,7 +97,7 @@ int DrawEffectType16(Effect *effect)
 // option and offset in the bullet, then fires it as type 2 with an empty
 // trail.
 // Returns 1 if it fired (0x441ef0).
-int ShotFire441ef0(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
+int FirePlayerShotType1(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
     int i;
 

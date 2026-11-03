@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.71% (966)</tspan> · <tspan class="decompiled">11.22% (125)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">86.80% (967)</tspan> · <tspan class="decompiled">11.13% (124)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="647.76" height="6" x="0" y="0" class="named"/>
-<rect width="83.82" height="6" x="647.76" y="0" class="decompiled"/>
+<rect width="648.43" height="6" x="0" y="0" class="named"/>
+<rect width="83.15" height="6" x="648.43" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1050,7 +1050,7 @@
 <rect width="12" height="12" x="435" y="285" class="named"><title>0x00441c80 InitEffectType16 (165 bytes)</title></rect>
 <rect width="12" height="12" x="450" y="285" class="named"><title>0x00441d30 UpdateEffectType16 (110 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="285" class="named"><title>0x00441da0 DrawEffectType16 (327 bytes)</title></rect>
-<rect width="12" height="12" x="480" y="285" class="decompiled"><title>0x00441ef0 ShotFire441ef0 (151 bytes)</title></rect>
+<rect width="12" height="12" x="480" y="285" class="named"><title>0x00441ef0 FirePlayerShotType1 (151 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="285" class="decompiled"><title>0x00441f90 ShotUpdate441f90 (643 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="285" class="decompiled"><title>0x00442220 ShotDraw442220 (204 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="285" class="decompiled"><title>0x004422f0 EffectUpdate4422f0 (218 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.74%</tspan> · <tspan class="decompiled">13.41%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.79%</tspan> · <tspan class="decompiled">13.36%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="535.91" height="6" x="0" y="0" class="named"/>
-<rect width="100.21" height="6" x="535.91" y="0" class="decompiled"/>
+<rect width="536.29" height="6" x="0" y="0" class="named"/>
+<rect width="99.83" height="6" x="536.29" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1636,7 +1636,7 @@
 <rect width="8.41" height="8.78" x="626.92" y="162.49" class="named"><title>0x0043e380 SoundPlayer::QueueSoundPanned (153 bytes)</title></rect>
 <rect width="8.34" height="8.78" x="638.33" y="162.49" class="decompiled"><title>0x004486b0 EffectInit4486b0 (152 bytes)</title></rect>
 <rect width="8.26" height="8.78" x="649.67" y="162.49" class="named"><title>0x0040f4c0 MoveEnemyEffects (151 bytes)</title></rect>
-<rect width="8.26" height="8.78" x="660.93" y="162.49" class="decompiled"><title>0x00441ef0 ShotFire441ef0 (151 bytes)</title></rect>
+<rect width="8.26" height="8.78" x="660.93" y="162.49" class="named"><title>0x00441ef0 FirePlayerShotType1 (151 bytes)</title></rect>
 <rect width="8.26" height="8.78" x="672.20" y="162.49" class="decompiled"><title>0x0044c6f0 EffectInit44c6f0 (151 bytes)</title></rect>
 <rect width="8.19" height="8.78" x="683.46" y="162.49" class="named"><title>0x00424dff MainMenu::SelectEntry (150 bytes)</title></rect>
 <rect width="8.19" height="8.78" x="694.65" y="162.49" class="named"><title>0x0043bbe0 SpriteEngine::PreloadAnmTexture (150 bytes)</title></rect>
