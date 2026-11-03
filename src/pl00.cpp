@@ -282,7 +282,7 @@ int DrawEffectType10(Effect *effect)
     return 1;
 }
 
-// An update callback of the shot table (10): from 40 frames on, every
+// An update callback of the shot table (1): from 40 frames on, every
 // other frame, steers a flying bullet towards the player's
 // unknown30364, by up to a quarter of its speed and at 1 to 10 pixels
 // a frame, or speeds it up by a third up to 10 without a target; turns
@@ -292,7 +292,6 @@ int UpdatePlayerShotType1(Player *player, PlayerBullet *bullet)
     float x;
     float y;
     float len;
-    float speed;
 
     if (bullet->state == 1 && bullet->timer.AsFrames() >= 40 && bullet->timer.HasTicked())
     {
@@ -300,14 +299,14 @@ int UpdatePlayerShotType1(Player *player, PlayerBullet *bullet)
         {
             x = player->unknown30364.x - bullet->pos[0];
             y = player->unknown30364.y - bullet->pos[1];
-            len = Sqrt(x * x + y * y) / (bullet->speed * 0.25f);
+            len = sqrtf(x * x + y * y) / (bullet->speed * 0.25f);
             if (len < 1.0f)
             {
                 len = 1.0f;
             }
             x = x / len + bullet->velocity.x;
             y = y / len + bullet->velocity.y;
-            len = Sqrt(x * x + y * y);
+            len = sqrtf(x * x + y * y);
             bullet->speed = len > 10.0f ? 10.0f : len;
             if (bullet->speed < 1.0f)
             {
@@ -318,14 +317,12 @@ int UpdatePlayerShotType1(Player *player, PlayerBullet *bullet)
         }
         else if (bullet->speed < 10.0f)
         {
-            bullet->speed = speed = bullet->speed + 0.33333334f;
+            bullet->speed += 0.33333334f;
             x = bullet->velocity.x;
             y = bullet->velocity.y;
-            len = Sqrt(x * x + y * y);
-            x = x * speed;
-            y = y * speed;
-            bullet->velocity.x = x / len;
-            bullet->velocity.y = y / len;
+            len = sqrtf(x * x + y * y);
+            bullet->velocity.x = x * bullet->speed / len;
+            bullet->velocity.y = y * bullet->speed / len;
         }
     }
     bullet->angle = Atan2(bullet->velocity.y, bullet->velocity.x);
