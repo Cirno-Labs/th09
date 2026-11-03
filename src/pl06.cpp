@@ -85,7 +85,7 @@ int InitExAttackType15(ExAttack *attack)
 // for 90 frames, then appears on the target's side and, after 20
 // frames, fires 8 speeding bullets at a random angle, again in color 4
 // with aim mode 3, and is done. Returns 1 once it is done (0x445740).
-int ExAttackUpdate445740(ExAttack *attack)
+int UpdateExAttackType15(ExAttack *attack)
 {
     ExAttackData00 *data = (ExAttackData00 *)attack->data;
 
