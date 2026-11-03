@@ -326,7 +326,7 @@ int InitExAttackType3(ExAttack *attack)
 // it, or the trail's points 12 or 24, touches the target's player, its
 // sprites are interrupted and it ends 15 frames later. Returns 1 once it
 // is done (0x442750).
-int ExAttackUpdate442750(ExAttack *attack)
+int UpdateExAttackType3(ExAttack *attack)
 {
     ExAttackData03 *data = (ExAttackData03 *)attack->data;
     D3DXVECTOR3 pos0;

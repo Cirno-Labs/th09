@@ -991,7 +991,7 @@ address,size,name,symbol
 0x00442480,193,CheckFocusAreaCharacters2And10,?CheckFocusAreaCharacters2And10@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00442550,35,UpdateFocusedEnemyCharacter2,?UpdateFocusedEnemyCharacter2@@YIHPAVPlayer@@PAUEnemy@@@Z
 0x00442580,454,InitExAttackType3,?InitExAttackType3@@YIHPAUExAttack@@@Z
-0x00442750,780,ExAttackUpdate442750,?ExAttackUpdate442750@@YIHPAUExAttack@@@Z
+0x00442750,780,UpdateExAttackType3,?UpdateExAttackType3@@YIHPAUExAttack@@@Z
 0x00442a60,368,ExAttackInit442a60,?ExAttackInit442a60@@YIHPAUExAttack@@@Z
 0x00442bd0,739,ExAttackUpdate442bd0,?ExAttackUpdate442bd0@@YIHPAUExAttack@@@Z
 0x00442ec0,32,ExAttackFree442ec0,?ExAttackFree442ec0@@YIHPAUExAttack@@@Z
