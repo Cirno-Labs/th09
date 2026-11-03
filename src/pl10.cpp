@@ -38,7 +38,7 @@ ASSERT_SIZE(ExAttackData18, 0x158);
 
 // The init callback of extra attack type 18: type 0's with four sprites
 // and ExAttackData18 (0x449070).
-int ExAttackInit449070(ExAttack *attack)
+int InitExAttackType18(ExAttack *attack)
 {
     ExAttackData00 *data;
     float angle;
