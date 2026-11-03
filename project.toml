@@ -44,7 +44,6 @@ allow_diff = [
     "EclManager::RunEnemy",
     "EffectManager::AddedCallback",
     "EnemyManager::OnUpdate",
-    "GuiMsg::Run",
     "GameManager::LoadingThread",
     "Player::HandleInput",
     "ReplayManager::AddedCallbackMode1",

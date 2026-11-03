@@ -438,7 +438,7 @@ int GuiMsg::Run()
         }
         case 2:
         {
-            short who4;
+            int who4;
             int idx2;
 
             args = &this->instr->args;
