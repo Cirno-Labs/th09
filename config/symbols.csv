@@ -1025,7 +1025,7 @@ address,size,name,symbol
 0x00444f00,322,InitExAttackType5,?InitExAttackType5@@YIHPAUExAttack@@@Z
 0x00445050,316,InitExAttackType10,?InitExAttackType10@@YIHPAUExAttack@@@Z
 0x00445190,407,UpdateExAttackTypes5And10,?UpdateExAttackTypes5And10@@YIHPAUExAttack@@@Z
-0x00445330,102,PlayerComboFunc445330,?PlayerComboFunc445330@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
+0x00445330,102,SendComboAttacksCharacter5,?SendComboAttacksCharacter5@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x004453a0,314,EffectDraw4453a0,?EffectDraw4453a0@@YIHPAUEffect@@@Z
 0x004454e0,79,EffectUpdate4454e0,?EffectUpdate4454e0@@YIHPAUEffect@@@Z
 0x00445530,44,ShotFire445530,?ShotFire445530@@YIHPAVPlayer@@PAUPlayerBullet@@HPAUShotData@@@Z
