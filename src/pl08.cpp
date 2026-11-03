@@ -246,7 +246,7 @@ int InitEffectTypes10And18And24And25And26And28And33(Effect *effect)
 // The draw callback of effect type 28: DrawEffectType26's fan with two
 // 60-degree arcs centred sqrt(3) / 2 unknown7c either side of the
 // effect (0x447ce0).
-int EffectDraw447ce0(Effect *effect)
+int DrawEffectType28(Effect *effect)
 {
     if (effect->unknownC9)
     {
