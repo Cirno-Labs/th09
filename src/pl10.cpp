@@ -364,7 +364,7 @@ int UpdatePlayerShotType7(Player *player, PlayerBullet *bullet)
 // pentagram of the player's unknown368, its points unknown7c from the
 // player starting at the angle unknown80, as three triangles from each
 // point to the far inner corners (0x449d50).
-int PlayerPosFunc449d50(Player *player, D3DXVECTOR3 *pos)
+int CheckFocusAreaCharacter11(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = *pos - player->pos;
     D3DXVECTOR3 pts[10];
