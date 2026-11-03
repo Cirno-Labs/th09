@@ -244,7 +244,7 @@ int InitEffectType35(Effect *effect)
 
 // The update callback of effect type 0x23: fires the player's shots of
 // table 2 on the effect's frame. Returns 1 (0x445c80).
-int EffectUpdate445c80(Effect *effect)
+int UpdateEffectType35(Effect *effect)
 {
     FireShots(effect->mgr->side->player, effect->unknownAc.AsFrames(), 2);
     return 1;

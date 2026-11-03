@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">91.47% (1019)</tspan> · <tspan class="decompiled">6.46% (72)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">91.56% (1020)</tspan> · <tspan class="decompiled">6.37% (71)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="683.30" height="6" x="0" y="0" class="named"/>
-<rect width="48.28" height="6" x="683.30" y="0" class="decompiled"/>
+<rect width="683.97" height="6" x="0" y="0" class="named"/>
+<rect width="47.61" height="6" x="683.97" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1106,7 +1106,7 @@
 <rect width="12" height="12" x="525" y="300" class="named"><title>0x004459a0 InitEffectTypes27And36 (148 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="300" class="named"><title>0x00445a40 DrawEffectType27 (491 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="300" class="named"><title>0x00445c30 InitEffectType35 (72 bytes)</title></rect>
-<rect width="12" height="12" x="570" y="300" class="decompiled"><title>0x00445c80 EffectUpdate445c80 (38 bytes)</title></rect>
+<rect width="12" height="12" x="570" y="300" class="named"><title>0x00445c80 UpdateEffectType35 (38 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="300" class="decompiled"><title>0x00445cb0 ShotFire445cb0 (72 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="300" class="decompiled"><title>0x00445d00 ShotFire445d00 (119 bytes)</title></rect>
 <rect width="12" height="12" x="615" y="300" class="decompiled"><title>0x00445d80 PlayerComboFunc445d80 (119 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.85%</tspan> · <tspan class="decompiled">8.31%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">76.86%</tspan> · <tspan class="decompiled">8.29%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="574.08" height="6" x="0" y="0" class="named"/>
-<rect width="62.04" height="6" x="574.08" y="0" class="decompiled"/>
+<rect width="574.17" height="6" x="0" y="0" class="named"/>
+<rect width="61.94" height="6" x="574.17" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -2026,7 +2026,7 @@
 <rect width="2.79" height="2.77" x="677.32" y="308.05" class="named"><title>0x004413a0 FreePrimarySpellCardData (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="313.82" class="named"><title>0x00441470 FreeSecondarySpellCardData (38 bytes)</title></rect>
 <rect width="2.79" height="2.77" x="677.32" y="319.59" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
-<rect width="2.79" height="2.77" x="677.32" y="325.37" class="decompiled"><title>0x00445c80 EffectUpdate445c80 (38 bytes)</title></rect>
+<rect width="2.79" height="2.77" x="677.32" y="325.37" class="named"><title>0x00445c80 UpdateEffectType35 (38 bytes)</title></rect>
 <rect width="2.79" height="2.62" x="677.32" y="331.14" class="named"><title>0x0040e3a0 PlayRecord::AddClear (37 bytes)</title></rect>
 <rect width="2.79" height="2.62" x="677.32" y="336.76" class="named"><title>0x00412650 EnemyShooter::SetCommand (37 bytes)</title></rect>
 <rect width="2.79" height="2.62" x="677.32" y="342.38" class="named"><title>0x004126d0 Bullet::SetSpriteCommand (37 bytes)</title></rect>
