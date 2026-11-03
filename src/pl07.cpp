@@ -523,7 +523,7 @@ int InitExAttackTypes11And12(ExAttack *attack)
 // 10 frames a single spinning bullet of alternating types, accelerated
 // by the other side's player's unknownA4. Returns 1 once it is done
 // (0x446ee0).
-int ExAttackUpdate446ee0(ExAttack *attack)
+int UpdateExAttackType11(ExAttack *attack)
 {
     ExAttackData08 *data = (ExAttackData08 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
