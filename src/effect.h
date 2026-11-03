@@ -203,7 +203,7 @@ ASSERT_SIZE(EffectManager, 0x2dc);
 // An effect init callback of the effect table: moves the effect 256
 // along the angle in velocity.x and turns its first sprite to the angle
 // plus pi/2. Returns 0 (0x40e080).
-int EffectInit40e080(Effect *effect);
+int InitOrientedEffect(Effect *effect);
 
 // An effect update callback of the effect table: puts the effect on its
 // side's player, as th08's EffectUpdateFollowPlayer. Returns 1

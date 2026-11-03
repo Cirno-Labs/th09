@@ -767,7 +767,7 @@ int EffectDrawRing(Effect *effect)
     return 1;
 }
 
-int EffectInit40e080(Effect *effect)
+int InitOrientedEffect(Effect *effect)
 {
     D3DXVECTOR3 offset;
 
