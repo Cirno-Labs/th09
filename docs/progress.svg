@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">94.43% (1052)</tspan> · <tspan class="decompiled">3.50% (39)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">94.52% (1053)</tspan> · <tspan class="decompiled">3.41% (38)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="705.43" height="6" x="0" y="0" class="named"/>
-<rect width="26.15" height="6" x="705.43" y="0" class="decompiled"/>
+<rect width="706.10" height="6" x="0" y="0" class="named"/>
+<rect width="25.48" height="6" x="706.10" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1140,7 +1140,7 @@
 <rect width="12" height="12" x="285" y="315" class="nonmatching"><title>0x00448750 DrawEffectType29 (2220 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="315" class="named"><title>0x00449000 UpdateEffectType30 (100 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="315" class="named"><title>0x00449070 InitExAttackType18 (358 bytes)</title></rect>
-<rect width="12" height="12" x="330" y="315" class="decompiled"><title>0x004491e0 ExAttackUpdate4491e0 (1436 bytes)</title></rect>
+<rect width="12" height="12" x="330" y="315" class="named"><title>0x004491e0 UpdateExAttackTypes18And24 (1436 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="315" class="decompiled"><title>0x00449780 PlayerComboFunc449780 (101 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="315" class="decompiled"><title>0x004497f0 ExAttackInit4497f0 (327 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="315" class="decompiled"><title>0x00449940 EffectInit449940 (193 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">80.62%</tspan> · <tspan class="decompiled">4.54%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.10%</tspan> · <tspan class="decompiled">4.06%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="602.20" height="6" x="0" y="0" class="named"/>
-<rect width="33.92" height="6" x="602.20" y="0" class="decompiled"/>
+<rect width="605.81" height="6" x="0" y="0" class="named"/>
+<rect width="30.30" height="6" x="605.81" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1227,7 +1227,7 @@
 <rect width="33.97" height="32.63" x="206.86" y="109.03" class="named"><title>0x0040e8a0 Ending::RunScript (1499 bytes)</title></rect>
 <rect width="33.97" height="32.44" x="206.86" y="144.66" class="named"><title>0x00417630 Gui::OnUpdate (1491 bytes)</title></rect>
 <rect width="33.97" height="32.04" x="206.86" y="180.10" class="named"><title>0x00417c10 Gui::OnDraw (1474 bytes)</title></rect>
-<rect width="33.97" height="31.13" x="206.86" y="215.13" class="decompiled"><title>0x004491e0 ExAttackUpdate4491e0 (1436 bytes)</title></rect>
+<rect width="33.97" height="31.13" x="206.86" y="215.13" class="named"><title>0x004491e0 UpdateExAttackTypes18And24 (1436 bytes)</title></rect>
 <rect width="33.97" height="30.66" x="206.86" y="249.26" class="named"><title>0x0043f1f0 SoundPlayer::PlayQueuedSounds (1416 bytes)</title></rect>
 <rect width="33.97" height="29.97" x="206.86" y="282.92" class="named"><title>0x0042689a MainMenu::UpdateState11 (1387 bytes)</title></rect>
 <rect width="33.97" height="29.11" x="206.86" y="315.89" class="named"><title>0x0042e3b0 WinMain (1351 bytes)</title></rect>

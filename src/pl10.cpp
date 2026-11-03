@@ -75,7 +75,7 @@ int InitExAttackType18(ExAttack *attack)
 // off a side once, adds a circle of 12 to the player's unknown36c ahead
 // of it and stops when it hits the player. Returns 1 once below 480
 // (0x4491e0).
-int ExAttackUpdate4491e0(ExAttack *attack)
+int UpdateExAttackTypes18And24(ExAttack *attack)
 {
     ExAttackData18 *data = (ExAttackData18 *)attack->data;
     D3DXVECTOR3 size(24.0f, 24.0f, 0.0f);
