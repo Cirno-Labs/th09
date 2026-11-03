@@ -90,7 +90,7 @@ int InitExAttackType19(ExAttack *attack)
 // its texture scrolling and its rim wobbling, slowing the player there
 // by unknown1ce4 and unknown1ce8 while they are within 64 of it from
 // frame 20 to 300. Returns 1 once its sprite has hidden (0x44a330).
-int ExAttackUpdate44a330(ExAttack *attack)
+int UpdateExAttackType19(ExAttack *attack)
 {
     // Not matching yet: the angle and the vertex pointer swap stack
     // slots, and the scroll adds in the loop take their operands the
