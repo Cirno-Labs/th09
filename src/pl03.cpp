@@ -189,7 +189,7 @@ int UpdateExAttackType13(ExAttack *attack)
 // The combo func of character 3: while unknown34 reaches 70 -
 // unknownB4 * 3, sends an extra attack of type 13 from `pos` and takes
 // 70 off it. Returns 0 (0x443790).
-int PlayerComboFunc443790(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
+int SendComboAttacksCharacter3(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
     while (combo->unknown34 >= 70 - g_GameManager.rank.unknownB4 * 3)
     {
