@@ -962,7 +962,7 @@ address,size,name,symbol
 0x00441350,75,InitSpellCardType0,?InitSpellCardType0@@YIHPAVSpellCard@@@Z
 0x004413a0,38,FreePrimarySpellCardData,?FreePrimarySpellCardData@@YIHPAVSpellCard@@@Z
 0x004413d0,75,InitSpellCardType1,?InitSpellCardType1@@YIHPAVSpellCard@@@Z
-0x00441420,78,SpellCardInit441420,?SpellCardInit441420@@YIHPAVSpellCard@@@Z
+0x00441420,78,InitSpellCardType2,?InitSpellCardType2@@YIHPAVSpellCard@@@Z
 0x00441470,38,SpellCardFree441470,?SpellCardFree441470@@YIHPAVSpellCard@@@Z
 0x004414a0,314,EffectDraw4414a0,?EffectDraw4414a0@@YIHPAUEffect@@@Z
 0x004415e0,471,ShotUpdate4415e0,?ShotUpdate4415e0@@YIHPAVPlayer@@PAUPlayerBullet@@@Z

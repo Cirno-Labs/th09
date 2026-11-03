@@ -222,7 +222,7 @@ int InitSpellCardType1(SpellCard *card)
 // The init callback of spell card type 2: allocates unknown1364 and
 // spawns enemy subroutine 2 from the player's ECL, with the position
 // never set. Returns 0 (0x441420).
-int SpellCardInit441420(SpellCard *card)
+int InitSpellCardType2(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
