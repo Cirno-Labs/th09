@@ -967,7 +967,7 @@ address,size,name,symbol
 0x004414a0,314,DrawEffectType10,?DrawEffectType10@@YIHPAUEffect@@@Z
 0x004415e0,471,UpdatePlayerShotType1,?UpdatePlayerShotType1@@YIHPAVPlayer@@PAUPlayerBullet@@@Z
 0x004417c0,38,EnemyManager::SpawnPlayerEnemyWithVars,?SpawnPlayerEnemyWithVars@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHPAUEclVars@@@Z
-0x004417f0,129,PlayerPosFunc4417f0,?PlayerPosFunc4417f0@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
+0x004417f0,129,CheckFocusAreaCharacter1,?CheckFocusAreaCharacter1@@YIHPAVPlayer@@PAUD3DXVECTOR3@@@Z
 0x00441880,11,ShotHit441880,?ShotHit441880@@YIHPAVPlayer@@PAUPlayerBullet@@PAUD3DXVECTOR3@@@Z
 0x00441890,32,SetPolar,?SetPolar@@YIXPAUVector2@@MM@Z
 0x004418b0,95,PlayerEnemyFunc4418b0,?PlayerEnemyFunc4418b0@@YIHPAVPlayer@@PAUEnemy@@@Z

@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.55% (953)</tspan> · <tspan class="decompiled">12.39% (138)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">85.64% (954)</tspan> · <tspan class="decompiled">12.30% (137)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="639.04" height="6" x="0" y="0" class="named"/>
-<rect width="92.54" height="6" x="639.04" y="0" class="decompiled"/>
+<rect width="639.71" height="6" x="0" y="0" class="named"/>
+<rect width="91.87" height="6" x="639.71" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1036,7 +1036,7 @@
 <rect width="12" height="12" x="225" y="285" class="named"><title>0x004414a0 DrawEffectType10 (314 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="285" class="nonmatching"><title>0x004415e0 UpdatePlayerShotType1 (471 bytes)</title></rect>
 <rect width="12" height="12" x="255" y="285" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
-<rect width="12" height="12" x="270" y="285" class="decompiled"><title>0x004417f0 PlayerPosFunc4417f0 (129 bytes)</title></rect>
+<rect width="12" height="12" x="270" y="285" class="named"><title>0x004417f0 CheckFocusAreaCharacter1 (129 bytes)</title></rect>
 <rect width="12" height="12" x="285" y="285" class="decompiled"><title>0x00441880 ShotHit441880 (11 bytes)</title></rect>
 <rect width="12" height="12" x="300" y="285" class="named"><title>0x00441890 SetPolar (32 bytes)</title></rect>
 <rect width="12" height="12" x="315" y="285" class="decompiled"><title>0x004418b0 PlayerEnemyFunc4418b0 (95 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.18%</tspan> · <tspan class="decompiled">13.98%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">71.22%</tspan> · <tspan class="decompiled">13.93%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="531.71" height="6" x="0" y="0" class="named"/>
-<rect width="104.41" height="6" x="531.71" y="0" class="decompiled"/>
+<rect width="532.03" height="6" x="0" y="0" class="named"/>
+<rect width="104.08" height="6" x="532.03" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1672,7 +1672,7 @@
 <rect width="7.43" height="8.04" x="678.25" y="174.28" class="named"><title>0x0042ace0 UpdatePlayerInput (131 bytes)</title></rect>
 <rect width="7.35" height="8.04" x="688.68" y="174.28" class="named"><title>0x0042fd90 App::UnloadBgm (130 bytes)</title></rect>
 <rect width="7.35" height="8.04" x="699.03" y="174.28" class="named"><title>0x004342a0 AsciiText::AddString (130 bytes)</title></rect>
-<rect width="7.27" height="8.04" x="709.39" y="174.28" class="decompiled"><title>0x004417f0 PlayerPosFunc4417f0 (129 bytes)</title></rect>
+<rect width="7.27" height="8.04" x="709.39" y="174.28" class="named"><title>0x004417f0 CheckFocusAreaCharacter1 (129 bytes)</title></rect>
 <rect width="7.11" height="8.04" x="719.66" y="174.28" class="named"><title>0x004101d0 Enemy::ClampPos (127 bytes)</title></rect>
 <rect width="7.11" height="8.04" x="729.77" y="174.28" class="named"><title>0x0041b9d0 GameManager::RegisterChain (127 bytes)</title></rect>
 <rect width="7.11" height="8.04" x="739.89" y="174.28" class="named"><title>0x0043bd40 SpriteEngine::RenderTextToTextureIndex (127 bytes)</title></rect>

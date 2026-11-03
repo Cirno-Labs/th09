@@ -11,7 +11,7 @@
 // The unknown30404 of character 1: whether `pos` is above the player,
 // within a parabola about it that the player's unknown368 widens by its
 // unknown84, and at least 14 across (0x4417f0).
-int PlayerPosFunc4417f0(Player *player, D3DXVECTOR3 *pos)
+int CheckFocusAreaCharacter1(Player *player, D3DXVECTOR3 *pos)
 {
     float top = player->pos.y + 32.0f;
     float dx;
