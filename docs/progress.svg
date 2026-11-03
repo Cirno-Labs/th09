@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.54% (1042)</tspan> · <tspan class="decompiled">4.40% (49)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.63% (1043)</tspan> · <tspan class="decompiled">4.31% (48)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="698.72" height="6" x="0" y="0" class="named"/>
-<rect width="32.86" height="6" x="698.72" y="0" class="decompiled"/>
+<rect width="699.39" height="6" x="0" y="0" class="named"/>
+<rect width="32.19" height="6" x="699.39" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1129,7 +1129,7 @@
 <rect width="12" height="12" x="120" y="315" class="named"><title>0x00447890 UpdateExAttackTypes16And23 (496 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="315" class="named"><title>0x00447a80 SendComboAttacksCharacter8 (98 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="315" class="named"><title>0x00447af0 InitExAttackType23 (324 bytes)</title></rect>
-<rect width="12" height="12" x="165" y="315" class="decompiled"><title>0x00447c40 EffectInit447c40 (155 bytes)</title></rect>
+<rect width="12" height="12" x="165" y="315" class="named"><title>0x00447c40 InitEffectTypes10And18And24And25And26And28And33 (155 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="315" class="decompiled"><title>0x00447ce0 EffectDraw447ce0 (602 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="315" class="decompiled"><title>0x00447f40 EffectUpdate447f40 (106 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="315" class="decompiled"><title>0x00447fb0 PlayerPosFunc447fb0 (867 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.53%</tspan> · <tspan class="decompiled">5.62%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.59%</tspan> · <tspan class="decompiled">5.57%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="594.11" height="6" x="0" y="0" class="named"/>
-<rect width="42" height="6" x="594.11" y="0" class="decompiled"/>
+<rect width="594.50" height="6" x="0" y="0" class="named"/>
+<rect width="41.61" height="6" x="594.50" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1627,7 +1627,7 @@
 <rect width="9.17" height="8.34" x="557.39" y="302.85" class="named"><title>0x00407560 ScriptLerp (157 bytes)</title></rect>
 <rect width="9.17" height="8.34" x="557.39" y="314.19" class="named"><title>0x00435ca0 AsciiText::RegisterChain (157 bytes)</title></rect>
 <rect width="9.17" height="8.27" x="557.39" y="325.53" class="decompiled"><title>0x0044a6e0 EffectInit44a6e0 (156 bytes)</title></rect>
-<rect width="9.17" height="8.20" x="557.39" y="336.80" class="decompiled"><title>0x00447c40 EffectInit447c40 (155 bytes)</title></rect>
+<rect width="9.17" height="8.20" x="557.39" y="336.80" class="named"><title>0x00447c40 InitEffectTypes10And18And24And25And26And28And33 (155 bytes)</title></rect>
 <rect width="8.56" height="8.78" x="569.56" y="162.49" class="decompiled"><title>0x0044aff0 EffectInit44aff0 (155 bytes)</title></rect>
 <rect width="8.49" height="8.78" x="581.12" y="162.49" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
 <rect width="8.49" height="8.78" x="592.61" y="162.49" class="named"><title>0x004346a0 AsciiText::AddPopup (154 bytes)</title></rect>

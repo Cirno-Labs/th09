@@ -476,7 +476,7 @@ int DrawEffectType26(Effect *effect)
 }
 
 // The init callback of effect type 34: allocates its zeroed state in
-// vertices and sets it up as EffectInit447c40's ring of radius 16.
+// vertices and sets it up as InitEffectTypes10And18And24And25And26And28And33's ring of radius 16.
 // Returns 0, or -1 if the allocation fails (0x444960).
 int InitEffectType34(Effect *effect)
 {

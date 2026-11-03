@@ -8,7 +8,7 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The init callback of effect type 16: EffectInit447c40's ring of
+// The init callback of effect type 16: InitEffectTypes10And18And24And25And26And28And33's ring of
 // radius 16, with unknown84 at 0.01. Returns 0, or -1 if the allocation
 // fails (0x441c80).
 int InitEffectType16(Effect *effect)

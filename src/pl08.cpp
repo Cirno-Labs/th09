@@ -218,7 +218,7 @@ int InitExAttackType23(ExAttack *attack)
 // vertices and sets the effect up as a ring of 32 segments, radius 16,
 // around its position, from the angle in velocity.x, as wide as
 // velocity.z. Returns 0, or -1 if the allocation fails (0x447c40).
-int EffectInit447c40(Effect *effect)
+int InitEffectTypes10And18And24And25And26And28And33(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)

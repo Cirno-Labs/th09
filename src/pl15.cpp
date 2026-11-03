@@ -142,7 +142,7 @@ int PlayerComboFunc44c680(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
     return 0;
 }
 
-// The init callback of effect type 37: EffectInit447c40's ring with
+// The init callback of effect type 37: InitEffectTypes10And18And24And25And26And28And33's ring with
 // 0xf0 bytes of vertices and a radius of 0. Returns 0, or -1 if the
 // allocation fails (0x44c6f0).
 int EffectInit44c6f0(Effect *effect)
