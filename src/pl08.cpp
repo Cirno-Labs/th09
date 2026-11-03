@@ -67,7 +67,7 @@ ASSERT_SIZE(ExAttackData16, 0x50);
 
 // The init callback of extra attack type 16: type 0's, landing further
 // from the side's edges (0x447720).
-int ExAttackInit447720(ExAttack *attack)
+int InitExAttackType16(ExAttack *attack)
 {
     ExAttackData16 *data;
     float angle;

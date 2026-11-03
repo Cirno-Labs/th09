@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.18% (1038)</tspan> · <tspan class="decompiled">4.76% (53)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.27% (1039)</tspan> · <tspan class="decompiled">4.67% (52)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="696.04" height="6" x="0" y="0" class="named"/>
-<rect width="35.54" height="6" x="696.04" y="0" class="decompiled"/>
+<rect width="696.71" height="6" x="0" y="0" class="named"/>
+<rect width="34.87" height="6" x="696.71" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1125,7 +1125,7 @@
 <rect width="12" height="12" x="60" y="315" class="named"><title>0x00447480 DrawEffectType25 (314 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="315" class="named"><title>0x004475c0 UpdateEffectType28 (91 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="315" class="named"><title>0x00447620 CheckFocusAreaCharacter8 (249 bytes)</title></rect>
-<rect width="12" height="12" x="105" y="315" class="decompiled"><title>0x00447720 ExAttackInit447720 (355 bytes)</title></rect>
+<rect width="12" height="12" x="105" y="315" class="named"><title>0x00447720 InitExAttackType16 (355 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="315" class="decompiled"><title>0x00447890 ExAttackUpdate447890 (496 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="315" class="decompiled"><title>0x00447a80 PlayerComboFunc447a80 (98 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="315" class="decompiled"><title>0x00447af0 ExAttackInit447af0 (324 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.10%</tspan> · <tspan class="decompiled">6.05%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.22%</tspan> · <tspan class="decompiled">5.93%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="590.91" height="6" x="0" y="0" class="named"/>
-<rect width="45.20" height="6" x="590.91" y="0" class="decompiled"/>
+<rect width="591.81" height="6" x="0" y="0" class="named"/>
+<rect width="44.31" height="6" x="591.81" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1401,7 +1401,7 @@
 <rect width="14.51" height="14.87" x="452.21" y="241.35" class="named"><title>0x00446c10 InitExAttackType8 (356 bytes)</title></rect>
 <rect width="14.51" height="14.82" x="452.21" y="259.22" class="named"><title>0x0042c970 OpenPath (355 bytes)</title></rect>
 <rect width="14.51" height="14.82" x="452.21" y="277.04" class="named"><title>0x00440e40 InitExAttackType0 (355 bytes)</title></rect>
-<rect width="14.51" height="14.82" x="452.21" y="294.85" class="decompiled"><title>0x00447720 ExAttackInit447720 (355 bytes)</title></rect>
+<rect width="14.51" height="14.82" x="452.21" y="294.85" class="named"><title>0x00447720 InitExAttackType16 (355 bytes)</title></rect>
 <rect width="14.51" height="14.67" x="452.21" y="312.67" class="named"><title>0x0043c2d0 SpriteEngine::CopyBackBufferToSurface (352 bytes)</title></rect>
 <rect width="14.51" height="14.67" x="452.21" y="330.33" class="named"><title>0x004467c0 InitExAttackType9 (352 bytes)</title></rect>
 <rect width="15.01" height="14.03" x="469.73" y="60.53" class="named"><title>0x00408560 ScriptUpdateShooting (349 bytes)</title></rect>
