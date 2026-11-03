@@ -225,7 +225,7 @@ int InitExAttackType24(ExAttack *attack)
 // The init callback of effect type 30: InitEffectType17's ring of
 // radius 128, turned to -pi/2 after all. Returns 0, or -1 if the
 // allocation fails (0x449940).
-int EffectInit449940(Effect *effect)
+int InitEffectType30(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)

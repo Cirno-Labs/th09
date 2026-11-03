@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">94.70% (1055)</tspan> · <tspan class="decompiled">3.23% (36)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">94.79% (1056)</tspan> · <tspan class="decompiled">3.14% (35)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="707.44" height="6" x="0" y="0" class="named"/>
-<rect width="24.14" height="6" x="707.44" y="0" class="decompiled"/>
+<rect width="708.11" height="6" x="0" y="0" class="named"/>
+<rect width="23.47" height="6" x="708.11" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1143,7 +1143,7 @@
 <rect width="12" height="12" x="330" y="315" class="named"><title>0x004491e0 UpdateExAttackTypes18And24 (1436 bytes)</title></rect>
 <rect width="12" height="12" x="345" y="315" class="named"><title>0x00449780 SendComboAttacksCharacter10 (101 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="315" class="named"><title>0x004497f0 InitExAttackType24 (327 bytes)</title></rect>
-<rect width="12" height="12" x="375" y="315" class="decompiled"><title>0x00449940 EffectInit449940 (193 bytes)</title></rect>
+<rect width="12" height="12" x="375" y="315" class="named"><title>0x00449940 InitEffectType30 (193 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="315" class="decompiled"><title>0x00449a10 EffectDraw449a10 (311 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="315" class="named"><title>0x00449b50 LineSide (71 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="315" class="decompiled"><title>0x00449ba0 EffectUpdate449ba0 (198 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.24%</tspan> · <tspan class="decompiled">3.91%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">81.31%</tspan> · <tspan class="decompiled">3.85%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="606.89" height="6" x="0" y="0" class="named"/>
-<rect width="29.23" height="6" x="606.89" y="0" class="decompiled"/>
+<rect width="607.37" height="6" x="0" y="0" class="named"/>
+<rect width="28.74" height="6" x="607.37" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1566,7 +1566,7 @@
 <rect width="10.25" height="9.80" x="531.31" y="335.20" class="named"><title>0x004331c0 DatArchive::Decode (193 bytes)</title></rect>
 <rect width="10.08" height="9.97" x="544.56" y="137.18" class="named"><title>0x0043c200 SpriteEngine::CopyBackBufferToTexture (193 bytes)</title></rect>
 <rect width="10.08" height="9.97" x="557.64" y="137.18" class="named"><title>0x00442480 CheckFocusAreaCharacters2And10 (193 bytes)</title></rect>
-<rect width="10.08" height="9.97" x="570.72" y="137.18" class="decompiled"><title>0x00449940 EffectInit449940 (193 bytes)</title></rect>
+<rect width="10.08" height="9.97" x="570.72" y="137.18" class="named"><title>0x00449940 InitEffectType30 (193 bytes)</title></rect>
 <rect width="10.01" height="9.97" x="583.81" y="137.18" class="named"><title>0x0042da90 ChecksumExecutable (192 bytes)</title></rect>
 <rect width="9.95" height="9.97" x="596.82" y="137.18" class="named"><title>0x0042eac0 App::InsertRecord (191 bytes)</title></rect>
 <rect width="9.88" height="9.97" x="609.77" y="137.18" class="named"><title>0x004011d0 Stage::StepObjects (190 bytes)</title></rect>
