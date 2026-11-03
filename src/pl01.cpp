@@ -57,7 +57,7 @@ int UpdateFocusedEnemyDrift(Player *player, Enemy *enemy)
 
 // The init callback of extra attack type 2: pl00's type 0, flying in to
 // a random spot on the bottom of the other side. Returns 0 (0x441910).
-int ExAttackInit441910(ExAttack *attack)
+int InitExAttackType2(ExAttack *attack)
 {
     ExAttackData00 *data;
     float angle;
