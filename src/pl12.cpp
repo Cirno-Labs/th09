@@ -246,7 +246,7 @@ int DrawEffectType32(Effect *effect)
 // The update callback of effect type 33: grows unknown7c by 16 up to 96,
 // sets unknownC9 and puts the effect on its side's player. Returns 1
 // (0x44b1d0).
-int EffectUpdate44b1d0(Effect *effect)
+int UpdateEffectType33(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknown7c < 96.0f)

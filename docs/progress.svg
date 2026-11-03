@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">96.23% (1072)</tspan> · <tspan class="decompiled">1.71% (19)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">96.32% (1073)</tspan> · <tspan class="decompiled">1.62% (18)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="718.84" height="6" x="0" y="0" class="named"/>
-<rect width="12.74" height="6" x="718.84" y="0" class="decompiled"/>
+<rect width="719.51" height="6" x="0" y="0" class="named"/>
+<rect width="12.07" height="6" x="719.51" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1163,7 +1163,7 @@
 <rect width="12" height="12" x="630" y="315" class="named"><title>0x0044af80 SendComboAttacksCharacter12 (101 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="315" class="named"><title>0x0044aff0 InitEffectType32 (155 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="315" class="named"><title>0x0044b090 DrawEffectType32 (314 bytes)</title></rect>
-<rect width="12" height="12" x="675" y="315" class="decompiled"><title>0x0044b1d0 EffectUpdate44b1d0 (79 bytes)</title></rect>
+<rect width="12" height="12" x="675" y="315" class="named"><title>0x0044b1d0 UpdateEffectType33 (79 bytes)</title></rect>
 <rect width="12" height="12" x="690" y="315" class="decompiled"><title>0x0044b220 ExAttackInit44b220 (727 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="315" class="decompiled"><title>0x0044b500 ExAttackUpdate44b500 (1074 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="315" class="decompiled"><title>0x0044b940 ExAttackDraw44b940 (318 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83%</tspan> · <tspan class="decompiled">2.16%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.02%</tspan> · <tspan class="decompiled">2.13%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="619.99" height="6" x="0" y="0" class="named"/>
-<rect width="16.13" height="6" x="619.99" y="0" class="decompiled"/>
+<rect width="620.19" height="6" x="0" y="0" class="named"/>
+<rect width="15.93" height="6" x="620.19" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1829,7 +1829,7 @@
 <rect width="5.02" height="5.66" x="717.93" y="222.71" class="named"><title>0x00443250 UpdateEffectType18 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="725.94" y="222.71" class="named"><title>0x00444eb0 UpdateEffectType24 (79 bytes)</title></rect>
 <rect width="5.02" height="5.66" x="733.96" y="222.71" class="named"><title>0x004454e0 UpdateEffectType27 (79 bytes)</title></rect>
-<rect width="5.02" height="5.66" x="741.98" y="222.71" class="decompiled"><title>0x0044b1d0 EffectUpdate44b1d0 (79 bytes)</title></rect>
+<rect width="5.02" height="5.66" x="741.98" y="222.71" class="named"><title>0x0044b1d0 UpdateEffectType33 (79 bytes)</title></rect>
 <rect width="5.05" height="5.63" x="628.20" y="231.37" class="decompiled"><title>0x0044bc30 EffectUpdate44bc30 (79 bytes)</title></rect>
 <rect width="5.05" height="5.63" x="628.20" y="240" class="decompiled"><title>0x0044c290 EffectUpdate44c290 (79 bytes)</title></rect>
 <rect width="5.05" height="5.52" x="628.20" y="248.62" class="named"><title>0x00435f40 GdiSurface::Release (78 bytes)</title></rect>

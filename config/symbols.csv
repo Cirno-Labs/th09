@@ -1094,7 +1094,7 @@ address,size,name,symbol
 0x0044af80,101,SendComboAttacksCharacter12,?SendComboAttacksCharacter12@@YIHPAUPlayerUnknown30410@@PAUD3DXVECTOR3@@@Z
 0x0044aff0,155,InitEffectType32,?InitEffectType32@@YIHPAUEffect@@@Z
 0x0044b090,314,DrawEffectType32,?DrawEffectType32@@YIHPAUEffect@@@Z
-0x0044b1d0,79,EffectUpdate44b1d0,?EffectUpdate44b1d0@@YIHPAUEffect@@@Z
+0x0044b1d0,79,UpdateEffectType33,?UpdateEffectType33@@YIHPAUEffect@@@Z
 0x0044b220,727,ExAttackInit44b220,?ExAttackInit44b220@@YIHPAUExAttack@@@Z
 0x0044b500,1074,ExAttackUpdate44b500,?ExAttackUpdate44b500@@YIHPAUExAttack@@@Z
 0x0044b940,318,ExAttackDraw44b940,?ExAttackDraw44b940@@YIHPAUExAttack@@@Z
