@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">98.56% (1098)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">1.44% (16)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">98.65% (1099)</tspan> · <tspan class="decompiled">0% (0)</tspan> · <tspan class="nonmatching">1.35% (15)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="736.27" height="6" x="0" y="0" class="named"/>
-<rect width="10.73" height="6" x="736.27" y="0" class="nonmatching"/>
+<rect width="736.94" height="6" x="0" y="0" class="named"/>
+<rect width="10.06" height="6" x="736.94" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
@@ -1150,7 +1150,7 @@
 <rect width="12" height="12" x="450" y="315" class="named"><title>0x00449ce0 UpdatePlayerShotType7 (98 bytes)</title></rect>
 <rect width="12" height="12" x="465" y="315" class="named"><title>0x00449d50 CheckFocusAreaCharacter11 (732 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="315" class="named"><title>0x0044a030 InitExAttackType19 (763 bytes)</title></rect>
-<rect width="12" height="12" x="495" y="315" class="nonmatching"><title>0x0044a330 UpdateExAttackType19 (821 bytes)</title></rect>
+<rect width="12" height="12" x="495" y="315" class="named"><title>0x0044a330 UpdateExAttackType19 (821 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="315" class="named"><title>0x0044a670 SendComboAttacksCharacter11 (101 bytes)</title></rect>
 <rect width="12" height="12" x="525" y="315" class="named"><title>0x0044a6e0 InitEffectType31 (156 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="315" class="named"><title>0x0044a780 DrawEffectType31 (921 bytes)</title></rect>
@@ -1185,10 +1185,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">87.83%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">12.17%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">88.11%</tspan> · <tspan class="decompiled">0%</tspan> · <tspan class="nonmatching">11.89%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="656.08" height="6" x="0" y="0" class="named"/>
-<rect width="90.92" height="6" x="656.08" y="0" class="nonmatching"/>
+<rect width="658.15" height="6" x="0" y="0" class="named"/>
+<rect width="88.85" height="6" x="658.15" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
 <rect width="76.06" height="161.42" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
@@ -1261,7 +1261,7 @@
 <rect width="25.27" height="23.80" x="307.75" y="167.14" class="nonmatching"><title>0x0041dff0 Player::CheckHitAreas (862 bytes)</title></rect>
 <rect width="25.27" height="23.24" x="307.75" y="193.94" class="named"><title>0x00407700 ScriptJumpIf (844 bytes)</title></rect>
 <rect width="25.27" height="23.24" x="307.75" y="220.19" class="named"><title>0x00431110 App::OnUpdate (844 bytes)</title></rect>
-<rect width="25.27" height="22.53" x="307.75" y="246.43" class="nonmatching"><title>0x0044a330 UpdateExAttackType19 (821 bytes)</title></rect>
+<rect width="25.27" height="22.53" x="307.75" y="246.43" class="named"><title>0x0044a330 UpdateExAttackType19 (821 bytes)</title></rect>
 <rect width="25.27" height="22.46" x="307.75" y="271.95" class="named"><title>0x0042be40 ReadNetInput (819 bytes)</title></rect>
 <rect width="25.27" height="22.37" x="307.75" y="297.42" class="named"><title>0x0041dc20 Player::UpdateUnknown30454 (816 bytes)</title></rect>
 <rect width="25.27" height="22.21" x="307.75" y="322.79" class="named"><title>0x0043b1a0 SpriteEngine::Draw3D (811 bytes)</title></rect>

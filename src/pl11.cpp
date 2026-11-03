@@ -92,12 +92,7 @@ int InitExAttackType19(ExAttack *attack)
 // frame 20 to 300. Returns 1 once its sprite has hidden (0x44a330).
 int UpdateExAttackType19(ExAttack *attack)
 {
-    // Not matching yet: the angle and the vertex pointer swap stack
-    // slots, and the scroll adds in the loop take their operands the
-    // other way round.
     ExAttackData19 *data = (ExAttackData19 *)attack->data;
-    int i;
-    int j;
 
     switch (data->base.state)
     {
@@ -122,7 +117,7 @@ int UpdateExAttackType19(ExAttack *attack)
         vtx->uv.x += data->scrollU;
         if (vtx->uv.x < 0.0f)
         {
-            for (j = 0; j < 0x21; j++)
+            for (int j = 0; j < 0x21; j++)
             {
                 data->vertices[j].uv.x += 1.0f;
             }
@@ -130,36 +125,45 @@ int UpdateExAttackType19(ExAttack *attack)
         vtx->uv.y += data->scrollU;
         if (vtx->uv.y < 0.0f)
         {
-            for (j = 0; j < 0x21; j++)
+            for (int j = 0; j < 0x21; j++)
             {
                 data->vertices[j].uv.y += 1.0f;
             }
         }
         vtx++;
-        for (i = 1; i < 0x21; i++)
+        int sample = 1;
+        do
         {
-            vtx->uv.x += data->scrollU;
+            {
+                float scroll = data->scrollU;
+                scroll += vtx->uv.x;
+                vtx->uv.x = scroll;
+            }
             if (vtx->uv.x < 0.0f)
             {
-                for (j = 0; j < 0x21; j++)
+                for (int j = 0; j < 0x21; j++)
                 {
                     data->vertices[j].uv.x += 1.0f;
                 }
             }
-            vtx->uv.y += data->scrollU;
+            {
+                long double component = vtx->uv.y;
+                vtx->uv.y = component + data->scrollU;
+            }
             if (vtx->uv.y < 0.0f)
             {
-                for (j = 0; j < 0x21; j++)
+                for (int j = 0; j < 0x21; j++)
                 {
                     data->vertices[j].uv.y += 1.0f;
                 }
             }
-            data->radii[i] += data->radiusSpeeds[i];
-            SetPolar((Vector2 *)&data->points[i], angle, data->radii[i]);
-            data->points[i] += data->base.targetPos;
-            angle += 0.2026834f;
+            data->radii[sample] += data->radiusSpeeds[sample];
+            SetPolar((Vector2 *)&data->points[sample], angle, data->radii[sample]);
+            data->points[sample] += data->base.targetPos;
             vtx++;
-        }
+            sample++;
+            angle += 0.2026834f;
+        } while (sample != 0x21);
         if (attack->timer < 300 && attack->timer > 0x14)
         {
             D3DXVECTOR3 diff = g_GameManager.sides[attack->targetSide].player->pos - attack->pos;
