@@ -256,7 +256,7 @@ int UpdateExAttackTypes14And22(ExAttack *attack)
 // burst, a fan of its radius in red about the attack and four line rings
 // around it, each pushed out by its offsets, fading out over 30 frames
 // once the rings scatter. Clears unknown4c. Returns 0 (0x444130).
-int ExAttackDraw444130(ExAttack *attack)
+int DrawExAttackTypes14And22(ExAttack *attack)
 {
     ExAttackData14 *data = (ExAttackData14 *)attack->data;
 
@@ -547,7 +547,7 @@ int EffectUpdate444a20(Effect *effect)
     return 1;
 }
 
-// The draw callback of effect type 34: ExAttackDraw444130's fan and
+// The draw callback of effect type 34: DrawExAttackTypes14And22's fan and
 // rings about the effect, the fan in red, fading out over 50 frames once
 // grown. Clears unknown4c. Returns 1 (0x444af0).
 int EffectDraw444af0(Effect *effect)
