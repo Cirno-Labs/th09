@@ -305,7 +305,7 @@ int DrawEffectType28(Effect *effect)
 // The update callback of effect type 29: grows unknown7c by 4 up to 48,
 // turns unknown80 by pi/60, sets unknownC9 and puts the effect on its
 // side's player. Returns 1 (0x447f40).
-int EffectUpdate447f40(Effect *effect)
+int UpdateEffectType29(Effect *effect)
 {
     effect->unknownC9 = 1;
     if (effect->unknown7c < 48.0f)

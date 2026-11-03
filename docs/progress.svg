@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.72% (1044)</tspan> · <tspan class="decompiled">4.22% (47)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">93.81% (1045)</tspan> · <tspan class="decompiled">4.13% (46)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="700.06" height="6" x="0" y="0" class="named"/>
-<rect width="31.52" height="6" x="700.06" y="0" class="decompiled"/>
+<rect width="700.73" height="6" x="0" y="0" class="named"/>
+<rect width="30.85" height="6" x="700.73" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1131,7 +1131,7 @@
 <rect width="12" height="12" x="150" y="315" class="named"><title>0x00447af0 InitExAttackType23 (324 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="315" class="named"><title>0x00447c40 InitEffectTypes10And18And24And25And26And28And33 (155 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="315" class="named"><title>0x00447ce0 DrawEffectType28 (602 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="315" class="decompiled"><title>0x00447f40 EffectUpdate447f40 (106 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="315" class="named"><title>0x00447f40 UpdateEffectType29 (106 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="315" class="decompiled"><title>0x00447fb0 PlayerPosFunc447fb0 (867 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="315" class="decompiled"><title>0x00448320 ExAttackInit448320 (357 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="315" class="decompiled"><title>0x00448490 ExAttackUpdate448490 (420 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.79%</tspan> · <tspan class="decompiled">5.37%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">79.82%</tspan> · <tspan class="decompiled">5.33%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="596.02" height="6" x="0" y="0" class="named"/>
-<rect width="40.10" height="6" x="596.02" y="0" class="decompiled"/>
+<rect width="596.29" height="6" x="0" y="0" class="named"/>
+<rect width="39.83" height="6" x="596.29" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1718,7 +1718,7 @@
 <rect width="6.86" height="6.54" x="591.59" y="263.87" class="named"><title>0x0043fb10 CSound::SetVolume (107 bytes)</title></rect>
 <rect width="6.86" height="6.45" x="591.59" y="273.40" class="named"><title>0x0041be70 Player::CheckHitCircle (106 bytes)</title></rect>
 <rect width="6.86" height="6.45" x="591.59" y="282.85" class="named"><title>0x00422f67 MainMenu::ReassignButton (106 bytes)</title></rect>
-<rect width="6.86" height="6.45" x="591.59" y="292.30" class="decompiled"><title>0x00447f40 EffectUpdate447f40 (106 bytes)</title></rect>
+<rect width="6.86" height="6.45" x="591.59" y="292.30" class="named"><title>0x00447f40 UpdateEffectType29 (106 bytes)</title></rect>
 <rect width="6.86" height="6.36" x="591.59" y="301.74" class="named"><title>0x0043ee40 SoundPlayer::QueueSoundCommand (105 bytes)</title></rect>
 <rect width="6.86" height="6.36" x="591.59" y="311.10" class="named"><title>0x004406e0 CSound::~CSound (105 bytes)</title></rect>
 <rect width="6.86" height="6.27" x="591.59" y="320.46" class="named"><title>0x00420a60 FreeResources (104 bytes)</title></rect>
