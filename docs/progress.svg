@@ -61,10 +61,10 @@
 </g>
 <g transform="translate(0 116)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the physical function order:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.48% (930)</tspan> · <tspan class="decompiled">14.45% (161)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">83.57% (931)</tspan> · <tspan class="decompiled">14.36% (160)</tspan> · <tspan class="nonmatching">2.06% (23)</tspan> · <tspan class="todo">0% (0)</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="623.62" height="6" x="0" y="0" class="named"/>
-<rect width="107.96" height="6" x="623.62" y="0" class="decompiled"/>
+<rect width="624.29" height="6" x="0" y="0" class="named"/>
+<rect width="107.29" height="6" x="624.29" y="0" class="decompiled"/>
 <rect width="15.42" height="6" x="731.58" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -230,7 +230,7 @@
 <rect width="12" height="12" x="135" y="45" class="named"><title>0x0040d4f0 Gui::GetUnknown11ea8 (7 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="45" class="named"><title>0x0040d500 EnemyShooter::EnemyShooter (28 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="45" class="named"><title>0x0040d520 InitEffectTypes1And2 (210 bytes)</title></rect>
-<rect width="12" height="12" x="180" y="45" class="decompiled"><title>0x0040d600 EffectUpdate40d600 (775 bytes)</title></rect>
+<rect width="12" height="12" x="180" y="45" class="named"><title>0x0040d600 UpdateEffectTypes1And2 (775 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="45" class="decompiled"><title>0x0040d910 EffectInit40d910 (200 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="45" class="decompiled"><title>0x0040d9e0 EffectUpdate40d9e0 (464 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="45" class="decompiled"><title>0x0040dbb0 EffectInit40dbb0 (184 bytes)</title></rect>
@@ -1186,10 +1186,10 @@
 </g>
 <g transform="translate(0 516)">
 <text x="0" y="7.50">東方花映塚 1.50a progress according to the function sizes:</text>
-<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">69.88%</tspan> · <tspan class="decompiled">15.28%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
+<text class="todo" style="font-size: 12px; " x="747" y="9"><tspan text-anchor="end"><tspan class="named">70.14%</tspan> · <tspan class="decompiled">15.02%</tspan> · <tspan class="nonmatching">14.84%</tspan> · <tspan class="todo">0%</tspan></tspan></text>
 <g transform="translate(0 20)">
-<rect width="522" height="6" x="0" y="0" class="named"/>
-<rect width="114.11" height="6" x="522" y="0" class="decompiled"/>
+<rect width="523.95" height="6" x="0" y="0" class="named"/>
+<rect width="112.16" height="6" x="523.95" y="0" class="decompiled"/>
 <rect width="110.88" height="6" x="636.12" y="0" class="nonmatching"/>
 </g>
 <g transform="translate(0 31)">
@@ -1276,7 +1276,7 @@
 <rect width="22.87" height="24.14" x="336.01" y="163.86" class="decompiled"><title>0x004464a0 ExAttackUpdate4464a0 (799 bytes)</title></rect>
 <rect width="22.87" height="23.60" x="336.01" y="191" class="named"><title>0x0042d5f0 SetDefaultRenderStates (783 bytes)</title></rect>
 <rect width="22.87" height="23.49" x="336.01" y="217.60" class="decompiled"><title>0x00442750 ExAttackUpdate442750 (780 bytes)</title></rect>
-<rect width="22.87" height="23.33" x="336.01" y="244.09" class="decompiled"><title>0x0040d600 EffectUpdate40d600 (775 bytes)</title></rect>
+<rect width="22.87" height="23.33" x="336.01" y="244.09" class="named"><title>0x0040d600 UpdateEffectTypes1And2 (775 bytes)</title></rect>
 <rect width="22.87" height="23.09" x="336.01" y="270.42" class="named"><title>0x00432b70 Network::HandleMessage (768 bytes)</title></rect>
 <rect width="22.87" height="22.92" x="336.01" y="296.50" class="decompiled"><title>0x0044a030 ExAttackInit44a030 (763 bytes)</title></rect>
 <rect width="22.87" height="22.58" x="336.01" y="322.42" class="named"><title>0x0041e420 Player::Die (753 bytes)</title></rect>

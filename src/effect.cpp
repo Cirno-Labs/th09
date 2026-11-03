@@ -475,7 +475,7 @@ int InitEffectTypes1And2(Effect *effect)
     return 0;
 }
 
-int EffectUpdate40d600(Effect *effect)
+int UpdateEffectTypes1And2(Effect *effect)
 {
     float t;
     float f00;

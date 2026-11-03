@@ -75,7 +75,7 @@ struct Effect
     // Vertices the effect allocated, freed when its slot is reused, as
     // th08's.
     VertexTex1DiffuseXyzrwh *vertices;
-    // Set by EffectUpdate40d600 while it waits out unknown98.
+    // Set by UpdateEffectTypes1And2 while it waits out unknown98.
     BYTE unknownD0;
     unsigned char pad_d1[0xd4 - 0xd1];
     // The next effect of a list.
@@ -240,7 +240,7 @@ int EffectUpdate40d9e0(Effect *effect);
 // it out and plays sound 0x2e; else moves the effect along a Hermite
 // curve for unknown9c, then fires a bullet at its velocity on the other
 // side. Returns 1 while waiting or moving, else 0 (0x40d600).
-int EffectUpdate40d600(Effect *effect);
+int UpdateEffectTypes1And2(Effect *effect);
 
 // The draw callback of the ring effects, as th08's EffectDrawRing: when
 // unknownC9 is set, rebuilds the ring of unknown8c segments, unknown88
