@@ -363,7 +363,12 @@ extern int g_Unknown4a1884[5];
 extern GameManagerUnknownF0 *g_StoryOpponents[14];
 extern GameManagerUnknownF0 g_MatchStages[17];
 // A block GameManager's deleted callback clears (0x4d9698).
+#ifdef TH09_EXE
+// The popup storage is part of g_AsciiText, rather than a second object.
+#define g_Unknown4d9698 (*(unsigned char (*)[0x2bc0])&g_AsciiText.popups)
+#else
 extern unsigned char g_Unknown4d9698[0x2bc0];
+#endif
 
 // Its update and draw chain elements (0x4a8120, 0x4a8140).
 extern ChainElem g_GameManagerCalcChain;

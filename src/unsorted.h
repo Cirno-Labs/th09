@@ -392,6 +392,15 @@ struct PlayerInput
 ASSERT_SIZE(PlayerInput, 0x8e);
 extern PlayerInput g_PlayerInputs[3];
 
+// A time kept in the play statistics, as th08's plst fields.
+struct PlayTime
+{
+    DWORD hours;
+    DWORD minutes;
+    DWORD seconds;
+    DWORD milliseconds;
+};
+
 // The record of what has been played, at 0x4a8180, around g_RunTime
 // and g_PlayTime (+0xc, +0x1c). Only what is known so far.
 struct PlayRecord
@@ -423,7 +432,9 @@ struct PlayRecord
     WORD size2;
     BYTE version;
     BYTE unknown9;
-    unsigned char pad_a[0x2c - 0xa];
+    unsigned char pad_a[0xc - 0xa];
+    PlayTime runTime;
+    PlayTime playTime;
     // Which pieces of music have been heard, by BgmInfo::unknown0c.
     BYTE bgmHeard[0x20];
     // Which entries of three of the menus' lists are open.
@@ -691,17 +702,14 @@ public:
 ASSERT_SIZE(SoundPlayer, 0x6224);
 extern SoundPlayer g_SoundPlayer;
 
-// A time kept in the play statistics, as th08's plst fields.
-struct PlayTime
-{
-    DWORD hours;
-    DWORD minutes;
-    DWORD seconds;
-    DWORD milliseconds;
-};
 // How long the game has run (0x4a818c), and played (0x4a819c).
+#ifdef TH09_EXE
+#define g_RunTime (g_PlayRecord.runTime)
+#define g_PlayTime (g_PlayRecord.playTime)
+#else
 extern PlayTime g_RunTime;
 extern PlayTime g_PlayTime;
+#endif
 
 // A record in App's lists.
 struct RunRecord

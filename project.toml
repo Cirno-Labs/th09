@@ -26,9 +26,10 @@ lib = ['C:\dx8\lib', 'C:\msvc71\lib', 'C:\psdk\Lib']
 cflags = ["/O2", "/Ob0", "/Oy-", "/Gr", "/GX"]
 
 [exe]
-obj_dir = "build/obj"
+obj_dir = "build/obj_exe"
+defines = ["TH09_EXE=1"]
 link_order = "median"
-libs = ["libcmt.lib", "d3dx8.lib", "d3d8.lib", "dsound.lib", "dinput8.lib", "dxguid.lib",
+libs = ["libcmt.lib", "d3dx8.lib", "dxerr8.lib", "d3d8.lib", "dsound.lib", "dinput8.lib", "dxguid.lib",
         "winmm.lib", "kernel32.lib", "user32.lib", "gdi32.lib", "advapi32.lib", "ole32.lib"]
 
 [hooks]
