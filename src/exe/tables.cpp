@@ -1429,3 +1429,10 @@ PlayerCpuLevel g_PlayerCpuLevels[71] = {
     { { 70, 30, 55 }, { 10, 15, 0 }, 0 },
     { { 70, 30, 120 }, { 10, 15, 0 }, 0 },
 };
+
+// Assert the source extents as well as checking the linked table contents.
+#define TH09_TABLE(name, address, count, stride) \
+    ASSERT_SIZE(name, (count) * (stride)); \
+    typedef char assert_stride_##name[sizeof((name)[0]) == (stride) ? 1 : -1];
+#include "exe/data_tables.h"
+#undef TH09_TABLE

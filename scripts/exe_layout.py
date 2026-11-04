@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from coff_archive import members
 from coff_sections import split_storage
 from pe_imports import restore as restore_imports
+from table_audit import check_tables
 
 import coff
 import project
@@ -35,6 +36,7 @@ class Unit:
 
 
 _import_fixups: list[tuple[str, int, str, int]] = []
+_table_object: Path | None = None
 
 def align(value: int, boundary: int) -> int:
     return (value + boundary - 1) & -boundary
@@ -55,6 +57,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     text_end = text_base + text_size
     known = {symbol: address for address, _, _, symbols in compare_exe.read_symbols() for symbol in symbols}
     paths = list(objects)
+    global _table_object
+    _table_object = next(Path(path) for path in paths if Path(path).stem == 'exe_tables')
     output_dir = Path(paths[0]).parent.with_name(Path(paths[0]).parent.name + '_layout')
     output_dir.mkdir(parents=True, exist_ok=True)
     units = [Unit(path, coff.Object(path)) for path in paths]
@@ -925,3 +929,8 @@ def exe_finished(features: Sequence[str]) -> None:
             raise ValueError(f'section packing changed virtual layout: {name}')
         if result.data[offset:offset + size] != image.data[old_offset:old_offset + size]:
             raise ValueError(f'section packing changed contribution bytes: {name}')
+    if _table_object is None:
+        raise ValueError('missing compiled table object for audit')
+    count, pointers = check_tables(Path(project.EXE), Path(project.EXE_MAP),
+                                   Path(project.ORIGINAL), _table_object)
+    print(f'table audit: {count} complete tables, {pointers} pointer identities verified')
