@@ -18,6 +18,7 @@ from collections.abc import Sequence
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from coff_archive import members
+from coff_sections import split_storage
 
 import coff
 import project
@@ -72,6 +73,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     if missing:
         raise FileNotFoundError('missing layout libraries: ' + ', '.join(sorted(missing)))
     print('source/library objects', len(paths), len(units) - len(paths))
+    for unit in units:
+        split_storage(unit.obj)
     owners: dict[str, tuple[int, int]] = {}
     for u, unit in enumerate(units):
         for i, sym in enumerate(unit.obj.symbols):
@@ -82,6 +85,16 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 # definition, regardless of the archive's member order.
                 if old is None or old.section == 0 and (sym.section > 0 or sym.value > old.value):
                     owners[sym.name] = (u, i)
+
+    # Materialize common storage only after initialized definitions have won.
+    # It can then take part in the same address placement as ordinary BSS.
+    for u, i in owners.values():
+        symbol = units[u].obj.symbols[i]
+        if symbol.section == 0 and symbol.value:
+            size = symbol.value
+            units[u].obj.sections.append(coff.Section('.bss', bytes(size), [], 0xc0300080))
+            symbol.section = len(units[u].obj.sections)
+            symbol.value = 0
 
     with Path('config/symbols.csv').open() as stream:
         for row in csv.DictReader(stream):
@@ -418,12 +431,185 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             overflow += size
     print('read-only data:', rd_exact, 'exact sections;', overflow, 'overflow bytes')
 
+    writable = {(u, s) for u, s in live if units[u].obj.sections[s].name in ('.data', '.bss')
+                or units[u].obj.sections[s].name.startswith('.CRT')}
+    data_base, data_size, _, data_raw = reference.sections['.data']
+    wd_votes: dict[tuple[int, int], dict[int, int]] = defaultdict(lambda: defaultdict(int))
+    wd_known: set[tuple[int, int]] = set()
+    for key in writable:
+        u, s = key
+        for sym in units[u].obj.symbols:
+            if sym and sym.section == s + 1 and sym.name in known:
+                wd_votes[key][known[sym.name] - sym.value - data_base] += 10000
+                wd_known.add(key)
+    for (u, s), code_offset in placed.items():
+        section = units[u].obj.sections[s]
+        mask = bytearray(len(section.data))
+        for off, _, _ in section.relocs:
+            mask[off:off + 4] = b'\1' * 4
+        if not all(mark or value == old for value, old, mark in
+                   zip(section.data, original[code_offset:code_offset + len(mask)], mask)):
+            continue
+        for off, index, kind in section.relocs:
+            if kind != coff.DIR32:
+                continue
+            target = units[u].obj.symbols[index]
+            target_u = u
+            if target.storage == 2 or target.section == 0:
+                owner = owners.get(weak.get(target.name, target.name))
+                if owner is None:
+                    continue
+                target_u, target_index = owner
+                target = units[target_u].obj.symbols[target_index]
+            key = (target_u, target.section - 1)
+            if key in writable:
+                addend = int.from_bytes(section.data[off:off + 4], 'little', signed=True)
+                address = int.from_bytes(original[code_offset + off:code_offset + off + 4], 'little')
+                wd_votes[key][address - target.value - addend - data_base] += 1
+    # An object can begin in the last initialized page and continue in BSS.
+    # End the initialized contribution before it; file alignment supplies the
+    # original trailing zero bytes without splitting the object's storage.
+    data_cut = data_raw
+    for key in writable:
+        section = units[key[0]].obj.sections[key[1]]
+        if section.flags & 0x80:
+            for offset in wd_votes[key]:
+                if 0 <= offset < data_cut < offset + len(section.data):
+                    data_cut = offset
+    wd_init = bytearray(data_cut)
+    wd_bss = bytearray(data_size - data_cut)
+    wd_used = bytearray(data_size)
+    wd_positions: dict[tuple[int, int], int] = {}
+    wd_masks: dict[tuple[int, int], bytearray] = {}
+    for key in writable:
+        section = units[key[0]].obj.sections[key[1]]
+        mask = bytearray(len(section.data))
+        for off, _, _ in section.relocs:
+            mask[off:off + 4] = b'\1' * 4
+        wd_masks[key] = mask
+
+    def wd_fits(key: tuple[int, int], offset: int, exact: bool, alias: bool = False) -> bool:
+        section = units[key[0]].obj.sections[key[1]]
+        size = len(section.data)
+        boundary = 1 << max(0, ((section.flags >> 20) & 15) - 1)
+        if offset < 0 or offset + size > len(wd_used) or (data_base + offset) % boundary:
+            return False
+        if offset < data_cut < offset + size:
+            return False
+        if not section.flags & 0x80 and offset + size > data_cut:
+            return False
+        old = image.read(data_base + offset, size)
+        mask = wd_masks[key]
+        for i, value in enumerate(section.data):
+            if exact and i < len(old) and not mask[i] and value != old[i]:
+                return False
+            if wd_used[offset + i]:
+                if not alias or mask[i] or wd_used[offset + i] == 2:
+                    return False
+                previous = wd_init[offset + i] if offset + i < data_cut else wd_bss[offset + i - data_cut]
+                if value != previous:
+                    return False
+        return True
+
+    def wd_place(key: tuple[int, int], offset: int) -> None:
+        section = units[key[0]].obj.sections[key[1]]
+        data = section.data
+        if offset < data_cut:
+            wd_init[offset:offset + len(data)] = data
+            positions[key] = (4, offset)
+        else:
+            wd_bss[offset - data_cut:offset - data_cut + len(data)] = data
+            positions[key] = (5, offset - data_cut)
+        wd_positions[key] = offset
+        wd_used[offset:offset + len(data)] = b'\1' * len(data)
+        for i, marked in enumerate(wd_masks[key]):
+            if marked:
+                wd_used[offset + i] = 2
+
+    crt = sorted((key for key in writable if units[key[0]].obj.sections[key[1]].name.startswith('.CRT')),
+                 key=lambda key: (units[key[0]].obj.sections[key[1]].name, key))
+    cursor = 0
+    for key in crt:
+        section = units[key[0]].obj.sections[key[1]]
+        choices = sorted(wd_votes[key], key=lambda offset: -wd_votes[key][offset])
+        wanted = next((offset for offset in choices if cursor <= offset < 0xc0), cursor)
+        if not wd_fits(key, wanted, False):
+            raise ValueError('CRT initializer arrays do not fit the original layout')
+        wd_place(key, wanted)
+        cursor = wanted + len(section.data)
+
+    # Pointer tables reveal the locations of objects without public symbols.
+    changed = True
+    while changed:
+        changed = False
+        for key in sorted(writable - wd_positions.keys(),
+                          key=lambda key: (-max(wd_votes[key].values(), default=0), key)):
+            options = sorted(wd_votes[key], key=lambda offset: -wd_votes[key][offset])
+            for offset in options:
+                if wd_fits(key, offset, True, key in wd_known):
+                    wd_place(key, offset)
+                    changed = True
+                    break
+        for key, offset in list(wd_positions.items()):
+            u, s = key
+            section = units[u].obj.sections[s]
+            for off, index, kind in section.relocs:
+                if kind != coff.DIR32:
+                    continue
+                target = units[u].obj.symbols[index]
+                target_u = u
+                if target.storage == 2 or target.section == 0:
+                    owner = owners.get(weak.get(target.name, target.name))
+                    if owner is None:
+                        continue
+                    target_u, target_index = owner
+                    target = units[target_u].obj.symbols[target_index]
+                other = (target_u, target.section - 1)
+                if other not in writable or other in wd_positions:
+                    continue
+                raw = image.read(data_base + offset + off, 4)
+                if len(raw) != 4:
+                    continue
+                addend = int.from_bytes(section.data[off:off + 4], 'little', signed=True)
+                address = int.from_bytes(raw, 'little')
+                candidate = address - target.value - addend - data_base
+                wd_votes[other][candidate] += 1
+
+    exact_writable = len(wd_positions)
+    # The remaining storage is retained in free space, never merged on value.
+    for key in sorted(writable - wd_positions.keys(), key=lambda key: -len(units[key[0]].obj.sections[key[1]].data)):
+        section = units[key[0]].obj.sections[key[1]]
+        boundary = 1 << max(0, ((section.flags >> 20) & 15) - 1)
+        size = len(section.data)
+        low, high = (data_cut, len(wd_used)) if section.flags & 0x80 else (cursor, data_cut)
+        offset = low
+        while offset + size <= high:
+            offset = align(data_base + offset, boundary) - data_base
+            occupied = next((i for i in range(offset, offset + size) if wd_used[i]), -1)
+            if occupied < 0:
+                wd_place(key, offset)
+                break
+            offset = occupied + 1
+        if key not in wd_positions:
+            if section.flags & 0x80:
+                offset = align(data_base + len(wd_used), boundary) - data_base
+                wd_bss.extend(bytes(offset + size - data_cut - len(wd_bss)))
+                wd_used.extend(bytes(offset + size - len(wd_used)))
+                wd_place(key, offset)
+            else:
+                start = align(len(extra), boundary)
+                extra.extend(bytes(start - len(extra)))
+                extra.extend(section.data)
+                positions[key] = (2, start)
+    print('writable data:', exact_writable, 'anchored objects;', len(writable), 'total')
+
     sections: list[tuple[str, int, bytes, list[tuple[int, str, int]]]] = [
         ('.text', coff.TEXT, text, []), ('.extra', 0xe0300040, extra, []),
-        ('.rdata', coff.RDATA, rd_data, [])]
+        ('.rdata', coff.RDATA, rd_data, []),
+        ('.data', 0xc0300040, wd_init, []), ('.bss', 0xc0300080, wd_bss, [])]
     for u, s in sorted(live):
         section = units[u].obj.sections[s]
-        if section.flags & coff.CODE or (u, s) in readonly:
+        if section.flags & coff.CODE or (u, s) in readonly or (u, s) in writable:
             continue
         positions[u, s] = (len(sections) + 1, 0)
         sections.append((section.name, section.flags & ~0x1000, section.data, []))
@@ -478,7 +664,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             referenced.add(symbol)
             sections[sec - 1][3].append((offset + off, symbol, typ))
     referenced.update(r[1] for r in sections[0][3])
-    undefined = sorted(referenced - definitions.keys() - absolutes.keys())
+    undefined = sorted(referenced - definitions.keys() - absolutes.keys(),
+                       key=lambda symbol: (known.get(symbol, known.get('__imp_' + symbol, 1 << 32)), symbol))
     for section in sections:
         relocs = section[3]
         unique: dict[tuple[int, int], tuple[str, object]] = {}
