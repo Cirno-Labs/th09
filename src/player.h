@@ -753,7 +753,7 @@ extern const int g_PlayerCpuAltDirs[2][9];
 // one each frame (0x4a0150).
 extern int g_PlayerCpuDirOrder[12][10];
 // By GameSide::unknown2c (0x4a0330).
-extern PlayerCpuLevel g_PlayerCpuLevels[5];
+extern PlayerCpuLevel g_PlayerCpuLevels[71];
 extern PlayerPosFunc g_CharacterFuncsA50[16];
 extern PlayerEnemyFunc g_CharacterFuncsA90[16];
 extern int g_CharacterValuesAd0[16];
