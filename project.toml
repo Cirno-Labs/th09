@@ -25,13 +25,14 @@ include = ['C:\dx8\include', 'C:\msvc71\include', 'C:\psdk\Include']
 # DirectX 8.0 headers, but 8.1 libraries and the VC 7.1 RTM CRT,
 # as in the original EXE; the compiler remains SP1 for function matching.
 lib = ['C:\dx81\lib', 'C:\dx8\lib', 'C:\msvc710\lib', 'C:\msvc71\lib', 'C:\psdk\Lib']
+hook = "scripts/exe_layout.py"
 cflags = ["/O2", "/Ob0", "/Oy-", "/Gr", "/GX"]
 
 [exe]
 obj_dir = "build/obj_exe"
 defines = ["TH09_EXE=1"]
 link_order = "median"
-ldflags = ["/SUBSYSTEM:WINDOWS", "/FIXED", "/NODEFAULTLIB:libc.lib", "/FILEALIGN:512", "/NODEFAULTLIB:libci.lib"]
+ldflags = ["/SUBSYSTEM:WINDOWS", "/FIXED", "/ENTRY:WinMainCRTStartup", "/NODEFAULTLIB:libc.lib", "/FILEALIGN:512", "/NODEFAULTLIB:libci.lib"]
 libs = ["dinput8.lib", "dsound.lib", "d3d8.lib", "d3dx8.lib", "dxguid.lib",
         "winmm.lib", "kernel32.lib", "user32.lib", "gdi32.lib", "advapi32.lib", "ole32.lib",
         "libcmt.lib", "dxerr8.lib"]
