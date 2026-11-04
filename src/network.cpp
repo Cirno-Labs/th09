@@ -2,7 +2,9 @@
 #include "network.h"
 #include "unsorted.h"
 
+extern "C" {
 #include <dxerr8.h>
+}
 
 // The application GUID of the game's DirectPlay sessions (0x490c3c).
 static const GUID g_SessionGuid = {0x9fd5ec50, 0x740a, 0x4fdb, {0x90, 0x9d, 0x2f, 0x24, 0xe1, 0x52, 0x82, 0xea}};
