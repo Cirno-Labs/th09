@@ -68,15 +68,6 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 if any(section.name.startswith('.idata') for section in obj.sections):
                     continue
                 units.append(Unit(str(output), obj))
-    for unit in units:
-        raw = Path(unit.path).read_bytes()
-        pointer, count = struct.unpack_from('<II', raw, 8)
-        strings = pointer + count * 18
-        for section in unit.obj.sections:
-            if section.name.startswith('/') and section.name[1:].isdigit():
-                start = strings + int(section.name[1:])
-                end = raw.index(b'\0', start)
-                section.name = raw[start:end].decode('latin-1')
     missing = needed.keys() - seen_libraries
     if missing:
         raise FileNotFoundError('missing layout libraries: ' + ', '.join(sorted(missing)))
@@ -253,11 +244,134 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             if offset is not None:
                 text[offset:offset + 5] = b'\xe9\0\0\0\0'
                 trampolines.append((offset, u, s))
+    # Pack read-only contributions into the original read-only address range.
+    readonly = {(u, s) for u, s in live if units[u].obj.sections[s].flags & 0x40
+                and not units[u].obj.sections[s].flags & (coff.CODE | 0x80000000 | 0x800)
+                and units[u].obj.sections[s].name != '.drectve'}
+    iat_rva, iat_size = reference.directory(12)
+    rd_base = align(reference.base + iat_rva + iat_size, 8)
+    rd_end = reference.base + reference.directory(1)[0]
+    rd_orig = image.read(rd_base, rd_end - rd_base)
+    rd_data = bytearray(len(rd_orig))
+    rd_used = bytearray(len(rd_orig))
+    votes: dict[tuple[int, int], dict[int, int]] = defaultdict(lambda: defaultdict(int))
+    for (u, s), code_offset in placed.items():
+        section = units[u].obj.sections[s]
+        mask = bytearray(len(section.data))
+        for off, _, _ in section.relocs:
+            mask[off:off + 4] = b'\1' * 4
+        if not all(m or a == b for a, b, m in zip(section.data, original[code_offset:code_offset + len(mask)], mask)):
+            continue
+        for off, index, typ in section.relocs:
+            if typ != coff.DIR32:
+                continue
+            target = units[u].obj.symbols[index]
+            owner_u = u
+            if target.storage == 2 or target.section == 0:
+                owner = owners.get(weak.get(target.name, target.name))
+                if owner is None:
+                    continue
+                owner_u, target_index = owner
+                target = units[owner_u].obj.symbols[target_index]
+            key = (owner_u, target.section - 1)
+            if key not in readonly:
+                continue
+            addend = int.from_bytes(section.data[off:off + 4], 'little')
+            address = int.from_bytes(original[code_offset + off:code_offset + off + 4], 'little')
+            votes[key][address - target.value - addend - rd_base] += 1
+    for u, s in readonly:
+        for sym in units[u].obj.symbols:
+            if sym and sym.section == s + 1 and sym.name in known:
+                votes[u, s][known[sym.name] - sym.value - rd_base] += 100
+    rd_masks: dict[tuple[int, int], bytearray] = {}
+    for u, s in readonly:
+        section = units[u].obj.sections[s]
+        mask = bytearray(len(section.data))
+        for off, _, _ in section.relocs:
+            mask[off:off + 4] = b'\1' * 4
+        rd_masks[u, s] = mask
+
+    def rd_fits(key: tuple[int, int], offset: int, exact: bool) -> bool:
+        section = units[key[0]].obj.sections[key[1]]
+        boundary = 1 << max(0, ((section.flags >> 20) & 15) - 1)
+        if (rd_base + offset) % boundary or not 0 <= offset <= len(rd_data) - len(section.data):
+            return False
+        mask = rd_masks[key]
+        return all((not rd_used[offset + i] or rd_used[offset + i] == 1 and not mask[i] and rd_data[offset + i] == value)
+                   and (not exact or mask[i] or rd_orig[offset + i] == value)
+                   for i, value in enumerate(section.data))
+
+    def rd_place(key: tuple[int, int], offset: int) -> None:
+        data = units[key[0]].obj.sections[key[1]].data
+        rd_data[offset:offset + len(data)] = data
+        rd_used[offset:offset + len(data)] = b'\1' * len(data)
+        for i, marked in enumerate(rd_masks[key]):
+            if marked:
+                rd_used[offset + i] = 2
+        positions[key] = (3, offset)
+
+    for key in sorted(readonly, key=lambda k: (-max(votes[k].values(), default=0), -len(units[k[0]].obj.sections[k[1]].data), k)):
+        section = units[key[0]].obj.sections[key[1]]
+        options = sorted(votes[key], key=lambda offset: -votes[key][offset])
+        for offset in options:
+            if rd_fits(key, offset, True):
+                rd_place(key, offset)
+                break
+        if key in positions:
+            continue
+        mask = rd_masks[key]
+        spans: list[tuple[int, int]] = []
+        start = 0
+        while start < len(mask):
+            if mask[start]:
+                start += 1
+                continue
+            end = start + 1
+            while end < len(mask) and not mask[end]:
+                end += 1
+            spans.append((start, end))
+            start = end
+        if spans:
+            first, last = max(spans, key=lambda span: span[1] - span[0])
+            needle = section.data[first:last]
+            cursor = 0
+            while needle:
+                found = rd_orig.find(needle, cursor)
+                if found < 0:
+                    break
+                offset = found - first
+                if rd_fits(key, offset, True):
+                    rd_place(key, offset)
+                    break
+                cursor = found + 1
+    rd_exact = sum(key in positions for key in readonly)
+    overflow = 0
+    for key in sorted(readonly - positions.keys(), key=lambda k: -len(units[k[0]].obj.sections[k[1]].data)):
+        section = units[key[0]].obj.sections[key[1]]
+        boundary = 1 << max(0, ((section.flags >> 20) & 15) - 1)
+        size = len(section.data)
+        offset = 0
+        while offset + size <= len(rd_data):
+            offset = align(rd_base + offset, boundary) - rd_base
+            occupied = next((i for i in range(offset, offset + size) if rd_used[i]), -1)
+            if occupied < 0:
+                rd_place(key, offset)
+                break
+            offset = occupied + 1
+        if key not in positions:
+            offset = align(len(extra), boundary)
+            extra.extend(bytes(offset - len(extra)))
+            extra.extend(section.data)
+            positions[key] = (2, offset)
+            overflow += size
+    print('read-only data:', rd_exact, 'exact sections;', overflow, 'overflow bytes')
+
     sections: list[tuple[str, int, bytes, list[tuple[int, str, int]]]] = [
-        ('.text', coff.TEXT, text, []), ('.extra', 0xe0300040, extra, [])]
+        ('.text', coff.TEXT, text, []), ('.extra', 0xe0300040, extra, []),
+        ('.rdata', coff.RDATA, rd_data, [])]
     for u, s in sorted(live):
         section = units[u].obj.sections[s]
-        if section.flags & coff.CODE:
+        if section.flags & coff.CODE or (u, s) in readonly:
             continue
         positions[u, s] = (len(sections) + 1, 0)
         sections.append((section.name, section.flags & ~0x1000, section.data, []))
@@ -296,6 +410,13 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
         for i, sym in enumerate(units[u].obj.symbols):
             if sym and sym.section == s + 1 and sym.name in known:
                 definitions[name(u, i)] = (1, offset)
+
+    # Every retained contribution must survive byte-for-byte before linking.
+    # Relocations are still represented by their compiler-produced addends.
+    for (u, s), (sec, offset) in positions.items():
+        data = units[u].obj.sections[s].data
+        if sections[sec - 1][2][offset:offset + len(data)] != data:
+            raise ValueError(f'overlapping contributions: {units[u].path}, section {s}')
 
     referenced: set[str] = set()
     for u, s in sorted(live):
