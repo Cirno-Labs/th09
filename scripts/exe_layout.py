@@ -348,10 +348,12 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             addend = int.from_bytes(section.data[off:off + 4], 'little')
             address = int.from_bytes(original[code_offset + off:code_offset + off + 4], 'little')
             votes[key][address - target.value - addend - rd_base] += 1
+    rd_known: set[tuple[int, int]] = set()
     for u, s in readonly:
         for sym in units[u].obj.symbols:
             if sym and sym.section == s + 1 and sym.name in known:
                 votes[u, s][known[sym.name] - sym.value - rd_base] += 100
+                rd_known.add((u, s))
     rd_masks: dict[tuple[int, int], bytearray] = {}
     for u, s in readonly:
         section = units[u].obj.sections[s]
@@ -363,6 +365,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     def rd_fits(key: tuple[int, int], offset: int, exact: bool) -> bool:
         section = units[key[0]].obj.sections[key[1]]
         boundary = 1 << max(0, ((section.flags >> 20) & 15) - 1)
+        if key in rd_known:
+            boundary = min(boundary, 4)
         if (rd_base + offset) % boundary or not 0 <= offset <= len(rd_data) - len(section.data):
             return False
         mask = rd_masks[key]
@@ -379,7 +383,7 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 rd_used[offset + i] = 2
         positions[key] = (3, offset)
 
-    for key in sorted(readonly, key=lambda k: (-max(votes[k].values(), default=0), -len(units[k[0]].obj.sections[k[1]].data), k)):
+    for key in sorted(readonly, key=lambda k: (k not in rd_known, -max(votes[k].values(), default=0), -len(units[k[0]].obj.sections[k[1]].data), k)):
         section = units[key[0]].obj.sections[key[1]]
         options = sorted(votes[key], key=lambda offset: -votes[key][offset])
         for offset in options:
@@ -496,6 +500,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
         section = units[key[0]].obj.sections[key[1]]
         size = len(section.data)
         boundary = 1 << max(0, ((section.flags >> 20) & 15) - 1)
+        if key in wd_known:
+            boundary = min(boundary, 4)
         if offset < 0 or offset + size > len(wd_used) or (data_base + offset) % boundary:
             return False
         if offset < data_cut < offset + size:
