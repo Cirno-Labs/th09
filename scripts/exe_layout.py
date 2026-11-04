@@ -217,19 +217,32 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 continue
             placed[u, section_index] = hits[0]
             inferred += 1
-    # Calls provide addresses for small helpers whose instruction patterns
-    # occur more than once. Keep their compiled relocations and reject overlaps.
+    # Code references and function-pointer tables locate small helpers whose
+    # instruction patterns occur more than once. Follow only contributions
+    # whose non-relocated bytes match, and reject overlapping code placements.
+    located_data: dict[tuple[int, int], int] = {}
+    for u, section_index in sorted(chosen):
+        section = units[u].obj.sections[section_index]
+        if section.name not in ('.data', '.rdata'):
+            continue
+        for symbol in units[u].obj.symbols:
+            if symbol and symbol.section == section_index + 1 and symbol.name in known:
+                located_data[u, section_index] = known[symbol.name] - symbol.value - text_base
     discovered = 0
     changed = True
     while changed:
         changed = False
-        for (u, s), source_offset in list(placed.items()):
+        for (u, s), source_offset in list(placed.items()) + list(located_data.items()):
             section = units[u].obj.sections[s]
             mask = bytearray(len(section.data))
             for off, _, _ in section.relocs:
                 mask[off:off + 4] = b'\1' * 4
-            if not all(mark or value == old for value, old, mark in
-                       zip(section.data, original[source_offset:source_offset + len(mask)], mask)):
+            try:
+                source = image.read(text_base + source_offset, len(section.data))
+            except ValueError:
+                continue
+            if len(source) != len(section.data) or not all(mark or value == old for value, old, mark in
+                       zip(section.data, source, mask)):
                 continue
             for off, index, kind in section.relocs:
                 if kind not in (coff.DIR32, coff.REL32):
@@ -243,17 +256,31 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                     target_u, target_index = owner
                     target = units[target_u].obj.symbols[target_index]
                 key = (target_u, target.section - 1)
-                if key not in chosen or key in placed:
+                if key not in chosen or key in placed or key in located_data:
                     continue
                 body = units[key[0]].obj.sections[key[1]]
-                if not body.flags & coff.CODE:
-                    continue
                 addend = int.from_bytes(section.data[off:off + 4], 'little', signed=kind == coff.REL32)
-                address = int.from_bytes(original[source_offset + off:source_offset + off + 4], 'little', signed=kind == coff.REL32)
+                address = int.from_bytes(source[off:off + 4], 'little', signed=kind == coff.REL32)
                 if kind == coff.REL32:
                     address += text_base + source_offset + off + 4
                 start = address - target.value - addend - text_base
                 end = start + len(body.data)
+                if not body.flags & coff.CODE:
+                    if body.name not in ('.data', '.rdata'):
+                        continue
+                    try:
+                        raw = image.read(text_base + start, len(body.data))
+                    except ValueError:
+                        continue
+                    data_mask = bytearray(len(body.data))
+                    for data_off, _, _ in body.relocs:
+                        data_mask[data_off:data_off + 4] = b'\1' * 4
+                    if len(raw) != len(body.data) or not all(mark or value == old for value, old, mark in
+                                                           zip(body.data, raw, data_mask)):
+                        continue
+                    located_data[key] = start
+                    changed = True
+                    continue
                 if not 0 <= start < end <= len(original):
                     continue
                 if any(start < at + len(units[k[0]].obj.sections[k[1]].data) and at < end
