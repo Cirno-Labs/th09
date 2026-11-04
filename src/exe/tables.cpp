@@ -608,12 +608,14 @@ int g_BulletColorOffsets32[8] = {
     0, 1, 1, 2, 2, 3, 4, 0,
 };
 
-int g_Unknown4a1128[16] = {
-    9, 8, 11, 20, 15, 25, 9, 9, 10, 10, 20, 10, 9, 10, 10, 10,
+int g_Unknown4a1128[21] = {
+    9, 8, 11, 20, 15, 25, 9, 9, 10, 10, 20, 10, 9, 10, 10, 10, 20, 20, 20, 20, 20,
 };
 
-int g_Unknown4a117c[16] = {
-    1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4779612,
+// The original has fifteen integers. Character 15 reads the adjacent
+// first g_StageFiles pointer, which the EXE layout keeps at 0x4a11b8.
+int g_Unknown4a117c[15] = {
+    1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 };
 
 int g_Unknown4a1500[5][9][5] = {
