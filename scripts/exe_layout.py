@@ -191,6 +191,58 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 continue
             placed[u, section_index] = hits[0]
             inferred += 1
+    # Calls provide addresses for small helpers whose instruction patterns
+    # occur more than once. Keep their compiled relocations and reject overlaps.
+    discovered = 0
+    changed = True
+    while changed:
+        changed = False
+        for (u, s), source_offset in list(placed.items()):
+            section = units[u].obj.sections[s]
+            mask = bytearray(len(section.data))
+            for off, _, _ in section.relocs:
+                mask[off:off + 4] = b'\1' * 4
+            if not all(mark or value == old for value, old, mark in
+                       zip(section.data, original[source_offset:source_offset + len(mask)], mask)):
+                continue
+            for off, index, kind in section.relocs:
+                if kind not in (coff.DIR32, coff.REL32):
+                    continue
+                target = units[u].obj.symbols[index]
+                target_u = u
+                if target.storage == 2 or target.section == 0:
+                    owner = owners.get(weak.get(target.name, target.name))
+                    if owner is None:
+                        continue
+                    target_u, target_index = owner
+                    target = units[target_u].obj.symbols[target_index]
+                key = (target_u, target.section - 1)
+                if key not in chosen or key in placed:
+                    continue
+                body = units[key[0]].obj.sections[key[1]]
+                if not body.flags & coff.CODE:
+                    continue
+                addend = int.from_bytes(section.data[off:off + 4], 'little', signed=kind == coff.REL32)
+                address = int.from_bytes(original[source_offset + off:source_offset + off + 4], 'little', signed=kind == coff.REL32)
+                if kind == coff.REL32:
+                    address += text_base + source_offset + off + 4
+                start = address - target.value - addend - text_base
+                end = start + len(body.data)
+                if not 0 <= start < end <= len(original):
+                    continue
+                if any(start < at + len(units[k[0]].obj.sections[k[1]].data) and at < end
+                       for k, at in placed.items()):
+                    continue
+                target_mask = bytearray(len(body.data))
+                for target_off, _, _ in body.relocs:
+                    target_mask[target_off:target_off + 4] = b'\1' * 4
+                if not all(mark or value == old for value, old, mark in
+                           zip(body.data, original[start:end], target_mask)):
+                    continue
+                placed[key] = start
+                changed = True
+                discovered += 1
+    print('call-placed sections', discovered)
     print('content-placed sections', inferred)
     all_starts = sorted(set(placed.values()))
     slots = {start + text_base: end - start for start, end in zip(all_starts, all_starts[1:] + [text_size])}
@@ -444,6 +496,14 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             data = b''.join(struct.pack('<I', indices[name(u, index)]) for (index,) in struct.iter_unpack('<I', section.data))
             old = sections[sec - 1]
             sections[sec - 1] = (old[0], old[1], data, old[3])
+    report = []
+    for (u, s), (output_section, offset) in sorted(positions.items()):
+        section = units[u].obj.sections[s]
+        report.append({'object': Path(units[u].path).name, 'section': section.name,
+                       'index': s, 'size': len(section.data), 'output': output_section,
+                       'offset': offset, 'code': bool(section.flags & coff.CODE),
+                       'symbols': [sym.name for sym in units[u].obj.definitions() if sym.section == s + 1]})
+    (output_dir / 'layout.json').write_text(json.dumps(report, indent=2) + '\n')
     output = str(output_dir / 'th09.obj')
     coff.write_object(output, sections, definitions, undefined, absolutes)
     raw = bytearray(Path(output).read_bytes())
