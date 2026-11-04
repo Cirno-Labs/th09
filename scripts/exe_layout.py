@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass
+from itertools import permutations
 from pathlib import Path
 import struct
 import sys
@@ -621,6 +622,54 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 positions[key] = (2, start)
     print('writable data:', exact_writable, 'anchored objects;', len(writable), 'total')
 
+    # Intel's SDK objects carry six independent SIMD constant blocks. Preserve
+    # their storage identity while restoring the original block order.
+    simd = sorted(key for key in live if units[key[0]].obj.sections[key[1]].name == '.data1')
+    simd_base, simd_size, _, _ = reference.sections['.data1']
+    simd_original = image.read(simd_base, simd_size)
+    simd_votes: dict[tuple[int, int], dict[int, int]] = defaultdict(lambda: defaultdict(int))
+    for (u, s), start in placed.items():
+        section = units[u].obj.sections[s]
+        for off, index, kind in section.relocs:
+            if kind != coff.DIR32:
+                continue
+            target = units[u].obj.symbols[index]
+            key = (u, target.section - 1)
+            if key in simd:
+                address = int.from_bytes(original[start + off:start + off + 4], 'little')
+                addend = int.from_bytes(section.data[off:off + 4], 'little', signed=True)
+                simd_votes[key][address - target.value - addend - simd_base] += 1
+    nonempty = [key for key in simd if units[key[0]].obj.sections[key[1]].data]
+    if len(nonempty) > 8:
+        raise ValueError('unexpected SIMD constant block count')
+    best_score = (-1, -1)
+    simd_data = bytearray(simd_size)
+    simd_positions: dict[tuple[int, int], int] = {}
+    for ordering in permutations(nonempty):
+        candidate = bytearray()
+        offsets: dict[tuple[int, int], int] = {}
+        for key in ordering:
+            section = units[key[0]].obj.sections[key[1]]
+            boundary = 1 << max(0, ((section.flags >> 20) & 15) - 1)
+            at = align(simd_base + len(candidate), boundary) - simd_base
+            candidate.extend(bytes(at - len(candidate)))
+            candidate.extend(section.data)
+            offsets[key] = at
+        if len(candidate) > simd_size:
+            continue
+        candidate.extend(bytes(simd_size - len(candidate)))
+        score = (sum(a == b for a, b in zip(candidate, simd_original)),
+                 sum(simd_votes[key].get(at, 0) for key, at in offsets.items()))
+        if score > best_score:
+            best_score = score
+            simd_data = candidate
+            simd_positions = offsets
+    if nonempty and not simd_positions:
+        raise ValueError('SIMD constants do not fit the original section')
+    for key in simd:
+        positions[key] = (6, simd_positions.get(key, 0))
+    print('SIMD data:', best_score[0], '/', simd_size, 'bytes placed')
+
     # Restore the linker's folding of identical COMDAT function bodies. Only
     # extra copies are folded; every pinned original entry stays in place.
     aliases: dict[tuple[int, int], tuple[int, int]] = {}
@@ -645,6 +694,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 identity = (positions[other], target.value)
             elif target.section == -1:
                 identity = ('absolute', target.value)
+            elif target.section > 0:
+                identity = ('defined', target_u, target.section, target.value)
             else:
                 identity = ('external', weak.get(target.name, target.name))
             references.append((offset, kind, identity))
@@ -671,10 +722,11 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     sections: list[tuple[str, int, bytes, list[tuple[int, str, int]]]] = [
         ('.text', coff.TEXT, text, []), ('.extra', 0xe0300040, extra, []),
         ('.rdata', coff.RDATA, rd_data, []),
-        ('.data', 0xc0300040, wd_init, []), ('.bss', 0xc0300080, wd_bss, [])]
+        ('.data', 0xc0300040, wd_init, []), ('.bss', 0xc0300080, wd_bss, []),
+        ('.data1', 0xc0600040, simd_data, [])]
     for u, s in sorted(live):
         section = units[u].obj.sections[s]
-        if section.flags & coff.CODE or (u, s) in readonly or (u, s) in writable:
+        if section.flags & coff.CODE or (u, s) in readonly or (u, s) in writable or (u, s) in simd:
             continue
         positions[u, s] = (len(sections) + 1, 0)
         sections.append((section.name, section.flags & ~0x1000, section.data, []))
@@ -714,6 +766,19 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             if sym and sym.section == s + 1 and sym.name in known:
                 definitions[name(u, i)] = (1, offset)
 
+    # Folding must preserve the actual defined targets, including private
+    # constants with equal names in different input objects.
+    for (u, s), (other_u, other_s) in aliases.items():
+        first = units[u].obj.sections[s]
+        second = units[other_u].obj.sections[other_s]
+        for (off, index, kind), (other_off, other_index, other_kind) in zip(first.relocs, second.relocs):
+            symbol = name(u, index)
+            other_symbol = name(other_u, other_index)
+            target = definitions.get(symbol, absolutes.get(symbol, symbol))
+            other_target = definitions.get(other_symbol, absolutes.get(other_symbol, other_symbol))
+            if (off, kind, target) != (other_off, other_kind, other_target):
+                raise ValueError('folded helper refers to different storage')
+
     # Every retained contribution must survive byte-for-byte before linking.
     # Relocations are still represented by their compiler-produced addends.
     for (u, s), (sec, offset) in positions.items():
@@ -741,6 +806,15 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 raise ValueError(f'conflicting relocations in {section[0]} at {offset:#x}: {previous} vs {(symbol, target)}')
             unique[offset, kind] = (symbol, target)
         relocs[:] = [(offset, value[0], kind) for (offset, kind), value in sorted(unique.items())]
+    # Let LINK see SDK data before the additional code section. This keeps
+    # its virtual base at the original address as well as its file offset.
+    ordering = [i for i in range(1, len(sections) + 1) if sections[i - 1][0] != '.extra']
+    ordering += [i for i in range(1, len(sections) + 1) if sections[i - 1][0] == '.extra']
+    remap = {old: new for new, old in enumerate(ordering, 1)}
+    sections = [sections[i - 1] for i in ordering]
+    definitions = {symbol: (remap[section], at) for symbol, (section, at) in definitions.items()}
+    positions = {key: (remap[section], at) for key, (section, at) in positions.items()}
+
     global _import_fixups
     _import_fixups = []
     for i, section in enumerate(sections, 1):
@@ -762,7 +836,7 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
         section = units[u].obj.sections[s]
         report.append({'object': Path(units[u].path).name, 'section': section.name,
                        'index': s, 'size': len(section.data), 'output': output_section,
-                       'offset': offset, 'code': bool(section.flags & coff.CODE),
+                       'offset': offset, 'output_name': sections[output_section - 1][0], 'code': bool(section.flags & coff.CODE),
                        'symbols': [sym.name for sym in units[u].obj.definitions() if sym.section == s + 1]})
     (output_dir / 'layout.json').write_text(json.dumps(report, indent=2) + '\n')
     output = str(output_dir / 'th09.obj')
