@@ -399,8 +399,14 @@ int ChecksumExecutable()
             sum += *words;
         }
         g_MemoryManager.Free(data);
+#ifdef TH09_EXE
+        // Version records in the archive and original replays identify 1.50a.
+        g_App.exeSize = TH09_ORIGINAL_EXE_SIZE;
+        g_App.exeChecksum = TH09_ORIGINAL_EXE_CHECKSUM;
+#else
         g_App.exeSize = fileSize;
         g_App.exeChecksum = sum;
+#endif
         return sum;
     }
     return -1;

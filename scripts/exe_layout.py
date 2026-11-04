@@ -39,6 +39,14 @@ def align(value: int, boundary: int) -> int:
     return (value + boundary - 1) & -boundary
 
 
+def exe_flags(features: Sequence[str]) -> list[str]:
+    """Record the binary identity used by the archive and original replays."""
+    original = Path(project.ORIGINAL).read_bytes()
+    checksum = sum(value[0] for value in struct.iter_unpack('<I', original[:(len(original) // 4 - 1) * 4])) & 0xffffffff
+    return [f'/DTH09_ORIGINAL_EXE_SIZE={len(original)}U',
+            f'/DTH09_ORIGINAL_EXE_CHECKSUM=0x{checksum:08x}U']
+
+
 def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     """Build a relocation-preserving object from this build's contributions."""
     reference = compare_exe.PE(project.ORIGINAL)
