@@ -14,11 +14,13 @@ import struct
 import sys
 import csv
 import json
+import re
 from collections.abc import Sequence
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from coff_archive import members
 from coff_sections import split_storage
+from pe_imports import restore as restore_imports
 
 import coff
 import project
@@ -30,6 +32,8 @@ class Unit:
     path: str
     obj: coff.Object
 
+
+_import_fixups: list[tuple[str, int, str, int]] = []
 
 def align(value: int, boundary: int) -> int:
     return (value + boundary - 1) & -boundary
@@ -723,6 +727,15 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 raise ValueError(f'conflicting relocations in {section[0]} at {offset:#x}: {previous} vs {(symbol, target)}')
             unique[offset, kind] = (symbol, target)
         relocs[:] = [(offset, value[0], kind) for (offset, kind), value in sorted(unique.items())]
+    global _import_fixups
+    _import_fixups = []
+    for i, section in enumerate(sections, 1):
+        for offset, symbol, kind in section[3]:
+            if kind == coff.DIR32 and symbol.startswith('__imp_'):
+                anchor = f'__th09_output_{i}'
+                definitions[anchor] = (i, 0)
+                addend = int.from_bytes(section[2][offset:offset + 4], 'little', signed=True)
+                _import_fixups.append((anchor, offset, symbol, addend))
     indices = {symbol: i for i, symbol in enumerate([*definitions, *undefined, *absolutes])}
     for (u, s), (sec, offset) in positions.items():
         section = units[u].obj.sections[s]
@@ -757,6 +770,24 @@ def exe_finished(features: Sequence[str]) -> None:
     """Keep original file-section order while preserving all virtual addresses."""
     image = compare_exe.PE(project.EXE)
     reference = compare_exe.PE(project.ORIGINAL)
+    symbols = compare_exe.read_map()
+    restored, changed = restore_imports(image, reference, _import_fixups, symbols)
+    Path(project.EXE).write_bytes(restored)
+    image = compare_exe.PE(project.EXE)
+    if image.imports() != reference.imports():
+        raise ValueError('restored imports do not match the original API bindings')
+    pattern = re.compile(r'^(\s*[0-9a-f]{4}:)([0-9a-f]{8})(\s+)(\S+)(\s+)([0-9a-f]{8})', re.M)
+
+    def moved_import(match: re.Match[str]) -> str:
+        prefix, relative, spacing, symbol, gap, address = match.groups()
+        if symbol not in changed:
+            return match.group(0)
+        target = changed[symbol]
+        position = int(relative, 16) + target - int(address, 16)
+        return f'{prefix}{position:08x}{spacing}{symbol}{gap}{target:08x}'
+
+    map_path = Path(project.EXE_MAP)
+    map_path.write_bytes(pattern.sub(moved_import, map_path.read_bytes().decode('latin-1')).encode('latin-1'))
     if image.directory(4)[1] or image.directory(6)[1]:
         raise ValueError('section packing requires an unsigned image without debug data')
     alignment = struct.unpack_from('<I', image.data, image.opt + 36)[0]
