@@ -261,7 +261,7 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     slots = {start + text_base: end - start for start, end in zip(all_starts, all_starts[1:] + [text_size])}
 
     # Anything reachable from data or the reconstructed functions must survive.
-    roots = {key for key in chosen if not units[key[0]].obj.sections[key[1]].flags & coff.CODE and (key[0] < len(paths) and units[key[0]].obj.sections[key[1]].flags & 0x80000000 or units[key[0]].obj.sections[key[1]].name in ('.drectve', '.sxdata') or units[key[0]].obj.sections[key[1]].name.startswith('.CRT'))}
+    roots = {key for key in chosen if not units[key[0]].obj.sections[key[1]].flags & coff.CODE and (key[0] < len(paths) and units[key[0]].obj.sections[key[1]].flags & 0x80000000 or units[key[0]].obj.sections[key[1]].name in ('.drectve', '.sxdata', '.data1') or units[key[0]].obj.sections[key[1]].name.startswith('.CRT'))}
     for u, s in list(roots):
         section = units[u].obj.sections[s]
         if section.name == '.sxdata':
@@ -603,6 +603,53 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 positions[key] = (2, start)
     print('writable data:', exact_writable, 'anchored objects;', len(writable), 'total')
 
+    # Restore the linker's folding of identical COMDAT function bodies. Only
+    # extra copies are folded; every pinned original entry stays in place.
+    aliases: dict[tuple[int, int], tuple[int, int]] = {}
+    signatures: dict[tuple[bytes, tuple[tuple[object, ...], ...]], tuple[int, int]] = {}
+    for key in sorted((key for key in positions if units[key[0]].obj.sections[key[1]].flags & coff.CODE),
+                      key=lambda key: (positions[key], key)):
+        u, s = key
+        section = units[u].obj.sections[s]
+        references: list[tuple[object, ...]] = []
+        for offset, index, kind in section.relocs:
+            target = units[u].obj.symbols[index]
+            target_u = u
+            if target.storage == 2 or target.section == 0:
+                owner = owners.get(weak.get(target.name, target.name))
+                if owner is not None:
+                    target_u, target_index = owner
+                    target = units[target_u].obj.symbols[target_index]
+            other = (target_u, target.section - 1)
+            if other == key:
+                identity: object = ('self', target.value)
+            elif other in positions:
+                identity = (positions[other], target.value)
+            elif target.section == -1:
+                identity = ('absolute', target.value)
+            else:
+                identity = ('external', weak.get(target.name, target.name))
+            references.append((offset, kind, identity))
+        signature = (section.data, tuple(references))
+        previous = signatures.get(signature)
+        if previous is not None and positions[key][0] == 2:
+            aliases[key] = previous
+        else:
+            signatures.setdefault(signature, key)
+    compact = bytearray()
+    for key in sorted((key for key in positions if positions[key][0] == 2 and key not in aliases),
+                      key=lambda key: (positions[key][1], key)):
+        section = units[key[0]].obj.sections[key[1]]
+        boundary = 1 << max(0, ((section.flags >> 20) & 15) - 1)
+        offset = align(len(compact), boundary)
+        compact.extend(bytes(offset - len(compact)))
+        compact.extend(section.data)
+        positions[key] = (2, offset)
+    for key, previous in aliases.items():
+        positions[key] = positions[previous]
+    extra = compact
+    print('folded helper copies:', len(aliases))
+
     sections: list[tuple[str, int, bytes, list[tuple[int, str, int]]]] = [
         ('.text', coff.TEXT, text, []), ('.extra', 0xe0300040, extra, []),
         ('.rdata', coff.RDATA, rd_data, []),
@@ -705,3 +752,30 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     print(f'{len(placed)} functions placed; {len(trampolines)} oversized; {len(extra)} extra code bytes; {len(undefined)} imports')
     return [output]
 
+
+def exe_finished(features: Sequence[str]) -> None:
+    """Keep original file-section order while preserving all virtual addresses."""
+    image = compare_exe.PE(project.EXE)
+    reference = compare_exe.PE(project.ORIGINAL)
+    if image.directory(4)[1] or image.directory(6)[1]:
+        raise ValueError('section packing requires an unsigned image without debug data')
+    alignment = struct.unpack_from('<I', image.data, image.opt + 36)[0]
+    packed = bytearray(image.data[:image.sizeof_headers])
+    order = {name: index for index, name in enumerate(reference.order)}
+    for name in sorted(image.order, key=lambda name: (order.get(name, len(order)), name)):
+        _, _, old_offset, size = image.sections[name]
+        if not size:
+            continue
+        offset = align(len(packed), alignment)
+        packed.extend(bytes(offset - len(packed)))
+        packed.extend(image.data[old_offset:old_offset + size])
+        header = image.opt + image.optsz + image.order.index(name) * 40
+        struct.pack_into('<I', packed, header + 20, offset)
+    Path(project.EXE).write_bytes(packed)
+    result = compare_exe.PE(project.EXE)
+    for name, (address, virtual_size, old_offset, size) in image.sections.items():
+        new_address, new_size, offset, raw_size = result.sections[name]
+        if (new_address, new_size, raw_size) != (address, virtual_size, size):
+            raise ValueError(f'section packing changed virtual layout: {name}')
+        if result.data[offset:offset + size] != image.data[old_offset:old_offset + size]:
+            raise ValueError(f'section packing changed contribution bytes: {name}')
