@@ -26,6 +26,11 @@ Network::Network()
     this->syncFrames = 60;
 }
 
+GameWindow::GameWindow()
+{
+    memset(this, 0, sizeof(*this));
+}
+
 double GameWindow::GetTime()
 {
     if (g_GameWindow.perfFrequency[0] != 0)

@@ -127,6 +127,11 @@ ASSERT_SIZE(GameRank, 0x24);
 class GameManager
 {
 public:
+    GameManager()
+    {
+        this->Init();
+    }
+
     // Zeroes the GameManager, sets the play area, and sets initialLives
     // to 10, as th08's constructor did (0x41ba4f).
     void Init();
@@ -323,6 +328,8 @@ extern GameManager g_GameManager;
 // known so far.
 struct Hscr
 {
+    Hscr();
+
     DWORD magic;
     WORD size;
     // The size again.

@@ -33,7 +33,7 @@ class TableAuditTests(unittest.TestCase):
 
     def test_current_tables(self) -> None:
         count, pointers = self.check_image(Path(project.EXE))
-        self.assertEqual(count, 78)
+        self.assertEqual(count, 80)
         self.assertGreater(pointers, 600)
 
     def test_last_cpu_row_is_checked(self) -> None:
@@ -42,6 +42,11 @@ class TableAuditTests(unittest.TestCase):
             path.write_bytes(self.corrupt(0x4a0330 + 70 * 28 + 24, 123))
             with self.assertRaisesRegex(ValueError, r'g_PlayerCpuLevels\[70\]'):
                 self.check_image(path)
+
+    def test_matching_contents_at_the_wrong_address_are_rejected(self) -> None:
+        with patch.object(audit, 'linked_address', return_value=0x4e6000):
+            with self.assertRaisesRegex(ValueError, 'wrong address'):
+                self.check_image(Path(project.EXE))
 
     def test_valid_but_wrong_callback_is_rejected(self) -> None:
         with tempfile.TemporaryDirectory() as folder:

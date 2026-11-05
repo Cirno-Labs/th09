@@ -10,6 +10,8 @@
 // score list.
 struct ScoreDat
 {
+    ScoreDat();
+
     BYTE unusedByte00;
     // Where the key starts; random.
     BYTE key;

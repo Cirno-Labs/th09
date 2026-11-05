@@ -21,6 +21,14 @@
 #include "sprite.h"
 #include "stage.h"
 
+#ifdef TH09_EXE
+// This object's startup entries begin at 0x48d7b0. Its /Ob1 settings
+// expand GameManager's inline constructor into the call to Init.
+GameManager g_GameManager;
+ChainElem g_GameManagerCalcChain;
+ChainElem g_GameManagerDrawChain;
+#endif
+
 BOOL GameManager::IsInPlayArea(float x, float y, float width, float height)
 {
     if (x + width / 2.0f < -144.0f)

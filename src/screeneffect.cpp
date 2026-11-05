@@ -9,6 +9,12 @@
 #include "sprite.h"
 #include "unsorted.h"
 
+#ifdef TH09_EXE
+// The constructor call at 0x48d830 identifies this otherwise unused
+// object at 0x4ac888, immediately before MainMenu's private pointer.
+ScreenEffect g_UnusedScreenEffect;
+#endif
+
 void ClearScreen(DWORD color)
 {
     g_App.d3dDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, color, 1.0f, 0);

@@ -4,12 +4,18 @@ from bisect import bisect_right
 import coff
 
 
-def split_storage(obj: coff.Object) -> None:
-    """Give each named data object independent placement in the output image."""
+def split_storage(obj: coff.Object) -> dict[int, list[tuple[int, int]]]:
+    """Split named objects and return their original offsets and new sections.
+
+    The returned groups preserve the relationship between pieces of an
+    ordinary section, which a native linker retains as a single unit.
+    Section indices in the result are one-based, as in COFF symbols.
+    """
     old_sections = list(obj.sections)
     starts: dict[int, list[int]] = {}
     for section_index, section in enumerate(old_sections):
-        if section.name not in ('.data', '.bss', '.rdata') or not section.data:
+        if (section.name not in ('.data', '.bss', '.rdata')
+                and not section.name.startswith('.CRT')) or not section.data:
             continue
         values = {0}
         values.update(sym.value for sym in obj.symbols if sym and sym.section == section_index + 1
@@ -58,3 +64,4 @@ def split_storage(obj: coff.Object) -> None:
             start, section_index = choices[bisect_right([start for start, _ in choices], symbol.value) - 1]
             symbol.section = section_index
             symbol.value -= start
+    return parts

@@ -665,8 +665,12 @@ public:
         this->Draw(vm);
         this->FlushQuadBatch();
     }
-    // The ANM file in slot `slot`, as th08's (0x401660).
-    AnmLoaded *GetAnm(int slot);
+    // Inline, even in /Ob0 files that emit the copy at 0x401660:
+    // callers know this does not change g_SpriteEngine.
+    AnmLoaded *GetAnm(int slot)
+    {
+        return &this->anms[slot];
+    }
     // The file of the ANM in slot `slot` (0x41bd70).
     AnmFile *GetAnmFile(int slot);
     // Whether `vm` shows a sprite whose ANM file has its textures

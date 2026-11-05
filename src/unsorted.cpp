@@ -349,6 +349,37 @@ Log::Log()
     this->hasError = 0;
 }
 
+PlayerInput::PlayerInput()
+{
+    this->mappings[0].shootButton = 0;
+    this->mappings[0].bombButton = 1;
+    this->mappings[0].focusButton = 2;
+    this->mappings[0].menuButton = 4;
+    this->mappings[0].upButton = -1;
+    this->mappings[0].downButton = -1;
+    this->mappings[0].leftButton = -1;
+    this->mappings[0].rightButton = -1;
+    this->mappings[0].skipButton = 3;
+    this->mappings[1].shootButton = 0x5a;
+    this->mappings[1].bombButton = 0x58;
+    this->mappings[1].focusButton = 0x10;
+    this->mappings[1].menuButton = 0x1b;
+    this->mappings[1].upButton = 0x26;
+    this->mappings[1].downButton = 0x28;
+    this->mappings[1].leftButton = 0x25;
+    this->mappings[1].rightButton = 0x27;
+    this->mappings[1].skipButton = 0x11;
+    this->mappings[2].shootButton = 0x2c;
+    this->mappings[2].bombButton = 0x2d;
+    this->mappings[2].focusButton = 0x2a;
+    this->mappings[2].menuButton = 1;
+    this->mappings[2].upButton = 0xc8;
+    this->mappings[2].downButton = 0xd0;
+    this->mappings[2].leftButton = 0xcb;
+    this->mappings[2].rightButton = 0xcd;
+    this->mappings[2].skipButton = 0x1d;
+}
+
 void App::EnterCriticalSection(int idx)
 {
     ::EnterCriticalSection(&this->criticalSections[idx]);

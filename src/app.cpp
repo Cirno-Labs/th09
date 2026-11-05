@@ -14,6 +14,12 @@
 #include "timer.h"
 #include "unsorted.h"
 
+App::App()
+{
+    memset(this, 0, sizeof(*this));
+    this->stateFlags |= 0x140;
+}
+
 int App::GetNoFog()
 {
     return this->config.flags.noFog;

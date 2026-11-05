@@ -5,6 +5,16 @@
 #include "unsorted.h"
 #include "gamemanager.h"
 
+ScoreDat::ScoreDat()
+{
+    memset(this, 0, sizeof(*this));
+}
+
+Hscr::Hscr()
+{
+    memset(this, 0, sizeof(*this));
+}
+
 int InsertHighScore(Hscr *entry)
 {
     int rank;

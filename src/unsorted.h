@@ -69,6 +69,8 @@ class Log
 public:
     // Empties the buffer and clears hasError (0x42b110).
     Log();
+    // Its registered exit callback is an empty return (0x48da70).
+    ~Log() {}
 
     // Empties the buffer, as th08's (0x42d230).
     void Reset();
@@ -89,6 +91,7 @@ extern Log g_Log;
 #pragma pack(push, 4)
 struct GameWindow
 {
+    GameWindow();
     // The time in seconds, from the performance counter if it has a
     // frequency, else from timeGetTime() (0x42cc90).
     double GetTime();
@@ -347,6 +350,9 @@ ASSERT_SIZE(ControllerMapping, 0x12);
 // The players' inputs, at 0x4ace18, and the third one the menus read.
 struct PlayerInput
 {
+    // Default joystick, virtual-key and DirectInput mappings (0x42b010).
+    PlayerInput();
+
     // Whether a button of `mask` is down in either of the masks at 4
     // and 6 (0x423158).
     WORD IsPressed(WORD mask)
@@ -749,6 +755,9 @@ ASSERT_SIZE(Camera, 0xf0);
 
 struct App
 {
+    // Initializes cameras and config, then clears the object (0x431500).
+    App();
+
     // Sets up view `view`, its camera and viewport: 0 the play area, 2
     // the whole screen. Inline; the copy is the stage's object's
     // (0x401390).

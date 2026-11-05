@@ -1,7 +1,7 @@
 """Place compiled contributions in the 1.50a layout before the final link.
 
-All emitted bytes and relocations come from the compiler and SDK/CRT
-objects. The reference supplies addresses and fingerprints, never code.
+Emitted code comes from the compiler, SDK/CRT objects and standard import
+jump stubs. The reference supplies addresses and fingerprints, never code.
 Unplaced contributions remain in a separate section, so an imperfect
 match cannot silently drop a function or a constant.
 """
@@ -16,7 +16,7 @@ import sys
 import csv
 import json
 import re
-from collections.abc import Sequence
+from collections.abc import Collection, Mapping, Sequence
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from coff_archive import members
@@ -42,6 +42,207 @@ def align(value: int, boundary: int) -> int:
     return (value + boundary - 1) & -boundary
 
 
+def same_code_entry(first: coff.Section, first_address: int,
+                    second: coff.Section, second_address: int) -> bool:
+    """Share an attested entry only when its complete code has no fixups.
+
+    Equal bytes at different entry addresses do not establish identity.
+    Relocated bodies also need their target identities checked separately.
+    """
+    return (first_address == second_address and first.data == second.data
+            and not first.relocs and not second.relocs)
+
+
+def same_code_pattern(section: coff.Section, original: bytes) -> bool:
+    """Match a whole compiler contribution while ignoring fixup operands."""
+    if len(section.data) != len(original):
+        return False
+    mask = bytearray(len(section.data))
+    for offset, _, _ in section.relocs:
+        mask[offset:offset + 4] = b'\1' * 4
+    return all(mark or value == old for value, old, mark in zip(section.data, original, mask))
+
+
+def storage_group_locations(
+    units: Sequence[Unit],
+    groups: Sequence[Sequence[tuple[tuple[int, int], int]]],
+    votes: Mapping[tuple[int, int], Mapping[int, int]],
+    reference: compare_exe.PE,
+    base: int,
+) -> dict[tuple[int, int], int]:
+    """Recover whole archive sections from an anchored member and its siblings.
+
+    SDK/CRT sections are not individually garbage-collected between named
+    objects unless they are COMDATs. Preserve their original relative offsets,
+    accepting an anchor only when every sibling's non-relocated bytes agree.
+    """
+    result: dict[tuple[int, int], int] = {}
+    for group in groups:
+        starts = {location - offset for key, offset in group for location in votes.get(key, {})}
+        sections = [units[u].obj.sections[s] for (u, s), _ in group]
+        # A whole ordinary section can be unique even when its individual
+        # scalars occur many times. This also locates groups without callers.
+        if sections and not any(section.relocs for section in sections):
+            data = b''.join(section.data for section in sections)
+            address, size, _, _ = reference.sections[sections[0].name]
+            original = reference.read(address, size)
+            found = original.find(data) if len(data) >= 8 else -1
+            if found >= 0 and original.find(data, found + 1) < 0:
+                starts.add(address + found - base)
+        valid: list[int] = []
+        for start in starts:
+            for (u, s), offset in group:
+                section = units[u].obj.sections[s]
+                address = base + start + offset
+                if (reference.section_of(address) != section.name
+                        or not same_code_pattern(section, reference.read(address, len(section.data)))):
+                    break
+            else:
+                valid.append(start)
+        if len(valid) == 1:
+            result.update((key, valid[0] + offset) for key, offset in group)
+    return result
+
+
+def fold_identical_sections(units: Sequence[Unit], owners: Mapping[str, tuple[int, int]],
+                            weak: Mapping[str, str],
+                            positions: dict[tuple[int, int], tuple[int, int]],
+                            candidates: Collection[tuple[int, int]],
+                            foldable: Collection[tuple[int, int]]) -> dict[tuple[int, int], tuple[int, int]]:
+    """Fold equal bytes and resolved references until no further copies agree.
+
+    Destructor folding can make vtables identical, which in turn makes
+    constructors identical. Anchored contributions never move, and writable
+    storage must not be included among the candidates.
+    """
+    aliases: dict[tuple[int, int], tuple[int, int]] = {}
+    while True:
+        count = len(aliases)
+        signatures: dict[tuple[bool, bytes, tuple[tuple[object, ...], ...]], tuple[int, int]] = {}
+        for key in sorted(set(candidates) - aliases.keys(),
+                          key=lambda key: (key in foldable, positions[key], key)):
+            u, s = key
+            section = units[u].obj.sections[s]
+            references: list[tuple[object, ...]] = []
+            for offset, index, kind in section.relocs:
+                target = units[u].obj.symbols[index]
+                target_u = u
+                if target.storage == 2 or target.section == 0:
+                    owner = owners.get(weak.get(target.name, target.name))
+                    if owner is not None:
+                        target_u, target_index = owner
+                        target = units[target_u].obj.symbols[target_index]
+                other = (target_u, target.section - 1)
+                if other == key:
+                    identity: object = ('self', target.value)
+                elif other in positions:
+                    identity = (positions[other], target.value)
+                elif target.section == -1:
+                    identity = ('absolute', target.value)
+                elif target.section > 0:
+                    identity = ('defined', target_u, target.section, target.value)
+                else:
+                    identity = ('external', weak.get(target.name, target.name))
+                references.append((offset, kind, identity))
+            signature = (bool(section.flags & coff.CODE), section.data, tuple(references))
+            previous = signatures.get(signature)
+            if previous is not None and key in foldable:
+                aliases[key] = previous
+                positions[key] = positions[previous]
+            else:
+                signatures.setdefault(signature, key)
+        for key in aliases:
+            previous = aliases[key]
+            while previous in aliases:
+                previous = aliases[previous]
+            aliases[key] = previous
+            positions[key] = positions[previous]
+        if len(aliases) == count:
+            return aliases
+
+
+def library_symbol(label: str, available: Collection[str]) -> str | None:
+    """Prefer an exact COFF name before trying C underscore decorations.
+
+    Binding every spelling can place distinct functions at one address:
+    `_tolower` and `__tolower` are both defined by the CRT.
+    """
+    return next((candidate for candidate in
+                 (label, '_' + label, '_' + label.lstrip('_'), '__' + label.lstrip('_'))
+                 if candidate in available), None)
+
+
+def trim_storage_padding(obj: coff.Object, extents: Mapping[str, int]) -> None:
+    """Exclude zero alignment padding after objects with a known extent.
+
+    Splitting at the next symbol preserves inter-object padding. That
+    padding must not prevent another contribution from using the space
+    immediately after the actual object in the original layout.
+    """
+    for symbol in obj.externals():
+        size = extents.get(symbol.name)
+        if size is None or symbol.section <= 0 or symbol.value:
+            continue
+        section = obj.sections[symbol.section - 1]
+        if section.name not in ('.bss', '.data') or len(section.data) <= size:
+            continue
+        if (any(section.data[size:]) or any(offset + 4 > size for offset, _, _ in section.relocs)
+                or any(other and other.section == symbol.section and other.value >= size
+                       for other in obj.symbols)):
+            raise ValueError(f'non-padding storage beyond the known extent of {symbol.name}')
+        section.data = section.data[:size]
+
+
+def import_thunks(units: Sequence[Unit], known: dict[str, int],
+                  reference: compare_exe.PE, output_dir: Path) -> Unit | None:
+    """Place standard x86 import jumps instead of appending them in LINK.
+
+    A short import-library member describes an API but has no COFF code
+    contribution for the placer. Emit its usual `jmp [IAT]` with a real
+    import relocation. Only a unique reference fingerprint locates a stub.
+    """
+    defined = {sym.name for unit in units for sym in unit.obj.externals() if sym.section > 0}
+    referenced = {sym.name for unit in units for sym in unit.obj.externals()
+                  if sym.section == 0 and sym.value == 0}
+    text_base, text_size, _, _ = reference.sections['.text']
+    original = reference.read(text_base, text_size)
+    sections: list[tuple[str, int, bytes, list[tuple[int, str, int]]]] = []
+    definitions: dict[str, tuple[int, int]] = {}
+    imports: list[str] = []
+    for symbol in sorted(referenced - defined):
+        target = '__imp_' + symbol
+        if target not in known:
+            continue
+        fingerprint = b'\xff\x25' + struct.pack('<I', known[target])
+        offset = original.find(fingerprint)
+        if offset < 0 or original.find(fingerprint, offset + 1) >= 0:
+            continue
+        address = text_base + offset
+        if symbol in known and known[symbol] != address:
+            raise ValueError(f'import stub address disagrees with symbols.csv: {symbol}')
+        # Keep the import-library name available for LINK's short import
+        # member. Giving our stub that name would conflict when the IAT
+        # reference pulls in a member that also defines the public jump.
+        alias = '__layout_import_stub_' + symbol
+        known[alias] = address
+        # This is the import library's standard six-byte jump, not bytes
+        # read from the reference; LINK resolves the operand through the IAT.
+        sections.append(('.text', (coff.TEXT & ~0xf00000) | 0x100000,
+                         b'\xff\x25\0\0\0\0', [(2, target, coff.DIR32)]))
+        definitions[alias] = (len(sections), 0)
+        imports.append(target)
+        for unit in units:
+            for entry in unit.obj.externals():
+                if entry.name == symbol and entry.section == 0 and entry.value == 0:
+                    entry.name = alias
+    if not sections:
+        return None
+    output = output_dir / 'import_thunks.obj'
+    coff.write_object(str(output), sections, definitions, imports, {})
+    print('import stubs placed', len(sections))
+    return Unit(str(output), coff.Object(str(output)))
+
+
 def exe_flags(features: Sequence[str]) -> list[str]:
     """Record the binary identity used by the archive and original replays."""
     original = Path(project.ORIGINAL).read_bytes()
@@ -55,7 +256,10 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     reference = compare_exe.PE(project.ORIGINAL)
     text_base, text_size, _, _ = reference.sections['.text']
     text_end = text_base + text_size
-    known = {symbol: address for address, _, _, symbols in compare_exe.read_symbols() for symbol in symbols}
+    symbol_rows = compare_exe.read_symbols()
+    known = {symbol: address for address, _, _, symbols in symbol_rows for symbol in symbols}
+    extents = {symbol: size for address, size, _, symbols in symbol_rows
+               if size and reference.section_of(address) == '.data' for symbol in symbols}
     paths = list(objects)
     global _table_object
     _table_object = next(Path(path) for path in paths if Path(path).stem == 'exe_tables')
@@ -90,8 +294,19 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     if missing:
         raise FileNotFoundError('missing layout libraries: ' + ', '.join(sorted(missing)))
     print('source/library objects', len(paths), len(units) - len(paths))
-    for unit in units:
-        split_storage(unit.obj)
+    thunks = import_thunks(units, known, reference, output_dir)
+    if thunks is not None:
+        units.append(thunks)
+    storage_groups: list[list[tuple[tuple[int, int], int]]] = []
+    for u, unit in enumerate(units):
+        old_sections = list(unit.obj.sections)
+        parts = split_storage(unit.obj)
+        if u >= len(paths):
+            storage_groups.extend([((u, index - 1), offset) for offset, index in group]
+                                  for old, group in parts.items()
+                                  if old_sections[old].name in ('.rdata', '.data')
+                                  and not old_sections[old].flags & 0x1000)
+        trim_storage_padding(unit.obj, extents)
     owners: dict[str, tuple[int, int]] = {}
     for u, unit in enumerate(units):
         for i, sym in enumerate(unit.obj.symbols):
@@ -118,10 +333,9 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             address = int(row['address'], 16)
             if not text_base <= address < text_end:
                 continue
-            label = row['name']
-            for candidate in [label, '_' + label, '_' + label.lstrip('_'), '__' + label.lstrip('_')]:
-                if candidate in owners:
-                    known.setdefault(candidate, address)
+            candidate = library_symbol(row['name'], owners.keys())
+            if candidate is not None:
+                known.setdefault(candidate, address)
 
     weak: dict[str, str] = {}
     for unit in units:
@@ -178,49 +392,125 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
 
     image = coff.Image(project.ORIGINAL)
     original = image.read(text_base, text_size)
+
+    def calls_match(u: int, s: int, offset: int) -> bool:
+        """Disambiguate equal caller patterns by their defined callees.
+
+        SSE and SSE2 entry points can have the same instructions except
+        for a call to different implementations. A masked caller match
+        alone must not select the implementation with the wrong callee.
+        """
+        section = units[u].obj.sections[s]
+        for off, index, kind in section.relocs:
+            if kind not in (coff.DIR32, coff.REL32):
+                continue
+            target = units[u].obj.symbols[index]
+            addend = int.from_bytes(section.data[off:off + 4], 'little', signed=True)
+            value = int.from_bytes(original[offset + off:offset + off + 4], 'little',
+                                   signed=kind == coff.REL32)
+            if kind == coff.REL32:
+                value += text_base + offset + off + 4
+            known_target = known.get(weak.get(target.name, target.name))
+            if known_target is not None and value != (known_target + addend) & 0xffffffff:
+                return False
+            if kind != coff.REL32:
+                continue
+            target_u = u
+            if target.storage == 2 or target.section == 0:
+                owner = owners.get(weak.get(target.name, target.name))
+                if owner is None:
+                    continue
+                target_u, target_index = owner
+                target = units[target_u].obj.symbols[target_index]
+            if target.section <= 0:
+                continue
+            body = units[target_u].obj.sections[target.section - 1]
+            if not body.flags & coff.CODE:
+                continue
+            relative = int.from_bytes(original[offset + off:offset + off + 4], 'little', signed=True)
+            start = offset + off + 4 + relative - target.value - addend
+            if start < 0 or not same_code_pattern(body, original[start:start + len(body.data)]):
+                return False
+        return True
+
     inferred = 0
-    for u, section_index in sorted(chosen):
-        section = units[u].obj.sections[section_index]
-        if not section.flags & coff.CODE or (u, section_index) in placed or len(section.data) < 8:
-            continue
-        mask = bytearray(len(section.data))
-        for offset, _, _ in section.relocs:
-            mask[offset:offset + 4] = b'\1' * 4
-        spans: list[tuple[int, int]] = []
-        start = 0
-        while start < len(mask):
-            if mask[start]:
-                start += 1
+    while True:
+        previous_count = inferred
+        for u, section_index in sorted(chosen):
+            section = units[u].obj.sections[section_index]
+            if not section.flags & coff.CODE or (u, section_index) in placed or len(section.data) < 8:
                 continue
-            end = start + 1
-            while end < len(mask) and not mask[end]:
-                end += 1
-            spans.append((start, end))
-            start = end
-        if not spans:
-            continue
-        first, last = max(spans, key=lambda span: span[1] - span[0])
-        if last - first < 6:
-            continue
-        needle = section.data[first:last]
-        hits: list[int] = []
-        cursor = 0
-        while True:
-            found = original.find(needle, cursor)
-            if found < 0:
-                break
-            offset = found - first
-            if offset >= 0 and offset + len(mask) <= len(original) and all(m or a == b for a, b, m in zip(section.data, original[offset:offset + len(mask)], mask)):
-                hits.append(offset)
-            cursor = found + 1
-        if len(hits) == 1:
-            start = hits[0]
-            end = start + len(section.data)
-            if any(start < offset + len(units[key[0]].obj.sections[key[1]].data) and offset < end
-                   for key, offset in placed.items()):
+            mask = bytearray(len(section.data))
+            for offset, _, _ in section.relocs:
+                mask[offset:offset + 4] = b'\1' * 4
+            spans: list[tuple[int, int]] = []
+            start = 0
+            while start < len(mask):
+                if mask[start]:
+                    start += 1
+                    continue
+                end = start + 1
+                while end < len(mask) and not mask[end]:
+                    end += 1
+                spans.append((start, end))
+                start = end
+            if not spans:
                 continue
-            placed[u, section_index] = hits[0]
-            inferred += 1
+            first, last = max(spans, key=lambda span: span[1] - span[0])
+            needle = section.data[first:last]
+            if len(needle) < 6:
+                # Startup wrappers are mostly relocation operands. An attested
+                # global address is a better fingerprint than their short opcodes.
+                anchors = [(off, known.get(weak.get(units[u].obj.symbols[index].name,
+                                                   units[u].obj.symbols[index].name)))
+                           for off, index, kind in section.relocs if kind == coff.DIR32]
+                anchor = next(((off, address) for off, address in anchors if address is not None), None)
+                if anchor is None:
+                    # Tiny CRT wrappers can have only calls. Their known REL32
+                    # targets still disambiguate the complete instruction pattern.
+                    located_call = False
+                    for _, index, kind in section.relocs:
+                        if kind != coff.REL32:
+                            continue
+                        target = units[u].obj.symbols[index]
+                        target_u = u
+                        if target.storage == coff.CLASS_EXTERNAL or target.section == 0:
+                            owner = owners.get(weak.get(target.name, target.name))
+                            if owner is not None:
+                                target_u, index = owner
+                                target = units[target_u].obj.symbols[index]
+                        if target.name in known or (target_u, target.section - 1) in placed:
+                            located_call = True
+                            break
+                    if not located_call:
+                        continue
+                else:
+                    first, address = anchor
+                    addend = int.from_bytes(section.data[first:first + 4], 'little', signed=True)
+                    needle = struct.pack('<I', (address + addend) & 0xffffffff)
+            hits: list[int] = []
+            cursor = 0
+            while True:
+                found = original.find(needle, cursor)
+                if found < 0:
+                    break
+                offset = found - first
+                if (offset >= 0 and offset + len(mask) <= len(original)
+                        and all(m or a == b for a, b, m in zip(section.data, original[offset:offset + len(mask)], mask))
+                        and calls_match(u, section_index, offset)):
+                    hits.append(offset)
+                cursor = found + 1
+            if len(hits) == 1:
+                start = hits[0]
+                end = start + len(section.data)
+                if any(start < offset + len(units[key[0]].obj.sections[key[1]].data) and offset < end
+                       and not same_code_entry(section, start, units[key[0]].obj.sections[key[1]], offset)
+                       for key, offset in placed.items()):
+                    continue
+                placed[u, section_index] = hits[0]
+                inferred += 1
+        if inferred == previous_count:
+            break
     # Code references and function-pointer tables locate small helpers whose
     # instruction patterns occur more than once. Follow only contributions
     # whose non-relocated bytes match, and reject overlapping code placements.
@@ -288,6 +578,7 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 if not 0 <= start < end <= len(original):
                     continue
                 if any(start < at + len(units[k[0]].obj.sections[k[1]].data) and at < end
+                       and not same_code_entry(body, start, units[k[0]].obj.sections[k[1]], at)
                        for k, at in placed.items()):
                     continue
                 target_mask = bytearray(len(body.data))
@@ -306,6 +597,11 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
 
     # Anything reachable from data or the reconstructed functions must survive.
     roots = {key for key in chosen if not units[key[0]].obj.sections[key[1]].flags & coff.CODE and (key[0] < len(paths) and units[key[0]].obj.sections[key[1]].flags & 0x80000000 or units[key[0]].obj.sections[key[1]].name in ('.drectve', '.sxdata', '.data1') or units[key[0]].obj.sections[key[1]].name.startswith('.CRT'))}
+    # Splitting named storage must not give ordinary archive data COMDAT
+    # liveness: LINK retains these sections when it loads the archive member.
+    roots.update(key for key in chosen if key[0] >= len(paths)
+                 and units[key[0]].obj.sections[key[1]].name in ('.rdata', '.data')
+                 and not units[key[0]].obj.sections[key[1]].flags & 0x1000)
     for u, s in list(roots):
         section = units[u].obj.sections[s]
         if section.name == '.sxdata':
@@ -315,6 +611,7 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                     roots.add((u, sym.section - 1))
     live = roots | set(placed)
     queue = list(live)
+    referenced_storage: set[tuple[int, int]] = set()
     while queue:
         u, s = queue.pop()
         for _, index, _ in units[u].obj.sections[s].relocs:
@@ -328,6 +625,7 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 sym = units[target_u].obj.symbols[target_index]
             if sym.section > 0:
                 key = (target_u, sym.section - 1)
+                referenced_storage.add(key)
                 if key in chosen and key not in live:
                     live.add(key)
                     queue.append(key)
@@ -364,6 +662,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     rd_data = bytearray(len(rd_orig))
     rd_used = bytearray(len(rd_orig))
     votes: dict[tuple[int, int], dict[int, int]] = defaultdict(lambda: defaultdict(int))
+    for key in readonly & located_data.keys():
+        votes[key][text_base + located_data[key] - rd_base] += 1
     for (u, s), code_offset in placed.items():
         section = units[u].obj.sections[s]
         mask = bytearray(len(section.data))
@@ -394,6 +694,9 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             if sym and sym.section == s + 1 and sym.name in known:
                 votes[u, s][known[sym.name] - sym.value - rd_base] += 100
                 rd_known.add((u, s))
+    for key, offset in storage_group_locations(units, storage_groups, votes, reference, rd_base).items():
+        if key in readonly:
+            votes[key][offset] += 1
     rd_masks: dict[tuple[int, int], bytearray] = {}
     for u, s in readonly:
         section = units[u].obj.sections[s]
@@ -484,6 +787,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
     data_base, data_size, _, data_raw = reference.sections['.data']
     wd_votes: dict[tuple[int, int], dict[int, int]] = defaultdict(lambda: defaultdict(int))
     wd_known: set[tuple[int, int]] = set()
+    for key in writable & located_data.keys():
+        wd_votes[key][text_base + located_data[key] - data_base] += 1
     for key in writable:
         u, s = key
         for sym in units[u].obj.symbols:
@@ -514,6 +819,56 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 addend = int.from_bytes(section.data[off:off + 4], 'little', signed=True)
                 address = int.from_bytes(original[code_offset + off:code_offset + off + 4], 'little')
                 wd_votes[key][address - target.value - addend - data_base] += 1
+    for key, offset in storage_group_locations(units, storage_groups, wd_votes, reference, data_base).items():
+        if key in writable:
+            wd_votes[key][offset] += 1
+
+    def operand_address(u: int, index: int) -> int | None:
+        target = units[u].obj.symbols[index]
+        symbol = weak.get(target.name, target.name)
+        if symbol in known:
+            return known[symbol]
+        if target.storage == coff.CLASS_EXTERNAL or target.section == 0:
+            owner = owners.get(symbol)
+            if owner is None:
+                return None
+            u, index = owner
+            target = units[u].obj.symbols[index]
+        location = positions.get((u, target.section - 1))
+        if location is None:
+            return None
+        section, offset = location
+        bases = {1: text_base, 3: rd_base, 4: data_base}
+        return bases[section] + offset + target.value if section in bases else None
+
+    # Readonly strings and function pointers can locate an otherwise unused
+    # writable table in reverse. Validate every resolved operand, not merely
+    # the first pointer's four-byte fingerprint.
+    data_original = reference.read(data_base, data_raw)
+    for u, s in writable:
+        section = units[u].obj.sections[s]
+        if section.name != '.data' or section.flags & 0x80:
+            continue
+        operands: list[tuple[int, bytes]] = []
+        for off, index, kind in section.relocs:
+            address = operand_address(u, index) if kind == coff.DIR32 else None
+            if address is not None:
+                addend = int.from_bytes(section.data[off:off + 4], 'little', signed=True)
+                operands.append((off, struct.pack('<I', (address + addend) & 0xffffffff)))
+        if not operands:
+            continue
+        first, needle = operands[0]
+        cursor = 0
+        candidates: set[int] = set()
+        while (found := data_original.find(needle, cursor)) >= 0:
+            start = found - first
+            if (0 <= start <= len(data_original) - len(section.data)
+                    and same_code_pattern(section, data_original[start:start + len(section.data)])
+                    and all(data_original[start + off:start + off + 4] == value for off, value in operands)):
+                candidates.add(start)
+            cursor = found + 1
+        if len(candidates) == 1:
+            wd_votes[u, s][candidates.pop()] += 1
     # An object can begin in the last initialized page and continue in BSS.
     # End the initialized contribution before it; file alignment supplies the
     # original trailing zero bytes without splitting the object's storage.
@@ -576,10 +931,35 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             if marked:
                 wd_used[offset + i] = 2
 
-    crt = sorted((key for key in writable if units[key[0]].obj.sections[key[1]].name.startswith('.CRT')),
-                 key=lambda key: (units[key[0]].obj.sections[key[1]].name, key))
+    crt = {key for key in writable if units[key[0]].obj.sections[key[1]].name.startswith('.CRT')}
+    startup = reference.read(data_base, 0xc0)
+    for u, s in crt:
+        section = units[u].obj.sections[s]
+        if len(section.data) != 4 or len(section.relocs) != 1:
+            continue
+        off, index, kind = section.relocs[0]
+        if off != 0 or kind != coff.DIR32:
+            continue
+        target = units[u].obj.symbols[index]
+        target_u = u
+        if target.storage == coff.CLASS_EXTERNAL or target.section == 0:
+            owner = owners.get(weak.get(target.name, target.name))
+            if owner is None:
+                continue
+            target_u, target_index = owner
+            target = units[target_u].obj.symbols[target_index]
+        location = positions.get((target_u, target.section - 1))
+        if location is None or location[0] != 1:
+            continue
+        address = text_base + location[1] + target.value + int.from_bytes(section.data, 'little')
+        slots = [offset for offset in range(0, len(startup), 4)
+                 if int.from_bytes(startup[offset:offset + 4], 'little') == address]
+        if len(slots) == 1:
+            wd_votes[u, s][slots[0]] += 1000
+    crt_order = sorted(crt, key=lambda key: (units[key[0]].obj.sections[key[1]].name,
+                       max(wd_votes[key], key=wd_votes[key].get) if wd_votes[key] else data_size, key))
     cursor = 0
-    for key in crt:
+    for key in crt_order:
         section = units[key[0]].obj.sections[key[1]]
         choices = sorted(wd_votes[key], key=lambda offset: -wd_votes[key][offset])
         wanted = next((offset for offset in choices if cursor <= offset < 0xc0), cursor)
@@ -624,6 +1004,76 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
                 address = int.from_bytes(raw, 'little')
                 candidate = address - target.value - addend - data_base
                 wd_votes[other][candidate] += 1
+
+    # After the anchors have occupied their storage, otherwise ambiguous
+    # constants can have one remaining exact location. Resolve pointer data
+    # too, now that its writable targets have addresses.
+    changed = True
+    while changed:
+        changed = False
+        for u, s in sorted(writable - wd_positions.keys()):
+            section = units[u].obj.sections[s]
+            if section.name != '.data' or not any(section.data) and not section.relocs:
+                continue
+            value = bytearray(section.data)
+            for off, index, kind in section.relocs:
+                address = operand_address(u, index) if kind == coff.DIR32 else None
+                if address is None:
+                    break
+                addend = int.from_bytes(section.data[off:off + 4], 'little', signed=True)
+                value[off:off + 4] = struct.pack('<I', (address + addend) & 0xffffffff)
+            else:
+                matches: list[int] = []
+                cursor = 0
+                while (found := data_original.find(value, cursor)) >= 0:
+                    if wd_fits((u, s), found, True):
+                        matches.append(found)
+                    cursor = found + 1
+                # Truly unreferenced contributions have no observable address;
+                # equal complete initializers may fill equal remaining slots.
+                if len(matches) == 1 or matches and (u, s) not in referenced_storage:
+                    wd_place((u, s), matches[0])
+                    changed = True
+
+    # Attested initialized tables also establish the identity of tiny code
+    # callbacks. In particular, the CRT's empty FP callback belongs to the
+    # shared SDK entry, even though a game function has the same `ret` byte.
+    for (u, s), offset in wd_positions.items():
+        section = units[u].obj.sections[s]
+        if not same_code_pattern(section, reference.read(data_base + offset, len(section.data))):
+            continue
+        for off, index, kind in section.relocs:
+            if kind != coff.DIR32:
+                continue
+            target = units[u].obj.symbols[index]
+            target_u = u
+            if target.storage == coff.CLASS_EXTERNAL or target.section == 0:
+                owner = owners.get(weak.get(target.name, target.name))
+                if owner is None:
+                    continue
+                target_u, index = owner
+                target = units[target_u].obj.symbols[index]
+            key = (target_u, target.section - 1)
+            if key not in positions or key in placed:
+                continue
+            body = units[key[0]].obj.sections[key[1]]
+            if not body.flags & coff.CODE:
+                continue
+            addend = int.from_bytes(section.data[off:off + 4], 'little', signed=True)
+            address = int.from_bytes(reference.read(data_base + offset + off, 4), 'little')
+            start = address - target.value - addend - text_base
+            end = start + len(body.data)
+            if (not 0 <= start < end <= len(original)
+                    or not same_code_pattern(body, original[start:end])
+                    or not calls_match(*key, start)):
+                continue
+            if any(start < at + len(units[k[0]].obj.sections[k[1]].data) and at < end
+                   and not same_code_entry(body, start, units[k[0]].obj.sections[k[1]], at)
+                   for k, at in placed.items()):
+                continue
+            placed[key] = start
+            positions[key] = (1, start)
+            text[start:end] = body.data
 
     exact_writable = len(wd_positions)
     # The remaining storage is retained in free space, never merged on value.
@@ -701,41 +1151,13 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
         positions[key] = (6, simd_positions.get(key, 0))
     print('SIMD data:', best_score[0], '/', simd_size, 'bytes placed')
 
-    # Restore the linker's folding of identical COMDAT function bodies. Only
-    # extra copies are folded; every pinned original entry stays in place.
-    aliases: dict[tuple[int, int], tuple[int, int]] = {}
-    signatures: dict[tuple[bytes, tuple[tuple[object, ...], ...]], tuple[int, int]] = {}
-    for key in sorted((key for key in positions if units[key[0]].obj.sections[key[1]].flags & coff.CODE),
-                      key=lambda key: (positions[key], key)):
-        u, s = key
-        section = units[u].obj.sections[s]
-        references: list[tuple[object, ...]] = []
-        for offset, index, kind in section.relocs:
-            target = units[u].obj.symbols[index]
-            target_u = u
-            if target.storage == 2 or target.section == 0:
-                owner = owners.get(weak.get(target.name, target.name))
-                if owner is not None:
-                    target_u, target_index = owner
-                    target = units[target_u].obj.symbols[target_index]
-            other = (target_u, target.section - 1)
-            if other == key:
-                identity: object = ('self', target.value)
-            elif other in positions:
-                identity = (positions[other], target.value)
-            elif target.section == -1:
-                identity = ('absolute', target.value)
-            elif target.section > 0:
-                identity = ('defined', target_u, target.section, target.value)
-            else:
-                identity = ('external', weak.get(target.name, target.name))
-            references.append((offset, kind, identity))
-        signature = (section.data, tuple(references))
-        previous = signatures.get(signature)
-        if previous is not None and positions[key][0] == 2:
-            aliases[key] = previous
-        else:
-            signatures.setdefault(signature, key)
+    # Identical destructors can expose identical vtables and constructors.
+    # Keep every code entry and every attested read-only address anchored.
+    code = {key for key in positions if units[key[0]].obj.sections[key[1]].flags & coff.CODE}
+    tables = {key for key in readonly if units[key[0]].obj.sections[key[1]].flags & 0x1000}
+    foldable = {key for key in code if positions[key][0] == 2}
+    foldable.update(key for key in tables if not votes[key])
+    aliases = fold_identical_sections(units, owners, weak, positions, code | tables, foldable)
     compact = bytearray()
     for key in sorted((key for key in positions if positions[key][0] == 2 and key not in aliases),
                       key=lambda key: (positions[key][1], key)):
@@ -752,7 +1174,9 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
 
     sections: list[tuple[str, int, bytes, list[tuple[int, str, int]]]] = [
         ('.text', coff.TEXT, text, []), ('.extra', 0xe0300040, extra, []),
-        ('.rdata', coff.RDATA, rd_data, []),
+        # rd_base is eight-byte aligned, even when no remaining archive
+        # member happens to impose that alignment on the output section.
+        ('.rdata', (coff.RDATA & ~0xf00000) | 0x400000, rd_data, []),
         ('.data', 0xc0300040, wd_init, []), ('.bss', 0xc0300080, wd_bss, []),
         ('.data1', 0xc0600040, simd_data, [])]
     for u, s in sorted(live):
@@ -785,7 +1209,8 @@ def exe_objects(objects: Sequence[str], features: Sequence[str]) -> list[str]:
             start = align(len(common), min(16, 1 << (sym.value.bit_length() - 1)))
             common.extend(bytes(start + sym.value - len(common)))
             definitions[name(u, i)] = (len(sections) + 1, start)
-    sections.append(('.bss', 0xc0500080, common, []))
+    if common:
+        sections.append(('.bss', 0xc0500080, common, []))
 
     # Oversized functions keep a stable entry address; their compiled bodies
     # and local jump tables remain contiguous in .extra.
@@ -899,6 +1324,8 @@ def exe_finished(features: Sequence[str]) -> None:
 
     def moved_import(match: re.Match[str]) -> str:
         prefix, relative, spacing, symbol, gap, address = match.groups()
+        if symbol.startswith('__layout_import_stub_'):
+            return f'{prefix}{relative}{spacing}{symbol.removeprefix("__layout_import_stub_")}{gap}{address}'
         if symbol not in changed:
             return match.group(0)
         target = changed[symbol]

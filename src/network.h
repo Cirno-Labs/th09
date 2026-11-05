@@ -15,8 +15,13 @@ struct NetPacket
     // The sending side.
     char side;
     WORD seed;
-    // The setup sends the sync frames in it.
-    int value;
+    union
+    {
+        // Frame number for input and check packets.
+        int value;
+        // Setup writes only this byte, leaving the other three untouched.
+        BYTE syncFrames;
+    };
     // The input, or the setup's isLan.
     union
     {

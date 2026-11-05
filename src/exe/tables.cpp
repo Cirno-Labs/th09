@@ -1123,6 +1123,9 @@ char *g_TitleHelpTexts[8] = {
     "\202\242\202\353\202\242\202\353\202\306\217I\227\271\202\265\202\334\202\267",
 };
 
+// Unreferenced initialized storage between the crypt magic and File modes.
+int g_UnusedCryptFlag = 1;
+
 char *g_FileModes[3] = {
     "r",
     "w",
@@ -1428,6 +1431,29 @@ PlayerCpuLevel g_PlayerCpuLevels[71] = {
     { { 60, 30, 50 }, { 10, 10, 0 }, 0 },
     { { 70, 30, 55 }, { 10, 15, 0 }, 0 },
     { { 70, 30, 120 }, { 10, 15, 0 }, 0 },
+};
+
+// No retained function references these two tables. Their repeated colors
+// and index triples occupy the gap from 0x4a1898 through 0x4a19c4.
+DWORD g_UnusedColorTable[12][4] = {
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+    { 0x00e8f0ff, 0x00f0e8ff, 0x00ffe8f0, 0x00ffe8f0 },
+};
+
+int g_UnusedIndexTable[9][3] = {
+    { 1, 2, 0 }, { 3, 4, 0 }, { 5, 6, 0 },
+    { 7, 8, 0 }, { 7, 9, 0 }, { 10, 11, 0 },
+    { 12, 13, 15 }, { 12, 14, 15 }, { 16, 17, 0 },
 };
 
 // Assert the source extents as well as checking the linked table contents.

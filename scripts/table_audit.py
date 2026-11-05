@@ -95,6 +95,8 @@ def check_tables(executable: Path, map_path: Path, original: Path,
         if end > min(following, default=len(section.data)):
             raise ValueError(f'{table.name}: truncated table, need {table.count} rows')
         address = linked_address(definition.name, symbols)
+        if address != table.address:
+            raise ValueError(f'{table.name}: wrong address {address:#x}, expected {table.address:#x}')
         expected = reference.read(table.address, table.size)
         actual = image.read(address, table.size)
         if len(expected) != table.size or len(actual) != table.size:

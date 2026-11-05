@@ -339,19 +339,13 @@ int EffectManager::DrawUnknown114(EffectManager *mgr)
 
 int EffectManager::AddedCallback(EffectManager *mgr)
 {
-    // Not matching yet: esi and edi are swapped (the original keeps mgr
-    // in esi, as Gui::AddedCallback does with the same code).
-    SpriteEngine *se = g_SpriteEngine;
-    AnmLoaded *anm = se->GetAnm(8);
+    AnmLoaded *anm = g_SpriteEngine->GetAnm(8);
 
     if (anm->file == NULL)
     {
-        mgr->anm = se->PreloadAnm(8, "etama.anm");
+        anm = g_SpriteEngine->PreloadAnm(8, "etama.anm");
     }
-    else
-    {
-        mgr->anm = anm;
-    }
+    mgr->anm = anm;
     return 0;
 }
 

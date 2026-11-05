@@ -18,19 +18,66 @@ our own analysis or, for library code, from the libraries themselves.
 
 ## Status
 
-1086 of the 1114 game functions match, 250 KB of 297 KB (84%). 23
-more are decompiled but not matching yet: their code is complete and
-the right size, or within a few bytes, and differs only in register
-choice, scheduling or stack layout. `just compare` lists them as DIFF,
+1105 of the 1119 identified game functions match (98.7%), 262 KB of 297 KB
+(88.1%). The remaining 14 are decompiled but not matching yet;
+some have the original size, while others still differ in size.
+`just compare` lists them as DIFF,
 the progress image shows them as not matching, and `hooks.allow_diff`
 in `project.toml` lists them, the only functions a commit may leave
-differing. `just farm` searches source variants of them for a match. Four functions are
-left to decompile.
+differing. `just farm` searches source variants of them for a match.
+All currently identified game functions are decompiled. The inventory now
+includes five constructors recovered from the global startup entries.
+
+The standalone build is 97.81% identical across the whole file
+(14,996 differing bytes). Reaching 100% also requires resolving executable
+layout, library code, data and header differences; matching all game
+functions alone does not establish whole-file identity. These figures come
+from the existing build artifacts; rebuild before using them to verify a
+source change.
+
+The remaining function matches, ordered by original function size, are:
+
+| Function | Original bytes | Compiled bytes |
+| --- | ---: | ---: |
+| `ScreenEffect::OnUpdateShakeRamp` | 336 | 334 |
+| `MainMenu::UpdateState13` | 485 | 483 |
+| `ReplayManager::AddedCallbackMode1` | 540 | 540 |
+| `Player::CheckHitAreas` | 862 | 830 |
+| `Player::UpdateShotInput` | 1210 | 1197 |
+| `ReplayManager::SaveReplay` | 1238 | 1247 |
+| `MainMenu::DrawState11` | 1280 | 1280 |
+| `App::UpdateNetPlay` | 1633 | 1609 |
+| `GameManager::LoadingThread` | 1689 | 1682 |
+| `Player::HandleInput` | 1835 | 1835 |
+| `DrawEffectType29` | 2220 | 2220 |
+| `Stage::DrawLayer` | 3274 | 3274 |
+| `EnemyManager::OnUpdate` | 3881 | 3856 |
+| `EclManager::RunEnemy` | 14792 | 14792 |
+
+Start with the smaller functions, comparing each change with
+`just compare SYMBOL`, then run the full comparison to catch regressions
+in other functions from the same translation unit. Remove a function from
+`hooks.allow_diff` only after it matches. Use `just compare-exe` to track
+whole-file differences separately. The current build still has an extra
+`.extra` section, moved resources, and a different Rich header/toolchain
+record. The `.text`, `.rdata`, and `.data` sections have their original
+virtual sizes. All 216,727 tracked library code bytes match, including
+relocation operands; 46 KB of executable code remains outside the function
+inventory in `symbols.csv`. All initialized bytes in `.rdata`, `.data`, and
+`.data1` match the original too.
+
+Following th08's completion work, the layout reconstruction preserves entire
+ordinary SDK/CRT data sections, recovers constant and callback locations
+through table references, and restores the global initialization order.
+Unreferenced storage still present in the original is defined in source.
+The table audit verifies 80 complete tables, their original addresses, and
+626 pointer identities. Gameplay checks and their limits are described in
+[`docs/parity.md`](docs/parity.md); they are separate from byte matching.
 
 Ghidra finds 2042 functions. Unlike th06–th08, the game code is
 optimized (`/O2`) but keeps its frame pointer (`/Oy-`), and functions
 default to `__fastcall` (`/Gr`), as th08's. The game code runs from
-`0x401000` to `0x44cb5c`: 1114 functions, about 297 KB, counting the
+`0x401000` to `0x44cb5c`: 1119 identified functions, about 297 KB, counting the
 callbacks only reached through function tables, which Ghidra misses.
 The last part, from `0x440c80`, is one file per character
 (`src/pl00.cpp` to `pl15.cpp`). D3DX8's tables follow, then D3DX8 and

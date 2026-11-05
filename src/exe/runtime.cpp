@@ -29,9 +29,6 @@ typedef char AsciiPopupStorageSize[sizeof(((AsciiText *)0)->popups) == 0x2bc0 ? 
 ScreenEffect *g_Unknown4a7c80;
 MsgFile *g_MsgFile;
 MsgFile *g_MsgFile2;
-GameManager g_GameManager;
-ChainElem g_GameManagerCalcChain;
-ChainElem g_GameManagerDrawChain;
 ShtFile *g_ShtFiles[2];
 Lsnm g_Lsnm;
 PlayRecord g_PlayRecord;

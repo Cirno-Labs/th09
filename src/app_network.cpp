@@ -104,7 +104,7 @@ int App::UpdateNetPlay()
                     Network *sender = g_Network;
                     g_NetSetupPacket.type = 2;
                     g_NetSetupPacket.side = (char)g_Network->unknownAc;
-                    g_NetSetupPacket.value = g_Network->syncFrames;
+                    g_NetSetupPacket.syncFrames = g_Network->syncFrames;
                     g_NetSetupPacket.unknown8 = g_Network->isLan;
                     g_NetSetupPacket.seed = g_Rng.GetSeed();
                     sender->Send(&g_NetSetupPacket, sizeof(g_NetSetupPacket));
