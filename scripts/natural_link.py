@@ -9,8 +9,9 @@ order, then each object's definition order, header inlines included.
 
 Run `just exe` first; this reuses its objects. The report counts the game
 functions at their original address, gives the end of the placed
-prefix from 0x401000 (rounds push it forward), and lists the first
-misplaced functions.
+prefix from 0x401000 (rounds push it forward), counts neighbouring
+functions with the original's spacing (which survives a shift before
+them), and lists the first misplaced functions.
 """
 from __future__ import annotations
 
@@ -51,6 +52,8 @@ def report(exe: Path, shown: int) -> None:
     total = placed = same = 0
     prefix = None
     moved = []
+    adjacent = 0
+    previous = None
     for address, size, name, symbols in sorted(compare_exe.read_symbols()):
         if not size or not 0x401000 <= address < project.GAME_END:
             continue
@@ -59,6 +62,10 @@ def report(exe: Path, shown: int) -> None:
             continue
         total += 1
         at, obj = linked[symbol]
+        # A neighbour pair in order survives any shift of the code before it.
+        if previous is not None and at - previous[1] == address - previous[0]:
+            adjacent += 1
+        previous = (address, at)
         if at != address:
             prefix = address if prefix is None else prefix
             moved.append(f'  {address:#x} at {at:#x} ({at - address:+#x}) {name} [{obj}]')
@@ -67,6 +74,7 @@ def report(exe: Path, shown: int) -> None:
         same += ours.read(at, size) == orig.read(address, size)
     print(f'game functions: {placed} of {total} at their original address, {same} identical raw')
     print(f'placed prefix: 0x401000-{prefix or project.GAME_END:#x}')
+    print(f'adjacent pairs in original order and spacing: {adjacent} of {total - 1}')
     print('\n'.join(moved[:shown]))
     data = open(exe, 'rb').read()
     original = open(project.ORIGINAL, 'rb').read()
