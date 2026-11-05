@@ -4,6 +4,7 @@
 #include "enemy.h"
 #include "exattack.h"
 #include "gamemanager.h"
+#include "pl.h"
 #include "player.h"
 #include "spellcard.h"
 #include "unsorted.h"

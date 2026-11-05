@@ -16,11 +16,8 @@ typedef int (*ExAttackCallback)(ExAttack *attack);
 // An extra attack (0x4c bytes). Only the fields known so far.
 struct ExAttack
 {
-    // The side that sent it. Inline; the copy is at 0x440cb0.
-    GameSide *GetSide()
-    {
-        return &g_GameManager.sides[this->side];
-    }
+    // The side that sent it. Inline, in pl.h (0x440cb0).
+    GameSide *GetSide();
     // Allocates `count` zeroed sprites with `dataSize` bytes of data
     // after them. Inline, in global.h; the copy is at 0x440d90.
     void AllocSprites(int count, int dataSize)

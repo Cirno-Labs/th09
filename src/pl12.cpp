@@ -5,6 +5,7 @@
 #include "enemy.h"
 #include "exattack.h"
 #include "gamemanager.h"
+#include "pl.h"
 #include "player.h"
 #include "sprite.h"
 #include "unsorted.h"
