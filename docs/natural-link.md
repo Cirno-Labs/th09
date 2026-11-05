@@ -34,21 +34,49 @@ generator works bottom-up:
 - A function whose callees defined in the same file are not compiled
   yet waits. The waiting functions are compiled at the end of the file,
   in definition order.
-- With a precompiled header, its inline functions are compiled at the
-  end of the file too, before the waiting ones, in the header's order.
+- With a precompiled header, its inline functions are not compiled
+  where the header defines them. The compiler works through them in
+  the header's order alongside the file: after each function the file
+  defines, it compiles the header's next inline functions, as many as
+  balance that function's size (its code, about one per 20 bytes of
+  machine code, not its comments or declarations). Every inline
+  function of the header counts, used or not, and windows.h, math.h
+  and d3dx8math.inl hold hundreds before the game's: math.h's cosf is
+  about 80 small functions in, d3dx8math.inl's D3DXVec3Length about
+  480. A file's functions that call a header inline not compiled yet
+  wait for the end of the file. A small file reaches its end first, so
+  the header's inline functions follow its own there, as the rule
+  above had it.
+- An implicit constructor or the `vector constructor iterator` is
+  generated at its first use, which can be a header inline the compiler
+  works through: Sprite's constructor generates SpriteBase's and the
+  iterator.
 
-For example, without a PCH, `C` calls `static H` defined later, `M` is a
-leaf, `N` calls `Q` and `inline R` defined later, `P` calls `C`:
+Both compilers, 13.10.3077 (C:\msvc710) and 13.10.6030, order the same
+way, deterministically; /Zi, /Gm and the header's own optimization
+change nothing.
 
-```
-defined: C M N H P R Q      emitted: M H R Q C N P
-```
+With the precompiled global.h (the original's ./system/global.h), the
+stage object compiles HermiteInterpolate, then cosf, sinf and sqrtf,
+then ModulateChannel, as at 0x401000, only because RunScript and the
+other functions that wait are defined in between: the leaf functions
+alone are far too small to move through math.h and d3dx8math.inl.
 
 So a small accessor between two of an object's functions in the
 original is a header inline (with `/Ob0` it stays a call, and the first
 object in link order that uses it keeps it), and an object's functions
-follow its definition order once each function's callees are accounted
-for.
+follow its definition order once each function's callees and the
+header's progress are accounted for.
+
+## Identical code folding
+
+`/OPT:ICF` does not always keep the first copy in link order. Of the
+two identical static ModulateChannel functions, the stage's and the
+sprite engine's, the natural link keeps the sprite engine's, and keeps
+the stage's when the sprite engine's object links first or last
+instead. Making the sprite engine's accessors inline was enough to flip
+it. The map lists every folded name under the kept copy's address but
+not always under its object.
 
 Making a function inline-visible can change its callers' code (a caller
 knows what an inline function does not modify, as with
