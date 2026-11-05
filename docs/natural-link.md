@@ -167,3 +167,31 @@ the next function is compiled.
   compiler reached timer.h before it reached OnDraw. Ours reaches it at
   the end of the file only: even with DrawLayer defined between Reset
   and StepObjects, the header does not get there before OnDraw.
+
+## Open elsewhere
+
+- Most of the breaks left in the large objects (player, GUI, app,
+  main menu, sound, MIDI, sprite engine) are functions that wait for
+  a header inline function in ours but not in the original: there the
+  header's inline functions are compiled well before ours reach them.
+  In the ending object the original has SpriteEngine's state clearers,
+  then PlayRecord's accessors, then GameManager::IsMode0, as if
+  PlayRecord were declared after sprite.h; moving it to gamemanager.h
+  gives that order but moves the header along differently for the
+  other objects (one neighbour fewer overall). The order and content
+  of global.h's queue is the lever, and it needs tuning against every
+  object at once.
+- The archive object compiles archive.h's File::ReadDword,
+  DatArchiveCursor's and DatArchiveEntry's inline functions after
+  DuplicateString, its third function: too early for the header's
+  progress, too late for a header outside it.
+- Bullet::ClearCommands is at the top of the ECL object now that
+  bullet.h is out of global.h; the original has it after RunEnemy.
+  BulletManager::ClearDrawBuckets, at the top of the bullet object,
+  wants bullet.h out, so the two may have been in different headers.
+- The spell card object starts with Player::SetUnknown0, as from a
+  header outside global.h, but taking player.h out loses neighbours
+  elsewhere; Player::StartClearCircle1 to 3, which follow, call
+  Timer::operator= and so wait in ours.
+- App starts with Tan, tan and D3DXVec3Cross before
+  Network::GetOtherUnknown1c, which nothing explains yet.
