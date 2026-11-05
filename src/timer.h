@@ -42,23 +42,54 @@ struct Timer
     // while bit 0x20 of g_App.stateFlags is set, adds the count to the float
     // once more and forgets the previous count (0x42f490).
     void Add(float frames);
+    // Add(-frames) (0x4065e0).
+    void Sub(float frames)
+    {
+        this->Add(-frames);
+    }
     // Add, from a whole number of frames (0x406600).
-    void Add(int frames);
-    // Add(-frames) (0x4065e0, 0x406620).
-    void Sub(float frames);
-    void Sub(int frames);
+    void Add(int frames)
+    {
+        this->Add((float)frames);
+    }
+    // Add(-frames) (0x406620).
+    void Sub(int frames)
+    {
+        this->Add(-frames);
+    }
     // Add and Sub as operators (0x406640, 0x406650, 0x406660, 0x41f300).
-    void operator+=(int frames);
-    void operator+=(float frames);
-    void operator-=(float frames);
-    void operator-=(int frames);
+    void operator+=(int frames)
+    {
+        this->Add(frames);
+    }
+    void operator+=(float frames)
+    {
+        this->Add(frames);
+    }
+    void operator-=(float frames)
+    {
+        this->Sub(frames);
+    }
+    void operator-=(int frames)
+    {
+        this->Sub(frames);
+    }
     // Sub(1), as a postfix (0x406670).
-    void operator--(int);
+    void operator--(int)
+    {
+        this->Sub(1);
+    }
     // Whether the count changed since the last Tick or Set (0x40f810).
-    BOOL HasTicked();
+    BOOL HasTicked()
+    {
+        return this->current != this->previous;
+    }
     // Whether it has just ticked to a multiple of `n`, as th08's
     // (0x404920).
-    BOOL HasTickedEvery(int n);
+    BOOL HasTickedEvery(int n)
+    {
+        return this->current != this->previous && this->current % n == 0;
+    }
     // The whole count. Inline; the copy the game calls is folded with
     // GdiSurface::GetHeight (0x435f00).
     int AsFrames()
@@ -88,12 +119,26 @@ struct Timer
     {
         return this->current < frames;
     }
-    BOOL operator>(int frames);
-    // Defined with the enemy code, as in the original (0x404950).
-    BOOL operator==(int frames);
-    BOOL operator<=(int frames);
+    // (0x403de0)
+    BOOL operator>(int frames)
+    {
+        return this->current > frames;
+    }
+    // (0x404950)
+    BOOL operator==(int frames)
+    {
+        return this->current == frames;
+    }
+    // (0x406720)
+    BOOL operator<=(int frames)
+    {
+        return this->current <= frames;
+    }
     // The count modulo `n` (0x40f830).
-    int operator%(int n);
+    int operator%(int n)
+    {
+        return this->current % n;
+    }
 
     // `current` before the last change.
     int previous;

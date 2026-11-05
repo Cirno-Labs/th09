@@ -9,14 +9,6 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// Timer::operator== is the original's ordinary function of this object
-// (at 0x404950, before the ECL code): EnemyTimeline::Run relies on it
-// keeping esi and the timeline's fields across the call.
-BOOL Timer::operator==(int frames)
-{
-    return this->current == frames;
-}
-
 Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
                                 int usePlayerEcl)
 {
