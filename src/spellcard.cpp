@@ -4,6 +4,7 @@
 #include "gamemanager.h"
 #include "gui.h"
 #include "player.h"
+#include "sound.h"
 #include "stage.h"
 
 void Player::StartClearCircle1()

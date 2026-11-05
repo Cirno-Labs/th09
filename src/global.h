@@ -3,7 +3,8 @@
 // inline functions go into each object's code as the compiler works
 // through them, interleaved with the object's own functions, so the
 // order of these headers decides where they land
-// (docs/natural-link.md).
+// (docs/natural-link.md). The original's order shows in the objects
+// built without it: sound.h and scoredat.h follow sprite.h.
 
 #pragma once
 
@@ -13,6 +14,8 @@
 #include "unsorted.h"
 #include "timer.h"
 #include "sprite.h"
+#include "sound.h"
+#include "scoredat.h"
 #include "gamemanager.h"
 #include "stage.h"
 #include "ascii.h"
@@ -27,6 +30,5 @@
 #include "mainmenu.h"
 #include "network.h"
 #include "replay.h"
-#include "scoredat.h"
 #include "screeneffect.h"
 #include "spellcard.h"

@@ -1,6 +1,7 @@
 // The file with SoundPlayer, the sound effects and wave music, from
 // 0x43e170, as th08's.
 
+#include "sound.h"
 #include "dsutil.h"
 #include "unsorted.h"
 

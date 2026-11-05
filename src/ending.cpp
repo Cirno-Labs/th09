@@ -5,6 +5,7 @@
 
 #include "ending.h"
 #include "gamemanager.h"
+#include "scoredat.h"
 #include "screeneffect.h"
 #include "sprite.h"
 #include "unsorted.h"

@@ -9,6 +9,7 @@
 #include "ascii.h"
 #include "midi.h"
 #include "scoredat.h"
+#include "sound.h"
 
 // The menu, for LoadingThread. The original keeps it in this object
 // only (0x4ac8c0).

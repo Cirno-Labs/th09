@@ -173,19 +173,34 @@ of each object.
   the end of the file only: even with DrawLayer defined between Reset
   and StepObjects, the header does not get there before OnDraw.
 
+## The original's header order
+
+The two objects built with `/O1` (the GameManager's and the main
+menu's) do not use the precompiled header, and they emit the inline
+functions they call but do not expand in the order their translation
+unit defines them. That order is the original's header order. The main
+menu has PlayerInput::IsPressed, MidiPlayer::Restart,
+App::ClearUnknown77c, Sprite::SetMoveInterp and SetColorInterp,
+SpriteEngine::HasTexture, SoundPlayer::UnPause,
+PlayRecord::GetClearFlags, AsciiText::SetScale; the GameManager
+ChainElem::SetCallback, Rng::GetSeed, GameConfig's two, then
+App::ResetSubThread and GameManager::IsDemo. So SoundPlayer and
+PlayRecord come after sprite.h, which the ending object agrees with
+(SpriteEngine's clearers, then PlayRecord's accessors, then
+GameManager::IsMode0): SoundPlayer and its tables are in sound.h and
+PlayRecord in scoredat.h, both just after sprite.h in global.h (one
+neighbour more). midi.h back in global.h just before App, and chain.h
+before unsorted.h, as the same lists suggest, gain nothing (chain.h
+first loses 29).
+
 ## Open elsewhere
 
 - Most of the breaks left in the large objects (player, GUI, app,
   main menu, sound, MIDI, sprite engine) are functions that wait for
   a header inline function in ours but not in the original: there the
   header's inline functions are compiled well before ours reach them.
-  In the ending object the original has SpriteEngine's state clearers,
-  then PlayRecord's accessors, then GameManager::IsMode0, as if
-  PlayRecord were declared after sprite.h; moving it to gamemanager.h
-  gives that order but moves the header along differently for the
-  other objects (one neighbour fewer overall). The order and content
-  of global.h's queue is the lever, and it needs tuning against every
-  object at once.
+  The order and content of global.h's queue is the lever, and it needs
+  tuning against every object at once.
 - The archive object compiles archive.h's File::ReadDword,
   DatArchiveCursor's and DatArchiveEntry's inline functions after
   DuplicateString, its third function: too early for the header's

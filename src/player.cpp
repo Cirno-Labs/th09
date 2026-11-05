@@ -1,5 +1,6 @@
 #include "player.h"
 #include "ascii.h"
+#include "sound.h"
 #include "sprite.h"
 #include "bullet.h"
 #include "effect.h"

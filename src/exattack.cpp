@@ -1,5 +1,6 @@
 #include "exattack.h"
 #include "gamemanager.h"
+#include "sound.h"
 
 ExAttack *ExAttackManager::AddAttack(int type, D3DXVECTOR3 *pos, int side, D3DXVECTOR3 *target)
 {

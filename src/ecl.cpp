@@ -5,6 +5,7 @@
 #include "player.h"
 #include "ascii.h"
 #include "effect.h"
+#include "sound.h"
 #include "spellcard.h"
 #include "stage.h"
 #include "unsorted.h"

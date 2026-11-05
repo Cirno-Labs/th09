@@ -17,6 +17,7 @@
 #include "player.h"
 #include "replay.h"
 #include "screeneffect.h"
+#include "sound.h"
 #include "spellcard.h"
 #include "sprite.h"
 #include "stage.h"

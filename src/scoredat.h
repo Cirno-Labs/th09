@@ -101,3 +101,103 @@ int LoadLsnmChunk(ScoreDat *dat);
 int LoadPlstChunk(ScoreDat *dat);
 // Frees `dat` (0x421e90).
 void ReleaseScoreDat(ScoreDat *dat);
+
+// A time kept in the play statistics, as th08's plst fields.
+struct PlayTime
+{
+    DWORD hours;
+    DWORD minutes;
+    DWORD seconds;
+    DWORD milliseconds;
+};
+
+// The record of what has been played, at 0x4a8180, around g_RunTime
+// and g_PlayTime (+0xc, +0x1c). Only what is known so far.
+struct PlayRecord
+{
+    // Counts a clear of character `character` on difficulty
+    // `difficulty`, up to 999999 (0x40e3a0).
+    void AddClear(char character, int difficulty)
+    {
+        int *clears = &this->clearFlags[character][difficulty];
+        if (*clears < 999999)
+        {
+            *clears += 1;
+        }
+    }
+    // Opens entry `entry` of the three menus' lists (0x40e3d0, 0x40e3e0,
+    // 0x40e3f0).
+    void OpenEntry(char entry)
+    {
+        this->openEntries[entry] = 1;
+    }
+    void OpenEntry2(char entry)
+    {
+        this->openEntries2[entry] = 1;
+    }
+    void OpenEntry3(char entry)
+    {
+        this->openEntries3[entry] = 1;
+    }
+    // Whether character `character` has a clear on any of the five
+    // difficulties (0x40e400).
+    BOOL HasCleared(char character)
+    {
+        if (this->clearFlags[character][0] != 0 || this->clearFlags[character][1] != 0 ||
+            this->clearFlags[character][2] != 0 || this->clearFlags[character][3] != 0 ||
+            this->clearFlags[character][4] != 0)
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
+    // Character `character`'s count for difficulty 5 (0x40e450).
+    int GetClears5(char character)
+    {
+        return this->clearFlags[character][5];
+    }
+    // Counts one more for character `character`'s difficulty 5, up to
+    // 999999 (0x4158e0).
+    void AddClear5(char character)
+    {
+        int *clears = &this->clearFlags[character][5];
+        if (*clears < 999999)
+        {
+            *clears += 1;
+        }
+    }
+    // Character `character`'s count for difficulty `difficulty`, or,
+    // when it is negative, those of the first four or'ed together
+    // (0x4234a7).
+    int GetClearFlags(char character, int difficulty);
+
+    // The score file's "PLST" chunk header: version 3.
+    DWORD magic;
+    WORD size;
+    WORD size2;
+    BYTE version;
+    BYTE unknown9;
+    unsigned char pad_a[0xc - 0xa];
+    PlayTime runTime;
+    PlayTime playTime;
+    // Which pieces of music have been heard, by BgmInfo::unknown0c.
+    BYTE bgmHeard[0x20];
+    // Which entries of three of the menus' lists are open.
+    BYTE openEntries[16];
+    BYTE openEntries2[16];
+    BYTE openEntries3[16];
+    // Each character's clears on each difficulty, to the end of the
+    // record.
+    int clearFlags[16][6];
+};
+ASSERT_SIZE(PlayRecord, 0x1fc);
+extern PlayRecord g_PlayRecord;
+
+// How long the game has run (0x4a818c), and played (0x4a819c).
+#ifdef TH09_EXE
+#define g_RunTime (g_PlayRecord.runTime)
+#define g_PlayTime (g_PlayRecord.playTime)
+#else
+extern PlayTime g_RunTime;
+extern PlayTime g_PlayTime;
+#endif

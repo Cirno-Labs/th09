@@ -16,6 +16,7 @@
 #include "midi.h"
 #include "network.h"
 #include "screeneffect.h"
+#include "sound.h"
 #include "sprite.h"
 #include "stage.h"
 #include "unsorted.h"

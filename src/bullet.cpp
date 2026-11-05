@@ -3,6 +3,7 @@
 #include "enemy.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sound.h"
 #include "unsorted.h"
 
 void BulletManager::Initialize()

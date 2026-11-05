@@ -6,6 +6,7 @@
 #include "gamemanager.h"
 #include "pl.h"
 #include "player.h"
+#include "sound.h"
 #include "sprite.h"
 #include "unsorted.h"
 

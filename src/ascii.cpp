@@ -6,6 +6,7 @@
 #include "ascii.h"
 #include "gamemanager.h"
 #include "player.h"
+#include "sound.h"
 #include "unsorted.h"
 
 int AsciiText::DeletedCallback(AsciiText *text)

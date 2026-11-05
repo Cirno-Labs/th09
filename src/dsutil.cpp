@@ -2,6 +2,7 @@
 // builds it, as th08's, without th08's debug messages.
 
 #include "dsutil.h"
+#include "sound.h"
 #include "unsorted.h"
 
 // From the SDK's dxutil.h.
