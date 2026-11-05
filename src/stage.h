@@ -114,6 +114,13 @@ public:
     // Removes the stage's chain elements and deletes it, if any
     // (0x402530).
     static void RemoveChain(Stage *stage);
+    // Does nothing. RemoveChain's call to it leaves no code, but holds
+    // RemoveChain back until the compiler reaches this function in the
+    // precompiled header, where the original has RemoveChain
+    // (docs/natural-link.md).
+    static void OnRemoved(Stage *stage)
+    {
+    }
     // Resets the stage for a new round (0x4011c0).
     void Reset();
     // The update chain callback and its added and deleted callbacks

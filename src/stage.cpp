@@ -574,6 +574,18 @@ int Stage::DeletedCallback(Stage *stage)
     return 0;
 }
 
+void Stage::RemoveChain(Stage *stage)
+{
+    if (stage != NULL)
+    {
+        OnRemoved(stage);
+        g_Chain.Remove(stage->calcElem);
+        g_Chain.Remove(stage->drawElem);
+        g_Chain.Remove(stage->drawElem2);
+        delete stage;
+    }
+}
+
 int Stage::Load(char *dataPath)
 {
     int count;
@@ -969,18 +981,6 @@ int Stage::StepObjects()
         }
     }
     return 0;
-}
-
-// Calls no inline, so it doesn't wait as in the original (0x402530).
-void Stage::RemoveChain(Stage *stage)
-{
-    if (stage != NULL)
-    {
-        g_Chain.Remove(stage->calcElem);
-        g_Chain.Remove(stage->drawElem);
-        g_Chain.Remove(stage->drawElem2);
-        delete stage;
-    }
 }
 
 int Stage::OnDraw(Stage *stage)
