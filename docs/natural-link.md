@@ -33,7 +33,20 @@ generator works bottom-up:
   as the compiler reaches them.
 - A function whose callees defined in the same file are not compiled
   yet waits. The waiting functions are compiled at the end of the file,
-  in definition order.
+  in definition order, even when what they wait for is compiled long
+  before (a probe: a function waiting for a header's 20th inline
+  function still comes after the file's last one). A function still
+  waiting for another waiting function when its turn comes is passed
+  over and compiled after the rest.
+- A call the compiler drops still makes its caller wait: a call to an
+  empty inline function (or one whose result is unused and that does
+  nothing) leaves no code once the callee is compiled, so the caller
+  waits for it, and the callee's one-byte COMDAT is emitted all the
+  same (LINK folds it into another `ret`). That is how a function with
+  no inline callee in its code can wait, as Stage::RemoveChain does
+  (it calls the empty Stage::OnRemoved). `__forceinline` does not
+  inline under `/Ob0`, and inline functions the file defines but
+  never uses do not move the header along.
 - With a precompiled header, its inline functions are not compiled
   where the header defines them. The compiler works through them in
   the header's order alongside the file: after each function the file
@@ -70,14 +83,65 @@ header's progress are accounted for.
 
 ## Identical code folding
 
-`/OPT:ICF` does not always keep the first copy in link order. Of the
+`/OPT:ICF` does not keep the first copy in link order. LINK 7.1's code
+(link.exe, decompiled; the `/VERBOSE` "Selected symbol" report prints
+the result) works like this:
+
+- Pass 1 adds every section that can fold to a group named by its
+  section name (`.text`, `.rdata`, `.text$x`...), in the order it
+  reads them: the objects in link order, then the library members as
+  they are loaded. A section can fold unless it is writable,
+  discardable or empty, or is a `_$E` dynamic initializer; of
+  same-named COMDATs only the copy kept is added.
+- Each group is sorted with msvcr71's `qsort`, which is not stable, by
+  a key (zero in every probe) and then by size. Within each run of
+  equal key and size, every section is compared with the ones after
+  it and an identical one is folded into it: the copy kept is the
+  first of its kind in the sorted group. Then the group is sorted and
+  folded again while anything folds (twice more at most), so that
+  sections whose relocations now reach folded targets fold too.
+
+So which copy of two identical functions survives depends on every
+section of the group and its size, the libraries' included: in a
+probe with five identical functions, adding two unused functions to
+another object moved the kept copy. The probes (the order of
+`/VERBOSE`'s report, for 11 link orders) follow this exactly, but a
+model of the whole link does not yet predict its 47 folds: the
+library sections' order in the group is not known well enough. Of the
 two identical static ModulateChannel functions, the stage's and the
-sprite engine's, the natural link keeps the sprite engine's, and keeps
-the stage's when the sprite engine's object links first or last
-instead. Making the sprite engine's accessors inline was enough to flip
-it. The map lists every folded name under the kept copy's address but
-not always under its object.
+sprite engine's, the natural link keeps the sprite engine's; the
+original kept the stage's, which can follow from the objects matching
+the original's (the same sections and sizes), not from their order.
+The map lists every folded name under the kept copy's address but not
+always under its object.
 
 Making a function inline-visible can change its callers' code (a caller
 knows what an inline function does not modify, as with
 `SpriteEngine::GetAnm`), so every move needs `just compare`.
+
+## Measuring an object's order
+
+`scripts/emit_order.py SOURCE` compiles one source (or a probe copy of
+one) as the exe does and lists its code COMDATs in the order LINK
+places them, with the original's address of each and a `<` where the
+order goes back. `--ruler N` adds N tiny inline functions to the
+precompiled header, at its start or (`--at timer.h`) just before one of
+its headers, and references them from the end of the file, so that
+they are all emitted: the rulers that follow each of the file's
+functions show how far through the header the compiler is. For the
+stage, HermiteInterpolate is followed by about 150 rulers, as much as
+it and the three functions after it that wait balance (about 3000
+bytes): the code of a waiting function moves the header along when
+the next function is compiled.
+
+## Open in the stage object
+
+- The original's `vector constructor iterator` comes before
+  Timer::Initialize, the first of timer.h's functions the stage uses;
+  ours is generated with SpriteBase's constructor, after timer.h's
+  functions, before AnmLoaded::StartScriptAtOrigin.
+- Timer::Timer waits for Timer::Initialize and SpriteBase's
+  constructor for it; the original has them after DrawLayer, so the
+  compiler reached timer.h before it reached OnDraw. Ours reaches it at
+  the end of the file only: even with DrawLayer defined between Reset
+  and StepObjects, the header does not get there before OnDraw.
