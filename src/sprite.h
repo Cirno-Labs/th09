@@ -213,10 +213,20 @@ public:
     }
 
     // Sets rotation.z to `angle` and rotationSet (0x40f840).
-    void SetRotationZ(float angle);
+    void SetRotationZ(float angle)
+    {
+        this->rotation.z = angle;
+        this->rotationSet = 1;
+    }
     // Set blendMode to 1 and to 0 (0x41bd40, 0x41bd60).
-    void SetBlendMode1();
-    void ClearBlendMode();
+    void SetBlendMode1()
+    {
+        this->blendMode = 1;
+    }
+    void ClearBlendMode()
+    {
+        this->blendMode = 0;
+    }
 
     // Bit 0 of flags, as th08's. Inline; the copy is at 0x434370.
     BOOL IsShown()
@@ -354,7 +364,12 @@ public:
         this->SetScript(vm, this->scripts[script]);
     }
     // Starts script `script` of this file on `vm`, as th08's (0x403e00).
-    void StartScript(Sprite *vm, int script);
+    void StartScript(Sprite *vm, int script)
+    {
+        vm->anm = this;
+        vm->scriptIndex = script;
+        this->SetScript(vm, this->scripts[script]);
+    }
     // Starts `script` on `vm`, or zeroes `vm` if there is no script or
     // the file is still loading (0x4395a0).
     void SetScript(Sprite *vm, void *script);
@@ -487,17 +502,35 @@ public:
         this->modulateColor = color;
     }
     // Forgets the blend mode last set, as ClearTexture (0x40e370).
-    void ClearBlendMode();
+    void ClearBlendMode()
+    {
+        this->blendMode = 3;
+    }
     // The same for the vertex format (0x40e380).
-    void ClearVertexFormat();
+    void ClearVertexFormat()
+    {
+        this->vertexFormat = 0xff;
+    }
     // The same for the sprite data (0x40e390).
-    void ClearSpriteData();
+    void ClearSpriteData()
+    {
+        this->currentSpriteData = NULL;
+    }
     // The same for the color operation (0x415d00).
-    void ClearColorOp();
+    void ClearColorOp()
+    {
+        this->colorOp = 0xff;
+    }
     // The same for the z write state (0x415d10).
-    void ClearZWrite();
+    void ClearZWrite()
+    {
+        this->zWriteDisabled = 0xff;
+    }
     // The same for lastCameraSetupFlag (0x42d2e0).
-    void ClearLastCameraSetupFlag();
+    void ClearLastCameraSetupFlag()
+    {
+        this->lastCameraSetupFlag = 0xff;
+    }
     // Has a copy of the back buffer to surface `texture` done after the
     // frame is drawn, unless one is already pending: then returns -1,
     // else 0. Inline in th08; this copy is 0x42f420.
@@ -694,7 +727,10 @@ public:
         return &this->anms[slot];
     }
     // The file of the ANM in slot `slot` (0x41bd70).
-    AnmFile *GetAnmFile(int slot);
+    AnmFile *GetAnmFile(int slot)
+    {
+        return this->GetAnm(slot)->file;
+    }
     // Whether `vm` shows a sprite whose ANM file has its textures
     // loaded, as th08's. Inline; the copy at 0x423469 is the one
     // MainMenu::OnDraw's /O1 object emits.

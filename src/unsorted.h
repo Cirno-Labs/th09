@@ -888,9 +888,18 @@ struct App
     // The config's other options, as th08's getters, out of line
     // (0x42d2b0, 0x42d2c0, 0x42d2d0, 0x42ed30, 0x42ed40, 0x42ed50,
     // 0x42ed60).
-    int GetForce16BitTextures();
-    int GetReferenceRasterizer();
-    int GetWindowed();
+    int GetForce16BitTextures()
+    {
+        return this->config.flags.force16BitTextures;
+    }
+    int GetReferenceRasterizer()
+    {
+        return this->config.flags.referenceRasterizer;
+    }
+    int GetWindowed()
+    {
+        return this->config.windowed;
+    }
     int GetNoDirectInput()
     {
         return this->config.flags.noDirectInput;

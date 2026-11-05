@@ -369,7 +369,10 @@ public:
     void Die();
     // Calls the character's unknown30404 with `pos`. Called by the
     // enemies; the copy is at 0x406820.
-    int CallUnknown30404(D3DXVECTOR3 *pos);
+    int CallUnknown30404(D3DXVECTOR3 *pos)
+    {
+        return this->unknown30404(this, pos);
+    }
     // The angle from the player to `pos`, or pi / 2 at the player
     // (0x41bb00).
     float AngleFromPlayer(D3DXVECTOR3 *pos);

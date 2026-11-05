@@ -148,11 +148,20 @@ public:
     void AddPopup(int side, D3DXVECTOR3 *pos, int value, D3DCOLOR color);
     // Sets the pending interrupt of unknown17c4[`i`]. Called by the ECL
     // interpreter; the copy is at 0x4067d0.
-    void SetUnknown17c4Interrupt(int i, short interrupt);
+    void SetUnknown17c4Interrupt(int i, short interrupt)
+    {
+        this->unknown17c4[i].SetPendingInterrupt(interrupt);
+    }
     // Sets the position of unknown17c4[`i`] (0x4067f0).
-    void SetUnknown17c4Pos(int i, D3DXVECTOR3 *pos);
+    void SetUnknown17c4Pos(int i, D3DXVECTOR3 *pos)
+    {
+        this->unknown17c4[i].pos = *pos;
+    }
     // Sets unknown2254[`i`] (0x40f890).
-    void SetUnknown2254(int i, int value);
+    void SetUnknown2254(int i, int value)
+    {
+        this->unknown2254[i] = value;
+    }
 
     // Empties the queue of strings. Inline, as th08's; the copy is at
     // 0x430220.

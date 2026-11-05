@@ -84,7 +84,18 @@ struct Bullet
     void SetSpriteCommand(int i, int concurrent, int type, int color);
     // Clears the commands, their flags and activeFlags, and starts over
     // from the first command (0x40c390).
-    void ClearCommands();
+    void ClearCommands()
+    {
+        int i;
+
+        this->commandIndex = 0;
+        this->flags = 0;
+        this->activeFlags = 0;
+        for (i = 0; i < 18; i++)
+        {
+            this->commands[i].flag = 0;
+        }
+    }
     // Frees the bullet: state 0 and both timers reset, as th08's
     // (0x412930).
     void FreeBullet();

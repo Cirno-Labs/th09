@@ -22,64 +22,6 @@ static BYTE ModulateChannel(BYTE c, BYTE factor)
 #define MODULATE_CHANNEL(color, factor, i) \
     ((BYTE *)&(color))[i] = ModulateChannel(((BYTE *)&(color))[i], ((BYTE *)&(factor))[i])
 
-void AnmLoaded::StartScript(Sprite *vm, int script)
-{
-    vm->anm = this;
-    vm->scriptIndex = script;
-    this->SetScript(vm, this->scripts[script]);
-}
-
-void SpriteEngine::ClearBlendMode()
-{
-    this->blendMode = 3;
-}
-
-void SpriteEngine::ClearVertexFormat()
-{
-    this->vertexFormat = 0xff;
-}
-
-void SpriteEngine::ClearSpriteData()
-{
-    this->currentSpriteData = NULL;
-}
-
-void Sprite::SetRotationZ(float angle)
-{
-    this->rotation.z = angle;
-    this->rotationSet = 1;
-}
-
-void SpriteEngine::ClearColorOp()
-{
-    this->colorOp = 0xff;
-}
-
-void SpriteEngine::ClearZWrite()
-{
-    this->zWriteDisabled = 0xff;
-}
-
-void Sprite::SetBlendMode1()
-{
-    this->blendMode = 1;
-}
-
-void Sprite::ClearBlendMode()
-{
-    this->blendMode = 0;
-}
-
-AnmFile *SpriteEngine::GetAnmFile(int slot)
-{
-    return this->GetAnm(slot)->file;
-}
-
-void SpriteEngine::ClearLastCameraSetupFlag()
-{
-    this->lastCameraSetupFlag = 0xff;
-}
-
 int AnmLoaded::SetSprite(Sprite *vm, int sprite)
 {
     if (this->file == NULL || this->loadStep != 0)

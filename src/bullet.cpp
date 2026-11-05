@@ -5,19 +5,6 @@
 #include "player.h"
 #include "unsorted.h"
 
-void Bullet::ClearCommands()
-{
-    int i;
-
-    this->commandIndex = 0;
-    this->flags = 0;
-    this->activeFlags = 0;
-    for (i = 0; i < 18; i++)
-    {
-        this->commands[i].flag = 0;
-    }
-}
-
 void BulletManager::Initialize()
 {
     int i;

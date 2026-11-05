@@ -20,21 +20,6 @@ App::App()
     this->stateFlags |= 0x140;
 }
 
-int App::GetForce16BitTextures()
-{
-    return this->config.flags.force16BitTextures;
-}
-
-int App::GetReferenceRasterizer()
-{
-    return this->config.flags.referenceRasterizer;
-}
-
-int App::GetWindowed()
-{
-    return this->config.windowed;
-}
-
 int Network::GetOtherUnknown1c()
 {
     return this->unknown1c[1 - this->unknownAc];

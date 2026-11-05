@@ -7,11 +7,6 @@
 #include "enemy.h"
 #include "spellcard.h"
 
-int Player::CallUnknown30404(D3DXVECTOR3 *pos)
-{
-    return this->unknown30404(this, pos);
-}
-
 // Puts unknown30364 and unknown30370 back to (-999, -999, 0), clears
 // unknown30380 and sets unknown1ce4 and unknown1ce8 to 1. Static, with
 // the player in esi (0x41ba80).
