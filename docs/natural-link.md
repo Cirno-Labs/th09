@@ -240,15 +240,95 @@ it:
   were smaller, so each started with less of the header behind it, not
   more.
 
+## The system headers' share of the queue
+
+A probe header with three rulers between each group of includes, and a
+probe source of 3000 one-line functions (each balancing about one
+ruler), measures what each part of global.h puts in the queue, in
+ruler units (about 15 to 20 bytes of the file's code each):
+
+| part                                  | units |
+|---------------------------------------|------:|
+| windows.h (with what d3d8/dinput add) |    36 |
+| math.h (97 inline functions)          |   109 |
+| dinput.h, d3d8.h                      |     1 |
+| d3dx8math.h and .inl (178 functions)  |   439 |
+| the rest of d3dx8.h, the CRT headers  |     0 |
+| mmsystem.h, dsound.h                  |     1 |
+| common.h, dsutil.h                    |    16 |
+| unsorted.h                            |    41 |
+| timer.h                               |    32 |
+| sprite.h                              |    55 |
+| the other game headers                |   106 |
+
+So the system headers are about 590 of the queue's 880 units, nearly
+all of it math.h and d3dx8math.inl, which no define changes. In the
+queue, cosf is at about 85, sqrtf 90, D3DXVECTOR3(x, y, z) 190, its
+operator* 210, D3DXVec3Length 475, MemoryManager::Free 615,
+PlayerInput::IsHeld 645, PlayRecord::AddClear5 785, GameManager::IsMode0
+810.
+
+The stage pins the original's lead. With rulers at the start of the
+header, the stage has balanced 147 units by ModulateChannel and 331 by
+Stage::Reset. The original compiles cosf to sqrtf before ModulateChannel
+but the vector constructor after it, and D3DXVECTOR3::operator* before
+Reset but D3DXVec3Length after it. So what came before d3dx8math.inl in
+the original was within about 60 units (shorter) to 45 (longer) of
+ours: the same windows.h and math.h, in front of the game headers.
+
+Every other object needs far more than that. How much each one is
+missing, against ours (rulers before its first function):
+
+- the ending passes PlayerInput::IsHeld after UpdateFade, where ours
+  has balanced 16 units: about 630 missing;
+- the app has tanf, tan and D3DXVec3Cross before its first function,
+  where ours has 6: about 490;
+- the GUI has PlayRecord::AddClear5 before Gui::LoadAnm, where ours
+  has 25: about 760.
+
+A change to global.h moves every object by the same amount, and
+the stage allows at most about 60 units. These leads differ from
+object to object, and each is ten times that. Each object of the
+original compiled something before its own functions that ours does
+not (code it later dropped, or inline functions of headers it
+included outside global.h that it does not use), and the stage
+compiled nothing. Measured with `just natural` (800 before):
+
+- WIN32_LEAN_AND_MEAN (12 units fewer from windows.h), alone or with
+  VC_EXTRALEAN: 799, but 99 functions at their original address
+  rather than 75 (the code folding again);
+- VC_EXTRALEAN, NOMINMAX, STRICT, _MBCS, _WIN32_WINNT 0x400 or 0x500:
+  800, no change (no inline functions depend on them); WINVER 0x400
+  does not compile (window.cpp's SPI_ constants);
+- D3DXINLINE as `__inline` or `__forceinline`: the same queue;
+- the DirectX 8.1 headers: d3dx8math.inl is 20 units longer, the
+  wrong way. (The build's record of flags does not notice an include
+  path change: touch global.h afterwards, or the exe links stale
+  objects.)
+- in global.h, a static or extern function, a global with a
+  constructor, an explicit template instantiation, an inline function
+  that calls math.h's and D3DX's, and `#pragma optimize`,
+  `inline_depth`, `function`, `intrinsic`, `pack` or `warning`
+  compile nothing while the header is precompiled: they join the
+  queue or leave it as it was.
+- compiling the stage and the ending in one cl invocation, as the IDE
+  batches sources, leaves the ending's order as it is alone.
+
+C:\psdk2003 holds only libraries, and C:\msvc71 has no Platform SDK
+headers, so C:\psdk is the only windows.h to try. th06 to th08 define
+nothing but DIRECTINPUT_VERSION 0x0800 and include the same system
+headers, and they are built with /Od, where the queue does not show.
+
 ## Open elsewhere
 
 - Most of the breaks left in the large objects (player, GUI, app,
   main menu, sound, MIDI, sprite engine) are functions that wait for
   a header inline function in ours but not in the original: there the
   header's inline functions are compiled well before ours reach them.
-  Reordering global.h does not close that lead (see above); something
-  that shortens the queue before the game's headers, or code the
-  original compiled and dropped, would.
+  Neither reordering global.h nor its system headers or defines
+  close that lead (see above): it differs from object to object, so
+  it is code each object of the original compiled before its own
+  functions and dropped.
 - The MIDI object's UnloadFile, FreeTracks and ParseFile wait for the
   MemoryManager's inline functions, which the original had compiled
   by then; it also kept the one-byte `ret` that DebugPrint and the
