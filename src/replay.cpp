@@ -17,6 +17,19 @@ extern char *g_ReplayCharacterNames[16];
 extern char *g_ReplayModeNames[6];
 extern char *g_ReplayDifficultyNames[5];
 
+// As th08's FormatAndAdvance: formats into `buf` like sprintf and
+// returns the end of what it wrote. Static, with `buf` in esi
+// (0x4200c0).
+static char *FormatAndAdvance(char *buf, const char *fmt, ...)
+{
+    va_list args;
+
+    va_start(args, fmt);
+    vsprintf(buf, fmt, args);
+    va_end(args);
+    return buf + strlen(buf);
+}
+
 void PlayerInput::UpdateRepeat2()
 {
     WORD buttons = this->unknown2c;
@@ -54,19 +67,6 @@ void Rng::SetSeed(WORD seed)
 void Rng::ResetGenerated()
 {
     this->generated = 0;
-}
-
-// As th08's FormatAndAdvance: formats into `buf` like sprintf and
-// returns the end of what it wrote. Static, with `buf` in esi
-// (0x4200c0).
-static char *FormatAndAdvance(char *buf, const char *fmt, ...)
-{
-    va_list args;
-
-    va_start(args, fmt);
-    vsprintf(buf, fmt, args);
-    va_end(args);
-    return buf + strlen(buf);
 }
 
 int ReplayManager::OnUpdateMode0b(ReplayManager *mgr)

@@ -20,11 +20,6 @@ App::App()
     this->stateFlags |= 0x140;
 }
 
-int App::GetNoScore()
-{
-    return this->stateFlags >> 3 & 1;
-}
-
 int App::GetForce16BitTextures()
 {
     return this->config.flags.force16BitTextures;

@@ -809,8 +809,12 @@ struct App
     {
         return this->config.flags.noFog;
     }
-    // Bit 3 of stateFlags, as th08's GetNoScore (0x420180).
-    int GetNoScore();
+    // Bit 3 of stateFlags, as th08's GetNoScore. Inline; the copy is at
+    // 0x420180.
+    int GetNoScore()
+    {
+        return this->stateFlags >> 3 & 1;
+    }
     // The config's other options, as th08's getters, out of line
     // (0x42d2b0, 0x42d2c0, 0x42d2d0, 0x42ed30, 0x42ed40, 0x42ed50,
     // 0x42ed60).
