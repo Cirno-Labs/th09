@@ -24,7 +24,6 @@
 #include "ending.h"
 #include "enemy.h"
 #include "exattack.h"
-#include "gdisurface.h"
 #include "gui.h"
 #include "lzss.h"
 #include "mainmenu.h"
