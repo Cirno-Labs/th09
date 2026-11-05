@@ -26,11 +26,6 @@ Network::Network()
     this->syncFrames = 60;
 }
 
-GameWindow::GameWindow()
-{
-    memset(this, 0, sizeof(*this));
-}
-
 double GameWindow::GetTime()
 {
     if (g_GameWindow.perfFrequency[0] != 0)
@@ -50,6 +45,17 @@ double GameWindow::GetTime()
         timeEndPeriod(1);
         return time;
     }
+}
+
+int CreateD3d()
+{
+    g_App.d3d = Direct3DCreate8(220);
+    if (g_App.d3d == NULL)
+    {
+        LogError(&g_Log, "Direct3D オブジェクトは何故か作成出来なかった\r\n");
+        return 1;
+    }
+    return 0;
 }
 
 // Appends `name` and whether `caps` has `flag`, as th08's. Returns the
@@ -114,68 +120,6 @@ static void FormatCapsReport(D3DCAPS8 *caps, char *buffer)
     p = AppendCapsFlagText("　バイリニア補間（拡大） : ", caps->TextureFilterCaps, 0x2000000, p);
     p = AppendCapsFlagText("　バイリニア補間（縮小） : ", caps->TextureFilterCaps, 0x200, p);
     p += sprintf(p, "--------------------------------------------\r\n");
-}
-
-int CreateD3d()
-{
-    g_App.d3d = Direct3DCreate8(220);
-    if (g_App.d3d == NULL)
-    {
-        LogError(&g_Log, "Direct3D オブジェクトは何故か作成出来なかった\r\n");
-        return 1;
-    }
-    return 0;
-}
-
-int CheckSingleInstance()
-{
-    char exePath[0x105];
-    char consoleTitle[0x105];
-    char *extension;
-
-    g_AppMutex = CreateMutexA(NULL, TRUE, "Touhou 08 App");
-    if (GetLastError() == ERROR_ALREADY_EXISTS)
-    {
-        LogError(&g_Log, "二つは起動できません\r\n");
-        return -1;
-    }
-    STARTUPINFOA startup = {sizeof(STARTUPINFOA)};
-    GetModuleFileNameA(NULL, exePath, 0x105);
-    GetConsoleTitleA(consoleTitle, 0x105);
-    GetStartupInfoA(&startup);
-    if (startup.lpTitle != NULL)
-    {
-        extension = strrchr(startup.lpTitle, '.');
-        if (FileExists(startup.lpTitle) && extension != NULL)
-        {
-            if (_stricmp(extension, ".lnk") == 0)
-            {
-                do
-                {
-                    ResolveShortcut(startup.lpTitle, consoleTitle, 0x104);
-                    extension = strrchr(consoleTitle, '.');
-                } while (_stricmp(extension, ".lnk") == 0);
-            }
-            else
-            {
-                strcpy(consoleTitle, startup.lpTitle);
-            }
-            if (strcmp(exePath, consoleTitle) != 0)
-            {
-                g_GameWindow.forceClockPacing = 1;
-            }
-        }
-        g_App.stateFlags &= ~0x40;
-    }
-    else
-    {
-        g_App.stateFlags |= 0x40;
-    }
-    if (g_AppMutex == NULL)
-    {
-        return -1;
-    }
-    return 0;
 }
 
 void __stdcall ForceForegroundWindow(HWND hwnd)
@@ -257,6 +201,45 @@ void Log::Flush()
     }
 }
 
+GameWindow::GameWindow()
+{
+    memset(this, 0, sizeof(*this));
+}
+
+void SpriteEngine::ReleaseSurfaces()
+{
+    int i;
+
+    for (i = 0; i < 0x20; i++)
+    {
+        if (this->surfaces[i] != NULL)
+        {
+            this->surfaces[i]->Release();
+            this->surfaces[i] = NULL;
+        }
+    }
+}
+
+void SpriteEngine::DoPendingCopy()
+{
+    if (this->pendingTexCopyTexture >= 0)
+    {
+        this->CopyBackBufferToTexture(this->pendingTexCopyTexture, this->pendingTexCopySrcLeft,
+                                      this->pendingTexCopySrcTop, this->pendingTexCopySrcWidth,
+                                      this->pendingTexCopySrcHeight, this->pendingTexCopyDstLeft,
+                                      this->pendingTexCopyDstTop, this->pendingTexCopyDstWidth,
+                                      this->pendingTexCopyDstHeight);
+        this->pendingTexCopyTexture = -1;
+    }
+    if (this->pendingCopyTexture >= 0)
+    {
+        this->CopyBackBufferToSurface(this->pendingCopyTexture, this->pendingCopySrcLeft, this->pendingCopySrcTop,
+                                      this->pendingCopySrcWidth, this->pendingCopySrcHeight, this->pendingCopyDstLeft,
+                                      this->pendingCopyDstTop, this->pendingCopyDstWidth, this->pendingCopyDstHeight);
+        this->pendingCopyTexture = -1;
+    }
+}
+
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     switch (msg)
@@ -334,38 +317,120 @@ static int CreateGameWindow(HINSTANCE instance)
     return 0;
 }
 
-void SpriteEngine::ReleaseSurfaces()
+void SetDefaultRenderStates()
 {
-    int i;
+    float fogVal;
 
-    for (i = 0; i < 0x20; i++)
+    g_App.d3dDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
+    g_App.d3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
+    g_App.d3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+    g_App.d3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+    g_App.d3dDevice->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
+    g_App.d3dDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+    g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+    g_App.d3dDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
+    g_App.d3dDevice->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
+    g_App.d3dDevice->SetRenderState(D3DRS_ALPHAREF, 4);
+    g_App.d3dDevice->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
+    if (g_App.GetNoFog() == 0)
     {
-        if (this->surfaces[i] != NULL)
-        {
-            this->surfaces[i]->Release();
-            this->surfaces[i] = NULL;
-        }
+        g_App.d3dDevice->SetRenderState(D3DRS_FOGENABLE, TRUE);
+    }
+    else
+    {
+        g_App.d3dDevice->SetRenderState(D3DRS_FOGENABLE, FALSE);
+    }
+    fogVal = 1.0f;
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGDENSITY, *(DWORD *)&fogVal);
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGTABLEMODE, D3DFOG_NONE);
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGVERTEXMODE, D3DFOG_LINEAR);
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGCOLOR, 0xffa0a0a0);
+    fogVal = 1000.0f;
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGSTART, *(DWORD *)&fogVal);
+    fogVal = 5000.0f;
+    g_App.d3dDevice->SetRenderState(D3DRS_FOGEND, *(DWORD *)&fogVal);
+    // Always true: | where & was meant, as th08's.
+    if (g_App.caps.RasterCaps | D3DPRASTERCAPS_ANTIALIASEDGES)
+    {
+        g_App.d3dDevice->SetRenderState(D3DRS_EDGEANTIALIAS, FALSE);
+    }
+    g_App.d3dDevice->SetRenderState(D3DRS_MULTISAMPLEANTIALIAS, FALSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_TFACTOR);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MIPFILTER, D3DTEXF_NONE);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MAGFILTER, D3DTEXF_LINEAR);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MINFILTER, D3DTEXF_LINEAR);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_COUNT2);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSW, D3DTADDRESS_CLAMP);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSU, D3DTADDRESS_WRAP);
+    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSV, D3DTADDRESS_WRAP);
+    if (g_SpriteEngine != NULL)
+    {
+        g_SpriteEngine->ClearBlendMode();
+        g_SpriteEngine->ClearColorOp();
+        g_SpriteEngine->ClearVertexFormat();
+        g_SpriteEngine->ClearTexture();
+        g_SpriteEngine->ClearLastCameraSetupFlag();
+    }
+    if (g_GameManager.sides[0].stage != NULL)
+    {
+        g_GameManager.sides[0].stage->fogColorChanged = 1;
     }
 }
 
-void SpriteEngine::DoPendingCopy()
+int CheckSingleInstance()
 {
-    if (this->pendingTexCopyTexture >= 0)
+    char exePath[0x105];
+    char consoleTitle[0x105];
+    char *extension;
+
+    g_AppMutex = CreateMutexA(NULL, TRUE, "Touhou 08 App");
+    if (GetLastError() == ERROR_ALREADY_EXISTS)
     {
-        this->CopyBackBufferToTexture(this->pendingTexCopyTexture, this->pendingTexCopySrcLeft,
-                                      this->pendingTexCopySrcTop, this->pendingTexCopySrcWidth,
-                                      this->pendingTexCopySrcHeight, this->pendingTexCopyDstLeft,
-                                      this->pendingTexCopyDstTop, this->pendingTexCopyDstWidth,
-                                      this->pendingTexCopyDstHeight);
-        this->pendingTexCopyTexture = -1;
+        LogError(&g_Log, "二つは起動できません\r\n");
+        return -1;
     }
-    if (this->pendingCopyTexture >= 0)
+    STARTUPINFOA startup = {sizeof(STARTUPINFOA)};
+    GetModuleFileNameA(NULL, exePath, 0x105);
+    GetConsoleTitleA(consoleTitle, 0x105);
+    GetStartupInfoA(&startup);
+    if (startup.lpTitle != NULL)
     {
-        this->CopyBackBufferToSurface(this->pendingCopyTexture, this->pendingCopySrcLeft, this->pendingCopySrcTop,
-                                      this->pendingCopySrcWidth, this->pendingCopySrcHeight, this->pendingCopyDstLeft,
-                                      this->pendingCopyDstTop, this->pendingCopyDstWidth, this->pendingCopyDstHeight);
-        this->pendingCopyTexture = -1;
+        extension = strrchr(startup.lpTitle, '.');
+        if (FileExists(startup.lpTitle) && extension != NULL)
+        {
+            if (_stricmp(extension, ".lnk") == 0)
+            {
+                do
+                {
+                    ResolveShortcut(startup.lpTitle, consoleTitle, 0x104);
+                    extension = strrchr(consoleTitle, '.');
+                } while (_stricmp(extension, ".lnk") == 0);
+            }
+            else
+            {
+                strcpy(consoleTitle, startup.lpTitle);
+            }
+            if (strcmp(exePath, consoleTitle) != 0)
+            {
+                g_GameWindow.forceClockPacing = 1;
+            }
+        }
+        g_App.stateFlags &= ~0x40;
     }
+    else
+    {
+        g_App.stateFlags |= 0x40;
+    }
+    if (g_AppMutex == NULL)
+    {
+        return -1;
+    }
+    return 0;
 }
 
 int ChecksumExecutable()
@@ -415,6 +480,41 @@ int ChecksumExecutable()
         return sum;
     }
     return -1;
+}
+
+void PresentFrame()
+{
+    int i;
+    char path[0x100];
+
+    if (g_App.d3dDevice->Present(NULL, NULL, NULL, NULL) < 0)
+    {
+        g_SpriteEngine->ReleaseSurfaces();
+        g_App.d3dDevice->Reset(&g_App.presentParams);
+        SetDefaultRenderStates();
+        g_App.redrawFrames = 2;
+    }
+    g_SpriteEngine->DoPendingCopy();
+    if (g_PlayerInputs[2].IsJustPressed(0x800) && !(g_App.stateFlags >> 10 & 1))
+    {
+        _mkdir("snapshot");
+        for (i = 0; i < 1000; i++)
+        {
+            sprintf(path, "snapshot/th%.3d.bmp", i);
+            if (!FileExists(path))
+            {
+                break;
+            }
+        }
+        if (i < 1000)
+        {
+            g_App.SaveScreenshot(path);
+        }
+    }
+    if (g_App.redrawFrames != 0 && !g_GameManager.isPaused)
+    {
+        g_App.redrawFrames--;
+    }
 }
 
 int GameWindow::RunFrame()
@@ -469,41 +569,6 @@ int GameWindow::RunFrame()
         Sleep(0);
     }
     return 0;
-}
-
-void PresentFrame()
-{
-    int i;
-    char path[0x100];
-
-    if (g_App.d3dDevice->Present(NULL, NULL, NULL, NULL) < 0)
-    {
-        g_SpriteEngine->ReleaseSurfaces();
-        g_App.d3dDevice->Reset(&g_App.presentParams);
-        SetDefaultRenderStates();
-        g_App.redrawFrames = 2;
-    }
-    g_SpriteEngine->DoPendingCopy();
-    if (g_PlayerInputs[2].IsJustPressed(0x800) && !(g_App.stateFlags >> 10 & 1))
-    {
-        _mkdir("snapshot");
-        for (i = 0; i < 1000; i++)
-        {
-            sprintf(path, "snapshot/th%.3d.bmp", i);
-            if (!FileExists(path))
-            {
-                break;
-            }
-        }
-        if (i < 1000)
-        {
-            g_App.SaveScreenshot(path);
-        }
-    }
-    if (g_App.redrawFrames != 0 && !g_GameManager.isPaused)
-    {
-        g_App.redrawFrames--;
-    }
 }
 
 int InitD3dDevice()
@@ -703,71 +768,6 @@ retry:
     g_GameWindow.isClosing = 0;
     g_App.clearedOnD3dInit = 0;
     return 0;
-}
-
-void SetDefaultRenderStates()
-{
-    float fogVal;
-
-    g_App.d3dDevice->SetRenderState(D3DRS_ZENABLE, TRUE);
-    g_App.d3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
-    g_App.d3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
-    g_App.d3dDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
-    g_App.d3dDevice->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
-    g_App.d3dDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
-    g_App.d3dDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
-    g_App.d3dDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);
-    g_App.d3dDevice->SetRenderState(D3DRS_ALPHATESTENABLE, TRUE);
-    g_App.d3dDevice->SetRenderState(D3DRS_ALPHAREF, 4);
-    g_App.d3dDevice->SetRenderState(D3DRS_ALPHAFUNC, D3DCMP_GREATEREQUAL);
-    if (g_App.GetNoFog() == 0)
-    {
-        g_App.d3dDevice->SetRenderState(D3DRS_FOGENABLE, TRUE);
-    }
-    else
-    {
-        g_App.d3dDevice->SetRenderState(D3DRS_FOGENABLE, FALSE);
-    }
-    fogVal = 1.0f;
-    g_App.d3dDevice->SetRenderState(D3DRS_FOGDENSITY, *(DWORD *)&fogVal);
-    g_App.d3dDevice->SetRenderState(D3DRS_FOGTABLEMODE, D3DFOG_NONE);
-    g_App.d3dDevice->SetRenderState(D3DRS_FOGVERTEXMODE, D3DFOG_LINEAR);
-    g_App.d3dDevice->SetRenderState(D3DRS_FOGCOLOR, 0xffa0a0a0);
-    fogVal = 1000.0f;
-    g_App.d3dDevice->SetRenderState(D3DRS_FOGSTART, *(DWORD *)&fogVal);
-    fogVal = 5000.0f;
-    g_App.d3dDevice->SetRenderState(D3DRS_FOGEND, *(DWORD *)&fogVal);
-    // Always true: | where & was meant, as th08's.
-    if (g_App.caps.RasterCaps | D3DPRASTERCAPS_ANTIALIASEDGES)
-    {
-        g_App.d3dDevice->SetRenderState(D3DRS_EDGEANTIALIAS, FALSE);
-    }
-    g_App.d3dDevice->SetRenderState(D3DRS_MULTISAMPLEANTIALIAS, FALSE);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_TFACTOR);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MIPFILTER, D3DTEXF_NONE);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MAGFILTER, D3DTEXF_LINEAR);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_MINFILTER, D3DTEXF_LINEAR);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_TEXTURETRANSFORMFLAGS, D3DTTFF_COUNT2);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSW, D3DTADDRESS_CLAMP);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSU, D3DTADDRESS_WRAP);
-    g_App.d3dDevice->SetTextureStageState(0, D3DTSS_ADDRESSV, D3DTADDRESS_WRAP);
-    if (g_SpriteEngine != NULL)
-    {
-        g_SpriteEngine->ClearBlendMode();
-        g_SpriteEngine->ClearColorOp();
-        g_SpriteEngine->ClearVertexFormat();
-        g_SpriteEngine->ClearTexture();
-        g_SpriteEngine->ClearLastCameraSetupFlag();
-    }
-    if (g_GameManager.sides[0].stage != NULL)
-    {
-        g_GameManager.sides[0].stage->fogColorChanged = 1;
-    }
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
