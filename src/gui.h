@@ -213,7 +213,10 @@ public:
     // Resets the front for a new round (0x4181e0).
     void Reset();
     // Returns unknown11ea8 (0x40d4f0).
-    int GetUnknown11ea8();
+    int GetUnknown11ea8()
+    {
+        return this->unknown11ea8;
+    }
     // Whether a dialogue script runs, or is about to (-2), as th08's.
     // Inline; the copy is at 0x404980.
     int IsMsgRunning()

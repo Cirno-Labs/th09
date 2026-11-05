@@ -18,9 +18,15 @@
 // More of them: atan2f (0x405700), fmodf through _CIfmod (0x405710),
 // fabsf (0x40f1c0), tanf (0x42e900), acosf through _CIacos (0x436aa0)
 // and atanf (0x436ab0).
-float Atan2(float y, float x);
+inline float Atan2(float y, float x)
+{
+    return (float)atan2((double)y, (double)x);
+}
 float Fmod(float x, float y);
-float Fabs(float x);
+inline float Fabs(float x)
+{
+    return (float)fabs((double)x);
+}
 float Tan(float angle);
 float Acos(float x);
 float Atan(float x);
@@ -39,14 +45,26 @@ public:
     float GetRandomF32MinusOneToOne();
     // range != 0 ? GetRandomU16() % range : 0, as th08's inline
     // function; this copy is 0x4048b0.
-    WORD GetRandomU16InRange(WORD range);
+    WORD GetRandomU16InRange(WORD range)
+    {
+        return range != 0 ? this->GetRandomU16() % range : 0;
+    }
     // range != 0 ? GetRandomU32() % range : 0, as th08's inline
     // function; this copy is 0x4048e0.
-    DWORD GetRandomU32InRange(DWORD range);
+    DWORD GetRandomU32InRange(DWORD range)
+    {
+        return range != 0 ? this->GetRandomU32() % range : 0;
+    }
     // A random float from 0 up to `range` (0x404910), and from -`range`
     // up to `range` (0x406200).
-    float GetRandomF32InRange(float range);
-    float GetRandomF32SignedInRange(float range);
+    float GetRandomF32InRange(float range)
+    {
+        return this->GetRandomF32ZeroToOne() * range;
+    }
+    float GetRandomF32SignedInRange(float range)
+    {
+        return this->GetRandomF32MinusOneToOne() * range;
+    }
 
     // Inline; the copy is the GameManager object's (0x41a89e).
     WORD GetSeed();
@@ -277,7 +295,18 @@ void *OpenPath(char *path, int *size, int isExternal);
 // (0x42aed0).
 float AddNormalizeAngle(float a, float b);
 // The sine and cosine of `angle`, with one fsincos (0x412780).
-void SinCos(float *sinOut, float *cosOut, float angle);
+inline void SinCos(float *sinOut, float *cosOut, float angle)
+{
+    __asm
+    {
+        fld angle
+        fsincos
+        mov eax, cosOut
+        fstp [eax]
+        mov eax, sinOut
+        fstp [eax]
+    }
+}
 // Rotates `in`'s x and y by `angle` into `out`'s, as th08's (0x42af40).
 void Rotate2D(D3DXVECTOR3 *out, D3DXVECTOR3 *in, float angle);
 
@@ -362,8 +391,14 @@ struct PlayerInput
     // unknown0 & mask and unknown6 & mask (0x40e2b0, 0x40e2d0), and the
     // same for the second set, unknown2c and unknown32 (0x415cb0,
     // 0x415cd0).
-    WORD IsHeld(WORD mask);
-    WORD IsJustPressed(WORD mask);
+    WORD IsHeld(WORD mask)
+    {
+        return this->unknown0 & mask;
+    }
+    WORD IsJustPressed(WORD mask)
+    {
+        return this->unknown6 & mask;
+    }
     WORD IsHeld2(WORD mask);
     WORD IsJustPressed2(WORD mask);
     // Clears unknown4 and updates the second set from unknown2c and
@@ -412,20 +447,55 @@ struct PlayRecord
 {
     // Counts a clear of character `character` on difficulty
     // `difficulty`, up to 999999 (0x40e3a0).
-    void AddClear(char character, int difficulty);
+    void AddClear(char character, int difficulty)
+    {
+        int *clears = &this->clearFlags[character][difficulty];
+        if (*clears < 999999)
+        {
+            *clears += 1;
+        }
+    }
     // Opens entry `entry` of the three menus' lists (0x40e3d0, 0x40e3e0,
     // 0x40e3f0).
-    void OpenEntry(char entry);
-    void OpenEntry2(char entry);
-    void OpenEntry3(char entry);
+    void OpenEntry(char entry)
+    {
+        this->openEntries[entry] = 1;
+    }
+    void OpenEntry2(char entry)
+    {
+        this->openEntries2[entry] = 1;
+    }
+    void OpenEntry3(char entry)
+    {
+        this->openEntries3[entry] = 1;
+    }
     // Whether character `character` has a clear on any of the five
     // difficulties (0x40e400).
-    BOOL HasCleared(char character);
+    BOOL HasCleared(char character)
+    {
+        if (this->clearFlags[character][0] != 0 || this->clearFlags[character][1] != 0 ||
+            this->clearFlags[character][2] != 0 || this->clearFlags[character][3] != 0 ||
+            this->clearFlags[character][4] != 0)
+        {
+            return TRUE;
+        }
+        return FALSE;
+    }
     // Character `character`'s count for difficulty 5 (0x40e450).
-    int GetClears5(char character);
+    int GetClears5(char character)
+    {
+        return this->clearFlags[character][5];
+    }
     // Counts one more for character `character`'s difficulty 5, up to
     // 999999 (0x4158e0).
-    void AddClear5(char character);
+    void AddClear5(char character)
+    {
+        int *clears = &this->clearFlags[character][5];
+        if (*clears < 999999)
+        {
+            *clears += 1;
+        }
+    }
     // Character `character`'s count for difficulty `difficulty`, or,
     // when it is negative, those of the first four or'ed together
     // (0x4234a7).

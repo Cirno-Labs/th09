@@ -264,9 +264,18 @@ struct PlayerUnknown30410
     // and keeps the highest unknownC in bonus (0x41d150).
     void AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d);
     // AddCombo, counting unknown38 too (0x40f8b0).
-    void AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d);
+    void AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d)
+    {
+        this->unknown38++;
+        this->AddCombo(pos, a, b, c, d);
+    }
     // Sets timer20, count and unknown38 to 0 (0x40f8c0).
-    void ResetCombo();
+    void ResetCombo()
+    {
+        this->timer20 = 0;
+        this->count = 0;
+        this->unknown38 = 0;
+    }
     // Runs the two timers down: when timer20 runs out the count is
     // reset, and when timer14 does the combo ends as in EndCombo
     // (0x41d760).

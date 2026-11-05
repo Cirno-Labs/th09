@@ -42,7 +42,10 @@ struct GameSide
 {
     // Adds a tenth of `points` to stats->score, which counts in tens
     // (0x40f860).
-    void AddScore(int points);
+    void AddScore(int points)
+    {
+        this->stats->score += points / 10;
+    }
 
     // The side's objects, which GameManager::DeletedCallback removes.
     Stage *stage;
@@ -225,9 +228,15 @@ public:
     // more (0x41aa07).
     void AddExtend();
     // Whether mode is 0 (0x40e470).
-    BOOL IsMode0();
+    BOOL IsMode0()
+    {
+        return this->mode == 0;
+    }
     // Whether mode is 1 (0x404970).
-    BOOL IsMode1();
+    BOOL IsMode1()
+    {
+        return this->mode == 1;
+    }
     // Picks the stage and side 1's character: in modes 0 and 1 a random
     // opponent of the round from side 0's character's list, by weight,
     // one not met yet (unknownD8), also setting side 1's unknown2c; else
