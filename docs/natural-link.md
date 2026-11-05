@@ -156,6 +156,11 @@ it and the three functions after it that wait balance (about 3000
 bytes): the code of a waiting function moves the header along when
 the next function is compiled.
 
+`scripts/natural_breaks.py [OBJECT] [--summary]` lists the natural
+link's functions in the original's order with an `X` at every broken
+pair (what `just natural` counts), or with `--summary` the broken pairs
+of each object.
+
 ## Open in the stage object
 
 - The original's `vector constructor iterator` comes before
