@@ -267,11 +267,11 @@ float Sprite::ResolveFloatArgument(float value)
         return this->scriptVar8;
     case 10009:
         return this->scriptVar9;
-    case 10010:
-        return g_Rng.GetRandomF32ZeroToOne();
     case 10011:
-        return g_Rng.GetRandomF32MinusOneToOne();
+        return g_Rng.GetRandomF32ZeroToOne();
     case 10012:
+        return g_Rng.GetRandomF32MinusOneToOne();
+    case 10010:
         return g_Rng.GetRandomF32SignedInRange(3.1415927f);
     }
     return value;

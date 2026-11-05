@@ -1227,7 +1227,9 @@ void DrawFps(int draw)
 {
     static DWORD frames;
     static char fpsText[0x100];
-    static LARGE_INTEGER lastCounter;
+    // Two DWORDs, as App::perfFrequency: its storage is only four-byte
+    // aligned in the original.
+    static DWORD lastCounter[2];
     static DWORD measures;
     static char speedText[0x100];
     float fps;
@@ -1288,20 +1290,20 @@ void DrawFps(int draw)
     {
         LARGE_INTEGER counter;
 
-        if (lastCounter.LowPart == 0)
+        if (lastCounter[0] == 0)
         {
-            QueryPerformanceCounter(&lastCounter);
+            QueryPerformanceCounter((LARGE_INTEGER *)lastCounter);
         }
         QueryPerformanceCounter(&counter);
-        if (counter.LowPart < lastCounter.LowPart)
+        if (counter.LowPart < lastCounter[0])
         {
-            lastCounter = counter;
+            *(LARGE_INTEGER *)lastCounter = counter;
             frames = 0;
         }
-        if (counter.LowPart >= lastCounter.LowPart + (g_App.perfFrequency[0] >> 1))
+        if (counter.LowPart >= lastCounter[0] + (g_App.perfFrequency[0] >> 1))
         {
-            duration = (float)(counter.LowPart - lastCounter.LowPart) / (float)g_App.perfFrequency[0];
-            lastCounter = counter;
+            duration = (float)(counter.LowPart - lastCounter[0]) / (float)g_App.perfFrequency[0];
+            *(LARGE_INTEGER *)lastCounter = counter;
             measures++;
             goto measured;
         }
