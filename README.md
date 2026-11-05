@@ -28,8 +28,8 @@ differing. `just farm` searches source variants of them for a match.
 All currently identified game functions are decompiled. The inventory now
 includes five constructors recovered from the global startup entries.
 
-The standalone build is 97.81% identical across the whole file
-(14,996 differing bytes). Reaching 100% also requires resolving executable
+The standalone build is 97.92% identical across the whole file
+(14,273 differing bytes). Reaching 100% also requires resolving executable
 layout, library code, data and header differences; matching all game
 functions alone does not establish whole-file identity. These figures come
 from the existing build artifacts; rebuild before using them to verify a
@@ -58,10 +58,12 @@ Start with the smaller functions, comparing each change with
 `just compare SYMBOL`, then run the full comparison to catch regressions
 in other functions from the same translation unit. Remove a function from
 `hooks.allow_diff` only after it matches. Use `just compare-exe` to track
-whole-file differences separately. The current build still has an extra
-`.extra` section, moved resources, and a different Rich header/toolchain
-record. The `.text`, `.rdata`, and `.data` sections have their original
-virtual sizes. All 216,727 tracked library code bytes match, including
+whole-file differences separately. Every section, including the
+resources, has its original address and virtual size, and every
+compiled contribution has an original location: like the original
+linker's ICF, the layout folds identical COMDATs, including EH funclets
+that refer to their own function information. The Rich header/toolchain
+record still differs. All 216,727 tracked library code bytes match, including
 relocation operands; 46 KB of executable code remains outside the function
 inventory in `symbols.csv`. All initialized bytes in `.rdata`, `.data`, and
 `.data1` match the original too.
@@ -179,7 +181,10 @@ Everything runs headless, so it works over SSH. `just` lists the recipes.
 6. Standalone (`just exe`): links the same objects, without the hook
    DLL, into `build/th09.exe`, a game that needs nothing from the
    original executable. It needs the game's data and global objects in
-   `src/exe/`. `just exe STEPS` runs it like `just run`.
+   `src/exe/`. `just exe STEPS` runs it like `just run`. Build it with
+   `FEAT=orig_checksum` to play the original's replays: the archive's
+   version records and the replays expect the 1.50a exe's size and
+   checksum, which a rebuilt exe only has once it is byte-identical.
 
 ### Hooking
 

@@ -1,6 +1,7 @@
 # EXE parity checks
 
-Build the standalone EXE with `python3 tools/build.py exe`. Its final build step
+Build the standalone EXE with `FEAT=orig_checksum python3 tools/build.py exe`,
+so that it reports the 1.50a size and checksum the archive and replays expect. Its final build step
 audits the 78 game tables recorded in `src/exe/data_tables.h`: the compiler
 checks array/element sizes, and the image audit checks their complete contents
 and 626 non-null pointer entries against original destinations or string data.

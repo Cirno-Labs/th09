@@ -158,7 +158,96 @@ def fold_identical_sections(units: Sequence[Unit], owners: Mapping[str, tuple[in
             aliases[key] = previous
             positions[key] = positions[previous]
         if len(aliases) == count:
-            return aliases
+            fold_reference_cycles(units, owners, weak, positions, candidates, foldable, aliases)
+            if len(aliases) == count:
+                return aliases
+
+
+def section_target(units: Sequence[Unit], owners: Mapping[str, tuple[int, int]],
+                   weak: Mapping[str, str], u: int, index: int) -> tuple[object, int]:
+    """Resolve a relocation to its defining section, or to a named identity."""
+    target = units[u].obj.symbols[index]
+    target_u = u
+    if target.storage == 2 or target.section == 0:
+        owner = owners.get(weak.get(target.name, target.name))
+        if owner is not None:
+            target_u, target_index = owner
+            target = units[target_u].obj.symbols[target_index]
+    if target.section > 0:
+        return (target_u, target.section - 1), target.value
+    if target.section == -1:
+        return ('absolute',), target.value
+    return ('external', weak.get(target.name, target.name)), 0
+
+
+def fold_reference_cycles(units: Sequence[Unit], owners: Mapping[str, tuple[int, int]],
+                          weak: Mapping[str, str],
+                          positions: dict[tuple[int, int], tuple[int, int]],
+                          candidates: Collection[tuple[int, int]],
+                          foldable: Collection[tuple[int, int]],
+                          aliases: dict[tuple[int, int], tuple[int, int]]) -> None:
+    """Fold copies whose sections refer to one another, as an EH funclet does.
+
+    A funclet loads its function information, which points back at the
+    funclet, so neither copy agrees with the original until both are
+    assumed equal. Accept the assumption only when every reference of every
+    section involved resolves consistently. Among several consistent
+    originals, ICF keeps the first in link order, the lowest address.
+    """
+    candidates = set(candidates)
+
+    def resolve(key: tuple[int, int]) -> tuple[int, int]:
+        while key in aliases:
+            key = aliases[key]
+        return key
+
+    def unify(copy: tuple[int, int], original: tuple[int, int],
+              assumed: dict[tuple[int, int], tuple[int, int]]) -> bool:
+        copy, original = resolve(copy), resolve(original)
+        if copy == original or assumed.get(copy) == original:
+            return True
+        if copy in assumed or copy not in foldable or copy not in candidates:
+            return False
+        if original not in positions or positions[original][0] == 2:
+            return False
+        first = units[copy[0]].obj.sections[copy[1]]
+        second = units[original[0]].obj.sections[original[1]]
+        if (first.flags & coff.CODE != second.flags & coff.CODE or first.data != second.data
+                or [r[::2] for r in first.relocs] != [r[::2] for r in second.relocs]):
+            return False
+        assumed[copy] = original
+        for (_, index, _), (_, other_index, _) in zip(first.relocs, second.relocs):
+            target, value = section_target(units, owners, weak, copy[0], index)
+            other, other_value = section_target(units, owners, weak, original[0], other_index)
+            if value != other_value:
+                return False
+            if target == other:
+                continue
+            if len(target) != 2 or len(other) != 2 or not isinstance(target[0], int):
+                return False
+            if not unify(target, other, assumed):
+                return False
+        return True
+
+    anchored: dict[tuple[bool, bytes], list[tuple[int, int]]] = defaultdict(list)
+    for key in sorted(candidates - set(foldable)):
+        if key in positions and positions[key][0] != 2:
+            section = units[key[0]].obj.sections[key[1]]
+            anchored[bool(section.flags & coff.CODE), section.data].append(key)
+    for key in sorted(set(foldable) & candidates - aliases.keys()):
+        section = units[key[0]].obj.sections[key[1]]
+        if key in aliases or not section.relocs:
+            continue
+        matches = []
+        for original in anchored[bool(section.flags & coff.CODE), section.data]:
+            assumed: dict[tuple[int, int], tuple[int, int]] = {}
+            if unify(key, original, assumed):
+                matches.append(assumed)
+        if matches:
+            first = min(matches, key=lambda assumed: positions[assumed[key]])
+            for copy, original in first.items():
+                aliases[copy] = original
+                positions[copy] = positions[original]
 
 
 def library_symbol(label: str, available: Collection[str]) -> str | None:
@@ -245,6 +334,8 @@ def import_thunks(units: Sequence[Unit], known: dict[str, int],
 
 def exe_flags(features: Sequence[str]) -> list[str]:
     """Record the binary identity used by the archive and original replays."""
+    if 'orig_checksum' not in features:
+        return []
     original = Path(project.ORIGINAL).read_bytes()
     checksum = sum(value[0] for value in struct.iter_unpack('<I', original[:(len(original) // 4 - 1) * 4])) & 0xffffffff
     return [f'/DTH09_ORIGINAL_EXE_SIZE={len(original)}U',

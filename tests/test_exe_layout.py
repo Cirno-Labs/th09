@@ -79,6 +79,38 @@ class IdenticalSectionTests(unittest.TestCase):
         for copy, original in aliases.items():
             self.assertEqual(positions[copy], positions[original])
 
+    def eh_pair_object(self, copies: int) -> Mock:
+        # Each funclet loads its function information, which points back.
+        obj = Mock(spec=coff.Object)
+        obj.sections = []
+        obj.symbols = []
+        for pair in range(copies):
+            funclet, info = len(obj.symbols), len(obj.symbols) + 1
+            obj.sections.append(coff.Section('.text$x', b'\xb8\0\0\0\0\xc3',
+                                             [(1, info, coff.DIR32)], coff.TEXT))
+            obj.sections.append(coff.Section('.xdata$x', bytes(8),
+                                             [(4, funclet, coff.DIR32)], coff.RDATA))
+            obj.symbols += [coff.Symbol(f'funclet_{pair}', 0, 2 * pair + 1, 3),
+                            coff.Symbol(f'info_{pair}', 0, 2 * pair + 2, 3)]
+        return obj
+
+    def test_mutually_referring_copies_fold_together(self) -> None:
+        obj = self.eh_pair_object(2)
+        positions = {(0, 0): (1, 0x100), (0, 1): (3, 0x40), (0, 2): (2, 0), (0, 3): (2, 8)}
+        aliases = exe_layout.fold_identical_sections(
+            [exe_layout.Unit('test.obj', obj)], {}, {}, positions, positions.keys(),
+            {(0, 2), (0, 3)})
+        self.assertEqual(aliases, {(0, 2): (0, 0), (0, 3): (0, 1)})
+
+    def test_mutually_referring_copies_keep_the_first_original(self) -> None:
+        obj = self.eh_pair_object(3)
+        positions = {(0, 0): (1, 0x200), (0, 1): (3, 0x80), (0, 2): (1, 0x100),
+                     (0, 3): (3, 0x40), (0, 4): (2, 0), (0, 5): (2, 8)}
+        aliases = exe_layout.fold_identical_sections(
+            [exe_layout.Unit('test.obj', obj)], {}, {}, positions, positions.keys(),
+            {(0, 4), (0, 5)})
+        self.assertEqual(aliases, {(0, 4): (0, 2), (0, 5): (0, 3)})
+
     def test_distinct_anchored_entries_are_preserved(self) -> None:
         obj = Mock(spec=coff.Object)
         obj.sections = [coff.Section('.text', b'\xc3', [], coff.TEXT)] * 2

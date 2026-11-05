@@ -38,6 +38,13 @@ libs = ["dinput8.lib", "dsound.lib", "d3d8.lib", "d3dx8.lib", "dxguid.lib",
         "winmm.lib", "kernel32.lib", "user32.lib", "gdi32.lib", "advapi32.lib", "ole32.lib",
         "libcmt.lib", "dxerr8.lib"]
 
+[exe.features]
+# FEAT=orig_checksum: ChecksumExecutable reports the 1.50a exe's size and
+# checksum, which the archive's version records and original replays
+# expect, instead of computing them. Without it the function keeps its
+# original code and size, as byte identity requires.
+orig_checksum = "FEAT_ORIG_CHECKSUM"
+
 [hooks]
 progress = true
 # Every commit builds and matches, but for these functions, committed
