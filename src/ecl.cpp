@@ -1538,7 +1538,7 @@ loop:
 
             x = FLOAT_ARG(1) - FLOAT_ARG(3);
             y = FLOAT_ARG(2) - FLOAT_ARG(4);
-            // sqrtf is emitted out of line at 0x401080 (unsorted.h's Sqrt).
+            // sqrtf is emitted out of line at 0x401080.
             FLOAT_VAR(0) = sqrtf(x * x + y * y);
             break;
         }

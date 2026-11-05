@@ -22,43 +22,11 @@ static BYTE ModulateChannel(BYTE c, BYTE factor)
 #define MODULATE_CHANNEL(color, factor, i) \
     ((BYTE *)&(color))[i] = ModulateChannel(((BYTE *)&(color))[i], ((BYTE *)&(factor))[i])
 
-void AnmLoaded::StartScriptAtOrigin(Sprite *vm, int script)
-{
-    vm->scriptIndex = script;
-    vm->pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-    vm->posOffset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-    vm->fontHeight = 15;
-    vm->fontWidth = 15;
-    this->SetScript(vm, this->scripts[script]);
-}
-
 void AnmLoaded::StartScript(Sprite *vm, int script)
 {
     vm->anm = this;
     vm->scriptIndex = script;
     this->SetScript(vm, this->scripts[script]);
-}
-
-void SpriteEngine::ClearTexture()
-{
-    this->currentTexture = NULL;
-}
-
-void SpriteEngine::SetLastCameraSetupFlag(BYTE value)
-{
-    this->lastCameraSetupFlag = value;
-}
-
-void SpriteEngine::ResetColorModulation()
-{
-    this->modulateColorEnabled = 0;
-    this->modulateColor = 0x80808080;
-}
-
-void SpriteEngine::SetColorModulation(D3DCOLOR color)
-{
-    this->modulateColorEnabled = 1;
-    this->modulateColor = color;
 }
 
 void SpriteEngine::ClearBlendMode()

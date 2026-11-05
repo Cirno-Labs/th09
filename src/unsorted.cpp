@@ -7,18 +7,6 @@
 #include "chain.h"
 #include "timer.h"
 
-float Sqrt(float x)
-{
-    return (float)sqrt((double)x);
-}
-
-// Outside timer.cpp: there the compiler would know that Initialize leaves
-// ecx alone, and return it instead of a copy kept in esi.
-Timer::Timer()
-{
-    this->Initialize();
-}
-
 WORD Rng::GetRandomU16InRange(WORD range)
 {
     return range != 0 ? this->GetRandomU16() % range : 0;

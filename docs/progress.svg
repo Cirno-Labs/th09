@@ -66,11 +66,11 @@
 <text class="todo" style="font-size: 12px; " text-anchor="start" x="483" y="41"><tspan class="named">217 KB</tspan> · 1018 functions</text>
 <text text-anchor="start" x="0" y="58.50">Executable code</text>
 <g transform="translate(130 52.50)">
-<rect width="271.29" height="12" x="0" y="0" class="named"><title>562 KB · 97.59%</title></rect>
-<rect width="6.71" height="12" x="271.29" y="0" class="todo"><title>14 KB · 2.41%</title></rect>
+<rect width="271.39" height="12" x="0" y="0" class="named"><title>563 KB · 97.62%</title></rect>
+<rect width="6.61" height="12" x="271.39" y="0" class="todo"><title>14 KB · 2.38%</title></rect>
 </g>
 <text text-anchor="end" x="468" y="58.50">97.6%</text>
-<text class="todo" style="font-size: 12px; " text-anchor="start" x="483" y="58"><tspan class="named">562 KB</tspan> · <tspan class="todo">14 KB</tspan> · 46 KB not in symbols.csv</text>
+<text class="todo" style="font-size: 12px; " text-anchor="start" x="483" y="58"><tspan class="named">563 KB</tspan> · <tspan class="todo">14 KB</tspan> · 46 KB not in symbols.csv</text>
 <text text-anchor="start" x="0" y="75.50">Executable data</text>
 <g transform="translate(130 69.50)">
 <rect width="278" height="12" x="0" y="0" class="named"><title>102 KB · 100%</title></rect>
@@ -79,8 +79,8 @@
 <text class="todo" style="font-size: 12px; " text-anchor="start" x="483" y="75"><tspan class="named">102 KB</tspan> · 290/290 globals placed · 3 unmapped</text>
 <text text-anchor="start" x="0" y="92.50">Executable file</text>
 <g transform="translate(130 86.50)">
-<rect width="272.21" height="12" x="0" y="0" class="named"><title>671 KB · 97.92%</title></rect>
-<rect width="5.79" height="12" x="272.21" y="0" class="todo"><title>14 KB · 2.08%</title></rect>
+<rect width="272.30" height="12" x="0" y="0" class="named"><title>671 KB · 97.95%</title></rect>
+<rect width="5.70" height="12" x="272.30" y="0" class="todo"><title>14 KB · 2.05%</title></rect>
 </g>
 <text text-anchor="end" x="468" y="92.50">97.9%</text>
 <text class="todo" style="font-size: 12px; " text-anchor="start" x="483" y="92"><tspan class="named">671 KB</tspan> · <tspan class="todo">14 KB</tspan></text>
@@ -91,7 +91,7 @@
 <rect width="12" height="12" x="0" y="0" class="named"><title>0x00401000 HermiteInterpolate (91 bytes)</title></rect>
 <rect width="12" height="12" x="15" y="0" class="named"><title>0x00401060 cosf (12 bytes)</title></rect>
 <rect width="12" height="12" x="30" y="0" class="named"><title>0x00401070 sinf (12 bytes)</title></rect>
-<rect width="12" height="12" x="45" y="0" class="named"><title>0x00401080 Sqrt (12 bytes)</title></rect>
+<rect width="12" height="12" x="45" y="0" class="named"><title>0x00401080 sqrtf (12 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="0" class="named"><title>0x00401090 ModulateChannel (25 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="0" class="named"><title>0x004010b0 D3DXVECTOR3::D3DXVECTOR3 (26 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="0" class="named"><title>0x004010d0 D3DXVECTOR3::operator/= (38 bytes)</title></rect>
@@ -2253,7 +2253,7 @@
 <rect width="2.80" height="2.84" x="738.62" y="292.85" class="named"><title>0x0042ed60 App::GetNoTextRenderDetect (13 bytes)</title></rect>
 <rect width="2.58" height="2.84" x="744.42" y="292.85" class="named"><title>0x00401060 cosf (12 bytes)</title></rect>
 <rect width="2.77" height="2.64" x="703.81" y="298.69" class="named"><title>0x00401070 sinf (12 bytes)</title></rect>
-<rect width="2.77" height="2.64" x="709.58" y="298.69" class="named"><title>0x00401080 Sqrt (12 bytes)</title></rect>
+<rect width="2.77" height="2.64" x="709.58" y="298.69" class="named"><title>0x00401080 sqrtf (12 bytes)</title></rect>
 <rect width="2.77" height="2.64" x="715.35" y="298.69" class="named"><title>0x00403390 Timer::Timer (12 bytes)</title></rect>
 <rect width="2.77" height="2.64" x="721.13" y="298.69" class="named"><title>0x00403c20 Player::SetUnknown0 (12 bytes)</title></rect>
 <rect width="2.77" height="2.64" x="726.90" y="298.69" class="named"><title>0x00403d80 SpellCard::Reset (12 bytes)</title></rect>

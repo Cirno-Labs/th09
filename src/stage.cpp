@@ -3,6 +3,12 @@
 #include "screeneffect.h"
 #include "unsorted.h"
 
+// The definition order follows the original's layout: the functions that
+// call global.h's inlines wait until the end of the file, while the
+// compiler works through global.h's inlines in step with the code it
+// compiles, so the leaf functions between them decide which of those
+// inlines come first (docs/natural-link.md).
+
 // The cubic Hermite curve from p0 to p1, with tangents m0 and m1, at `t`
 // (0 to 1), as th08's. Static: its callers keep ecx, edx and esi across
 // it (0x401000).
@@ -20,81 +26,11 @@ static float HermiteInterpolate(float p0, float p1, float m0, float m1, float t)
     return f00 * p0 + f01 * p1 + f10 * m0 + f11 * m1;
 }
 
-// Scales color channel `c` by `factor`, where 0x80 is 1, clamping to
-// 0xff. Inline in th08; static here, taking its arguments in al and cl
-// (0x401090).
-static BYTE ModulateChannel(BYTE c, BYTE factor)
-{
-    DWORD channel = (DWORD)c * factor >> 7;
-    if (channel >= 0x100)
-    {
-        channel = 0xff;
-    }
-    return channel;
-}
-
-// Scales byte `i` of `color` by byte `i` of `factor`.
-#define MODULATE_CHANNEL(color, factor, i) \
-    ((BYTE *)&(color))[i] = ModulateChannel(((BYTE *)&(color))[i], ((BYTE *)&(factor))[i])
-
-void Stage::Reset()
-{
-    this->spellCardState = 0;
-}
-
-int Stage::StepObjects()
-{
-    int busy;
-    int i;
-    Sprite *sprite;
-    StageObject *obj;
-    StageQuad *quad;
-
-    for (i = 0; i < this->objectCount; i++)
-    {
-        obj = this->objects[i];
-        if (obj->flags & 1)
-        {
-            busy = 0;
-            quad = obj->quads;
-            while (quad->type >= 0)
-            {
-                sprite = &this->sprites[quad->spriteIndex];
-                switch (quad->type)
-                {
-                case 0:
-                    g_SpriteEngine->Step(sprite);
-                    break;
-                case 1:
-                    g_SpriteEngine->Step(sprite);
-                    break;
-                }
-                if (sprite->scriptPos != NULL)
-                {
-                    busy++;
-                }
-                quad = (StageQuad *)((char *)quad + quad->size);
-            }
-            if (busy == 0)
-            {
-                obj->flags &= ~1;
-            }
-        }
-    }
-    return 0;
-}
-
 // Moves `out` from `from` to `to` over stage->cameraFadeFrames[i] frames,
 // on stage->cameraFadeTimer[i], eased by stage->cameraFadeMode[i]: 1 to 3
 // slow down, 4 to 6 speed up, 7 follows a Hermite curve with tangents m0
 // and m1. Clears the frame count once the timer reaches it. As th08's;
 // static, taking the stage in ecx, `i` in eax and `out` in edi (0x4016e0).
-// Its visible body lets camera interpolation retain unmodified registers.
-BOOL Timer::operator<(int frames)
-{
-    return this->current < frames;
-}
-
 static void UpdateEasedVector(Stage *stage, D3DXVECTOR3 *out, int i, D3DXVECTOR3 *from, D3DXVECTOR3 *to,
                               D3DXVECTOR3 *m0, D3DXVECTOR3 *m1)
 {
@@ -527,6 +463,24 @@ done:
     }
 }
 
+// After RunScript, so that math.h's cosf, sinf and sqrtf come before it.
+// Scales color channel `c` by `factor`, where 0x80 is 1, clamping to
+// 0xff. Inline in th08; static here, taking its arguments in al and cl
+// (0x401090).
+static BYTE ModulateChannel(BYTE c, BYTE factor)
+{
+    DWORD channel = (DWORD)c * factor >> 7;
+    if (channel >= 0x100)
+    {
+        channel = 0xff;
+    }
+    return channel;
+}
+
+// Scales byte `i` of `color` by byte `i` of `factor`.
+#define MODULATE_CHANNEL(color, factor, i) \
+    ((BYTE *)&(color))[i] = ModulateChannel(((BYTE *)&(color))[i], ((BYTE *)&(factor))[i])
+
 int Stage::OnUpdate(Stage *stage)
 {
     int i;
@@ -618,17 +572,6 @@ int Stage::DeletedCallback(Stage *stage)
         stage->data = NULL;
     }
     return 0;
-}
-
-void Stage::RemoveChain(Stage *stage)
-{
-    if (stage != NULL)
-    {
-        g_Chain.Remove(stage->calcElem);
-        g_Chain.Remove(stage->drawElem);
-        g_Chain.Remove(stage->drawElem2);
-        delete stage;
-    }
 }
 
 int Stage::Load(char *dataPath)
@@ -926,7 +869,7 @@ int Stage::DrawLayer(int layer)
                         vertices[2].diffuse = vertices[3].diffuse = spr->color;
                     }
                     origin = endPos - centre;
-                    dist = Sqrt(origin.x * origin.x + origin.y * origin.y);
+                    dist = sqrtf(origin.x * origin.x + origin.y * origin.y);
                     if (dist < 0.00001f)
                     {
                         goto nextQuad;
@@ -978,6 +921,66 @@ int Stage::DrawLayer(int layer)
         placement++;
     }
     return 0;
+}
+
+// After DrawLayer, so that D3DXVECTOR3's operators come before it.
+void Stage::Reset()
+{
+    this->spellCardState = 0;
+}
+
+int Stage::StepObjects()
+{
+    int busy;
+    int i;
+    Sprite *sprite;
+    StageObject *obj;
+    StageQuad *quad;
+
+    for (i = 0; i < this->objectCount; i++)
+    {
+        obj = this->objects[i];
+        if (obj->flags & 1)
+        {
+            busy = 0;
+            quad = obj->quads;
+            while (quad->type >= 0)
+            {
+                sprite = &this->sprites[quad->spriteIndex];
+                switch (quad->type)
+                {
+                case 0:
+                    g_SpriteEngine->Step(sprite);
+                    break;
+                case 1:
+                    g_SpriteEngine->Step(sprite);
+                    break;
+                }
+                if (sprite->scriptPos != NULL)
+                {
+                    busy++;
+                }
+                quad = (StageQuad *)((char *)quad + quad->size);
+            }
+            if (busy == 0)
+            {
+                obj->flags &= ~1;
+            }
+        }
+    }
+    return 0;
+}
+
+// Calls no inline, so it doesn't wait as in the original (0x402530).
+void Stage::RemoveChain(Stage *stage)
+{
+    if (stage != NULL)
+    {
+        g_Chain.Remove(stage->calcElem);
+        g_Chain.Remove(stage->drawElem);
+        g_Chain.Remove(stage->drawElem2);
+        delete stage;
+    }
 }
 
 int Stage::OnDraw(Stage *stage)
@@ -1219,10 +1222,4 @@ Stage *Stage::RegisterChain(int sideIdx)
     g_Chain.AddToDrawChain(stage->drawElem, sideIdx + 6);
     g_Chain.AddToDrawChain(stage->drawElem2, sideIdx + 8);
     return stage;
-}
-
-void Stage::StartSpellCard()
-{
-    this->spellCardState = 1;
-    this->spellCardFrames = 0;
 }

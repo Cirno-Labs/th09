@@ -12,10 +12,9 @@
 #include "dsutil.h"
 
 // math.h's inline float functions are emitted out of line under /Ob0,
-// where code calls them: cosf (0x401060) and sinf (0x401070), a single
-// x87 instruction each under /Oi. Until their callers are decompiled,
-// the rest are named wrappers: sqrtf (0x401080), as Sqrt.
-float Sqrt(float x);
+// where code calls them: cosf (0x401060), sinf (0x401070) and sqrtf
+// (0x401080), a single x87 instruction each under /Oi. Until their
+// callers are decompiled, the rest are named wrappers.
 // More of them: atan2f (0x405700), fmodf through _CIfmod (0x405710),
 // fabsf (0x40f1c0), tanf (0x42e900), acosf through _CIacos (0x436aa0)
 // and atanf (0x436ab0).
@@ -777,12 +776,6 @@ struct App
         this->d3dDevice->SetViewport(&this->camera->viewport);
         this->view = view;
     }
-    // Makes view `view`'s camera the current one. Inline; the copy is at
-    // 0x401440.
-    void SetCamera(int view)
-    {
-        this->camera = &this->cameras[view];
-    }
     // Sets up the camera and the projection of `camera` (0x430590).
     void SetupCamera(Camera *camera);
     // Sets up the current camera and its viewport again. Inline; the copy
@@ -805,12 +798,22 @@ struct App
         this->SetupCamera3D(this->camera);
         this->d3dDevice->SetViewport(&this->camera->viewport);
     }
+    // Makes view `view`'s camera the current one. Inline; the copy is at
+    // 0x401440.
+    void SetCamera(int view)
+    {
+        this->camera = &this->cameras[view];
+    }
+    // The config's noFog option. Inline; the copy is at 0x401460.
+    int GetNoFog()
+    {
+        return this->config.flags.noFog;
+    }
     // Bit 3 of stateFlags, as th08's GetNoScore (0x420180).
     int GetNoScore();
-    // The config's options, as th08's getters, out of line (0x401460,
-    // 0x42d2b0, 0x42d2c0, 0x42d2d0, 0x42ed30, 0x42ed40, 0x42ed50,
+    // The config's other options, as th08's getters, out of line
+    // (0x42d2b0, 0x42d2c0, 0x42d2d0, 0x42ed30, 0x42ed40, 0x42ed50,
     // 0x42ed60).
-    int GetNoFog();
     int GetForce16BitTextures();
     int GetReferenceRasterizer();
     int GetWindowed();

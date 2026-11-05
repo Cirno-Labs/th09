@@ -344,7 +344,15 @@ class AnmLoaded
 public:
     // Starts script `script` of this file on `vm`, at the origin with no
     // offset (0x401560).
-    void StartScriptAtOrigin(Sprite *vm, int script);
+    void StartScriptAtOrigin(Sprite *vm, int script)
+    {
+        vm->scriptIndex = script;
+        vm->pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+        vm->posOffset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+        vm->fontHeight = 15;
+        vm->fontWidth = 15;
+        this->SetScript(vm, this->scripts[script]);
+    }
     // Starts script `script` of this file on `vm`, as th08's (0x403e00).
     void StartScript(Sprite *vm, int script);
     // Starts `script` on `vm`, or zeroes `vm` if there is no script or
@@ -457,13 +465,27 @@ public:
     ~SpriteEngine();
     // Forgets the texture last set, so that the next sprite sets it
     // again (0x4015f0).
-    void ClearTexture();
+    void ClearTexture()
+    {
+        this->currentTexture = NULL;
+    }
     // Sets lastCameraSetupFlag (0x401600).
-    void SetLastCameraSetupFlag(BYTE value);
+    void SetLastCameraSetupFlag(BYTE value)
+    {
+        this->lastCameraSetupFlag = value;
+    }
     // Stops modulating sprites by a color (0x401610).
-    void ResetColorModulation();
+    void ResetColorModulation()
+    {
+        this->modulateColorEnabled = 0;
+        this->modulateColor = 0x80808080;
+    }
     // Modulates sprites by `color` (0x401620).
-    void SetColorModulation(D3DCOLOR color);
+    void SetColorModulation(D3DCOLOR color)
+    {
+        this->modulateColorEnabled = 1;
+        this->modulateColor = color;
+    }
     // Forgets the blend mode last set, as ClearTexture (0x40e370).
     void ClearBlendMode();
     // The same for the vertex format (0x40e380).

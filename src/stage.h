@@ -147,8 +147,12 @@ public:
     // as th08's, without colorScaleSprite (0x4011d0). Returns 0.
     int StepObjects();
     // Sets spellCardState to 1 and clears spellCardFrames. Called by the ECL
-    // interpreter; the copy is at 0x4067b0.
-    void StartSpellCard();
+    // interpreter; inline, the copy is at 0x4067b0.
+    void StartSpellCard()
+    {
+        this->spellCardState = 1;
+        this->spellCardFrames = 0;
+    }
 
     ChainElem *calcElem;
     ChainElem *drawElem;

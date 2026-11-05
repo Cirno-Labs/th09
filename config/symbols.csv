@@ -2,7 +2,7 @@ address,size,name,symbol
 0x00401000,91,HermiteInterpolate,?HermiteInterpolate@@YIMMMMMM@Z
 0x00401060,12,cosf,@cosf@4
 0x00401070,12,sinf,@sinf@4
-0x00401080,12,Sqrt,?Sqrt@@YIMM@Z @sqrtf@4
+0x00401080,12,sqrtf,@sqrtf@4
 0x00401090,25,ModulateChannel,?ModulateChannel@@YIEEE@Z
 0x004010b0,26,D3DXVECTOR3::D3DXVECTOR3,??0D3DXVECTOR3@@QAE@MMM@Z
 0x004010d0,38,D3DXVECTOR3::operator/=,??_0D3DXVECTOR3@@QAEAAU0@M@Z

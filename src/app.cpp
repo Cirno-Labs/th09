@@ -20,11 +20,6 @@ App::App()
     this->stateFlags |= 0x140;
 }
 
-int App::GetNoFog()
-{
-    return this->config.flags.noFog;
-}
-
 int App::GetNoScore()
 {
     return this->stateFlags >> 3 & 1;

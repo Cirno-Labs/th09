@@ -5,19 +5,39 @@
 #include <windows.h>
 
 #include "common.h"
+#include "unsorted.h"
 
 struct Timer
 {
-    // Calls Initialize (0x403390).
-    Timer();
+    // Calls Initialize (0x403390). Defined before it, so that the
+    // compiler doesn't know Initialize leaves ecx alone.
+    Timer()
+    {
+        this->Initialize();
+    }
     // Starts counting from 0, with no previous count (-999999)
     // (0x4014a0).
-    void Initialize();
+    void Initialize()
+    {
+        this->current = 0;
+        this->previous = -999999;
+        this->currentF = 0.0f;
+    }
     // Advances by one frame through App::TickTimer and returns the new
     // count (0x4014b0).
-    int NextTick();
+    int NextTick()
+    {
+        this->previous = this->current;
+        g_App.TickTimer(&this->current, &this->currentF);
+        return this->current;
+    }
     // Sets the count to `frames`, with no previous count (0x4014d0).
-    void Set(int frames);
+    void Set(int frames)
+    {
+        this->current = frames;
+        this->previous = -999999;
+        this->currentF = (float)frames;
+    }
     // Advances by `frames`, scaled by gameSpeed while the game runs slow;
     // while bit 0x20 of g_App.stateFlags is set, adds the count to the float
     // once more and forgets the previous count (0x42f490).
@@ -46,16 +66,28 @@ struct Timer
         return this->current;
     }
     // The count with its fraction (0x4014f0).
-    float AsFloat();
+    float AsFloat()
+    {
+        return this->currentF;
+    }
     // Set, as an assignment (0x401500).
-    void operator=(int frames);
+    void operator=(int frames)
+    {
+        this->Set(frames);
+    }
     // NextTick, as a postfix (0x401510).
-    void operator++(int);
+    void operator++(int)
+    {
+        this->NextTick();
+    }
     BOOL operator>=(int frames)
     {
         return this->current >= frames;
     }
-    BOOL operator<(int frames);
+    BOOL operator<(int frames)
+    {
+        return this->current < frames;
+    }
     BOOL operator>(int frames);
     // Defined with the enemy code, as in the original (0x404950).
     BOOL operator==(int frames);
