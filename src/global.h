@@ -22,7 +22,6 @@
 #include "chain.h"
 #include "effect.h"
 #include "ending.h"
-#include "enemy.h"
 #include "exattack.h"
 #include "gui.h"
 #include "lzss.h"
