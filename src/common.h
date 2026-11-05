@@ -27,11 +27,20 @@ public:
     ~MemoryManager();
     // malloc() and free(); `name` is unused in the release build
     // (0x401340, 0x401360).
-    void *Alloc(int size, const char *name);
-    void Free(void *p);
+    void *Alloc(int size, const char *name)
+    {
+        return malloc(size);
+    }
+    void Free(void *p)
+    {
+        free(p);
+    }
     // Records `p`, a block of `size` bytes allocated with new, under
     // `name` and returns it; a no-op in the release build (0x401380).
-    void *Register(void *p, int size, const char *name);
+    void *Register(void *p, int size, const char *name)
+    {
+        return p;
+    }
 
     // The blocks registered in the debug build.
     void *blocks[0x1000];

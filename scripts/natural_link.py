@@ -29,7 +29,10 @@ OUT = 'build/natural'
 
 
 def link() -> Path:
-    objs = sorted(p for p in glob.glob('build/obj_exe/*.obj') if not p.endswith('.rsrc.obj'))
+    # The current sources' objects (a removed file's stays on disk), and
+    # the precompiled header's.
+    objs = sorted(obj for _, obj in build.sources(build.EXE, build.OBJ_EXE))
+    objs += glob.glob(f'{build.OBJ_EXE}/{build.PCH_STUB}.obj') if build.PCH else []
     ordered = build.link_order(objs, build.read_symbols(), build.EXE_CONFIG['link_order'])
     os.makedirs(OUT, exist_ok=True)
     exe = f'{OUT}/{project.NAME}.exe'

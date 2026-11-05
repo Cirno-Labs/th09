@@ -74,6 +74,10 @@ static char *ReadConfigValue(char *cursor, int *remaining, char *key, char *valu
     return NULL;
 }
 
+// Only the parser above expands an inline: the rest of the file calls
+// global.h's, such as MemoryManager::Alloc, out of line.
+#pragma inline_depth(0)
+
 void Network::ReleaseInterfaces()
 {
     if (this->peer != NULL)
