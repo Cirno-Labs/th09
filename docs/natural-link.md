@@ -64,6 +64,18 @@ generator works bottom-up:
   generated at its first use, which can be a header inline the compiler
   works through: Sprite's constructor generates SpriteBase's and the
   iterator.
+- A header outside the precompiled one, which the source includes
+  itself, is different: its inline functions are compiled where the
+  source includes it, before the file's own functions (the ones the
+  file uses are emitted). So an object of the original that starts
+  with header inline functions includes that header itself: the GDI
+  surface object starts with GdiSurface's accessors, the enemy object
+  with EclManager::GetTimelineCount, pl00's with SpawnPlayerEnemy and
+  ExAttack::GetSide, the bullet object with
+  BulletManager::ClearDrawBuckets. gdisurface.h, enemy.h, bullet.h and
+  midi.h are not in global.h for that, and pl.h holds what the
+  character objects share. Taking out player.h, gui.h, ascii.h,
+  archive.h or stage.h instead loses neighbours.
 
 Both compilers, 13.10.3077 (C:\msvc710) and 13.10.6030, order the same
 way, deterministically; /Zi, /Gm and the header's own optimization
@@ -113,7 +125,17 @@ sprite engine's, the natural link keeps the sprite engine's; the
 original kept the stage's, which can follow from the objects matching
 the original's (the same sections and sizes), not from their order.
 The map lists every folded name under the kept copy's address but not
-always under its object.
+always under its object. The kept copy moves with unrelated changes:
+with Tan made an (unused, so never emitted) inline function, the
+natural link keeps the stage's ModulateChannel and the placed prefix
+reaches 0x401470; with Tan out of line again it keeps the sprite
+engine's. Timer::operator== and the small accessors that fold with it
+(GdiSurface::GetHeight, Timer::AsFrames) move the same way.
+
+Fmod and Tan stay out of line in unsorted.cpp for another reason: they
+stand for math.h's fmodf and tanf (0x405710, 0x42e900), which the
+code calls directly, so as inline functions nothing would emit them
+and `just compare` would lose them.
 
 Making a function inline-visible can change its callers' code (a caller
 knows what an inline function does not modify, as with
