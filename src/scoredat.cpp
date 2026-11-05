@@ -5,16 +5,6 @@
 #include "unsorted.h"
 #include "gamemanager.h"
 
-ScoreDat::ScoreDat()
-{
-    memset(this, 0, sizeof(*this));
-}
-
-Hscr::Hscr()
-{
-    memset(this, 0, sizeof(*this));
-}
-
 int InsertHighScore(Hscr *entry)
 {
     int rank;
@@ -159,6 +149,16 @@ int LoadPlstChunk(ScoreDat *dat)
         chunk = (PlayRecord *)((BYTE *)chunk + chunk->size);
     }
     return 0;
+}
+
+ScoreDat::ScoreDat()
+{
+    memset(this, 0, sizeof(*this));
+}
+
+Hscr::Hscr()
+{
+    memset(this, 0, sizeof(*this));
 }
 
 ScoreDat *LoadScoreDat(char *path)

@@ -14,12 +14,6 @@
 #include "timer.h"
 #include "unsorted.h"
 
-App::App()
-{
-    memset(this, 0, sizeof(*this));
-    this->stateFlags |= 0x140;
-}
-
 int Network::GetOtherUnknown1c()
 {
     return this->unknown1c[1 - this->unknownAc];
@@ -457,6 +451,158 @@ int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, in
     return 0;
 }
 
+void Timer::Add(float frames)
+{
+    this->previous = this->current;
+    if (g_App.gameSpeed > 0.99f)
+    {
+        this->currentF += frames;
+    }
+    else
+    {
+        this->currentF += g_App.gameSpeed * frames;
+    }
+    this->current = this->currentF;
+    if (g_App.stateFlags & 0x20)
+    {
+        this->previous = -999999;
+        this->currentF += this->current;
+    }
+}
+
+void App::TickTimer(int *frames, float *subFrame)
+{
+    if (this->gameSpeed <= 0.99f)
+    {
+        *subFrame += this->gameSpeed;
+        *frames = *subFrame;
+    }
+    else
+    {
+        (*frames)++;
+        *subFrame += 1.0f;
+    }
+}
+
+int App::SaveScreenshot(char *path)
+{
+    BITMAPFILEHEADER fileHdr;
+    BYTE *bits;
+    BITMAPINFO *bmi;
+    IDirect3DSurface8 *buffer;
+
+    bmi = NULL;
+    bits = NULL;
+    buffer = NULL;
+    this->d3dDevice->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &buffer);
+    memset(&fileHdr, 0, sizeof(fileHdr));
+    fileHdr.bfType = *(WORD *)"BM";
+    fileHdr.bfOffBits = sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
+    fileHdr.bfSize = fileHdr.bfOffBits;
+    switch (this->presentParams.BackBufferFormat)
+    {
+    case D3DFMT_R5G6B5:
+        LogPrintf(&g_Log, "16bit は取り込めない\r\n");
+        break;
+    case D3DFMT_X8R8G8B8:
+    {
+        int widthBytes;
+        int x;
+        int y;
+        BYTE *dst;
+        BYTE *read;
+        D3DLOCKED_RECT lockRect;
+        int outRow;
+        BYTE *pBits;
+        int pitch;
+        HANDLE file;
+
+        bmi = (BITMAPINFO *)g_MemoryManager.Alloc(sizeof(BITMAPINFO), GLOBAL_H);
+        if (bmi == NULL)
+        {
+            LogPrintf(&g_Log, "snapShotScreen : 確保しくり\r\n");
+            break;
+        }
+        memset(bmi, 0, sizeof(BITMAPINFO));
+        widthBytes = 640 * 3;
+        bits = (BYTE *)g_MemoryManager.Alloc(widthBytes * 480, GLOBAL_H);
+        if (bits == NULL)
+        {
+            LogPrintf(&g_Log, "snapShotScreen : 確保しくり\r\n");
+            goto done;
+        }
+        fileHdr.bfSize += widthBytes * 480;
+        bmi->bmiHeader.biBitCount = 24;
+        bmi->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+        bmi->bmiHeader.biWidth = 640;
+        bmi->bmiHeader.biHeight = 480;
+        bmi->bmiHeader.biPlanes = 1;
+        bmi->bmiHeader.biCompression = BI_RGB;
+        buffer->LockRect(&lockRect, NULL, 0);
+        // Bottom-up, as a bitmap's rows go.
+        pBits = (BYTE *)lockRect.pBits;
+        pitch = lockRect.Pitch;
+        outRow = 0;
+        for (y = 479; y > -1; y--, outRow++)
+        {
+            dst = bits + widthBytes * outRow;
+            read = pBits + pitch * y;
+            for (x = 0; x < 640; x++)
+            {
+                *dst = *read;
+                read++;
+                dst++;
+                *dst = *read;
+                read++;
+                dst++;
+                *dst = *read;
+                read += 2;
+                dst++;
+            }
+        }
+        buffer->UnlockRect();
+        file = CreateFileA(path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        if (file == INVALID_HANDLE_VALUE)
+        {
+            break;
+        }
+        // The byte counts go into path, which is not needed any more.
+        WriteFile(file, &fileHdr, sizeof(BITMAPFILEHEADER), (DWORD *)&path, NULL);
+        WriteFile(file, bmi, sizeof(BITMAPINFOHEADER), (DWORD *)&path, NULL);
+        WriteFile(file, bits, widthBytes * 480, (DWORD *)&path, NULL);
+        CloseHandle(file);
+        break;
+    }
+    default:
+        LogPrintf(&g_Log, "error ? .\\system\\mother.cpp\r\n");
+        return 1;
+    }
+done:
+    if (buffer != NULL)
+    {
+        buffer->Release();
+        buffer = NULL;
+    }
+    g_MemoryManager.Free(bmi);
+    g_MemoryManager.Free(bits);
+    return 0;
+}
+
+void SpriteEngine::ResetFrameState()
+{
+    this->ClearVertexFormat();
+    this->ClearSpriteData();
+    this->ClearTexture();
+    this->ClearColorOp();
+    this->ClearBlendMode();
+    this->ClearZWrite();
+    this->ClearDrawStats();
+    this->ClearLastCameraSetupFlag();
+    this->ResetColorModulation();
+    this->shakeY = 0.0f;
+    this->shakeX = 0.0f;
+}
+
 int App::LoadConfig(char *path)
 {
     GameConfig *file;
@@ -714,158 +860,6 @@ int App::FadeOutBgm(float seconds)
         return -1;
     }
     return 0;
-}
-
-void Timer::Add(float frames)
-{
-    this->previous = this->current;
-    if (g_App.gameSpeed > 0.99f)
-    {
-        this->currentF += frames;
-    }
-    else
-    {
-        this->currentF += g_App.gameSpeed * frames;
-    }
-    this->current = this->currentF;
-    if (g_App.stateFlags & 0x20)
-    {
-        this->previous = -999999;
-        this->currentF += this->current;
-    }
-}
-
-void App::TickTimer(int *frames, float *subFrame)
-{
-    if (this->gameSpeed <= 0.99f)
-    {
-        *subFrame += this->gameSpeed;
-        *frames = *subFrame;
-    }
-    else
-    {
-        (*frames)++;
-        *subFrame += 1.0f;
-    }
-}
-
-int App::SaveScreenshot(char *path)
-{
-    BITMAPFILEHEADER fileHdr;
-    BYTE *bits;
-    BITMAPINFO *bmi;
-    IDirect3DSurface8 *buffer;
-
-    bmi = NULL;
-    bits = NULL;
-    buffer = NULL;
-    this->d3dDevice->GetBackBuffer(0, D3DBACKBUFFER_TYPE_MONO, &buffer);
-    memset(&fileHdr, 0, sizeof(fileHdr));
-    fileHdr.bfType = *(WORD *)"BM";
-    fileHdr.bfOffBits = sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
-    fileHdr.bfSize = fileHdr.bfOffBits;
-    switch (this->presentParams.BackBufferFormat)
-    {
-    case D3DFMT_R5G6B5:
-        LogPrintf(&g_Log, "16bit は取り込めない\r\n");
-        break;
-    case D3DFMT_X8R8G8B8:
-    {
-        int widthBytes;
-        int x;
-        int y;
-        BYTE *dst;
-        BYTE *read;
-        D3DLOCKED_RECT lockRect;
-        int outRow;
-        BYTE *pBits;
-        int pitch;
-        HANDLE file;
-
-        bmi = (BITMAPINFO *)g_MemoryManager.Alloc(sizeof(BITMAPINFO), GLOBAL_H);
-        if (bmi == NULL)
-        {
-            LogPrintf(&g_Log, "snapShotScreen : 確保しくり\r\n");
-            break;
-        }
-        memset(bmi, 0, sizeof(BITMAPINFO));
-        widthBytes = 640 * 3;
-        bits = (BYTE *)g_MemoryManager.Alloc(widthBytes * 480, GLOBAL_H);
-        if (bits == NULL)
-        {
-            LogPrintf(&g_Log, "snapShotScreen : 確保しくり\r\n");
-            goto done;
-        }
-        fileHdr.bfSize += widthBytes * 480;
-        bmi->bmiHeader.biBitCount = 24;
-        bmi->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-        bmi->bmiHeader.biWidth = 640;
-        bmi->bmiHeader.biHeight = 480;
-        bmi->bmiHeader.biPlanes = 1;
-        bmi->bmiHeader.biCompression = BI_RGB;
-        buffer->LockRect(&lockRect, NULL, 0);
-        // Bottom-up, as a bitmap's rows go.
-        pBits = (BYTE *)lockRect.pBits;
-        pitch = lockRect.Pitch;
-        outRow = 0;
-        for (y = 479; y > -1; y--, outRow++)
-        {
-            dst = bits + widthBytes * outRow;
-            read = pBits + pitch * y;
-            for (x = 0; x < 640; x++)
-            {
-                *dst = *read;
-                read++;
-                dst++;
-                *dst = *read;
-                read++;
-                dst++;
-                *dst = *read;
-                read += 2;
-                dst++;
-            }
-        }
-        buffer->UnlockRect();
-        file = CreateFileA(path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
-        if (file == INVALID_HANDLE_VALUE)
-        {
-            break;
-        }
-        // The byte counts go into path, which is not needed any more.
-        WriteFile(file, &fileHdr, sizeof(BITMAPFILEHEADER), (DWORD *)&path, NULL);
-        WriteFile(file, bmi, sizeof(BITMAPINFOHEADER), (DWORD *)&path, NULL);
-        WriteFile(file, bits, widthBytes * 480, (DWORD *)&path, NULL);
-        CloseHandle(file);
-        break;
-    }
-    default:
-        LogPrintf(&g_Log, "error ? .\\system\\mother.cpp\r\n");
-        return 1;
-    }
-done:
-    if (buffer != NULL)
-    {
-        buffer->Release();
-        buffer = NULL;
-    }
-    g_MemoryManager.Free(bmi);
-    g_MemoryManager.Free(bits);
-    return 0;
-}
-
-void SpriteEngine::ResetFrameState()
-{
-    this->ClearVertexFormat();
-    this->ClearSpriteData();
-    this->ClearTexture();
-    this->ClearColorOp();
-    this->ClearBlendMode();
-    this->ClearZWrite();
-    this->ClearDrawStats();
-    this->ClearLastCameraSetupFlag();
-    this->ResetColorModulation();
-    this->shakeY = 0.0f;
-    this->shakeX = 0.0f;
 }
 
 int App::EnableFog()
@@ -1198,188 +1192,6 @@ void App::InitCameras()
     g_App.cameras[1].offset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 }
 
-void DrawFps(int draw)
-{
-    static DWORD frames;
-    static char fpsText[0x100];
-    // Two DWORDs, as App::perfFrequency: its storage is only four-byte
-    // aligned in the original.
-    static DWORD lastCounter[2];
-    static DWORD measures;
-    static char speedText[0x100];
-    float fps;
-    float duration;
-
-    frames += 1 + g_App.config.frameSkip;
-    if (g_App.perfFrequency[0] == 0)
-    {
-        static DWORD lastTime = timeGetTime();
-        DWORD now = timeGetTime();
-
-        if (now < lastTime)
-        {
-            lastTime = now;
-            frames = 0;
-        }
-        if (now - lastTime >= 500)
-        {
-            duration = (now - lastTime) * 0.001f;
-            lastTime = now;
-        measured:
-            fps = frames / duration;
-            frames = 0;
-            sprintf(fpsText, "%.02ffps", fps);
-            if ((g_GameManager.stateFlags & 4) && draw)
-            {
-                float target = 60.0f;
-
-                g_App.expectedFrames += target;
-                if (fps > target * 0.9f)
-                {
-                    g_App.achievedFrames += target;
-                }
-                else if (fps > target * 0.7f)
-                {
-                    g_App.achievedFrames += target * 0.8f;
-                }
-                else if (fps > target * 0.5f)
-                {
-                    g_App.achievedFrames += target * 0.6f;
-                }
-                else
-                {
-                    g_App.achievedFrames += target * 0.5f;
-                }
-                if (!g_GameManager.IsReplay())
-                {
-                    g_App.roundedFps = fps + 0.5f;
-                }
-                else
-                {
-                    sprintf(speedText, "%2d", g_App.roundedFps);
-                }
-            }
-        }
-    }
-    else
-    {
-        LARGE_INTEGER counter;
-
-        if (lastCounter[0] == 0)
-        {
-            QueryPerformanceCounter((LARGE_INTEGER *)lastCounter);
-        }
-        QueryPerformanceCounter(&counter);
-        if (counter.LowPart < lastCounter[0])
-        {
-            *(LARGE_INTEGER *)lastCounter = counter;
-            frames = 0;
-        }
-        if (counter.LowPart >= lastCounter[0] + (g_App.perfFrequency[0] >> 1))
-        {
-            duration = (float)(counter.LowPart - lastCounter[0]) / (float)g_App.perfFrequency[0];
-            *(LARGE_INTEGER *)lastCounter = counter;
-            measures++;
-            goto measured;
-        }
-    }
-    if (g_App.hideFps == 0 && draw && (g_GameManager.stateFlags & 4))
-    {
-        D3DXVECTOR3 pos(280.0f, 466.0f, 0.0f);
-
-        g_AsciiText.AddString(&pos, fpsText);
-    }
-}
-
-int App::PlayMusic(int id, int arg)
-{
-    DWORD i;
-
-    for (i = 0; i < ARRAY_SIZE(g_BgmInfos); i++)
-    {
-        if (g_BgmInfos[i].id == id)
-        {
-            break;
-        }
-    }
-    if (i >= ARRAY_SIZE(g_BgmInfos))
-    {
-        return 1;
-    }
-    int heard = g_BgmInfos[i].unknown0c;
-    int slot = g_BgmInfos[i].id;
-    if (g_App.config.musicMode == 2)
-    {
-        if (g_App.midi != NULL)
-        {
-            g_App.midi->Restart(slot);
-        }
-        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
-        {
-            g_PlayRecord.bgmHeard[heard] = 1;
-        }
-        return 0;
-    }
-    if (g_App.config.musicMode == 1)
-    {
-        if (g_App.GetPreloadBgm())
-        {
-            g_SoundPlayer.QueueSoundCommand(4, 0, "dummy");
-        }
-        g_SoundPlayer.QueueSoundCommand(2, slot, "dummy");
-        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
-        {
-            g_PlayRecord.bgmHeard[heard] = 1;
-        }
-    }
-    g_BgmUnknown08 = g_BgmInfos[i].unknown08;
-    return 0;
-}
-
-int App::PlayMusicFile(char *path, int heard)
-{
-    char *dot;
-    char wavFile[0x100];
-
-    if (g_App.config.musicMode == 2)
-    {
-        if (g_App.midi != NULL)
-        {
-            g_App.midi->PlayFile(path);
-        }
-        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
-        {
-            g_PlayRecord.bgmHeard[heard] = 1;
-        }
-    }
-    else if (g_App.config.musicMode == 1)
-    {
-        strcpy(wavFile, path);
-        dot = strrchr(wavFile, '.');
-        dot[1] = 'w';
-        dot[2] = 'a';
-        dot[3] = 'v';
-        g_SoundPlayer.QueueSoundCommand(2, -1, wavFile);
-        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
-        {
-            g_PlayRecord.bgmHeard[heard] = 1;
-        }
-    }
-    else
-    {
-        return -1;
-    }
-    return 0;
-}
-
-int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
-{
-    this->CloseSubThread();
-    this->subThread = CreateThread(NULL, 0, proc, arg, 0, &this->subThreadId);
-    this->unknown6b8 = 1;
-    return this->subThread != NULL ? 0 : -1;
-}
-
 int App::OnUpdate(App *app)
 {
     app->unknown478 = 0;
@@ -1603,6 +1415,12 @@ int App::OnUpdate(App *app)
     return 1;
 }
 
+App::App()
+{
+    memset(this, 0, sizeof(*this));
+    this->stateFlags |= 0x140;
+}
+
 int App::OnDrawLogo(App *app)
 {
     g_SpriteEngine->BeginQuadBatch();
@@ -1636,6 +1454,188 @@ int App::OnDrawLogo(App *app)
         g_SpriteEngine->ReleaseSurface(8);
     }
     return 1;
+}
+
+void DrawFps(int draw)
+{
+    static DWORD frames;
+    static char fpsText[0x100];
+    // Two DWORDs, as App::perfFrequency: its storage is only four-byte
+    // aligned in the original.
+    static DWORD lastCounter[2];
+    static DWORD measures;
+    static char speedText[0x100];
+    float fps;
+    float duration;
+
+    frames += 1 + g_App.config.frameSkip;
+    if (g_App.perfFrequency[0] == 0)
+    {
+        static DWORD lastTime = timeGetTime();
+        DWORD now = timeGetTime();
+
+        if (now < lastTime)
+        {
+            lastTime = now;
+            frames = 0;
+        }
+        if (now - lastTime >= 500)
+        {
+            duration = (now - lastTime) * 0.001f;
+            lastTime = now;
+        measured:
+            fps = frames / duration;
+            frames = 0;
+            sprintf(fpsText, "%.02ffps", fps);
+            if ((g_GameManager.stateFlags & 4) && draw)
+            {
+                float target = 60.0f;
+
+                g_App.expectedFrames += target;
+                if (fps > target * 0.9f)
+                {
+                    g_App.achievedFrames += target;
+                }
+                else if (fps > target * 0.7f)
+                {
+                    g_App.achievedFrames += target * 0.8f;
+                }
+                else if (fps > target * 0.5f)
+                {
+                    g_App.achievedFrames += target * 0.6f;
+                }
+                else
+                {
+                    g_App.achievedFrames += target * 0.5f;
+                }
+                if (!g_GameManager.IsReplay())
+                {
+                    g_App.roundedFps = fps + 0.5f;
+                }
+                else
+                {
+                    sprintf(speedText, "%2d", g_App.roundedFps);
+                }
+            }
+        }
+    }
+    else
+    {
+        LARGE_INTEGER counter;
+
+        if (lastCounter[0] == 0)
+        {
+            QueryPerformanceCounter((LARGE_INTEGER *)lastCounter);
+        }
+        QueryPerformanceCounter(&counter);
+        if (counter.LowPart < lastCounter[0])
+        {
+            *(LARGE_INTEGER *)lastCounter = counter;
+            frames = 0;
+        }
+        if (counter.LowPart >= lastCounter[0] + (g_App.perfFrequency[0] >> 1))
+        {
+            duration = (float)(counter.LowPart - lastCounter[0]) / (float)g_App.perfFrequency[0];
+            *(LARGE_INTEGER *)lastCounter = counter;
+            measures++;
+            goto measured;
+        }
+    }
+    if (g_App.hideFps == 0 && draw && (g_GameManager.stateFlags & 4))
+    {
+        D3DXVECTOR3 pos(280.0f, 466.0f, 0.0f);
+
+        g_AsciiText.AddString(&pos, fpsText);
+    }
+}
+
+int App::PlayMusic(int id, int arg)
+{
+    DWORD i;
+
+    for (i = 0; i < ARRAY_SIZE(g_BgmInfos); i++)
+    {
+        if (g_BgmInfos[i].id == id)
+        {
+            break;
+        }
+    }
+    if (i >= ARRAY_SIZE(g_BgmInfos))
+    {
+        return 1;
+    }
+    int heard = g_BgmInfos[i].unknown0c;
+    int slot = g_BgmInfos[i].id;
+    if (g_App.config.musicMode == 2)
+    {
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->Restart(slot);
+        }
+        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
+        {
+            g_PlayRecord.bgmHeard[heard] = 1;
+        }
+        return 0;
+    }
+    if (g_App.config.musicMode == 1)
+    {
+        if (g_App.GetPreloadBgm())
+        {
+            g_SoundPlayer.QueueSoundCommand(4, 0, "dummy");
+        }
+        g_SoundPlayer.QueueSoundCommand(2, slot, "dummy");
+        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
+        {
+            g_PlayRecord.bgmHeard[heard] = 1;
+        }
+    }
+    g_BgmUnknown08 = g_BgmInfos[i].unknown08;
+    return 0;
+}
+
+int App::PlayMusicFile(char *path, int heard)
+{
+    char *dot;
+    char wavFile[0x100];
+
+    if (g_App.config.musicMode == 2)
+    {
+        if (g_App.midi != NULL)
+        {
+            g_App.midi->PlayFile(path);
+        }
+        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
+        {
+            g_PlayRecord.bgmHeard[heard] = 1;
+        }
+    }
+    else if (g_App.config.musicMode == 1)
+    {
+        strcpy(wavFile, path);
+        dot = strrchr(wavFile, '.');
+        dot[1] = 'w';
+        dot[2] = 'a';
+        dot[3] = 'v';
+        g_SoundPlayer.QueueSoundCommand(2, -1, wavFile);
+        if (!g_GameManager.IsReplay() && !g_GameManager.IsDemo())
+        {
+            g_PlayRecord.bgmHeard[heard] = 1;
+        }
+    }
+    else
+    {
+        return -1;
+    }
+    return 0;
+}
+
+int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
+{
+    this->CloseSubThread();
+    this->subThread = CreateThread(NULL, 0, proc, arg, 0, &this->subThreadId);
+    this->unknown6b8 = 1;
+    return this->subThread != NULL ? 0 : -1;
 }
 
 int App::OnDraw(App *app)

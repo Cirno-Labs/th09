@@ -162,6 +162,164 @@ static void DecodeMsgString(char *dst, char *src)
     } while (c != 0);
 }
 
+void GuiMsg::Clear()
+{
+    memset(this, 0, sizeof(GuiMsg));
+    this->scriptIndex = -1;
+}
+
+WORD PlayerInput::IsHeld2(WORD mask)
+{
+    return this->unknown2c & mask;
+}
+
+WORD PlayerInput::IsJustPressed2(WORD mask)
+{
+    return this->unknown32 & mask;
+}
+
+int FreesResources()
+{
+    return g_App.freesResources;
+}
+
+BOOL GameManager::IsMode2()
+{
+    return this->mode == 2;
+}
+
+void GuiSide::StartUnknownAbcc()
+{
+    this->unknownAbcc = 1;
+    this->timerAbd0 = 0;
+}
+
+void Gui::CountRoundWin(int side)
+{
+    this->unknown11ea8 = 1;
+    g_GameManager.unknown100++;
+    if (++g_GameManager.unknown108[side] >= g_GameManager.unknown104)
+    {
+        this->anm->StartScriptAtOrigin(&this->unknown10968[0], 0x3c);
+        this->anm->StartScriptAtOrigin(&this->unknown10968[1], 0x3d);
+        this->anm->StartScriptAtOrigin(&this->unknown10968[2], 0x3e);
+        this->unknown10968[1].posOffset.x = -999.0f;
+        this->unknown10968[2].posOffset.x = -999.0f;
+        this->unknown10968[1].pos.x = -999.0f;
+        this->unknown10968[2].pos.x = -999.0f;
+        this->anm->SetSprite(&this->unknown10968[1 + side], 0x2c);
+        this->anm->SetSprite(&this->unknown10968[2 - side], 0x2d);
+    }
+    this->unknown10964 = side;
+    this->unknown1095c = 1;
+    this->unknown10960 = 0;
+    this->unknown11ea4 = 0;
+}
+
+void Gui::ScoreRoundBonus()
+{
+    int side;
+
+    this->anm->StartScriptAtOrigin(&this->unknown10968[3], 0x3f);
+    this->anm->StartScriptAtOrigin(&this->unknown10968[6], 0x42);
+    side = this->unknown10964;
+    this->unknown10960 = 0;
+    this->unknown1095c = 2;
+    this->unknown11e88 = g_GameManager.sides[side].player->unknownA8 * 100000;
+    if (g_GameManager.sides[side].player->unknown30410.maxCount < 1000)
+    {
+        this->unknown11e8c = g_GameManager.sides[side].player->unknown30410.maxCount * 10000;
+    }
+    else
+    {
+        this->unknown11e8c = 9999990;
+    }
+    if (g_GameManager.sides[side].player->unknownB0 > 66)
+    {
+        this->unknown11e90 = 9999990;
+    }
+    else
+    {
+        this->unknown11e90 = g_GameManager.sides[side].player->unknownB0 * 150000;
+    }
+    if (g_GameManager.sides[side].player->unknownB4 > 33)
+    {
+        this->unknown11e94 = 9999990;
+    }
+    else
+    {
+        this->unknown11e94 = g_GameManager.sides[side].player->unknownB4 * 300000;
+    }
+    if (g_GameManager.sides[side].player->unknownB8 > 33)
+    {
+        this->unknown11e98 = 9999990;
+    }
+    else
+    {
+        this->unknown11e98 = g_GameManager.sides[side].player->unknownB8 * 300000;
+    }
+    if (g_GameManager.unknownFc == 8)
+    {
+        if (g_GameManager.sides[side].stats->lives >= 10.0f)
+        {
+            this->unknown11e9c = 99999990;
+        }
+        else
+        {
+            this->unknown11e9c = (int)g_GameManager.sides[side].stats->lives * 10000000;
+        }
+    }
+    else
+    {
+        this->unknown11e9c = 0;
+    }
+    this->bonusTotal = this->unknown11e88 + this->unknown11e8c + this->unknown11e90 + this->unknown11e94 +
+                       this->unknown11e98 + this->unknown11e9c;
+    if ((g_GameManager.IsMode0() || g_GameManager.IsMode1()) && side == 0)
+    {
+        g_PlayRecord.OpenEntry(g_GameManager.sides[1].character);
+        if (g_GameManager.unknownFc == 8)
+        {
+            this->anm->StartScriptAtOrigin(&this->unknown10968[4], 0x40);
+            g_GameManager.sides[0].stats->extendsGiven = 9999;
+        }
+        if (g_GameManager.config->unknownAc > 0 && g_GameManager.IsMode0())
+        {
+            this->anm->StartScriptAtOrigin(&this->unknown10968[5], 0x41);
+            this->bonusTotal = 0;
+        }
+    }
+    g_GameManager.sides[this->unknown10964].AddScore(this->bonusTotal);
+}
+
+void Gui::UpdateEnemyMarker(int side, D3DXVECTOR3 *pos)
+{
+    float dist;
+
+    g_App.SetCamera(side);
+    if (!(pos->x < -112.0f || pos->x > 112.0f))
+    {
+        dist = g_GameManager.sides[side].player->pos.x - pos->x;
+        if (dist < 0.0f)
+        {
+            dist = -dist;
+        }
+        if (dist < 64.0f)
+        {
+            this->enemyMarkers[side].alpha = (int)dist * 3 + 0x40;
+        }
+        else
+        {
+            this->enemyMarkers[side].alpha = 0xff;
+        }
+        this->enemyMarkers[side].pos.x = g_GameManager.ArenaToScreenX(pos->x);
+        this->enemyMarkers[side].pos.y = 472.0f;
+        this->enemyMarkers[side].pos.z = 0.0f;
+        return;
+    }
+    this->enemyMarkers[side].alpha = 0;
+}
+
 void GuiMsg::Start(int index, int side)
 {
     MsgFile *msgFile = this->msgFile;
@@ -1049,164 +1207,6 @@ int Gui::OnDraw(Gui *gui)
     g_SpriteEngine->DrawUnrotated(&gui->unknown11eac[0]);
     g_SpriteEngine->DrawUnrotated(&gui->unknown11eac[1]);
     return 1;
-}
-
-void Gui::CountRoundWin(int side)
-{
-    this->unknown11ea8 = 1;
-    g_GameManager.unknown100++;
-    if (++g_GameManager.unknown108[side] >= g_GameManager.unknown104)
-    {
-        this->anm->StartScriptAtOrigin(&this->unknown10968[0], 0x3c);
-        this->anm->StartScriptAtOrigin(&this->unknown10968[1], 0x3d);
-        this->anm->StartScriptAtOrigin(&this->unknown10968[2], 0x3e);
-        this->unknown10968[1].posOffset.x = -999.0f;
-        this->unknown10968[2].posOffset.x = -999.0f;
-        this->unknown10968[1].pos.x = -999.0f;
-        this->unknown10968[2].pos.x = -999.0f;
-        this->anm->SetSprite(&this->unknown10968[1 + side], 0x2c);
-        this->anm->SetSprite(&this->unknown10968[2 - side], 0x2d);
-    }
-    this->unknown10964 = side;
-    this->unknown1095c = 1;
-    this->unknown10960 = 0;
-    this->unknown11ea4 = 0;
-}
-
-void Gui::ScoreRoundBonus()
-{
-    int side;
-
-    this->anm->StartScriptAtOrigin(&this->unknown10968[3], 0x3f);
-    this->anm->StartScriptAtOrigin(&this->unknown10968[6], 0x42);
-    side = this->unknown10964;
-    this->unknown10960 = 0;
-    this->unknown1095c = 2;
-    this->unknown11e88 = g_GameManager.sides[side].player->unknownA8 * 100000;
-    if (g_GameManager.sides[side].player->unknown30410.maxCount < 1000)
-    {
-        this->unknown11e8c = g_GameManager.sides[side].player->unknown30410.maxCount * 10000;
-    }
-    else
-    {
-        this->unknown11e8c = 9999990;
-    }
-    if (g_GameManager.sides[side].player->unknownB0 > 66)
-    {
-        this->unknown11e90 = 9999990;
-    }
-    else
-    {
-        this->unknown11e90 = g_GameManager.sides[side].player->unknownB0 * 150000;
-    }
-    if (g_GameManager.sides[side].player->unknownB4 > 33)
-    {
-        this->unknown11e94 = 9999990;
-    }
-    else
-    {
-        this->unknown11e94 = g_GameManager.sides[side].player->unknownB4 * 300000;
-    }
-    if (g_GameManager.sides[side].player->unknownB8 > 33)
-    {
-        this->unknown11e98 = 9999990;
-    }
-    else
-    {
-        this->unknown11e98 = g_GameManager.sides[side].player->unknownB8 * 300000;
-    }
-    if (g_GameManager.unknownFc == 8)
-    {
-        if (g_GameManager.sides[side].stats->lives >= 10.0f)
-        {
-            this->unknown11e9c = 99999990;
-        }
-        else
-        {
-            this->unknown11e9c = (int)g_GameManager.sides[side].stats->lives * 10000000;
-        }
-    }
-    else
-    {
-        this->unknown11e9c = 0;
-    }
-    this->bonusTotal = this->unknown11e88 + this->unknown11e8c + this->unknown11e90 + this->unknown11e94 +
-                       this->unknown11e98 + this->unknown11e9c;
-    if ((g_GameManager.IsMode0() || g_GameManager.IsMode1()) && side == 0)
-    {
-        g_PlayRecord.OpenEntry(g_GameManager.sides[1].character);
-        if (g_GameManager.unknownFc == 8)
-        {
-            this->anm->StartScriptAtOrigin(&this->unknown10968[4], 0x40);
-            g_GameManager.sides[0].stats->extendsGiven = 9999;
-        }
-        if (g_GameManager.config->unknownAc > 0 && g_GameManager.IsMode0())
-        {
-            this->anm->StartScriptAtOrigin(&this->unknown10968[5], 0x41);
-            this->bonusTotal = 0;
-        }
-    }
-    g_GameManager.sides[this->unknown10964].AddScore(this->bonusTotal);
-}
-
-void Gui::UpdateEnemyMarker(int side, D3DXVECTOR3 *pos)
-{
-    float dist;
-
-    g_App.SetCamera(side);
-    if (!(pos->x < -112.0f || pos->x > 112.0f))
-    {
-        dist = g_GameManager.sides[side].player->pos.x - pos->x;
-        if (dist < 0.0f)
-        {
-            dist = -dist;
-        }
-        if (dist < 64.0f)
-        {
-            this->enemyMarkers[side].alpha = (int)dist * 3 + 0x40;
-        }
-        else
-        {
-            this->enemyMarkers[side].alpha = 0xff;
-        }
-        this->enemyMarkers[side].pos.x = g_GameManager.ArenaToScreenX(pos->x);
-        this->enemyMarkers[side].pos.y = 472.0f;
-        this->enemyMarkers[side].pos.z = 0.0f;
-        return;
-    }
-    this->enemyMarkers[side].alpha = 0;
-}
-
-void GuiMsg::Clear()
-{
-    memset(this, 0, sizeof(GuiMsg));
-    this->scriptIndex = -1;
-}
-
-WORD PlayerInput::IsHeld2(WORD mask)
-{
-    return this->unknown2c & mask;
-}
-
-WORD PlayerInput::IsJustPressed2(WORD mask)
-{
-    return this->unknown32 & mask;
-}
-
-int FreesResources()
-{
-    return g_App.freesResources;
-}
-
-BOOL GameManager::IsMode2()
-{
-    return this->mode == 2;
-}
-
-void GuiSide::StartUnknownAbcc()
-{
-    this->unknownAbcc = 1;
-    this->timerAbd0 = 0;
 }
 
 void Gui::Reset()

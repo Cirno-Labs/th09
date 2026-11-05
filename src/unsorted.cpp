@@ -41,6 +41,27 @@ Chain::Chain()
 {
 }
 
+static int SetButtonFromDirectInput(WORD *buttons, short button, WORD bit, BYTE *rgbButtons)
+{
+    if (button < 0)
+    {
+        return 0;
+    }
+    *buttons |= (rgbButtons[button] & 0x80) ? bit : 0;
+    return (rgbButtons[button] & 0x80) ? bit : 0;
+}
+
+static int SetButtonFromJoystick(WORD *buttons, short button, WORD bit, DWORD joyButtons)
+{
+    if (button < 0)
+    {
+        return 0;
+    }
+    DWORD mask = 1 << button;
+    *buttons |= (joyButtons & mask) ? bit : 0;
+    return (joyButtons & mask) ? bit : 0;
+}
+
 WORD UpdatePlayerInput(int player, WORD pressed)
 {
     PlayerInput *input;
@@ -174,34 +195,6 @@ void HermiteInterpolate(D3DXVECTOR3 *out, D3DXVECTOR3 *p1, D3DXVECTOR3 *p0, D3DX
     out->y = f00 * p0->y + f01 * p1->y + f10 * m0->y + f11 * m1->y;
 }
 
-MemoryManager::MemoryManager()
-{
-    this->freeBlocksOnExit = 0;
-}
-
-MemoryManager::~MemoryManager()
-{
-    int i;
-
-    if (this->freeBlocksOnExit != 0)
-    {
-        for (i = 0; i < 0x1000; i++)
-        {
-            if (this->blocks[i] != NULL)
-            {
-                free(this->blocks[i]);
-            }
-        }
-    }
-}
-
-Log::Log()
-{
-    this->cursor = this->buffer;
-    *this->cursor = '\0';
-    this->hasError = 0;
-}
-
 PlayerInput::PlayerInput()
 {
     this->mappings[0].shootButton = 0;
@@ -231,6 +224,34 @@ PlayerInput::PlayerInput()
     this->mappings[2].leftButton = 0xcb;
     this->mappings[2].rightButton = 0xcd;
     this->mappings[2].skipButton = 0x1d;
+}
+
+MemoryManager::MemoryManager()
+{
+    this->freeBlocksOnExit = 0;
+}
+
+MemoryManager::~MemoryManager()
+{
+    int i;
+
+    if (this->freeBlocksOnExit != 0)
+    {
+        for (i = 0; i < 0x1000; i++)
+        {
+            if (this->blocks[i] != NULL)
+            {
+                free(this->blocks[i]);
+            }
+        }
+    }
+}
+
+Log::Log()
+{
+    this->cursor = this->buffer;
+    *this->cursor = '\0';
+    this->hasError = 0;
 }
 
 void App::EnterCriticalSection(int idx)
@@ -393,27 +414,6 @@ found:
             g_App.EnterCriticalSection(0);
         }
     }
-}
-
-static int SetButtonFromDirectInput(WORD *buttons, short button, WORD bit, BYTE *rgbButtons)
-{
-    if (button < 0)
-    {
-        return 0;
-    }
-    *buttons |= (rgbButtons[button] & 0x80) ? bit : 0;
-    return (rgbButtons[button] & 0x80) ? bit : 0;
-}
-
-static int SetButtonFromJoystick(WORD *buttons, short button, WORD bit, DWORD joyButtons)
-{
-    if (button < 0)
-    {
-        return 0;
-    }
-    DWORD mask = 1 << button;
-    *buttons |= (joyButtons & mask) ? bit : 0;
-    return (joyButtons & mask) ? bit : 0;
 }
 
 WORD ReadPad(int input, int pad, WORD buttons)

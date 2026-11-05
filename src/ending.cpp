@@ -107,6 +107,42 @@ int Ending::DeletedCallback(Ending *ending)
     return 0;
 }
 
+int Ending::OnDraw(Ending *ending)
+{
+    int i;
+
+    g_SpriteEngine->CopySurfaceRectToBackBuffer(0, 0, 0, ending->scrollX, ending->scrollY, 640, 480);
+    for (i = 0; i < 0xf; i++)
+    {
+        g_SpriteEngine->Draw(&ending->sprites[i]);
+    }
+    ending->DrawFade();
+    return 1;
+}
+
+int Ending::Load(char *path)
+{
+    char *oldFile;
+
+    oldFile = this->file;
+    this->file = (char *)OpenPath(path, NULL, 0);
+    if (this->file == NULL)
+    {
+        this->file = oldFile;
+        LogPrintf(&g_Log, "error : エンディングファイルが読み込めない、ファイルが破壊されています\r\n");
+        return -1;
+    }
+    this->cursor = this->file;
+    this->lineDelay = 8;
+    this->lineTimer = 0;
+    this->timer = 0;
+    if (oldFile != NULL)
+    {
+        g_MemoryManager.Free(oldFile);
+    }
+    return 0;
+}
+
 int Ending::AddedCallback(Ending *ending)
 {
     int j;
@@ -230,42 +266,6 @@ int Ending::AddedCallback(Ending *ending)
         g_Unknown4a7c80->Finish();
     }
     g_Unknown4a7c80 = NULL;
-    return 0;
-}
-
-int Ending::OnDraw(Ending *ending)
-{
-    int i;
-
-    g_SpriteEngine->CopySurfaceRectToBackBuffer(0, 0, 0, ending->scrollX, ending->scrollY, 640, 480);
-    for (i = 0; i < 0xf; i++)
-    {
-        g_SpriteEngine->Draw(&ending->sprites[i]);
-    }
-    ending->DrawFade();
-    return 1;
-}
-
-int Ending::Load(char *path)
-{
-    char *oldFile;
-
-    oldFile = this->file;
-    this->file = (char *)OpenPath(path, NULL, 0);
-    if (this->file == NULL)
-    {
-        this->file = oldFile;
-        LogPrintf(&g_Log, "error : エンディングファイルが読み込めない、ファイルが破壊されています\r\n");
-        return -1;
-    }
-    this->cursor = this->file;
-    this->lineDelay = 8;
-    this->lineTimer = 0;
-    this->timer = 0;
-    if (oldFile != NULL)
-    {
-        g_MemoryManager.Free(oldFile);
-    }
     return 0;
 }
 

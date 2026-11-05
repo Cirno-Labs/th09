@@ -422,6 +422,76 @@ float *ResolveFloatOperand(Enemy *enemy, float *operand, WORD mask, int bit)
     return operand;
 }
 
+// 0x406680
+// Returns from a subroutine: pops the call stack, or ends the thread when it is
+// empty. Returns 1 when the thread ended. (eax = enemy; instr not received.)
+static int ScriptReturn(Enemy *enemy, EclInstr *instr)
+{
+    int i;
+
+    if (enemy->disableCallStack)
+    {
+        // th08: DebugPrint("error : no Stack Ret\r\n"); nothing is emitted,
+        // not even the flag test.
+    }
+    enemy->stackDepth--;
+    if (enemy->stackDepth < 0)
+    {
+        i = enemy->currentCtx->timedCallActive - 1;
+        if (enemy->threads[i] != NULL)
+        {
+            g_MemoryManager.Free(enemy->threads[i]);
+        }
+        enemy->threads[i] = NULL;
+        // Store order in the asm: stackDepth, callStack, currentCtx (th08's
+        // source has callStack, currentCtx, stackDepth).
+        enemy->callStack = enemy->savedCtx;
+        enemy->currentCtx = &enemy->ctx;
+        enemy->stackDepth = enemy->savedStackDepth;
+        return 1;
+    }
+    *enemy->currentCtx = enemy->callStack[enemy->stackDepth];
+    return 0;
+}
+
+// 0x406740
+// Sets the turning sprite scripts and forgets the direction. (eax = enemy,
+// the six scripts on the stack, callee pops 0x18; instr not received.)
+static void ScriptSetTurnSprites(Enemy *enemy, EclInstr *instr, int still, int left, int right,
+                                 int stillFromLeft, int stillFromRight, int extra)
+{
+    enemy->turnStill = still;
+    enemy->turnLeft = left;
+    enemy->turnRight = right;
+    enemy->turnStillFromLeft = stillFromLeft;
+    enemy->turnStillFromRight = stillFromRight;
+    enemy->turnExtra = extra;
+    enemy->spriteDirection = 0xff;
+}
+
+void EclManager::Unload()
+{
+    if (this->file != NULL)
+    {
+        g_MemoryManager.Free(this->file);
+    }
+    this->file = NULL;
+}
+
+int EclManager::StartSub(EnemyUnknown22c *ctx, short sub)
+{
+    if (sub < 0)
+    {
+        return 0;
+    }
+    ctx->code = this->subs[sub];
+    ctx->timer = 0;
+    ctx->waitTimer = 0;
+    ctx->sub = sub;
+    ctx->ecl = this;
+    return 0;
+}
+
 float GetFloatOperand(Enemy *enemy, float id)
 {
     switch ((int)id)
@@ -632,62 +702,6 @@ float GetFloatOperand(Enemy *enemy, float id)
     return id;
 }
 
-void EclManager::Unload()
-{
-    if (this->file != NULL)
-    {
-        g_MemoryManager.Free(this->file);
-    }
-    this->file = NULL;
-}
-
-int EclManager::StartSub(EnemyUnknown22c *ctx, short sub)
-{
-    if (sub < 0)
-    {
-        return 0;
-    }
-    ctx->code = this->subs[sub];
-    ctx->timer = 0;
-    ctx->waitTimer = 0;
-    ctx->sub = sub;
-    ctx->ecl = this;
-    return 0;
-}
-
-void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t)
-{
-    float start;
-    float end;
-
-    start = GetFloatOperand(enemy, instr->args[4].f);
-    end = GetFloatOperand(enemy, instr->args[5].f);
-    *ResolveFloatOperand(enemy, &instr->args[8].f, 0, -1) = (end - start) * t + start;
-}
-
-void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t)
-{
-    float start;
-    float hStart;
-    float weightIn;
-    float end;
-    float slopeIn;
-    float wEnd;
-    float tangentOut;
-    float outWeight;
-
-    start = GetFloatOperand(enemy, instr->args[4].f);
-    end = GetFloatOperand(enemy, instr->args[5].f);
-    slopeIn = GetFloatOperand(enemy, instr->args[6].f);
-    tangentOut = GetFloatOperand(enemy, instr->args[7].f);
-    hStart = (t - 1.0f) * (t - 1.0f) * (2.0f * t + 1.0f);
-    wEnd = t * t * (3.0f - 2.0f * t);
-    weightIn = (1.0f - t) * (1.0f - t) * t;
-    outWeight = (t - 1.0f) * t * t;
-    *ResolveFloatOperand(enemy, &instr->args[8].f, 0, -1) =
-        hStart * start + wEnd * end + weightIn * slopeIn + outWeight * tangentOut;
-}
-
 // The instruction's argument `n`, or the variable it names, as th08's.
 #define INT_ARG(n) \
     ((instr->paramMask & (1 << (n))) ? GetIntOperand(enemy, instr->args[n].i) : instr->args[n].i)
@@ -701,53 +715,6 @@ void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t)
 // The static helpers of RunEnemy, as th08's (ports of ../th08/src/enemyscript.cpp),
 // in address order. All are only called from RunEnemy (0x4086c0) or from each other.
 // The register conventions the compiler gave them are in statics_notes.txt.
-
-// 0x406680
-// Returns from a subroutine: pops the call stack, or ends the thread when it is
-// empty. Returns 1 when the thread ended. (eax = enemy; instr not received.)
-static int ScriptReturn(Enemy *enemy, EclInstr *instr)
-{
-    int i;
-
-    if (enemy->disableCallStack)
-    {
-        // th08: DebugPrint("error : no Stack Ret\r\n"); nothing is emitted,
-        // not even the flag test.
-    }
-    enemy->stackDepth--;
-    if (enemy->stackDepth < 0)
-    {
-        i = enemy->currentCtx->timedCallActive - 1;
-        if (enemy->threads[i] != NULL)
-        {
-            g_MemoryManager.Free(enemy->threads[i]);
-        }
-        enemy->threads[i] = NULL;
-        // Store order in the asm: stackDepth, callStack, currentCtx (th08's
-        // source has callStack, currentCtx, stackDepth).
-        enemy->callStack = enemy->savedCtx;
-        enemy->currentCtx = &enemy->ctx;
-        enemy->stackDepth = enemy->savedStackDepth;
-        return 1;
-    }
-    *enemy->currentCtx = enemy->callStack[enemy->stackDepth];
-    return 0;
-}
-
-// 0x406740
-// Sets the turning sprite scripts and forgets the direction. (eax = enemy,
-// the six scripts on the stack, callee pops 0x18; instr not received.)
-static void ScriptSetTurnSprites(Enemy *enemy, EclInstr *instr, int still, int left, int right,
-                                 int stillFromLeft, int stillFromRight, int extra)
-{
-    enemy->turnStill = still;
-    enemy->turnLeft = left;
-    enemy->turnRight = right;
-    enemy->turnStillFromLeft = stillFromLeft;
-    enemy->turnStillFromRight = stillFromRight;
-    enemy->turnExtra = extra;
-    enemy->spriteDirection = 0xff;
-}
 
 // 0x4070a0
 // Starts a timed move by args[3] per frame along angle args[2], mirrored.
@@ -806,6 +773,39 @@ static void ScriptMovePos(Enemy *enemy, EclInstr *instr)
     {
         enemy->moveDelta.x = -enemy->moveDelta.x;
     }
+}
+
+void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t)
+{
+    float start;
+    float end;
+
+    start = GetFloatOperand(enemy, instr->args[4].f);
+    end = GetFloatOperand(enemy, instr->args[5].f);
+    *ResolveFloatOperand(enemy, &instr->args[8].f, 0, -1) = (end - start) * t + start;
+}
+
+void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t)
+{
+    float start;
+    float hStart;
+    float weightIn;
+    float end;
+    float slopeIn;
+    float wEnd;
+    float tangentOut;
+    float outWeight;
+
+    start = GetFloatOperand(enemy, instr->args[4].f);
+    end = GetFloatOperand(enemy, instr->args[5].f);
+    slopeIn = GetFloatOperand(enemy, instr->args[6].f);
+    tangentOut = GetFloatOperand(enemy, instr->args[7].f);
+    hStart = (t - 1.0f) * (t - 1.0f) * (2.0f * t + 1.0f);
+    wEnd = t * t * (3.0f - 2.0f * t);
+    weightIn = (1.0f - t) * (1.0f - t) * t;
+    outWeight = (t - 1.0f) * t * t;
+    *ResolveFloatOperand(enemy, &instr->args[8].f, 0, -1) =
+        hStart * start + wEnd * end + weightIn * slopeIn + outWeight * tangentOut;
 }
 
 // 0x407560

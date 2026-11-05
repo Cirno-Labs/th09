@@ -145,43 +145,6 @@ void EnemyShooter::SetAngleAccelCommand(int i, int concurrent, int frames, float
     cmd->arg1 = arg1;
 }
 
-void BulletManager::RemoveChain(BulletManager *mgr)
-{
-    if (mgr != NULL)
-    {
-        g_Chain.Remove(mgr->drawElem);
-        g_Chain.Remove(mgr->calcElem);
-        delete mgr;
-    }
-}
-
-BulletManager::BulletManager()
-{
-    this->Initialize();
-}
-
-BulletManager *BulletManager::RegisterChain(int sideIdx)
-{
-    BulletManager *mgr =
-        (BulletManager *)g_MemoryManager.Register(new BulletManager(), sizeof(BulletManager), "EtamaCtrlInf");
-
-    mgr->Initialize();
-    mgr->sideIdx = sideIdx;
-    mgr->side = &g_GameManager.sides[sideIdx];
-    mgr->otherSide = &g_GameManager.sides[1 - sideIdx];
-    mgr->calcElem = g_Chain.CreateElem((ChainCallback)BulletManager::OnUpdate);
-    mgr->calcElem->arg = mgr;
-    mgr->calcElem->addedCallback = (ChainCallback)BulletManager::AddedCallback;
-    if (g_Chain.AddToCalcChain(mgr->calcElem, sideIdx + 0xc) != 0)
-    {
-        return NULL;
-    }
-    mgr->drawElem = g_Chain.CreateElem((ChainCallback)BulletManager::OnDraw);
-    mgr->drawElem->arg = mgr;
-    g_Chain.AddToDrawChain(mgr->drawElem, sideIdx + 0x15);
-    return mgr;
-}
-
 void EnemyShooter::SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1)
 {
     BulletCommand *cmd = this->SetCommand(i, concurrent, 0x10);
@@ -947,6 +910,16 @@ int BulletManager::AddedCallback(BulletManager *mgr)
     return 0;
 }
 
+void BulletManager::RemoveChain(BulletManager *mgr)
+{
+    if (mgr != NULL)
+    {
+        g_Chain.Remove(mgr->drawElem);
+        g_Chain.Remove(mgr->calcElem);
+        delete mgr;
+    }
+}
+
 // Runs the bullet's commands from commandIndex on, until one has to wait
 // for the running ones or ends the list (0x4141c0).
 void RunBulletCommands(Bullet *bullet)
@@ -1441,4 +1414,31 @@ int BulletManager::OnUpdate(BulletManager *mgr)
         mgr->updateFrameCount++;
     }
     return 1;
+}
+
+BulletManager::BulletManager()
+{
+    this->Initialize();
+}
+
+BulletManager *BulletManager::RegisterChain(int sideIdx)
+{
+    BulletManager *mgr =
+        (BulletManager *)g_MemoryManager.Register(new BulletManager(), sizeof(BulletManager), "EtamaCtrlInf");
+
+    mgr->Initialize();
+    mgr->sideIdx = sideIdx;
+    mgr->side = &g_GameManager.sides[sideIdx];
+    mgr->otherSide = &g_GameManager.sides[1 - sideIdx];
+    mgr->calcElem = g_Chain.CreateElem((ChainCallback)BulletManager::OnUpdate);
+    mgr->calcElem->arg = mgr;
+    mgr->calcElem->addedCallback = (ChainCallback)BulletManager::AddedCallback;
+    if (g_Chain.AddToCalcChain(mgr->calcElem, sideIdx + 0xc) != 0)
+    {
+        return NULL;
+    }
+    mgr->drawElem = g_Chain.CreateElem((ChainCallback)BulletManager::OnDraw);
+    mgr->drawElem->arg = mgr;
+    g_Chain.AddToDrawChain(mgr->drawElem, sideIdx + 0x15);
+    return mgr;
 }
