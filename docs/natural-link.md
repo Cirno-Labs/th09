@@ -193,14 +193,67 @@ neighbour more). midi.h back in global.h just before App, and chain.h
 before unsorted.h, as the same lists suggest, gain nothing (chain.h
 first loses 29).
 
+## Searching global.h
+
+A loop that moves one include line of global.h (or of a header it
+includes) to another place, rebuilds every object and keeps the move
+when the adjacent count rises finds little: a header change rebuilds
+all 46 objects (about 20 seconds; copies of the tree in a tmpfs that
+share the Wine prefix by a symlink run six at once). Most moves lose
+1 to 60 neighbours. Before the sound.h split the best was stage.h
+before gamemanager.h (one more); after it, of 103 moves of stage.h,
+ascii.h, player.h, gamemanager.h, sound.h, scoredat.h, timer.h and
+archive.h, only scoredat.h before timer.h gains one, by undoing the
+ending object's two and winning back two in the sprite engine's,
+against the order the `/O1` objects show, so it is not taken.
+common.h before math.h loses 31. The header's order is not where the
+remaining breaks come from; its length before the game's headers is.
+
+## What the original's lead would take
+
+The original's objects reach the header's inline functions far sooner
+than ours: the ending object passes PlayerInput's accessors within its
+first 0x1c4 bytes of code, the app object has math.h's tanf and
+d3dx8math.inl's D3DXVec3Cross before its first function, and the GUI
+object starts with PlayRecord::AddClear5. Probes of what could explain
+it:
+
+- Unused inline functions do count: 400 of them at the start of
+  global.h move the stage's cosf from just after HermiteInterpolate to
+  after Stage::StepObjects.
+- Dead code would: an unused function before an object's first one
+  moves the header along like any other (/OPT:REF drops it, as th06's
+  `TH06_EXE` stand-ins). But 8 KB of it before the ending's ReadInt
+  does not get past d3dx8math.inl and the MemoryManager, and 21 KB
+  gets past sprite.h, where the original stops at PlayerInput. Before
+  the sound.h split, stand-ins of 3.4 KB gained two neighbours in the
+  app object and three in the GUI's, losing most of the placed prefix
+  to the code folding; after it, stand-ins of up to 6.7 KB before any
+  of the first 12 functions of the app, GUI and player objects gain
+  none.
+- <d3dx8.h> later in unsorted.h (with <d3d8.h> where it was, before
+  the Rng, GameWindow, Rotate2D, PlayerInput or Camera) loses 14 to 18
+  neighbours, though the ECL object then starts as the original does
+  (atan2f and fmodf right after EclManager::Load).
+- The Rich header counts 88 C++ objects of cl 13.10.3077, a few of
+  them the CRT's; the exe links 46 game sources. The original's objects
+  were smaller, so each started with less of the header behind it, not
+  more.
+
 ## Open elsewhere
 
 - Most of the breaks left in the large objects (player, GUI, app,
   main menu, sound, MIDI, sprite engine) are functions that wait for
   a header inline function in ours but not in the original: there the
   header's inline functions are compiled well before ours reach them.
-  The order and content of global.h's queue is the lever, and it needs
-  tuning against every object at once.
+  Reordering global.h does not close that lead (see above); something
+  that shortens the queue before the game's headers, or code the
+  original compiled and dropped, would.
+- The MIDI object's UnloadFile, FreeTracks and ParseFile wait for the
+  MemoryManager's inline functions, which the original had compiled
+  by then; it also kept the one-byte `ret` that DebugPrint and the
+  other empty functions fold into, at 0x43d2b0 between
+  MidiTimer::StopTimer and MidiDevice::~MidiDevice.
 - The archive object compiles archive.h's File::ReadDword,
   DatArchiveCursor's and DatArchiveEntry's inline functions after
   DuplicateString, its third function: too early for the header's
