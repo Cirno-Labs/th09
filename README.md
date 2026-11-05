@@ -128,13 +128,14 @@ Unlike th06–th08, this is Visual C++ .NET 2003 (MSVC 7.1, `cl`
 build 4035) and still the DirectX 8 SDK: D3DX8 is a 13.00 build like
 th08's. No object was compiled with `/GL`, unlike th10.
 
-The build uses th10's toolchain, Visual C++ .NET 2003 SP1 (`cl`
-13.10.6030), not the original's RTM build: the code it generates has
-matched so far, but the standalone exe's Rich header will differ.
-`project.toml` expects, in the Wine prefix:
+The build uses the original's RTM compiler and linker (`cl`
+13.10.3077, `link` 7.10.3077) from `msvc710/bin`, with SP1's headers;
+th10's SP1 (`cl` 13.10.6030) generates the same code for every
+function. `project.toml` expects, in the Wine prefix:
 
 ```
-.wine/drive_c/msvc71/   bin/, include/, lib/ (VS .NET 2003 SP1)
+.wine/drive_c/msvc710/  bin/, lib/ (VS .NET 2003 RTM: compiler, CRT)
+.wine/drive_c/msvc71/   include/ (VS .NET 2003 SP1)
 .wine/drive_c/psdk/     Include/, Lib/ (Platform SDK for XP SP2)
 .wine/drive_c/dx8/      include/, lib/ (DirectX 8 SDK)
 ```

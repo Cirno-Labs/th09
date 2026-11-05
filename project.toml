@@ -15,15 +15,16 @@ project = "th09_150a"
 functions = "build/functions_150a.csv"
 
 [build]
-# Visual C++ .NET 2003 (MSVC 7.1; the original is cl 13.10.3077, this
-# is th10's SP1, 13.10.6030), the Platform SDK for Windows XP SP2 and
+# Visual C++ .NET 2003 (MSVC 7.1), the original's RTM build: cl
+# 13.10.3077 and link 7.10.3077, as its Rich header records. th10's SP1
+# (C:\msvc71) generates the same code. The Platform SDK for XP SP2 and
 # the DirectX 8 SDK. The game code is optimized but keeps its frame
 # pointer, and, as th08's, its functions are __fastcall by default
 # (/Gr). Nothing is inlined (/Ob0).
-bin = 'C:\msvc71\bin'
+bin = 'C:\msvc710\bin'
 include = ['C:\dx8\include', 'C:\msvc71\include', 'C:\psdk\Include']
 # DirectX 8.0 headers, but 8.1 libraries and the VC 7.1 RTM CRT,
-# as in the original EXE; the compiler remains SP1 for function matching.
+# as in the original EXE.
 # DxErr8.lib is the legacy library from the October 2006 DirectX SDK.
 lib = ['C:\dxerr8\lib', 'C:\dx81\lib', 'C:\dx8\lib', 'C:\msvc710\lib', 'C:\msvc71\lib', 'C:\psdk\Lib']
 hook = "scripts/exe_layout.py"
