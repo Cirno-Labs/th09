@@ -524,12 +524,12 @@ int UpdateEffectType34(Effect *effect)
 
     if (data->state == 0)
     {
-        t = 1.0f - effect->unknownAc.AsFloat() * 0.02f;
+        t = 1.0f - effect->timer.AsFloat() * 0.02f;
         data->unknown50 = (1.0f - t * t) * 64.0f;
-        if (effect->unknownAc >= 50)
+        if (effect->timer >= 50)
         {
             data->state = 1;
-            effect->unknownAc = 0;
+            effect->timer = 0;
         }
     }
     else
@@ -538,10 +538,10 @@ int UpdateEffectType34(Effect *effect)
         {
             for (j = 0; j < 0x20; j++)
             {
-                data->unknownCe8[i][j] = g_Rng.GetRandomF32SignedInRange(effect->unknownAc.AsFloat());
+                data->unknownCe8[i][j] = g_Rng.GetRandomF32SignedInRange(effect->timer.AsFloat());
             }
         }
-        if (effect->unknownAc >= 30)
+        if (effect->timer >= 30)
         {
             return 0;
         }
@@ -569,7 +569,7 @@ int DrawEffectType34(Effect *effect)
     }
     else
     {
-        alpha = 0xff - effect->unknownAc.AsFrames() * 0xff / 50;
+        alpha = 0xff - effect->timer.AsFrames() * 0xff / 50;
     }
     vtx->pos = effect->pos;
     vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);

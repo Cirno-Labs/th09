@@ -54,7 +54,7 @@ struct Effect
     short unknownA6;
     short unknownA8;
     short unknownAa;
-    Timer unknownAc;
+    Timer timer;
     unsigned char pad_b8[0xbc - 0xb8];
     // From the effect's EffectInfo.
     int (*update)(Effect *effect);
@@ -110,15 +110,15 @@ public:
     {
         memset(this, 0, sizeof(EffectManager));
     }
-    // Zeroes the manager, then sets unknown20 to 1. Inline; the copy is
+    // Zeroes the manager, then sets colorScale to 1. Inline; the copy is
     // at 0x40d2e0.
     EffectManager()
     {
         this->Init();
-        this->unknown20[0] = 1.0f;
-        this->unknown20[1] = 1.0f;
-        this->unknown20[2] = 1.0f;
-        this->unknown20[3] = 1.0f;
+        this->colorScale[0] = 1.0f;
+        this->colorScale[1] = 1.0f;
+        this->colorScale[2] = 1.0f;
+        this->colorScale[3] = 1.0f;
     }
 
     // Frees the blocks of each effect and the effects. Returns 0. Clears
@@ -181,14 +181,14 @@ public:
     GameSide *otherSide;
     ChainElem *calcElem;
     ChainElem *drawElem;
-    float unknown20[4];
+    float colorScale[4];
     Effect *effects;
     // The effects are unknown34 + unknown38 + 1.
     int unknown34;
     int unknown38;
     // The heads of three lists of effects; OnDraw2 draws the first.
-    Effect unknown3c;
-    Effect unknown114;
+    Effect drawList0;
+    Effect drawList1;
     Effect drawList2;
     // The last effects of the draw lists unknown3c, unknown114 and
     // drawList2.

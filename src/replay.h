@@ -80,7 +80,7 @@ struct ReplayHeader
     // three 0x20 byte blocks each followed by the inputs of a ReplayChunk
     // list, and the bytes kept every 30 frames.
     void *unknown20[3][10];
-    void *unknown98[10];
+    void *extras[10];
     ReplayInfo info;
     unsigned char pad_1a8[0x1d0 - 0x1a8];
     // 30.
@@ -167,11 +167,11 @@ public:
 
     // PlayOnUpdate2 returns 6 while a dialogue runs unless it is 2
     // modulo 3.
-    int unknown0;
+    int frame;
     // How many frames RecordOnUpdate recorded while bit 9 of stateFlags
     // was set; it stops at 3.
-    int unknown4;
-    ReplayHeader *unknown08;
+    int framesAfterStageClear;
+    ReplayHeader *data;
     // Where each player's recorded inputs and the recorded frame rates
     // are read from, as th08's cursor and extraCursor.
     WORD *inputCursors[3];

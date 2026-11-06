@@ -21,7 +21,7 @@ void EffectManager::Reset()
     int i;
     Effect *effect;
 
-    this->unknown3c.next = NULL;
+    this->drawList0.next = NULL;
     effect = this->effects;
     for (i = 0; i < this->unknown34 + this->unknown38 + 1; i++, effect++)
     {
@@ -182,11 +182,11 @@ int EffectManager::OnUpdate(EffectManager *mgr)
     }
     g_App.SetCamera(mgr->sideIdx);
     mgr->activeCount = 0;
-    mgr->drawListTails[0] = &mgr->unknown3c;
-    mgr->drawListTails[1] = &mgr->unknown114;
+    mgr->drawListTails[0] = &mgr->drawList0;
+    mgr->drawListTails[1] = &mgr->drawList1;
     mgr->drawListTails[2] = &mgr->drawList2;
-    mgr->unknown3c.next = NULL;
-    mgr->unknown114.next = NULL;
+    mgr->drawList0.next = NULL;
+    mgr->drawList1.next = NULL;
     mgr->drawList2.next = NULL;
     // Preserve the original order of the two live pool-bound reads.
     for (i = 0; i < static_cast<const volatile int &>(mgr->unknown34) + mgr->unknown38; i++, effect++)
@@ -224,7 +224,7 @@ int EffectManager::OnUpdate(EffectManager *mgr)
             effect->active = 0;
             continue;
         }
-        effect->unknownAc++;
+        effect->timer++;
         effect->next = NULL;
         if (effect->unknownD0)
         {
@@ -256,7 +256,7 @@ int EffectManager::OnDraw(EffectManager *mgr)
     Sprite *sprite;
     int i;
 
-    effect = mgr->unknown3c.next;
+    effect = mgr->drawList0.next;
     g_App.SetView(mgr->sideIdx);
     for (; effect != NULL; effect = effect->next)
     {
@@ -286,7 +286,7 @@ int EffectManager::OnDraw2(EffectManager *mgr)
     Sprite *sprite;
     int i;
 
-    effect = mgr->unknown3c.next;
+    effect = mgr->drawList0.next;
     g_App.SetView(mgr->sideIdx);
     for (; effect != NULL; effect = effect->next)
     {
@@ -316,7 +316,7 @@ int EffectManager::DrawUnknown114(EffectManager *mgr)
     Sprite *sprite;
     int i;
 
-    for (effect = mgr->unknown114.next; effect != NULL; effect = effect->next)
+    for (effect = mgr->drawList1.next; effect != NULL; effect = effect->next)
     {
         if (effect->draw != NULL)
         {
@@ -481,19 +481,19 @@ int UpdateEffectTypes1And2(Effect *effect)
     if (effect->unknown98 != 0.0f)
     {
         effect->unknownD0 = 1;
-        if (effect->unknownAc.AsFloat() >= effect->unknown98)
+        if (effect->timer.AsFloat() >= effect->unknown98)
         {
             g_SoundPlayer.QueueSound(0x2e, effect->mgr->sideIdx != 0 ? 500 : -500);
             effect->unknown98 = 0.0f;
-            effect->unknownAc = 0;
+            effect->timer = 0;
             effect->unknownD0 = 0;
             return 1;
         }
         return 1;
     }
-    if (effect->unknownAc.AsFloat() < effect->unknown9c)
+    if (effect->timer.AsFloat() < effect->unknown9c)
     {
-        t = effect->unknownAc.AsFloat() / effect->unknown9c;
+        t = effect->timer.AsFloat() / effect->unknown9c;
         f00 = (2.0f * t + 1.0f) * (t - 1.0f) * (t - 1.0f);
         f01 = (3.0f - 2.0f * t) * t * t;
         f10 = (1.0f - t) * (1.0f - t) * t;
@@ -588,9 +588,9 @@ int UpdateEffectTypes3And4(Effect *effect)
     Enemy *enemy;
     int range;
 
-    if (effect->unknownAc.AsFloat() < effect->unknown9c)
+    if (effect->timer.AsFloat() < effect->unknown9c)
     {
-        t = effect->unknownAc.AsFloat() / effect->unknown9c;
+        t = effect->timer.AsFloat() / effect->unknown9c;
         f00 = (2.0f * t + 1.0f) * (t - 1.0f) * (t - 1.0f);
         f01 = (3.0f - 2.0f * t) * t * t;
         f10 = (1.0f - t) * (1.0f - t) * t;

@@ -247,7 +247,7 @@ int InitEffectType35(Effect *effect)
 // table 2 on the effect's frame. Returns 1 (0x445c80).
 int UpdateEffectType35(Effect *effect)
 {
-    FireShots(effect->mgr->side->player, effect->unknownAc.AsFrames(), 2);
+    FireShots(effect->mgr->side->player, effect->timer.AsFrames(), 2);
     return 1;
 }
 

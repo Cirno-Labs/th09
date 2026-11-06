@@ -38,11 +38,11 @@ struct PlayerHitArea
     int framesLeft;
     // The damage it deals each time, what it dealt so far and the most
     // it may deal, if positive, as th08's.
-    int unknown28;
+    int damage;
     int hits;
     int maxDamage;
-    // It deals damage every unknown34 frames.
-    int unknown34;
+    // It deals damage every damageInterval frames.
+    int damageInterval;
     // Its shape or kind: 0 and 1 boxes, 2 and 4 circles or boxes as the
     // adders set it.
     int kind;
@@ -400,7 +400,7 @@ public:
     // Sets unknown0. Inline; the copy is at 0x403c20.
     void SetPlayerState(int value)
     {
-        this->unknown0 = value;
+        this->playerState = value;
     }
     // Start a circle that clears around the player, growing from 0 by 4,
     // 4 or 3.5 a frame for 0x30, 0x40 or 0x80 frames, with effect 0xd,
@@ -413,7 +413,7 @@ public:
     // (0x435ec0).
     int GetPlayerState()
     {
-        return this->unknown0;
+        return this->playerState;
     }
     // Sets registerChainArg (0x41bde0).
     void SetRegisterChainArg(BYTE arg);
@@ -500,7 +500,7 @@ public:
     void GetMoveDelta(int direction, int focused, float *deltaX, float *deltaY);
 
     // OnDraw draws only unknown30454 while it is 5.
-    int unknown0;
+    int playerState;
     // RegisterChain's first argument.
     BYTE registerChainArg;
     unsigned char pad_5[0x8 - 0x5];

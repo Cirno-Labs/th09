@@ -44,7 +44,7 @@ int InitEffectType16(Effect *effect)
 int UpdateEffectType16(Effect *effect)
 {
     effect->unknownC9 = 1;
-    if (effect->unknownAc >= 0x1e)
+    if (effect->timer >= 0x1e)
     {
         if (effect->unknown84 < 0.08f)
         {

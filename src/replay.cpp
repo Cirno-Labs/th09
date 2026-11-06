@@ -126,11 +126,11 @@ int ReplayManager::RecordOnUpdate(ReplayManager *mgr)
     }
     if (flags & 0x200)
     {
-        if (mgr->unknown4 >= 3)
+        if (mgr->framesAfterStageClear >= 3)
         {
             return 1;
         }
-        mgr->unknown4++;
+        mgr->framesAfterStageClear++;
     }
     if (g_GameManager.sides[0].unknown28 == 0)
     {
@@ -145,7 +145,7 @@ int ReplayManager::RecordOnUpdate(ReplayManager *mgr)
     mgr->inputCursors[0]++;
     mgr->inputCursors[1]++;
     mgr->inputCursors[2]++;
-    if (mgr->unknown0 % 30 == 0)
+    if (mgr->frame % 30 == 0)
     {
         *mgr->extraCursor = g_App.roundedFps;
         mgr->extraCursor++;
@@ -170,14 +170,14 @@ int ReplayManager::RecordOnUpdate(ReplayManager *mgr)
         memset(mgr->inputCursors[2], 0, 0x1c20);
         memset(mgr->extraCursor, 0, 0x79);
     }
-    mgr->unknown0++;
+    mgr->frame++;
     return 1;
 }
 
 int ReplayManager::PlayOnUpdate2(ReplayManager *mgr)
 {
     if ((g_GameManager.stateFlags & 4) && !(g_GameManager.stateFlags & 0x200) && g_GameManager.gui->IsMsgRunning() &&
-        mgr->unknown0 % 3 != 2)
+        mgr->frame % 3 != 2)
     {
         return 6;
     }
@@ -222,13 +222,13 @@ int ReplayManager::PlayOnUpdate(ReplayManager *mgr)
         mgr->inputCursors[0]++;
         mgr->inputCursors[1]++;
         mgr->inputCursors[2]++;
-        if (mgr->unknown0 % 30 == 0)
+        if (mgr->frame % 30 == 0)
         {
             g_App.roundedFps = (char)mgr->extraCursor[1] & 0x7f;
             g_App.fpsWarning = (char)mgr->extraCursor[1] >> 7;
             mgr->extraCursor++;
         }
-        mgr->unknown0++;
+        mgr->frame++;
     }
     return 1;
 }
@@ -297,9 +297,9 @@ ReplayHeader *ValidateReplay(void *data, int size)
         {
             decoded->unknown20[2][i] = (BYTE *)decoded->unknown20[2][i] + (int)decoded;
         }
-        if (decoded->unknown98[i] != NULL)
+        if (decoded->extras[i] != NULL)
         {
-            decoded->unknown98[i] = (BYTE *)decoded->unknown98[i] + (int)decoded;
+            decoded->extras[i] = (BYTE *)decoded->extras[i] + (int)decoded;
         }
     }
     g_MemoryManager.Free(data);
@@ -329,19 +329,19 @@ int ReplayManager::PlayAddedCallback(ReplayManager *mgr)
     ReplayRound *round2;
     BYTE *extra;
 
-    mgr->unknown0 = 0;
-    if (mgr->unknown08 == NULL)
+    mgr->frame = 0;
+    if (mgr->data == NULL)
     {
-        mgr->unknown08 = (ReplayHeader *)LoadFileData(mgr->path, &size, !(g_GameManager.stateFlags >> 1 & 1));
-        mgr->unknown08 = ValidateReplay(mgr->unknown08, size);
-        if (mgr->unknown08 == NULL)
+        mgr->data = (ReplayHeader *)LoadFileData(mgr->path, &size, !(g_GameManager.stateFlags >> 1 & 1));
+        mgr->data = ValidateReplay(mgr->data, size);
+        if (mgr->data == NULL)
         {
             return -1;
         }
         mgr->unknown110 = NULL;
     }
     idx = g_GameManager.unknownFc;
-    if (mgr->unknown08->unknown20[idx] == NULL)
+    if (mgr->data->unknown20[idx] == NULL)
     {
         return -1;
     }
@@ -349,13 +349,13 @@ int ReplayManager::PlayAddedCallback(ReplayManager *mgr)
     {
         for (i = 0; i < idx; i++)
         {
-            g_GameManager.unknownD8[((ReplayRound *)mgr->unknown08->unknown20[1][i])->character] = 1;
+            g_GameManager.unknownD8[((ReplayRound *)mgr->data->unknown20[1][i])->character] = 1;
         }
     }
-    round0 = (ReplayRound *)mgr->unknown08->unknown20[0][idx];
-    round1 = (ReplayRound *)mgr->unknown08->unknown20[1][idx];
-    round2 = (ReplayRound *)mgr->unknown08->unknown20[2][idx];
-    extra = (BYTE *)mgr->unknown08->unknown98[idx];
+    round0 = (ReplayRound *)mgr->data->unknown20[0][idx];
+    round1 = (ReplayRound *)mgr->data->unknown20[1][idx];
+    round2 = (ReplayRound *)mgr->data->unknown20[2][idx];
+    extra = (BYTE *)mgr->data->extras[idx];
     g_GameManager.sides[0].character = round0->character;
     g_GameManager.sides[1].character = round1->character;
     g_GameManager.sides[0].unknown28 = round0->unknown7;
@@ -364,11 +364,11 @@ int ReplayManager::PlayAddedCallback(ReplayManager *mgr)
     g_GameManager.sides[1].unknown2c = round1->unknownA;
     g_GameManager.stage = round0->stage;
     g_GameManager.unknown138 = round0->unknown9;
-    g_GameManager.difficulty = mgr->unknown08->info.difficulty;
-    g_GameManager.initialLives[0] = mgr->unknown08->unknown1e6[0];
-    g_GameManager.initialLives[1] = mgr->unknown08->unknown1e6[1];
-    g_GameManager.sides[0].unknown30 = mgr->unknown08->unknown1e8[0];
-    g_GameManager.sides[1].unknown30 = mgr->unknown08->unknown1e8[1];
+    g_GameManager.difficulty = mgr->data->info.difficulty;
+    g_GameManager.initialLives[0] = mgr->data->unknown1e6[0];
+    g_GameManager.initialLives[1] = mgr->data->unknown1e6[1];
+    g_GameManager.sides[0].unknown30 = mgr->data->unknown1e8[0];
+    g_GameManager.sides[1].unknown30 = mgr->data->unknown1e8[1];
     g_GameManager.sides[0].stats->score = round0->score;
     g_GameManager.sides[1].stats->score = round1->score;
     g_GameManager.sides[0].stats->guiScore = round0->score;
@@ -380,9 +380,9 @@ int ReplayManager::PlayAddedCallback(ReplayManager *mgr)
     mgr->inputCursors[1] = (WORD *)(round1 + 1);
     mgr->inputCursors[2] = (WORD *)(round2 + 1);
     mgr->extraCursor = extra;
-    *g_GameManager.config = mgr->unknown08->info.config;
+    *g_GameManager.config = mgr->data->info.config;
     g_Rng.SetSeed(round0->rngSeed);
-    mgr->unknown4 = 0;
+    mgr->framesAfterStageClear = 0;
     return 0;
 }
 
@@ -401,7 +401,7 @@ static int FreeResources(ReplayManager *mgr)
         g_Chain.Remove(mgr->calcElem3);
         mgr->calcElem3 = NULL;
     }
-    g_MemoryManager.Free(mgr->unknown08);
+    g_MemoryManager.Free(mgr->data);
     if (mgr->unknown110 != NULL)
     {
         g_MemoryManager.Free(mgr->unknown110);
@@ -452,17 +452,17 @@ void ReplayManager::Release(ReplayManager *mgr)
         {
             for (j = 0; j < 3; j++)
             {
-                if (mgr->unknown08->unknown20[j][i] != NULL)
+                if (mgr->data->unknown20[j][i] != NULL)
                 {
-                    g_MemoryManager.Free(mgr->unknown08->unknown20[j][i]);
+                    g_MemoryManager.Free(mgr->data->unknown20[j][i]);
                 }
-                mgr->unknown08->unknown20[j][i] = NULL;
+                mgr->data->unknown20[j][i] = NULL;
             }
-            if (mgr->unknown08->unknown98[i] != NULL)
+            if (mgr->data->extras[i] != NULL)
             {
-                g_MemoryManager.Free(mgr->unknown08->unknown98[i]);
+                g_MemoryManager.Free(mgr->data->extras[i]);
             }
-            mgr->unknown08->unknown98[i] = NULL;
+            mgr->data->extras[i] = NULL;
         }
     }
     FreeResources(mgr);
@@ -519,7 +519,7 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
             }
         }
         rpyBytes = (BYTE *)g_MemoryManager.Alloc(allocSize, "rep tmp");
-        hX = *mgr->unknown08;
+        hX = *mgr->data;
         offsets = sizeof(ReplayHeader);
         for (j = 0; j < 3; j++)
         {
@@ -541,9 +541,9 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
         }
         for (i = 0; i < 10; i++)
         {
-            if (hX.unknown98[i] != NULL)
+            if (hX.extras[i] != NULL)
             {
-                hX.unknown98[i] = (void *)offsets;
+                hX.extras[i] = (void *)offsets;
                 for (chunk = &mgr->chunks[i]; chunk != NULL; chunk = chunk->next)
                 {
                     chunkSize = chunk->count / 30;
@@ -655,14 +655,14 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
     ReplayChunk *cur;
     ReplayHeader *hdr;
 
-    mgr->unknown0 = 0;
+    mgr->frame = 0;
     mgr->unknown110 = NULL;
-    hdr = mgr->unknown08;
+    hdr = mgr->data;
     if (hdr == NULL)
     {
-        mgr->unknown08 = (ReplayHeader *)g_MemoryManager.Register(new ReplayHeader, sizeof(ReplayHeader),
+        mgr->data = (ReplayHeader *)g_MemoryManager.Register(new ReplayHeader, sizeof(ReplayHeader),
                                                                   "ReplayFileHeaderInf");
-        hdr = mgr->unknown08;
+        hdr = mgr->data;
         memset(hdr, 0, sizeof(ReplayHeader));
         hdr->isSaved = 0;
         hdr->unknown6 = 0;
@@ -678,8 +678,8 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
         hdr->unknown1e5 = g_GameManager.unknown114;
         hdr->unknown1e6[0] = g_GameManager.initialLives[0];
         hdr->unknown1e6[1] = g_GameManager.initialLives[1];
-        mgr->unknown08->unknown1e8[0] = g_GameManager.sides[0].unknown30;
-        mgr->unknown08->unknown1e8[1] = g_GameManager.sides[1].unknown30;
+        mgr->data->unknown1e8[0] = g_GameManager.sides[0].unknown30;
+        mgr->data->unknown1e8[1] = g_GameManager.sides[1].unknown30;
         *(DWORD *)hdr->info.name = *(DWORD *)"NO NAME";
         hdr->info.config = *g_GameManager.config;
         for (i = 0; i < 10; i++)
@@ -687,7 +687,7 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
             hdr->unknown20[0][i] = NULL;
             hdr->unknown20[1][i] = NULL;
             hdr->unknown20[2][i] = NULL;
-            hdr->unknown98[i] = NULL;
+            hdr->extras[i] = NULL;
         }
     }
     idx = g_GameManager.unknownFc;
@@ -703,9 +703,9 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
     {
         g_MemoryManager.Free(hdr->unknown20[2][idx]);
     }
-    if (hdr->unknown98[idx] != NULL)
+    if (hdr->extras[idx] != NULL)
     {
-        g_MemoryManager.Free(hdr->unknown98[idx]);
+        g_MemoryManager.Free(hdr->extras[idx]);
     }
     round0 = (ReplayRound *)g_MemoryManager.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
     hdr->unknown20[0][idx] = round0;
@@ -714,7 +714,7 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
     round2 = (ReplayRound *)g_MemoryManager.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
     hdr->unknown20[2][idx] = round2;
     extra = (BYTE *)g_MemoryManager.Register(operator new(sizeof(BYTE)), sizeof(BYTE), "ReplayFPSTblStartInf");
-    hdr->unknown98[idx] = extra;
+    hdr->extras[idx] = extra;
     memset(round0, 0, sizeof(ReplayRound));
     memset(round1, 0, sizeof(ReplayRound));
     memset(round2, 0, sizeof(ReplayRound));
@@ -786,7 +786,7 @@ ReplayManager *ReplayManager::RegisterChain(int mode, char *path)
 
     memset(mgr, 0, sizeof(ReplayManager));
     mgr->mode = mode;
-    mgr->unknown08 = NULL;
+    mgr->data = NULL;
     switch (mode)
     {
     case 0:

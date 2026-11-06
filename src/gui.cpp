@@ -396,7 +396,7 @@ void GuiMsg::StartRandom(int side)
         roll = g_Rng.GetRandomU16InRange(0x100);
         for (i = 210; i < 220; i++)
         {
-            if (msgFile->scripts[i].script != NULL && i < msgFile->unknown0)
+            if (msgFile->scripts[i].script != NULL && i < msgFile->count)
             {
                 if (roll < msgFile->scripts[i].weight)
                 {
@@ -405,7 +405,7 @@ void GuiMsg::StartRandom(int side)
                 roll -= msgFile->scripts[i].weight;
             }
         }
-        if (i >= 220 || i >= msgFile->unknown0)
+        if (i >= 220 || i >= msgFile->count)
         {
             i = 210;
         }
@@ -890,7 +890,7 @@ void GuiMsg::UnloadBgm(int firstScript)
     {
         for (i = firstScript; i < firstScript + 10; i++)
         {
-            if (i >= this->msgFile->unknown0)
+            if (i >= this->msgFile->count)
             {
                 break;
             }
@@ -1262,7 +1262,7 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
             LogPrintf(&g_Log, "error : メッセージファイル %s が読み込めませんでした\r\n", path);
             return -1;
         }
-        for (i = 0; i < this->msgFile->unknown0; i++)
+        for (i = 0; i < this->msgFile->count; i++)
         {
             if (this->msgFile->scripts[i].script != NULL)
             {
@@ -1279,7 +1279,7 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
         memset(loaded, 0, sizeof(loaded));
         for (i = firstScript; i < firstScript + 10; i++)
         {
-            if (i >= this->msgFile->unknown0)
+            if (i >= this->msgFile->count)
             {
                 break;
             }
@@ -1308,7 +1308,7 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
             LogPrintf(&g_Log, "error : メッセージファイル %s が読み込めませんでした\r\n", path2);
             return -1;
         }
-        for (i = 0; i < this->msgFile2->unknown0; i++)
+        for (i = 0; i < this->msgFile2->count; i++)
         {
             this->msgFile2->scripts[i].script = (MsgInstr *)((BYTE *)this->msgFile2->scripts[i].script + (int)this->msgFile2);
         }

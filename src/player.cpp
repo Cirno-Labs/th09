@@ -104,7 +104,7 @@ void Player::AddUnknown30388(float amount)
 void PlayerHitArea::Reset()
 {
     memset(this, 0, sizeof(PlayerHitArea));
-    this->unknown34 = 1;
+    this->damageInterval = 1;
 }
 
 void PlayerUnknown24::Reset()
@@ -155,7 +155,7 @@ int Player::TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
     D3DXVECTOR3 start;
     D3DXVECTOR3 end;
 
-    if (this->unknown0 != 0 && this->unknown0 != 3)
+    if (this->playerState != 0 && this->playerState != 3)
     {
         return 0;
     }
@@ -744,7 +744,7 @@ PlayerHitArea *Player::AddDamageBox(D3DXVECTOR3 *pos, float width, float height,
 
     area->width = width * 0.5f;
     area->height = height * 0.5f;
-    area->unknown28 = unknown28;
+    area->damage = unknown28;
     area->kind = 0;
     return area;
 }
@@ -755,7 +755,7 @@ PlayerHitArea *Player::AddDamageCircle(D3DXVECTOR3 *pos, float radius, float rad
 
     area->radius = radius;
     area->radiusGrowth = radiusGrowth;
-    area->unknown28 = unknown28;
+    area->damage = unknown28;
     area->kind = 0;
     return area;
 }
@@ -766,7 +766,7 @@ PlayerHitArea *Player::AddKind4Box(D3DXVECTOR3 *pos, float width, float height, 
 
     area->width = width * 0.5f;
     area->height = height * 0.5f;
-    area->unknown28 = unknown28;
+    area->damage = unknown28;
     area->kind = 4;
     return area;
 }
@@ -777,7 +777,7 @@ PlayerHitArea *Player::AddKind4Circle(D3DXVECTOR3 *pos, float radius, float radi
 
     area->radius = radius;
     area->radiusGrowth = radiusGrowth;
-    area->unknown28 = unknown28;
+    area->damage = unknown28;
     area->kind = 4;
     return area;
 }
@@ -788,7 +788,7 @@ PlayerHitArea *Player::AddKind2Circle(D3DXVECTOR3 *pos, float radius, float radi
 
     area->radius = radius;
     area->radiusGrowth = radiusGrowth;
-    area->unknown28 = unknown28;
+    area->damage = unknown28;
     area->kind = 2;
     return area;
 }
@@ -1414,7 +1414,7 @@ void Player::Die()
         this->side->gui->StartUnknown6ee8(0);
         this->unknownA8 = 1;
     }
-    this->unknown0 = 4;
+    this->playerState = 4;
     this->stateTimer = 0;
     angle = g_Rng.GetRandomF32SignedInRange(3.1415927f);
     this->unknown1cd8 = angle;
@@ -2188,7 +2188,7 @@ int Player::CalcDamage(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, int *damageTaken, in
         {
             continue;
         }
-        if ((*area)->framesLeft % (*area)->unknown34 != 0)
+        if ((*area)->framesLeft % (*area)->damageInterval != 0)
         {
             continue;
         }
@@ -2219,16 +2219,16 @@ int Player::CalcDamage(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, int *damageTaken, in
         {
             continue;
         }
-        damage += (*area)->unknown28;
-        (*area)->hits += (*area)->unknown28;
+        damage += (*area)->damage;
+        (*area)->hits += (*area)->damage;
         if ((*area)->maxDamage > 0 && (*area)->maxDamage <= (*area)->hits)
         {
-            (*area)->unknown28 = 0;
+            (*area)->damage = 0;
             damage -= (*area)->hits - (*area)->maxDamage;
         }
         if ((*area)->kind == 4)
         {
-            *kind4Damage += (*area)->unknown28;
+            *kind4Damage += (*area)->damage;
         }
     }
     return damage;

@@ -48,7 +48,7 @@ struct MsgInstr
 // A dialogue file: its scripts, after a count so it seems.
 struct MsgFile
 {
-    int unknown0;
+    int count;
     struct
     {
         MsgInstr *script;
