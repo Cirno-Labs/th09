@@ -67,7 +67,8 @@ struct ReplayHeader
     int size;
     // The sum of the bytes from key on, plus 0x3f000318.
     int checksum;
-    BYTE secondaryKey;
+    // Random; never read.
+    BYTE randomFill;
     // What the bytes from compressedSize on are encrypted with, rising by
     // 7 a byte.
     BYTE key;

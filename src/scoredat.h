@@ -18,7 +18,8 @@ struct ScoreDat
     // The sum of the bytes from the fifth on.
     WORD checksum;
     WORD version;
-    BYTE secondaryKey;
+    // Random; never read.
+    BYTE randomByte;
     BYTE unusedByte07;
     // Where the chunks start.
     int dataOffset;

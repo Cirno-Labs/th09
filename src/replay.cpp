@@ -585,7 +585,7 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
         hX.key = g_Rng.GetRandomU16InRange(0x80) + 0x40;
         hX.replayFormatVersion = 30;
         hX.info.randomByte = g_Rng.GetRandomU16InRange(0x100);
-        hX.secondaryKey = g_Rng.GetRandomU16InRange(0x100);
+        hX.randomFill = g_Rng.GetRandomU16InRange(0x100);
         memcpy(rpyBytes, &hX.info, sizeof(ReplayHeader) - 0xc0);
         hX.dataSize = offsets - 0xc0;
         {

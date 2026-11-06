@@ -362,7 +362,7 @@ int SaveScore()
     dat->dataOffset = sizeof(ScoreDat);
     dat->checksum = 0;
     dat->key = g_Rng.GetRandomU16InRange(256);
-    dat->secondaryKey = g_Rng.GetRandomU16InRange(256);
+    dat->randomByte = g_Rng.GetRandomU16InRange(256);
     dat->version = 4;
     m = 4;
     while (m < size)
