@@ -761,7 +761,7 @@ public:
     int modulateColorEnabled;
     // The surface SetPendingSurfaceCopy's copy goes to; negative for
     // none. The rest of the copy's parameters are at the end.
-    int pendingCopyTexture;
+    int pendingSurfaceCopySurface;
     // How many scripts SetScript started.
     int scriptStartCount;
     // Counters, cleared every frame, as th08's.
@@ -822,14 +822,14 @@ public:
     int pendingTexCopyDstTop;
     int pendingTexCopyDstWidth;
     int pendingTexCopyDstHeight;
-    int pendingCopySrcLeft;
-    int pendingCopySrcTop;
-    int pendingCopySrcWidth;
-    int pendingCopySrcHeight;
-    int pendingCopyDstLeft;
-    int pendingCopyDstTop;
-    int pendingCopyDstWidth;
-    int pendingCopyDstHeight;
+    int pendingSurfaceCopySrcLeft;
+    int pendingSurfaceCopySrcTop;
+    int pendingSurfaceCopySrcWidth;
+    int pendingSurfaceCopySrcHeight;
+    int pendingSurfaceCopyDstLeft;
+    int pendingSurfaceCopyDstTop;
+    int pendingSurfaceCopyDstWidth;
+    int pendingSurfaceCopyDstHeight;
 };
 extern SpriteEngine *g_SpriteEngine;
 

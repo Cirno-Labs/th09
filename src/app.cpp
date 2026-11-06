@@ -437,19 +437,19 @@ void SpriteEngine::ReleaseVertexBuffer()
 int SpriteEngine::SetPendingSurfaceCopy(int texture, int srcLeft, int srcTop, int srcWidth, int srcHeight,
                                         int dstLeft, int dstTop, int dstWidth, int dstHeight)
 {
-    if (this->pendingCopyTexture >= 0)
+    if (this->pendingSurfaceCopySurface >= 0)
     {
         return -1;
     }
-    this->pendingCopyTexture = texture;
-    this->pendingCopySrcLeft = srcLeft;
-    this->pendingCopySrcTop = srcTop;
-    this->pendingCopySrcWidth = srcWidth;
-    this->pendingCopySrcHeight = srcHeight;
-    this->pendingCopyDstLeft = dstLeft;
-    this->pendingCopyDstTop = dstTop;
-    this->pendingCopyDstWidth = dstWidth;
-    this->pendingCopyDstHeight = dstHeight;
+    this->pendingSurfaceCopySurface = texture;
+    this->pendingSurfaceCopySrcLeft = srcLeft;
+    this->pendingSurfaceCopySrcTop = srcTop;
+    this->pendingSurfaceCopySrcWidth = srcWidth;
+    this->pendingSurfaceCopySrcHeight = srcHeight;
+    this->pendingSurfaceCopyDstLeft = dstLeft;
+    this->pendingSurfaceCopyDstTop = dstTop;
+    this->pendingSurfaceCopyDstWidth = dstWidth;
+    this->pendingSurfaceCopyDstHeight = dstHeight;
     return 0;
 }
 
