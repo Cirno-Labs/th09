@@ -58,7 +58,7 @@ struct SpriteBase
     Timer interpDuration[7];
     Timer interpFrame[7];
     // The easings of the interpolations, as th08's.
-    BYTE interpEasing;
+    BYTE posInterpEasing;
     BYTE colorInterpEasing;
     BYTE alphaInterpEasing;
     BYTE rotationInterpEasing;

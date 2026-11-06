@@ -223,7 +223,7 @@ int GameManager::OnUpdate(GameManager *mgr)
         g_App.loadingState = 0;
         if (g_GameManager.unknown38c == 1)
         {
-            g_App.PlayMusic(0, 0);
+            g_App.PlayMusicById(0, 0);
         }
         g_GameManager.unknown38c = 0;
     }

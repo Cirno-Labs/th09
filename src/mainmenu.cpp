@@ -193,7 +193,7 @@ void Sprite::SetMoveInterp(int frames, BYTE easing, D3DXVECTOR3 *from, D3DXVECTO
     frame->current = frames;
     frame->currentF = frames;
     frame->previous = -999999;
-    this->interpEasing = easing;
+    this->posInterpEasing = easing;
     this->moveStart = *from;
     this->moveEnd = *to;
 }
@@ -1477,7 +1477,7 @@ int MainMenu::UpdateState3()
         }
         if (this->cursors[2] != 0 && this->cursors[3] != 0)
         {
-            g_App.StopBgm();
+            g_App.StopMusic();
             g_GameManager.sides[0].character = characters[0];
             g_GameManager.sides[1].character = 0;
             g_GameManager.sides[1].unknown30 = g_PlayerInputs[2].unknown0 >> 14 & 1;
@@ -1966,7 +1966,7 @@ int MainMenu::UpdateState16()
         if (g_PlayerInputs[2].unknown6 & 0x1001)
         {
             this->PlaySoundNow(10, 0);
-            g_App.StopBgm();
+            g_App.StopMusic();
             g_GameManager.unknownFc = 0;
             if (this->state == 3)
             {
@@ -2611,7 +2611,7 @@ int MainMenu::UpdateState12()
                 g_SoundPlayer.QueueSoundCommand(7, 0, "UnPause");
             }
             this->musicPaused = 0;
-            g_App.PlayMusicFile(this->tunes[this->playingTune].path, 0);
+            g_App.PlayMusic(this->tunes[this->playingTune].path, 0);
         }
         if (g_PlayerInputs[2].unknown6 & 0x1001)
         {
@@ -2621,7 +2621,7 @@ int MainMenu::UpdateState12()
             }
             this->playingTune = this->cursor;
             this->musicPaused = 0;
-            g_App.PlayMusicFile(this->tunes[this->playingTune].path, 0);
+            g_App.PlayMusic(this->tunes[this->playingTune].path, 0);
             this->inputLockout = 0;
             for (i = 0; i < 8; i++)
             {
@@ -2917,7 +2917,7 @@ int MainMenu::UpdateState9()
                 break;
             case 2:
                 g_SoundPlayer.QueueSound(12, 0);
-                g_App.StopBgm();
+                g_App.StopMusic();
                 if (g_App.config.musicMode == 0)
                 {
                     g_App.config.musicMode = 1;
@@ -2927,7 +2927,7 @@ int MainMenu::UpdateState9()
                     g_App.config.musicMode--;
                 }
                 g_App.LoadBgm(0);
-                g_App.PlayMusic(0, 0);
+                g_App.PlayMusicById(0, 0);
                 this->SelectEntry(g_App.config.musicMode, 0x17, 3);
                 break;
             case 5:
@@ -3064,7 +3064,7 @@ int MainMenu::UpdateState9()
                 break;
             case 2:
                 g_SoundPlayer.QueueSound(12, 0);
-                g_App.StopBgm();
+                g_App.StopMusic();
                 if (g_App.config.musicMode >= 1)
                 {
                     g_App.config.musicMode = 0;
@@ -3074,7 +3074,7 @@ int MainMenu::UpdateState9()
                     g_App.config.musicMode++;
                 }
                 g_App.LoadBgm(0);
-                g_App.PlayMusic(0, 0);
+                g_App.PlayMusicById(0, 0);
                 this->SelectEntry(g_App.config.musicMode, 0x17, 3);
                 break;
             case 5:
@@ -3799,7 +3799,7 @@ int MainMenu::UpdateState14()
     case 0:
         if (this->inputLockout == 0)
         {
-            g_App.StopBgm();
+            g_App.StopMusic();
             if (g_SpriteEngine->LoadSurface(0, "title/result00.png") != 0)
             {
                 return 0;
@@ -4303,7 +4303,7 @@ int MainMenu::UpdateState1()
         {
             if (this->prevState == 0 || this->prevState == 14 || this->prevState == 12 || this->prevState == 15)
             {
-                g_App.PlayMusic(0, 0);
+                g_App.PlayMusicById(0, 0);
             }
             if ((this->prevState == 0 || this->prevState == 13 || this->prevState == 14 || this->prevState == 11 ||
                  this->prevState == 15 || this->prevState == 12 || this->prevState == 2 || this->prevState == 4 ||

@@ -380,21 +380,21 @@ int Player::HandleInput()
     pos = this->pos;
     pos[0] += this->unknown1ccc.x;
     pos[1] += this->unknown1ccc.y;
-    if (pos[0] < g_GameManager.arena2[0])
+    if (pos[0] < g_GameManager.playerArea[0])
     {
-        pos[0] = g_GameManager.arena2[0];
+        pos[0] = g_GameManager.playerArea[0];
     }
-    else if (pos[0] > g_GameManager.arena2[0] + g_GameManager.arena2[2])
+    else if (pos[0] > g_GameManager.playerArea[0] + g_GameManager.playerArea[2])
     {
-        pos[0] = g_GameManager.arena2[0] + g_GameManager.arena2[2];
+        pos[0] = g_GameManager.playerArea[0] + g_GameManager.playerArea[2];
     }
-    if (pos[1] < g_GameManager.arena2[1])
+    if (pos[1] < g_GameManager.playerArea[1])
     {
-        pos[1] = g_GameManager.arena2[1];
+        pos[1] = g_GameManager.playerArea[1];
     }
-    else if (pos[1] > g_GameManager.arena2[1] + g_GameManager.arena2[3])
+    else if (pos[1] > g_GameManager.playerArea[1] + g_GameManager.playerArea[3])
     {
-        pos[1] = g_GameManager.arena2[1] + g_GameManager.arena2[3];
+        pos[1] = g_GameManager.playerArea[1] + g_GameManager.playerArea[3];
     }
     this->hitboxMin = this->pos - this->hitboxSize;
     this->hitboxMax = this->pos + this->hitboxSize;
@@ -1442,7 +1442,7 @@ void Player::Die()
 }
 
 // The player is blown along unknown1ccc, slowing over 60 frames of
-// stateTimer and kept in arena2, fading out; then it gets
+// stateTimer and kept in playerArea, fading out; then it gets
 // unknown30388 back by its lives, unknown0 goes to 3 and it clears
 // around itself. Returns 0. Static, with the player in esi (0x41e720).
 static int UpdateDyingState(Player *player)
@@ -1454,21 +1454,21 @@ static int UpdateDyingState(Player *player)
     {
         player->pos += player->unknown1ccc * (60.0f - player->stateTimer.AsFloat()) / 20.0f;
         pos = player->pos;
-        if (pos[0] < g_GameManager.arena2[0])
+        if (pos[0] < g_GameManager.playerArea[0])
         {
-            pos[0] = g_GameManager.arena2[0];
+            pos[0] = g_GameManager.playerArea[0];
         }
-        else if (pos[0] > g_GameManager.arena2[2] + g_GameManager.arena2[0])
+        else if (pos[0] > g_GameManager.playerArea[2] + g_GameManager.playerArea[0])
         {
-            pos[0] = g_GameManager.arena2[2] + g_GameManager.arena2[0];
+            pos[0] = g_GameManager.playerArea[2] + g_GameManager.playerArea[0];
         }
-        if (pos[1] < g_GameManager.arena2[1])
+        if (pos[1] < g_GameManager.playerArea[1])
         {
-            pos[1] = g_GameManager.arena2[1];
+            pos[1] = g_GameManager.playerArea[1];
         }
-        else if (pos[1] > g_GameManager.arena2[3] + g_GameManager.arena2[1])
+        else if (pos[1] > g_GameManager.playerArea[3] + g_GameManager.playerArea[1])
         {
-            pos[1] = g_GameManager.arena2[3] + g_GameManager.arena2[1];
+            pos[1] = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
         }
         player->sprite.color = (player->stateTimer.AsFrames() * 255 / 10) << 24 | 0xffffff;
         return 0;

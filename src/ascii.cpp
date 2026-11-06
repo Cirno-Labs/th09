@@ -66,7 +66,7 @@ void AsciiText::Initialize()
     this->highlight = 0;
     this->nextPopup = 0;
     this->nextPopup2 = 0;
-    this->unknown829c = 0;
+    this->unk_829c = 0;
     this->color = 0xffffffff;
     this->scaleY = 1.0f;
     this->scaleX = 1.0f;
@@ -430,7 +430,7 @@ int PauseMenu::UpdatePauseMenu()
             }
             else
             {
-                g_App.StopBgm();
+                g_App.StopMusic();
                 g_App.scene = 11;
                 g_GameManager.isPaused = 0;
                 g_App.lastTotalPlayTimeTick = timeGetTime();
@@ -597,7 +597,7 @@ int ContinueMenu::UpdateContinueMenu()
                 g_GameManager.sides[1].stats->scoreIncrement = 0;
                 g_App.redrawFrames = 8;
                 g_App.lastTotalPlayTimeTick = timeGetTime();
-                g_App.StopBgm();
+                g_App.StopMusic();
                 g_App.PlayBgm();
                 GameManager::ResetRound();
                 g_GameManager.unknown108[0] = 0;

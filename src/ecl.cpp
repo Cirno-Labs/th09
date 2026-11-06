@@ -430,7 +430,7 @@ static int ScriptReturn(Enemy *enemy, EnemyScriptInstr *instr)
 {
     int i;
 
-    if (enemy->disableCallStack)
+    if (enemy->noCallStack)
     {
         // th08: DebugPrint("error : no Stack Ret\r\n"); nothing is emitted,
         // not even the flag test.
@@ -942,14 +942,14 @@ static EnemyScriptInstr *ScriptJumpIf(Enemy *enemy, EnemyScriptInstr *instr)
 static void ScriptCallSub(Enemy *enemy, EnemyScriptInstr *instr, int sub)
 {
     enemy->currentCtx->code = (char *)instr + instr->size;
-    if (!enemy->disableCallStack)
+    if (!enemy->noCallStack)
     {
         enemy->callStack[enemy->stackDepth] = *enemy->currentCtx;
     }
     // th08 calls g_EnemyScripts; th09 the context's own EnemyScripts.
     enemy->currentCtx->ecl->StartSub(enemy->currentCtx, sub);
     enemy->currentCtx->args = enemy->currentCtx->ecl->callArgs;
-    if (!enemy->disableCallStack && enemy->stackDepth < 15)
+    if (!enemy->noCallStack && enemy->stackDepth < 15)
     {
         enemy->stackDepth++;
     }
@@ -2336,7 +2336,7 @@ loop:
             break;
         // 0x40b651
         case 151:
-            enemy->disableCallStack = *(BYTE *)instr->args;
+            enemy->noCallStack = *(BYTE *)instr->args;
             break;
         // 0x40b67d
         case 152:
@@ -2486,7 +2486,7 @@ loop:
         // goto interrupt;` at restart (0x408724).
         interrupt:
             enemy->currentCtx->code = (char *)instr + instr->size;
-            if (!enemy->disableCallStack)
+            if (!enemy->noCallStack)
             {
                 enemy->callStack[enemy->stackDepth] = enemy->ctx;
             }

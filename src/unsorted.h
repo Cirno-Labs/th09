@@ -657,7 +657,7 @@ struct App
     int PlayBgm();
     // Stops the music, as th08's StopMusic. Returns 0, or -1 without
     // music (0x42fd30).
-    int StopBgm();
+    int StopMusic();
     // Looks `id` up in g_BgmInfos and frees what LoadBgm loaded. Returns
     // 0, 1 for an unknown id, or -1 without music (0x42fd90).
     int UnloadBgm(int id);
@@ -667,11 +667,11 @@ struct App
     int FadeOutMusic(float seconds);
     // Plays the piece `id` of the table at 0x4a21d0; what `arg` does is
     // not known. Returns 1 for an unknown id (0x431930).
-    int PlayMusic(int id, int arg);
+    int PlayMusicById(int id, int arg);
     // Plays the MIDI file `path`, or queues the wave file of the same
     // name, as th08's PlayMusic, and marks piece `heard` heard. Returns
     // 0, or -1 without music (0x431a30).
-    int PlayMusicFile(char *path, int heard);
+    int PlayMusic(char *path, int heard);
     // Advances `frames` by one frame, or by gameSpeed in `subFrame`'s
     // fractions while the game runs slow (0x42f4f0).
     void TickTimer(int *frames, float *subFrame);

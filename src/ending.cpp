@@ -381,9 +381,9 @@ int Ending::RunScript()
                 }
                 break;
             case 'm':
-                g_App.StopBgm();
+                g_App.StopMusic();
                 g_App.LoadBgm(this->cursor[1]);
-                g_App.PlayMusic(this->cursor[1], 0);
+                g_App.PlayMusicById(this->cursor[1], 0);
                 break;
             case 'M':
                 this->cursor++;

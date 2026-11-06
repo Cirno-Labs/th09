@@ -209,7 +209,7 @@ public:
     // and sets unknownB4, unknownC4 and unknownC8 by difficulty
     // (0x41b5c6).
     static void ResetRound();
-    // Sets arena to the play area (-144, 0, 288, 448) and arena2 to
+    // Sets arena to the play area (-144, 0, 288, 448) and playerArea to
     // (-136, 16, 272, 416), as th08's. Inline, but not expanded in Init,
     // which calls the copy at 0x41a9b8.
     void SetPlayArea()
@@ -218,10 +218,10 @@ public:
         this->arena[1] = 0.0f;
         this->arena[2] = 288.0f;
         this->arena[3] = 448.0f;
-        this->arena2[0] = -136.0f;
-        this->arena2[1] = 16.0f;
-        this->arena2[2] = 272.0f;
-        this->arena2[3] = 416.0f;
+        this->playerArea[0] = -136.0f;
+        this->playerArea[1] = 16.0f;
+        this->playerArea[2] = 272.0f;
+        this->playerArea[3] = 416.0f;
     }
     // Gives side 0 a life, up to 7, with sound 0x1c, and counts the
     // extend; past the last (8 extends in mode 1, else 5) there are no
@@ -318,7 +318,7 @@ public:
     int frames;
     unsigned char pad_34c[0x350 - 0x34c];
     float arena[4];
-    float arena2[4];
+    float playerArea[4];
     unsigned char pad_370[0x374 - 0x370];
     // The item of the last pair of enemies OnUpdate spawned.
     int unknown374;

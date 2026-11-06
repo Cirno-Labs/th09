@@ -221,21 +221,21 @@ void PlayerUnknown24::Run()
                 pos = this->player->pos;
                 pos.x += dx;
                 pos.y += dy;
-                if (pos.x < g_GameManager.arena2[0])
+                if (pos.x < g_GameManager.playerArea[0])
                 {
-                    pos.x = g_GameManager.arena2[0];
+                    pos.x = g_GameManager.playerArea[0];
                 }
-                else if (pos.x > g_GameManager.arena2[2] + g_GameManager.arena2[0])
+                else if (pos.x > g_GameManager.playerArea[2] + g_GameManager.playerArea[0])
                 {
-                    pos.x = g_GameManager.arena2[2] + g_GameManager.arena2[0];
+                    pos.x = g_GameManager.playerArea[2] + g_GameManager.playerArea[0];
                 }
-                if (pos.y < g_GameManager.arena2[1])
+                if (pos.y < g_GameManager.playerArea[1])
                 {
-                    pos.y = g_GameManager.arena2[1];
+                    pos.y = g_GameManager.playerArea[1];
                 }
-                else if (pos.y > g_GameManager.arena2[3] + g_GameManager.arena2[1])
+                else if (pos.y > g_GameManager.playerArea[3] + g_GameManager.playerArea[1])
                 {
-                    pos.y = g_GameManager.arena2[3] + g_GameManager.arena2[1];
+                    pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
                 }
                 if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[k], margins[k]) == NULL)
                 {
@@ -254,21 +254,21 @@ void PlayerUnknown24::Run()
                     pos = this->player->pos;
                     pos.x += dx;
                     pos.y += dy;
-                    if (pos.x < g_GameManager.arena2[0])
+                    if (pos.x < g_GameManager.playerArea[0])
                     {
-                        pos.x = g_GameManager.arena2[0];
+                        pos.x = g_GameManager.playerArea[0];
                     }
-                    else if (pos.x > g_GameManager.arena2[2] + g_GameManager.arena2[0])
+                    else if (pos.x > g_GameManager.playerArea[2] + g_GameManager.playerArea[0])
                     {
-                        pos.x = g_GameManager.arena2[2] + g_GameManager.arena2[0];
+                        pos.x = g_GameManager.playerArea[2] + g_GameManager.playerArea[0];
                     }
-                    if (pos.y < g_GameManager.arena2[1])
+                    if (pos.y < g_GameManager.playerArea[1])
                     {
-                        pos.y = g_GameManager.arena2[1];
+                        pos.y = g_GameManager.playerArea[1];
                     }
-                    else if (pos.y > g_GameManager.arena2[3] + g_GameManager.arena2[1])
+                    else if (pos.y > g_GameManager.playerArea[3] + g_GameManager.playerArea[1])
                     {
-                        pos.y = g_GameManager.arena2[3] + g_GameManager.arena2[1];
+                        pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
                     }
                     if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[k], margins[k]) == NULL)
                     {
@@ -327,21 +327,21 @@ found:
             pos = this->player->pos;
             pos.x += dx;
             pos.y += dy;
-            if (pos.x < g_GameManager.arena2[0])
+            if (pos.x < g_GameManager.playerArea[0])
             {
-                pos.x = g_GameManager.arena2[0];
+                pos.x = g_GameManager.playerArea[0];
             }
-            else if (pos.x > g_GameManager.arena2[2] + g_GameManager.arena2[0])
+            else if (pos.x > g_GameManager.playerArea[2] + g_GameManager.playerArea[0])
             {
-                pos.x = g_GameManager.arena2[2] + g_GameManager.arena2[0];
+                pos.x = g_GameManager.playerArea[2] + g_GameManager.playerArea[0];
             }
-            if (pos.y < g_GameManager.arena2[1])
+            if (pos.y < g_GameManager.playerArea[1])
             {
-                pos.y = g_GameManager.arena2[1];
+                pos.y = g_GameManager.playerArea[1];
             }
-            else if (pos.y > g_GameManager.arena2[3] + g_GameManager.arena2[1])
+            else if (pos.y > g_GameManager.playerArea[3] + g_GameManager.playerArea[1])
             {
-                pos.y = g_GameManager.arena2[3] + g_GameManager.arena2[1];
+                pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
             }
             if (k < 2)
             {
@@ -408,21 +408,21 @@ found:
                     this->player->GetMoveDelta(newDir, focus, &dx, &dy);
                     pos.x += dx;
                     pos.y += dy;
-                    if (pos.x < g_GameManager.arena2[0])
+                    if (pos.x < g_GameManager.playerArea[0])
                     {
-                        pos.x = g_GameManager.arena2[0];
+                        pos.x = g_GameManager.playerArea[0];
                     }
-                    else if (pos.x > g_GameManager.arena2[2] + g_GameManager.arena2[0])
+                    else if (pos.x > g_GameManager.playerArea[2] + g_GameManager.playerArea[0])
                     {
-                        pos.x = g_GameManager.arena2[2] + g_GameManager.arena2[0];
+                        pos.x = g_GameManager.playerArea[2] + g_GameManager.playerArea[0];
                     }
-                    if (pos.y < g_GameManager.arena2[1])
+                    if (pos.y < g_GameManager.playerArea[1])
                     {
-                        pos.y = g_GameManager.arena2[1];
+                        pos.y = g_GameManager.playerArea[1];
                     }
-                    else if (pos.y > g_GameManager.arena2[3] + g_GameManager.arena2[1])
+                    else if (pos.y > g_GameManager.playerArea[3] + g_GameManager.playerArea[1])
                     {
-                        pos.y = g_GameManager.arena2[3] + g_GameManager.arena2[1];
+                        pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
                     }
                     if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[1], 0.0f) == NULL)
                     {
@@ -439,21 +439,21 @@ found:
                     this->player->GetMoveDelta(dir, focus, &dx, &dy);
                     pos.x += dx;
                     pos.y += dy;
-                    if (pos.x < g_GameManager.arena2[0])
+                    if (pos.x < g_GameManager.playerArea[0])
                     {
-                        pos.x = g_GameManager.arena2[0];
+                        pos.x = g_GameManager.playerArea[0];
                     }
-                    else if (pos.x > g_GameManager.arena2[2] + g_GameManager.arena2[0])
+                    else if (pos.x > g_GameManager.playerArea[2] + g_GameManager.playerArea[0])
                     {
-                        pos.x = g_GameManager.arena2[2] + g_GameManager.arena2[0];
+                        pos.x = g_GameManager.playerArea[2] + g_GameManager.playerArea[0];
                     }
-                    if (pos.y < g_GameManager.arena2[1])
+                    if (pos.y < g_GameManager.playerArea[1])
                     {
-                        pos.y = g_GameManager.arena2[1];
+                        pos.y = g_GameManager.playerArea[1];
                     }
-                    else if (pos.y > g_GameManager.arena2[3] + g_GameManager.arena2[1])
+                    else if (pos.y > g_GameManager.playerArea[3] + g_GameManager.playerArea[1])
                     {
-                        pos.y = g_GameManager.arena2[3] + g_GameManager.arena2[1];
+                        pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
                     }
                     if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[1], 0.0f) == NULL)
                     {

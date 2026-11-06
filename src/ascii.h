@@ -228,7 +228,7 @@ public:
     int nextPopup;
     int nextPopup2;
     unsigned char pad_8298[0x829c - 0x8298];
-    int unknown829c;
+    int unk_829c;
     PauseMenu pauseMenu;
     ContinueMenu continueMenu;
     UnknownMenu unknownMenu;

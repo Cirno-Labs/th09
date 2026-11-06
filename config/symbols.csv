@@ -655,7 +655,7 @@ address,size,name,symbol
 0x0042fbe0,54,SoundPlayer::UpdateBgmFades,?UpdateBgmFades@SoundPlayer@@QAEXXZ
 0x0042fc20,207,App::LoadBgm,?LoadBgm@App@@QAEHH@Z
 0x0042fcf0,53,App::PlayBgm,?PlayBgm@App@@QAEHXZ
-0x0042fd30,81,App::StopBgm,?StopBgm@App@@QAEHXZ
+0x0042fd30,81,App::StopMusic,?StopMusic@App@@QAEHXZ
 0x0042fd90,130,App::UnloadBgm,?UnloadBgm@App@@QAEHH@Z
 0x0042fe20,148,App::FadeOutMusic,?FadeOutMusic@App@@QAEHM@Z
 0x0042fec0,56,App::EnableFog,?EnableFog@App@@QAEHXZ
@@ -683,8 +683,8 @@ address,size,name,symbol
 0x00431540,312,App::OnDrawLogo,?OnDrawLogo@App@@SIHPAU1@@Z
 0x00431680,33,MidiTimer::`scalar deleting destructor',??_GMidiTimer@@QAEPAXI@Z
 0x004316b0,633,DrawFps,?DrawFps@@YIXH@Z
-0x00431930,254,App::PlayMusic,?PlayMusic@App@@QAEHHH@Z
-0x00431a30,169,App::PlayMusicFile,?PlayMusicFile@App@@QAEHPADH@Z
+0x00431930,254,App::PlayMusicById,?PlayMusicById@App@@QAEHHH@Z
+0x00431a30,169,App::PlayMusic,?PlayMusic@App@@QAEHPADH@Z
 0x00431ae0,69,App::StartSubThread,?StartSubThread@App@@QAEHP6GKPAX@Z0@Z
 0x00431b30,59,App::OnDraw,?OnDraw@App@@SIHPAU1@@Z
 0x00431b70,405,App::DeletedCallback,?DeletedCallback@App@@SIHPAU1@@Z

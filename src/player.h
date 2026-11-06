@@ -491,7 +491,7 @@ public:
     // picks the direction and focus, starts or stops the focus effects
     // (7 and the character's from g_CharacterValuesA10), sets the move
     // angle unknown1cd8, the sprite's leaning script and velocity, keeps
-    // the player in arena2, updates the boxes and options and records
+    // the player in playerArea, updates the boxes and options and records
     // the position. Does nothing while unknownA8 is clear (0x41c170).
     int HandleInput();
     // HandleInput's movement for `direction` (1 up, 2 down, 3 left, 4

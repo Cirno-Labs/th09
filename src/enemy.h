@@ -452,7 +452,7 @@ struct Enemy
             DWORD onScreen : 1;
             DWORD rotateSprite : 1;
             // Calls don't save the caller, as th08's.
-            DWORD disableCallStack : 1;
+            DWORD noCallStack : 1;
             DWORD keepSpellCard : 1;
             DWORD staysOffscreen : 1;
             DWORD isWarpingToBoss : 1;

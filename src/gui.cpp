@@ -696,15 +696,15 @@ int GuiMsg::Run()
             track = this->instr->i;
             if (track < 0)
             {
-                g_App.StopBgm();
+                g_App.StopMusic();
             }
             else if (!g_GameManager.IsMode2())
             {
-                g_App.PlayMusic(track, 0);
+                g_App.PlayMusicById(track, 0);
             }
             else
             {
-                g_App.PlayMusic(g_GameManager.unknownF0->unknownC, 0);
+                g_App.PlayMusicById(g_GameManager.unknownF0->unknownC, 0);
             }
             break;
         }

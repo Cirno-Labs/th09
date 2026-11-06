@@ -744,7 +744,7 @@
 <rect width="12" height="12" x="45" y="195" class="named"><title>0x0042fbe0 SoundPlayer::UpdateBgmFades (54 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="195" class="named"><title>0x0042fc20 App::LoadBgm (207 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="195" class="named"><title>0x0042fcf0 App::PlayBgm (53 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="195" class="named"><title>0x0042fd30 App::StopBgm (81 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="195" class="named"><title>0x0042fd30 App::StopMusic (81 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="195" class="named"><title>0x0042fd90 App::UnloadBgm (130 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="195" class="named"><title>0x0042fe20 App::FadeOutMusic (148 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="195" class="named"><title>0x0042fec0 App::EnableFog (56 bytes)</title></rect>
@@ -772,8 +772,8 @@
 <rect width="12" height="12" x="465" y="195" class="named"><title>0x00431540 App::OnDrawLogo (312 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="195" class="named"><title>0x00431680 MidiTimer::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="195" class="named"><title>0x004316b0 DrawFps (633 bytes)</title></rect>
-<rect width="12" height="12" x="510" y="195" class="named"><title>0x00431930 App::PlayMusic (254 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="195" class="named"><title>0x00431a30 App::PlayMusicFile (169 bytes)</title></rect>
+<rect width="12" height="12" x="510" y="195" class="named"><title>0x00431930 App::PlayMusicById (254 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="195" class="named"><title>0x00431a30 App::PlayMusic (169 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="195" class="named"><title>0x00431ae0 App::StartSubThread (69 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="195" class="named"><title>0x00431b30 App::OnDraw (59 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="195" class="named"><title>0x00431b70 App::DeletedCallback (405 bytes)</title></rect>
@@ -1504,7 +1504,7 @@
 <rect width="12.67" height="12.40" x="502.81" y="52.71" class="named"><title>0x00420190 ReplayManager::RecordOnUpdate2 (257 bytes)</title></rect>
 <rect width="12.67" height="12.40" x="518.47" y="52.71" class="named"><title>0x004306b0 App::SetupCamera3D (257 bytes)</title></rect>
 <rect width="12.57" height="12.40" x="534.14" y="52.71" class="named"><title>0x00407600 ScriptStartInterp (255 bytes)</title></rect>
-<rect width="12.52" height="12.40" x="549.70" y="52.71" class="named"><title>0x00431930 App::PlayMusic (254 bytes)</title></rect>
+<rect width="12.52" height="12.40" x="549.70" y="52.71" class="named"><title>0x00431930 App::PlayMusicById (254 bytes)</title></rect>
 <rect width="12.52" height="12.40" x="565.22" y="52.71" class="named"><title>0x004332b0 DatArchive::BuildEntryTable (254 bytes)</title></rect>
 <rect width="12.52" height="12.40" x="580.74" y="52.71" class="named"><title>0x0043a950 SpriteEngine::DrawUnrotated (254 bytes)</title></rect>
 <rect width="12.52" height="12.40" x="596.25" y="52.71" class="named"><title>0x0043aa50 SpriteEngine::DrawUnrotatedMirrored (254 bytes)</title></rect>
@@ -1622,7 +1622,7 @@
 <rect width="10.05" height="10.52" x="672.80" y="96.45" class="named"><title>0x004302b0 App::StartLoadingSprites (173 bytes)</title></rect>
 <rect width="9.99" height="10.52" x="685.86" y="96.45" class="named"><title>0x0041bbe0 LoadShotTypeFile (172 bytes)</title></rect>
 <rect width="9.82" height="10.52" x="698.85" y="96.45" class="named"><title>0x0040d110 EffectManager::DrawUnknown114 (169 bytes)</title></rect>
-<rect width="9.82" height="10.52" x="711.67" y="96.45" class="named"><title>0x00431a30 App::PlayMusicFile (169 bytes)</title></rect>
+<rect width="9.82" height="10.52" x="711.67" y="96.45" class="named"><title>0x00431a30 App::PlayMusic (169 bytes)</title></rect>
 <rect width="9.76" height="10.52" x="724.48" y="96.45" class="named"><title>0x00425163 MainMenu::FlashHalves (168 bytes)</title></rect>
 <rect width="9.76" height="10.52" x="737.24" y="96.45" class="named"><title>0x00432ac0 Network::Connect (168 bytes)</title></rect>
 <rect width="9.96" height="10.25" x="513.33" y="109.97" class="named"><title>0x0042474a MainMenu::MovePlayerCursor (167 bytes)</title></rect>
@@ -1838,7 +1838,7 @@
 <rect width="6.82" height="7.44" x="730.45" y="167.67" class="named"><title>0x0043de30 MidiPlayer::Stop (83 bytes)</title></rect>
 <rect width="6.73" height="7.44" x="740.27" y="167.67" class="named"><title>0x00410250 Enemy::CheckPlayerContact (82 bytes)</title></rect>
 <rect width="7.11" height="6.96" x="582.13" y="178.11" class="named"><title>0x004233a3 Sprite::SetMoveInterp (81 bytes)</title></rect>
-<rect width="7.11" height="6.96" x="582.13" y="188.07" class="named"><title>0x0042fd30 App::StopBgm (81 bytes)</title></rect>
+<rect width="7.11" height="6.96" x="582.13" y="188.07" class="named"><title>0x0042fd30 App::StopMusic (81 bytes)</title></rect>
 <rect width="7.11" height="6.96" x="582.13" y="198.03" class="named"><title>0x00440d90 ExAttack::AllocSprites (81 bytes)</title></rect>
 <rect width="7.11" height="6.87" x="582.13" y="207.99" class="named"><title>0x00406740 ScriptSetTurnSprites (80 bytes)</title></rect>
 <rect width="7.11" height="6.87" x="582.13" y="217.86" class="named"><title>0x0042d240 Log::Flush (80 bytes)</title></rect>

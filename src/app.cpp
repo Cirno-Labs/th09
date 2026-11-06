@@ -768,7 +768,7 @@ int App::PlayBgm()
     return 0;
 }
 
-int App::StopBgm()
+int App::StopMusic()
 {
     if (g_App.config.musicMode == 2)
     {
@@ -1551,7 +1551,7 @@ void DrawFps(int draw)
     }
 }
 
-int App::PlayMusic(int id, int arg)
+int App::PlayMusicById(int id, int arg)
 {
     DWORD i;
 
@@ -1596,7 +1596,7 @@ int App::PlayMusic(int id, int arg)
     return 0;
 }
 
-int App::PlayMusicFile(char *path, int heard)
+int App::PlayMusic(char *path, int heard)
 {
     char *dot;
     char wavFile[0x100];
