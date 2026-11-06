@@ -134,13 +134,13 @@ void LogNetworkError(HRESULT hr)
                    hr, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&message, 0, NULL);
     if (message != NULL)
     {
-        LogError(&g_Log, message);
+        LogError(&g_Logger, message);
         LocalFree(message);
         return;
     }
     strcpy(text, DXGetErrorString8A(hr));
     strcat(text, "\r\n");
-    LogError(&g_Log, text);
+    LogError(&g_Logger, text);
 }
 
 void Network::Init()
@@ -239,7 +239,7 @@ void Network::Init()
         }
     }
 done:
-    g_MemoryManager.Free(data);
+    g_MemoryTracker.Free(data);
 }
 
 BOOL Network::IsServiceProviderValid(const GUID *serviceProvider)
@@ -255,10 +255,10 @@ BOOL Network::IsServiceProviderValid(const GUID *serviceProvider)
         printf("Failed Enumerating Service Providers:  0x%x\r\n", hr);
         goto cleanup;
     }
-    info = (DPN_SERVICE_PROVIDER_INFO *)g_MemoryManager.Alloc(size, GLOBAL_H);
+    info = (DPN_SERVICE_PROVIDER_INFO *)g_MemoryTracker.Alloc(size, GLOBAL_H);
     if (FAILED(hr = this->peer->EnumServiceProviders(&CLSID_DP8SP_TCPIP, NULL, info, &size, &count, 0)))
     {
-        LogError(&g_Log, "サービスプロバイダ列挙失敗:\t0x%x\r\n", hr);
+        LogError(&g_Logger, "サービスプロバイダ列挙失敗:\t0x%x\r\n", hr);
         goto cleanup;
     }
     if (count == 0)
@@ -268,7 +268,7 @@ BOOL Network::IsServiceProviderValid(const GUID *serviceProvider)
 cleanup:
     if (info != NULL)
     {
-        g_MemoryManager.Free(info);
+        g_MemoryTracker.Free(info);
     }
     return SUCCEEDED(hr);
 }
@@ -283,19 +283,19 @@ HRESULT Network::CreateDeviceAddress()
                           (LPVOID *)&this->deviceAddress);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "Device Address作成失敗\r\n");
+        LogError(&g_Logger, "Device Address作成失敗\r\n");
         return hr;
     }
     hr = this->deviceAddress->SetSP(&CLSID_DP8SP_TCPIP);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "サービスプロバイダ設定失敗:\t0x%X\r\n", hr);
+        LogError(&g_Logger, "サービスプロバイダ設定失敗:\t0x%X\r\n", hr);
         return hr;
     }
     hr = this->deviceAddress->AddComponent(DPNA_KEY_PORT, &this->port, sizeof(this->port), DPNA_DATATYPE_DWORD);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "ポート設定失敗:\t0x%X\r\n", hr);
+        LogError(&g_Logger, "ポート設定失敗:\t0x%X\r\n", hr);
     }
     return hr;
 }
@@ -310,26 +310,26 @@ HRESULT Network::CreateHostAddress()
                           (LPVOID *)&this->hostAddress);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "Host Address作成失敗\r\n");
+        LogError(&g_Logger, "Host Address作成失敗\r\n");
         return hr;
     }
     hr = this->hostAddress->SetSP(&CLSID_DP8SP_TCPIP);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "サービスプロバイダ設定失敗:\t0x%X\r\n", hr);
+        LogError(&g_Logger, "サービスプロバイダ設定失敗:\t0x%X\r\n", hr);
         return hr;
     }
     hr = this->hostAddress->AddComponent(DPNA_KEY_HOSTNAME, hostName, (wcslen(hostName) + 1) * sizeof(WCHAR),
                                          DPNA_DATATYPE_STRING);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "ホストアドレスIP設定失敗\r\n");
+        LogError(&g_Logger, "ホストアドレスIP設定失敗\r\n");
         return hr;
     }
     hr = this->hostAddress->AddComponent(DPNA_KEY_PORT, &this->port, sizeof(this->port), DPNA_DATATYPE_DWORD);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "ホストアドレスポート設定失敗\r\n");
+        LogError(&g_Logger, "ホストアドレスポート設定失敗\r\n");
     }
     return hr;
 }
@@ -348,7 +348,7 @@ HRESULT Network::Host()
     hr = this->peer->Host(&desc, &this->deviceAddress, 1, NULL, NULL, NULL, DPNHOST_OKTOQUERYFORADDRESSING);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "新しいセッション作成失敗:\t 0x%X\r\n", hr);
+        LogError(&g_Logger, "新しいセッション作成失敗:\t 0x%X\r\n", hr);
         LogNetworkError(hr);
     }
     return hr;
@@ -494,24 +494,24 @@ HRESULT Network::CreatePeer()
                           (LPVOID *)&this->peer);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "IDirectPlay8Peer 作成失敗:  0x%X\r\n", hr);
+        LogError(&g_Logger, "IDirectPlay8Peer 作成失敗:  0x%X\r\n", hr);
         LogNetworkError(hr);
         return hr;
     }
     hr = this->peer->Initialize(NULL, NetworkMessageHandler, 0);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "IDirectPlay8Peer 初期化失敗:  0x%X\r\n", hr);
+        LogError(&g_Logger, "IDirectPlay8Peer 初期化失敗:  0x%X\r\n", hr);
         LogNetworkError(hr);
         return hr;
     }
     if (!IsServiceProviderValid(&CLSID_DP8SP_TCPIP))
     {
         hr = E_FAIL;
-        LogError(&g_Log, "CLSID_DP8SP_TCPIP 使用不可\r\n");
+        LogError(&g_Logger, "CLSID_DP8SP_TCPIP 使用不可\r\n");
         goto end;
     }
-    LogPrintf(&g_Log, "DirectPlay が正常に初期化されたように見えた\r\n");
+    LogPrintf(&g_Logger, "DirectPlay が正常に初期化されたように見えた\r\n");
 end:
     return hr;
 }
@@ -541,13 +541,13 @@ int Network::Close()
     hr = this->peer->Initialize(NULL, NetworkMessageHandler, 0);
     if (FAILED(hr))
     {
-        LogError(&g_Log, "IDirectPlay8Peer 初期化失敗:  0x%X\r\n", hr);
+        LogError(&g_Logger, "IDirectPlay8Peer 初期化失敗:  0x%X\r\n", hr);
         LogNetworkError(hr);
         return 1;
     }
     if (!IsServiceProviderValid(&CLSID_DP8SP_TCPIP))
     {
-        LogError(&g_Log, "CLSID_DP8SP_TCPIP 使用不可\r\n");
+        LogError(&g_Logger, "CLSID_DP8SP_TCPIP 使用不可\r\n");
         return 1;
     }
     this->unknown1c[0] = 0;

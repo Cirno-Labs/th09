@@ -228,7 +228,7 @@ int InitExAttackType24(ExAttack *attack)
 // allocation fails (0x449940).
 int InitEffectType30(Effect *effect)
 {
-    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryTracker.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)
     {
         return -1;

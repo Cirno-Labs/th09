@@ -22,12 +22,12 @@ int EnemyScripts::Load(char *path)
     this->file = (EnemyScriptHeader *)LoadFileData(path, NULL, 0);
     if (this->file == NULL)
     {
-        LogPrintf(&g_Log, "敵データの読み込みに失敗しました、データが壊れてるか失われています\r\n");
+        LogPrintf(&g_Logger, "敵データの読み込みに失敗しました、データが壊れてるか失われています\r\n");
         return -1;
     }
     if (this->file->version != 0x900)
     {
-        LogPrintf(&g_Log, "敵データのバージョンが違います\r\n");
+        LogPrintf(&g_Logger, "敵データのバージョンが違います\r\n");
         return -1;
     }
     for (i = 0; i < this->file->timelineCount; i++)
@@ -441,7 +441,7 @@ static int ScriptReturn(Enemy *enemy, EnemyScriptInstr *instr)
         i = enemy->currentCtx->timedCallActive - 1;
         if (enemy->threads[i] != NULL)
         {
-            g_MemoryManager.Free(enemy->threads[i]);
+            g_MemoryTracker.Free(enemy->threads[i]);
         }
         enemy->threads[i] = NULL;
         // Store order in the asm: stackDepth, callStack, currentCtx (th08's
@@ -474,7 +474,7 @@ void EnemyScripts::Unload()
 {
     if (this->file != NULL)
     {
-        g_MemoryManager.Free(this->file);
+        g_MemoryTracker.Free(this->file);
     }
     this->file = NULL;
 }
@@ -2168,13 +2168,13 @@ loop:
             value = INT_ARG(0);
             if (enemy->threads[value] != NULL)
             {
-                g_MemoryManager.Free(enemy->threads[value]);
+                g_MemoryTracker.Free(enemy->threads[value]);
             }
             enemy->threads[value] = NULL;
             if (INT_ARG(1) >= 0)
             {
                 enemy->threads[value] =
-                    (EnemyScriptThread *)g_MemoryManager.Alloc(sizeof(EnemyScriptThread), "ECLInt");
+                    (EnemyScriptThread *)g_MemoryTracker.Alloc(sizeof(EnemyScriptThread), "ECLInt");
                 if (enemy->threads[value] != NULL)
                 {
                     memset(enemy->threads[value], 0, sizeof(EnemyScriptThread));

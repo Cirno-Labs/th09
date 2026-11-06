@@ -158,7 +158,7 @@ int SendComboAttacksCharacter6(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // the allocation fails (0x4459a0).
 int InitEffectTypes27And36(Effect *effect)
 {
-    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x78, "Effect");
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryTracker.Alloc(0x78, "Effect");
     if (effect->vertices == NULL)
     {
         return -1;

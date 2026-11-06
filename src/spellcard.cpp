@@ -291,7 +291,7 @@ void SpellCard::RemoveChain(SpellCard *card)
 SpellCard *SpellCard::RegisterChain(int sideIdx)
 {
     SpellCard *card =
-        (SpellCard *)g_MemoryManager.Register(new SpellCard(), sizeof(SpellCard), "CardAttackInf");
+        (SpellCard *)g_MemoryTracker.Register(new SpellCard(), sizeof(SpellCard), "CardAttackInf");
 
     memset(card, 0, sizeof(SpellCard));
     card->sideIdx = sideIdx;

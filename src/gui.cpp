@@ -916,9 +916,9 @@ void GuiMsg::UnloadBgm(int firstScript)
     }
     if (this->msgFile2 != NULL)
     {
-        g_MemoryManager.Free(this->msgFile2);
+        g_MemoryTracker.Free(this->msgFile2);
     }
-    g_MemoryManager.Free(this->msgFile);
+    g_MemoryTracker.Free(this->msgFile);
     g_MsgFile = NULL;
     g_MsgFile2 = NULL;
     this->Clear();
@@ -1259,7 +1259,7 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
         g_MsgFile = this->msgFile = (MsgFile *)LoadFileData(path, NULL, 0);
         if (this->msgFile == NULL)
         {
-            LogPrintf(&g_Log, "error : メッセージファイル %s が読み込めませんでした\r\n", path);
+            LogPrintf(&g_Logger, "error : メッセージファイル %s が読み込めませんでした\r\n", path);
             return -1;
         }
         for (i = 0; i < this->msgFile->count; i++)
@@ -1305,7 +1305,7 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
         g_MsgFile2 = this->msgFile2 = (MsgFile *)LoadFileData(path2, NULL, 0);
         if (this->msgFile2 == NULL)
         {
-            LogPrintf(&g_Log, "error : メッセージファイル %s が読み込めませんでした\r\n", path2);
+            LogPrintf(&g_Logger, "error : メッセージファイル %s が読み込めませんでした\r\n", path2);
             return -1;
         }
         for (i = 0; i < this->msgFile2->count; i++)
@@ -1414,7 +1414,7 @@ int Gui::AddedCallback(Gui *gui)
 
 Gui *Gui::RegisterChain()
 {
-    Gui *gui = (Gui *)g_MemoryManager.Register(new Gui(), sizeof(Gui), "FrontInf");
+    Gui *gui = (Gui *)g_MemoryTracker.Register(new Gui(), sizeof(Gui), "FrontInf");
 
     gui->Init();
     gui->calcElem = g_Chain.CreateElem((ChainCallback)Gui::OnUpdate);
@@ -2041,7 +2041,7 @@ void GuiSide::StartUnknown76d4(int frames)
 
 GuiSide *GuiSide::RegisterChain(int sideIdx)
 {
-    GuiSide *side = (GuiSide *)g_MemoryManager.Register(new GuiSide(), sizeof(GuiSide), "FrontSideInf");
+    GuiSide *side = (GuiSide *)g_MemoryTracker.Register(new GuiSide(), sizeof(GuiSide), "FrontSideInf");
 
     side->Init();
     side->sideIdx = sideIdx;

@@ -53,7 +53,7 @@ int CreateD3d()
     g_App.d3d = Direct3DCreate8(220);
     if (g_App.d3d == NULL)
     {
-        LogError(&g_Log, "Direct3D オブジェクトは何故か作成出来なかった\r\n");
+        LogError(&g_Logger, "Direct3D オブジェクトは何故か作成出来なかった\r\n");
         return 1;
     }
     return 0;
@@ -392,7 +392,7 @@ int CheckSingleInstance()
     g_AppMutex = CreateMutexA(NULL, TRUE, "Touhou 08 App");
     if (GetLastError() == ERROR_ALREADY_EXISTS)
     {
-        LogError(&g_Log, "二つは起動できません\r\n");
+        LogError(&g_Logger, "二つは起動できません\r\n");
         return -1;
     }
     STARTUPINFOA startup = {sizeof(STARTUPINFOA)};
@@ -469,7 +469,7 @@ int ChecksumExecutable()
         {
             sum += *words;
         }
-        g_MemoryManager.Free(data);
+        g_MemoryTracker.Free(data);
 #if FEAT_ORIG_CHECKSUM
         // Version records in the archive and original replays identify 1.50a.
         g_App.exeSize = TH09_ORIGINAL_EXE_SIZE;
@@ -593,7 +593,7 @@ int InitD3dDevice()
         {
             params.BackBufferFormat = D3DFMT_X8R8G8B8;
             g_App.config.colorMode16Bits = 0;
-            LogPrintf(&g_Log, "初回起動、画面を 32Bits で初期化しました\r\n");
+            LogPrintf(&g_Logger, "初回起動、画面を 32Bits で初期化しました\r\n");
         }
         else if (g_App.config.colorMode16Bits == 0)
         {
@@ -611,7 +611,7 @@ int InitD3dDevice()
         {
             params.FullScreen_RefreshRateInHz = 60;
             params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_ONE;
-            LogPrintf(&g_Log, "リフレッシュレートを60Hzに変更を試みます\r\n");
+            LogPrintf(&g_Logger, "リフレッシュレートを60Hzに変更を試みます\r\n");
             if (g_App.config.frameSkip == 0)
             {
                 params.SwapEffect = D3DSWAPEFFECT_FLIP;
@@ -626,7 +626,7 @@ int InitD3dDevice()
             params.FullScreen_RefreshRateInHz = 0;
             params.SwapEffect = D3DSWAPEFFECT_COPY;
             params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;
-            LogPrintf(&g_Log, "VSync非同期可能かどうかを試みます\r\n");
+            LogPrintf(&g_Logger, "VSync非同期可能かどうかを試みます\r\n");
         }
     }
     else
@@ -653,14 +653,14 @@ retry:
     {
         if (retried)
         {
-            LogPrintf(&g_Log, "T&L HAL は使用できないようです\r\n");
+            LogPrintf(&g_Logger, "T&L HAL は使用できないようです\r\n");
         }
         if (g_App.d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, g_GameWindow.hwnd,
                                     D3DCREATE_SOFTWARE_VERTEXPROCESSING, &params, &g_App.d3dDevice) < 0)
         {
             if (retried)
             {
-                LogPrintf(&g_Log, "HAL も使用できないようです\r\n");
+                LogPrintf(&g_Logger, "HAL も使用できないようです\r\n");
             }
         reference:
             if (g_App.d3d->CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_REF, g_GameWindow.hwnd,
@@ -668,7 +668,7 @@ retry:
             {
                 if (g_App.noVsync == 0)
                 {
-                    LogPrintf(&g_Log, "リフレッシュレートが変更できません\r\n");
+                    LogPrintf(&g_Logger, "リフレッシュレートが変更できません\r\n");
                     params.FullScreen_RefreshRateInHz = 0;
                     g_App.wants60Hz = 0;
                     retried = 1;
@@ -676,13 +676,13 @@ retry:
                 }
                 if (params.FullScreen_PresentationInterval == D3DPRESENT_INTERVAL_IMMEDIATE)
                 {
-                    LogPrintf(&g_Log, "非同期更新も行えません。一番汚いモードに変更します\r\n");
-                    LogError(&g_Log, "*** リフレッシュレートを60Hzに変更することを推奨します ***\r\n");
+                    LogPrintf(&g_Logger, "非同期更新も行えません。一番汚いモードに変更します\r\n");
+                    LogError(&g_Logger, "*** リフレッシュレートを60Hzに変更することを推奨します ***\r\n");
                     params.FullScreen_PresentationInterval = D3DPRESENT_INTERVAL_ONE;
                     params.SwapEffect = D3DSWAPEFFECT_COPY;
                     goto retry;
                 }
-                LogError(&g_Log, "Direct3D の初期化に失敗、これではゲームは出来ません\r\n");
+                LogError(&g_Logger, "Direct3D の初期化に失敗、これではゲームは出来ません\r\n");
                 if (g_App.d3d != NULL)
                 {
                     g_App.d3d->Release();
@@ -692,20 +692,20 @@ retry:
             }
             else
             {
-                LogPrintf(&g_Log, "REF で動作しますが、重すぎて恐らくゲームになりません...\r\n");
+                LogPrintf(&g_Logger, "REF で動作しますが、重すぎて恐らくゲームになりません...\r\n");
                 g_App.stateFlags &= ~1;
                 checkFormat = false;
             }
         }
         else
         {
-            LogPrintf(&g_Log, "HAL で動作します\r\n");
+            LogPrintf(&g_Logger, "HAL で動作します\r\n");
             g_App.stateFlags &= ~1;
         }
     }
     else
     {
-        LogPrintf(&g_Log, "T&L HAL で動作しま～す\r\n");
+        LogPrintf(&g_Logger, "T&L HAL で動作しま～す\r\n");
         g_App.stateFlags |= 1;
     }
     memcpy(&g_App.presentParams, &params, sizeof(params));
@@ -746,10 +746,10 @@ retry:
     g_App.d3dDevice->GetDeviceCaps(&g_App.caps);
     if (g_App.caps.MaxTextureWidth <= 256)
     {
-        LogPrintf(&g_Log, "512 以上のテクスチャをサポートしていません。殆どの絵がボケて表示されます。\r\n");
+        LogPrintf(&g_Logger, "512 以上のテクスチャをサポートしていません。殆どの絵がボケて表示されます。\r\n");
     }
     FormatCapsReport(&g_App.caps, buffer);
-    LogPrintf(&g_Log, buffer);
+    LogPrintf(&g_Logger, buffer);
     if (g_App.GetForce16BitTextures() == 0 && checkFormat)
     {
         if (g_App.d3d->CheckDeviceFormat(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, params.BackBufferFormat, 0,
@@ -761,7 +761,7 @@ retry:
         {
             g_App.stateFlags &= ~4;
             g_App.config.flags.force16BitTextures = 1;
-            LogPrintf(&g_Log, "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\r\n");
+            LogPrintf(&g_Logger, "D3DFMT_A8R8G8B8 をサポートしていません、減色モードで動作します\r\n");
         }
     }
     SetDefaultRenderStates();
@@ -811,7 +811,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     SystemParametersInfoA(SPI_SETLOWPOWERACTIVE, 0, NULL, SPIF_SENDCHANGE);
     SystemParametersInfoA(SPI_SETPOWEROFFACTIVE, 0, NULL, SPIF_SENDCHANGE);
     g_App.InitCriticalSections();
-    LogPrintf(&g_Log, "東方動作記録 --------------------------------------------- \r\n");
+    LogPrintf(&g_Logger, "東方動作記録 --------------------------------------------- \r\n");
     if (CheckSingleInstance() == -1)
     {
         goto stop;
@@ -839,14 +839,14 @@ restart:
     InitJoystick();
     ResetKeyboard();
     g_SpriteEngine =
-        (SpriteEngine *)g_MemoryManager.Register(new SpriteEngine(), sizeof(SpriteEngine), "SprtCtrlInf");
+        (SpriteEngine *)g_MemoryTracker.Register(new SpriteEngine(), sizeof(SpriteEngine), "SprtCtrlInf");
     g_Rng.SetSeed(timeGetTime());
     CoInitializeEx(NULL, COINIT_MULTITHREADED);
-    g_Network = (Network *)g_MemoryManager.Register(new Network(), sizeof(Network), "NetworkInf");
+    g_Network = (Network *)g_MemoryTracker.Register(new Network(), sizeof(Network), "NetworkInf");
     g_Network->Init();
     if (g_Network->CreatePeer() != 0)
     {
-        LogError(&g_Log, "DirectPlay 初期化失敗\r\n");
+        LogError(&g_Logger, "DirectPlay 初期化失敗\r\n");
     }
     if (!g_App.GetWindowed())
     {
@@ -940,8 +940,8 @@ stop:
     ShowCursor(TRUE);
     if (runResult == 2)
     {
-        g_Log.Reset();
-        LogPrintf(&g_Log, "再起動を要するオプションが変更されたので再起動します\r\n");
+        g_Logger.Reset();
+        LogPrintf(&g_Logger, "再起動を要するオプションが変更されたので再起動します\r\n");
         if (!g_App.GetWindowed())
         {
             WINNLSEnableIME(NULL, TRUE);
@@ -965,7 +965,7 @@ stop:
         delete g_App.midi;
         g_App.midi = NULL;
     }
-    g_Log.Flush();
+    g_Logger.Flush();
     g_App.DeleteCriticalSections();
     CoUninitialize();
     SystemParametersInfoA(SPI_SETSCREENSAVEACTIVE, g_GameWindow.screenSaveActive, NULL, SPIF_SENDCHANGE);

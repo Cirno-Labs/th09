@@ -14,7 +14,7 @@
 // fails (0x441c80).
 int InitEffectType16(Effect *effect)
 {
-    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryTracker.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)
     {
         return -1;
@@ -408,13 +408,13 @@ int InitExAttackType4(ExAttack *attack)
     int i;
 
     attack->spriteCount = 5;
-    attack->sprites = (Sprite *)g_MemoryManager.Alloc(sizeof(Sprite) * 5, "./system\\global.h");
+    attack->sprites = (Sprite *)g_MemoryTracker.Alloc(sizeof(Sprite) * 5, "./system\\global.h");
     g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[0], 0xe);
     g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[1], 0xf);
     g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[2], 0x10);
     g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[3], 0x11);
     g_GameManager.sides[attack->side].player->anm->StartScriptAtOrigin(&attack->sprites[4], 0x12);
-    data = (ExAttackData03 *)g_MemoryManager.Alloc(sizeof(ExAttackData03), "./system\\global.h");
+    data = (ExAttackData03 *)g_MemoryTracker.Alloc(sizeof(ExAttackData03), "./system\\global.h");
     attack->data = data;
     g_App.SetCamera(attack->targetSide);
     attack->pos.x = g_GameManager.ScreenToArenaX(attack->pos.x);
@@ -504,7 +504,7 @@ int FreeExAttackType4(ExAttack *attack)
 {
     if (attack->data != NULL)
     {
-        g_MemoryManager.Free(attack->data);
+        g_MemoryTracker.Free(attack->data);
     }
     attack->data = NULL;
     return 0;
@@ -529,7 +529,7 @@ int SendComboAttacksCharacter2(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // the allocation fails (0x442f50).
 int InitEffectType17(Effect *effect)
 {
-    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryTracker.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)
     {
         return -1;

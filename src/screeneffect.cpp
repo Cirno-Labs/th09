@@ -401,7 +401,7 @@ ScreenEffect *ScreenEffect::StartEffect(int type, int duration, int a, int b, in
 {
     ChainElem *calc = NULL;
     ChainElem *drawElem = NULL;
-    ScreenEffect *effect = (ScreenEffect *)g_MemoryManager.Register(new ScreenEffect, sizeof(ScreenEffect), "ScreenInf");
+    ScreenEffect *effect = (ScreenEffect *)g_MemoryTracker.Register(new ScreenEffect, sizeof(ScreenEffect), "ScreenInf");
 
     if (effect == NULL)
     {

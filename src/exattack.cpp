@@ -77,7 +77,7 @@ int ExAttackManager::OnUpdate(ExAttackManager *mgr)
                 }
                 if (attack->sprites != NULL)
                 {
-                    g_MemoryManager.Free(attack->sprites);
+                    g_MemoryTracker.Free(attack->sprites);
                     attack->sprites = NULL;
                 }
                 attack->active = 0;
@@ -184,7 +184,7 @@ static int FreeAttacks(ExAttackManager *mgr)
         }
         if (attack->sprites != NULL)
         {
-            g_MemoryManager.Free(attack->sprites);
+            g_MemoryTracker.Free(attack->sprites);
             attack->sprites = NULL;
         }
     }
@@ -221,7 +221,7 @@ void ExAttackManager::Reset()
         }
         if (attack->sprites != NULL)
         {
-            g_MemoryManager.Free(attack->sprites);
+            g_MemoryTracker.Free(attack->sprites);
             attack->sprites = NULL;
         }
         memset(attack, 0, sizeof(ExAttack));
@@ -240,7 +240,7 @@ int ExAttackManager::AddedCallback(ExAttackManager *mgr)
 
 ExAttackManager *ExAttackManager::RegisterChain()
 {
-    ExAttackManager *mgr = (ExAttackManager *)g_MemoryManager.Register(new ExAttackManager(), sizeof(ExAttackManager),
+    ExAttackManager *mgr = (ExAttackManager *)g_MemoryTracker.Register(new ExAttackManager(), sizeof(ExAttackManager),
                                                                        "ExAttackCtrlInf");
 
     memset(mgr, 0, sizeof(ExAttackManager));

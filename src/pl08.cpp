@@ -221,7 +221,7 @@ int InitExAttackType23(ExAttack *attack)
 // velocity.z. Returns 0, or -1 if the allocation fails (0x447c40).
 int InitEffectTypes10And18And24And25And26And28And33(Effect *effect)
 {
-    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryTracker.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)
     {
         return -1;

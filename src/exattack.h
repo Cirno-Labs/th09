@@ -24,7 +24,7 @@ struct ExAttack
     {
         this->spriteCount = count;
         dataSize += count * sizeof(Sprite);
-        this->sprites = (Sprite *)g_MemoryManager.Alloc(dataSize, "./system\\global.h");
+        this->sprites = (Sprite *)g_MemoryTracker.Alloc(dataSize, "./system\\global.h");
         memset(this->sprites, 0, dataSize);
         this->data = &this->sprites[count];
     }

@@ -549,7 +549,7 @@ void Enemy::FreeThreads()
     {
         if (this->threads[i] != NULL)
         {
-            g_MemoryManager.Free(this->threads[i]);
+            g_MemoryTracker.Free(this->threads[i]);
             this->threads[i] = NULL;
         }
     }
@@ -1083,7 +1083,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
             {
                 if (enemy->threads[k] != NULL)
                 {
-                    g_MemoryManager.Free(enemy->threads[k]);
+                    g_MemoryTracker.Free(enemy->threads[k]);
                     enemy->threads[k] = NULL;
                 }
             }
@@ -1594,7 +1594,7 @@ EnemyManager::EnemyManager()
 EnemyManager *EnemyManager::RegisterChain(int sideIdx)
 {
     EnemyManager *mgr =
-        (EnemyManager *)g_MemoryManager.Register(new EnemyManager(), sizeof(EnemyManager), "EnemyCtrlInf");
+        (EnemyManager *)g_MemoryTracker.Register(new EnemyManager(), sizeof(EnemyManager), "EnemyCtrlInf");
 
     mgr->Initialize();
     mgr->sideIdx = sideIdx;

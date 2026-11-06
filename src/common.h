@@ -48,4 +48,4 @@ public:
     int freeBlocksOnExit;
 };
 ASSERT_SIZE(MemoryManager, 0x4004);
-extern MemoryManager g_MemoryManager;
+extern MemoryManager g_MemoryTracker;

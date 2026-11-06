@@ -26,8 +26,8 @@
 // This object's startup entries begin at 0x48d7b0. Its /Ob1 settings
 // expand GameManager's inline constructor into the call to Init.
 GameManager g_GameManager;
-ChainElem g_GameManagerCalcElem;
-ChainElem g_GameManagerDrawElem;
+ChainElem g_GameManagerCalcChainElem;
+ChainElem g_GameManagerDrawChainElem;
 #endif
 
 BOOL GameManager::IsInPlayArea(float x, float y, float width, float height)
@@ -116,8 +116,8 @@ void RemoveGameManagerChain()
     }
     g_GameManager.sides[1].stats->guiScore = g_GameManager.sides[1].stats->score;
     g_App.gameSpeed = 1.0f;
-    g_Chain.Remove(&g_GameManagerCalcElem);
-    g_Chain.Remove(&g_GameManagerDrawElem);
+    g_Chain.Remove(&g_GameManagerCalcChainElem);
+    g_Chain.Remove(&g_GameManagerDrawChainElem);
 }
 
 WORD Rng::GetSeed()
@@ -842,17 +842,17 @@ int GameManager::RegisterChain()
     GameManager *mgr = &g_GameManager;
 
     mgr->frames = 0;
-    g_GameManagerCalcElem.SetCallback((ChainCallback)GameManager::OnUpdate);
-    g_GameManagerCalcElem.addedCallback = (ChainCallback)GameManager::AddedCallback;
-    g_GameManagerCalcElem.deletedCallback = (ChainCallback)GameManager::DeletedCallback;
-    g_GameManagerCalcElem.arg = mgr;
-    if (g_Chain.AddToCalcChain(&g_GameManagerCalcElem, 2) != 0)
+    g_GameManagerCalcChainElem.SetCallback((ChainCallback)GameManager::OnUpdate);
+    g_GameManagerCalcChainElem.addedCallback = (ChainCallback)GameManager::AddedCallback;
+    g_GameManagerCalcChainElem.deletedCallback = (ChainCallback)GameManager::DeletedCallback;
+    g_GameManagerCalcChainElem.arg = mgr;
+    if (g_Chain.AddToCalcChain(&g_GameManagerCalcChainElem, 2) != 0)
     {
         return -1;
     }
-    g_GameManagerDrawElem.SetCallback((ChainCallback)GameManager::OnDraw);
-    g_GameManagerDrawElem.arg = mgr;
-    g_Chain.AddToDrawChain(&g_GameManagerDrawElem, 5);
+    g_GameManagerDrawChainElem.SetCallback((ChainCallback)GameManager::OnDraw);
+    g_GameManagerDrawChainElem.arg = mgr;
+    g_Chain.AddToDrawChain(&g_GameManagerDrawChainElem, 5);
     return 0;
 }
 

@@ -670,7 +670,7 @@ static int FreeResources(Player *player)
         g_SpriteEngine->ReleaseAnm(player->sideIdx + 5);
         if (player->shtFile != NULL)
         {
-            g_MemoryManager.Free(player->shtFile);
+            g_MemoryTracker.Free(player->shtFile);
             player->shtFile = NULL;
             g_ShtFiles[player->sideIdx] = NULL;
         }
@@ -1719,7 +1719,7 @@ int Player::AddedCallback(Player *player)
     {
         if (g_ShtFiles[player->sideIdx] != NULL)
         {
-            g_MemoryManager.Free(g_ShtFiles[player->sideIdx]);
+            g_MemoryTracker.Free(g_ShtFiles[player->sideIdx]);
         }
         if (LoadShotTypeFile(&player->shtFile, g_CharacterFiles[player->side->character][0]))
         {
@@ -1760,7 +1760,7 @@ Player::Player()
 
 Player *Player::RegisterChain(int arg, int sideIdx, int unknown20)
 {
-    Player *player = (Player *)g_MemoryManager.Register(new Player(), sizeof(Player), "PlayerInf");
+    Player *player = (Player *)g_MemoryTracker.Register(new Player(), sizeof(Player), "PlayerInf");
 
     memset(player, 0, sizeof(Player));
     player->stateTimer = 0;

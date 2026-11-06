@@ -194,7 +194,7 @@ int InitSpellCardType0(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1360 = g_MemoryManager.Alloc(0x2b8, ".\\pl\\pl00.cpp");
+    card->unknown1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(0, &pos, 0x1e, -2, 1000, 0);
     return 0;
 }
@@ -205,7 +205,7 @@ int FreePrimarySpellCardData(SpellCard *card)
 {
     if (card->unknown1360 != NULL)
     {
-        g_MemoryManager.Free(card->unknown1360);
+        g_MemoryTracker.Free(card->unknown1360);
     }
     card->unknown1360 = NULL;
     return 0;
@@ -215,7 +215,7 @@ int InitSpellCardType1(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1360 = g_MemoryManager.Alloc(0x2b8, ".\\pl\\pl00.cpp");
+    card->unknown1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(1, &pos, 0x1e, -2, 10000, 0);
     return 0;
 }
@@ -227,7 +227,7 @@ int InitSpellCardType2(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1364 = g_MemoryManager.Alloc(0x2b8, ".\\pl\\pl00.cpp");
+    card->unknown1364 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(2, &pos, 0x578, -2, 1000, 0);
     return 0;
 }
@@ -238,7 +238,7 @@ int FreeSecondarySpellCardData(SpellCard *card)
 {
     if (card->unknown1364 != NULL)
     {
-        g_MemoryManager.Free(card->unknown1364);
+        g_MemoryTracker.Free(card->unknown1364);
     }
     card->unknown1364 = NULL;
     return 0;

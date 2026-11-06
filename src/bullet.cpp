@@ -1425,7 +1425,7 @@ BulletManager::BulletManager()
 BulletManager *BulletManager::RegisterChain(int sideIdx)
 {
     BulletManager *mgr =
-        (BulletManager *)g_MemoryManager.Register(new BulletManager(), sizeof(BulletManager), "EtamaCtrlInf");
+        (BulletManager *)g_MemoryTracker.Register(new BulletManager(), sizeof(BulletManager), "EtamaCtrlInf");
 
     mgr->Initialize();
     mgr->sideIdx = sideIdx;

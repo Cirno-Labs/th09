@@ -207,7 +207,7 @@ int SendComboAttacksCharacter11(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // radius 16, from -pi/2. Returns 0, or -1 if the allocation fails (0x44a6e0).
 int InitEffectType31(Effect *effect)
 {
-    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x294, "Effect");
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryTracker.Alloc(0x294, "Effect");
     if (effect->vertices == NULL)
     {
         return -1;

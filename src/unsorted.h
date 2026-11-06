@@ -101,7 +101,7 @@ public:
     char *cursor;
     char hasError;
 };
-extern Log g_Log;
+extern Log g_Logger;
 
 // The game's window, as th08's (0x44 bytes, at 0x4b30b0). Only the
 // fields known so far.
@@ -893,7 +893,7 @@ extern App g_App;
 int FreesResources();
 
 // The loading sprites, at 0x4b38b0.
-extern Sprite g_LoadingSprites[3];
+extern Sprite g_LoadingScreenSprites[3];
 
 // DirectInput enumeration callbacks: creates the first two pads, as
 // th08's EnumJoysticksCallback (0x42edd0), and sets the range of the

@@ -177,17 +177,17 @@ ScoreDat *LoadScoreDat(char *path)
     int readSize;
     ScoreDat *unpacked;
 
-    LogPrintf(&g_Log, "info : score load\r\n");
+    LogPrintf(&g_Logger, "info : score load\r\n");
     dat = (ScoreDat *)LoadFileData(path, &readSize, 1);
     if (dat == NULL)
     {
     fail:
-        LogPrintf(&g_Log, "info : score recreate\r\n");
+        LogPrintf(&g_Logger, "info : score recreate\r\n");
         if (dat != NULL)
         {
-            g_MemoryManager.Free(dat);
+            g_MemoryTracker.Free(dat);
         }
-        dat = (ScoreDat *)g_MemoryManager.Alloc(sizeof(ScoreDat), "scorefile");
+        dat = (ScoreDat *)g_MemoryTracker.Alloc(sizeof(ScoreDat), "scorefile");
         dat->dataOffset = sizeof(ScoreDat);
         dat->fileSize = sizeof(ScoreDat);
         dat->version = 4;
@@ -195,12 +195,12 @@ ScoreDat *LoadScoreDat(char *path)
     }
     if (readSize < sizeof(ScoreDat))
     {
-        LogPrintf(&g_Log, "warning : score.dat size is short\r\n");
-        g_MemoryManager.Free(dat);
+        LogPrintf(&g_Logger, "warning : score.dat size is short\r\n");
+        g_MemoryTracker.Free(dat);
         goto fail;
     }
     decoded = DecryptData((BYTE *)dat, readSize, 0x3a, 0xcd, 0x100, 0xc00);
-    g_MemoryManager.Free(dat);
+    g_MemoryTracker.Free(dat);
     dat = (ScoreDat *)decoded;
     remaining = readSize - 2;
     checksum = 0;
@@ -222,24 +222,24 @@ ScoreDat *LoadScoreDat(char *path)
     }
     if (dat->checksum != checksum)
     {
-        LogPrintf(&g_Log, "warning : score.dat chksum error\r\n");
+        LogPrintf(&g_Logger, "warning : score.dat chksum error\r\n");
         goto fail;
     }
     if (dat->dataOffset != sizeof(ScoreDat))
     {
-        LogPrintf(&g_Log, "warning : header size is mismatch\r\n");
+        LogPrintf(&g_Logger, "warning : header size is mismatch\r\n");
         goto fail;
     }
     if (dat->version != 4)
     {
-        LogPrintf(&g_Log, "warning : score.dat version mismatch\r\n");
+        LogPrintf(&g_Logger, "warning : score.dat version mismatch\r\n");
         goto fail;
     }
-    unpacked = (ScoreDat *)g_MemoryManager.Alloc(sizeof(ScoreDat) + 0xa0000, "scorefile2");
+    unpacked = (ScoreDat *)g_MemoryTracker.Alloc(sizeof(ScoreDat) + 0xa0000, "scorefile2");
     *unpacked = *dat;
     LzssDecompress((BYTE *)dat + sizeof(ScoreDat), dat->packedSize, (BYTE *)unpacked + sizeof(ScoreDat),
                    dat->dataSize);
-    g_MemoryManager.Free(dat);
+    g_MemoryTracker.Free(dat);
     dat = unpacked;
     left = dat->fileSize;
     found = FALSE;
@@ -254,7 +254,7 @@ ScoreDat *LoadScoreDat(char *path)
         }
         if (chunk->size == 0)
         {
-            LogPrintf(&g_Log, "warning : score.dat chapter size is ZERO\r\n");
+            LogPrintf(&g_Logger, "warning : score.dat chapter size is ZERO\r\n");
             goto fail;
         }
         left -= chunk->size;
@@ -262,7 +262,7 @@ ScoreDat *LoadScoreDat(char *path)
     }
     if (!found || th9k->version != 1)
     {
-        LogPrintf(&g_Log, "warning : score.dat version mismatch\r\n");
+        LogPrintf(&g_Logger, "warning : score.dat version mismatch\r\n");
         goto fail;
     }
 done:
@@ -271,7 +271,7 @@ done:
 
 void ReleaseScoreDat(ScoreDat *dat)
 {
-    g_MemoryManager.Free(dat);
+    g_MemoryTracker.Free(dat);
 }
 
 int LoadScoreFile()
@@ -308,7 +308,7 @@ int SaveScoreDat()
         size = 1;
         return size;
     }
-    buf = (BYTE *)g_MemoryManager.Alloc(0x640000, "scoretmp");
+    buf = (BYTE *)g_MemoryTracker.Alloc(0x640000, "scoretmp");
     memcpy(buf, &g_ScoreDatHeader, sizeof(ScoreDat));
     size = sizeof(ScoreDat);
     th9k.magic = 0x4b394854;
@@ -382,7 +382,7 @@ int SaveScoreDat()
     }
     encrypted = EncryptData(buf, size, 0x3a, 0xcd, 0x100, 0xc00);
     WriteToFile("score.dat", encrypted, size);
-    g_MemoryManager.Free(buf);
-    g_MemoryManager.Free(encrypted);
+    g_MemoryTracker.Free(buf);
+    g_MemoryTracker.Free(encrypted);
     return 0;
 }

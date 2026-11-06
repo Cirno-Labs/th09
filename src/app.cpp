@@ -170,9 +170,9 @@ int App::OnDrawLoading(App *app)
 
     for (i = 0; i < 3; i++)
     {
-        g_LoadingSprites[i].pos += g_LoadingSprites[i].posOffset;
-        g_SpriteEngine->Draw(&g_LoadingSprites[i]);
-        g_LoadingSprites[i].pos -= g_LoadingSprites[i].posOffset;
+        g_LoadingScreenSprites[i].pos += g_LoadingScreenSprites[i].posOffset;
+        g_SpriteEngine->Draw(&g_LoadingScreenSprites[i]);
+        g_LoadingScreenSprites[i].pos -= g_LoadingScreenSprites[i].posOffset;
     }
     return 1;
 }
@@ -250,7 +250,7 @@ static int InitDirectInput(App *app)
     if (FAILED(DirectInput8Create(hInst, DIRECTINPUT_VERSION, IID_IDirectInput8, (VOID **)&app->dinput, NULL)))
     {
         app->dinput = NULL;
-        LogPrintf(&g_Log, "DirectInput が使用できません\r\n");
+        LogPrintf(&g_Logger, "DirectInput が使用できません\r\n");
         return -1;
     }
     if (FAILED(app->dinput->CreateDevice(GUID_SysKeyboard, &app->keyboard, NULL)))
@@ -260,7 +260,7 @@ static int InitDirectInput(App *app)
             app->dinput->Release();
             app->dinput = NULL;
         }
-        LogPrintf(&g_Log, "DirectInput が使用できません\r\n");
+        LogPrintf(&g_Logger, "DirectInput が使用できません\r\n");
         return -1;
     }
     if (FAILED(app->keyboard->SetDataFormat(&c_dfDIKeyboard)))
@@ -275,7 +275,7 @@ static int InitDirectInput(App *app)
             app->dinput->Release();
             app->dinput = NULL;
         }
-        LogPrintf(&g_Log, "DirectInput SetDataFormat が使用できません\r\n");
+        LogPrintf(&g_Logger, "DirectInput SetDataFormat が使用できません\r\n");
         return -1;
     }
     if (FAILED(app->keyboard->SetCooperativeLevel(app->hwnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND | DISCL_NOWINKEY)))
@@ -290,11 +290,11 @@ static int InitDirectInput(App *app)
             app->dinput->Release();
             app->dinput = NULL;
         }
-        LogPrintf(&g_Log, "DirectInput SetCooperativeLevel が使用できません\r\n");
+        LogPrintf(&g_Logger, "DirectInput SetCooperativeLevel が使用できません\r\n");
         return -1;
     }
     app->keyboard->Acquire();
-    LogPrintf(&g_Log, "DirectInput は正常に初期化されました\r\n");
+    LogPrintf(&g_Logger, "DirectInput は正常に初期化されました\r\n");
     app->dinput->EnumDevices(DI8DEVCLASS_GAMECTRL, EnumJoysticksCallback, NULL, DIEDFL_ATTACHEDONLY);
     if (app->joystick)
     {
@@ -303,7 +303,7 @@ static int InitDirectInput(App *app)
         g_App.joystickCaps.dwSize = sizeof(DIDEVCAPS);
         app->joystick->GetCapabilities(&g_App.joystickCaps);
         app->joystick->EnumObjects(EnumAxesCallback, NULL, DIDFT_ALL);
-        LogPrintf(&g_Log, "有効なパッドを発見しました\r\n");
+        LogPrintf(&g_Logger, "有効なパッドを発見しました\r\n");
     }
     if (app->joystick2)
     {
@@ -312,7 +312,7 @@ static int InitDirectInput(App *app)
         g_App.joystickCaps2.dwSize = sizeof(DIDEVCAPS);
         app->joystick2->GetCapabilities(&g_App.joystickCaps2);
         app->joystick2->EnumObjects(EnumAxesCallback2, NULL, DIDFT_ALL);
-        LogPrintf(&g_Log, "もひとつ有効なパッドを発見しました\r\n");
+        LogPrintf(&g_Logger, "もひとつ有効なパッドを発見しました\r\n");
     }
     return 0;
 }
@@ -329,13 +329,13 @@ int OpenGameArchive()
         g_App.verFileSize = size;
         if (g_App.verFile == NULL)
         {
-            LogError(&g_Log, "error : データのバージョンが違います\r\n");
+            LogError(&g_Logger, "error : データのバージョンが違います\r\n");
             return -1;
         }
     }
     else
     {
-        LogError(&g_Log, "error : データファイルが存在しません\r\n");
+        LogError(&g_Logger, "error : データファイルが存在しません\r\n");
         return -1;
     }
     return 0;
@@ -409,15 +409,15 @@ int MeasureRefreshRate()
         }
         if (sum > 160.0f)
         {
-            LogPrintf(&g_Log, "垂直同期が取れてないか、リフレッシュレートが高すぎます\r\n");
-            LogPrintf(&g_Log, "強制６０フレームモードで動作します\r\n");
+            LogPrintf(&g_Logger, "垂直同期が取れてないか、リフレッシュレートが高すぎます\r\n");
+            LogPrintf(&g_Logger, "強制６０フレームモードで動作します\r\n");
             g_App.noVsync = 1;
             return -2;
         }
         else if (sum >= 65.0f)
         {
-            LogPrintf(&g_Log, "垂直同期が取れてないか、リフレッシュレートが高すぎます。\r\n");
-            LogPrintf(&g_Log, "強制６０フレームモードで動作します\r\n");
+            LogPrintf(&g_Logger, "垂直同期が取れてないか、リフレッシュレートが高すぎます。\r\n");
+            LogPrintf(&g_Logger, "強制６０フレームモードで動作します\r\n");
             g_App.noVsync = 1;
             return -2;
         }
@@ -504,7 +504,7 @@ int App::SaveScreenshot(char *path)
     switch (this->presentParams.BackBufferFormat)
     {
     case D3DFMT_R5G6B5:
-        LogPrintf(&g_Log, "16bit は取り込めない\r\n");
+        LogPrintf(&g_Logger, "16bit は取り込めない\r\n");
         break;
     case D3DFMT_X8R8G8B8:
     {
@@ -519,18 +519,18 @@ int App::SaveScreenshot(char *path)
         int pitch;
         HANDLE file;
 
-        bmi = (BITMAPINFO *)g_MemoryManager.Alloc(sizeof(BITMAPINFO), GLOBAL_H);
+        bmi = (BITMAPINFO *)g_MemoryTracker.Alloc(sizeof(BITMAPINFO), GLOBAL_H);
         if (bmi == NULL)
         {
-            LogPrintf(&g_Log, "snapShotScreen : 確保しくり\r\n");
+            LogPrintf(&g_Logger, "snapShotScreen : 確保しくり\r\n");
             break;
         }
         memset(bmi, 0, sizeof(BITMAPINFO));
         widthBytes = 640 * 3;
-        bits = (BYTE *)g_MemoryManager.Alloc(widthBytes * 480, GLOBAL_H);
+        bits = (BYTE *)g_MemoryTracker.Alloc(widthBytes * 480, GLOBAL_H);
         if (bits == NULL)
         {
-            LogPrintf(&g_Log, "snapShotScreen : 確保しくり\r\n");
+            LogPrintf(&g_Logger, "snapShotScreen : 確保しくり\r\n");
             goto done;
         }
         fileHdr.bfSize += widthBytes * 480;
@@ -576,7 +576,7 @@ int App::SaveScreenshot(char *path)
         break;
     }
     default:
-        LogPrintf(&g_Log, "error ? .\\system\\mother.cpp\r\n");
+        LogPrintf(&g_Logger, "error ? .\\system\\mother.cpp\r\n");
         return 1;
     }
 done:
@@ -585,8 +585,8 @@ done:
         buffer->Release();
         buffer = NULL;
     }
-    g_MemoryManager.Free(bmi);
-    g_MemoryManager.Free(bits);
+    g_MemoryTracker.Free(bmi);
+    g_MemoryTracker.Free(bits);
     return 0;
 }
 
@@ -614,12 +614,12 @@ int App::LoadConfig(char *path)
     file = (GameConfig *)LoadFileData(path, &size, 1);
     if (file == NULL)
     {
-        LogPrintf(&g_Log, "コンフィグデータが見つからないので初期化しました\r\n");
+        LogPrintf(&g_Logger, "コンフィグデータが見つからないので初期化しました\r\n");
     }
     else
     {
         g_App.config = *file;
-        g_MemoryManager.Free(file);
+        g_MemoryTracker.Free(file);
         if (g_App.config.unknownAc < 3 && g_App.config.colorMode16Bits < 2 && g_App.config.musicMode < 3 &&
             g_App.config.difficulty < 6 && g_App.config.playSounds < 2 && g_App.config.windowed < 2 &&
             g_App.config.frameSkip < 3 && g_App.config.unknownB3 < 3 && g_App.config.version == 0x90003 &&
@@ -633,7 +633,7 @@ int App::LoadConfig(char *path)
             g_PlayerInputs[1].mappings[2] = g_App.config.mappings[1][2];
             goto done;
         }
-        LogPrintf(&g_Log, "コンフィグデータが異常でしたので再初期化しました\r\n");
+        LogPrintf(&g_Logger, "コンフィグデータが異常でしたので再初期化しました\r\n");
     }
     g_App.config.SetDefaults();
     // Wave music if thbgm.dat is there, with the right header.
@@ -650,7 +650,7 @@ int App::LoadConfig(char *path)
             CloseHandle(bgmFile);
             if (bgmHeader.magic != 'VAWZ' || bgmHeader.version != 1 || bgmHeader.gameVersion != 0x900)
             {
-                LogError(&g_Log, "BGM データのバージョンが違います\r\n");
+                LogError(&g_Logger, "BGM データのバージョンが違います\r\n");
                 return -1;
             }
             g_App.config.musicMode = 1;
@@ -664,41 +664,41 @@ done:
     this->noVsync = 0;
     if (this->GetNoFog())
     {
-        LogPrintf(&g_Log, "フォグの使用を抑制します\r\n");
+        LogPrintf(&g_Logger, "フォグの使用を抑制します\r\n");
     }
     if (this->GetForce16BitTextures())
     {
-        LogPrintf(&g_Log, "16Bit のテクスチャの使用を強制します\r\n");
+        LogPrintf(&g_Logger, "16Bit のテクスチャの使用を強制します\r\n");
     }
     if (this->GetWindowed())
     {
-        LogPrintf(&g_Log, "ウィンドウモードで起動します\r\n");
+        LogPrintf(&g_Logger, "ウィンドウモードで起動します\r\n");
     }
     if (this->GetReferenceRasterizer())
     {
-        LogPrintf(&g_Log, "リファレンスラスタライザを強制します\r\n");
+        LogPrintf(&g_Logger, "リファレンスラスタライザを強制します\r\n");
     }
     if (this->GetNoDirectInput())
     {
-        LogPrintf(&g_Log, "パッド、キーボードの入力に DirectInput を使用しません\r\n");
+        LogPrintf(&g_Logger, "パッド、キーボードの入力に DirectInput を使用しません\r\n");
     }
     if (this->GetPreloadBgm())
     {
-        LogPrintf(&g_Log, "ＢＧＭをメモリに読み込みます\r\n");
+        LogPrintf(&g_Logger, "ＢＧＭをメモリに読み込みます\r\n");
     }
     if (this->GetNoVsync())
     {
-        LogPrintf(&g_Log, "垂直同期を取りません\r\n");
+        LogPrintf(&g_Logger, "垂直同期を取りません\r\n");
         g_App.noVsync = 1;
     }
     if (this->GetNoTextRenderDetect())
     {
-        LogPrintf(&g_Log, "文字描画の環境を自動検出しません\r\n");
+        LogPrintf(&g_Logger, "文字描画の環境を自動検出しません\r\n");
     }
     if (WriteToFile(path, &g_App.config, sizeof(GameConfig)) != 0)
     {
-        LogError(&g_Log, "ファイルが書き出せません %s\r\n", path);
-        LogError(&g_Log, "フォルダが書込み禁止属性になっているか、ディスクがいっぱいいっぱいになってませんか？\r\n");
+        LogError(&g_Logger, "ファイルが書き出せません %s\r\n", path);
+        LogError(&g_Logger, "フォルダが書込み禁止属性になっているか、ディスクがいっぱいいっぱいになってませんか？\r\n");
         return -1;
     }
     return 0;
@@ -1026,13 +1026,13 @@ void App::StartLoadingSprites(D3DXVECTOR3 *pos)
 {
     if (this->loadingState == 0)
     {
-        this->loadingAnm->StartScriptAtOrigin(&g_LoadingSprites[0], 0);
-        this->loadingAnm->StartScriptAtOrigin(&g_LoadingSprites[1], 1);
-        this->loadingAnm->StartScriptAtOrigin(&g_LoadingSprites[2], 2);
+        this->loadingAnm->StartScriptAtOrigin(&g_LoadingScreenSprites[0], 0);
+        this->loadingAnm->StartScriptAtOrigin(&g_LoadingScreenSprites[1], 1);
+        this->loadingAnm->StartScriptAtOrigin(&g_LoadingScreenSprites[2], 2);
         this->loadingState = 1;
-        g_LoadingSprites[0].pos = *pos;
-        g_LoadingSprites[1].pos = *pos;
-        g_LoadingSprites[2].pos = *pos;
+        g_LoadingScreenSprites[0].pos = *pos;
+        g_LoadingScreenSprites[1].pos = *pos;
+        g_LoadingScreenSprites[2].pos = *pos;
     }
 }
 
@@ -1040,9 +1040,9 @@ void App::StopLoadingSprites()
 {
     if (this->loadingState == 1)
     {
-        g_LoadingSprites[0].SetPendingInterrupt(1);
-        g_LoadingSprites[1].SetPendingInterrupt(1);
-        g_LoadingSprites[2].SetPendingInterrupt(1);
+        g_LoadingScreenSprites[0].SetPendingInterrupt(1);
+        g_LoadingScreenSprites[1].SetPendingInterrupt(1);
+        g_LoadingScreenSprites[2].SetPendingInterrupt(1);
         this->loadingState = 0;
     }
     if (g_LoadingScreenEffect != NULL)
@@ -1056,13 +1056,13 @@ void App::StartLoadingSpritesOverScreen(D3DXVECTOR3 *pos)
 {
     if (this->loadingState == 0)
     {
-        this->loadingAnm->StartScriptAtOrigin(&g_LoadingSprites[0], 0);
-        this->loadingAnm->StartScriptAtOrigin(&g_LoadingSprites[1], 1);
-        this->loadingAnm->StartScriptAtOrigin(&g_LoadingSprites[2], 2);
+        this->loadingAnm->StartScriptAtOrigin(&g_LoadingScreenSprites[0], 0);
+        this->loadingAnm->StartScriptAtOrigin(&g_LoadingScreenSprites[1], 1);
+        this->loadingAnm->StartScriptAtOrigin(&g_LoadingScreenSprites[2], 2);
         this->loadingState = 1;
-        g_LoadingSprites[0].pos = *pos;
-        g_LoadingSprites[1].pos = *pos;
-        g_LoadingSprites[2].pos = *pos;
+        g_LoadingScreenSprites[0].pos = *pos;
+        g_LoadingScreenSprites[1].pos = *pos;
+        g_LoadingScreenSprites[2].pos = *pos;
     }
     g_SpriteEngine->SetPendingSurfaceCopy(8, 0, 0, 640, 480, 0, 0, 640, 480);
 }
@@ -1071,9 +1071,9 @@ void App::FinishLoadingSprites()
 {
     if (this->loadingState == 1)
     {
-        g_LoadingSprites[0].SetPendingInterrupt(2);
-        g_LoadingSprites[1].SetPendingInterrupt(2);
-        g_LoadingSprites[2].SetPendingInterrupt(2);
+        g_LoadingScreenSprites[0].SetPendingInterrupt(2);
+        g_LoadingScreenSprites[1].SetPendingInterrupt(2);
+        g_LoadingScreenSprites[2].SetPendingInterrupt(2);
         this->loadingState = 2;
     }
     if (g_LoadingScreenEffect != NULL)
@@ -1236,7 +1236,7 @@ int App::OnUpdate(App *app)
     g_App.cameras[1].shakeY = 0.0f;
     g_App.cameras[2].shakeX = 0.0f;
     g_App.cameras[2].shakeY = 0.0f;
-    g_SpriteEngine->StepSprites(g_LoadingSprites, 3);
+    g_SpriteEngine->StepSprites(g_LoadingScreenSprites, 3);
     if (g_SpriteEngine->StepAnmLoading() != 0)
     {
         return 4;
@@ -1656,7 +1656,7 @@ int App::DeletedCallback(App *app)
     g_App.CloseSubThread();
     if (g_App.verFile != NULL)
     {
-        g_MemoryManager.Free(g_App.verFile);
+        g_MemoryTracker.Free(g_App.verFile);
         g_App.verFile = NULL;
     }
     if (g_GameManager.sides[0].stats != NULL)
@@ -1742,7 +1742,7 @@ void App::LoadingThread(App *app)
     InitDirectInput(&g_App);
     if (g_App.midi == NULL)
     {
-        g_App.midi = (MidiPlayer *)g_MemoryManager.Register(new MidiPlayer(), sizeof(MidiPlayer), "MidiSysInf");
+        g_App.midi = (MidiPlayer *)g_MemoryTracker.Register(new MidiPlayer(), sizeof(MidiPlayer), "MidiSysInf");
     }
     if (g_App.midi != NULL)
     {
@@ -1754,7 +1754,7 @@ void App::LoadingThread(App *app)
     {
         goto fail;
     }
-    g_App.unknown584 = (Sprite *)g_MemoryManager.Register(new Sprite(), sizeof(Sprite), "SprtInf");
+    g_App.unknown584 = (Sprite *)g_MemoryTracker.Register(new Sprite(), sizeof(Sprite), "SprtInf");
     g_App.textAnm->InitSprite(g_App.unknown584, 0x1f);
     g_App.unknown584->pos.x = 320.0f;
     g_App.unknown584->pos.y = 240.0f;
@@ -1765,7 +1765,7 @@ void App::LoadingThread(App *app)
         {
             return;
         }
-        LogPrintf(&g_Log, "error : 文字の初期化に失敗しました\r\n");
+        LogPrintf(&g_Logger, "error : 文字の初期化に失敗しました\r\n");
         goto fail;
     }
     if (BulletManager::LoadAnm())
@@ -1774,7 +1774,7 @@ void App::LoadingThread(App *app)
         {
             return;
         }
-        LogPrintf(&g_Log, "error : 敵弾の初期化に失敗しました\r\n");
+        LogPrintf(&g_Logger, "error : 敵弾の初期化に失敗しました\r\n");
         goto fail;
     }
     if (Gui::LoadAnm())
@@ -1783,7 +1783,7 @@ void App::LoadingThread(App *app)
         {
             return;
         }
-        LogPrintf(&g_Log, "error : 表示物の初期化に失敗しました\r\n");
+        LogPrintf(&g_Logger, "error : 表示物の初期化に失敗しました\r\n");
         goto fail;
     }
     if (g_SoundPlayer.LoadBgmFormat("bgm/thbgm.fmt") != 0)
@@ -1792,7 +1792,7 @@ void App::LoadingThread(App *app)
         {
             return;
         }
-        LogPrintf(&g_Log, "error : BGM の初期化に失敗しました\r\n");
+        LogPrintf(&g_Logger, "error : BGM の初期化に失敗しました\r\n");
         goto fail;
     }
     g_SoundPlayer.bgmVolume = g_App.config.bgmVolume;
@@ -1833,7 +1833,7 @@ void App::LoadingThread(App *app)
     LoadScoreFile();
     if (g_App.stateFlags >> 6 & 1)
     {
-        g_App.timer = (MidiTimer *)g_MemoryManager.Register(new MidiTimer(), sizeof(MidiTimer), "DummyTimerSysInf");
+        g_App.timer = (MidiTimer *)g_MemoryTracker.Register(new MidiTimer(), sizeof(MidiTimer), "DummyTimerSysInf");
         if (g_App.timer != NULL)
         {
             g_App.timer->StartTimer();

@@ -27,17 +27,17 @@ void EffectManager::Reset()
     {
         if (effect->vertices != NULL)
         {
-            g_MemoryManager.Free(effect->vertices);
+            g_MemoryTracker.Free(effect->vertices);
             effect->vertices = NULL;
         }
         if (effect->sprites != NULL)
         {
-            g_MemoryManager.Free(effect->sprites);
+            g_MemoryTracker.Free(effect->sprites);
             effect->vertices = NULL;
         }
     }
-    g_MemoryManager.Free(this->effects);
-    this->effects = (Effect *)g_MemoryManager.Alloc(
+    g_MemoryTracker.Free(this->effects);
+    this->effects = (Effect *)g_MemoryTracker.Alloc(
         (this->unknown34 + this->unknown38 + 1) * sizeof(Effect), GLOBAL_H);
     memset(this->effects, 0, (this->unknown34 + this->unknown38 + 1) * sizeof(Effect));
 }
@@ -50,11 +50,11 @@ Effect *EffectManager::StartEffect(Effect *effect, int effectIdx, D3DXVECTOR3 *p
 
     if (effect->vertices != NULL)
     {
-        g_MemoryManager.Free(effect->vertices);
+        g_MemoryTracker.Free(effect->vertices);
     }
     if (effect->sprites != NULL)
     {
-        g_MemoryManager.Free(effect->sprites);
+        g_MemoryTracker.Free(effect->sprites);
     }
     memset(effect, 0, sizeof(Effect));
     effect->type = effectIdx;
@@ -65,7 +65,7 @@ Effect *EffectManager::StartEffect(Effect *effect, int effectIdx, D3DXVECTOR3 *p
     effect->mgr = this;
     if (effect->spriteCount != 0)
     {
-        effect->sprites = (Sprite *)g_MemoryManager.Alloc(g_EffectInfos[effectIdx].spriteCount * sizeof(Sprite), GLOBAL_H);
+        effect->sprites = (Sprite *)g_MemoryTracker.Alloc(g_EffectInfos[effectIdx].spriteCount * sizeof(Sprite), GLOBAL_H);
         script = g_EffectInfos[effectIdx].script;
         for (i = 0; i < g_EffectInfos[effectIdx].spriteCount; i++)
         {
@@ -195,12 +195,12 @@ int EffectManager::OnUpdate(EffectManager *mgr)
         {
             if (effect->vertices != NULL)
             {
-                g_MemoryManager.Free(effect->vertices);
+                g_MemoryTracker.Free(effect->vertices);
                 effect->vertices = NULL;
             }
             if (effect->sprites != NULL)
             {
-                g_MemoryManager.Free(effect->sprites);
+                g_MemoryTracker.Free(effect->sprites);
                 effect->sprites = NULL;
             }
             continue;
@@ -360,16 +360,16 @@ int EffectManager::FreeEffects(EffectManager *mgr)
     {
         if (effect->vertices != NULL)
         {
-            g_MemoryManager.Free(effect->vertices);
+            g_MemoryTracker.Free(effect->vertices);
             effect->vertices = NULL;
         }
         if (effect->sprites != NULL)
         {
-            g_MemoryManager.Free(effect->sprites);
+            g_MemoryTracker.Free(effect->sprites);
             effect->vertices = NULL;
         }
     }
-    g_MemoryManager.Free(mgr->effects);
+    g_MemoryTracker.Free(mgr->effects);
     return 0;
 }
 
@@ -387,7 +387,7 @@ void EffectManager::RemoveChain(EffectManager *mgr)
 EffectManager *EffectManager::RegisterChain(int sideIdx, int count34, int count38)
 {
     EffectManager *mgr =
-        (EffectManager *)g_MemoryManager.Register(new EffectManager(), sizeof(EffectManager), "EffectSysInf");
+        (EffectManager *)g_MemoryTracker.Register(new EffectManager(), sizeof(EffectManager), "EffectSysInf");
 
     mgr->Init();
     mgr->sideIdx = sideIdx;
@@ -403,7 +403,7 @@ EffectManager *EffectManager::RegisterChain(int sideIdx, int count34, int count3
     }
     mgr->unknown34 = count34;
     mgr->unknown38 = count38;
-    mgr->effects = (Effect *)g_MemoryManager.Alloc((count34 + count38 + 1) * sizeof(Effect), GLOBAL_H);
+    mgr->effects = (Effect *)g_MemoryTracker.Alloc((count34 + count38 + 1) * sizeof(Effect), GLOBAL_H);
     memset(mgr->effects, 0, (count34 + count38 + 1) * sizeof(Effect));
     mgr->calcElem = g_Chain.CreateElem((ChainCallback)EffectManager::OnUpdate);
     mgr->calcElem->arg = mgr;
@@ -622,7 +622,7 @@ int UpdateEffectTypes3And4(Effect *effect)
 
 int EffectInitRing(Effect *effect)
 {
-    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x1c38, "Effect");
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryTracker.Alloc(0x1c38, "Effect");
     if (effect->vertices == NULL)
     {
         return -1;

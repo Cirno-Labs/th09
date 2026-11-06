@@ -563,12 +563,12 @@ int Stage::DeletedCallback(Stage *stage)
     }
     if (stage->sprites != NULL)
     {
-        g_MemoryManager.Free(stage->sprites);
+        g_MemoryTracker.Free(stage->sprites);
         stage->sprites = NULL;
     }
     if (stage->data != NULL)
     {
-        g_MemoryManager.Free(stage->data);
+        g_MemoryTracker.Free(stage->data);
         stage->data = NULL;
     }
     return 0;
@@ -596,7 +596,7 @@ int Stage::Load(char *dataPath)
     this->data = (StageData *)LoadFileData(dataPath, NULL, 0);
     if (this->data == NULL)
     {
-        LogPrintf(&g_Log, "ステージデータが見つかりません。データが壊れています\r\n");
+        LogPrintf(&g_Logger, "ステージデータが見つかりません。データが壊れています\r\n");
         return -1;
     }
     this->objectCount = this->data->objectCount;
@@ -608,7 +608,7 @@ int Stage::Load(char *dataPath)
     {
         this->objects[i] = (StageObject *)((int)this->objects[i] + (int)this->data);
     }
-    this->sprites = (Sprite *)g_MemoryManager.Alloc(this->quadCount * sizeof(Sprite), "bgscroll");
+    this->sprites = (Sprite *)g_MemoryTracker.Alloc(this->quadCount * sizeof(Sprite), "bgscroll");
     for (i = 0, count = 0; i < this->objectCount; i++)
     {
         obj = this->objects[i];
@@ -1201,7 +1201,7 @@ Stage::Stage()
 
 Stage *Stage::RegisterChain(int sideIdx)
 {
-    Stage *stage = (Stage *)g_MemoryManager.Register(new Stage(), sizeof(Stage), "BGScrollInf");
+    Stage *stage = (Stage *)g_MemoryTracker.Register(new Stage(), sizeof(Stage), "BGScrollInf");
 
     stage->unknownC68 = 0;
     stage->sideIdx = sideIdx;

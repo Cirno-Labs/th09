@@ -203,7 +203,7 @@ bool DatArchive::ReadTable(char *path)
     decryptedHeader = (DatArchiveHeader *)DecryptData((BYTE *)&archiveHeader, sizeof(archiveHeader), 0x1b, 0x37,
                                                       sizeof(archiveHeader), 0x400);
     archiveHeader = *decryptedHeader;
-    g_MemoryManager.Free(decryptedHeader);
+    g_MemoryTracker.Free(decryptedHeader);
     this->numEntries = archiveHeader.numEntries - 123456;
     tableOffset = archiveHeader.tableOffset - 345678;
     decodedSize = archiveHeader.decodedSize - 567891;
@@ -233,7 +233,7 @@ bool DatArchive::ReadTable(char *path)
         GlobalFree(packed);
         packed = NULL;
     }
-    // From here on, packed is g_MemoryManager's.
+    // From here on, packed is g_MemoryTracker's.
     packed = decryptedTable;
     unpacked = (BYTE *)LzssDecompress((BYTE *)packed, size, NULL, decodedSize);
     if (unpacked == NULL)
@@ -245,7 +245,7 @@ bool DatArchive::ReadTable(char *path)
     {
         goto fail;
     }
-    g_MemoryManager.Free(packed);
+    g_MemoryTracker.Free(packed);
     if (unpacked != NULL)
     {
         GlobalFree(unpacked);
@@ -254,7 +254,7 @@ bool DatArchive::ReadTable(char *path)
     return true;
 
 fail:
-    g_MemoryManager.Free(packed);
+    g_MemoryTracker.Free(packed);
     if (unpacked != NULL)
     {
         GlobalFree(unpacked);

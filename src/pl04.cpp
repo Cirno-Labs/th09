@@ -484,7 +484,7 @@ int InitEffectType34(Effect *effect)
 {
     EffectData34 *data;
 
-    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(sizeof(EffectData34), "Effect");
+    effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryTracker.Alloc(sizeof(EffectData34), "Effect");
     if (effect->vertices == NULL)
     {
         return -1;

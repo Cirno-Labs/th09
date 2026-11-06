@@ -352,7 +352,7 @@ int Chain::AddToDrawChain(ChainElem *elem, int priority)
 
 ChainElem *Chain::CreateElem(ChainCallback callback)
 {
-    ChainElem *elem = (ChainElem *)g_MemoryManager.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
+    ChainElem *elem = (ChainElem *)g_MemoryTracker.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
     elem->SetCallback(callback);
     elem->allocated = 1;
     return elem;
@@ -841,7 +841,7 @@ BYTE *DecryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int 
 
     tail = (size % blockSize < blockSize / 4) ? size % blockSize : 0;
     p = data;
-    dest = (BYTE *)g_MemoryManager.Alloc(size, GLOBAL_H);
+    dest = (BYTE *)g_MemoryTracker.Alloc(size, GLOBAL_H);
     wp = dest;
     if (dest == NULL)
     {
@@ -901,7 +901,7 @@ BYTE *DecryptFileData(BYTE *data, int *size, int fileSize)
         }
         result = DecryptData(p + 4, fileSize - 4, g_CryptParams[j].key, g_CryptParams[j].step,
                              g_CryptParams[j].blockSize, g_CryptParams[j].limit);
-        g_MemoryManager.Free(data);
+        g_MemoryTracker.Free(data);
         return result;
     }
     return p;
@@ -919,7 +919,7 @@ BYTE *EncryptData(BYTE *data, int size, BYTE key, BYTE step, int blockSize, int 
 
     tail = (size % blockSize < blockSize / 4) ? size % blockSize : 0;
     p = data;
-    dest = (BYTE *)g_MemoryManager.Alloc(size, GLOBAL_H);
+    dest = (BYTE *)g_MemoryTracker.Alloc(size, GLOBAL_H);
     wp = dest;
     if (dest == NULL)
     {
@@ -1167,7 +1167,7 @@ WORD InitJoystick()
     if (joyGetPosEx(JOYSTICKID1, &joyInfo) != JOYERR_NOERROR &&
         joyGetPosEx(JOYSTICKID2, &joyInfo) != JOYERR_NOERROR)
     {
-        LogPrintf(&g_Log, "使えるパッドが存在しないようです、残念\r\n");
+        LogPrintf(&g_Logger, "使えるパッドが存在しないようです、残念\r\n");
         return 1;
     }
     joyGetDevCapsA(JOYSTICKID1, &g_JoyDeviceCaps[0], sizeof(g_JoyDeviceCaps[0]));
@@ -1210,11 +1210,11 @@ void *LoadFileData(char *path, int *size, int isExternal)
         }
         if (dataSize == 0)
         {
-            LogError(&g_Log, "error : %s is not found in arcfile.\r\n", name);
+            LogError(&g_Logger, "error : %s is not found in arcfile.\r\n", name);
             g_App.LeaveCriticalSection(2);
             return NULL;
         }
-        buffer = g_MemoryManager.Alloc(dataSize, path);
+        buffer = g_MemoryTracker.Alloc(dataSize, path);
         if (buffer == NULL)
         {
             goto fail;
@@ -1231,7 +1231,7 @@ void *LoadFileData(char *path, int *size, int isExternal)
         goto fail;
     }
     dataSize = GetFileSize(handle, NULL);
-    buffer = g_MemoryManager.Alloc(dataSize, path);
+    buffer = g_MemoryTracker.Alloc(dataSize, path);
     if (buffer == NULL)
     {
         CloseHandle(handle);
@@ -1259,13 +1259,13 @@ void Chain::ReleaseList(ChainElem *root)
     ChainElem *tmp;
     ChainElem *cur;
 
-    tail = (ChainElem *)g_MemoryManager.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
+    tail = (ChainElem *)g_MemoryTracker.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
     list.next = tail;
     cur = root;
     while (cur != NULL)
     {
         tail->self = cur;
-        tail->next = (ChainElem *)g_MemoryManager.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
+        tail->next = (ChainElem *)g_MemoryTracker.Register(new ChainElem(), sizeof(ChainElem), "funcChainInf");
         tail = tail->next;
         cur = cur->next;
     }

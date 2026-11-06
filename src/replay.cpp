@@ -153,12 +153,12 @@ int ReplayManager::RecordOnUpdate(ReplayManager *mgr)
     if (mgr->curChunk->count >= 0xe0e)
     {
         mgr->curChunk->next =
-            (ReplayChunk *)g_MemoryManager.Register(new ReplayChunk, sizeof(ReplayChunk), "ReplayBufLinkInf");
+            (ReplayChunk *)g_MemoryTracker.Register(new ReplayChunk, sizeof(ReplayChunk), "ReplayBufLinkInf");
         mgr->curChunk = mgr->curChunk->next;
-        mgr->inputCursors[0] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
-        mgr->inputCursors[1] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
-        mgr->inputCursors[2] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
-        mgr->extraCursor = (BYTE *)g_MemoryManager.Alloc(0x79, "rep data");
+        mgr->inputCursors[0] = (WORD *)g_MemoryTracker.Alloc(0x1c20, "rep data");
+        mgr->inputCursors[1] = (WORD *)g_MemoryTracker.Alloc(0x1c20, "rep data");
+        mgr->inputCursors[2] = (WORD *)g_MemoryTracker.Alloc(0x1c20, "rep data");
+        mgr->extraCursor = (BYTE *)g_MemoryTracker.Alloc(0x79, "rep data");
         mgr->curChunk->inputs[0] = mgr->inputCursors[0];
         mgr->curChunk->inputs[1] = mgr->inputCursors[1];
         mgr->curChunk->inputs[2] = mgr->inputCursors[2];
@@ -275,7 +275,7 @@ ReplayHeader *ValidateReplay(void *data, int size)
     {
         goto fail;
     }
-    decoded = (ReplayHeader *)g_MemoryManager.Alloc(file->dataSize + 0xc0 + (size - file->size), GLOBAL_H);
+    decoded = (ReplayHeader *)g_MemoryTracker.Alloc(file->dataSize + 0xc0 + (size - file->size), GLOBAL_H);
     memcpy(decoded, data, 0xc0);
     LzssDecompress((BYTE *)file + 0xc0, file->compressedSize, (BYTE *)decoded + 0xc0, file->dataSize);
     memcpy((BYTE *)decoded + file->dataSize + 0xc0, (BYTE *)data + file->size, size - file->size);
@@ -302,16 +302,16 @@ ReplayHeader *ValidateReplay(void *data, int size)
             decoded->extras[i] = (BYTE *)decoded->extras[i] + (int)decoded;
         }
     }
-    g_MemoryManager.Free(data);
+    g_MemoryTracker.Free(data);
     return decoded;
 
 fail:
-    g_MemoryManager.Free(data);
+    g_MemoryTracker.Free(data);
     return NULL;
 
 failDecoded:
-    g_MemoryManager.Free(data);
-    g_MemoryManager.Free(decoded);
+    g_MemoryTracker.Free(data);
+    g_MemoryTracker.Free(decoded);
     return NULL;
 }
 
@@ -401,10 +401,10 @@ static int FreeResources(ReplayManager *mgr)
         g_Chain.Remove(mgr->calcElem3);
         mgr->calcElem3 = NULL;
     }
-    g_MemoryManager.Free(mgr->data);
+    g_MemoryTracker.Free(mgr->data);
     if (mgr->unknown110 != NULL)
     {
-        g_MemoryManager.Free(mgr->unknown110);
+        g_MemoryTracker.Free(mgr->unknown110);
     }
     return 0;
 }
@@ -427,25 +427,25 @@ void ReplayManager::Release(ReplayManager *mgr)
             cur = chunk;
             if (chunk->inputs[0] != NULL)
             {
-                g_MemoryManager.Free(chunk->inputs[0]);
+                g_MemoryTracker.Free(chunk->inputs[0]);
             }
             if (chunk->inputs[1] != NULL)
             {
-                g_MemoryManager.Free(chunk->inputs[1]);
+                g_MemoryTracker.Free(chunk->inputs[1]);
             }
             if (chunk->inputs[2] != NULL)
             {
-                g_MemoryManager.Free(chunk->inputs[2]);
+                g_MemoryTracker.Free(chunk->inputs[2]);
             }
             if (chunk->extra != NULL)
             {
-                g_MemoryManager.Free(chunk->extra);
+                g_MemoryTracker.Free(chunk->extra);
             }
             chunk = chunk->next;
             memset(cur, 0, sizeof(ReplayChunk));
             if (cur != &mgr->chunks[i])
             {
-                g_MemoryManager.Free(cur);
+                g_MemoryTracker.Free(cur);
             }
         }
         if (!g_GameManager.IsReplay())
@@ -454,13 +454,13 @@ void ReplayManager::Release(ReplayManager *mgr)
             {
                 if (mgr->data->unknown20[j][i] != NULL)
                 {
-                    g_MemoryManager.Free(mgr->data->unknown20[j][i]);
+                    g_MemoryTracker.Free(mgr->data->unknown20[j][i]);
                 }
                 mgr->data->unknown20[j][i] = NULL;
             }
             if (mgr->data->extras[i] != NULL)
             {
-                g_MemoryManager.Free(mgr->data->extras[i]);
+                g_MemoryTracker.Free(mgr->data->extras[i]);
             }
             mgr->data->extras[i] = NULL;
         }
@@ -518,7 +518,7 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
                 }
             }
         }
-        rpyBytes = (BYTE *)g_MemoryManager.Alloc(allocSize, "rep tmp");
+        rpyBytes = (BYTE *)g_MemoryTracker.Alloc(allocSize, "rep tmp");
         hX = *mgr->data;
         offsets = sizeof(ReplayHeader);
         for (j = 0; j < 3; j++)
@@ -594,7 +594,7 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
             HANDLE file;
             DWORD writtenSize;
             compressedData = (BYTE *)LzssCompress(rpyBytes, hX.dataSize, &hX.compressedSize);
-            g_MemoryManager.Free(rpyBytes);
+            g_MemoryTracker.Free(rpyBytes);
             compSize = hX.compressedSize;
             bpCur = &hX.key;
             checksum = 0x3f000318;
@@ -660,7 +660,7 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
     hdr = mgr->data;
     if (hdr == NULL)
     {
-        mgr->data = (ReplayHeader *)g_MemoryManager.Register(new ReplayHeader, sizeof(ReplayHeader),
+        mgr->data = (ReplayHeader *)g_MemoryTracker.Register(new ReplayHeader, sizeof(ReplayHeader),
                                                                   "ReplayFileHeaderInf");
         hdr = mgr->data;
         memset(hdr, 0, sizeof(ReplayHeader));
@@ -693,27 +693,27 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
     idx = g_GameManager.unknownFc;
     if (hdr->unknown20[0][idx] != NULL)
     {
-        g_MemoryManager.Free(hdr->unknown20[0][idx]);
+        g_MemoryTracker.Free(hdr->unknown20[0][idx]);
     }
     if (hdr->unknown20[1][idx] != NULL)
     {
-        g_MemoryManager.Free(hdr->unknown20[1][idx]);
+        g_MemoryTracker.Free(hdr->unknown20[1][idx]);
     }
     if (hdr->unknown20[2][idx] != NULL)
     {
-        g_MemoryManager.Free(hdr->unknown20[2][idx]);
+        g_MemoryTracker.Free(hdr->unknown20[2][idx]);
     }
     if (hdr->extras[idx] != NULL)
     {
-        g_MemoryManager.Free(hdr->extras[idx]);
+        g_MemoryTracker.Free(hdr->extras[idx]);
     }
-    round0 = (ReplayRound *)g_MemoryManager.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
+    round0 = (ReplayRound *)g_MemoryTracker.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
     hdr->unknown20[0][idx] = round0;
-    round1 = (ReplayRound *)g_MemoryManager.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
+    round1 = (ReplayRound *)g_MemoryTracker.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
     hdr->unknown20[1][idx] = round1;
-    round2 = (ReplayRound *)g_MemoryManager.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
+    round2 = (ReplayRound *)g_MemoryTracker.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
     hdr->unknown20[2][idx] = round2;
-    extra = (BYTE *)g_MemoryManager.Register(operator new(sizeof(BYTE)), sizeof(BYTE), "ReplayFPSTblStartInf");
+    extra = (BYTE *)g_MemoryTracker.Register(operator new(sizeof(BYTE)), sizeof(BYTE), "ReplayFPSTblStartInf");
     hdr->extras[idx] = extra;
     memset(round0, 0, sizeof(ReplayRound));
     memset(round1, 0, sizeof(ReplayRound));
@@ -735,35 +735,35 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
     round0->stage = g_GameManager.stage;
     round0->unknown9 = g_GameManager.unknown138;
     round0->extendsGiven = g_GameManager.sides[0].stats->extendsGiven;
-    mgr->inputCursors[0] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
-    mgr->inputCursors[1] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
-    mgr->inputCursors[2] = (WORD *)g_MemoryManager.Alloc(0x1c20, "rep data");
-    mgr->extraCursor = (BYTE *)g_MemoryManager.Alloc(0x79, "rep data");
+    mgr->inputCursors[0] = (WORD *)g_MemoryTracker.Alloc(0x1c20, "rep data");
+    mgr->inputCursors[1] = (WORD *)g_MemoryTracker.Alloc(0x1c20, "rep data");
+    mgr->inputCursors[2] = (WORD *)g_MemoryTracker.Alloc(0x1c20, "rep data");
+    mgr->extraCursor = (BYTE *)g_MemoryTracker.Alloc(0x79, "rep data");
     mgr->curChunk = &mgr->chunks[idx];
     for (chunk = mgr->curChunk; chunk != NULL;)
     {
         cur = chunk;
         if (chunk->inputs[0] != NULL)
         {
-            g_MemoryManager.Free(chunk->inputs[0]);
+            g_MemoryTracker.Free(chunk->inputs[0]);
         }
         if (chunk->inputs[1] != NULL)
         {
-            g_MemoryManager.Free(chunk->inputs[1]);
+            g_MemoryTracker.Free(chunk->inputs[1]);
         }
         if (chunk->inputs[2] != NULL)
         {
-            g_MemoryManager.Free(chunk->inputs[2]);
+            g_MemoryTracker.Free(chunk->inputs[2]);
         }
         if (chunk->extra != NULL)
         {
-            g_MemoryManager.Free(chunk->extra);
+            g_MemoryTracker.Free(chunk->extra);
         }
         chunk = chunk->next;
         memset(cur, 0, sizeof(ReplayChunk));
         if (cur != &mgr->chunks[idx])
         {
-            g_MemoryManager.Free(cur);
+            g_MemoryTracker.Free(cur);
         }
     }
     mgr->curChunk->inputs[0] = mgr->inputCursors[0];
@@ -782,7 +782,7 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
 ReplayManager *ReplayManager::RegisterChain(int mode, char *path)
 {
     ReplayManager *mgr =
-        (ReplayManager *)g_MemoryManager.Register(new ReplayManager(), sizeof(ReplayManager), "ReplayInf");
+        (ReplayManager *)g_MemoryTracker.Register(new ReplayManager(), sizeof(ReplayManager), "ReplayInf");
 
     memset(mgr, 0, sizeof(ReplayManager));
     mgr->mode = mode;

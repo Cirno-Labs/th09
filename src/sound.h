@@ -124,7 +124,7 @@ public:
     {
         if (this->bgmPreloadData[slot] != NULL)
         {
-            g_MemoryManager.Free(this->bgmPreloadData[slot]);
+            g_MemoryTracker.Free(this->bgmPreloadData[slot]);
             this->bgmPreloadData[slot] = NULL;
         }
     }
