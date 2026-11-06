@@ -32,11 +32,11 @@ static char *FormatAndAdvance(char *buf, const char *fmt, ...)
 
 void PlayerInput::UpdateRepeat2()
 {
-    WORD buttons = this->unknown2c;
+    WORD buttons = this->unk_2c;
     int i;
     WORD *held;
 
-    this->unknown4 = 0;
+    this->unk_4 = 0;
     held = this->heldFrames2;
     for (i = 0; i < 16; i++, held++)
     {
@@ -45,7 +45,7 @@ void PlayerInput::UpdateRepeat2()
             (*held)++;
             if (*held >= 26)
             {
-                this->unknown30 |= 1;
+                this->unk_30 |= 1;
                 *held -= 8;
             }
         }
@@ -55,8 +55,8 @@ void PlayerInput::UpdateRepeat2()
         }
         buttons >>= 1;
     }
-    this->unknown32 = (this->unknown2c ^ this->unknown2e) & this->unknown2c;
-    this->unknown34 = ~this->unknown2c & (this->unknown2c ^ this->unknown2e);
+    this->unk_32 = (this->unk_2c ^ this->unk_2e) & this->unk_2c;
+    this->unk_34 = ~this->unk_2c & (this->unk_2c ^ this->unk_2e);
 }
 
 void Rng::SetSeed(WORD seed)
@@ -77,35 +77,35 @@ int ReplayManager::RecordOnUpdate2(ReplayManager *mgr)
     mgr->frameEvents = 0;
     mgr->seed = g_Rng.GetSeed();
     g_Rng.ResetGenerated();
-    if (g_GameManager.unknown130)
+    if (g_GameManager.unk_130)
     {
         mgr->frameEvents |= 0x100;
     }
-    g_GameManager.unknown130 = 0;
-    g_PlayerInputs[0].unknown2e = g_PlayerInputs[0].unknown2c;
-    g_PlayerInputs[0].unknown2c = g_PlayerInputs[0].unknown0;
-    g_PlayerInputs[1].unknown2e = g_PlayerInputs[1].unknown2c;
-    g_PlayerInputs[1].unknown2c = g_PlayerInputs[1].unknown0;
-    g_PlayerInputs[2].unknown2e = g_PlayerInputs[2].unknown2c;
-    g_PlayerInputs[2].unknown2c = g_PlayerInputs[2].unknown0;
+    g_GameManager.unk_130 = 0;
+    g_PlayerInputs[0].unk_2e = g_PlayerInputs[0].unk_2c;
+    g_PlayerInputs[0].unk_2c = g_PlayerInputs[0].unk_0;
+    g_PlayerInputs[1].unk_2e = g_PlayerInputs[1].unk_2c;
+    g_PlayerInputs[1].unk_2c = g_PlayerInputs[1].unk_0;
+    g_PlayerInputs[2].unk_2e = g_PlayerInputs[2].unk_2c;
+    g_PlayerInputs[2].unk_2c = g_PlayerInputs[2].unk_0;
     g_PlayerInputs[0].UpdateRepeat2();
     g_PlayerInputs[1].UpdateRepeat2();
     g_PlayerInputs[2].UpdateRepeat2();
     for (i = 0, config = g_GameManager.config; i < 2; i++)
     {
-        if (config != NULL && config->unknownB4[i] == 1)
+        if (config != NULL && config->unk_b4[i] == 1)
         {
             if (g_PlayerInputs[i].IsHeld2(1))
             {
-                g_PlayerInputs[i].unknown2a++;
-                if (g_PlayerInputs[i].unknown2a >= 8)
+                g_PlayerInputs[i].unk_2a++;
+                if (g_PlayerInputs[i].unk_2a >= 8)
                 {
-                    g_PlayerInputs[i].unknown2a = 8;
+                    g_PlayerInputs[i].unk_2a = 8;
                 }
             }
             else
             {
-                g_PlayerInputs[i].unknown2a = 0;
+                g_PlayerInputs[i].unk_2a = 0;
             }
         }
     }
@@ -132,15 +132,15 @@ int ReplayManager::RecordOnUpdate(ReplayManager *mgr)
         }
         mgr->framesAfterStageClear++;
     }
-    if (g_GameManager.sides[0].unknown28 == 0)
+    if (g_GameManager.sides[0].unk_28 == 0)
     {
-        *mgr->inputCursors[0] = g_PlayerInputs[0].unknown2c;
+        *mgr->inputCursors[0] = g_PlayerInputs[0].unk_2c;
     }
-    if (g_GameManager.sides[1].unknown28 == 0)
+    if (g_GameManager.sides[1].unk_28 == 0)
     {
-        *mgr->inputCursors[1] = g_PlayerInputs[1].unknown2c;
+        *mgr->inputCursors[1] = g_PlayerInputs[1].unk_2c;
     }
-    *mgr->inputCursors[2] = g_PlayerInputs[2].unknown2c;
+    *mgr->inputCursors[2] = g_PlayerInputs[2].unk_2c;
     mgr->curChunk->count++;
     mgr->inputCursors[0]++;
     mgr->inputCursors[1]++;
@@ -191,31 +191,31 @@ int ReplayManager::PlayOnUpdate(ReplayManager *mgr)
 
     if ((g_GameManager.stateFlags & 4) && !(g_GameManager.stateFlags & 0x200))
     {
-        g_PlayerInputs[0].unknown2e = g_PlayerInputs[0].unknown2c;
-        g_PlayerInputs[1].unknown2e = g_PlayerInputs[1].unknown2c;
-        g_PlayerInputs[2].unknown2e = g_PlayerInputs[2].unknown2c;
-        g_PlayerInputs[0].unknown2c = *mgr->inputCursors[0];
-        g_PlayerInputs[1].unknown2c = *mgr->inputCursors[1];
-        g_PlayerInputs[2].unknown2c = *mgr->inputCursors[2];
+        g_PlayerInputs[0].unk_2e = g_PlayerInputs[0].unk_2c;
+        g_PlayerInputs[1].unk_2e = g_PlayerInputs[1].unk_2c;
+        g_PlayerInputs[2].unk_2e = g_PlayerInputs[2].unk_2c;
+        g_PlayerInputs[0].unk_2c = *mgr->inputCursors[0];
+        g_PlayerInputs[1].unk_2c = *mgr->inputCursors[1];
+        g_PlayerInputs[2].unk_2c = *mgr->inputCursors[2];
         g_PlayerInputs[0].UpdateRepeat2();
         g_PlayerInputs[1].UpdateRepeat2();
         g_PlayerInputs[2].UpdateRepeat2();
-        types = g_GameManager.config->unknownB4;
+        types = g_GameManager.config->unk_b4;
         for (i = 0; i < 2; i++, types++)
         {
             if (*types == 1)
             {
                 if (g_PlayerInputs[i].IsHeld2(1))
                 {
-                    g_PlayerInputs[i].unknown2a++;
-                    if (g_PlayerInputs[i].unknown2a >= 8)
+                    g_PlayerInputs[i].unk_2a++;
+                    if (g_PlayerInputs[i].unk_2a >= 8)
                     {
-                        g_PlayerInputs[i].unknown2a = 8;
+                        g_PlayerInputs[i].unk_2a = 8;
                     }
                 }
                 else
                 {
-                    g_PlayerInputs[i].unknown2a = 0;
+                    g_PlayerInputs[i].unk_2a = 0;
                 }
             }
         }
@@ -255,7 +255,7 @@ ReplayHeader *ValidateReplay(void *data, int size)
     {
         goto fail;
     }
-    if (file->unknown6 != 0)
+    if (file->unk_6 != 0)
     {
         goto fail;
     }
@@ -285,17 +285,17 @@ ReplayHeader *ValidateReplay(void *data, int size)
     }
     for (i = 0; i < 10; i++)
     {
-        if (decoded->unknown20[0][i] != NULL)
+        if (decoded->unk_20[0][i] != NULL)
         {
-            decoded->unknown20[0][i] = (BYTE *)decoded->unknown20[0][i] + (int)decoded;
+            decoded->unk_20[0][i] = (BYTE *)decoded->unk_20[0][i] + (int)decoded;
         }
-        if (decoded->unknown20[1][i] != NULL)
+        if (decoded->unk_20[1][i] != NULL)
         {
-            decoded->unknown20[1][i] = (BYTE *)decoded->unknown20[1][i] + (int)decoded;
+            decoded->unk_20[1][i] = (BYTE *)decoded->unk_20[1][i] + (int)decoded;
         }
-        if (decoded->unknown20[2][i] != NULL)
+        if (decoded->unk_20[2][i] != NULL)
         {
-            decoded->unknown20[2][i] = (BYTE *)decoded->unknown20[2][i] + (int)decoded;
+            decoded->unk_20[2][i] = (BYTE *)decoded->unk_20[2][i] + (int)decoded;
         }
         if (decoded->extras[i] != NULL)
         {
@@ -338,10 +338,10 @@ int ReplayManager::PlayAddedCallback(ReplayManager *mgr)
         {
             return -1;
         }
-        mgr->unknown110 = NULL;
+        mgr->unk_110 = NULL;
     }
-    idx = g_GameManager.unknownFc;
-    if (mgr->data->unknown20[idx] == NULL)
+    idx = g_GameManager.unk_fc;
+    if (mgr->data->unk_20[idx] == NULL)
     {
         return -1;
     }
@@ -349,26 +349,26 @@ int ReplayManager::PlayAddedCallback(ReplayManager *mgr)
     {
         for (i = 0; i < idx; i++)
         {
-            g_GameManager.unknownD8[((ReplayRound *)mgr->data->unknown20[1][i])->character] = 1;
+            g_GameManager.unk_d8[((ReplayRound *)mgr->data->unk_20[1][i])->character] = 1;
         }
     }
-    round0 = (ReplayRound *)mgr->data->unknown20[0][idx];
-    round1 = (ReplayRound *)mgr->data->unknown20[1][idx];
-    round2 = (ReplayRound *)mgr->data->unknown20[2][idx];
+    round0 = (ReplayRound *)mgr->data->unk_20[0][idx];
+    round1 = (ReplayRound *)mgr->data->unk_20[1][idx];
+    round2 = (ReplayRound *)mgr->data->unk_20[2][idx];
     extra = (BYTE *)mgr->data->extras[idx];
     g_GameManager.sides[0].character = round0->character;
     g_GameManager.sides[1].character = round1->character;
-    g_GameManager.sides[0].unknown28 = round0->unknown7;
-    g_GameManager.sides[1].unknown28 = round1->unknown7;
-    g_GameManager.sides[0].unknown2c = round0->unknownA;
-    g_GameManager.sides[1].unknown2c = round1->unknownA;
+    g_GameManager.sides[0].unk_28 = round0->unk_7;
+    g_GameManager.sides[1].unk_28 = round1->unk_7;
+    g_GameManager.sides[0].unk_2c = round0->unk_a;
+    g_GameManager.sides[1].unk_2c = round1->unk_a;
     g_GameManager.stage = round0->stage;
-    g_GameManager.unknown138 = round0->unknown9;
+    g_GameManager.unk_138 = round0->unk_9;
     g_GameManager.difficulty = mgr->data->info.difficulty;
-    g_GameManager.initialLives[0] = mgr->data->unknown1e6[0];
-    g_GameManager.initialLives[1] = mgr->data->unknown1e6[1];
-    g_GameManager.sides[0].unknown30 = mgr->data->unknown1e8[0];
-    g_GameManager.sides[1].unknown30 = mgr->data->unknown1e8[1];
+    g_GameManager.initialLives[0] = mgr->data->unk_1e6[0];
+    g_GameManager.initialLives[1] = mgr->data->unk_1e6[1];
+    g_GameManager.sides[0].unk_30 = mgr->data->unk_1e8[0];
+    g_GameManager.sides[1].unk_30 = mgr->data->unk_1e8[1];
     g_GameManager.sides[0].stats->score = round0->score;
     g_GameManager.sides[1].stats->score = round1->score;
     g_GameManager.sides[0].stats->guiScore = round0->score;
@@ -402,9 +402,9 @@ static int FreeResources(ReplayManager *mgr)
         mgr->calcElem3 = NULL;
     }
     g_MemoryTracker.Free(mgr->data);
-    if (mgr->unknown110 != NULL)
+    if (mgr->unk_110 != NULL)
     {
-        g_MemoryTracker.Free(mgr->unknown110);
+        g_MemoryTracker.Free(mgr->unk_110);
     }
     return 0;
 }
@@ -452,11 +452,11 @@ void ReplayManager::Release(ReplayManager *mgr)
         {
             for (j = 0; j < 3; j++)
             {
-                if (mgr->data->unknown20[j][i] != NULL)
+                if (mgr->data->unk_20[j][i] != NULL)
                 {
-                    g_MemoryTracker.Free(mgr->data->unknown20[j][i]);
+                    g_MemoryTracker.Free(mgr->data->unk_20[j][i]);
                 }
-                mgr->data->unknown20[j][i] = NULL;
+                mgr->data->unk_20[j][i] = NULL;
             }
             if (mgr->data->extras[i] != NULL)
             {
@@ -509,7 +509,7 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
         allocSize = sizeof(ReplayHeader) + 0x10000;
         for (i = 0; i < 10; i++)
         {
-            if (hX.unknown20[0][i] != NULL)
+            if (hX.unk_20[0][i] != NULL)
             {
                 allocSize += 0x60;
                 for (chunk = &mgr->chunks[i]; chunk != NULL; chunk = chunk->next)
@@ -525,10 +525,10 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
         {
             for (i = 0; i < 10; i++)
             {
-                if (hX.unknown20[j][i] != NULL)
+                if (hX.unk_20[j][i] != NULL)
                 {
-                    memcpy(rpyBytes + offsets - 0xc0, hX.unknown20[j][i], 0x20);
-                    hX.unknown20[j][i] = (void *)offsets;
+                    memcpy(rpyBytes + offsets - 0xc0, hX.unk_20[j][i], 0x20);
+                    hX.unk_20[j][i] = (void *)offsets;
                     offsets += 0x20;
                     for (chunk = &mgr->chunks[i]; chunk != NULL; chunk = chunk->next)
                     {
@@ -562,7 +562,7 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
         mode = g_GameManager.mode;
         if (mode == 2)
         {
-            mode = g_GameManager.unknown114 + 2;
+            mode = g_GameManager.unk_114 + 2;
         }
         p2 = FormatAndAdvance(p2, "モード\t\t%s\r\n", g_ReplayModeNames[mode]);
         if (!g_GameManager.IsMode2())
@@ -656,7 +656,7 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
     ReplayHeader *hdr;
 
     mgr->frame = 0;
-    mgr->unknown110 = NULL;
+    mgr->unk_110 = NULL;
     hdr = mgr->data;
     if (hdr == NULL)
     {
@@ -665,7 +665,7 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
         hdr = mgr->data;
         memset(hdr, 0, sizeof(ReplayHeader));
         hdr->isSaved = 0;
-        hdr->unknown6 = 0;
+        hdr->unk_6 = 0;
         *(DWORD *)hdr->magic = *(DWORD *)"T9RP";
         hdr->version = 2;
         hdr->info.version = 0x150;
@@ -675,44 +675,44 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
         hdr->exeChecksum = g_App.exeChecksum;
         hdr->info.difficulty = g_GameManager.difficulty;
         hdr->mode = g_GameManager.mode;
-        hdr->unknown1e5 = g_GameManager.unknown114;
-        hdr->unknown1e6[0] = g_GameManager.initialLives[0];
-        hdr->unknown1e6[1] = g_GameManager.initialLives[1];
-        mgr->data->unknown1e8[0] = g_GameManager.sides[0].unknown30;
-        mgr->data->unknown1e8[1] = g_GameManager.sides[1].unknown30;
+        hdr->unk_1e5 = g_GameManager.unk_114;
+        hdr->unk_1e6[0] = g_GameManager.initialLives[0];
+        hdr->unk_1e6[1] = g_GameManager.initialLives[1];
+        mgr->data->unk_1e8[0] = g_GameManager.sides[0].unk_30;
+        mgr->data->unk_1e8[1] = g_GameManager.sides[1].unk_30;
         *(DWORD *)hdr->info.name = *(DWORD *)"NO NAME";
         hdr->info.config = *g_GameManager.config;
         for (i = 0; i < 10; i++)
         {
-            hdr->unknown20[0][i] = NULL;
-            hdr->unknown20[1][i] = NULL;
-            hdr->unknown20[2][i] = NULL;
+            hdr->unk_20[0][i] = NULL;
+            hdr->unk_20[1][i] = NULL;
+            hdr->unk_20[2][i] = NULL;
             hdr->extras[i] = NULL;
         }
     }
-    idx = g_GameManager.unknownFc;
-    if (hdr->unknown20[0][idx] != NULL)
+    idx = g_GameManager.unk_fc;
+    if (hdr->unk_20[0][idx] != NULL)
     {
-        g_MemoryTracker.Free(hdr->unknown20[0][idx]);
+        g_MemoryTracker.Free(hdr->unk_20[0][idx]);
     }
-    if (hdr->unknown20[1][idx] != NULL)
+    if (hdr->unk_20[1][idx] != NULL)
     {
-        g_MemoryTracker.Free(hdr->unknown20[1][idx]);
+        g_MemoryTracker.Free(hdr->unk_20[1][idx]);
     }
-    if (hdr->unknown20[2][idx] != NULL)
+    if (hdr->unk_20[2][idx] != NULL)
     {
-        g_MemoryTracker.Free(hdr->unknown20[2][idx]);
+        g_MemoryTracker.Free(hdr->unk_20[2][idx]);
     }
     if (hdr->extras[idx] != NULL)
     {
         g_MemoryTracker.Free(hdr->extras[idx]);
     }
     round0 = (ReplayRound *)g_MemoryTracker.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
-    hdr->unknown20[0][idx] = round0;
+    hdr->unk_20[0][idx] = round0;
     round1 = (ReplayRound *)g_MemoryTracker.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
-    hdr->unknown20[1][idx] = round1;
+    hdr->unk_20[1][idx] = round1;
     round2 = (ReplayRound *)g_MemoryTracker.Register(operator new(sizeof(ReplayRound)), sizeof(ReplayRound), "ReplayFrameDataStartInf");
-    hdr->unknown20[2][idx] = round2;
+    hdr->unk_20[2][idx] = round2;
     extra = (BYTE *)g_MemoryTracker.Register(operator new(sizeof(BYTE)), sizeof(BYTE), "ReplayFPSTblStartInf");
     hdr->extras[idx] = extra;
     memset(round0, 0, sizeof(ReplayRound));
@@ -724,16 +724,16 @@ int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
     round0->rngSeed = g_GameManager.rngSeed;
     round0->character = g_GameManager.sides[0].character;
     round1->character = g_GameManager.sides[1].character;
-    round0->unknown7 = g_GameManager.sides[0].unknown28;
-    round1->unknown7 = g_GameManager.sides[1].unknown28;
-    round0->unknownA = g_GameManager.sides[0].unknown2c;
-    round1->unknownA = g_GameManager.sides[1].unknown2c;
+    round0->unk_7 = g_GameManager.sides[0].unk_28;
+    round1->unk_7 = g_GameManager.sides[1].unk_28;
+    round0->unk_a = g_GameManager.sides[0].unk_2c;
+    round1->unk_a = g_GameManager.sides[1].unk_2c;
     round0->lives = g_GameManager.sides[0].stats->lives;
     round1->lives = g_GameManager.sides[1].stats->lives;
     round0->score = g_GameManager.sides[0].stats->score;
     round1->score = g_GameManager.sides[1].stats->score;
     round0->stage = g_GameManager.stage;
-    round0->unknown9 = g_GameManager.unknown138;
+    round0->unk_9 = g_GameManager.unk_138;
     round0->extendsGiven = g_GameManager.sides[0].stats->extendsGiven;
     mgr->inputCursors[0] = (WORD *)g_MemoryTracker.Alloc(0x1c20, "rep data");
     mgr->inputCursors[1] = (WORD *)g_MemoryTracker.Alloc(0x1c20, "rep data");

@@ -67,11 +67,11 @@ class ContinueMenu
 {
 public:
     // Updates it; nonzero stops AsciiText::OnUpdate (0x434e90). In a
-    // replay, or once side 0's stats->unknown14 reaches 3, it leaves for
+    // replay, or once side 0's stats->unk_14 reaches 3, it leaves for
     // scene 1 or 6. Otherwise it asks whether to continue: no goes to
-    // scene 6; yes counts unknown14 up, clears both sides' scores,
+    // scene 6; yes counts unk_14 up, clears both sides' scores,
     // restarts the music and the round and gives side 0
-    // config->unknownAc + 2 lives (mode 1 goes to scene 13 instead).
+    // config->unk_ac + 2 lives (mode 1 goes to scene 13 instead).
     int UpdateContinueMenu();
     // Draws it while in the continue menu (0x435370).
     void DrawContinueMenu();
@@ -84,7 +84,7 @@ public:
 ASSERT_SIZE(ContinueMenu, 0xfe0);
 
 // A third menu, AsciiText's at 0xa7a8, up while
-// g_GameManager.unknown13e is set. Only what is known so far.
+// g_GameManager.unk_13e is set. Only what is known so far.
 class UnknownMenu
 {
 public:
@@ -191,12 +191,12 @@ public:
     Sprite digit2;
     // As th08's summaryPopup to summaryPopup4, summaryDigit,
     // summaryBombIcon and bossMarkers.
-    Sprite unknown7ec;
-    Sprite unknownA90;
-    Sprite unknownD34;
-    Sprite unknownFd8;
-    Sprite unknown127c;
-    Sprite unknown1520;
+    Sprite pad_7ec;
+    Sprite pad_a90;
+    Sprite pad_d34;
+    Sprite pad_fd8;
+    Sprite pad_127c;
+    Sprite pad_1520;
     Sprite bossMarkers[4];
     int bossMarkerStates[4];
     AsciiString strings[0x100];
@@ -236,7 +236,7 @@ public:
     Sprite demoIcon;
     AsciiPopup popups[2][100];
     unsigned char pad_de00[0xde08 - 0xde00];
-    Sprite unknownDe08;
+    Sprite pad_de08;
 };
 ASSERT_SIZE(AsciiText, 0xe0ac);
 extern AsciiText g_AsciiText;

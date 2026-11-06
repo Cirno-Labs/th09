@@ -10,49 +10,49 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The combo func of character 7: while unknown34 reaches 200 -
-// unknownB4 * 3, sends an extra attack of type 6 from `pos` and takes
-// as much off it and 5 off unknown30, down to 0. Returns 0 (0x445d80).
+// The combo func of character 7: while unk_34 reaches 200 -
+// unk_b4 * 3, sends an extra attack of type 6 from `pos` and takes
+// as much off it and 5 off unk_30, down to 0. Returns 0 (0x445d80).
 int SendComboAttacksCharacter7(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= 200 - g_GameManager.rank.unknownB4 * 3)
+    while (combo->unk_34 >= 200 - g_GameManager.rank.unk_b4 * 3)
     {
         g_GameManager.exAttackManager->AddAttack(6, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= 200 - g_GameManager.rank.unknownB4 * 3;
-        combo->unknown30 -= 5;
-        if (combo->unknown30 < 0)
+        combo->unk_34 -= 200 - g_GameManager.rank.unk_b4 * 3;
+        combo->unk_30 -= 5;
+        if (combo->unk_30 < 0)
         {
-            combo->unknown30 = 0;
+            combo->unk_30 = 0;
         }
     }
     return 0;
 }
 
-// The update callback of effect type 25: grows unknown7c by 4 up to 56,
-// sets unknownC9 and puts the effect on its side's player, raised by 1.5
-// times unknown7c. Returns 1 (0x445e00).
+// The update callback of effect type 25: grows unk_7c by 4 up to 56,
+// sets unk_c9 and puts the effect on its side's player, raised by 1.5
+// times unk_7c. Returns 1 (0x445e00).
 int UpdateEffectType25(Effect *effect)
 {
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 56.0f)
+    effect->unk_c9 = 1;
+    if (effect->unk_7c < 56.0f)
     {
-        effect->unknown7c += 4.0f;
+        effect->unk_7c += 4.0f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
-    effect->pos.y -= effect->unknown7c * 1.5f;
+    effect->pos.y -= effect->unk_7c * 1.5f;
     return 1;
 }
 
-// The unknown30404 of character 7: whether `pos` is within the radius of
-// the player's unknown368 about a point 1.5 radii above the player
+// The unk_30404 of character 7: whether `pos` is within the radius of
+// the player's unk_368 about a point 1.5 radii above the player
 // (0x445e60).
 int CheckFocusAreaCharacter7(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
-    Effect *circle = player->unknown368;
-    float dy = diff.y - circle->unknown7c * 1.5f;
+    Effect *circle = player->unk_368;
+    float dy = diff.y - circle->unk_7c * 1.5f;
 
-    if (diff.x * diff.x + dy * dy < circle->unknown7c * circle->unknown7c)
+    if (diff.x * diff.x + dy * dy < circle->unk_7c * circle->unk_7c)
     {
         return 1;
     }
@@ -127,7 +127,7 @@ int InitExAttackType6(ExAttack *attack)
 }
 
 // The update callback of extra attack type 6: type 8's, turning as it
-// goes and firing two bullets along its heading every 20 - unknownB4 / 8
+// goes and firing two bullets along its heading every 20 - unk_b4 / 8
 // frames. Returns 1 once it is done (0x446060).
 int UpdateExAttackType6(ExAttack *attack)
 {
@@ -151,7 +151,7 @@ int UpdateExAttackType6(ExAttack *attack)
     case 1:
         if (attack->timer > 0x14)
         {
-            if (attack->timer.HasTickedEvery(20 - g_GameManager.rank.unknownB4 / 8))
+            if (attack->timer.HasTickedEvery(20 - g_GameManager.rank.unk_b4 / 8))
             {
                 BulletShooter shooter;
 
@@ -164,11 +164,11 @@ int UpdateExAttackType6(ExAttack *attack)
                 shooter.angle1 = data->heading;
                 shooter.speed1 = 0.0f;
                 shooter.SetWaitCommand(0, 0, 0x50);
-                shooter.SetAccelCommand(1, 0, 120, g_GameManager.rank.unknownB4 * 0.00037878787f + 0.015833333f,
+                shooter.SetAccelCommand(1, 0, 120, g_GameManager.rank.unk_b4 * 0.00037878787f + 0.015833333f,
                                         -999.0f);
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 0x20014;
                 g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
             }
@@ -279,7 +279,7 @@ int UpdateExAttackType7(ExAttack *attack)
                 shooter.pos = attack->pos;
                 shooter.sprite = 6;
                 shooter.aimMode = 5;
-                shooter.count1 = g_GameManager.sides[1 - attack->targetSide].player->unknownA0 / 5 + 2;
+                shooter.count1 = g_GameManager.sides[1 - attack->targetSide].player->unk_a0 / 5 + 2;
                 shooter.count2 = 1;
                 shooter.color = 2;
                 shooter.angle1 = angle;
@@ -287,11 +287,11 @@ int UpdateExAttackType7(ExAttack *attack)
                 shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(
                     1, 0, 120,
-                    (g_GameManager.sides[1 - attack->targetSide].player->unknownA0 * 0.1f + 2.0f) * 0.008333334f,
+                    (g_GameManager.sides[1 - attack->targetSide].player->unk_a0 * 0.1f + 2.0f) * 0.008333334f,
                     -999.0f);
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 0x20014;
                 g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
                 shooter.sprite = 0;
@@ -401,7 +401,7 @@ int UpdateExAttackTypes8And9(ExAttack *attack)
                 shooter.pos = attack->pos;
                 shooter.sprite = 6;
                 shooter.aimMode = 5;
-                shooter.count1 = g_GameManager.sides[1 - attack->targetSide].player->unknownA0 / 5 + 2;
+                shooter.count1 = g_GameManager.sides[1 - attack->targetSide].player->unk_a0 / 5 + 2;
                 shooter.count2 = 1;
                 shooter.color = 2;
                 shooter.angle1 = angle;
@@ -409,11 +409,11 @@ int UpdateExAttackTypes8And9(ExAttack *attack)
                 shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(
                     1, 0, 120,
-                    (g_GameManager.sides[1 - attack->targetSide].player->unknownA0 * 0.1f + 2.0f) * 0.008333334f,
+                    (g_GameManager.sides[1 - attack->targetSide].player->unk_a0 * 0.1f + 2.0f) * 0.008333334f,
                     -999.0f);
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 0x20014;
                 g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
             }
@@ -522,7 +522,7 @@ int InitExAttackTypes11And12(ExAttack *attack)
 
 // The update callback of extra attack type 11: type 8's, firing every
 // 10 frames a single spinning bullet of alternating types, accelerated
-// by the other side's player's unknownA4. Returns 1 once it is done
+// by the other side's player's unk_a4. Returns 1 once it is done
 // (0x446ee0).
 int UpdateExAttackType11(ExAttack *attack)
 {
@@ -562,11 +562,11 @@ int UpdateExAttackType11(ExAttack *attack)
                 shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(
                     1, 0, 120,
-                    (g_GameManager.sides[1 - attack->targetSide].player->unknownA4 * 0.05f + 2.0f) * 0.008333334f,
+                    (g_GameManager.sides[1 - attack->targetSide].player->unk_a4 * 0.05f + 2.0f) * 0.008333334f,
                     -999.0f);
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 0x20014;
                 g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
                 data->alternate = 1 - data->alternate;
@@ -641,11 +641,11 @@ int UpdateExAttackType12(ExAttack *attack)
                 shooter.SetWaitCommand(0, 0, 0x50);
                 shooter.SetAccelCommand(
                     1, 0, 120,
-                    (g_GameManager.sides[1 - attack->targetSide].player->unknownA4 * 0.05f + 2.0f) * 0.008333334f,
+                    (g_GameManager.sides[1 - attack->targetSide].player->unk_a4 * 0.05f + 2.0f) * 0.008333334f,
                     -999.0f);
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 0x20014;
                 g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
                 data->alternate = 1 - data->alternate;
@@ -683,9 +683,9 @@ int UpdateExAttackType12(ExAttack *attack)
 // (0x447480).
 int DrawEffectType25(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = 6.2831855f / (effect->unknown8c - 1);
+        float delta = 6.2831855f / (effect->unk_8c - 1);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         float angle = -3.1415927f;
         int i;
@@ -696,14 +696,14 @@ int DrawEffectType25(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x40600040;
         vtx++;
-        for (i = effect->unknown8c; i > 0; i--)
+        for (i = effect->unk_8c; i > 0; i--)
         {
             if (angle >= 3.1415927f)
             {
                 angle -= 6.2831855f;
             }
             vtx->pos.z = 0.0f;
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -713,6 +713,6 @@ int DrawEffectType25(Effect *effect)
             angle += delta;
         }
     }
-    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     return 1;
 }

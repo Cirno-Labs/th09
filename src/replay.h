@@ -33,12 +33,12 @@ struct ReplayRound
     // The round's Rng seed (side 0's).
     WORD rngSeed;
     BYTE character;
-    // GameSide::unknown28, unknown2c; GameStats::lives.
-    BYTE unknown7;
+    // GameSide::unk_28, unk_2c; GameStats::lives.
+    BYTE unk_7;
     BYTE lives;
-    // GameManager::unknown138 (side 0's).
-    char unknown9;
-    WORD unknownA;
+    // GameManager::unk_138 (side 0's).
+    char unk_9;
+    WORD unk_a;
     // GameManager::stage (side 0's).
     BYTE stage;
     unsigned char pad_d[0x10 - 0xd];
@@ -59,7 +59,7 @@ struct ReplayHeader
     char magic[4];
     short version;
     // Must be 0 for the replay to load.
-    BYTE unknown6;
+    BYTE unk_6;
     // Set when it is saved.
     BYTE isSaved;
     unsigned char pad_8[0xc - 0x8];
@@ -79,7 +79,7 @@ struct ReplayHeader
     // Offsets in the replay, made pointers once it is loaded: by stage,
     // three 0x20 byte blocks each followed by the inputs of a ReplayChunk
     // list, and the bytes kept every 30 frames.
-    void *unknown20[3][10];
+    void *unk_20[3][10];
     void *extras[10];
     ReplayInfo info;
     unsigned char pad_1a8[0x1d0 - 0x1a8];
@@ -90,12 +90,12 @@ struct ReplayHeader
     DWORD exeSize;
     DWORD exeChecksum;
     char exeVersion[8];
-    // GameManager::mode and unknown114.
+    // GameManager::mode and unk_114.
     BYTE mode;
-    BYTE unknown1e5;
-    // GameManager::initialLives, and each side's unknown30.
-    BYTE unknown1e6[2];
-    BYTE unknown1e8[2];
+    BYTE unk_1e5;
+    // GameManager::initialLives, and each side's unk_30.
+    BYTE unk_1e6[2];
+    BYTE unk_1e8[2];
     unsigned char pad_1ea[0x1ec - 0x1ea];
 };
 ASSERT_SIZE(ReplayHeader, 0x1ec);
@@ -180,7 +180,7 @@ public:
     ReplayChunk chunks[10];
     // The chunk being recorded, as th08's.
     ReplayChunk *curChunk;
-    void *unknown110;
+    void *unk_110;
     int mode;
     char *path;
     unsigned char pad_11c[0x150 - 0x11c];
@@ -189,7 +189,7 @@ public:
     ChainElem *calcElem2;
     ChainElem *calcElem3;
     // The RNG seed the recording starts from, and flags; bit 8 is
-    // GameManager::unknown130 at the start.
+    // GameManager::unk_130 at the start.
     WORD seed;
     WORD frameEvents;
 };

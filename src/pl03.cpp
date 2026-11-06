@@ -8,22 +8,22 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The update callback of effect type 18: grows unknown7c by 0.7 up to
-// 144, sets unknownC9 and puts the effect on its side's player. Returns 1
+// The update callback of effect type 18: grows unk_7c by 0.7 up to
+// 144, sets unk_c9 and puts the effect on its side's player. Returns 1
 // (0x443250).
 int UpdateEffectType18(Effect *effect)
 {
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 144.0f)
+    effect->unk_c9 = 1;
+    if (effect->unk_7c < 144.0f)
     {
-        effect->unknown7c += 0.7f;
+        effect->unk_7c += 0.7f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }
 
 // A fire callback of the shot table (3): fires `sd` on its frame, going
-// up at 24, and sets the player's unknown1cdc and unknown1ce0 to 0.5.
+// up at 24, and sets the player's unk_1cdc and unk_1ce0 to 0.5.
 // Returns 1 if it fired (0x4432a0).
 int FirePlayerShotType3(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
@@ -32,7 +32,7 @@ int FirePlayerShotType3(Player *player, PlayerBullet *bullet, int frame, ShotDat
         FireShot(player, bullet, sd);
         bullet->velocity.x = 0.0f;
         bullet->velocity.y = -24.0f;
-        player->unknown1cdc = player->unknown1ce0 = 0.5f;
+        player->unk_1cdc = player->unk_1ce0 = 0.5f;
         return 1;
     }
     return 0;
@@ -166,7 +166,7 @@ int UpdateExAttackType13(ExAttack *attack)
             }
             else
             {
-                g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 14.0f, NULL);
+                g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&attack->pos, 14.0f, NULL);
             }
             if (attack->timer > 300)
             {
@@ -187,15 +187,15 @@ int UpdateExAttackType13(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 3: while unknown34 reaches 70 -
-// unknownB4 * 3, sends an extra attack of type 13 from `pos` and takes
+// The combo func of character 3: while unk_34 reaches 70 -
+// unk_b4 * 3, sends an extra attack of type 13 from `pos` and takes
 // 70 off it. Returns 0 (0x443790).
 int SendComboAttacksCharacter3(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= 70 - g_GameManager.rank.unknownB4 * 3)
+    while (combo->unk_34 >= 70 - g_GameManager.rank.unk_b4 * 3)
     {
         g_GameManager.exAttackManager->AddAttack(13, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= 70;
+        combo->unk_34 -= 70;
     }
     return 0;
 }
@@ -204,9 +204,9 @@ int SendComboAttacksCharacter3(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // (0x4437f0).
 int DrawEffectType18(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = 6.2831855f / (effect->unknown8c - 1);
+        float delta = 6.2831855f / (effect->unk_8c - 1);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         float angle = -3.1415927f;
         int i;
@@ -217,14 +217,14 @@ int DrawEffectType18(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x40600040;
         vtx++;
-        for (i = effect->unknown8c; i > 0; i--)
+        for (i = effect->unk_8c; i > 0; i--)
         {
             if (angle >= 3.1415927f)
             {
                 angle -= 6.2831855f;
             }
             vtx->pos.z = 0.0f;
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -234,13 +234,13 @@ int DrawEffectType18(Effect *effect)
             angle += delta;
         }
     }
-    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     return 1;
 }
 
 // An update callback of the shot table (13): keeps the bullet on the
 // player, raised by its velocity.y as that falls by 1 a frame, and sets
-// the player's unknown1cdc and unknown1ce0 to 1 after 15 frames. While
+// the player's unk_1cdc and unk_1ce0 to 1 after 15 frames. While
 // it flies, adds a damage box and a hit box above it that widen with
 // its age. Returns 0 (0x443930).
 int UpdatePlayerShotType4(Player *player, PlayerBullet *bullet)
@@ -250,7 +250,7 @@ int UpdatePlayerShotType4(Player *player, PlayerBullet *bullet)
     bullet->velocity.y -= 1.0f;
     if (bullet->timer >= 15)
     {
-        player->unknown1cdc = player->unknown1ce0 = 1.0f;
+        player->unk_1cdc = player->unk_1ce0 = 1.0f;
     }
     if (bullet->state == 1)
     {

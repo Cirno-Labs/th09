@@ -17,35 +17,35 @@ int App::UpdateNetPlay()
     Network *network;
 
     this->EnterCriticalSection(4);
-    if (g_Network->unknownB8 == 0)
+    if (g_Network->unk_b8 == 0)
     {
         if (g_Network->side != 0)
         {
-            g_Network->unknownAc = 1;
+            g_Network->unk_ac = 1;
             g_Network->CreateDeviceAddress();
             g_Network->CreateHostAddress();
             g_Network->Connect();
             this->connectStartTime = timeGetTime();
-            g_Network->unknownB8 = 1;
-            this->unknown478 = 1;
-            g_SpriteEngine->RenderTextCentered(this->unknown584, 0xffffff, 0, "接続可能な妖怪を探しています");
+            g_Network->unk_b8 = 1;
+            this->unk_478 = 1;
+            g_SpriteEngine->RenderTextCentered(this->unk_584, 0xffffff, 0, "接続可能な妖怪を探しています");
         }
         else
         {
         host:
             Sleep(100);
-            g_Network->unknownAc = 0;
+            g_Network->unk_ac = 0;
             g_Network->CreateDeviceAddress();
             g_Network->Host();
-            g_SpriteEngine->RenderTextCentered(this->unknown584, 0xffffff, 0, "妖怪の接続を待っています");
-            g_Network->unknownB8 = 2;
-            this->unknown474 = timeGetTime();
+            g_SpriteEngine->RenderTextCentered(this->unk_584, 0xffffff, 0, "妖怪の接続を待っています");
+            g_Network->unk_b8 = 2;
+            this->unk_474 = timeGetTime();
         }
     }
-    if (g_Network->unknownB8 == 1)
+    if (g_Network->unk_b8 == 1)
     {
         now = timeGetTime();
-        this->unknown478 = 1;
+        this->unk_478 = 1;
         if (now < this->connectStartTime)
         {
             this->connectStartTime = now;
@@ -57,42 +57,42 @@ int App::UpdateNetPlay()
         }
         goto wait;
     }
-    if (g_Network->unknownB8 == 2 || g_Network->unknownB8 == 3)
+    if (g_Network->unk_b8 == 2 || g_Network->unk_b8 == 3)
     {
         if (g_Network->GetOtherUnknown1c() == 0)
         {
-            if (this->unknown458 != 0)
+            if (this->unk_458 != 0)
             {
                 status = 3;
                 goto end;
             }
-            this->unknown478 = 1;
+            this->unk_478 = 1;
             now = timeGetTime();
-            if (now < this->unknown474)
+            if (now < this->unk_474)
             {
-                this->unknown474 = now;
+                this->unk_474 = now;
             }
-            if (now - this->unknown474 > g_Rng.GetRandomU32InRange(4000) + 6000)
+            if (now - this->unk_474 > g_Rng.GetRandomU32InRange(4000) + 6000)
             {
                 g_Network->Close();
-                g_Network->unknownB8 = 0;
-                this->unknown474 = timeGetTime();
+                g_Network->unk_b8 = 0;
+                this->unk_474 = timeGetTime();
             }
             goto wait;
         }
-        this->unknown478 = 0;
-        this->unknown474 = timeGetTime();
+        this->unk_478 = 0;
+        this->unk_474 = timeGetTime();
     }
     network = g_Network;
-    if (this->unknown460 == 0 || this->unknown460 == 2)
+    if (this->unk_460 == 0 || this->unk_460 == 2)
     {
-        if (this->unknown458 == 0 || (unsigned int)this->unknown458 % (60 / g_Network->syncFrames) == 0)
+        if (this->unk_458 == 0 || (unsigned int)this->unk_458 % (60 / g_Network->syncFrames) == 0)
         {
-            if (this->unknown460 == 0)
+            if (this->unk_460 == 0)
             {
                 if (network->initialFramesQueued == 0)
                 {
-                    if (network->unknownAc == 0 && 60 / network->syncFrames - 1 > 0)
+                    if (network->unk_ac == 0 && 60 / network->syncFrames - 1 > 0)
                     {
                         for (int frame = -9998; frame + 9998 < 60 / network->syncFrames - 1; frame++)
                         {
@@ -100,12 +100,12 @@ int App::UpdateNetPlay()
                             g_App.AddRecord(1, frame, 0, g_Rng.GetSeed());
                         }
                     }
-                    network->unknownB0 = 0;
+                    network->unk_b0 = 0;
                     Network *sender = g_Network;
                     g_NetSetupPacket.type = 2;
-                    g_NetSetupPacket.side = (char)g_Network->unknownAc;
+                    g_NetSetupPacket.side = (char)g_Network->unk_ac;
                     g_NetSetupPacket.syncFrames = g_Network->syncFrames;
-                    g_NetSetupPacket.unknown8 = g_Network->isLan;
+                    g_NetSetupPacket.unk_8 = g_Network->isLan;
                     g_NetSetupPacket.seed = g_Rng.GetSeed();
                     sender->Send(&g_NetSetupPacket, sizeof(g_NetSetupPacket));
                     if (g_Network->isLan != 0)
@@ -115,7 +115,7 @@ int App::UpdateNetPlay()
                     }
                     g_Network->initialFramesQueued = 1;
                 }
-                if (g_Network->unknownB0 == 0)
+                if (g_Network->unk_b0 == 0)
                 {
                 waitForFrame:
                     result = 1;
@@ -123,33 +123,33 @@ int App::UpdateNetPlay()
                     return result;
                 }
                 g_NetInputPacket.input = ReadNetInput();
-                this->unknown458++;
-                this->unknown464 = timeGetTime();
+                this->unk_458++;
+                this->unk_464 = timeGetTime();
             }
-            this->unknown468 = timeGetTime();
-            g_Network->unknownB0 = 0;
+            this->unk_468 = timeGetTime();
+            g_Network->unk_b0 = 0;
             Network *sender = g_Network;
             g_NetInputPacket.type = 0;
-            char side = (char)g_Network->unknownAc;
+            char side = (char)g_Network->unk_ac;
             g_NetInputPacket.side = side;
-            g_NetInputPacket.value = 60 / g_Network->syncFrames - 1 + this->unknown458;
+            g_NetInputPacket.value = 60 / g_Network->syncFrames - 1 + this->unk_458;
             g_NetInputPacket.seed = g_Rng.GetSeed();
-            g_NetInputPacket.checksum = side + g_NetInputPacket.value + g_NetInputPacket.seed + g_NetInputPacket.unknown8;
+            g_NetInputPacket.checksum = side + g_NetInputPacket.value + g_NetInputPacket.seed + g_NetInputPacket.unk_8;
             sender->Send(&g_NetInputPacket, sizeof(g_NetInputPacket));
-            this->unknown460 = 1;
-            this->AddRecord(g_Network->unknownAc, g_NetInputPacket.value, g_NetInputPacket.input, g_NetInputPacket.seed);
+            this->unk_460 = 1;
+            this->AddRecord(g_Network->unk_ac, g_NetInputPacket.value, g_NetInputPacket.input, g_NetInputPacket.seed);
         }
         else
         {
-            this->InsertRecord(network->unknownAc, this->unknown458, g_Rng.GetSeed());
-            this->InsertRecord(1 - g_Network->unknownAc, this->unknown458, g_Rng.GetSeed());
-            this->unknown458++;
+            this->InsertRecord(network->unk_ac, this->unk_458, g_Rng.GetSeed());
+            this->InsertRecord(1 - g_Network->unk_ac, this->unk_458, g_Rng.GetSeed());
+            this->unk_458++;
         }
     }
-    if (this->RecordsMeet(1 - g_Network->unknownAc))
+    if (this->RecordsMeet(1 - g_Network->unk_ac))
     {
-        this->unknown45c = this->unknown458;
-        this->unknown460 = 0;
+        this->unk_45c = this->unk_458;
+        this->unk_460 = 0;
         inputs[0] = this->PopRecord(0, &seeds[0], &predicted);
         inputs[1] = this->PopRecord(1, &seeds[1], &predicted);
         UpdatePlayerInput(0, inputs[0]);
@@ -159,22 +159,22 @@ int App::UpdateNetPlay()
         return result;
     }
     now = timeGetTime();
-    this->unknown46c = now;
-    if (now < this->unknown464)
+    this->unk_46c = now;
+    if (now < this->unk_464)
     {
-        this->unknown464 = now;
+        this->unk_464 = now;
     }
-    if (now - this->unknown464 <= 20000)
+    if (now - this->unk_464 <= 20000)
     {
         goto waitForFrame;
     }
-    if (now - this->unknown464 > 60000)
+    if (now - this->unk_464 > 60000)
     {
         status = 3;
         goto end;
     }
-    this->unknown478 = 1;
-    g_SpriteEngine->RenderTextCentered(this->unknown584, 0xffffff, 0, "妖怪からの通信が途絶えています");
+    this->unk_478 = 1;
+    g_SpriteEngine->RenderTextCentered(this->unk_584, 0xffffff, 0, "妖怪からの通信が途絶えています");
 wait:
     status = 2;
 end:

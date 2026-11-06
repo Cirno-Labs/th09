@@ -8,15 +8,15 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// An update callback of the effect table: grows unknown7c by 8 up to
-// 48, sets unknownC9 and puts the effect on its side's player. Returns
+// An update callback of the effect table: grows unk_7c by 8 up to
+// 48, sets unk_c9 and puts the effect on its side's player. Returns
 // 1 (0x444eb0).
 int UpdateEffectType24(Effect *effect)
 {
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 48.0f)
+    effect->unk_c9 = 1;
+    if (effect->unk_7c < 48.0f)
     {
-        effect->unknown7c += 8.0f;
+        effect->unk_7c += 8.0f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
@@ -151,7 +151,7 @@ int UpdateExAttackTypes5And10(ExAttack *attack)
             {
                 data->velocity.y = 4.5f;
             }
-            g_GameManager.sides[attack->targetSide].player->unknown36c.Add(&attack->pos, &size, NULL);
+            g_GameManager.sides[attack->targetSide].player->unk_36c.Add(&attack->pos, &size, NULL);
             if (attack->pos.y >= 480.0f)
             {
                 return 1;
@@ -168,15 +168,15 @@ int UpdateExAttackTypes5And10(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 5: while unknown34 reaches 25 -
-// unknownB4 / 2, sends an extra attack of type 5 from `pos` and takes
+// The combo func of character 5: while unk_34 reaches 25 -
+// unk_b4 / 2, sends an extra attack of type 5 from `pos` and takes
 // as much off it. Returns 0 (0x445330).
 int SendComboAttacksCharacter5(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= 25 - g_GameManager.rank.unknownB4 / 2)
+    while (combo->unk_34 >= 25 - g_GameManager.rank.unk_b4 / 2)
     {
         g_GameManager.exAttackManager->AddAttack(5, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= 25 - g_GameManager.rank.unknownB4 / 2;
+        combo->unk_34 -= 25 - g_GameManager.rank.unk_b4 / 2;
     }
     return 0;
 }
@@ -185,9 +185,9 @@ int SendComboAttacksCharacter5(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // (0x4453a0).
 int DrawEffectType24(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = 6.2831855f / (effect->unknown8c - 1);
+        float delta = 6.2831855f / (effect->unk_8c - 1);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         float angle = -3.1415927f;
         int i;
@@ -198,14 +198,14 @@ int DrawEffectType24(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x40600040;
         vtx++;
-        for (i = effect->unknown8c; i > 0; i--)
+        for (i = effect->unk_8c; i > 0; i--)
         {
             if (angle >= 3.1415927f)
             {
                 angle -= 6.2831855f;
             }
             vtx->pos.z = 0.0f;
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -215,6 +215,6 @@ int DrawEffectType24(Effect *effect)
             angle += delta;
         }
     }
-    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     return 1;
 }

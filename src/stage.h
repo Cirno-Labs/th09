@@ -14,7 +14,7 @@ struct StageInstr
 {
     int frame;
     short opcode;
-    short unusedShort06;
+    short pad_06;
     D3DXVECTOR3 args;
 };
 
@@ -63,7 +63,7 @@ struct StageObject
 struct StageInstance
 {
     short id;
-    short unusedShort02;
+    short pad_02;
     D3DXVECTOR3 pos;
 };
 
@@ -74,7 +74,7 @@ struct StageData
     short quadCount;
     int instancesOffset;
     int scriptOffset;
-    DWORD unusedDword0c;
+    DWORD pad_0c;
     char name[0x80];
     char songNames[4][0x80];
     char songPaths[4][0x80];
@@ -206,14 +206,14 @@ public:
     Timer scriptTime;
     int scriptIndex;
     // Cleared by RegisterChain, counted by OnUpdate.
-    int unknownC68;
+    int unk_c68;
     unsigned char pad_c6c[0xc70 - 0xc6c];
     D3DVECTOR cameraPos;
     // OnDraw clears to the fog color if this is opaque, draws the fog
     // color over the arena if it is otherwise nonzero.
     D3DCOLOR clearColor;
     unsigned char pad_c80[0xc84 - 0xc80];
-    Timer unknownC84;
+    Timer pad_c84;
     unsigned char pad_c90[0xc94 - 0xc90];
     StageFog fog;
     StageFog fogStart;
@@ -235,7 +235,7 @@ public:
     // Cleared by AddedCallback.
     int dialogueScriptOffset;
     Sprite dialogueSprites[0x20];
-    Sprite unknown6160;
+    Sprite pad_6160;
     // Called by OnDraw2 once spellCardState is 1, if set.
     void (*spellCardDrawCallback)();
     // The script's key positions and their frames, as th08's.

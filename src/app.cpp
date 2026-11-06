@@ -18,17 +18,17 @@
 
 int Network::GetOtherUnknown1c()
 {
-    return this->unknown1c[1 - this->unknownAc];
+    return this->unk_1c[1 - this->unk_ac];
 }
 
 void Network::SetUnknownA8()
 {
-    this->unknownA8 = 1;
+    this->unk_a8 = 1;
 }
 
 void Network::ClearUnknownA8()
 {
-    this->unknownA8 = 0;
+    this->unk_a8 = 0;
 }
 
 void ReadInputs()
@@ -44,7 +44,7 @@ void App::AddRecord(int side, int value, WORD unknown, WORD seed)
     int j;
 
     this->lastRecords[side].value = value;
-    this->lastRecords[side].unknown0 = unknown;
+    this->lastRecords[side].unk_0 = unknown;
     this->lastRecords[side].seed = seed;
     for (i = 0; i < 10; i++)
     {
@@ -57,16 +57,16 @@ void App::AddRecord(int side, int value, WORD unknown, WORD seed)
     {
         for (j = 9; j > i; j--)
         {
-            this->records[side][j].unknown0 = this->records[side][j - 1].unknown0;
+            this->records[side][j].unk_0 = this->records[side][j - 1].unk_0;
             this->records[side][j].seed = this->records[side][j - 1].seed;
             this->records[side][j].value = this->records[side][j - 1].value;
-            this->records[side][j].unknown8 = this->records[side][j - 1].unknown8;
+            this->records[side][j].unk_8 = this->records[side][j - 1].unk_8;
         }
     }
-    this->records[side][i].unknown0 = unknown;
+    this->records[side][i].unk_0 = unknown;
     this->records[side][i].value = value;
     this->records[side][i].seed = seed;
-    this->records[side][i].unknown8 = 0;
+    this->records[side][i].unk_8 = 0;
 }
 
 void App::InsertRecord(int side, int value, WORD seed)
@@ -85,59 +85,59 @@ void App::InsertRecord(int side, int value, WORD seed)
     {
         for (j = 9; j > i; j--)
         {
-            this->records[side][j].unknown0 = this->records[side][j - 1].unknown0;
+            this->records[side][j].unk_0 = this->records[side][j - 1].unk_0;
             this->records[side][j].seed = this->records[side][j - 1].seed;
             this->records[side][j].value = this->records[side][j - 1].value;
-            this->records[side][j].unknown8 = this->records[side][j - 1].unknown8;
+            this->records[side][j].unk_8 = this->records[side][j - 1].unk_8;
         }
     }
-    this->records[side][i].unknown0 = this->lastRecords[side].unknown0;
+    this->records[side][i].unk_0 = this->lastRecords[side].unk_0;
     this->records[side][i].value = value;
     this->records[side][i].seed = seed;
-    this->records[side][i].unknown8 = 1;
+    this->records[side][i].unk_8 = 1;
 }
 
-WORD App::PopRecord(int side, WORD *seed, int *unknown8)
+WORD App::PopRecord(int side, WORD *seed, int *unk_8)
 {
     WORD unknown;
     int i;
 
-    if (this->records[side][0].unknown8 == 0)
+    if (this->records[side][0].unk_8 == 0)
     {
-        unknown = this->records[side][0].unknown0;
+        unknown = this->records[side][0].unk_0;
     }
     else
     {
-        unknown = g_PlayerInputs[side].unknown0;
+        unknown = g_PlayerInputs[side].unk_0;
     }
     *seed = this->records[side][0].seed;
-    *unknown8 = this->records[side][0].unknown8;
+    *unk_8 = this->records[side][0].unk_8;
     for (i = 0; i < 9; i++)
     {
-        this->records[side][i].unknown0 = this->records[side][i + 1].unknown0;
+        this->records[side][i].unk_0 = this->records[side][i + 1].unk_0;
         this->records[side][i].seed = this->records[side][i + 1].seed;
         this->records[side][i].value = this->records[side][i + 1].value;
-        this->records[side][i].unknown8 = this->records[side][i + 1].unknown8;
+        this->records[side][i].unk_8 = this->records[side][i + 1].unk_8;
     }
     return unknown;
 }
 
 void App::ResetRun()
 {
-    this->unknown458 = 0;
-    this->unknown45c = 0;
-    this->unknown460 = 0;
+    this->unk_458 = 0;
+    this->unk_45c = 0;
+    this->unk_460 = 0;
     DWORD time = timeGetTime();
-    this->unknown464 = time;
-    this->unknown468 = time;
-    this->unknown474 = time;
-    this->unknown478 = 0;
+    this->unk_464 = time;
+    this->unk_468 = time;
+    this->unk_474 = time;
+    this->unk_478 = 0;
     memset(this->records, 0, sizeof(this->records));
     memset(this->lastRecords, 0, sizeof(this->lastRecords));
     g_App.AddRecord(0, -9999, 0, g_Rng.GetSeed());
     g_App.AddRecord(1, -9999, 0, g_Rng.GetSeed());
     g_Network->SetUnknownA8();
-    g_Network->unknownB8 = 0;
+    g_Network->unk_b8 = 0;
 }
 
 BOOL App::RecordsMeet(int side)
@@ -620,9 +620,9 @@ int App::LoadConfig(char *path)
     {
         g_App.config = *file;
         g_MemoryTracker.Free(file);
-        if (g_App.config.unknownAc < 3 && g_App.config.colorMode16Bits < 2 && g_App.config.musicMode < 3 &&
+        if (g_App.config.unk_ac < 3 && g_App.config.colorMode16Bits < 2 && g_App.config.musicMode < 3 &&
             g_App.config.difficulty < 6 && g_App.config.playSounds < 2 && g_App.config.windowed < 2 &&
-            g_App.config.frameSkip < 3 && g_App.config.unknownB3 < 3 && g_App.config.version == 0x90003 &&
+            g_App.config.frameSkip < 3 && g_App.config.unk_b3 < 3 && g_App.config.version == 0x90003 &&
             size == sizeof(GameConfig))
         {
             g_PlayerInputs[0].mappings[0] = g_App.config.mappings[0][0];
@@ -1196,8 +1196,8 @@ void App::InitCameras()
 
 int App::OnUpdate(App *app)
 {
-    app->unknown478 = 0;
-    if (g_Network->unknownA8 == 0)
+    app->unk_478 = 0;
+    if (g_Network->unk_a8 == 0)
     {
         ReadInputs();
     }
@@ -1214,7 +1214,7 @@ int App::OnUpdate(App *app)
             case 3:
                 g_Network->Close();
                 g_Network->ClearUnknownA8();
-                g_Network->unknownB8 = 0;
+                g_Network->unk_b8 = 0;
                 app->scene = 1;
                 break;
             case 4:
@@ -1337,7 +1337,7 @@ int App::OnUpdate(App *app)
                 app->scene = 2;
                 break;
             case 11:
-                g_App.unknown59c = 1;
+                g_App.unk_59c = 1;
                 RemoveGameManagerChain();
                 if (GameManager::RegisterChain() != 0)
                 {
@@ -1566,7 +1566,7 @@ int App::PlayMusicById(int id, int arg)
     {
         return 1;
     }
-    int heard = g_BgmInfos[i].unknown0c;
+    int heard = g_BgmInfos[i].unk_0c;
     int slot = g_BgmInfos[i].id;
     if (g_App.config.musicMode == 2)
     {
@@ -1592,7 +1592,7 @@ int App::PlayMusicById(int id, int arg)
             g_PlayRecord.bgmHeard[heard] = 1;
         }
     }
-    g_BgmUnknown08 = g_BgmInfos[i].unknown08;
+    g_BgmUnknown08 = g_BgmInfos[i].unk_08;
     return 0;
 }
 
@@ -1643,10 +1643,10 @@ int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
 int App::OnDraw(App *app)
 {
     DrawFps(1);
-    if (app->unknown478 != 0)
+    if (app->unk_478 != 0)
     {
         g_App.SetView(2);
-        g_SpriteEngine->DrawUnrotated(g_App.unknown584);
+        g_SpriteEngine->DrawUnrotated(g_App.unk_584);
     }
     return 1;
 }
@@ -1669,10 +1669,10 @@ int App::DeletedCallback(App *app)
         delete g_GameManager.sides[1].stats;
     }
     g_GameManager.sides[1].stats = NULL;
-    if (g_App.unknown584 != NULL)
+    if (g_App.unk_584 != NULL)
     {
-        delete g_App.unknown584;
-        g_App.unknown584 = NULL;
+        delete g_App.unk_584;
+        g_App.unk_584 = NULL;
     }
     g_SpriteEngine->ReleaseVertexBuffer();
     g_SpriteEngine->ReleaseAnm(0);
@@ -1754,11 +1754,11 @@ void App::LoadingThread(App *app)
     {
         goto fail;
     }
-    g_App.unknown584 = (Sprite *)g_MemoryTracker.Register(new Sprite(), sizeof(Sprite), "SprtInf");
-    g_App.textAnm->InitSprite(g_App.unknown584, 0x1f);
-    g_App.unknown584->pos.x = 320.0f;
-    g_App.unknown584->pos.y = 240.0f;
-    g_App.unknown584->pos.z = 0.0f;
+    g_App.unk_584 = (Sprite *)g_MemoryTracker.Register(new Sprite(), sizeof(Sprite), "SprtInf");
+    g_App.textAnm->InitSprite(g_App.unk_584, 0x1f);
+    g_App.unk_584->pos.x = 320.0f;
+    g_App.unk_584->pos.y = 240.0f;
+    g_App.unk_584->pos.z = 0.0f;
     if (AsciiText::RegisterChain() != 0)
     {
         if (g_App.closeSubThread)

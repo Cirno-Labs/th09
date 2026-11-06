@@ -551,7 +551,7 @@ int Stage::OnUpdate(Stage *stage)
         g_SpriteEngine->Step(&stage->backgroundLayer2);
         stage->clearColor = stage->backgroundLayer2.color;
     }
-    stage->unknownC68++;
+    stage->unk_c68++;
     return 1;
 }
 
@@ -1203,7 +1203,7 @@ Stage *Stage::RegisterChain(int sideIdx)
 {
     Stage *stage = (Stage *)g_MemoryTracker.Register(new Stage(), sizeof(Stage), "BGScrollInf");
 
-    stage->unknownC68 = 0;
+    stage->unk_c68 = 0;
     stage->sideIdx = sideIdx;
     stage->side = &g_GameManager.sides[sideIdx];
     stage->otherSide = &g_GameManager.sides[1 - sideIdx];

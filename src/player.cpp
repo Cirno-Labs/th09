@@ -83,18 +83,18 @@ void Player::AddUnknown30388(float amount)
     int before;
     int after;
 
-    before = (int)this->unknown30388 / 100;
-    this->unknown30388 += amount;
+    before = (int)this->unk_30388 / 100;
+    this->unk_30388 += amount;
     side = this->side;
     if (side->character == 1)
     {
-        this->unknown30388 += amount * 0.15f;
+        this->unk_30388 += amount * 0.15f;
     }
-    if (this->unknown30388 >= 400.0f)
+    if (this->unk_30388 >= 400.0f)
     {
-        this->unknown30388 = 400.0f;
+        this->unk_30388 = 400.0f;
     }
-    after = (int)this->unknown30388 / 100;
+    after = (int)this->unk_30388 / 100;
     if (before != after)
     {
         side->gui->StartUnknown66fc(after);
@@ -214,7 +214,7 @@ int Player::HandleInput()
 
     deltaX = 0.0f;
     deltaY = 0.0f;
-    if (this->unknownA8 == 0)
+    if (this->unk_a8 == 0)
     {
         return 0;
     }
@@ -256,51 +256,51 @@ int Player::HandleInput()
     {
         this->direction = 0;
     }
-    this->focused = g_GameManager.config->unknownB4[this->sideIdx] == 1 ? g_PlayerInputs[side].unknown2a >= 8
+    this->focused = g_GameManager.config->unk_b4[this->sideIdx] == 1 ? g_PlayerInputs[side].unk_2a >= 8
                                                                          : input->IsHeld2(4) != 0;
     if (this->focused)
     {
-        if (this->unknown364 == NULL)
+        if (this->unk_364 == NULL)
         {
-            this->unknown364 = this->side->effectManager->SpawnReservedEffect(7, &this->pos, this->sideIdx, 0xffffffff);
-            this->unknown368 = this->side->effectManager->SpawnReservedEffect(
+            this->unk_364 = this->side->effectManager->SpawnReservedEffect(7, &this->pos, this->sideIdx, 0xffffffff);
+            this->unk_368 = this->side->effectManager->SpawnReservedEffect(
                 g_CharacterValuesA10[this->side->character], &this->pos, this->sideIdx + 2, 0xffffffff);
         }
         switch (this->direction)
         {
         case 4:
-            this->unknown1cd8 = 0.0f;
+            this->unk_1cd8 = 0.0f;
             deltaX = this->shtFile->speedFocused;
             break;
         case 3:
-            this->unknown1cd8 = 3.1415927f;
+            this->unk_1cd8 = 3.1415927f;
             deltaX = -this->shtFile->speedFocused;
             break;
         case 1:
-            this->unknown1cd8 = -1.5707964f;
+            this->unk_1cd8 = -1.5707964f;
             deltaY = -this->shtFile->speedFocused;
             break;
         case 2:
-            this->unknown1cd8 = 1.5707964f;
+            this->unk_1cd8 = 1.5707964f;
             deltaY = this->shtFile->speedFocused;
             break;
         case 5:
-            this->unknown1cd8 = -2.3561945f;
+            this->unk_1cd8 = -2.3561945f;
             deltaX = -this->shtFile->speedDiagonalFocused;
             deltaY = deltaX;
             break;
         case 7:
-            this->unknown1cd8 = 2.3561945f;
+            this->unk_1cd8 = 2.3561945f;
             deltaY = this->shtFile->speedDiagonalFocused;
             deltaX = -deltaY;
             break;
         case 6:
-            this->unknown1cd8 = -0.7853982f;
+            this->unk_1cd8 = -0.7853982f;
             deltaX = this->shtFile->speedDiagonalFocused;
             deltaY = -deltaX;
             break;
         case 8:
-            this->unknown1cd8 = 0.7853982f;
+            this->unk_1cd8 = 0.7853982f;
             deltaX = this->shtFile->speedDiagonalFocused;
             deltaY = deltaX;
             break;
@@ -308,55 +308,55 @@ int Player::HandleInput()
     }
     else
     {
-        if (this->unknown364 != NULL)
+        if (this->unk_364 != NULL)
         {
-            this->unknown364->sprites->SetPendingInterrupt(1);
-            this->unknown364 = NULL;
-            this->unknown368->active = 0;
-            this->unknown368 = NULL;
+            this->unk_364->sprites->SetPendingInterrupt(1);
+            this->unk_364 = NULL;
+            this->unk_368->active = 0;
+            this->unk_368 = NULL;
         }
         switch (this->direction)
         {
         case 4:
-            this->unknown1cd8 = 0.0f;
+            this->unk_1cd8 = 0.0f;
             deltaX = this->shtFile->speed;
             break;
         case 3:
-            this->unknown1cd8 = 3.1415927f;
+            this->unk_1cd8 = 3.1415927f;
             deltaX = -this->shtFile->speed;
             break;
         case 1:
-            this->unknown1cd8 = -1.5707964f;
+            this->unk_1cd8 = -1.5707964f;
             deltaY = -this->shtFile->speed;
             break;
         case 2:
-            this->unknown1cd8 = 1.5707964f;
+            this->unk_1cd8 = 1.5707964f;
             deltaY = this->shtFile->speed;
             break;
         case 5:
-            this->unknown1cd8 = -2.3561945f;
+            this->unk_1cd8 = -2.3561945f;
             deltaX = -this->shtFile->speedDiagonal;
             deltaY = deltaX;
             break;
         case 7:
-            this->unknown1cd8 = 2.3561945f;
+            this->unk_1cd8 = 2.3561945f;
             deltaY = this->shtFile->speedDiagonal;
             deltaX = -deltaY;
             break;
         case 6:
-            this->unknown1cd8 = -0.7853982f;
+            this->unk_1cd8 = -0.7853982f;
             deltaX = this->shtFile->speedDiagonal;
             deltaY = -deltaX;
             break;
         case 8:
-            this->unknown1cd8 = 0.7853982f;
+            this->unk_1cd8 = 0.7853982f;
             deltaX = this->shtFile->speedDiagonal;
             deltaY = deltaX;
             break;
         }
     }
-    deltaX *= this->moveScaleX * this->unknown1cdc;
-    deltaY *= this->moveScaleY * this->unknown1ce0;
+    deltaX *= this->moveScaleX * this->unk_1cdc;
+    deltaY *= this->moveScaleY * this->unk_1ce0;
     if (deltaX < 0.0f && this->velocityX >= 0.0f)
     {
         this->anm->StartScript(&this->sprite, 1);
@@ -375,11 +375,11 @@ int Player::HandleInput()
     }
     this->velocityX = deltaX;
     this->velocityY = deltaY;
-    this->unknown1ccc.x = deltaX * g_App.gameSpeed;
-    this->unknown1ccc.y = deltaY * g_App.gameSpeed;
+    this->unk_1ccc.x = deltaX * g_App.gameSpeed;
+    this->unk_1ccc.y = deltaY * g_App.gameSpeed;
     pos = this->pos;
-    pos[0] += this->unknown1ccc.x;
-    pos[1] += this->unknown1ccc.y;
+    pos[0] += this->unk_1ccc.x;
+    pos[1] += this->unk_1ccc.y;
     if (pos[0] < g_GameManager.playerArea[0])
     {
         pos[0] = g_GameManager.playerArea[0];
@@ -422,7 +422,7 @@ int Player::HandleInput()
     return 0;
 }
 
-// Runs the hit areas in use: one waiting unknown40 frames counts it
+// Runs the hit areas in use: one waiting unk_40 frames counts it
 // down, else it counts framesLeft down and grows, and is freed when it
 // runs out. The spare runs the same way and ends the list while it is
 // active. Static, with the player in edi (0x41c8e0).
@@ -436,9 +436,9 @@ static void UpdateHitAreas(Player *player)
     area = player->activeHitAreas;
     for (i = 0; i < player->activeHitAreaCount; i++)
     {
-        if ((*area)->unknown40 > 0)
+        if ((*area)->unk_40 > 0)
         {
-            (*area)->unknown40--;
+            (*area)->unk_40--;
         }
         else
         {
@@ -464,9 +464,9 @@ static void UpdateHitAreas(Player *player)
     spare = &player->hitAreas[0x200];
     if (player->hitAreas[0x200].active)
     {
-        if (spare->unknown40 > 0)
+        if (spare->unk_40 > 0)
         {
-            spare->unknown40--;
+            spare->unk_40--;
         }
         else
         {
@@ -491,12 +491,12 @@ static void UpdateHitAreas(Player *player)
 }
 
 // While the round runs and the player is not dying, the second button
-// starts a spell card on the other side by unknown30388, as Die does
+// starts a spell card on the other side by unk_30388, as Die does
 // for character 8, using it up. Static, with the player in esi
 // (0x41ca00).
 static void UpdateSpellCardInput(Player *player)
 {
-    if (g_GameManager.gui->unknown1095c != 0)
+    if (g_GameManager.gui->unk_1095c != 0)
     {
         return;
     }
@@ -508,54 +508,54 @@ static void UpdateSpellCardInput(Player *player)
     {
         return;
     }
-    if (player->unknown30388 >= 400.0f)
+    if (player->unk_30388 >= 400.0f)
     {
         if (player->otherSide->enemyManager->FindByUnknownType(3) == NULL)
         {
             player->otherSide->spellCard->Start(2, 2, 0, player->shtFile->spellCardNames[2]);
-            player->unknown30384 = 0.0f;
-            player->unknown30388 = 0.0f;
+            player->unk_30384 = 0.0f;
+            player->unk_30388 = 0.0f;
             player->StartClearCircle3();
             return;
         }
         player->otherSide->spellCard->Start(1, 1, 0, player->shtFile->spellCardNames[1]);
-        player->unknown30384 = 100.0f;
-        player->unknown30388 = 100.0f;
+        player->unk_30384 = 100.0f;
+        player->unk_30388 = 100.0f;
         player->StartClearCircle2();
         return;
     }
-    if (player->unknown30388 >= 300.0f)
+    if (player->unk_30388 >= 300.0f)
     {
         player->otherSide->spellCard->Start(1, 1, 0, player->shtFile->spellCardNames[1]);
-        player->unknown30384 = 0.0f;
-        player->unknown30388 = 0.0f;
+        player->unk_30384 = 0.0f;
+        player->unk_30388 = 0.0f;
         player->StartClearCircle2();
         return;
     }
-    if (player->unknown30388 >= 200.0f)
+    if (player->unk_30388 >= 200.0f)
     {
         player->otherSide->spellCard->Start(0, 0, 0, player->shtFile->spellCardNames[0]);
-        player->unknown30384 = 0.0f;
-        player->unknown30388 = 0.0f;
+        player->unk_30384 = 0.0f;
+        player->unk_30388 = 0.0f;
         player->StartClearCircle1();
     }
 }
 
 // The player comes back in from below over 30 frames of stateTimer,
-// stretched and fading in, then unknown0 goes to 3. Static, with the
+// stretched and fading in, then unk_0 goes to 3. Static, with the
 // player in esi (0x41cb50).
 static void UpdateRespawningState(Player *player)
 {
     float t;
 
-    player->unknown3031c.unknown18 = 60;
+    player->unk_3031c.unk_18 = 60;
     t = 1.0f - player->stateTimer.AsFloat() * (1.0f / 30.0f);
     player->sprite.scaleY = t + t + 1.0f;
     player->sprite.scaleX = 1.0f - t;
     player->sprite.SetBlendModeAdd();
-    player->unknown1cdc = player->unknown1ce0 = 1.0f;
+    player->unk_1cdc = player->unk_1ce0 = 1.0f;
     player->sprite.color = (player->stateTimer.AsFrames() * 255 / 30) << 24 | 0xffffff;
-    player->unknown3031c.unknown10 = 0;
+    player->unk_3031c.unknown10 = 0;
     if (player->sideIdx == 0)
     {
         player->pos.x = t * -176.0f;
@@ -576,29 +576,29 @@ static void UpdateRespawningState(Player *player)
     }
 }
 
-// Counts unknown3031c.unknown18 down; while unknown0 is 3 the player
-// blinks until stateTimer runs out, keeping unknown303e0 on it, else
-// stateTimer counts up; the player blinks red while unknown1b74
+// Counts unk_3031c.unk_18 down; while unk_0 is 3 the player
+// blinks until stateTimer runs out, keeping unk_303e0 on it, else
+// stateTimer counts up; the player blinks red while unk_1b74
 // runs. Static, with the player in esi (0x41cc80).
 static void UpdateInvulnerability(Player *player)
 {
-    if (player->unknown3031c.unknown18 != 0)
+    if (player->unk_3031c.unk_18 != 0)
     {
-        player->unknown3031c.unknown18--;
+        player->unk_3031c.unk_18--;
     }
     if (player->GetPlayerState() == 3)
     {
-        if (player->unknown303e0 != NULL)
+        if (player->unk_303e0 != NULL)
         {
-            player->unknown303e0->pos = player->pos;
+            player->unk_303e0->pos = player->pos;
         }
         player->stateTimer--;
         if (player->stateTimer.AsFrames() <= 0)
         {
-            if (player->unknown303e0 != NULL)
+            if (player->unk_303e0 != NULL)
             {
-                player->unknown303e0->active = 0;
-                player->unknown303e0 = NULL;
+                player->unk_303e0->active = 0;
+                player->unk_303e0 = NULL;
             }
             player->SetPlayerState(0);
             player->stateTimer = 0;
@@ -613,7 +613,7 @@ static void UpdateInvulnerability(Player *player)
     {
         player->stateTimer++;
     }
-    if (player->unknown1b74 > 0)
+    if (player->unk_1b74 > 0)
     {
         if (player->stateTimer.AsFrames() % 4 < 2)
         {
@@ -623,10 +623,10 @@ static void UpdateInvulnerability(Player *player)
         {
             player->sprite.color = 0xffffffff;
         }
-        player->unknown1b74--;
-        if (player->unknown1b74 <= 0)
+        player->unk_1b74--;
+        if (player->unk_1b74 <= 0)
         {
-            player->unknown1b74 = 0;
+            player->unk_1b74 = 0;
             player->sprite.color = 0xffffffff;
         }
     }
@@ -647,12 +647,12 @@ int Player::LoadAnms()
     for (i = 0; i < 2; i++)
     {
         if (se->GetAnmFile(i + 5) != NULL &&
-            g_GameManager.sides[i].character == g_GameManager.sides[i].unknown24)
+            g_GameManager.sides[i].character == g_GameManager.sides[i].unk_24)
         {
             continue;
         }
         if (se->PreloadAnm(i + 5, g_CharacterFiles[g_GameManager.sides[i].character]
-                                                  [g_GameManager.sides[i].unknown30 != 0 ? 5 : 1]) == NULL)
+                                                  [g_GameManager.sides[i].unk_30 != 0 ? 5 : 1]) == NULL)
         {
             return -1;
         }
@@ -693,7 +693,7 @@ void Player::RemoveChain(Player *player)
     }
 }
 
-PlayerHitArea *Player::AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unknown40)
+PlayerHitArea *Player::AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unk_40)
 {
     PlayerHitArea *area;
 
@@ -714,13 +714,13 @@ PlayerHitArea *Player::AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unknow
     area->x = pos->x;
     area->y = pos->y;
     area->framesLeft = framesLeft;
-    area->unknown40 = unknown40;
+    area->unk_40 = unk_40;
     return area;
 }
 
-PlayerHitArea *Player::AddHitBox(D3DXVECTOR3 *pos, float width, float height, int framesLeft, int unknown40)
+PlayerHitArea *Player::AddHitBox(D3DXVECTOR3 *pos, float width, float height, int framesLeft, int unk_40)
 {
-    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unk_40);
 
     area->width = width * 0.5f;
     area->height = height * 0.5f;
@@ -728,9 +728,9 @@ PlayerHitArea *Player::AddHitBox(D3DXVECTOR3 *pos, float width, float height, in
     return area;
 }
 
-PlayerHitArea *Player::AddHitCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int framesLeft, int unknown40)
+PlayerHitArea *Player::AddHitCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int framesLeft, int unk_40)
 {
-    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unk_40);
 
     area->radius = radius;
     area->radiusGrowth = radiusGrowth;
@@ -738,64 +738,64 @@ PlayerHitArea *Player::AddHitCircle(D3DXVECTOR3 *pos, float radius, float radius
     return area;
 }
 
-PlayerHitArea *Player::AddDamageBox(D3DXVECTOR3 *pos, float width, float height, int unknown28, int framesLeft, int unknown40)
+PlayerHitArea *Player::AddDamageBox(D3DXVECTOR3 *pos, float width, float height, int unk_28, int framesLeft, int unk_40)
 {
-    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unk_40);
 
     area->width = width * 0.5f;
     area->height = height * 0.5f;
-    area->damage = unknown28;
+    area->damage = unk_28;
     area->kind = 0;
     return area;
 }
 
-PlayerHitArea *Player::AddDamageCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40)
+PlayerHitArea *Player::AddDamageCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unk_28, int framesLeft, int unk_40)
 {
-    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unk_40);
 
     area->radius = radius;
     area->radiusGrowth = radiusGrowth;
-    area->damage = unknown28;
+    area->damage = unk_28;
     area->kind = 0;
     return area;
 }
 
-PlayerHitArea *Player::AddKind4Box(D3DXVECTOR3 *pos, float width, float height, int unknown28, int framesLeft, int unknown40)
+PlayerHitArea *Player::AddKind4Box(D3DXVECTOR3 *pos, float width, float height, int unk_28, int framesLeft, int unk_40)
 {
-    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unk_40);
 
     area->width = width * 0.5f;
     area->height = height * 0.5f;
-    area->damage = unknown28;
+    area->damage = unk_28;
     area->kind = 4;
     return area;
 }
 
-PlayerHitArea *Player::AddKind4Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40)
+PlayerHitArea *Player::AddKind4Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unk_28, int framesLeft, int unk_40)
 {
-    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unk_40);
 
     area->radius = radius;
     area->radiusGrowth = radiusGrowth;
-    area->damage = unknown28;
+    area->damage = unk_28;
     area->kind = 4;
     return area;
 }
 
-PlayerHitArea *Player::AddKind2Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40)
+PlayerHitArea *Player::AddKind2Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unk_28, int framesLeft, int unk_40)
 {
-    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unknown40);
+    PlayerHitArea *area = this->AllocHitArea(pos, framesLeft, unk_40);
 
     area->radius = radius;
     area->radiusGrowth = radiusGrowth;
-    area->damage = unknown28;
+    area->damage = unk_28;
     area->kind = 2;
     return area;
 }
 
 void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
 {
-    int prev = this->unknownC;
+    int prev = this->unk_c;
     int value;
     D3DXVECTOR3 effectPos;
     D3DXVECTOR3 effectVelocity;
@@ -805,23 +805,23 @@ void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
     {
         return;
     }
-    this->unknown3c = 0;
+    this->unk_3c = 0;
     this->count++;
     if (this->maxCount < this->count)
     {
         this->maxCount = this->count;
     }
-    this->unknownC += g_GameManager.rank.unknownB4 * d / 10 + d;
-    if (this->unknownC % 10 != 0)
+    this->unk_c += g_GameManager.rank.unk_b4 * d / 10 + d;
+    if (this->unk_c % 10 != 0)
     {
-        this->unknownC = this->unknownC - this->unknownC % 10 + 10;
+        this->unk_c = this->unk_c - this->unk_c % 10 + 10;
     }
-    if (this->unknownC > 999990)
+    if (this->unk_c > 999990)
     {
-        this->unknownC = 999990;
+        this->unk_c = 999990;
         this->player->side->AddScore(5000);
     }
-    if (this->unknownC >= 500000 && prev < 500000)
+    if (this->unk_c >= 500000 && prev < 500000)
     {
         this->player->otherSide->spellCard->Start(1, 1, 0, this->player->shtFile->spellCardNames[1]);
         if (this->player->otherSide->enemyManager->FindByUnknownType(3) == NULL)
@@ -829,25 +829,25 @@ void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
             this->player->otherSide->spellCard->Start(2, 2, 0, this->player->shtFile->spellCardNames[2]);
         }
     }
-    else if (this->unknownC >= 300000 && prev < 300000)
+    else if (this->unk_c >= 300000 && prev < 300000)
     {
         if (this->player->otherSide->enemyManager->FindByUnknownType(3) == NULL)
         {
             this->player->otherSide->spellCard->Start(2, 2, 0, this->player->shtFile->spellCardNames[2]);
         }
     }
-    else if (this->unknownC >= 100000 && prev < 100000)
+    else if (this->unk_c >= 100000 && prev < 100000)
     {
         this->player->otherSide->spellCard->Start(2, 2, 0, this->player->shtFile->spellCardNames[2]);
     }
-    value = this->unknownC >= 999990 ? -1 : this->unknownC;
+    value = this->unk_c >= 999990 ? -1 : this->unk_c;
     if (this->count < 10)
     {
         if (this->count % 2 == 0)
         {
             g_AsciiText.AddPopup(this->player->sideIdx, pos, value,
-                                 this->unknownC >= 300000   ? 0xffffff00
-                                 : this->unknownC >= 100000 ? 0xffffffc0
+                                 this->unk_c >= 300000   ? 0xffffff00
+                                 : this->unk_c >= 100000 ? 0xffffffc0
                                                             : 0xffffffff);
         }
     }
@@ -856,16 +856,16 @@ void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
         if (this->count % 5 == 0)
         {
             g_AsciiText.AddPopup(this->player->sideIdx, pos, value,
-                                 this->unknownC >= 300000   ? 0xffffff00
-                                 : this->unknownC >= 100000 ? 0xffffffc0
+                                 this->unk_c >= 300000   ? 0xffffff00
+                                 : this->unk_c >= 100000 ? 0xffffffc0
                                                             : 0xffffffff);
         }
     }
     else if (this->count % 10 == 0)
     {
         g_AsciiText.AddPopup(this->player->sideIdx, pos, value,
-                             this->unknownC >= 300000   ? 0xffffff00
-                             : this->unknownC >= 100000 ? 0xffffffc0
+                             this->unk_c >= 300000   ? 0xffffff00
+                             : this->unk_c >= 100000 ? 0xffffffc0
                                                         : 0xffffffff);
     }
     if (a != 0)
@@ -878,13 +878,13 @@ void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
         {
             a = a * 4 / 3;
         }
-        this->unknown2c += a;
-        this->unknown30 += b;
-        this->unknown34 += c;
+        this->unk_2c += a;
+        this->unk_30 += b;
+        this->unk_34 += c;
         this->func(this, pos);
-        while (this->unknown30 >= 60 - g_GameManager.rank.unknownB4 * 3 / 2)
+        while (this->unk_30 >= 60 - g_GameManager.rank.unk_b4 * 3 / 2)
         {
-            if (this->player->otherSide->enemyManager->unknown2ac3b8 < 25)
+            if (this->player->otherSide->enemyManager->unk_2ac3b8 < 25)
             {
                 effectPos.x = g_GameManager.ArenaToScreenX(pos->x) + g_Rng.GetRandomF32SignedInRange(32.0f);
                 effectPos.y = g_GameManager.ArenaToScreenY(pos->y) + g_Rng.GetRandomF32SignedInRange(32.0f);
@@ -896,20 +896,20 @@ void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
                 effect = g_GameManager.sides[2].effectManager->SpawnEffectWithVelocity(
                     this->player->sideIdx + 3, &effectPos, &effectVelocity, 1, 0xffffffff);
                 g_App.SetCamera(this->player->sideIdx);
-                effect->unknownA4 = 0;
-                effect->unknownA6 = 1;
-                effect->unknownA0 =
-                    g_Rng.GetRandomF32InRange(0.5f) * 0.016666668f + g_GameManager.rank.unknownB4 * 0.0016666667f;
-                effect->unknownA8 = this->player->sideIdx;
+                effect->unk_a4 = 0;
+                effect->unk_a6 = 1;
+                effect->unk_a0 =
+                    g_Rng.GetRandomF32InRange(0.5f) * 0.016666668f + g_GameManager.rank.unk_b4 * 0.0016666667f;
+                effect->unk_a8 = this->player->sideIdx;
             }
-            this->unknown30 += g_GameManager.rank.unknownB4 * 2 - 60;
-            this->unknown2c -= 10;
-            if (this->unknown2c < 0)
+            this->unk_30 += g_GameManager.rank.unk_b4 * 2 - 60;
+            this->unk_2c -= 10;
+            if (this->unk_2c < 0)
             {
-                this->unknown2c = 0;
+                this->unk_2c = 0;
             }
         }
-        while (this->unknown2c >= (30 - g_GameManager.rank.unknownB4) * 4)
+        while (this->unk_2c >= (30 - g_GameManager.rank.unk_b4) * 4)
         {
             effectPos.x = g_GameManager.ArenaToScreenX(pos->x) + g_Rng.GetRandomF32SignedInRange(32.0f);
             effectPos.y = g_GameManager.ArenaToScreenY(pos->y) + g_Rng.GetRandomF32SignedInRange(32.0f);
@@ -921,28 +921,28 @@ void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
             effect = g_GameManager.sides[2].effectManager->SpawnEffectWithVelocity(
                 this->player->sideIdx + 1, &effectPos, &effectVelocity, 1, 0xffffffff);
             g_App.SetCamera(this->player->sideIdx);
-            effect->unknownA4 = 0;
-            effect->unknownA6 = 4;
+            effect->unk_a4 = 0;
+            effect->unk_a6 = 4;
             switch (g_GameManager.difficulty)
             {
             case 0:
-                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.04f + 0.9f;
+                effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.04f + 0.9f;
                 break;
             case 1:
-                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.05f + 1.1f;
+                effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.05f + 1.1f;
                 break;
             case 2:
-                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.08f + 1.3f;
+                effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.08f + 1.3f;
                 break;
             case 3:
-                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.11f + 1.3f;
+                effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.11f + 1.3f;
                 break;
             case 4:
-                effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.04f + 1.6f;
+                effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.04f + 1.6f;
                 break;
             }
-            effect->unknownA8 = this->player->sideIdx;
-            this->unknown2c += g_GameManager.rank.unknownB4 * 4 - 120;
+            effect->unk_a8 = this->player->sideIdx;
+            this->unk_2c += g_GameManager.rank.unk_b4 * 4 - 120;
         }
     }
     if (this->timer20 < 30)
@@ -957,9 +957,9 @@ void PlayerUnknown30410::AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d)
     {
         this->timer20 += 2;
     }
-    if (this->bonus <= this->unknownC)
+    if (this->bonus <= this->unk_c)
     {
-        this->bonus = this->unknownC;
+        this->bonus = this->unk_c;
         this->timer14 = this->timer20.AsFrames() + 45;
     }
 }
@@ -968,13 +968,13 @@ void PlayerUnknown30410::Update()
 {
     if (this->timer20 > 0)
     {
-        this->unknown3c = 0;
+        this->unk_3c = 0;
         this->timer20--;
         if (this->timer20 <= 0)
         {
             this->timer20 = 0;
             this->count = 0;
-            this->unknown38 = 0;
+            this->unk_38 = 0;
         }
     }
     if (this->timer14 > 0)
@@ -984,7 +984,7 @@ void PlayerUnknown30410::Update()
         {
             this->player->side->AddScore(this->bonus);
             this->bonus = 0;
-            this->unknownC = 0;
+            this->unk_c = 0;
             this->timer14 = 0;
         }
     }
@@ -995,7 +995,7 @@ void PlayerUnknown30410::EndCombo()
     this->ResetCombo();
     this->player->side->AddScore(this->bonus);
     this->bonus = 0;
-    this->unknownC = 0;
+    this->unk_c = 0;
     this->timer14 = 0;
 }
 
@@ -1011,7 +1011,7 @@ PlayerUnknown36cEntry *PlayerUnknown36c::CheckHitsAt(D3DXVECTOR3 *pos, D3DXVECTO
     {
         return NULL;
     }
-    if (player->unknown1b74 > 0)
+    if (player->unk_1b74 > 0)
     {
         return NULL;
     }
@@ -1035,7 +1035,7 @@ PlayerUnknown36cEntry *PlayerUnknown36c::CheckHitsAt(D3DXVECTOR3 *pos, D3DXVECTO
                     return entry;
                 }
             }
-            else if (this->player->CheckLaserHit(&entry->pos, &entry->size, &entry->unknownC, entry->angle, 0))
+            else if (this->player->CheckLaserHit(&entry->pos, &entry->size, &entry->unk_c, entry->angle, 0))
             {
                 this->player->pos = savedPos;
                 this->player->hitboxSize = savedSize;
@@ -1065,7 +1065,7 @@ PlayerUnknown36cEntry *PlayerUnknown36c::CheckHits()
     {
         return NULL;
     }
-    if (player->unknown1b74 > 0)
+    if (player->unk_1b74 > 0)
     {
         return NULL;
     }
@@ -1082,7 +1082,7 @@ PlayerUnknown36cEntry *PlayerUnknown36c::CheckHits()
             }
             else
             {
-                hit = this->player->CheckLaserHit(&entry->pos, &entry->size, &entry->unknownC, entry->angle, 0);
+                hit = this->player->CheckLaserHit(&entry->pos, &entry->size, &entry->unk_c, entry->angle, 0);
             }
         }
         else
@@ -1099,23 +1099,23 @@ PlayerUnknown36cEntry *PlayerUnknown36c::CheckHits()
 
 void Player::AddUnknown30454(int script, D3DXVECTOR3 *pos)
 {
-    PlayerUnknown30454 *entry = this->unknown30454;
+    PlayerUnknown30454 *entry = this->unk_30454;
     int i;
 
-    if (g_GameManager.gui->unknown1095c != 0)
+    if (g_GameManager.gui->unk_1095c != 0)
     {
         return;
     }
     for (i = 0; i < 4; i++, entry++)
     {
-        if (entry->unknown1c == 0)
+        if (entry->unk_1c == 0)
         {
             entry->script = script;
             entry->pos = *pos;
             entry->velocity.x = 0.0f;
             entry->velocity.y = -1.5f;
             entry->velocity.z = 0.0f;
-            entry->unknown1c = 1;
+            entry->unk_1c = 1;
             this->side->bulletManager->etamaAnm->StartScriptAtOrigin(&entry->sprite, script + 0x46);
             return;
         }
@@ -1124,24 +1124,24 @@ void Player::AddUnknown30454(int script, D3DXVECTOR3 *pos)
 
 void Player::UpdateUnknown30454()
 {
-    PlayerUnknown30454 *entry = this->unknown30454;
+    PlayerUnknown30454 *entry = this->unk_30454;
     int i;
     D3DXVECTOR3 size(this->shtFile->unknown10, this->shtFile->unknown10, 16.0f);
     D3DXVECTOR3 pos;
     D3DXVECTOR3 velocity;
     Effect *effect;
 
-    this->unknown30f64 = -1000.0f;
+    this->unk_30f64 = -1000.0f;
     for (i = 0; i < 4; i++, entry++)
     {
-        if (entry->unknown1c == 0)
+        if (entry->unk_1c == 0)
         {
             continue;
         }
         entry->pos += entry->velocity;
         if (entry->pos.y >= 464.0f)
         {
-            entry->unknown1c = 0;
+            entry->unk_1c = 0;
             continue;
         }
         if (entry->velocity.y < 3.0f)
@@ -1162,7 +1162,7 @@ void Player::UpdateUnknown30454()
             case 1:
                 // i is the loop's counter too, so collecting this one ends
                 // the loop.
-                for (i = 0; i < g_GameManager.rank.unknownB4 + 10 + g_GameManager.difficulty * 2; i++)
+                for (i = 0; i < g_GameManager.rank.unk_b4 + 10 + g_GameManager.difficulty * 2; i++)
                 {
                     g_App.SetCamera(this->sideIdx);
                     pos.x = g_GameManager.ArenaToScreenX(this->pos.x) + g_Rng.GetRandomF32SignedInRange(64.0f);
@@ -1174,45 +1174,45 @@ void Player::UpdateUnknown30454()
                     velocity.z = 0.0f;
                     effect = g_GameManager.sides[2].effectManager->SpawnEffectWithVelocity(this->sideIdx + 1, &pos,
                                                                                               &velocity, 1, 0xffffffff);
-                    effect->unknownA4 = 3;
-                    effect->unknownA6 = 4;
+                    effect->unk_a4 = 3;
+                    effect->unk_a6 = 4;
                     switch (g_GameManager.difficulty)
                     {
                     case 0:
-                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.04f + 0.9f;
+                        effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.04f + 0.9f;
                         break;
                     case 1:
-                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.05f + 1.1f;
+                        effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.05f + 1.1f;
                         break;
                     case 2:
-                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.08f + 1.3f;
+                        effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.08f + 1.3f;
                         break;
                     case 3:
-                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.1f + 1.7f;
+                        effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.1f + 1.7f;
                         break;
                     case 4:
-                        effect->unknownA0 = g_GameManager.rank.unknownB4 * 0.08f + 1.5f;
+                        effect->unk_a0 = g_GameManager.rank.unk_b4 * 0.08f + 1.5f;
                         break;
                     }
-                    effect->unknownA8 = this->sideIdx;
-                    effect->unknown98 = i * 2.0f;
+                    effect->unk_a8 = this->sideIdx;
+                    effect->unk_98 = i * 2.0f;
                 }
                 g_App.SetCamera(this->sideIdx);
                 break;
             case 2:
-                this->unknown30410.AddCombo(&this->pos, 1, 0, 400, 0);
+                this->unk_30410.AddCombo(&this->pos, 1, 0, 400, 0);
                 break;
             case 3:
-                this->unknown30410.AddCombo(&this->pos, 0, 0, 0, 70000);
+                this->unk_30410.AddCombo(&this->pos, 0, 0, 0, 70000);
                 break;
         }
-        entry->unknown1c = 0;
+        entry->unk_1c = 0;
         g_SoundPlayer.QueueSound(0x1f, this->sideIdx != 0 ? 500 : -500);
         }
         else
         {
-            this->unknown30f64 = entry->pos.x;
-            this->unknown30f68 = 400.0f - (400.0f - entry->pos.y) * 0.5f;
+            this->unk_30f64 = entry->pos.x;
+            this->unk_30f68 = 400.0f - (400.0f - entry->pos.y) * 0.5f;
         }
     }
 }
@@ -1223,12 +1223,12 @@ void Player::DrawUnknown30454()
 
     for (i = 0; i < 4; i++)
     {
-        if (this->unknown30454[i].unknown1c != 0)
+        if (this->unk_30454[i].unk_1c != 0)
         {
-            this->unknown30454[i].sprite.pos.x = g_GameManager.ArenaToScreenX(this->unknown30454[i].pos.x);
-            this->unknown30454[i].sprite.pos.y = g_GameManager.ArenaToScreenY(this->unknown30454[i].pos.y);
-            this->unknown30454[i].sprite.pos.z = 0.15f;
-            g_SpriteEngine->DrawUnrotated(&this->unknown30454[i].sprite);
+            this->unk_30454[i].sprite.pos.x = g_GameManager.ArenaToScreenX(this->unk_30454[i].pos.x);
+            this->unk_30454[i].sprite.pos.y = g_GameManager.ArenaToScreenY(this->unk_30454[i].pos.y);
+            this->unk_30454[i].sprite.pos.z = 0.15f;
+            g_SpriteEngine->DrawUnrotated(&this->unk_30454[i].sprite);
         }
     }
 }
@@ -1257,7 +1257,7 @@ int Player::CheckHitAreas(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet)
         {
             continue;
         }
-        if ((*area)->unknown40 > 0)
+        if ((*area)->unk_40 > 0)
         {
             continue;
         }
@@ -1313,15 +1313,15 @@ int Player::CheckHitAreas(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet)
     effect = g_GameManager.sides[2].effectManager->SpawnEffectWithVelocity(this->sideIdx + 1, &d, &rot, 1,
                                                                               0xffffffff);
     g_App.SetCamera(this->sideIdx);
-    effect->unknownA4 = bullet->sprite;
-    effect->unknownA6 = bullet->color;
-    effect->unknownA0 = bullet->speed;
-    effect->unknownA8 = bullet->mgr->sideIdx;
-    effect->unknownAa = (BYTE)bullet->unknown10bd;
+    effect->unk_a4 = bullet->sprite;
+    effect->unk_a6 = bullet->color;
+    effect->unk_a0 = bullet->speed;
+    effect->unk_a8 = bullet->mgr->sideIdx;
+    effect->unk_aa = (BYTE)bullet->unk_10bd;
     this->AddUnknown30388(0.2f);
     g_SoundPlayer.QueueSound(0x2e, this->sideIdx != 0 ? 500 : -500);
-    this->unknown30410.AddCombo(pos, (g_GameManager.difficulty >= 3) + 2, 2, 0,
-                                this->unknown30410.unknown38 > 100 ? 1000 : this->unknown30410.unknown38 * 10);
+    this->unk_30410.AddCombo(pos, (g_GameManager.difficulty >= 3) + 2, 2, 0,
+                                this->unk_30410.unk_38 > 100 ? 1000 : this->unk_30410.unk_38 * 10);
     this->side->AddScore(50);
     (*area)->hits++;
     return 2;
@@ -1358,92 +1358,92 @@ void Player::Die()
         return;
     }
     g_SoundPlayer.QueueSoundPanned(4, this->pos.x);
-    lifeLoss = g_GameManager.rank.unknownB8;
-    if (this->unknown20 != 0)
+    lifeLoss = g_GameManager.rank.unk_b8;
+    if (this->unk_20 != 0)
     {
-        lifeLoss += g_GameManager.rank.unknownBc;
+        lifeLoss += g_GameManager.rank.unk_bc;
     }
-    if (this->unknownA8 <= 1)
+    if (this->unk_a8 <= 1)
     {
-        if (this->side->character == 8 && this->unknown30388 >= 200.0f)
+        if (this->side->character == 8 && this->unk_30388 >= 200.0f)
         {
-            if (this->unknown30388 >= 400.0f)
+            if (this->unk_30388 >= 400.0f)
             {
                 if (this->otherSide->enemyManager->FindByUnknownType(3) == NULL)
                 {
                     this->otherSide->spellCard->Start(2, 2, 0, this->shtFile->spellCardNames[2]);
-                    this->unknown30384 = 0.0f;
-                    this->unknown30388 = 0.0f;
+                    this->unk_30384 = 0.0f;
+                    this->unk_30388 = 0.0f;
                     this->StartClearCircle3();
                     return;
                 }
                 this->otherSide->spellCard->Start(1, 1, 0, this->shtFile->spellCardNames[1]);
-                this->unknown30384 = 100.0f;
-                this->unknown30388 = 100.0f;
+                this->unk_30384 = 100.0f;
+                this->unk_30388 = 100.0f;
                 this->StartClearCircle2();
                 return;
             }
-            if (this->unknown30388 >= 300.0f)
+            if (this->unk_30388 >= 300.0f)
             {
                 this->otherSide->spellCard->Start(1, 1, 0, this->shtFile->spellCardNames[1]);
-                this->unknown30384 = 0.0f;
-                this->unknown30388 = 0.0f;
+                this->unk_30384 = 0.0f;
+                this->unk_30388 = 0.0f;
                 this->StartClearCircle2();
                 return;
             }
-            if (this->unknown30388 >= 200.0f)
+            if (this->unk_30388 >= 200.0f)
             {
                 this->otherSide->spellCard->Start(0, 0, 0, this->shtFile->spellCardNames[0]);
-                this->unknown30384 = 0.0f;
-                this->unknown30388 = 0.0f;
+                this->unk_30384 = 0.0f;
+                this->unk_30388 = 0.0f;
                 this->StartClearCircle1();
             }
             return;
         }
-        this->unknownA8 = 0;
+        this->unk_a8 = 0;
         g_GameManager.gui->CountRoundWin(1 - this->sideIdx);
         this->side->effectManager->SpawnReservedEffect(0x13, &this->pos, 4, 0xff4040ff);
     }
-    else if (this->unknownA8 - lifeLoss > 1)
+    else if (this->unk_a8 - lifeLoss > 1)
     {
-        this->unknownA8 -= lifeLoss;
+        this->unk_a8 -= lifeLoss;
     }
     else
     {
         g_SoundPlayer.QueueSound(0x30, this->sideIdx != 0 ? 500 : -500);
         this->side->gui->StartUnknown6ee8(0);
-        this->unknownA8 = 1;
+        this->unk_a8 = 1;
     }
     this->playerState = 4;
     this->stateTimer = 0;
     angle = g_Rng.GetRandomF32SignedInRange(3.1415927f);
-    this->unknown1cd8 = angle;
-    SetPolar((Vector2 *)&this->unknown1ccc, angle, 1.0f);
-    g_GameManager.gui->unknownE93c[this->sideIdx] = 0x3c;
-    g_GameManager.gui->unknownE934[this->sideIdx] = 0x80ff0000;
-    if (this->unknown364 != NULL)
+    this->unk_1cd8 = angle;
+    SetPolar((Vector2 *)&this->unk_1ccc, angle, 1.0f);
+    g_GameManager.gui->unk_e93c[this->sideIdx] = 0x3c;
+    g_GameManager.gui->unk_e934[this->sideIdx] = 0x80ff0000;
+    if (this->unk_364 != NULL)
     {
-        this->unknown364->sprites->SetPendingInterrupt(1);
-        this->unknown364 = NULL;
-        this->unknown368->active = 0;
-        this->unknown368 = NULL;
+        this->unk_364->sprites->SetPendingInterrupt(1);
+        this->unk_364 = NULL;
+        this->unk_368->active = 0;
+        this->unk_368 = NULL;
     }
     g_GameManager.rank.LowerUnknownCc(1500);
-    if (g_GameManager.rank.unknownB8 > 4)
+    if (g_GameManager.rank.unk_b8 > 4)
     {
-        g_GameManager.rank.unknownB8 -= 2;
+        g_GameManager.rank.unk_b8 -= 2;
     }
-    else if (g_GameManager.rank.unknownB8 > 2)
+    else if (g_GameManager.rank.unk_b8 > 2)
     {
-        g_GameManager.rank.unknownB8--;
+        g_GameManager.rank.unk_b8--;
     }
-    this->unknown30410.EndCombo();
-    this->unknown24.Reset();
+    this->unk_30410.EndCombo();
+    this->unk_24.Reset();
 }
 
-// The player is blown along unknown1ccc, slowing over 60 frames of
+// The player is blown along unk_1ccc, slowing over 60 frames of
 // stateTimer and kept in playerArea, fading out; then it gets
-// unknown30388 back by its lives, unknown0 goes to 3 and it clears
+// unk_30388 back by its lives, unk_0 goes to 3 and it clears
 // around itself. Returns 0. Static, with the player in esi (0x41e720).
 static int UpdateDyingState(Player *player)
 {
@@ -1452,7 +1452,7 @@ static int UpdateDyingState(Player *player)
 
     if (player->stateTimer.AsFloat() < 60.0f)
     {
-        player->pos += player->unknown1ccc * (60.0f - player->stateTimer.AsFloat()) / 20.0f;
+        player->pos += player->unk_1ccc * (60.0f - player->stateTimer.AsFloat()) / 20.0f;
         pos = player->pos;
         if (pos[0] < g_GameManager.playerArea[0])
         {
@@ -1473,13 +1473,13 @@ static int UpdateDyingState(Player *player)
         player->sprite.color = (player->stateTimer.AsFrames() * 255 / 10) << 24 | 0xffffff;
         return 0;
     }
-    if (player->unknownA8 == 1)
+    if (player->unk_a8 == 1)
     {
         amount = 400.0f;
     }
     else
     {
-        amount = 130.0f - player->unknownA8 * 10.0f;
+        amount = 130.0f - player->unk_a8 * 10.0f;
     }
     player->AddUnknown30388(amount);
     player->SetPlayerState(3);
@@ -1489,25 +1489,25 @@ static int UpdateDyingState(Player *player)
     return 0;
 }
 
-// While unknown0 is 0 and unknown1b74 is not running, a hit of
-// unknown36c kills the player, the bullet behind it set to state 5.
+// While unk_0 is 0 and unk_1b74 is not running, a hit of
+// unk_36c kills the player, the bullet behind it set to state 5.
 // Returns whether it did. Static, with the player in esi (0x41e8b0).
 static int CheckDeath(Player *player)
 {
     PlayerUnknown36cEntry *entry;
 
-    if (player->GetPlayerState() != 0 || player->unknown1b74 > 0)
+    if (player->GetPlayerState() != 0 || player->unk_1b74 > 0)
     {
         return 0;
     }
-    entry = player->unknown36c.CheckHits();
+    entry = player->unk_36c.CheckHits();
     if (entry == NULL)
     {
         return 0;
     }
-    if (entry->unknown2c != NULL)
+    if (entry->unk_2c != NULL)
     {
-        ((Bullet *)entry->unknown2c)->state = 5;
+        ((Bullet *)entry->unk_2c)->state = 5;
     }
     player->Die();
     return 1;
@@ -1554,9 +1554,9 @@ int Player::OnUpdate(Player *player)
         UpdateRespawningState(player);
     }
     UpdateInvulnerability(player);
-    if (player->unknown20 > 0)
+    if (player->unk_20 > 0)
     {
-        player->unknown24.Run();
+        player->unk_24.Run();
     }
     UpdateHitAreas(player);
     if (!g_GameManager.gui->IsMsgRunning())
@@ -1571,7 +1571,7 @@ int Player::OnUpdate(Player *player)
     player->UpdateBullets();
     if (!g_GameManager.gui->IsMsgRunning())
     {
-        player->unknown30410.unknown3c++;
+        player->unk_30410.unk_3c++;
         if (player->unknownFlag3)
         {
             g_SoundPlayer.QueueSound(0x30, player->sideIdx != 0 ? 500 : -500);
@@ -1581,25 +1581,25 @@ int Player::OnUpdate(Player *player)
             {
                 otherSide = player->otherSide;
                 player->side->gui->StartUnknown76d4(
-                    g_PlayerCpuLevels[otherSide->unknown2c].seconds5c[2] * 60 -
-                    otherSide->player->unknown24.timer5c.AsFrames());
+                    g_PlayerCpuLevels[otherSide->unk_2c].seconds5c[2] * 60 -
+                    otherSide->player->unk_24.timer5c.AsFrames());
             }
         }
-        if (g_GameManager.gui->unknown1095c == 0)
+        if (g_GameManager.gui->unk_1095c == 0)
         {
             player->UpdateShotInput();
         }
     }
-    if (!player->side->flag0 && g_GameManager.gui->unknown1095c == 0)
+    if (!player->side->flag0 && g_GameManager.gui->unk_1095c == 0)
     {
         CheckDeath(player);
     }
     ResetTargets(player);
     if (!player->side->flag0)
     {
-        player->unknown30410.Update();
+        player->unk_30410.Update();
     }
-    player->unknown36c.count = 0;
+    player->unk_36c.count = 0;
     return 1;
 }
 
@@ -1609,8 +1609,8 @@ int Player::OnDraw(Player *player)
     if (player->GetPlayerState() != 5)
     {
         player->DrawBullets();
-        if (player->unknownA8 == 0 &&
-            (g_GameManager.gui->unknown1095c >= 2 || g_GameManager.gui->unknown10960 > 30))
+        if (player->unk_a8 == 0 &&
+            (g_GameManager.gui->unk_1095c >= 2 || g_GameManager.gui->unk_10960 > 30))
         {
             return 1;
         }
@@ -1647,33 +1647,33 @@ void Player::Reset()
     this->activeHitAreaCount = 0;
     this->freeHitAreaCount = 0x200;
     this->direction = 0;
-    this->unknown30410.unknown3c = 0;
+    this->unk_30410.unk_3c = 0;
     this->SetPlayerState(5);
     this->stateTimer = 120;
-    this->unknown1b84 = 1;
+    this->unk_1b84 = 1;
     for (i = 0; i < 0x80; i++)
     {
         this->bullets[i].state = 0;
     }
-    this->unknown1cdc = this->unknown1ce0 = 1.0f;
+    this->unk_1cdc = this->unk_1ce0 = 1.0f;
     this->moveScaleX = this->moveScaleY = 1.0f;
     for (i = 0; i < 0x10; i++)
     {
         this->posHistory[i] = this->pos;
     }
-    this->unknown303e8 = 0;
+    this->unk_303e8 = 0;
     this->focused = 2;
-    this->unknown303b0 = 6;
-    this->unknown24.unknown58 = g_Rng.GetRandomF32InRange(400.0f) + 100.0f;
-    if (this->unknown24.unknown58 >= 400.0f)
+    this->unk_303b0 = 6;
+    this->unk_24.unk_58 = g_Rng.GetRandomF32InRange(400.0f) + 100.0f;
+    if (this->unk_24.unk_58 >= 400.0f)
     {
-        this->unknown24.unknown58 = 400.0f;
+        this->unk_24.unk_58 = 400.0f;
     }
-    this->unknown30410.EndCombo();
-    this->unknown1b74 = 0;
-    this->unknown30384 = 0.0f;
-    this->unknownA8 = g_GameManager.initialLives[this->sideIdx];
-    level = g_GameManager.unknown100;
+    this->unk_30410.EndCombo();
+    this->unk_1b74 = 0;
+    this->unk_30384 = 0.0f;
+    this->unk_a8 = g_GameManager.initialLives[this->sideIdx];
+    level = g_GameManager.unk_100;
     if (level > 2)
     {
         level = 2;
@@ -1682,36 +1682,36 @@ void Player::Reset()
     {
     case 0:
     case 1:
-        this->unknownA4 = this->unknownA0 = level + 1;
+        this->unk_a4 = this->unk_a0 = level + 1;
         break;
     case 2:
-        this->unknownA4 = this->unknownA0 = level + 4;
+        this->unk_a4 = this->unk_a0 = level + 4;
         break;
     case 3:
-        this->unknownA4 = this->unknownA0 = level + 8;
+        this->unk_a4 = this->unk_a0 = level + 8;
         break;
     case 4:
-        this->unknownA4 = this->unknownA0 = level + 12;
-        this->unknownA8 = 1;
-        this->unknown30388 = 400.0f;
+        this->unk_a4 = this->unk_a0 = level + 12;
+        this->unk_a8 = 1;
+        this->unk_30388 = 400.0f;
         break;
     }
-    if (this->unknownA8 == 1)
+    if (this->unk_a8 == 1)
     {
         this->unknownFlag3 = 1;
     }
-    this->unknown303a4 = -1;
-    this->unknown1cd8 = -1.5707964f;
-    this->unknown364 = NULL;
-    this->unknown24.Reset();
-    memset(this->unknown30454, 0, sizeof(this->unknown30454));
+    this->unk_303a4 = -1;
+    this->unk_1cd8 = -1.5707964f;
+    this->unk_364 = NULL;
+    this->unk_24.Reset();
+    memset(this->unk_30454, 0, sizeof(this->unk_30454));
 }
 
 int Player::AddedCallback(Player *player)
 {
     GameSide *side;
 
-    if (g_ShtFiles[player->sideIdx] != NULL && player->side->character == player->side->unknown24)
+    if (g_ShtFiles[player->sideIdx] != NULL && player->side->character == player->side->unk_24)
     {
         player->shtFile = g_ShtFiles[player->sideIdx];
     }
@@ -1728,11 +1728,11 @@ int Player::AddedCallback(Player *player)
         g_ShtFiles[player->sideIdx] = player->shtFile;
     }
     side = player->side;
-    player->unknown303f0 = g_CharacterValuesBd0[side->character];
-    player->unknown303f4 = g_CharacterValuesB90[side->character];
-    player->unknown303f8 = g_CharacterValuesB50[side->character];
-    player->unknown303fc = g_CharacterValuesB10[side->character];
-    player->unknown30400 = g_CharacterValuesAd0[side->character];
+    player->unk_303f0 = g_CharacterValuesBd0[side->character];
+    player->unk_303f4 = g_CharacterValuesB90[side->character];
+    player->unk_303f8 = g_CharacterValuesB50[side->character];
+    player->unk_303fc = g_CharacterValuesB10[side->character];
+    player->unk_30400 = g_CharacterValuesAd0[side->character];
     player->anm = g_SpriteEngine->GetAnm(player->sideIdx + 5);
     player->hitboxSize.x = player->hitboxSize.y = player->shtFile->hitboxSize / 2.0f;
     player->hitboxSize.z = 5.0f;
@@ -1740,16 +1740,16 @@ int Player::AddedCallback(Player *player)
     player->grazeSize.z = 5.0f;
     player->grazeTestHalfSize.x = player->grazeTestHalfSize.y = player->shtFile->unknown10 / 2.0f;
     player->grazeTestHalfSize.z = 5.0f;
-    player->unknown30388 = 100.0f;
-    player->unknown30410.player = player;
-    player->unknown30410.func = g_CharacterFuncs9d0[side->character];
-    player->unknownA4 = player->unknownA0 = 1;
-    player->unknown24.player = player;
-    player->unknown36c.player = player;
-    player->unknownAc = 2;
-    player->unknownB8 = player->unknownB4 = player->unknownB0 = 0;
-    player->unknown30404 = g_CharacterFuncsA50[side->character];
-    player->unknown30408 = g_CharacterFuncsA90[side->character];
+    player->unk_30388 = 100.0f;
+    player->unk_30410.player = player;
+    player->unk_30410.func = g_CharacterFuncs9d0[side->character];
+    player->unk_a4 = player->unk_a0 = 1;
+    player->unk_24.player = player;
+    player->unk_36c.player = player;
+    player->unk_ac = 2;
+    player->unk_b8 = player->unk_b4 = player->unk_b0 = 0;
+    player->unk_30404 = g_CharacterFuncsA50[side->character];
+    player->unk_30408 = g_CharacterFuncsA90[side->character];
     player->Reset();
     return 0;
 }
@@ -1758,7 +1758,7 @@ Player::Player()
 {
 }
 
-Player *Player::RegisterChain(int arg, int sideIdx, int unknown20)
+Player *Player::RegisterChain(int arg, int sideIdx, int unk_20)
 {
     Player *player = (Player *)g_MemoryTracker.Register(new Player(), sizeof(Player), "PlayerInf");
 
@@ -1768,7 +1768,7 @@ Player *Player::RegisterChain(int arg, int sideIdx, int unknown20)
     player->side = &g_GameManager.sides[sideIdx];
     player->sideIdx = sideIdx;
     player->otherSide = &g_GameManager.sides[1 - sideIdx];
-    player->unknown20 = unknown20;
+    player->unk_20 = unk_20;
     player->calcElem = g_Chain.CreateElem((ChainCallback)Player::OnUpdate);
     player->calcElem->arg = player;
     player->calcElem->addedCallback = (ChainCallback)Player::AddedCallback;
@@ -1814,7 +1814,7 @@ void FireShot(Player *player, PlayerBullet *bullet, ShotData *sd)
     bullet->velocity.x = cosf(sd->angle) * sd->speed;
     bullet->velocity.y = sinf(sd->angle) * sd->speed;
     bullet->timer = 0;
-    bullet->unknown470 = 0;
+    bullet->unk_470 = 0;
     bullet->type = sd->type;
     bullet->damage = sd->damage;
     bullet->script = sd->script;
@@ -1823,7 +1823,7 @@ void FireShot(Player *player, PlayerBullet *bullet, ShotData *sd)
         g_SoundPlayer.QueueSoundPanned(sd->sound, player->pos.x);
     }
     player->anm->StartScript(&bullet->sprite, sd->script + 5);
-    bullet->unknown46e = 0;
+    bullet->unk_46e = 0;
 }
 
 int TryFireShot(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
@@ -1936,7 +1936,7 @@ void Player::DrawBullets()
         bullet->sprite.pos.x = g_GameManager.ArenaToScreenX(bullet->pos.x);
         bullet->sprite.pos.y = g_GameManager.ArenaToScreenY(bullet->pos.y);
         bullet->sprite.pos.z = 0.4f;
-        if (bullet->unknown46e)
+        if (bullet->unk_46e)
         {
             bullet->sprite.colorRgb[2] = 0xff;
             bullet->sprite.colorRgb[1] = 0x40;
@@ -1971,7 +1971,7 @@ void Player::DrawHitBullets()
         bullet->sprite.pos.x = g_GameManager.ArenaToScreenX(bullet->pos.x);
         bullet->sprite.pos.y = g_GameManager.ArenaToScreenY(bullet->pos.y);
         bullet->sprite.pos.z = 0.2f;
-        if (bullet->unknown46e)
+        if (bullet->unk_46e)
         {
             bullet->sprite.colorRgb[2] = 0xff;
             bullet->sprite.colorRgb[1] = 0x40;
@@ -1988,62 +1988,62 @@ int Player::UpdateShotInput()
     int before;
 
     side = this->sideIdx;
-    if ((g_PlayerInputs[side].IsJustPressed2(1) && !(g_GameManager.config->unknownB4[side] == 1 && g_PlayerInputs[side].IsHeld2(4))) ||
-        ((chargeType = g_GameManager.config->unknownB4[side]) == 1 && g_PlayerInputs[side].IsHeld2(1) &&
+    if ((g_PlayerInputs[side].IsJustPressed2(1) && !(g_GameManager.config->unk_b4[side] == 1 && g_PlayerInputs[side].IsHeld2(4))) ||
+        ((chargeType = g_GameManager.config->unk_b4[side]) == 1 && g_PlayerInputs[side].IsHeld2(1) &&
          !g_PlayerInputs[side].IsHeld2(4)))
     {
-        if (this->unknown303b0 == 0)
+        if (this->unk_303b0 == 0)
         {
-            if (this->unknown303a4 < 0)
+            if (this->unk_303a4 < 0)
             {
-                this->unknown303a4 = 0;
+                this->unk_303a4 = 0;
             }
-            else if (this->unknown303a4 >= 10)
+            else if (this->unk_303a4 >= 10)
             {
-                this->unknown303a4 -= 10;
+                this->unk_303a4 -= 10;
             }
-            else if (this->unknown303a4 >= 5)
+            else if (this->unk_303a4 >= 5)
             {
-                this->unknown303a4 -= 5;
+                this->unk_303a4 -= 5;
             }
-            this->unknown303b0 = 3;
-            this->unknown303bc = 1;
+            this->unk_303b0 = 3;
+            this->unk_303bc = 1;
         }
-        else if (this->unknown303b0 > 0)
+        else if (this->unk_303b0 > 0)
         {
-            this->unknown303b0--;
+            this->unk_303b0--;
         }
-        if (g_GameManager.config->unknownB4[this->sideIdx] != 1)
+        if (g_GameManager.config->unk_b4[this->sideIdx] != 1)
         {
             goto fire;
         }
     }
     else if ((chargeType == 1 && g_PlayerInputs[side].IsHeld2(4)) || (chargeType == 0 && g_PlayerInputs[side].IsHeld2(1)))
     {
-        this->unknown303bc++;
-        if (this->unknown303bc >= 10 && !this->charging)
+        this->unk_303bc++;
+        if (this->unk_303bc >= 10 && !this->charging)
         {
-            if (this->unknown30384 == 0.0f)
+            if (this->unk_30384 == 0.0f)
             {
                 g_SoundPlayer.QueueSound(0x2b, this->sideIdx != 0 ? 500 : -500);
                 this->side->gui->StartUnknown5c6c();
             }
-            before = (int)this->unknown30384 / 100;
-            this->unknown30384 += g_App.gameSpeed * this->shtFile->unknown24;
-            if (this->unknown30384 >= this->unknown30388)
+            before = (int)this->unk_30384 / 100;
+            this->unk_30384 += g_App.gameSpeed * this->shtFile->unk_24;
+            if (this->unk_30384 >= this->unk_30388)
             {
-                this->unknown30384 = this->unknown30388;
-                this->unknown3038c++;
-                if (this->unknown3038c >= 300)
+                this->unk_30384 = this->unk_30388;
+                this->unk_3038c++;
+                if (this->unk_3038c >= 300)
                 {
                     goto release;
                 }
             }
             else
             {
-                this->unknown3038c = 0;
+                this->unk_3038c = 0;
             }
-            if (before < (int)this->unknown30384 / 100)
+            if (before < (int)this->unk_30384 / 100)
             {
                 g_SoundPlayer.QueueSound(0x32, this->sideIdx != 0 ? 500 : -500);
             }
@@ -2051,64 +2051,64 @@ int Player::UpdateShotInput()
         goto fire;
     }
 release:
-    if (this->unknown30384 >= 100.0f)
+    if (this->unk_30384 >= 100.0f)
     {
         this->charging = 1;
-        this->unknown30398 = 0;
-        this->unknown1b74 = 8;
-        if (this->unknown30384 >= 400.0f && this->otherSide->enemyManager->FindByUnknownType(3) == NULL)
+        this->unk_30398 = 0;
+        this->unk_1b74 = 8;
+        if (this->unk_30384 >= 400.0f && this->otherSide->enemyManager->FindByUnknownType(3) == NULL)
         {
             this->otherSide->spellCard->Start(2, 2, 0, this->shtFile->spellCardNames[2]);
             this->SubUnknown30388(300.0f);
-            this->unknown1b74 = 8;
+            this->unk_1b74 = 8;
             this->StartClearCircle3();
         }
-        else if (this->unknown30384 >= 300.0f)
+        else if (this->unk_30384 >= 300.0f)
         {
             this->otherSide->spellCard->Start(1, 1, 0, this->shtFile->spellCardNames[1]);
             this->SubUnknown30388(200.0f);
-            this->unknown1b74 = 8;
+            this->unk_1b74 = 8;
             this->StartClearCircle2();
         }
-        else if (this->unknown30384 >= 200.0f)
+        else if (this->unk_30384 >= 200.0f)
         {
             this->otherSide->spellCard->Start(0, 0, 0, this->shtFile->spellCardNames[0]);
-            this->unknown1b74 = 8;
+            this->unk_1b74 = 8;
             this->SubUnknown30388(100.0f);
             this->StartClearCircle1();
         }
     }
     this->side->gui->StopUnknown5c6c();
-    this->unknown303bc = -1;
-    this->unknown30384 = 0.0f;
-    if (this->unknown303b0 > 0)
+    this->unk_303bc = -1;
+    this->unk_30384 = 0.0f;
+    if (this->unk_303b0 > 0)
     {
-        this->unknown303b0--;
+        this->unk_303b0--;
     }
 fire:
     if (this->charging)
     {
-        if (this->unknown30398.HasTicked())
+        if (this->unk_30398.HasTicked())
         {
-            FireShots(this, this->unknown30398.AsFrames(), 1);
+            FireShots(this, this->unk_30398.AsFrames(), 1);
         }
-        this->unknown30398++;
-        if (this->unknown30398.AsFloat() >= this->shtFile->unknown28)
+        this->unk_30398++;
+        if (this->unk_30398.AsFloat() >= this->shtFile->unk_28)
         {
-            this->unknown30398 = 0;
+            this->unk_30398 = 0;
             this->charging = 0;
         }
     }
-    if (this->unknown303a4 >= 0)
+    if (this->unk_303a4 >= 0)
     {
-        if (this->unknown303a4.HasTicked())
+        if (this->unk_303a4.HasTicked())
         {
-            FireShots(this, this->unknown303a4.AsFrames(), 0);
+            FireShots(this, this->unk_303a4.AsFrames(), 0);
         }
-        this->unknown303a4++;
-        if (this->unknown303a4 >= 15)
+        this->unk_303a4++;
+        if (this->unk_303a4 >= 15)
         {
-            this->unknown303a4 = -1;
+            this->unk_303a4 = -1;
         }
     }
     return 0;
@@ -2184,7 +2184,7 @@ int Player::CalcDamage(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, int *damageTaken, in
         {
             continue;
         }
-        if ((*area)->unknown40 > 0)
+        if ((*area)->unk_40 > 0)
         {
             continue;
         }

@@ -10,24 +10,24 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The update callback of effect type 26: grows unknown7c by 8 up to 112,
-// sets unknownC9, puts the effect on its side's player and turns
-// unknown80 an eighth of the shorter way towards opposite the player's
-// unknown1cd8, as UpdateEffectType17. Returns 1 (0x443a30).
+// The update callback of effect type 26: grows unk_7c by 8 up to 112,
+// sets unk_c9, puts the effect on its side's player and turns
+// unk_80 an eighth of the shorter way towards opposite the player's
+// unk_1cd8, as UpdateEffectType17. Returns 1 (0x443a30).
 int UpdateEffectType26(Effect *effect)
 {
     float target;
     float delta;
 
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 112.0f)
+    effect->unk_c9 = 1;
+    if (effect->unk_7c < 112.0f)
     {
-        effect->unknown7c += 8.0f;
+        effect->unk_7c += 8.0f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
-    target = AddNormalizeAngle(effect->mgr->side->player->unknown1cd8, 3.1415927f);
-    delta = target - effect->unknown80;
-    if (target > effect->unknown80)
+    target = AddNormalizeAngle(effect->mgr->side->player->unk_1cd8, 3.1415927f);
+    delta = target - effect->unk_80;
+    if (target > effect->unk_80)
     {
         if (delta > 3.1415927f)
         {
@@ -41,22 +41,22 @@ int UpdateEffectType26(Effect *effect)
             delta += 6.2831855f;
         }
     }
-    effect->unknown80 = AddNormalizeAngle(effect->unknown80, delta * 0.125f);
+    effect->unk_80 = AddNormalizeAngle(effect->unk_80, delta * 0.125f);
     return 1;
 }
 
-// The unknown30404 of character 4: whether `pos` is within the radius
-// of the player's unknown368 of a point half a radius from the player, at a
-// right angle to the effect's angle unknown80 and on the side away from
+// The unk_30404 of character 4: whether `pos` is within the radius
+// of the player's unk_368 of a point half a radius from the player, at a
+// right angle to the effect's angle unk_80 and on the side away from
 // `pos` (0x443b10).
 int CheckFocusAreaCharacter4(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = *pos - player->pos;
     D3DXVECTOR3 center;
-    float angle = AddNormalizeAngle(player->unknown368->unknown80, 1.5707964f);
+    float angle = AddNormalizeAngle(player->unk_368->unk_80, 1.5707964f);
     D3DXVECTOR3 offset;
 
-    SetPolar((Vector2 *)&offset, angle, player->unknown368->unknown7c * 0.5f);
+    SetPolar((Vector2 *)&offset, angle, player->unk_368->unk_7c * 0.5f);
     if (diff.x * offset.x + diff.y * offset.y > 0.0f)
     {
         center = player->pos - offset;
@@ -66,7 +66,7 @@ int CheckFocusAreaCharacter4(Player *player, D3DXVECTOR3 *pos)
         center = player->pos + offset;
     }
     diff = center - *pos;
-    if (diff.x * diff.x + diff.y * diff.y < player->unknown368->unknown7c * player->unknown368->unknown7c)
+    if (diff.x * diff.x + diff.y * diff.y < player->unk_368->unk_7c * player->unk_368->unk_7c)
     {
         return 1;
     }
@@ -92,14 +92,14 @@ struct EffectData34
 };
 ASSERT_SIZE(EffectData34, 0xef8);
 
-// The unknown30408 of character 4: pl01's, rising up to 1.5 over the 120
+// The unk_30408 of character 4: pl01's, rising up to 1.5 over the 120
 // frames. Returns 0 (0x443c10).
 int UpdateFocusedEnemyCharacter4(Player *player, Enemy *enemy)
 {
     enemy->velocity2.x = g_Rng.GetRandomF32SignedInRange(0.1f);
-    enemy->velocity2.y = enemy->unknown5424 > 0x78 ? -1.5f : enemy->unknown5424.AsFloat() * (-1.5f / 120.0f);
+    enemy->velocity2.y = enemy->unk_5424 > 0x78 ? -1.5f : enemy->unk_5424.AsFloat() * (-1.5f / 120.0f);
     enemy->velocity2.z = 0.0f;
-    enemy->unknown5424++;
+    enemy->unk_5424++;
     return 0;
 }
 
@@ -218,7 +218,7 @@ int UpdateExAttackTypes14And22(ExAttack *attack)
             }
             else
             {
-                g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos,
+                g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&attack->pos,
                                                                                       data->radius * 0.8f, NULL);
             }
             if (attack->timer >= 30)
@@ -353,15 +353,15 @@ int DrawExAttackTypes14And22(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 4: while unknown34 reaches (28 -
-// unknownB4) * 5, sends an extra attack of type 14 from `pos` and
+// The combo func of character 4: while unk_34 reaches (28 -
+// unk_b4) * 5, sends an extra attack of type 14 from `pos` and
 // takes as much off it. Returns 0 (0x4444f0).
 int SendComboAttacksCharacter4(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (28 - g_GameManager.rank.unknownB4) * 5)
+    while (combo->unk_34 >= (28 - g_GameManager.rank.unk_b4) * 5)
     {
         g_GameManager.exAttackManager->AddAttack(14, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (28 - g_GameManager.rank.unknownB4) * 5;
+        combo->unk_34 -= (28 - g_GameManager.rank.unk_b4) * 5;
     }
     return 0;
 }
@@ -399,12 +399,12 @@ int InitExAttackType22(ExAttack *attack)
     return 0;
 }
 
-// An update callback of the shot table (14): while unknown470 is 1,
+// An update callback of the shot table (14): while unk_470 is 1,
 // stops the bullet, and frees it once it is 90 frames old. Sets
-// unknown472. Returns 0 (0x4446a0).
+// unk_472. Returns 0 (0x4446a0).
 int UpdatePlayerShotType5(Player *player, PlayerBullet *bullet)
 {
-    if (bullet->unknown470 == 1)
+    if (bullet->unk_470 == 1)
     {
         bullet->velocity.x = 0.0f;
         bullet->velocity.y = 0.0f;
@@ -413,21 +413,21 @@ int UpdatePlayerShotType5(Player *player, PlayerBullet *bullet)
             bullet->state = 0;
         }
     }
-    bullet->unknown472 = 1;
+    bullet->unk_472 = 1;
     return 0;
 }
 
 // The draw callback of effect type 26: a fan about the effect of two
-// arcs of unknown7c in radius, 120 degrees each, centred unknown7c / 2
-// either side of it across unknown80, if unknownC9 is set. Returns 1
+// arcs of unk_7c in radius, 120 degrees each, centred unk_7c / 2
+// either side of it across unk_80, if unk_c9 is set. Returns 1
 // (0x444700).
 int DrawEffectType26(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = 2.0943952f / (effect->unknown8c / 2 - 1);
-        float angle = AddNormalizeAngle(effect->unknown80, 0.5235988f);
-        float across = AddNormalizeAngle(effect->unknown80, -1.5707964f);
+        float delta = 2.0943952f / (effect->unk_8c / 2 - 1);
+        float angle = AddNormalizeAngle(effect->unk_80, 0.5235988f);
+        float across = AddNormalizeAngle(effect->unk_80, -1.5707964f);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         D3DXVECTOR3 offset;
         int i;
@@ -438,14 +438,14 @@ int DrawEffectType26(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x40600040;
         vtx++;
-        SetPolar((Vector2 *)&offset, across, effect->unknown7c * 0.5f);
-        for (i = effect->unknown8c; i > 0; i -= 2)
+        SetPolar((Vector2 *)&offset, across, effect->unk_7c * 0.5f);
+        for (i = effect->unk_8c; i > 0; i -= 2)
         {
             if (angle >= 3.1415927f)
             {
                 angle -= 6.2831855f;
             }
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos + offset;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -456,13 +456,13 @@ int DrawEffectType26(Effect *effect)
             angle += delta;
         }
         angle = AddNormalizeAngle(angle, 1.0471976f - delta);
-        for (i = effect->unknown8c; i > 0; i -= 2)
+        for (i = effect->unk_8c; i > 0; i -= 2)
         {
             if (angle >= 3.1415927f)
             {
                 angle -= 6.2831855f;
             }
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos - offset;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -473,7 +473,7 @@ int DrawEffectType26(Effect *effect)
             angle += delta;
         }
     }
-    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     return 1;
 }
 
@@ -490,21 +490,21 @@ int InitEffectType34(Effect *effect)
         return -1;
     }
     memset(effect->vertices, 0, sizeof(EffectData34));
-    effect->unknown48 = effect->pos;
-    effect->unknown54.x = 0.0f;
-    effect->unknown54.y = 0.0f;
-    effect->unknown54.z = 1.0f;
-    effect->unknown60.x = 0.0f;
-    effect->unknown60.y = -1.0f;
-    effect->unknown60.z = 0.0f;
-    effect->unknown80 = effect->velocity.x;
-    effect->unknown88 = effect->velocity.z;
-    effect->unknown94 = 0.0f;
-    effect->unknown98 = 0.0f;
-    effect->unknown9c = 1.0f;
-    effect->unknown8c = 0x20;
-    effect->unknown7c = 16.0f;
-    effect->unknownC9 = 1;
+    effect->unk_48 = effect->pos;
+    effect->unk_54.x = 0.0f;
+    effect->unk_54.y = 0.0f;
+    effect->unk_54.z = 1.0f;
+    effect->unk_60.x = 0.0f;
+    effect->unk_60.y = -1.0f;
+    effect->unk_60.z = 0.0f;
+    effect->unk_80 = effect->velocity.x;
+    effect->unk_88 = effect->velocity.z;
+    effect->unk_94 = 0.0f;
+    effect->unk_98 = 0.0f;
+    effect->unk_9c = 1.0f;
+    effect->unk_8c = 0x20;
+    effect->unk_7c = 16.0f;
+    effect->unk_c9 = 1;
     data = (EffectData34 *)effect->vertices;
     data->unknown50 = 0.0f;
     data->state = 0;

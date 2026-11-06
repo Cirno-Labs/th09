@@ -106,7 +106,7 @@ struct EnemyScriptInstr
     short opcode;
     // The size of the instruction, arguments included.
     short size;
-    BYTE unusedByte8;
+    BYTE pad_8;
     BYTE difficultyMask;
     // Bit n: argument n names a variable.
     WORD paramMask;
@@ -204,7 +204,7 @@ ASSERT_SIZE(EnemyScriptState, 0x22c);
 struct EnemyScriptThread
 {
     int sub;
-    short unusedShort4;
+    short pad_4;
     // Enemy::stackDepth while the thread runs.
     short stackDepth;
     EnemyScriptState ctx;
@@ -252,7 +252,7 @@ struct BulletShooter
     short count1;
     short count2;
     WORD aimMode;
-    WORD unknown1fa;
+    WORD unk_1fa;
     // The flags of the commands it has.
     DWORD flags;
     // The sounds of shooting and of the bullets, as th08's.
@@ -260,8 +260,8 @@ struct BulletShooter
     int bulletSound;
     // The command each bullet starts from, as th08's.
     int commandIndex;
-    // Copied into each bullet's unknown10bd.
-    char unknown20c;
+    // Copied into each bullet's unk_10bd.
+    char unk_20c;
     unsigned char pad_20d[0x210 - 0x20d];
     // The bullet type's sprites, as th08's.
     BulletTypeSprites *typeSprites;
@@ -392,8 +392,8 @@ struct Enemy
     // Its index in EnemyManager::enemies.
     int index;
     // What Player::CalcDamage takes as the damage of its two kinds.
-    int unknown2e5c;
-    int unknown2e60;
+    int unk_2e5c;
+    int unk_2e60;
     Timer callbackTimer;
     // The primary sprite's color when it spawned, as th08's.
     D3DCOLOR color;
@@ -421,7 +421,7 @@ struct Enemy
     BYTE bossIndex;
     BYTE hitFlashTimer;
     unsigned char pad_336d[0x3370 - 0x336d];
-    Timer unknown3370;
+    Timer pad_3370;
     // The flags, as th08's but with fewer of them.
     union
     {
@@ -448,7 +448,7 @@ struct Enemy
             DWORD mirrored : 1;
             DWORD clampPos : 1;
             DWORD deathMode : 3;
-            DWORD unusedFlag20 : 1;
+            DWORD unk_bit20 : 1;
             DWORD onScreen : 1;
             DWORD rotateSprite : 1;
             // Calls don't save the caller, as th08's.
@@ -458,7 +458,7 @@ struct Enemy
             DWORD isWarpingToBoss : 1;
             DWORD haltedByBomb : 1;
             DWORD intangibleDuringBomb : 1;
-            DWORD unusedFlag29 : 2;
+            DWORD pad_bit29 : 2;
             // Sprites come from the other ANM, as th08's.
             DWORD useStageAnm : 1;
         };
@@ -475,13 +475,13 @@ struct Enemy
             DWORD undying : 1;
             DWORD halted : 1;
             DWORD useMainSpriteOffset : 1;
-            DWORD unknown3380 : 3;
+            DWORD unk_3380 : 3;
             // Set by the timeline's opcode 17.
             DWORD unknownBit9 : 1;
             // What EnemyManager::FindByUnknownType looks for.
             DWORD unknownType : 2;
             // Has Move use velocity2, unmirrored; OnUpdate fires bullets
-            // when unknown5424 passes EnemyManager::unknown2ac44c.
+            // when unk_5424 passes EnemyManager::unk_2ac44c.
             DWORD useVelocity2 : 1;
             DWORD unknownBit13 : 1;
             DWORD unknownBit14 : 1;
@@ -530,7 +530,7 @@ struct Enemy
     unsigned char pad_541c[0x5420 - 0x541c];
     // The seconds left of the phase when it died, as th08's.
     int phaseEndSecondsLeft;
-    Timer unknown5424;
+    Timer unk_5424;
 };
 ASSERT_SIZE(Enemy, 0x5430);
 
@@ -670,14 +670,14 @@ public:
     unsigned char pad_2ac398[0x2ac3ac - 0x2ac398];
     // The active enemies OnUpdate counted, as th08's enemyCount, and of
     // those the ones with none of the bits 0x4dc0 of flags2, an
-    // unknownType or an unknown3380.
+    // unknownType or an unk_3380.
     int enemyCount;
-    int unknown2ac3b0;
-    int unknown2ac3b4;
-    int unknown2ac3b8;
+    int unk_2ac3b0;
+    int unk_2ac3b4;
+    int unk_2ac3b8;
     unsigned char pad_2ac3bc[0x2ac3c8 - 0x2ac3bc];
-    Timer unknown2ac3c8;
-    unsigned char unknown2ac3d4;
+    Timer unk_2ac3c8;
+    unsigned char unk_2ac3d4;
     unsigned char pad_2ac3d5[0x2ac3dc - 0x2ac3d5];
     int scriptArg163;
     // The timeline running.
@@ -699,10 +699,10 @@ public:
     // Enemies OnUpdate picks: the last of unknownType 3 or with
     // unknownBit13 (or useVelocity2, or the first with unknownBit9),
     // and the first active one.
-    Enemy *unknown2ac444;
-    Enemy *unknown2ac448;
+    Enemy *unk_2ac444;
+    Enemy *unk_2ac448;
     // Set by AddedCallback: 200 if the side's character is 5, else 160.
-    int unknown2ac44c;
+    int unk_2ac44c;
 };
 ASSERT_SIZE(EnemyManager, 0x2ac450);
 

@@ -8,15 +8,15 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The combo func of character 13: while unknown34 reaches (28 -
-// unknownB4) * 5, sends an extra attack of type 21 from `pos` and
+// The combo func of character 13: while unk_34 reaches (28 -
+// unk_b4) * 5, sends an extra attack of type 21 from `pos` and
 // takes as much off it. Returns 0 (0x44ba80).
 int SendComboAttacksCharacter13(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (28 - g_GameManager.rank.unknownB4) * 5)
+    while (combo->unk_34 >= (28 - g_GameManager.rank.unk_b4) * 5)
     {
         g_GameManager.exAttackManager->AddAttack(21, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (28 - g_GameManager.rank.unknownB4) * 5;
+        combo->unk_34 -= (28 - g_GameManager.rank.unk_b4) * 5;
     }
     return 0;
 }
@@ -25,9 +25,9 @@ int SendComboAttacksCharacter13(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 // (0x44baf0).
 int DrawEffectType33(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = 6.2831855f / (effect->unknown8c - 1);
+        float delta = 6.2831855f / (effect->unk_8c - 1);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         float angle = -3.1415927f;
         int i;
@@ -38,14 +38,14 @@ int DrawEffectType33(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x40600040;
         vtx++;
-        for (i = effect->unknown8c; i > 0; i--)
+        for (i = effect->unk_8c; i > 0; i--)
         {
             if (angle >= 3.1415927f)
             {
                 angle -= 6.2831855f;
             }
             vtx->pos.z = 0.0f;
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -55,6 +55,6 @@ int DrawEffectType33(Effect *effect)
             angle += delta;
         }
     }
-    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     return 1;
 }

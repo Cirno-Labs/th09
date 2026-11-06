@@ -143,16 +143,16 @@ static void MoveEnemyEffects(Enemy *enemy)
         {
             continue;
         }
-        eff->unknown48 = enemy->pos;
-        if (eff->unknown7c < enemy->effectRadius)
+        eff->unk_48 = enemy->pos;
+        if (eff->unk_7c < enemy->effectRadius)
         {
-            eff->unknown7c += 0.3f;
+            eff->unk_7c += 0.3f;
         }
         else
         {
-            eff->unknown7c = enemy->effectRadius;
+            eff->unk_7c = enemy->effectRadius;
         }
-        eff->unknown80 = AddNormalizeAngle(eff->unknown80, 0.031415928f);
+        eff->unk_80 = AddNormalizeAngle(eff->unk_80, 0.031415928f);
     }
 }
 
@@ -267,7 +267,7 @@ Enemy *EnemyManager::FindByUnknownType(int type)
     return NULL;
 }
 
-void PlayerUnknown36c::Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c)
+void PlayerUnknown36c::Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unk_2c)
 {
     if (this->count < 0x80)
     {
@@ -277,7 +277,7 @@ void PlayerUnknown36c::Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c)
         this->entries[this->count].size.y /= 2.0f;
         this->entries[this->count].radius = 0.0f;
         this->entries[this->count].angle = 0.0f;
-        this->entries[this->count].unknown2c = unknown2c;
+        this->entries[this->count].unk_2c = unk_2c;
         this->count++;
     }
 }
@@ -621,7 +621,7 @@ void Enemy::CheckPlayerContact(D3DXVECTOR3 *pos, D3DXVECTOR3 *size)
     D3DXVECTOR3 box;
 
     box = *size / 1.5f;
-    this->manager->side->player->unknown36c.Add(pos, &box, NULL);
+    this->manager->side->player->unk_36c.Add(pos, &box, NULL);
 }
 
 void Enemy::DropItems(int kind)
@@ -640,12 +640,12 @@ void Enemy::DropItems(int kind)
 
     if (kind)
     {
-        this->manager->side->player->unknown30410.ResetCombo();
+        this->manager->side->player->unk_30410.ResetCombo();
     }
     if (this->unknownBit13)
     {
         g_SoundPlayer.QueueSoundPanned(0x12, this->absPos.x);
-        this->manager->side->player->unknown30410.AddComboCounted(&this->absPos, 400, 0, 300, 1000);
+        this->manager->side->player->unk_30410.AddComboCounted(&this->absPos, 400, 0, 300, 1000);
         this->manager->side->player->AddUnknown30454(this->item, &this->pos);
         return;
     }
@@ -655,7 +655,7 @@ void Enemy::DropItems(int kind)
         this->manager->side->player->AddUnknown30454(g_Rng.GetRandomU16InRange(4), &this->pos);
     }
     g_SoundPlayer.QueueSoundPanned(this->index % 2 + 2, this->absPos.x);
-    if (this->unknown3380 && kind && !this->useVelocity2)
+    if (this->unk_3380 && kind && !this->useVelocity2)
     {
         this->manager->side->effectManager->SpawnEffect(5, &this->absPos, 1, 0xffffffff);
     }
@@ -663,7 +663,7 @@ void Enemy::DropItems(int kind)
     {
         this->manager->side->effectManager->SpawnEffect(this->deathEffect + 0x14, &this->absPos, 1, 0xffffffff);
         deathEffect = this->deathEffect;
-        if (!this->unknown3380)
+        if (!this->unk_3380)
         {
             if (deathEffect == 0)
             {
@@ -704,25 +704,25 @@ void Enemy::DropItems(int kind)
             this->manager->side->player->AddKind2Circle(&this->absPos, 32.0f, radius, 2, deathEffect + 8, 4);
         }
     }
-    if (this->unknown3380 == 0)
+    if (this->unk_3380 == 0)
     {
         a = 4;
     }
-    else if (this->unknown3380 == 1)
+    else if (this->unk_3380 == 1)
     {
         a = 10;
     }
-    else if (this->unknown3380 == 2)
+    else if (this->unk_3380 == 2)
     {
         a = 20;
     }
     else
     {
-        a = this->unknown3380 == 3 ? 30 : 50;
+        a = this->unk_3380 == 3 ? 30 : 50;
     }
-    count = this->manager->side->player->unknown30410.unknown38;
+    count = this->manager->side->player->unk_30410.unk_38;
     b = count > 10 ? 60 : count * 3 + 30;
-    if (this->unknown3380)
+    if (this->unk_3380)
     {
         c = 0;
     }
@@ -730,7 +730,7 @@ void Enemy::DropItems(int kind)
     {
         c = count > 24 ? 28 : count + 4;
     }
-    if (!this->unknown3380)
+    if (!this->unk_3380)
     {
         d = count > 100 ? 3000 : count * 30 + 10;
     }
@@ -742,8 +742,8 @@ void Enemy::DropItems(int kind)
     {
         d *= 2;
     }
-    this->manager->side->player->unknown30410.AddComboCounted(&this->absPos, b, c, a, d);
-    count = this->manager->side->player->unknown30410.unknown38;
+    this->manager->side->player->unk_30410.AddComboCounted(&this->absPos, b, c, a, d);
+    count = this->manager->side->player->unk_30410.unk_38;
     if (count > 128)
     {
         radius = 2.0f;
@@ -753,10 +753,10 @@ void Enemy::DropItems(int kind)
         radius = count * 0.0078125f + 1.0f;
     }
     this->manager->side->player->AddUnknown30388(radius);
-    if (this->unknown3380 && this->unknown3380 < 3 && kind < 2)
+    if (this->unk_3380 && this->unk_3380 < 3 && kind < 2)
     {
         mgr = this->manager;
-        if (mgr->otherSide->enemyManager->unknown2ac3b8 < 25)
+        if (mgr->otherSide->enemyManager->unk_2ac3b8 < 25)
         {
             effectPos.x = g_GameManager.ArenaToScreenX(this->pos.x);
             effectPos.y = g_GameManager.ArenaToScreenY(this->pos.y);
@@ -768,10 +768,10 @@ void Enemy::DropItems(int kind)
             effect = g_GameManager.sides[2].effectManager->SpawnEffectWithVelocity(
                 this->manager->sideIdx + 3, &effectPos, &effectVelocity, 1, 0xffffffff);
             g_App.SetCamera(this->manager->sideIdx);
-            effect->unknownA4 = this->unknown3380 > 2 ? 2 : this->unknown3380;
-            effect->unknownA6 = this->unknown3380 + 1 > 3 ? 3 : this->unknown3380 + 1;
-            effect->unknownA0 = g_Rng.GetRandomF32InRange(0.5f) * 0.016666668f;
-            effect->unknownA8 = this->manager->sideIdx;
+            effect->unk_a4 = this->unk_3380 > 2 ? 2 : this->unk_3380;
+            effect->unk_a6 = this->unk_3380 + 1 > 3 ? 3 : this->unk_3380 + 1;
+            effect->unk_a0 = g_Rng.GetRandomF32InRange(0.5f) * 0.016666668f;
+            effect->unk_a8 = this->manager->sideIdx;
         }
     }
 }
@@ -799,34 +799,34 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
     mgr->drawListHeads[2] = NULL;
     mgr->drawListHeads[1] = NULL;
     mgr->drawListHeads[0] = NULL;
-    if (!g_GameManager.gui->unknown1095c)
+    if (!g_GameManager.gui->unk_1095c)
     {
         if (mgr->timeline.pos != NULL)
         {
             mgr->timeline.Run();
         }
-        else if (!mgr->unknown2ac3b0 || mgr->unknown2ac3c8 > 0)
+        else if (!mgr->unk_2ac3b0 || mgr->unk_2ac3c8 > 0)
         {
-            mgr->timeline.mirror = g_TimelineOrder[mgr->unknown2ac3d4] >> 7;
+            mgr->timeline.mirror = g_TimelineOrder[mgr->unk_2ac3d4] >> 7;
             mgr->timeline.pos =
-                (EnemyTimelineEntry *)mgr->ecl.GetTimeline(g_TimelineOrder[mgr->unknown2ac3d4++] & 0x7f);
+                (EnemyTimelineEntry *)mgr->ecl.GetTimeline(g_TimelineOrder[mgr->unk_2ac3d4++] & 0x7f);
             mgr->timeline.timer = 0;
         }
     }
     mgr->enemyCount = 0;
-    mgr->unknown2ac3b0 = 0;
-    mgr->unknown2ac444 = NULL;
-    mgr->unknown2ac448 = NULL;
-    mgr->unknown2ac3b4 = 0;
-    mgr->unknown2ac3b8 = 0;
+    mgr->unk_2ac3b0 = 0;
+    mgr->unk_2ac444 = NULL;
+    mgr->unk_2ac448 = NULL;
+    mgr->unk_2ac3b4 = 0;
+    mgr->unk_2ac3b8 = 0;
     enemy = mgr->enemies;
-    if (mgr->side->player->unknown364 != NULL)
+    if (mgr->side->player->unk_364 != NULL)
     {
-        mgr->unknown2ac3c8 = 0;
+        mgr->unk_2ac3c8 = 0;
     }
     else
     {
-        mgr->unknown2ac3c8++;
+        mgr->unk_2ac3c8++;
     }
     for (i = 0; i < 0x80; i++, enemy++)
     {
@@ -859,35 +859,35 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
         mgr->enemyCount++;
         if (!(enemy->flags2 & 0x4dc0))
         {
-            mgr->unknown2ac3b0++;
+            mgr->unk_2ac3b0++;
         }
         if (enemy->unknownType)
         {
-            mgr->unknown2ac3b4++;
+            mgr->unk_2ac3b4++;
         }
-        if (enemy->unknown3380)
+        if (enemy->unk_3380)
         {
-            mgr->unknown2ac3b8++;
+            mgr->unk_2ac3b8++;
         }
         if (enemy->useVelocity2)
         {
-            if (enemy->unknown5424.HasTickedEvery(2))
+            if (enemy->unk_5424.HasTickedEvery(2))
             {
                 mgr->side->effectManager->SpawnEffect(9, &enemy->pos, 1, 0xffffffff);
             }
-            if (enemy->unknown5424 > mgr->unknown2ac44c)
+            if (enemy->unk_5424 > mgr->unk_2ac44c)
             {
                 BulletShooter shooter;
 
                 shooter.pos = enemy->pos;
                 shooter.sprite = 1;
                 shooter.aimMode = 0;
-                shooter.speed1 = g_GameManager.rank.unknownB4 * 0.1f + 2.0f;
+                shooter.speed1 = g_GameManager.rank.unk_b4 * 0.1f + 2.0f;
                 shooter.count2 = 1;
                 shooter.angle1 = 0.0f;
                 shooter.angle2 = 0.15707964f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 4;
                 shooter.count1 = (mgr->side->character != 13) * 2 + 1;
                 shooter.color = 2;
@@ -983,7 +983,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
         kind = 0;
         if (!enemy->hidden && !enemy->hiddenByBomb)
         {
-            if (enemy->shootable && (!enemy->unknown3380 || mgr->side->character != 11))
+            if (enemy->shootable && (!enemy->unk_3380 || mgr->side->character != 11))
             {
                 enemy->CheckPlayerContact(&enemy->absPos, &enemy->hitboxSize);
                 if (enemy->trailFlags)
@@ -1003,12 +1003,12 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
             enemy->lastDamage = 0;
             if (enemy->hitByShots)
             {
-                hurt = mgr->side->player->CalcDamage(&enemy->absPos, &enemy->hitboxSize, &enemy->unknown2e5c,
-                                                     &bomb, &enemy->unknown2e60);
+                hurt = mgr->side->player->CalcDamage(&enemy->absPos, &enemy->hitboxSize, &enemy->unk_2e5c,
+                                                     &bomb, &enemy->unk_2e60);
                 if (enemy->extraHitboxSize.x > 0.0f)
                 {
-                    mgr->side->player->CalcDamage(&enemy->absPos, &enemy->extraHitboxSize, &enemy->unknown2e5c,
-                                                  &bomb, &enemy->unknown2e60);
+                    mgr->side->player->CalcDamage(&enemy->absPos, &enemy->extraHitboxSize, &enemy->unk_2e5c,
+                                                  &bomb, &enemy->unk_2e60);
                 }
                 if (hurt > 0)
                 {
@@ -1025,23 +1025,23 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                                 hurt = 0;
                             }
                         }
-                        if (hurt == enemy->unknown2e5c)
+                        if (hurt == enemy->unk_2e5c)
                         {
                             kind = 1;
                         }
-                        if (hurt == enemy->unknown2e60)
+                        if (hurt == enemy->unk_2e60)
                         {
                             kind = 2;
                         }
-                        if (enemy->unknown3380)
+                        if (enemy->unk_3380)
                         {
                             if (!enemy->useVelocity2)
                             {
-                                hurt = (hurt - enemy->unknown2e5c) * 4 + enemy->unknown2e5c / 4;
+                                hurt = (hurt - enemy->unk_2e5c) * 4 + enemy->unk_2e5c / 4;
                             }
                             else
                             {
-                                hurt = (hurt - enemy->unknown2e5c) * 4 + enemy->unknown2e5c / 2;
+                                hurt = (hurt - enemy->unk_2e5c) * 4 + enemy->unk_2e5c / 2;
                             }
                         }
                         enemy->life -= hurt;
@@ -1109,7 +1109,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                 break;
             case 1:
                 mgr->side->AddScore(enemy->score);
-                enemy->unusedFlag20 = 1;
+                enemy->unk_bit20 = 1;
                 enemy->shootable = 0;
                 enemy->contactDamage = 0;
                 enemy->hitByShots = 0;
@@ -1202,22 +1202,22 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                 }
             }
         }
-        if ((enemy->unknownBit9 && mgr->unknown2ac444 == NULL) || enemy->useVelocity2)
+        if ((enemy->unknownBit9 && mgr->unk_2ac444 == NULL) || enemy->useVelocity2)
         {
-            mgr->unknown2ac444 = enemy;
+            mgr->unk_2ac444 = enemy;
         }
-        if (mgr->unknown2ac448 == NULL)
+        if (mgr->unk_2ac448 == NULL)
         {
-            mgr->unknown2ac448 = enemy;
+            mgr->unk_2ac448 = enemy;
         }
         if (enemy->unknownType == 3)
         {
             g_GameManager.gui->UpdateEnemyMarker(mgr->sideIdx, &enemy->pos);
-            mgr->unknown2ac444 = enemy;
+            mgr->unk_2ac444 = enemy;
         }
         else if (enemy->unknownBit13)
         {
-            mgr->unknown2ac444 = enemy;
+            mgr->unk_2ac444 = enemy;
         }
         MoveEnemyEffects(enemy);
         enemy->callbackTimer++;
@@ -1527,9 +1527,9 @@ int EnemyManager::AddedCallback(EnemyManager *mgr)
         }
     }
     mgr->timeline.mgr = mgr;
-    mgr->timeline.pos = (EnemyTimelineEntry *)mgr->ecl.GetTimeline(g_TimelineOrder[mgr->unknown2ac3d4++] & 0x7f);
+    mgr->timeline.pos = (EnemyTimelineEntry *)mgr->ecl.GetTimeline(g_TimelineOrder[mgr->unk_2ac3d4++] & 0x7f);
     mgr->timeline.delay = 200;
-    mgr->unknown2ac44c = mgr->side->character == 5 ? 200 : 160;
+    mgr->unk_2ac44c = mgr->side->character == 5 ? 200 : 160;
     return 0;
 }
 
@@ -1580,7 +1580,7 @@ void EnemyManager::Reset()
             g_TimelineOrder[i] |= g_Rng.GetRandomU32InRange(2) << 7;
         }
     }
-    this->unknown2ac3d4 = 0;
+    this->unk_2ac3d4 = 0;
     this->timeline.pos = (EnemyTimelineEntry *)this->ecl.GetTimeline(g_TimelineOrder[0] & 0x7f);
     this->timeline.delay = 200;
     this->timeline.timer = 0;

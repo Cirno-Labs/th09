@@ -12,7 +12,7 @@ struct ScoreDat
 {
     ScoreDat();
 
-    BYTE unusedByte00;
+    BYTE pad_00;
     // Where the key starts; random.
     BYTE key;
     // The sum of the bytes from the fifth on.
@@ -20,7 +20,7 @@ struct ScoreDat
     WORD version;
     // Random; never read.
     BYTE randomByte;
-    BYTE unusedByte07;
+    BYTE pad_07;
     // Where the chunks start.
     int dataOffset;
     // The size of the whole file, unpacked.
@@ -40,7 +40,7 @@ struct ScoreChunk
     WORD size;
     WORD size2;
     BYTE version;
-    BYTE unknown9;
+    BYTE unk_9;
     unsigned char pad_a[0x2];
 };
 ASSERT_SIZE(ScoreChunk, 0xc);
@@ -63,7 +63,7 @@ struct Lsnm
     WORD size;
     WORD size2;
     BYTE version;
-    BYTE unknown9;
+    BYTE unk_9;
     unsigned char pad_a[0x2];
     char name[0xc];
 };
@@ -177,11 +177,11 @@ struct PlayRecord
     WORD size;
     WORD size2;
     BYTE version;
-    BYTE unknown9;
+    BYTE unk_9;
     unsigned char pad_a[0xc - 0xa];
     PlayTime runTime;
     PlayTime playTime;
-    // Which pieces of music have been heard, by BgmInfo::unknown0c.
+    // Which pieces of music have been heard, by BgmInfo::unk_0c.
     BYTE bgmHeard[0x20];
     // Which entries of three of the menus' lists are open.
     BYTE openEntries[16];

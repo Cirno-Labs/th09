@@ -14,12 +14,12 @@ struct BgmInfo
     int id;
     // The MIDI file; the wave file has the same name.
     char *path;
-    int unknown08;
-    int unknown0c;
+    int unk_08;
+    int unk_0c;
 };
 // The game's music, at 0x4a21d0.
 extern BgmInfo g_BgmInfos[19];
-// The unknown08 of the piece PlayMusic played last (0x4dc690); the
+// The unk_08 of the piece PlayMusic played last (0x4dc690); the
 // gui reads it.
 extern int g_BgmUnknown08;
 
@@ -145,7 +145,7 @@ public:
     void UpdateBgmFades();
 
     IDirectSound8 *dsound;
-    DWORD unusedDword004;
+    DWORD pad_004;
     // The loaded sound files' buffers.
     IDirectSoundBuffer *soundBuffers[0x80];
     // Each sound effect's own buffer.
@@ -162,7 +162,7 @@ public:
     // The thread streaming the wave music and its ID.
     DWORD notifyThreadId;
     HANDLE notifyThread;
-    DWORD unusedDword61c;
+    DWORD pad_61c;
     // The sound effects to play, or -1.
     int queue[0xc];
     // How many arguments each queued sound has, and the arguments.
@@ -188,7 +188,7 @@ public:
     CStreamingSound *bgm;
     // Signalled as the wave music plays.
     HANDLE notifyEvent;
-    DWORD unusedDword6210;
+    DWORD pad_6210;
     // Added to every BgmFormat offset by CWaveFile::ResetFile.
     DWORD bgmFileOffset;
     // The music and sound effect volumes in percent, 100 at first.

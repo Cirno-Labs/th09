@@ -17,11 +17,11 @@ struct GameStats
     DWORD scoreIncrement;
     // The extends given; 99999 once there are no more.
     int extendsGiven;
-    // Goes to Hscr::unknown2b.
-    BYTE unknown14;
+    // Goes to Hscr::unk_2b.
+    BYTE unk_14;
     unsigned char pad_15[0x34 - 0x15];
     // Gets the life the losing side 1 gives up at the end of a round.
-    float unknown34;
+    float unk_34;
     unsigned char pad_38[0xa0 - 0x38];
 };
 ASSERT_SIZE(GameStats, 0xa0);
@@ -57,13 +57,13 @@ struct GameSide
     GuiSide *gui;
     GameStats *stats;
     // The character: its files are listed by it, and Player keeps the
-    // shot file while unknown24, the last game's, is the same.
+    // shot file while unk_24, the last game's, is the same.
     int character;
-    int unknown24;
-    int unknown28;
-    int unknown2c;
+    int unk_24;
+    int unk_28;
+    int unk_2c;
     // Picks the character's second ANM (plXXb.anm) when set.
-    int unknown30;
+    int unk_30;
     union
     {
         DWORD flags;
@@ -81,16 +81,16 @@ ASSERT_SIZE(GameSide, 0x38);
 // a negative round.
 struct GameManagerUnknownF0
 {
-    // The story round (GameManager::unknownFc) it can be picked in; 9 in
+    // The story round (GameManager::unk_fc) it can be picked in; 9 in
     // the match list.
     short round;
     short stage;
     // Side 1's character, or the character whose stage it is.
     short character;
-    short unknown6;
-    short unknown8;
-    short unknownA;
-    short unknownC;
+    short unk_6;
+    short unk_8;
+    short unk_a;
+    short unk_c;
     // How likely PickOpponent picks it among the round's.
     short weight;
 };
@@ -98,31 +98,31 @@ ASSERT_SIZE(GameManagerUnknownF0, 0x10);
 
 struct GameRank
 {
-    // Lowers unknownCc by `amount`, to at least 0. Inline; the copy is
+    // Lowers unk_cc by `amount`, to at least 0. Inline; the copy is
     // at 0x403e30.
     void LowerUnknownCc(int amount)
     {
-        this->unknownCc -= amount;
-        if (this->unknownCc < 0)
+        this->unk_cc -= amount;
+        if (this->unk_cc < 0)
         {
-            this->unknownCc = 0;
+            this->unk_cc = 0;
         }
     }
 
     // Frames played; OnUpdate counts it while no dialogue runs.
-    DWORD unknownB0;
-    // ResetRound lowers it by 2 per unknown100, to at least 1, from a
-    // value set by difficulty; in mode 2 by 8, to at least unknown100.
-    int unknownB4;
-    int unknownB8;
-    int unknownBc;
-    DWORD unknownC0;
-    // Set by ResetRound from difficulty, unknown100 and unknownFc.
-    DWORD unknownC4;
-    int unknownC8;
+    DWORD unk_b0;
+    // ResetRound lowers it by 2 per unk_100, to at least 1, from a
+    // value set by difficulty; in mode 2 by 8, to at least unk_100.
+    int unk_b4;
+    int unk_b8;
+    int unk_bc;
+    DWORD unk_c0;
+    // Set by ResetRound from difficulty, unk_100 and unk_fc.
+    DWORD unk_c4;
+    int unk_c8;
     // ResetRound lowers it by 1000, to at least 0.
-    int unknownCc;
-    int unknownD0;
+    int unk_cc;
+    int unk_d0;
 };
 ASSERT_SIZE(GameRank, 0x24);
 
@@ -151,7 +151,7 @@ public:
     // runs LoadingThread in the sub thread. Returns 0. The update
     // callback copies the menu input to both sides, handles pausing and
     // the demo, advances the rank, spawns a pair of item enemies once
-    // rank.unknownCc passes 10000, rolls the shown scores up and gives
+    // rank.unk_cc passes 10000, rolls the shown scores up and gives
     // the extends. Returns 1, or 3 while paused or loading.
     static int OnUpdate(GameManager *mgr);
     static int AddedCallback(GameManager *mgr);
@@ -206,7 +206,7 @@ public:
     // Whether mode is 2 (0x415d30).
     BOOL IsMode2();
     // Resets the state, the ASCII text and every object for a new round,
-    // and sets unknownB4, unknownC4 and unknownC8 by difficulty
+    // and sets unk_b4, unk_c4 and unk_c8 by difficulty
     // (0x41b5c6).
     static void ResetRound();
     // Sets arena to the play area (-144, 0, 288, 448) and playerArea to
@@ -239,8 +239,8 @@ public:
     }
     // Picks the stage and side 1's character: in modes 0 and 1 a random
     // opponent of the round from side 0's character's list, by weight,
-    // one not met yet (unknownD8), also setting side 1's unknown2c; else
-    // the match stage of unknown138's character (-1 either side's, -2 a
+    // one not met yet (unk_d8), also setting side 1's unk_2c; else
+    // the match stage of unk_138's character (-1 either side's, -2 a
     // random open one) (0x415910).
     void PickOpponent();
 
@@ -251,24 +251,24 @@ public:
     ReplayManager *replayManager;
     // By character; a replay of mode 0 or 1 sets those of side 1's
     // earlier rounds.
-    BYTE unknownD8[0x10];
+    BYTE unk_d8[0x10];
     // Deleted by DeletedCallback. A copy of the config, made by
     // LoadingThread (a replay restores its own into it).
     GameConfig *config;
     // How far the enemy timelines advance a frame.
     float timelineSpeed;
-    GameManagerUnknownF0 *unknownF0;
+    GameManagerUnknownF0 *unk_f0;
     // The stage, an index into g_StageFiles. DeletedCallback copies it
-    // to unknownF8, as each side's character to unknown24.
+    // to unk_f8, as each side's character to unk_24.
     int stage;
-    int unknownF8;
-    int unknownFc;
-    int unknown100;
+    int unk_f8;
+    int unk_fc;
+    int unk_100;
     // The rounds a side must win, and each side's wins.
-    int unknown104;
-    int unknown108[2];
-    int unknown110;
-    int unknown114;
+    int unk_104;
+    int unk_108[2];
+    int unk_110;
+    int unk_114;
     int mode;
     int difficulty;
     // The difficulty's bit, as th08's: timeline entries run on the
@@ -276,9 +276,9 @@ public:
     int difficultyMask;
     // Set while LoadingThread runs, as th08's.
     int loadingThreadState;
-    int unknown128;
-    int unknown12c;
-    int unknown130;
+    int unk_128;
+    int unk_12c;
+    int unk_130;
     union
     {
         DWORD stateFlags;
@@ -298,13 +298,13 @@ public:
             unsigned int unknownBit134_14 : 1;
         };
     };
-    int unknown138;
+    int unk_138;
     // 1 once paused, 2 once the pause was drawn.
     BYTE isPaused;
     // Whether the continue menu is up, as th08's.
     BYTE isInContinueMenu;
     // Whether AsciiText's unknownMenu is up.
-    BYTE unknown13e;
+    BYTE unk_13e;
     // The demo the title plays next.
     BYTE demoIndex;
     // How long the demo has played.
@@ -321,15 +321,15 @@ public:
     float playerArea[4];
     unsigned char pad_370[0x374 - 0x370];
     // The item of the last pair of enemies OnUpdate spawned.
-    int unknown374;
+    int unk_374;
     // Each side's lives at the start of a round, in halves; Player::Reset
-    // sets the player's unknownA8 from it.
+    // sets the player's unk_a8 from it.
     int initialLives[2];
-    int unknown380;
+    int unk_380;
     unsigned char pad_384[0x38c - 0x384];
     // Set by the loading thread, as th08's pendingMusicStart: OnUpdate
     // releases surface 8 and, at 1, plays music 0.
-    int unknown38c;
+    int unk_38c;
 };
 ASSERT_SIZE(GameManager, 0x390);
 extern GameManager g_GameManager;
@@ -354,12 +354,12 @@ struct Hscr
     BYTE difficulty;
     // The entry's place in its table, from 0.
     BYTE rank;
-    BYTE unknown17;
+    BYTE unk_17;
     char name[9];
     // "--/--" when unset.
     char date[6];
     unsigned char pad_27[0x2b - 0x27];
-    BYTE unknown2b;
+    BYTE unk_2b;
 };
 ASSERT_SIZE(Hscr, 0x2c);
 // The entry of the game that ended, set up by GameManager's deleted
@@ -368,11 +368,11 @@ extern Hscr g_Hscr;
 // The high score tables: five entries for each character and
 // difficulty (0x4a8380).
 extern Hscr g_HighScores[16][5][5];
-// Side 1's unknown2c at the start of a round of mode 0 or 1, by
-// difficulty and GameManager::unknownFc: [0] when side 0 has lives and
-// unknown14 is clear, else [1 + unknown100] up to [4] (0x4a1500).
+// Side 1's unk_2c at the start of a round of mode 0 or 1, by
+// difficulty and GameManager::unk_fc: [0] when side 0 has lives and
+// unk_14 is clear, else [1 + unk_100] up to [4] (0x4a1500).
 extern int g_Unknown4a1500[5][9][5];
-// Both sides' unknown2c in mode 2, by difficulty (0x4a1884).
+// Both sides' unk_2c in mode 2, by difficulty (0x4a1884).
 extern int g_Unknown4a1884[5];
 // Each story character's opponents (0x4a14c8), and the stages of the
 // matches by character (0x4a13b8).

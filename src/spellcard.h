@@ -30,7 +30,7 @@ struct SpellCardType
 // What Start was called with, for each set of callbacks.
 struct SpellCardSlot
 {
-    int unknown0;
+    int unk_0;
     int type;
     int kind;
 };
@@ -56,8 +56,8 @@ public:
     static SpellCard *RegisterChain(int sideIdx);
     // Starts effect `type` of g_SpellCardTypes, named `name`: in the
     // second set of callbacks if `kind` is 2, else in the first. Shows
-    // the other player's unknownA0 (unknownA4 for kind 2) and `kind` on
-    // unknown5f4, tints both stages and runs the other side's front
+    // the other player's unk_a0 (unk_a4 for kind 2) and `kind` on
+    // unk_5f4, tints both stages and runs the other side's front
     // scripts. Does nothing for kind 2 while the side has an enemy of
     // unknownType 3 (0x403e50).
     void Start(int type, int kind, int unknown, char *name);
@@ -69,22 +69,22 @@ public:
     ChainElem *drawElem;
     // Gui::anm, as Reset copies it.
     AnmLoaded *anm;
-    // The spell card's name, which OnUpdate renders on unknownAc[1].
+    // The spell card's name, which OnUpdate renders on unk_ac[1].
     char name[0x80];
-    Timer unknown98;
+    Timer unk_98;
     // Once 2 or more, OnUpdate starts the sprites for callbacks[0] or
     // callbacks[1] and clears them.
-    int unknownA4;
-    int unknownA8;
-    Sprite unknownAc[2];
-    Sprite unknown5f4[5];
+    int unk_a4;
+    int unk_a8;
+    Sprite unk_ac[2];
+    Sprite unk_5f4[5];
     // Two sets of callbacks of the running effects.
     SpellCardCallbacks callbacks[2];
     unsigned char pad_1340[0x1348 - 0x1340];
     SpellCardSlot slots[2];
     // Blocks some types' callbacks allocate and free.
-    void *unknown1360;
-    void *unknown1364;
+    void *unk_1360;
+    void *unk_1364;
 };
 ASSERT_SIZE(SpellCard, 0x1368);
 

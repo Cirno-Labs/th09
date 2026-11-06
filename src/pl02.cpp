@@ -10,7 +10,7 @@
 #include "unsorted.h"
 
 // The init callback of effect type 16: InitEffectTypes10And18And24And25And26And28And33's ring of
-// radius 16, with unknown84 at 0.01. Returns 0, or -1 if the allocation
+// radius 16, with unk_84 at 0.01. Returns 0, or -1 if the allocation
 // fails (0x441c80).
 int InitEffectType16(Effect *effect)
 {
@@ -19,36 +19,36 @@ int InitEffectType16(Effect *effect)
     {
         return -1;
     }
-    effect->unknown48 = effect->pos;
-    effect->unknown54.x = 0.0f;
-    effect->unknown54.y = 0.0f;
-    effect->unknown54.z = 1.0f;
-    effect->unknown60.x = 0.0f;
-    effect->unknown60.y = -1.0f;
-    effect->unknown60.z = 0.0f;
-    effect->unknown80 = effect->velocity.x;
-    effect->unknown88 = effect->velocity.z;
-    effect->unknown94 = 0.0f;
-    effect->unknown98 = 0.0f;
-    effect->unknown9c = 1.0f;
-    effect->unknown8c = 0x20;
-    effect->unknown7c = 16.0f;
-    effect->unknownC9 = 1;
-    effect->unknown84 = 0.01f;
+    effect->unk_48 = effect->pos;
+    effect->unk_54.x = 0.0f;
+    effect->unk_54.y = 0.0f;
+    effect->unk_54.z = 1.0f;
+    effect->unk_60.x = 0.0f;
+    effect->unk_60.y = -1.0f;
+    effect->unk_60.z = 0.0f;
+    effect->unk_80 = effect->velocity.x;
+    effect->unk_88 = effect->velocity.z;
+    effect->unk_94 = 0.0f;
+    effect->unk_98 = 0.0f;
+    effect->unk_9c = 1.0f;
+    effect->unk_8c = 0x20;
+    effect->unk_7c = 16.0f;
+    effect->unk_c9 = 1;
+    effect->unk_84 = 0.01f;
     return 0;
 }
 
 // An update callback of the effect table: after 30 frames, grows
-// unknown84 by 0.001 up to 0.08; sets unknownC9 and puts the effect on
+// unk_84 by 0.001 up to 0.08; sets unk_c9 and puts the effect on
 // its side's player. Returns 1 (0x441d30).
 int UpdateEffectType16(Effect *effect)
 {
-    effect->unknownC9 = 1;
+    effect->unk_c9 = 1;
     if (effect->timer >= 0x1e)
     {
-        if (effect->unknown84 < 0.08f)
+        if (effect->unk_84 < 0.08f)
         {
-            effect->unknown84 += 0.001f;
+            effect->unk_84 += 0.001f;
         }
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
@@ -56,13 +56,13 @@ int UpdateEffectType16(Effect *effect)
 }
 
 // The draw callback of effect type 16: a fan from 432 above the effect
-// down over a half circle 448 in radius, squeezed across by unknown84,
-// if unknownC9 is set. Returns 1 (0x441da0).
+// down over a half circle 448 in radius, squeezed across by unk_84,
+// if unk_c9 is set. Returns 1 (0x441da0).
 int DrawEffectType16(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = 3.1415927f / (effect->unknown8c - 1);
+        float delta = 3.1415927f / (effect->unk_8c - 1);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         float angle = 0.0f;
         int i;
@@ -74,11 +74,11 @@ int DrawEffectType16(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x30600040;
         vtx++;
-        for (i = effect->unknown8c; i > 0; i--)
+        for (i = effect->unk_8c; i > 0; i--)
         {
             vtx->pos.z = 0.0f;
             SetPolar((Vector2 *)&vtx->pos, angle, 448.0f);
-            vtx->pos.x *= effect->unknown84;
+            vtx->pos.x *= effect->unk_84;
             vtx->pos += effect->pos;
             vtx->pos.y -= 432.0f;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
@@ -89,12 +89,12 @@ int DrawEffectType16(Effect *effect)
             angle += delta;
         }
     }
-    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     return 1;
 }
 
 // A fire callback of the shot table (1): on the frame of `sd`, sets the
-// player's unknown3031c to the bullet for 30 frames, keeps the shot's
+// player's unk_3031c to the bullet for 30 frames, keeps the shot's
 // option and offset in the bullet, then fires it as type 2 with an empty
 // trail.
 // Returns 1 if it fired (0x441ef0).
@@ -106,12 +106,12 @@ int FirePlayerShotType1(Player *player, PlayerBullet *bullet, int frame, ShotDat
     {
         return 0;
     }
-    player->unknown3031c.timer = 30;
-    player->unknown3031c.bullet = bullet;
-    bullet->unknown468 = sd->option;
+    player->unk_3031c.timer = 30;
+    player->unk_3031c.bullet = bullet;
+    bullet->unk_468 = sd->option;
     bullet->velocity.z = sd->offsetX;
-    bullet->unknown448 = sd->offsetY;
-    bullet->unknown46a = 0xf;
+    bullet->unk_448 = sd->offsetY;
+    bullet->unk_46a = 0xf;
     FireShot(player, bullet, sd);
     bullet->type = 2;
     for (i = 0x1f; i >= 0; i--)
@@ -125,16 +125,16 @@ int FirePlayerShotType1(Player *player, PlayerBullet *bullet, int frame, ShotDat
 // An update callback of the shot table (11): keeps the bullet on the
 // player, offset by velocity.z and half as high, with its trail falling
 // behind it, and adds a 4 by 448 box at every other trail point, as many
-// as unknown46a, while the player's unknown3031c timer runs; then frees
+// as unk_46a, while the player's unk_3031c timer runs; then frees
 // the bullet. Returns 1 once freed, otherwise 0 (0x441f90).
 int UpdatePlayerShotType2(Player *player, PlayerBullet *bullet)
 {
     int i;
 
-    if (player->unknown3031c.timer <= 0)
+    if (player->unk_3031c.timer <= 0)
     {
-        player->unknown3031c.timer = 0;
-        player->unknown3031c.bullet = NULL;
+        player->unk_3031c.timer = 0;
+        player->unk_3031c.bullet = NULL;
         bullet->state = 0;
         return 1;
     }
@@ -149,7 +149,7 @@ int UpdatePlayerShotType2(Player *player, PlayerBullet *bullet)
         bullet->trail[i] = bullet->trail[i - 1];
         bullet->trail[i].y -= 1.0f;
     }
-    for (i = 0; i < bullet->unknown46a; i++)
+    for (i = 0; i < bullet->unk_46a; i++)
     {
         if (bullet->trail[i * 2].x >= -900.0f)
         {
@@ -157,19 +157,19 @@ int UpdatePlayerShotType2(Player *player, PlayerBullet *bullet)
         }
     }
     bullet->trail[0] = bullet->pos;
-    player->unknown3031c.timer--;
+    player->unk_3031c.timer--;
     return 0;
 }
 
 // A draw callback of the shot table (18): draws the bullet's sprite at
 // each point of its trail up to the first unused one, twice
-// unknown46a of them, fading out along it. Returns 0 (0x442220).
+// unk_46a of them, fading out along it. Returns 0 (0x442220).
 int DrawPlayerShotType1(Player *player, PlayerBullet *bullet)
 {
     int alpha = bullet->sprite.alpha;
     int i;
 
-    for (i = 0; i < bullet->unknown46a * 2; i++)
+    for (i = 0; i < bullet->unk_46a * 2; i++)
     {
         // -999.0f, compared by its bits.
         if (*(DWORD *)&bullet->trail[i].x == 0xc479c000)
@@ -179,31 +179,31 @@ int DrawPlayerShotType1(Player *player, PlayerBullet *bullet)
         bullet->sprite.pos.x = g_GameManager.ArenaToScreenX(bullet->trail[i].x);
         bullet->sprite.pos.y = g_GameManager.ArenaToScreenY(bullet->trail[i].y);
         bullet->sprite.pos.z = 0.0f;
-        bullet->sprite.alpha = alpha - alpha * i / (bullet->unknown46a * 2);
+        bullet->sprite.alpha = alpha - alpha * i / (bullet->unk_46a * 2);
         g_SpriteEngine->Draw(&bullet->sprite);
     }
     bullet->sprite.alpha = alpha;
     return 0;
 }
 
-// The update callback of effect type 17: grows unknown84 by pi/60 up to
-// pi/2, sets unknownC9, puts the effect on its side's player and turns
-// unknown80 a quarter of the shorter way towards opposite the player's
-// unknown1cd8. Returns 1 (0x4422f0).
+// The update callback of effect type 17: grows unk_84 by pi/60 up to
+// pi/2, sets unk_c9, puts the effect on its side's player and turns
+// unk_80 a quarter of the shorter way towards opposite the player's
+// unk_1cd8. Returns 1 (0x4422f0).
 int UpdateEffectType17(Effect *effect)
 {
     float target;
     float delta;
 
-    effect->unknownC9 = 1;
-    if (effect->unknown84 < 1.5707964f)
+    effect->unk_c9 = 1;
+    if (effect->unk_84 < 1.5707964f)
     {
-        effect->unknown84 += 0.05235988f;
+        effect->unk_84 += 0.05235988f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
-    target = AddNormalizeAngle(effect->mgr->side->player->unknown1cd8, 3.1415927f);
-    delta = target - effect->unknown80;
-    if (target > effect->unknown80)
+    target = AddNormalizeAngle(effect->mgr->side->player->unk_1cd8, 3.1415927f);
+    delta = target - effect->unk_80;
+    if (target > effect->unk_80)
     {
         if (delta > 3.1415927f)
         {
@@ -217,7 +217,7 @@ int UpdateEffectType17(Effect *effect)
             delta += 6.2831855f;
         }
     }
-    effect->unknown80 = AddNormalizeAngle(effect->unknown80, delta * 0.25f);
+    effect->unk_80 = AddNormalizeAngle(effect->unk_80, delta * 0.25f);
     return 1;
 }
 
@@ -236,23 +236,23 @@ int FirePlayerShotType2(Player *player, PlayerBullet *bullet, int frame, ShotDat
     return 0;
 }
 
-// The unknown30404 of characters 2 and 10: whether `pos` is within the
-// radius of the player's unknown368 and the arc of unknown84 radians
-// about its angle unknown80 (0x442480).
+// The unk_30404 of characters 2 and 10: whether `pos` is within the
+// radius of the player's unk_368 and the arc of unk_84 radians
+// about its angle unk_80 (0x442480).
 int CheckFocusAreaCharacters2And10(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
-    Effect *circle = player->unknown368;
+    Effect *circle = player->unk_368;
     float angle;
 
-    if (diff.x * diff.x + diff.y * diff.y < circle->unknown7c * circle->unknown7c)
+    if (diff.x * diff.x + diff.y * diff.y < circle->unk_7c * circle->unk_7c)
     {
-        angle = player->AngleFromPlayer(pos) - circle->unknown80;
+        angle = player->AngleFromPlayer(pos) - circle->unk_80;
         if (Fabs(angle) > 3.1415927f)
         {
             angle = angle > 0.0f ? angle - 6.2831855f : angle + 6.2831855f;
         }
-        if (Fabs(angle) <= circle->unknown84 * 0.5f)
+        if (Fabs(angle) <= circle->unk_84 * 0.5f)
         {
             return 1;
         }
@@ -260,14 +260,14 @@ int CheckFocusAreaCharacters2And10(Player *player, D3DXVECTOR3 *pos)
     return 0;
 }
 
-// The unknown30408 of character 2: stops the enemy's velocity2.
+// The unk_30408 of character 2: stops the enemy's velocity2.
 // Returns 0 (0x442550).
 int UpdateFocusedEnemyCharacter2(Player *player, Enemy *enemy)
 {
     enemy->velocity2.x = 0.0f;
     enemy->velocity2.y = 0.0f;
     enemy->velocity2.z = 0.0f;
-    enemy->unknown5424++;
+    enemy->unk_5424++;
     return 0;
 }
 
@@ -475,11 +475,11 @@ int UpdateExAttackType4(ExAttack *attack)
         if (attack->timer >= 30)
         {
             attack->pos += data->unknown04;
-            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 12.0f, NULL);
-            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&data->trail[6], 12.0f, NULL);
-            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&data->trail[12], 12.0f, NULL);
-            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&data->trail[18], 12.0f, NULL);
-            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&data->trail[24], 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&attack->pos, 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&data->trail[6], 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&data->trail[12], 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&data->trail[18], 12.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&data->trail[24], 12.0f, NULL);
             if (parentData->trail[24].x < -32.0f || parentData->trail[24].x > 672.0f ||
                 parentData->trail[24].y < -32.0f || parentData->trail[24].y > 512.0f)
             {
@@ -510,21 +510,21 @@ int FreeExAttackType4(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 2: while unknown34 reaches
-// (45 - unknownB4) * 2, sends an extra attack of type 3 from `pos` and
+// The combo func of character 2: while unk_34 reaches
+// (45 - unk_b4) * 2, sends an extra attack of type 3 from `pos` and
 // takes as much off it. Returns 0 (0x442ee0).
 int SendComboAttacksCharacter2(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (45 - g_GameManager.rank.unknownB4) * 2)
+    while (combo->unk_34 >= (45 - g_GameManager.rank.unk_b4) * 2)
     {
         g_GameManager.exAttackManager->AddAttack(3, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (45 - g_GameManager.rank.unknownB4) * 2;
+        combo->unk_34 -= (45 - g_GameManager.rank.unk_b4) * 2;
     }
     return 0;
 }
 
 // The init callback of effect type 17: a ring of 16 segments, radius
-// 160, around its position, from opposite the player's unknown1cd8, as
+// 160, around its position, from opposite the player's unk_1cd8, as
 // wide as velocity.z, in 0x294 bytes of vertices. Returns 0, or -1 if
 // the allocation fails (0x442f50).
 int InitEffectType17(Effect *effect)
@@ -534,35 +534,35 @@ int InitEffectType17(Effect *effect)
     {
         return -1;
     }
-    effect->unknown48 = effect->pos;
-    effect->unknown54.x = 0.0f;
-    effect->unknown54.y = 0.0f;
-    effect->unknown54.z = 1.0f;
-    effect->unknown60.x = 0.0f;
-    effect->unknown60.y = -1.0f;
-    effect->unknown60.z = 0.0f;
-    effect->unknown80 = AddNormalizeAngle(effect->mgr->side->player->unknown1cd8, 3.1415927f);
-    effect->unknown94 = 0.0f;
-    effect->unknown98 = 0.0f;
-    effect->unknown84 = 0.0f;
-    effect->unknown88 = effect->velocity.z;
-    effect->unknown8c = 0x10;
-    effect->unknown9c = 1.0f;
-    effect->unknown7c = 160.0f;
-    effect->unknownC9 = 1;
+    effect->unk_48 = effect->pos;
+    effect->unk_54.x = 0.0f;
+    effect->unk_54.y = 0.0f;
+    effect->unk_54.z = 1.0f;
+    effect->unk_60.x = 0.0f;
+    effect->unk_60.y = -1.0f;
+    effect->unk_60.z = 0.0f;
+    effect->unk_80 = AddNormalizeAngle(effect->mgr->side->player->unk_1cd8, 3.1415927f);
+    effect->unk_94 = 0.0f;
+    effect->unk_98 = 0.0f;
+    effect->unk_84 = 0.0f;
+    effect->unk_88 = effect->velocity.z;
+    effect->unk_8c = 0x10;
+    effect->unk_9c = 1.0f;
+    effect->unk_7c = 160.0f;
+    effect->unk_c9 = 1;
     return 0;
 }
 
-// The draw callback of effect type 17: a fan of unknown8c - 1 triangles
-// about the effect, unknown7c in radius, over unknown84 radians centred
-// on unknown80, if unknownC9 is set. Returns 1 (0x443010).
+// The draw callback of effect type 17: a fan of unk_8c - 1 triangles
+// about the effect, unk_7c in radius, over unk_84 radians centred
+// on unk_80, if unk_c9 is set. Returns 1 (0x443010).
 int DrawEffectType17(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = effect->unknown84 / (effect->unknown8c - 1);
+        float delta = effect->unk_84 / (effect->unk_8c - 1);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
-        float angle = effect->unknown80 - effect->unknown84 * 0.5f;
+        float angle = effect->unk_80 - effect->unk_84 * 0.5f;
         int i;
 
         vtx->pos = effect->pos;
@@ -571,11 +571,11 @@ int DrawEffectType17(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x30600040;
         vtx++;
-        for (i = effect->unknown8c; i > 0; i--)
+        for (i = effect->unk_8c; i > 0; i--)
         {
             vtx->pos.z = 0.0f;
             angle = AddNormalizeAngle(angle, 0.0f);
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -585,7 +585,7 @@ int DrawEffectType17(Effect *effect)
             angle += delta;
         }
     }
-    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     return 1;
 }
 

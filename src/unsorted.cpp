@@ -71,11 +71,11 @@ WORD UpdatePlayerInput(int player, WORD pressed)
     WORD buttons;
 
     input = &g_PlayerInputs[player];
-    input->unknown2 = input->unknown0;
-    input->unknown0 = (WORD)pressed;
+    input->unk_2 = input->unk_0;
+    input->unk_0 = (WORD)pressed;
     bit = 1;
     buttons = (WORD)pressed;
-    input->unknown4 = 0;
+    input->unk_4 = 0;
     held = input->heldFrames;
     for (i = 0; i < 16; i++, held++, bit <<= 1)
     {
@@ -84,7 +84,7 @@ WORD UpdatePlayerInput(int player, WORD pressed)
             (*held)++;
             if (*held >= 26)
             {
-                input->unknown4 |= bit;
+                input->unk_4 |= bit;
                 *held -= 8;
             }
         }
@@ -94,8 +94,8 @@ WORD UpdatePlayerInput(int player, WORD pressed)
         }
         buttons >>= 1;
     }
-    input->unknown6 = (input->unknown0 ^ input->unknown2) & input->unknown0;
-    input->unknown8 = ~input->unknown0 & (input->unknown0 ^ input->unknown2);
+    input->unk_6 = (input->unk_0 ^ input->unk_2) & input->unk_0;
+    input->unk_8 = ~input->unk_0 & (input->unk_0 ^ input->unk_2);
     return pressed;
 }
 
@@ -713,11 +713,11 @@ WORD ReadButtons(int player)
     {
         buttons = ReadJoystick(player, g_App.config.pads[player] != 0, buttons);
     }
-    input->unknown2 = input->unknown0;
-    input->unknown0 = buttons;
+    input->unk_2 = input->unk_0;
+    input->unk_0 = buttons;
     bit = 1;
     pressed = buttons;
-    input->unknown4 = 0;
+    input->unk_4 = 0;
     held = input->heldFrames;
     for (i = 0; i < 16; i++, held++, bit <<= 1)
     {
@@ -726,7 +726,7 @@ WORD ReadButtons(int player)
             (*held)++;
             if (*held >= 26)
             {
-                input->unknown4 |= bit;
+                input->unk_4 |= bit;
                 *held -= 8;
             }
         }
@@ -736,8 +736,8 @@ WORD ReadButtons(int player)
         }
         pressed >>= 1;
     }
-    input->unknown6 = (input->unknown0 ^ input->unknown2) & input->unknown0;
-    input->unknown8 = ~input->unknown0 & (input->unknown0 ^ input->unknown2);
+    input->unk_6 = (input->unk_0 ^ input->unk_2) & input->unk_0;
+    input->unk_8 = ~input->unk_0 & (input->unk_0 ^ input->unk_2);
     return buttons;
 }
 

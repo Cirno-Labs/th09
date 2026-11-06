@@ -17,26 +17,26 @@ int IsSpellCardEnemyDefeated(SpellCard *card)
     return g_GameManager.sides[card->sideIdx].enemyManager->FindByUnknownType(3) == NULL;
 }
 
-// An update callback of the effect table: grows unknown7c by 4 up to 96,
-// sets unknownC9 and puts the effect on its side's player. Returns 1
+// An update callback of the effect table: grows unk_7c by 4 up to 96,
+// sets unk_c9 and puts the effect on its side's player. Returns 1
 // (0x440ce0).
 int UpdateEffectType10(Effect *effect)
 {
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 96.0f)
+    effect->unk_c9 = 1;
+    if (effect->unk_7c < 96.0f)
     {
-        effect->unknown7c += 4.0f;
+        effect->unk_7c += 4.0f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }
 
-// The unknown30404 of characters 0, 3, 5, 12 and 13: whether `pos` is
-// within the radius of the player's unknown368 (0x440df0).
+// The unk_30404 of characters 0, 3, 5, 12 and 13: whether `pos` is
+// within the radius of the player's unk_368 (0x440df0).
 int IsWithinCircularFocusArea(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
-    float radius = player->unknown368->unknown7c;
+    float radius = player->unk_368->unk_7c;
 
     if (diff.x * diff.x + diff.y * diff.y < radius * radius)
     {
@@ -157,7 +157,7 @@ int UpdateExAttackTypes0And1(ExAttack *attack)
             {
                 data->velocity.y = 3.0f;
             }
-            g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 18.0f, NULL);
+            g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&attack->pos, 18.0f, NULL);
             if (attack->pos.y >= 480.0f)
             {
                 return 1;
@@ -174,40 +174,40 @@ int UpdateExAttackTypes0And1(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 0: while unknown34 reaches
-// (28 - unknownB4) * 5, sends an extra attack of type 0 from `pos` and
+// The combo func of character 0: while unk_34 reaches
+// (28 - unk_b4) * 5, sends an extra attack of type 0 from `pos` and
 // takes as much off it. Returns 0 (0x4412e0).
 int SendComboAttacksCharacter0(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (28 - g_GameManager.rank.unknownB4) * 5)
+    while (combo->unk_34 >= (28 - g_GameManager.rank.unk_b4) * 5)
     {
         g_GameManager.exAttackManager->AddAttack(0, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (28 - g_GameManager.rank.unknownB4) * 5;
+        combo->unk_34 -= (28 - g_GameManager.rank.unk_b4) * 5;
     }
     return 0;
 }
 
-// The init callbacks of spell card types 0 and 1: allocate unknown1360
+// The init callbacks of spell card types 0 and 1: allocate unk_1360
 // and spawn enemy subroutine 0 or 1 from the player's ECL (0x441350,
 // 0x4413d0). The position is never set. Return 0.
 int InitSpellCardType0(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
+    card->unk_1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(0, &pos, 0x1e, -2, 1000, 0);
     return 0;
 }
 
 // The free callback of spell card types 0, 1, 3, 4, 6 and 7: frees
-// unknown1360. Returns 0 (0x4413a0).
+// unk_1360. Returns 0 (0x4413a0).
 int FreePrimarySpellCardData(SpellCard *card)
 {
-    if (card->unknown1360 != NULL)
+    if (card->unk_1360 != NULL)
     {
-        g_MemoryTracker.Free(card->unknown1360);
+        g_MemoryTracker.Free(card->unk_1360);
     }
-    card->unknown1360 = NULL;
+    card->unk_1360 = NULL;
     return 0;
 }
 
@@ -215,43 +215,43 @@ int InitSpellCardType1(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
+    card->unk_1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(1, &pos, 0x1e, -2, 10000, 0);
     return 0;
 }
 
-// The init callback of spell card type 2: allocates unknown1364 and
+// The init callback of spell card type 2: allocates unk_1364 and
 // spawns enemy subroutine 2 from the player's ECL, with the position
 // never set. Returns 0 (0x441420).
 int InitSpellCardType2(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1364 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
+    card->unk_1364 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl00.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(2, &pos, 0x578, -2, 1000, 0);
     return 0;
 }
 
-// The free callback of spell card types 2, 5 and 8: frees unknown1364.
+// The free callback of spell card types 2, 5 and 8: frees unk_1364.
 // Returns 0 (0x441470).
 int FreeSecondarySpellCardData(SpellCard *card)
 {
-    if (card->unknown1364 != NULL)
+    if (card->unk_1364 != NULL)
     {
-        g_MemoryTracker.Free(card->unknown1364);
+        g_MemoryTracker.Free(card->unk_1364);
     }
-    card->unknown1364 = NULL;
+    card->unk_1364 = NULL;
     return 0;
 }
 
-// The draw callback of effect type 10: a fan of unknown8c - 1 triangles
-// about the effect, unknown7c in radius, if unknownC9 is set. Returns 1
+// The draw callback of effect type 10: a fan of unk_8c - 1 triangles
+// about the effect, unk_7c in radius, if unk_c9 is set. Returns 1
 // (0x4414a0).
 int DrawEffectType10(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = 6.2831855f / (effect->unknown8c - 1);
+        float delta = 6.2831855f / (effect->unk_8c - 1);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         float angle = -3.1415927f;
         int i;
@@ -262,14 +262,14 @@ int DrawEffectType10(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x40600040;
         vtx++;
-        for (i = effect->unknown8c; i > 0; i--)
+        for (i = effect->unk_8c; i > 0; i--)
         {
             if (angle >= 3.1415927f)
             {
                 angle -= 6.2831855f;
             }
             vtx->pos.z = 0.0f;
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -279,7 +279,7 @@ int DrawEffectType10(Effect *effect)
             angle += delta;
         }
     }
-    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+    g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     return 1;
 }
 

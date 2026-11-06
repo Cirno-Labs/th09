@@ -70,8 +70,8 @@ void Player::GetMoveDelta(int direction, int focused, float *deltaX, float *delt
             break;
         }
     }
-    *deltaX *= this->moveScaleX * this->unknown1cdc;
-    *deltaY *= this->moveScaleY * this->unknown1ce0;
+    *deltaX *= this->moveScaleX * this->unk_1cdc;
+    *deltaY *= this->moveScaleY * this->unk_1ce0;
 }
 
 void PlayerUnknown24::Run()
@@ -99,28 +99,28 @@ void PlayerUnknown24::Run()
     margins[2] = 0.0f;
     memset(&g_PlayerInputs[this->player->sideIdx], 0, 0x58);
     k = 0;
-    if (g_GameManager.gui->unknown1095c != 0 || g_GameManager.gui->IsMsgRunning())
+    if (g_GameManager.gui->unk_1095c != 0 || g_GameManager.gui->IsMsgRunning())
     {
         return;
     }
     player = this->player;
-    level = &g_PlayerCpuLevels[player->side->unknown2c];
+    level = &g_PlayerCpuLevels[player->side->unk_2c];
     if (g_GameManager.IsMode1())
     {
         player->otherSide->gui->SetUnknown76d4Time(level->seconds5c[2] * 60 - this->timer5c.AsFrames());
     }
     if (!(this->flags & 1))
     {
-        if (!this->player->side->flag0 && this->player->otherSide->player->unknown30410.unknown3c <= 360)
+        if (!this->player->side->flag0 && this->player->otherSide->player->unk_30410.unk_3c <= 360)
         {
             this->timer5c++;
         }
         player = this->player;
-        if (player->unknownA8 >= 10)
+        if (player->unk_a8 >= 10)
         {
             limit = level->seconds5c[0];
         }
-        else if (player->unknownA8 >= 2)
+        else if (player->unk_a8 >= 2)
         {
             limit = level->seconds5c[1];
         }
@@ -146,11 +146,11 @@ void PlayerUnknown24::Run()
     else if (!(this->flags & 2))
     {
         this->timer68++;
-        if (this->player->unknownA8 >= 10)
+        if (this->player->unk_a8 >= 10)
         {
             limit = level->seconds68[0];
         }
-        else if (this->player->unknownA8 >= 2)
+        else if (this->player->unk_a8 >= 2)
         {
             limit = level->seconds68[1];
         }
@@ -163,15 +163,15 @@ void PlayerUnknown24::Run()
             this->flags |= 2;
         }
     }
-    g_GameManager.rank.unknownBc = level->rank;
-    if (this->player->unknown30388 >= this->unknown58)
+    g_GameManager.rank.unk_bc = level->rank;
+    if (this->player->unk_30388 >= this->unk_58)
     {
-        this->unknownC = 1;
+        this->unk_c = 1;
     }
-    else if (this->unknownC)
+    else if (this->unk_c)
     {
-        g_PlayerInputs[this->player->sideIdx].unknown34 |= 1;
-        this->unknownC = 0;
+        g_PlayerInputs[this->player->sideIdx].unk_34 |= 1;
+        this->unk_c = 0;
     }
     player = this->player;
     if (player->pos.x < -96.0f)
@@ -203,13 +203,13 @@ void PlayerUnknown24::Run()
     sizes[1].x = 10.0f;
     sizes[1].y = 10.0f;
     sizes[2] = player->hitboxSize;
-    if (player->side->enemyManager->unknown2ac3b8 >= 4)
+    if (player->side->enemyManager->unk_2ac3b8 >= 4)
     {
-        g_PlayerInputs[player->sideIdx].unknown2c |= 4;
+        g_PlayerInputs[player->sideIdx].unk_2c |= 4;
         focus = 1;
     }
     g_PlayerCpuDirOrder[region][1] = this->lastDirection;
-    if (!(this->flags & 2) || this->player->otherSide->player->unknown30410.unknown3c > 300)
+    if (!(this->flags & 2) || this->player->otherSide->player->unk_30410.unk_3c > 300)
     {
         if (this->counter != 0)
         {
@@ -237,7 +237,7 @@ void PlayerUnknown24::Run()
                 {
                     pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
                 }
-                if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[k], margins[k]) == NULL)
+                if (this->player->unk_36c.CheckHitsAt(&pos, &sizes[k], margins[k]) == NULL)
                 {
                     goto found;
                 }
@@ -270,51 +270,51 @@ void PlayerUnknown24::Run()
                     {
                         pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
                     }
-                    if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[k], margins[k]) == NULL)
+                    if (this->player->unk_36c.CheckHitsAt(&pos, &sizes[k], margins[k]) == NULL)
                     {
                         goto found;
                     }
                 }
             }
-            if (!(g_PlayerInputs[this->player->sideIdx].unknown2c & 4))
+            if (!(g_PlayerInputs[this->player->sideIdx].unk_2c & 4))
             {
                 break;
             }
-            g_PlayerInputs[this->player->sideIdx].unknown2c &= ~4;
+            g_PlayerInputs[this->player->sideIdx].unk_2c &= ~4;
             focus = 0;
         }
         if (!(this->flags & 1))
         {
             player = this->player;
-            if (player->GetPlayerState() == 0 && player->unknown1b74 == 0)
+            if (player->GetPlayerState() == 0 && player->unk_1b74 == 0)
             {
-                if (this->unknownC && player->unknown30384 >= 100.0f)
+                if (this->unk_c && player->unk_30384 >= 100.0f)
                 {
-                    g_PlayerInputs[player->sideIdx].unknown34 |= 1;
-                    this->unknownC = 0;
+                    g_PlayerInputs[player->sideIdx].unk_34 |= 1;
+                    this->unk_c = 0;
                     return;
                 }
-                g_PlayerInputs[player->sideIdx].unknown32 |= 2;
-                g_PlayerInputs[this->player->sideIdx].unknown2c |= 2;
+                g_PlayerInputs[player->sideIdx].unk_32 |= 2;
+                g_PlayerInputs[this->player->sideIdx].unk_2c |= 2;
             }
         }
         this->lastDirection = dir;
         return;
     }
 found:
-    if (this->player->unknown30384 >= this->unknown58)
+    if (this->player->unk_30384 >= this->unk_58)
     {
-        g_PlayerInputs[this->player->sideIdx].unknown34 |= 1;
-        this->unknownC = 0;
-        this->unknown58 = ((int)g_Rng.GetRandomU32InRange(4) + 1.0f) * 100.0f;
-        if (this->unknown58 >= 400.0f)
+        g_PlayerInputs[this->player->sideIdx].unk_34 |= 1;
+        this->unk_c = 0;
+        this->unk_58 = ((int)g_Rng.GetRandomU32InRange(4) + 1.0f) * 100.0f;
+        if (this->unk_58 >= 400.0f)
         {
-            this->unknown58 = 400.0f;
+            this->unk_58 = 400.0f;
         }
     }
-    else if (this->unknownC)
+    else if (this->unk_c)
     {
-        g_PlayerInputs[this->player->sideIdx].unknown2c |= 1;
+        g_PlayerInputs[this->player->sideIdx].unk_2c |= 1;
     }
     if (g_PlayerCpuDirButtons[dir] != 0 && !(this->flags & 2))
     {
@@ -347,13 +347,13 @@ found:
             {
                 k++;
             }
-            if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[k], margins[k]) == NULL)
+            if (this->player->unk_36c.CheckHitsAt(&pos, &sizes[k], margins[k]) == NULL)
             {
                 dir = alt;
                 this->counter = 8;
             }
         }
-        g_PlayerInputs[this->player->sideIdx].unknown2c |= g_PlayerCpuDirButtons[dir];
+        g_PlayerInputs[this->player->sideIdx].unk_2c |= g_PlayerCpuDirButtons[dir];
         if (this->counter == 0)
         {
             for (j = 7; j > 0; j--)
@@ -368,16 +368,16 @@ found:
         D3DXVECTOR3 target;
 
         target.x = -1000.0f;
-        if (this->player->unknown30f64 > -999.0f)
+        if (this->player->unk_30f64 > -999.0f)
         {
-            target = *(D3DXVECTOR3 *)&this->player->unknown30f64;
+            target = *(D3DXVECTOR3 *)&this->player->unk_30f64;
         }
         else
         {
             em = this->player->side->enemyManager;
-            if (em->unknown2ac444 != NULL)
+            if (em->unk_2ac444 != NULL)
             {
-                enemy = em->unknown2ac444;
+                enemy = em->unk_2ac444;
                 target = enemy->pos;
                 target.y += 128.0f;
                 if (enemy->unknownType == 3 || enemy->unknownBit13)
@@ -385,9 +385,9 @@ found:
                     target.y = 400.0f;
                 }
             }
-            else if (em->unknown2ac448 != NULL)
+            else if (em->unk_2ac448 != NULL)
             {
-                target = em->unknown2ac448->pos;
+                target = em->unk_2ac448->pos;
                 target.y += 128.0f;
             }
         }
@@ -424,13 +424,13 @@ found:
                     {
                         pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
                     }
-                    if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[1], 0.0f) == NULL)
+                    if (this->player->unk_36c.CheckHitsAt(&pos, &sizes[1], 0.0f) == NULL)
                     {
-                        g_PlayerInputs[this->player->sideIdx].unknown2c |= g_PlayerCpuDirButtons[newDir];
+                        g_PlayerInputs[this->player->sideIdx].unk_2c |= g_PlayerCpuDirButtons[newDir];
                     }
                     else
                     {
-                        g_PlayerInputs[this->player->sideIdx].unknown2c |= g_PlayerCpuDirButtons[dir];
+                        g_PlayerInputs[this->player->sideIdx].unk_2c |= g_PlayerCpuDirButtons[dir];
                     }
                 }
                 else if (target.x - 6.0f > this->player->pos.x)
@@ -455,28 +455,28 @@ found:
                     {
                         pos.y = g_GameManager.playerArea[3] + g_GameManager.playerArea[1];
                     }
-                    if (this->player->unknown36c.CheckHitsAt(&pos, &sizes[1], 0.0f) == NULL)
+                    if (this->player->unk_36c.CheckHitsAt(&pos, &sizes[1], 0.0f) == NULL)
                     {
-                        g_PlayerInputs[this->player->sideIdx].unknown2c |= g_PlayerCpuDirButtons[newDir];
+                        g_PlayerInputs[this->player->sideIdx].unk_2c |= g_PlayerCpuDirButtons[newDir];
                     }
                     else
                     {
-                        g_PlayerInputs[this->player->sideIdx].unknown2c |= g_PlayerCpuDirButtons[dir];
+                        g_PlayerInputs[this->player->sideIdx].unk_2c |= g_PlayerCpuDirButtons[dir];
                     }
                 }
                 else
                 {
-                    g_PlayerInputs[this->player->sideIdx].unknown2c |= g_PlayerCpuDirButtons[dir];
+                    g_PlayerInputs[this->player->sideIdx].unk_2c |= g_PlayerCpuDirButtons[dir];
                 }
             }
             else
             {
-                g_PlayerInputs[this->player->sideIdx].unknown2c |= g_PlayerCpuDirButtons[dir];
+                g_PlayerInputs[this->player->sideIdx].unk_2c |= g_PlayerCpuDirButtons[dir];
             }
         }
         else
         {
-            g_PlayerInputs[this->player->sideIdx].unknown2c |= g_PlayerCpuDirButtons[dir];
+            g_PlayerInputs[this->player->sideIdx].unk_2c |= g_PlayerCpuDirButtons[dir];
         }
     }
     for (j = 7; j > 0; j--)
@@ -486,18 +486,18 @@ found:
     this->history[0] = g_PlayerCpuDirButtons[dir];
     player = this->player;
     em = player->side->enemyManager;
-    if ((em->unknown2ac444 != NULL && (em->unknown2ac444->unknownType == 3 || em->unknown2ac444->unknownBit13)) ||
+    if ((em->unk_2ac444 != NULL && (em->unk_2ac444->unknownType == 3 || em->unk_2ac444->unknownBit13)) ||
         player->activeHitAreaCount == 0)
     {
         if (em->enemyCount ? this->timer0.HasTickedEvery(10) : this->timer0.HasTickedEvery(30))
         {
-            g_PlayerInputs[player->sideIdx].unknown32 |= 1;
+            g_PlayerInputs[player->sideIdx].unk_32 |= 1;
         }
     }
     if (g_GameManager.IsMode1() && (this->flags & 2) &&
-        this->player->otherSide->player->unknown30410.unknown3c <= 300)
+        this->player->otherSide->player->unk_30410.unk_3c <= 300)
     {
-        g_PlayerInputs[this->player->sideIdx].unknown32 &= ~1;
+        g_PlayerInputs[this->player->sideIdx].unk_32 &= ~1;
     }
     this->lastDirection = dir;
     this->timer0++;

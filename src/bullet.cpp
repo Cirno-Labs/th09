@@ -163,18 +163,18 @@ void BulletShooter::SetWaitCommand(int i, int concurrent, int frames)
 }
 
 void PlayerUnknown36c::AddTurned(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle,
-                                 void *unknown2c)
+                                 void *unk_2c)
 {
     if (this->count < 0x80)
     {
         this->entries[this->count].pos = *pos;
-        this->entries[this->count].unknownC = *origin;
+        this->entries[this->count].unk_c = *origin;
         this->entries[this->count].size = *size;
         this->entries[this->count].size.x /= 2.0f;
         this->entries[this->count].size.y /= 2.0f;
         this->entries[this->count].radius = 0.0f;
         this->entries[this->count].angle = angle;
-        this->entries[this->count].unknown2c = unknown2c;
+        this->entries[this->count].unk_2c = unk_2c;
         this->count++;
     }
 }
@@ -297,10 +297,10 @@ Bullet *BulletManager::SpawnBullet(BulletShooter *shooter, int col, int row, flo
     cur->timer = 0;
     cur->harmless = 0;
     cur->grazeDelayTimer = 0;
-    cur->unknown10be = 0;
+    cur->unk_10be = 0;
     cur->speed = v;
     cur->angle = AddNormalizeAngle(angle, 0.0f);
-    cur->unknown10bd = shooter->unknown20c;
+    cur->unk_10bd = shooter->unk_20c;
     cur->pos = shooter->pos;
     cur->pos[2] = 0.1f;
     SetPolar((Vector2 *)&cur->velocity, angle, g_App.gameSpeed * v);
@@ -312,9 +312,9 @@ Bullet *BulletManager::SpawnBullet(BulletShooter *shooter, int col, int row, flo
     CopyBulletSprite(&cur->sprites.sprite4, &shooter->typeSprites->sprite4);
     cur->sprite = shooter->sprite;
     cur->color = shooter->color;
-    cur->sprites.unknownD44 = shooter->typeSprites->unknownD44;
+    cur->sprites.unk_d44 = shooter->typeSprites->unk_d44;
     cur->sprites.hitboxSize = shooter->typeSprites->hitboxSize;
-    cur->sprites.unknownD40 = shooter->typeSprites->unknownD40;
+    cur->sprites.unk_d40 = shooter->typeSprites->unk_d40;
     cur->sprites.height = shooter->typeSprites->height;
     cur->sprites.sizeClass = shooter->typeSprites->sizeClass;
     cur->sound = shooter->bulletSound;
@@ -772,7 +772,7 @@ int BulletManager::OnDraw(BulletManager *mgr)
             laser->sprite1.pos[1] = g_GameManager.ArenaToScreenY(s * laser->startOffset + laser->pos[1]);
             laser->sprite1.pos[2] = 0.05f;
             laser->sprite1.color = laser->sprite0.color;
-            laser->sprite1.unusedFlag6 = 1;
+            laser->sprite1.unk_bit6 = 1;
             laser->sprite1.color = laser->sprite1.color & 0xffffff | 0xff000000;
             scale = laser->width / 10.0f;
             laser->sprite1.scaleY = laser->sprite1.scaleX = scale * ((16.0f - laser->startOffset) / 16.0f);
@@ -823,7 +823,7 @@ int BulletManager::AddedCallback(BulletManager *mgr)
         mgr->typeSprites[i].sprite2.flags |= 0x2000;
         mgr->typeSprites[i].sprite3.flags |= 0x2000;
         mgr->typeSprites[i].sprite4.flags |= 0x2000;
-        mgr->typeSprites[i].unknownD44 = mgr->typeSprites[i].sprite0.spriteIndex;
+        mgr->typeSprites[i].unk_d44 = mgr->typeSprites[i].sprite0.spriteIndex;
         mgr->typeSprites[i].sprite0.baseSpriteIndex = mgr->typeSprites[i].sprite0.spriteIndex;
         mgr->typeSprites[i].height = mgr->typeSprites[i].sprite0.spriteData->height;
         if (mgr->typeSprites[i].sprite0.spriteData->height <= 8.0f)
@@ -1229,7 +1229,7 @@ int BulletManager::OnUpdate(BulletManager *mgr)
                     }
                     else
                     {
-                        mgr->side->player->unknown36c.Add(&bullet->pos, &bullet->sprites.hitboxSize, bullet);
+                        mgr->side->player->unk_36c.Add(&bullet->pos, &bullet->sprites.hitboxSize, bullet);
                     }
                 }
             }
@@ -1346,7 +1346,7 @@ int BulletManager::OnUpdate(BulletManager *mgr)
                 }
                 if (las->timer >= las->hitStartFrame)
                 {
-                    mgr->side->player->unknown36c.AddTurned(&center, &extent, &las->pos, las->angle, NULL);
+                    mgr->side->player->unk_36c.AddTurned(&center, &extent, &las->pos, las->angle, NULL);
                 }
                 if (las->timer < las->startFrames)
                 {
@@ -1356,7 +1356,7 @@ int BulletManager::OnUpdate(BulletManager *mgr)
                 las->state++;
                 las->baseWidth = las->width;
             case 1:
-                mgr->side->player->unknown36c.AddTurned(&center, &extent, &las->pos, las->angle, NULL);
+                mgr->side->player->unk_36c.AddTurned(&center, &extent, &las->pos, las->angle, NULL);
                 if (las->timer < las->durationFrames)
                 {
                     break;
@@ -1391,7 +1391,7 @@ int BulletManager::OnUpdate(BulletManager *mgr)
                 }
                 if (las->timer < las->endHitFrames)
                 {
-                    mgr->side->player->unknown36c.AddTurned(&center, &extent, &las->pos, las->angle, NULL);
+                    mgr->side->player->unk_36c.AddTurned(&center, &extent, &las->pos, las->angle, NULL);
                 }
                 if (las->timer < las->endFrames)
                 {

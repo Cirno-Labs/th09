@@ -55,11 +55,11 @@ int LoadHscrChunks(ScoreDat *dat)
                 g_HighScores[character][difficulty][rank].version = 2;
                 g_HighScores[character][difficulty][rank].size2 = sizeof(Hscr);
                 g_HighScores[character][difficulty][rank].size = sizeof(Hscr);
-                g_HighScores[character][difficulty][rank].unknown17 = 0;
+                g_HighScores[character][difficulty][rank].unk_17 = 0;
                 g_HighScores[character][difficulty][rank].isNew = 0;
                 strcpy(g_HighScores[character][difficulty][rank].name, "No Name ");
                 strcpy(g_HighScores[character][difficulty][rank].date, "--/--");
-                g_HighScores[character][difficulty][rank].unknown2b = 0;
+                g_HighScores[character][difficulty][rank].unk_2b = 0;
             }
         }
     }
@@ -81,7 +81,7 @@ int LoadHscrChunks(ScoreDat *dat)
     g_Hscr.character = 0;
     g_Hscr.difficulty = 0;
     g_Hscr.magic = 0;
-    g_Hscr.unknown17 = 0;
+    g_Hscr.unk_17 = 0;
     g_Hscr.version = 2;
     g_Hscr.isNew = 0;
     strcpy(g_Hscr.date, "--/--");
@@ -99,7 +99,7 @@ int LoadLsnmChunk(ScoreDat *dat)
     g_Lsnm.size = sizeof(Lsnm);
     g_Lsnm.size2 = sizeof(Lsnm);
     g_Lsnm.version = 1;
-    g_Lsnm.unknown9 = 0;
+    g_Lsnm.unk_9 = 0;
     strcpy(g_Lsnm.name, "        ");
     left = dat->fileSize - dat->dataOffset;
     while (left > 0)
@@ -136,7 +136,7 @@ int LoadPlstChunk(ScoreDat *dat)
     g_PlayRecord.openEntries2[4] = 1;
     g_PlayRecord.magic = 0x54534c50;
     g_PlayRecord.version = 3;
-    g_PlayRecord.unknown9 = 0;
+    g_PlayRecord.unk_9 = 0;
     chunk = (PlayRecord *)((BYTE *)dat + dat->dataOffset);
     left = dat->fileSize - dat->dataOffset;
     while (left > 0)

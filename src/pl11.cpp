@@ -190,15 +190,15 @@ int UpdateExAttackType19(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 11: while unknown34 reaches (28 -
-// unknownB4) * 5, sends an extra attack of type 19 from `pos` and
+// The combo func of character 11: while unk_34 reaches (28 -
+// unk_b4) * 5, sends an extra attack of type 19 from `pos` and
 // takes as much off it. Returns 0 (0x44a670).
 int SendComboAttacksCharacter11(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (28 - g_GameManager.rank.unknownB4) * 5)
+    while (combo->unk_34 >= (28 - g_GameManager.rank.unk_b4) * 5)
     {
         g_GameManager.exAttackManager->AddAttack(19, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (28 - g_GameManager.rank.unknownB4) * 5;
+        combo->unk_34 -= (28 - g_GameManager.rank.unk_b4) * 5;
     }
     return 0;
 }
@@ -212,46 +212,46 @@ int InitEffectType31(Effect *effect)
     {
         return -1;
     }
-    effect->unknown48 = effect->pos;
-    effect->unknown54.x = 0.0f;
-    effect->unknown54.y = 0.0f;
-    effect->unknown54.z = 1.0f;
-    effect->unknown60.x = 0.0f;
-    effect->unknown60.y = -1.0f;
-    effect->unknown60.z = 0.0f;
-    effect->unknown88 = effect->velocity.z;
-    effect->unknown94 = 0.0f;
-    effect->unknown98 = 0.0f;
-    effect->unknown9c = 1.0f;
-    effect->unknown8c = 0x20;
-    effect->unknown7c = 16.0f;
-    effect->unknownC9 = 1;
-    effect->unknown80 = -1.5707964f;
+    effect->unk_48 = effect->pos;
+    effect->unk_54.x = 0.0f;
+    effect->unk_54.y = 0.0f;
+    effect->unk_54.z = 1.0f;
+    effect->unk_60.x = 0.0f;
+    effect->unk_60.y = -1.0f;
+    effect->unk_60.z = 0.0f;
+    effect->unk_88 = effect->velocity.z;
+    effect->unk_94 = 0.0f;
+    effect->unk_98 = 0.0f;
+    effect->unk_9c = 1.0f;
+    effect->unk_8c = 0x20;
+    effect->unk_7c = 16.0f;
+    effect->unk_c9 = 1;
+    effect->unk_80 = -1.5707964f;
     return 0;
 }
 
-// The draw callback of effect type 31: while unknownC9 is set, a
-// pentagram of radius unknown7c turned by unknown80 around the effect,
+// The draw callback of effect type 31: while unk_c9 is set, a
+// pentagram of radius unk_7c turned by unk_80 around the effect,
 // as a fan from its centre through the five points and the corners
 // between them. Returns 1 (0x44a780).
 int DrawEffectType31(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float angle = effect->unknown80;
+        float angle = effect->unk_80;
         D3DXVECTOR3 points[10];
         VertexDiffuseXyzrwh *vtx;
         int i;
 
-        SetPolar((Vector2 *)&points[0], angle, effect->unknown7c);
+        SetPolar((Vector2 *)&points[0], angle, effect->unk_7c);
         angle = AddNormalizeAngle(angle, 1.2566371f);
-        SetPolar((Vector2 *)&points[2], angle, effect->unknown7c);
+        SetPolar((Vector2 *)&points[2], angle, effect->unk_7c);
         angle = AddNormalizeAngle(angle, 1.2566371f);
-        SetPolar((Vector2 *)&points[4], angle, effect->unknown7c);
+        SetPolar((Vector2 *)&points[4], angle, effect->unk_7c);
         angle = AddNormalizeAngle(angle, 1.2566371f);
-        SetPolar((Vector2 *)&points[6], angle, effect->unknown7c);
+        SetPolar((Vector2 *)&points[6], angle, effect->unk_7c);
         angle = AddNormalizeAngle(angle, 1.2566371f);
-        SetPolar((Vector2 *)&points[8], angle, effect->unknown7c);
+        SetPolar((Vector2 *)&points[8], angle, effect->unk_7c);
         points[1] = (points[0] - points[4]) / 1.618f + points[4];
         points[3] = (points[2] - points[6]) / 1.618f + points[6];
         points[5] = (points[4] - points[8]) / 1.618f + points[8];

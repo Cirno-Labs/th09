@@ -89,10 +89,10 @@ void Network::ReleaseInterfaces()
         this->deviceAddress->Release();
         this->deviceAddress = NULL;
     }
-    if (this->unknownC != NULL)
+    if (this->unk_c != NULL)
     {
-        this->unknownC->Release();
-        this->unknownC = NULL;
+        this->unk_c->Release();
+        this->unk_c = NULL;
     }
     if (this->hostAddress != NULL)
     {
@@ -110,17 +110,17 @@ HRESULT Network::Send(void *data, DWORD size)
 {
     DPN_BUFFER_DESC desc;
 
-    if (this->unknownA8 == 0)
+    if (this->unk_a8 == 0)
     {
         return 0;
     }
-    if (this->unknown1c[1 - this->unknownAc] == 0)
+    if (this->unk_1c[1 - this->unk_ac] == 0)
     {
         return 0;
     }
     desc.dwBufferSize = size;
     desc.pBufferData = (BYTE *)data;
-    return this->peer->SendTo(this->unknown1c[1 - this->unknownAc], &desc, 1, 0, NULL, &this->sendHandle,
+    return this->peer->SendTo(this->unk_1c[1 - this->unk_ac], &desc, 1, 0, NULL, &this->sendHandle,
                               DPNSEND_PRIORITY_HIGH | DPNSEND_NONSEQUENTIAL | DPNSEND_GUARANTEED |
                                   DPNSEND_COMPLETEONPROCESS);
 }
@@ -151,7 +151,7 @@ void Network::Init()
     int size;
     char *cursor;
 
-    this->unknownA8 = 0;
+    this->unk_a8 = 0;
     if (!FileExists("IP.txt"))
     {
         return;
@@ -277,8 +277,8 @@ HRESULT Network::CreateDeviceAddress()
 {
     HRESULT hr;
 
-    this->unknown1c[0] = 0;
-    this->unknown1c[1] = 0;
+    this->unk_1c[0] = 0;
+    this->unk_1c[1] = 0;
     hr = CoCreateInstance(CLSID_DirectPlay8Address, NULL, CLSCTX_INPROC_SERVER, IID_IDirectPlay8Address,
                           (LPVOID *)&this->deviceAddress);
     if (FAILED(hr))
@@ -389,30 +389,30 @@ HRESULT Network::HandleMessage(PVOID context, DWORD type, PVOID message)
         packet = (NetPacket *)((DPNMSG_RECEIVE *)message)->pReceiveData;
         if (packet->type == 0)
         {
-            if (packet->side != g_Network->unknownAc)
+            if (packet->side != g_Network->unk_ac)
             {
                 this->lastPacket = *packet;
-                g_App.AddRecord(packet->side, packet->value, packet->unknown8, packet->seed);
+                g_App.AddRecord(packet->side, packet->value, packet->unk_8, packet->seed);
             }
         }
         else if (packet->type == 1)
         {
-            if (g_App.unknown458 == packet->value && packet->value == packet->seed)
+            if (g_App.unk_458 == packet->value && packet->value == packet->seed)
             {
-                this->unknownB0 = 1;
+                this->unk_b0 = 1;
             }
         }
         else if (packet->type == 2)
         {
-            if (packet->side == this->unknownAc)
+            if (packet->side == this->unk_ac)
             {
-                this->unknownAc = 1 - packet->side;
+                this->unk_ac = 1 - packet->side;
             }
-            if (this->unknownAc == 1)
+            if (this->unk_ac == 1)
             {
                 g_Rng.SetSeed(packet->seed);
                 this->syncFrames = packet->value;
-                this->isLan = packet->unknown8;
+                this->isLan = packet->unk_8;
                 if (60 / this->syncFrames > 1)
                 {
                     for (i = 0; i < 60 / this->syncFrames - 1; i++)
@@ -423,7 +423,7 @@ HRESULT Network::HandleMessage(PVOID context, DWORD type, PVOID message)
                 }
             }
         }
-        g_App.unknown464 = g_App.unknown46c;
+        g_App.unk_464 = g_App.unk_46c;
         g_App.LeaveCriticalSection(4);
         break;
     case DPN_MSGID_CREATE_PLAYER:
@@ -442,38 +442,38 @@ HRESULT Network::HandleMessage(PVOID context, DWORD type, PVOID message)
         }
         if (info->dwPlayerFlags & DPNPLAYER_LOCAL)
         {
-            this->unknown1c[this->unknownAc] = ((DPNMSG_CREATE_PLAYER *)message)->dpnidPlayer;
+            this->unk_1c[this->unk_ac] = ((DPNMSG_CREATE_PLAYER *)message)->dpnidPlayer;
         }
         else
         {
-            this->unknown1c[1 - this->unknownAc] = ((DPNMSG_CREATE_PLAYER *)message)->dpnidPlayer;
+            this->unk_1c[1 - this->unk_ac] = ((DPNMSG_CREATE_PLAYER *)message)->dpnidPlayer;
         }
         delete info;
         g_App.LeaveCriticalSection(4);
         break;
     case DPN_MSGID_DESTROY_PLAYER:
         g_App.EnterCriticalSection(4);
-        if (this->unknown1c[0] == ((DPNMSG_DESTROY_PLAYER *)message)->dpnidPlayer)
+        if (this->unk_1c[0] == ((DPNMSG_DESTROY_PLAYER *)message)->dpnidPlayer)
         {
-            this->unknown1c[0] = 0;
+            this->unk_1c[0] = 0;
         }
-        if (this->unknown1c[1] == ((DPNMSG_DESTROY_PLAYER *)message)->dpnidPlayer)
+        if (this->unk_1c[1] == ((DPNMSG_DESTROY_PLAYER *)message)->dpnidPlayer)
         {
-            this->unknown1c[1] = 0;
+            this->unk_1c[1] = 0;
         }
         g_App.LeaveCriticalSection(4);
         break;
     case DPN_MSGID_SEND_COMPLETE:
         g_App.EnterCriticalSection(4);
-        this->unknownB0 = 1;
+        this->unk_b0 = 1;
         g_App.LeaveCriticalSection(4);
         break;
     case DPN_MSGID_CONNECT_COMPLETE:
         g_App.EnterCriticalSection(4);
-        if (((DPNMSG_CONNECT_COMPLETE *)message)->hResultCode == DPN_OK && this->unknownB8 == 1)
+        if (((DPNMSG_CONNECT_COMPLETE *)message)->hResultCode == DPN_OK && this->unk_b8 == 1)
         {
-            this->unknownB8 = 3;
-            this->unknownAc = 1;
+            this->unk_b8 = 3;
+            this->unk_ac = 1;
         }
         g_App.LeaveCriticalSection(4);
         break;
@@ -527,10 +527,10 @@ int Network::Close()
         this->deviceAddress->Release();
         this->deviceAddress = NULL;
     }
-    if (this->unknownC != NULL)
+    if (this->unk_c != NULL)
     {
-        this->unknownC->Release();
-        this->unknownC = NULL;
+        this->unk_c->Release();
+        this->unk_c = NULL;
     }
     if (this->hostAddress != NULL)
     {
@@ -550,7 +550,7 @@ int Network::Close()
         LogError(&g_Logger, "CLSID_DP8SP_TCPIP 使用不可\r\n");
         return 1;
     }
-    this->unknown1c[0] = 0;
-    this->unknown1c[1] = 0;
+    this->unk_1c[0] = 0;
+    this->unk_1c[1] = 0;
     return 1;
 }

@@ -10,26 +10,26 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The update callback of effect type 36: grows unknown7c by 0.5 up to 24,
-// sets unknownC9 and puts the effect on its side's player. Returns 1
+// The update callback of effect type 36: grows unk_7c by 0.5 up to 24,
+// sets unk_c9 and puts the effect on its side's player. Returns 1
 // (0x44bc30).
 int UpdateEffectType36(Effect *effect)
 {
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 24.0f)
+    effect->unk_c9 = 1;
+    if (effect->unk_7c < 24.0f)
     {
-        effect->unknown7c += 0.5f;
+        effect->unk_7c += 0.5f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }
 
-// The unknown30404 of character 14: whether `pos` is within the radius
-// of the player's unknown368 up or down (0x44bc80).
+// The unk_30404 of character 14: whether `pos` is within the radius
+// of the player's unk_368 up or down (0x44bc80).
 int CheckFocusAreaCharacter14(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
-    float radius = player->unknown368->unknown7c;
+    float radius = player->unk_368->unk_7c;
 
     if (diff.y * diff.y < radius * radius)
     {
@@ -113,7 +113,7 @@ int UpdateExAttackType25(ExAttack *attack)
                                              0.010833333f);
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 0x20;
                 g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
             }
@@ -133,36 +133,36 @@ int UpdateExAttackType25(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 14: while unknown34 reaches 100 -
-// unknownB4 * 3, sends an extra attack of type 25 from `pos` and takes
-// (28 - unknownB4) * 5 off it. Returns 0 (0x44c020).
+// The combo func of character 14: while unk_34 reaches 100 -
+// unk_b4 * 3, sends an extra attack of type 25 from `pos` and takes
+// (28 - unk_b4) * 5 off it. Returns 0 (0x44c020).
 int SendComboAttacksCharacter14(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= 100 - g_GameManager.rank.unknownB4 * 3)
+    while (combo->unk_34 >= 100 - g_GameManager.rank.unk_b4 * 3)
     {
         g_GameManager.exAttackManager->AddAttack(25, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (28 - g_GameManager.rank.unknownB4) * 5;
+        combo->unk_34 -= (28 - g_GameManager.rank.unk_b4) * 5;
     }
     return 0;
 }
 
 // The draw callback of effect type 36: a strip across the play area,
-// from unknown7c above the effect to unknown7c below it, faint in the
-// middle, if unknownC9 is set. Returns 1 (0x44c090).
+// from unk_7c above the effect to unk_7c below it, faint in the
+// middle, if unk_c9 is set. Returns 1 (0x44c090).
 int DrawEffectType36(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
 
         vtx->pos = effect->pos;
-        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unk_7c);
         vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unk_7c);
         vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
@@ -180,13 +180,13 @@ int DrawEffectType36(Effect *effect)
         vtx->diffuse = 0x30600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.y = g_GameManager.ArenaToScreenY(effect->unknown7c + vtx->pos.y);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(effect->unk_7c + vtx->pos.y);
         vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.y = g_GameManager.ArenaToScreenY(effect->unknown7c + vtx->pos.y);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(effect->unk_7c + vtx->pos.y);
         vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;

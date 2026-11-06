@@ -10,19 +10,19 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-// The update callback of effect type 32: shrinks unknown7c by 32 down
-// to 0, with unknownC9 set while it shrinks, and puts the effect on its
+// The update callback of effect type 32: shrinks unk_7c by 32 down
+// to 0, with unk_c9 set while it shrinks, and puts the effect on its
 // side's player. Returns 1 (0x44ab30).
 int UpdateEffectType32(Effect *effect)
 {
-    if (effect->unknown7c > 0.0f)
+    if (effect->unk_7c > 0.0f)
     {
-        effect->unknownC9 = 1;
-        effect->unknown7c -= 32.0f;
+        effect->unk_c9 = 1;
+        effect->unk_7c -= 32.0f;
     }
     else
     {
-        effect->unknownC9 = 0;
+        effect->unk_c9 = 0;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
@@ -144,7 +144,7 @@ int UpdateExAttackType20(ExAttack *attack)
                 shooter.speed1 = data->speed;
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 0;
                 g_GameManager.sides[attack->targetSide].bulletManager->FirePattern2(&shooter);
                 data->count++;
@@ -164,15 +164,15 @@ int UpdateExAttackType20(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 12: while unknown34 reaches (40 -
-// unknownB4) * 4, sends an extra attack of type 20 from `pos` and
+// The combo func of character 12: while unk_34 reaches (40 -
+// unk_b4) * 4, sends an extra attack of type 20 from `pos` and
 // takes as much off it. Returns 0 (0x44af80).
 int SendComboAttacksCharacter12(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (40 - g_GameManager.rank.unknownB4) * 4)
+    while (combo->unk_34 >= (40 - g_GameManager.rank.unk_b4) * 4)
     {
         g_GameManager.exAttackManager->AddAttack(20, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (40 - g_GameManager.rank.unknownB4) * 4;
+        combo->unk_34 -= (40 - g_GameManager.rank.unk_b4) * 4;
     }
     return 0;
 }
@@ -188,31 +188,31 @@ int InitEffectType32(Effect *effect)
     {
         return -1;
     }
-    effect->unknown48 = effect->pos;
-    effect->unknown54.x = 0.0f;
-    effect->unknown54.y = 0.0f;
-    effect->unknown54.z = 1.0f;
-    effect->unknown60.x = 0.0f;
-    effect->unknown60.y = -1.0f;
-    effect->unknown60.z = 0.0f;
-    effect->unknown80 = effect->velocity.x;
-    effect->unknown88 = effect->velocity.z;
-    effect->unknown94 = 0.0f;
-    effect->unknown98 = 0.0f;
-    effect->unknown9c = 1.0f;
-    effect->unknown8c = 0x20;
-    effect->unknown7c = 640.0f;
-    effect->unknownC9 = 1;
+    effect->unk_48 = effect->pos;
+    effect->unk_54.x = 0.0f;
+    effect->unk_54.y = 0.0f;
+    effect->unk_54.z = 1.0f;
+    effect->unk_60.x = 0.0f;
+    effect->unk_60.y = -1.0f;
+    effect->unk_60.z = 0.0f;
+    effect->unk_80 = effect->velocity.x;
+    effect->unk_88 = effect->velocity.z;
+    effect->unk_94 = 0.0f;
+    effect->unk_98 = 0.0f;
+    effect->unk_9c = 1.0f;
+    effect->unk_8c = 0x20;
+    effect->unk_7c = 640.0f;
+    effect->unk_c9 = 1;
     return 0;
 }
 
-// The draw callback of effect type 32: DrawEffectType10's fan, drawn only if unknownC9 is set
+// The draw callback of effect type 32: DrawEffectType10's fan, drawn only if unk_c9 is set
 // (0x44b090).
 int DrawEffectType32(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        float delta = 6.2831855f / (effect->unknown8c - 1);
+        float delta = 6.2831855f / (effect->unk_8c - 1);
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         float angle = -3.1415927f;
         int i;
@@ -223,14 +223,14 @@ int DrawEffectType32(Effect *effect)
         vtx->w = 1.0f;
         vtx->diffuse = 0x40600040;
         vtx++;
-        for (i = effect->unknown8c; i > 0; i--)
+        for (i = effect->unk_8c; i > 0; i--)
         {
             if (angle >= 3.1415927f)
             {
                 angle -= 6.2831855f;
             }
             vtx->pos.z = 0.0f;
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -239,20 +239,20 @@ int DrawEffectType32(Effect *effect)
             vtx++;
             angle += delta;
         }
-        g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unknown8c + 1);
+        g_SpriteEngine->DrawColoredFan(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, effect->unk_8c + 1);
     }
     return 1;
 }
 
-// The update callback of effect type 33: grows unknown7c by 16 up to 96,
-// sets unknownC9 and puts the effect on its side's player. Returns 1
+// The update callback of effect type 33: grows unk_7c by 16 up to 96,
+// sets unk_c9 and puts the effect on its side's player. Returns 1
 // (0x44b1d0).
 int UpdateEffectType33(Effect *effect)
 {
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 96.0f)
+    effect->unk_c9 = 1;
+    if (effect->unk_7c < 96.0f)
     {
-        effect->unknown7c += 16.0f;
+        effect->unk_7c += 16.0f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
@@ -396,12 +396,12 @@ int UpdateExAttackType21(ExAttack *attack)
         bullet = g_GameManager.sides[attack->targetSide].bulletManager->bullets;
         for (i = 0; i < 0xaf; i++, bullet++)
         {
-            if (bullet->state != 0 && !bullet->unknown10be && bullet->sprites.unknownD44 != 0x14a)
+            if (bullet->state != 0 && !bullet->unk_10be && bullet->sprites.unk_d44 != 0x14a)
             {
                 v = bullet->pos - attack->pos;
                 if (v.x * v.x + v.y * v.y <= 1024.0f)
                 {
-                    bullet->unknown10be = 1;
+                    bullet->unk_10be = 1;
                     BulletShooter shooter;
                     shooter.pos = bullet->pos;
                     shooter.sprite = 0x16;
@@ -413,21 +413,21 @@ int UpdateExAttackType21(ExAttack *attack)
                     shooter.speed1 = bullet->speed + 1.0f;
                     shooter.angle2 = 0.0f;
                     shooter.speed2 = 0.0f;
-                    shooter.unknown1fa = 0;
+                    shooter.unk_1fa = 0;
                     shooter.flags = 0;
-                    g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter)->unknown10be = 1;
+                    g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter)->unk_10be = 1;
                 }
             }
         }
         bullet = g_GameManager.sides[attack->targetSide].bulletManager->bullets2;
         for (i = 0; i < 0x168; i++, bullet++)
         {
-            if (bullet->state != 0 && !bullet->unknown10be && bullet->sprites.unknownD44 != 0x14a)
+            if (bullet->state != 0 && !bullet->unk_10be && bullet->sprites.unk_d44 != 0x14a)
             {
                 v = bullet->pos - attack->pos;
                 if (v.x * v.x + v.y * v.y <= 1024.0f)
                 {
-                    bullet->unknown10be = 1;
+                    bullet->unk_10be = 1;
                     BulletShooter shooter;
                     shooter.pos = bullet->pos;
                     shooter.sprite = 0x16;
@@ -439,9 +439,9 @@ int UpdateExAttackType21(ExAttack *attack)
                     shooter.speed1 = bullet->speed + 0.7f;
                     shooter.angle2 = 0.0f;
                     shooter.speed2 = 0.0f;
-                    shooter.unknown1fa = 0;
+                    shooter.unk_1fa = 0;
                     shooter.flags = 0;
-                    g_GameManager.sides[attack->targetSide].bulletManager->FirePattern2(&shooter)->unknown10be = 1;
+                    g_GameManager.sides[attack->targetSide].bulletManager->FirePattern2(&shooter)->unk_10be = 1;
                 }
             }
         }
@@ -464,7 +464,7 @@ int UpdateExAttackType21(ExAttack *attack)
 // The draw callback of extra attack types 19 and 21: once the attack
 // has landed, the disc as a textured fan through its points, the centre
 // at its sprite's alpha and the rim in light red, closed on the first
-// rim point. Clears unknown684. Returns 0 (0x44b940).
+// rim point. Clears unk_684. Returns 0 (0x44b940).
 int DrawExAttackTypes19And21(ExAttack *attack)
 {
     ExAttackData19 *data = (ExAttackData19 *)attack->data;
@@ -498,6 +498,6 @@ int DrawExAttackTypes19And21(ExAttack *attack)
         *vtx = data->vertices[1];
         g_SpriteEngine->DrawVertexFan(attack->sprites, data->vertices, 0x21);
     }
-    data->unknown684 = 0;
+    data->unk_684 = 0;
     return 0;
 }

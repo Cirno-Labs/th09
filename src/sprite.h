@@ -119,8 +119,8 @@ struct SpriteBase
             DWORD rotationChanged : 1;
             DWORD scaleChanged : 1;
             DWORD blendMode : 2;
-            DWORD unusedFlag6 : 1;
-            DWORD unusedFlag7 : 1;
+            DWORD unk_bit6 : 1;
+            DWORD pad_bit7 : 1;
             DWORD usePosOffset : 1;
             DWORD flip : 2;
             DWORD anchor : 2;
@@ -129,7 +129,7 @@ struct SpriteBase
             DWORD cameraSetup : 1;
             DWORD freezeMatrix : 1;
             DWORD useColor2 : 1;
-            DWORD unusedFlag18 : 1;
+            DWORD pad_bit18 : 1;
             DWORD scriptPaused : 1;
         };
     };
@@ -285,7 +285,7 @@ struct SpriteData
     // How much larger the texture is than the sprite's size.
     float scaleX;
     float scaleY;
-    int unusedInt40;
+    int pad_40;
 };
 ASSERT_SIZE(SpriteData, 0x44);
 

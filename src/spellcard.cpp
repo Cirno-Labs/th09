@@ -61,11 +61,11 @@ void SpellCard::Start(int type, int kind, int unknown, char *name)
 
     if (kind < 2)
     {
-        level = this->otherSide->player->unknownA0;
+        level = this->otherSide->player->unk_a0;
     }
     else
     {
-        level = this->otherSide->player->unknownA4;
+        level = this->otherSide->player->unk_a4;
     }
     g_GameManager.rank.LowerUnknownCc(500);
     if (kind == 2)
@@ -78,9 +78,9 @@ void SpellCard::Start(int type, int kind, int unknown, char *name)
         {
             enemy = this->otherSide->enemyManager->FindByUnknownType(3);
             enemy->flags |= 0x100;
-            this->otherSide->player->unknownB8++;
+            this->otherSide->player->unk_b8++;
         }
-        this->otherSide->player->unknownB4++;
+        this->otherSide->player->unk_b4++;
         if (this->callbacks[1].update != NULL)
         {
             this->callbacks[1].end(this);
@@ -89,21 +89,21 @@ void SpellCard::Start(int type, int kind, int unknown, char *name)
             this->callbacks[1].end = NULL;
         }
         this->slots[1].type = type;
-        this->slots[1].unknown0 = unknown;
-        this->unknownA8 = 1;
+        this->slots[1].unk_0 = unknown;
+        this->unk_a8 = 1;
         this->slots[1].kind = 2;
         strcpy(this->name, name);
         g_SpellCardTypes[this->slots[1].type].init(this);
         this->callbacks[1].update = g_SpellCardTypes[this->slots[1].type].callbacks.update;
         this->callbacks[1].draw = g_SpellCardTypes[this->slots[1].type].callbacks.draw;
         this->callbacks[1].end = g_SpellCardTypes[this->slots[1].type].callbacks.end;
-        if (this->otherSide->player->unknownA4 < 0x10)
+        if (this->otherSide->player->unk_a4 < 0x10)
         {
-            this->otherSide->player->unknownA4++;
+            this->otherSide->player->unk_a4++;
         }
-        if (this->side->player->unknownA4 < 0x10)
+        if (this->side->player->unk_a4 < 0x10)
         {
-            this->side->player->unknownA4++;
+            this->side->player->unk_a4++;
         }
         g_SoundPlayer.QueueSound(0x35, 0);
     }
@@ -117,48 +117,48 @@ void SpellCard::Start(int type, int kind, int unknown, char *name)
             this->callbacks[0].end = NULL;
         }
         this->slots[0].type = type;
-        this->unknownA4 = 1;
-        this->slots[0].unknown0 = unknown;
+        this->unk_a4 = 1;
+        this->slots[0].unk_0 = unknown;
         this->slots[0].kind = kind;
         strcpy(this->name, name);
-        this->otherSide->player->unknownB0++;
+        this->otherSide->player->unk_b0++;
         g_SpellCardTypes[this->slots[0].type].init(this);
         this->callbacks[0].update = g_SpellCardTypes[this->slots[0].type].callbacks.update;
         this->callbacks[0].draw = g_SpellCardTypes[this->slots[0].type].callbacks.draw;
         this->callbacks[0].end = g_SpellCardTypes[this->slots[0].type].callbacks.end;
-        if (this->otherSide->player->unknownA0 < 0x10)
+        if (this->otherSide->player->unk_a0 < 0x10)
         {
-            this->otherSide->player->unknownA0++;
+            this->otherSide->player->unk_a0++;
         }
         g_SoundPlayer.QueueSound(0xe, 0);
     }
-    this->anm->StartScript(&this->unknown5f4[0], 0x1e);
-    this->anm->StartScript(&this->unknown5f4[1], 0x1f);
-    this->anm->StartScript(&this->unknown5f4[2], 0x20);
-    this->anm->StartScript(&this->unknown5f4[3], 0x21);
-    this->anm->StartScript(&this->unknown5f4[4], 0x22);
-    this->anm->SetSprite(&this->unknown5f4[3], level / 10 + 0x19);
-    this->anm->SetSprite(&this->unknown5f4[4], level % 10 + 0x19);
-    this->anm->SetSprite(&this->unknown5f4[2], kind + 0x15);
+    this->anm->StartScript(&this->unk_5f4[0], 0x1e);
+    this->anm->StartScript(&this->unk_5f4[1], 0x1f);
+    this->anm->StartScript(&this->unk_5f4[2], 0x20);
+    this->anm->StartScript(&this->unk_5f4[3], 0x21);
+    this->anm->StartScript(&this->unk_5f4[4], 0x22);
+    this->anm->SetSprite(&this->unk_5f4[3], level / 10 + 0x19);
+    this->anm->SetSprite(&this->unk_5f4[4], level % 10 + 0x19);
+    this->anm->SetSprite(&this->unk_5f4[2], kind + 0x15);
     g_GameManager.unknownBits134_11 |= 1 << this->sideIdx;
-    this->unknown98 = 0;
+    this->unk_98 = 0;
     this->side->stage->tintFadeMode = 1;
     this->side->stage->tintFadeFrames = 30;
     this->otherSide->stage->tintFadeMode = 2;
     this->otherSide->stage->tintFadeFrames = 30;
     if (this->sideIdx == 1)
     {
-        this->otherSide->gui->unknownA678.anm->StartScriptAtOrigin(&this->otherSide->gui->unknownA678.sprites[0],
-                                                                   this->otherSide->player->unknown303f0);
-        this->otherSide->gui->unknownA678.anm->StartScriptAtOrigin(&this->otherSide->gui->unknownA678.sprites[1],
-                                                                   this->otherSide->player->unknown303f0 + 1);
+        this->otherSide->gui->unk_a678.anm->StartScriptAtOrigin(&this->otherSide->gui->unk_a678.sprites[0],
+                                                                   this->otherSide->player->unk_303f0);
+        this->otherSide->gui->unk_a678.anm->StartScriptAtOrigin(&this->otherSide->gui->unk_a678.sprites[1],
+                                                                   this->otherSide->player->unk_303f0 + 1);
     }
     else
     {
-        this->otherSide->gui->unknownA678.anm->StartScriptAtOrigin(&this->otherSide->gui->unknownA678.sprites[0],
-                                                                   this->otherSide->player->unknown303f0 + 2);
-        this->otherSide->gui->unknownA678.anm->StartScriptAtOrigin(&this->otherSide->gui->unknownA678.sprites[1],
-                                                                   this->otherSide->player->unknown303f0 + 3);
+        this->otherSide->gui->unk_a678.anm->StartScriptAtOrigin(&this->otherSide->gui->unk_a678.sprites[0],
+                                                                   this->otherSide->player->unk_303f0 + 2);
+        this->otherSide->gui->unk_a678.anm->StartScriptAtOrigin(&this->otherSide->gui->unk_a678.sprites[1],
+                                                                   this->otherSide->player->unk_303f0 + 3);
     }
 }
 
@@ -166,31 +166,31 @@ int SpellCard::OnUpdate(SpellCard *card)
 {
     int i;
 
-    if (card->unknownA4 >= 2)
+    if (card->unk_a4 >= 2)
     {
         if (card->callbacks[1].update == NULL && card->callbacks[0].update != NULL)
         {
-            card->anm->StartScript(&card->unknownAc[0], card->sideIdx + 0x12);
-            g_App.textAnm->SetSprite(&card->unknownAc[1], card->sideIdx + 4);
-            card->unknownAc[1].scaleX = 1.0f;
-            card->unknownAc[1].scaleY = 1.0f;
-            g_SpriteEngine->RenderTextCentered(&card->unknownAc[1], 0xfffffe, 0, card->name);
+            card->anm->StartScript(&card->unk_ac[0], card->sideIdx + 0x12);
+            g_App.textAnm->SetSprite(&card->unk_ac[1], card->sideIdx + 4);
+            card->unk_ac[1].scaleX = 1.0f;
+            card->unk_ac[1].scaleY = 1.0f;
+            g_SpriteEngine->RenderTextCentered(&card->unk_ac[1], 0xfffffe, 0, card->name);
         }
-        card->unknownA4 = 0;
+        card->unk_a4 = 0;
     }
-    if (card->unknownA8 >= 2)
+    if (card->unk_a8 >= 2)
     {
         if (card->callbacks[1].update != NULL)
         {
-            card->anm->StartScript(&card->unknownAc[0], card->sideIdx + 0x12);
-            g_App.textAnm->SetSprite(&card->unknownAc[1], card->sideIdx + 4);
-            card->unknownAc[1].scaleX = 1.0f;
-            card->unknownAc[1].scaleY = 1.0f;
-            g_SpriteEngine->RenderTextCentered(&card->unknownAc[1], 0xfffffe, 0, card->name);
+            card->anm->StartScript(&card->unk_ac[0], card->sideIdx + 0x12);
+            g_App.textAnm->SetSprite(&card->unk_ac[1], card->sideIdx + 4);
+            card->unk_ac[1].scaleX = 1.0f;
+            card->unk_ac[1].scaleY = 1.0f;
+            g_SpriteEngine->RenderTextCentered(&card->unk_ac[1], 0xfffffe, 0, card->name);
         }
-        card->unknownA8 = 0;
+        card->unk_a8 = 0;
     }
-    if (g_GameManager.unknownBits134_11 && card->unknown98 > 30)
+    if (g_GameManager.unknownBits134_11 && card->unk_98 > 30)
     {
         g_GameManager.unknownBits134_11 &= ~(1 << card->sideIdx);
     }
@@ -198,7 +198,7 @@ int SpellCard::OnUpdate(SpellCard *card)
     {
         if (card->callbacks[1].update == NULL)
         {
-            card->unknownAc[0].visible = 0;
+            card->unk_ac[0].visible = 0;
         }
         card->callbacks[0].end(card);
         card->callbacks[0].update = NULL;
@@ -207,7 +207,7 @@ int SpellCard::OnUpdate(SpellCard *card)
     }
     if (card->callbacks[1].update != NULL && card->callbacks[1].update(card))
     {
-        card->unknownAc[0].visible = 0;
+        card->unk_ac[0].visible = 0;
         card->callbacks[1].end(card);
         card->callbacks[1].update = NULL;
         card->callbacks[1].draw = NULL;
@@ -215,18 +215,18 @@ int SpellCard::OnUpdate(SpellCard *card)
         g_SoundPlayer.QueueSound(0xf, 0);
         card->side->stage->Reset();
     }
-    if (g_SpriteEngine->Step(&card->unknownAc[0]))
+    if (g_SpriteEngine->Step(&card->unk_ac[0]))
     {
-        card->unknownAc[0].visible = 0;
+        card->unk_ac[0].visible = 0;
     }
     for (i = 0; i < 5; i++)
     {
-        if (g_SpriteEngine->Step(&card->unknown5f4[i]))
+        if (g_SpriteEngine->Step(&card->unk_5f4[i]))
         {
-            card->unknown5f4[i].visible = 0;
+            card->unk_5f4[i].visible = 0;
         }
     }
-    card->unknown98++;
+    card->unk_98++;
     return 1;
 }
 
@@ -244,20 +244,20 @@ int SpellCard::OnDraw(SpellCard *card)
     {
         card->callbacks[1].draw(card);
     }
-    sprite = &card->unknownAc[0];
+    sprite = &card->unk_ac[0];
     if (sprite->visible)
     {
         sprite->pos.x = g_GameManager.ArenaToScreenX(sprite->posOffset.x);
         sprite->pos.y = g_GameManager.ArenaToScreenY(sprite->posOffset.y);
         sprite->pos.z = 0.0f;
         g_SpriteEngine->DrawUnrotated(sprite);
-        card->unknownAc[1].pos = sprite->pos;
-        card->unknownAc[1].pos.y += 10.0f;
-        card->unknownAc[1].color = sprite->color;
-        card->unknownAc[1].flags = sprite->flags;
-        g_SpriteEngine->DrawUnrotated(&card->unknownAc[1]);
+        card->unk_ac[1].pos = sprite->pos;
+        card->unk_ac[1].pos.y += 10.0f;
+        card->unk_ac[1].color = sprite->color;
+        card->unk_ac[1].flags = sprite->flags;
+        g_SpriteEngine->DrawUnrotated(&card->unk_ac[1]);
     }
-    sprite = card->unknown5f4;
+    sprite = card->unk_5f4;
     for (i = 0; i < 5; i++, sprite++)
     {
         if (sprite->visible)

@@ -23,7 +23,7 @@ void EffectManager::Reset()
 
     this->drawList0.next = NULL;
     effect = this->effects;
-    for (i = 0; i < this->unknown34 + this->unknown38 + 1; i++, effect++)
+    for (i = 0; i < this->unk_34 + this->unk_38 + 1; i++, effect++)
     {
         if (effect->vertices != NULL)
         {
@@ -38,8 +38,8 @@ void EffectManager::Reset()
     }
     g_MemoryTracker.Free(this->effects);
     this->effects = (Effect *)g_MemoryTracker.Alloc(
-        (this->unknown34 + this->unknown38 + 1) * sizeof(Effect), GLOBAL_H);
-    memset(this->effects, 0, (this->unknown34 + this->unknown38 + 1) * sizeof(Effect));
+        (this->unk_34 + this->unk_38 + 1) * sizeof(Effect), GLOBAL_H);
+    memset(this->effects, 0, (this->unk_34 + this->unk_38 + 1) * sizeof(Effect));
 }
 
 Effect *EffectManager::StartEffect(Effect *effect, int effectIdx, D3DXVECTOR3 *pos, D3DCOLOR color,
@@ -93,10 +93,10 @@ Effect *EffectManager::SpawnEffect(int effectIdx, D3DXVECTOR3 *pos, int count, D
     D3DXVECTOR3 velocity(0.0f, 0.0f, 0.0f);
     int tries;
 
-    for (tries = 0; tries < this->unknown34; tries++)
+    for (tries = 0; tries < this->unk_34; tries++)
     {
         this->next++;
-        if (this->next >= this->unknown34)
+        if (this->next >= this->unk_34)
         {
             this->next = 0;
         }
@@ -118,7 +118,7 @@ Effect *EffectManager::SpawnEffect(int effectIdx, D3DXVECTOR3 *pos, int count, D
             effect++;
         }
     }
-    return tries >= this->unknown34 ? &this->effects[this->unknown38 + this->unknown34] : effect;
+    return tries >= this->unk_34 ? &this->effects[this->unk_38 + this->unk_34] : effect;
 }
 
 Effect *EffectManager::SpawnEffectWithVelocity(int effectIdx, D3DXVECTOR3 *pos, D3DXVECTOR3 *velocity, int count,
@@ -127,10 +127,10 @@ Effect *EffectManager::SpawnEffectWithVelocity(int effectIdx, D3DXVECTOR3 *pos, 
     Effect *effect = &this->effects[this->next];
     int tries;
 
-    for (tries = 0; tries < this->unknown34; tries++)
+    for (tries = 0; tries < this->unk_34; tries++)
     {
         this->next++;
-        if (this->next >= this->unknown34)
+        if (this->next >= this->unk_34)
         {
             this->next = 0;
         }
@@ -152,12 +152,12 @@ Effect *EffectManager::SpawnEffectWithVelocity(int effectIdx, D3DXVECTOR3 *pos, 
             effect++;
         }
     }
-    return tries >= this->unknown34 ? &this->effects[this->unknown38 + this->unknown34] : effect;
+    return tries >= this->unk_34 ? &this->effects[this->unk_38 + this->unk_34] : effect;
 }
 
 Effect *EffectManager::SpawnReservedEffect(int effectIdx, D3DXVECTOR3 *pos, int slot, D3DCOLOR color)
 {
-    Effect *effect = &this->effects[this->unknown34 + slot];
+    Effect *effect = &this->effects[this->unk_34 + slot];
     D3DXVECTOR3 velocity(0.0f, 0.0f, 0.0f);
 
     this->StartEffect(effect, effectIdx, pos, color, &velocity);
@@ -189,7 +189,7 @@ int EffectManager::OnUpdate(EffectManager *mgr)
     mgr->drawList1.next = NULL;
     mgr->drawList2.next = NULL;
     // Preserve the original order of the two live pool-bound reads.
-    for (i = 0; i < static_cast<const volatile int &>(mgr->unknown34) + mgr->unknown38; i++, effect++)
+    for (i = 0; i < static_cast<const volatile int &>(mgr->unk_34) + mgr->unk_38; i++, effect++)
     {
         if (!effect->active)
         {
@@ -226,16 +226,16 @@ int EffectManager::OnUpdate(EffectManager *mgr)
         }
         effect->timer++;
         effect->next = NULL;
-        if (effect->unknownD0)
+        if (effect->unk_d0)
         {
             continue;
         }
-        if (effect->unknownCa)
+        if (effect->unk_ca)
         {
             mgr->drawListTails[2]->next = effect;
             mgr->drawListTails[2] = effect;
         }
-        else if (effect->unknownC8)
+        else if (effect->unk_c8)
         {
             mgr->drawListTails[1]->next = effect;
             mgr->drawListTails[1] = effect;
@@ -356,7 +356,7 @@ int EffectManager::FreeEffects(EffectManager *mgr)
     Effect *effect;
 
     effect = mgr->effects;
-    for (i = 0; i < mgr->unknown38 + mgr->unknown34 + 1; i++, effect++)
+    for (i = 0; i < mgr->unk_38 + mgr->unk_34 + 1; i++, effect++)
     {
         if (effect->vertices != NULL)
         {
@@ -401,8 +401,8 @@ EffectManager *EffectManager::RegisterChain(int sideIdx, int count34, int count3
         mgr->side = &g_GameManager.sides[sideIdx];
         mgr->otherSide = &g_GameManager.sides[sideIdx];
     }
-    mgr->unknown34 = count34;
-    mgr->unknown38 = count38;
+    mgr->unk_34 = count34;
+    mgr->unk_38 = count38;
     mgr->effects = (Effect *)g_MemoryTracker.Alloc((count34 + count38 + 1) * sizeof(Effect), GLOBAL_H);
     memset(mgr->effects, 0, (count34 + count38 + 1) * sizeof(Effect));
     mgr->calcElem = g_Chain.CreateElem((ChainCallback)EffectManager::OnUpdate);
@@ -429,14 +429,14 @@ EffectManager *EffectManager::RegisterChain(int sideIdx, int count34, int count3
 
 int UpdateEffectFromSprite(Effect *effect)
 {
-    effect->unknown8c = effect->sprites->scriptVar0;
-    effect->unknown9c = effect->sprites->scriptVar1;
-    effect->unknown88 = effect->sprites->scaleX;
-    effect->unknown7c = effect->sprites->posOffset.x;
-    effect->unknown94 = effect->sprites->posOffset.y;
-    effect->unknown80 = effect->sprites->rotation.z;
-    effect->unknown98 = effect->sprites->rotation.y;
-    effect->unknownC9 = 1;
+    effect->unk_8c = effect->sprites->scriptVar0;
+    effect->unk_9c = effect->sprites->scriptVar1;
+    effect->unk_88 = effect->sprites->scaleX;
+    effect->unk_7c = effect->sprites->posOffset.x;
+    effect->unk_94 = effect->sprites->posOffset.y;
+    effect->unk_80 = effect->sprites->rotation.z;
+    effect->unk_98 = effect->sprites->rotation.y;
+    effect->unk_c9 = 1;
     return 1;
 }
 
@@ -456,16 +456,16 @@ void Vector2::SetPolarEllipse(float angle, float radiusX, float radiusY)
 
 int InitEffectTypes1And2(Effect *effect)
 {
-    effect->unknown54 = effect->pos;
-    effect->unknown60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);
-    effect->unknown60.y = g_GameManager.ArenaToScreenY(effect->velocity.y);
-    effect->unknown60.z = effect->velocity.z;
-    SetPolar((Vector2 *)&effect->unknown3c,
+    effect->unk_54 = effect->pos;
+    effect->unk_60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);
+    effect->unk_60.y = g_GameManager.ArenaToScreenY(effect->velocity.y);
+    effect->unk_60.z = effect->velocity.z;
+    SetPolar((Vector2 *)&effect->unk_3c,
              g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
-    SetPolar((Vector2 *)&effect->unknown48,
+    SetPolar((Vector2 *)&effect->unk_48,
              g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
-    effect->unknown9c = g_Rng.GetRandomF32InRange(100.0f) + 60.0f;
-    effect->unknown98 = 0.0f;
+    effect->unk_9c = g_Rng.GetRandomF32InRange(100.0f) + 60.0f;
+    effect->unk_98 = 0.0f;
     return 0;
 }
 
@@ -478,30 +478,30 @@ int UpdateEffectTypes1And2(Effect *effect)
     float f11;
     float maxSpeed;
 
-    if (effect->unknown98 != 0.0f)
+    if (effect->unk_98 != 0.0f)
     {
-        effect->unknownD0 = 1;
-        if (effect->timer.AsFloat() >= effect->unknown98)
+        effect->unk_d0 = 1;
+        if (effect->timer.AsFloat() >= effect->unk_98)
         {
             g_SoundPlayer.QueueSound(0x2e, effect->mgr->sideIdx != 0 ? 500 : -500);
-            effect->unknown98 = 0.0f;
+            effect->unk_98 = 0.0f;
             effect->timer = 0;
-            effect->unknownD0 = 0;
+            effect->unk_d0 = 0;
             return 1;
         }
         return 1;
     }
-    if (effect->timer.AsFloat() < effect->unknown9c)
+    if (effect->timer.AsFloat() < effect->unk_9c)
     {
-        t = effect->timer.AsFloat() / effect->unknown9c;
+        t = effect->timer.AsFloat() / effect->unk_9c;
         f00 = (2.0f * t + 1.0f) * (t - 1.0f) * (t - 1.0f);
         f01 = (3.0f - 2.0f * t) * t * t;
         f10 = (1.0f - t) * (1.0f - t) * t;
         f11 = (t - 1.0f) * t * t;
-        effect->pos.x = f00 * effect->unknown54.x + f10 * effect->unknown3c.x + f01 * effect->unknown60.x +
-                        f11 * effect->unknown48.x;
-        effect->pos.y = f00 * effect->unknown54.y + f10 * effect->unknown3c.y + f01 * effect->unknown60.y +
-                        f11 * effect->unknown48.y;
+        effect->pos.x = f00 * effect->unk_54.x + f10 * effect->unk_3c.x + f01 * effect->unk_60.x +
+                        f11 * effect->unk_48.x;
+        effect->pos.y = f00 * effect->unk_54.y + f10 * effect->unk_3c.y + f01 * effect->unk_60.y +
+                        f11 * effect->unk_48.y;
         return 1;
     }
     if (g_GameManager.gui->GetUnknown11ea8() != 0)
@@ -510,15 +510,15 @@ int UpdateEffectTypes1And2(Effect *effect)
     }
     BulletShooter shooter;
     shooter.pos = effect->velocity;
-    if (effect->unknownAa >= 2 && g_Rng.GetRandomU32InRange(5) == 0)
+    if (effect->unk_aa >= 2 && g_Rng.GetRandomU32InRange(5) == 0)
     {
         shooter.sprite = 3;
     }
     else
     {
-        shooter.sprite = effect->unknownA4;
+        shooter.sprite = effect->unk_a4;
     }
-    shooter.color = effect->unknownA6;
+    shooter.color = effect->unk_a6;
     shooter.aimMode = 1;
     shooter.count1 = 1;
     shooter.count2 = 1;
@@ -537,8 +537,8 @@ int UpdateEffectTypes1And2(Effect *effect)
         shooter.color = 3;
         shooter.angle1 = g_Rng.GetRandomF32SignedInRange(0.2617994f) + 1.5707964f;
     }
-    shooter.speed1 = g_Rng.GetRandomF32SignedInRange(0.4f) + effect->unknownA0;
-    if (g_GameManager.sides[1 - effect->unknownA8].character == 10)
+    shooter.speed1 = g_Rng.GetRandomF32SignedInRange(0.4f) + effect->unk_a0;
+    if (g_GameManager.sides[1 - effect->unk_a8].character == 10)
     {
         shooter.speed1 *= 0.93f;
     }
@@ -546,7 +546,7 @@ int UpdateEffectTypes1And2(Effect *effect)
     {
         shooter.speed1 += 0.3f;
     }
-    maxSpeed = g_GameManager.rank.unknownB4 * 0.1f + 3.0f;
+    maxSpeed = g_GameManager.rank.unk_b4 * 0.1f + 3.0f;
     if (shooter.speed1 >= maxSpeed)
     {
         shooter.speed1 = maxSpeed;
@@ -555,26 +555,26 @@ int UpdateEffectTypes1And2(Effect *effect)
     {
         shooter.speed1 = 0.8f;
     }
-    shooter.unknown20c = effect->unknownAa + 1;
+    shooter.unk_20c = effect->unk_aa + 1;
     shooter.angle2 = 0.0f;
     shooter.speed2 = 0.0f;
-    shooter.unknown1fa = 0;
+    shooter.unk_1fa = 0;
     shooter.flags = 4;
-    g_GameManager.sides[1 - effect->unknownA8].bulletManager->FirePattern(&shooter);
+    g_GameManager.sides[1 - effect->unk_a8].bulletManager->FirePattern(&shooter);
     return 0;
 }
 
 int InitEffectTypes3And4(Effect *effect)
 {
-    effect->unknown54 = effect->pos;
-    effect->unknown60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);
-    effect->unknown60.y = g_GameManager.ArenaToScreenY(effect->velocity.y);
-    effect->unknown60.z = effect->velocity.z;
-    SetPolar((Vector2 *)&effect->unknown3c,
+    effect->unk_54 = effect->pos;
+    effect->unk_60.x = g_GameManager.ArenaToScreenX(effect->velocity.x);
+    effect->unk_60.y = g_GameManager.ArenaToScreenY(effect->velocity.y);
+    effect->unk_60.z = effect->velocity.z;
+    SetPolar((Vector2 *)&effect->unk_3c,
              g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
-    SetPolar((Vector2 *)&effect->unknown48,
+    SetPolar((Vector2 *)&effect->unk_48,
              g_Rng.GetRandomF32SignedInRange(3.1415927f), g_Rng.GetRandomF32InRange(256.0f) + 64.0f);
-    effect->unknown9c = g_Rng.GetRandomF32InRange(100.0f) + 60.0f;
+    effect->unk_9c = g_Rng.GetRandomF32InRange(100.0f) + 60.0f;
     return 0;
 }
 
@@ -588,33 +588,33 @@ int UpdateEffectTypes3And4(Effect *effect)
     Enemy *enemy;
     int range;
 
-    if (effect->timer.AsFloat() < effect->unknown9c)
+    if (effect->timer.AsFloat() < effect->unk_9c)
     {
-        t = effect->timer.AsFloat() / effect->unknown9c;
+        t = effect->timer.AsFloat() / effect->unk_9c;
         f00 = (2.0f * t + 1.0f) * (t - 1.0f) * (t - 1.0f);
         f01 = (3.0f - 2.0f * t) * t * t;
         f10 = (1.0f - t) * (1.0f - t) * t;
         f11 = (t - 1.0f) * t * t;
-        effect->pos.x = f00 * effect->unknown54.x + f10 * effect->unknown3c.x + f01 * effect->unknown60.x +
-                        f11 * effect->unknown48.x;
-        effect->pos.y = f00 * effect->unknown54.y + f10 * effect->unknown3c.y + f01 * effect->unknown60.y +
-                        f11 * effect->unknown48.y;
+        effect->pos.x = f00 * effect->unk_54.x + f10 * effect->unk_3c.x + f01 * effect->unk_60.x +
+                        f11 * effect->unk_48.x;
+        effect->pos.y = f00 * effect->unk_54.y + f10 * effect->unk_3c.y + f01 * effect->unk_60.y +
+                        f11 * effect->unk_48.y;
         return 1;
     }
     if (g_GameManager.gui->GetUnknown11ea8() == 0 &&
-        g_GameManager.sides[1 - effect->unknownA8].enemyManager->unknown2ac3b8 < 10)
+        g_GameManager.sides[1 - effect->unk_a8].enemyManager->unk_2ac3b8 < 10)
     {
-        enemy = g_GameManager.sides[1 - effect->unknownA8].enemyManager->Spawn(
-            effect->unknownA4, &effect->velocity, 0x14, -2, 1000, 0, 0);
-        enemy->unknown3380 = effect->unknownA6;
-        enemy->acceleration += effect->unknownA0;
-        range = g_GameManager.sides[1 - effect->unknownA8].character != 7 ? 5 : 4;
+        enemy = g_GameManager.sides[1 - effect->unk_a8].enemyManager->Spawn(
+            effect->unk_a4, &effect->velocity, 0x14, -2, 1000, 0, 0);
+        enemy->unk_3380 = effect->unk_a6;
+        enemy->acceleration += effect->unk_a0;
+        range = g_GameManager.sides[1 - effect->unk_a8].character != 7 ? 5 : 4;
         if (g_Rng.GetRandomU32InRange(range))
         {
             enemy->angle = g_Rng.GetRandomF32SignedInRange(0.015707964f) + 1.5707964f;
             return 0;
         }
-        enemy->angle = g_GameManager.sides[1 - effect->unknownA8].player->AngleToPlayer(&enemy->absPos) +
+        enemy->angle = g_GameManager.sides[1 - effect->unk_a8].player->AngleToPlayer(&enemy->absPos) +
                        g_Rng.GetRandomF32SignedInRange(0.3926991f);
     }
     return 0;
@@ -627,23 +627,23 @@ int EffectInitRing(Effect *effect)
     {
         return -1;
     }
-    effect->unknown48 = effect->pos;
-    effect->unknown80 = effect->velocity.x;
-    effect->unknown8c = 3;
-    effect->unknown54.x = 0.0f;
-    effect->unknown54.y = 0.0f;
-    effect->unknown54.z = 1.0f;
-    effect->unknown60.x = 0.0f;
-    effect->unknown60.y = -1.0f;
-    effect->unknown60.z = 0.0f;
-    effect->unknown7c = effect->velocity.y;
-    effect->unknown88 = effect->velocity.z;
+    effect->unk_48 = effect->pos;
+    effect->unk_80 = effect->velocity.x;
+    effect->unk_8c = 3;
+    effect->unk_54.x = 0.0f;
+    effect->unk_54.y = 0.0f;
+    effect->unk_54.z = 1.0f;
+    effect->unk_60.x = 0.0f;
+    effect->unk_60.y = -1.0f;
+    effect->unk_60.z = 0.0f;
+    effect->unk_7c = effect->velocity.y;
+    effect->unk_88 = effect->velocity.z;
     g_SpriteEngine->FillSpriteStripVertices(effect->sprites, effect->vertices, 6);
-    effect->unknown94 = 0.0f;
-    effect->unknown98 = 0.0f;
-    effect->unknown9c = 0.0f;
-    effect->unknownC9 = 1;
-    effect->unknown8c = 0x18;
+    effect->unk_94 = 0.0f;
+    effect->unk_98 = 0.0f;
+    effect->unk_9c = 0.0f;
+    effect->unk_c9 = 1;
+    effect->unk_8c = 0x18;
     return 0;
 }
 
@@ -655,19 +655,19 @@ int EffectDrawRing(Effect *effect)
     float inner;
     int i;
 
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        delta = 6.2831855f / effect->unknown8c;
-        outer = effect->unknown88 / sinf((3.1415927f - delta) / 2.0f);
+        delta = 6.2831855f / effect->unk_8c;
+        outer = effect->unk_88 / sinf((3.1415927f - delta) / 2.0f);
         vtx = effect->vertices;
-        g_SpriteEngine->FillVerticalStripVertices(effect->sprites, effect->vertices, effect->unknown8c * 2 + 2);
-        if (effect->unknown94 == 0.0f)
+        g_SpriteEngine->FillVerticalStripVertices(effect->sprites, effect->vertices, effect->unk_8c * 2 + 2);
+        if (effect->unk_94 == 0.0f)
         {
-            float angle = effect->unknown80;
+            float angle = effect->unk_80;
 
-            inner = effect->unknown7c - outer;
-            outer += effect->unknown7c;
-            for (i = effect->unknown8c + 1; i > 0; i--)
+            inner = effect->unk_7c - outer;
+            outer += effect->unk_7c;
+            for (i = effect->unk_8c + 1; i > 0; i--)
             {
                 if (angle >= 3.1415927f)
                 {
@@ -675,20 +675,20 @@ int EffectDrawRing(Effect *effect)
                 }
                 vtx->pos.z = 0.0f;
                 SetPolar((Vector2 *)&vtx->pos, angle, outer);
-                vtx->pos += effect->unknown48;
+                vtx->pos += effect->unk_48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
                 vtx++;
                 vtx->pos.z = 0.0f;
                 SetPolar((Vector2 *)&vtx->pos, angle, inner);
-                vtx->pos += effect->unknown48;
+                vtx->pos += effect->unk_48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
                 vtx++;
                 angle += delta;
             }
         }
-        else if (effect->unknown9c == 0.0f)
+        else if (effect->unk_9c == 0.0f)
         {
             float angle = 0.0f;
             D3DXVECTOR3 pos;
@@ -696,22 +696,22 @@ int EffectDrawRing(Effect *effect)
             float outerY;
             float ryInner;
 
-            outerY = outer + effect->unknown94;
-            ryInner = effect->unknown94 - outer;
-            inner = effect->unknown7c - outer;
-            outer += effect->unknown7c;
-            for (i = effect->unknown8c + 1; i > 0; i--)
+            outerY = outer + effect->unk_94;
+            ryInner = effect->unk_94 - outer;
+            inner = effect->unk_7c - outer;
+            outer += effect->unk_7c;
+            for (i = effect->unk_8c + 1; i > 0; i--)
             {
                 ppos->SetPolarEllipse(angle, outer, outerY);
-                Rotate2D(&vtx->pos, (D3DXVECTOR3 *)ppos, effect->unknown98);
-                vtx->pos += effect->unknown48;
+                Rotate2D(&vtx->pos, (D3DXVECTOR3 *)ppos, effect->unk_98);
+                vtx->pos += effect->unk_48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
                 vtx->pos.z = 0.0f;
                 vtx++;
                 ppos->SetPolarEllipse(angle, inner, ryInner);
-                Rotate2D(&vtx->pos, (D3DXVECTOR3 *)ppos, effect->unknown98);
-                vtx->pos += effect->unknown48;
+                Rotate2D(&vtx->pos, (D3DXVECTOR3 *)ppos, effect->unk_98);
+                vtx->pos += effect->unk_48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
                 vtx->pos.z = 0.0f;
@@ -721,14 +721,14 @@ int EffectDrawRing(Effect *effect)
         }
         else
         {
-            float wobbleAngle = effect->unknown98;
-            float angle = effect->unknown80;
-            float phaseStep = 6.2831855f * effect->unknown9c / effect->unknown8c;
+            float wobbleAngle = effect->unk_98;
+            float angle = effect->unk_80;
+            float phaseStep = 6.2831855f * effect->unk_9c / effect->unk_8c;
             float wobble;
 
-            inner = effect->unknown7c - outer;
-            outer += effect->unknown7c;
-            for (i = effect->unknown8c + 1; i > 0; i--)
+            inner = effect->unk_7c - outer;
+            outer += effect->unk_7c;
+            for (i = effect->unk_8c + 1; i > 0; i--)
             {
                 if (angle >= 3.1415927f)
                 {
@@ -738,15 +738,15 @@ int EffectDrawRing(Effect *effect)
                 {
                     wobbleAngle -= 6.2831855f;
                 }
-                wobble = cosf(wobbleAngle) * effect->unknown94;
+                wobble = cosf(wobbleAngle) * effect->unk_94;
                 SetPolar((Vector2 *)&vtx->pos, angle, outer + wobble);
-                vtx->pos += effect->unknown48;
+                vtx->pos += effect->unk_48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
                 vtx->pos.z = 0.0f;
                 vtx++;
                 SetPolar((Vector2 *)&vtx->pos, angle, inner + wobble);
-                vtx->pos += effect->unknown48;
+                vtx->pos += effect->unk_48;
                 vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
                 vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
                 vtx->pos.z = 0.0f;
@@ -755,9 +755,9 @@ int EffectDrawRing(Effect *effect)
                 wobbleAngle += phaseStep;
             }
         }
-        effect->unknownC9 = 0;
+        effect->unk_c9 = 0;
     }
-    g_SpriteEngine->DrawVertexStrip(effect->sprites, effect->vertices, effect->unknown8c * 2 + 2);
+    g_SpriteEngine->DrawVertexStrip(effect->sprites, effect->vertices, effect->unk_8c * 2 + 2);
     return 1;
 }
 

@@ -105,7 +105,7 @@ int GetIntOperand(Enemy *enemy, int id)
     case 10040:
         return g_GameManager.difficulty;
     case 10041:
-        return g_GameManager.rank.unknownB4;
+        return g_GameManager.rank.unk_b4;
     case 10049:
         return enemy->callbackTimer.current;
     case 10051:
@@ -227,8 +227,8 @@ int GetIntOperand(Enemy *enemy, int id)
     case 10093:
         return enemy->score;
     case 10101:
-        return enemy->unknownType < 3 ? enemy->manager->otherSide->player->unknownA0
-                                     : enemy->manager->otherSide->player->unknownA4;
+        return enemy->unknownType < 3 ? enemy->manager->otherSide->player->unk_a0
+                                     : enemy->manager->otherSide->player->unk_a4;
     case 10048:
         return enemy->manager->side->player->AngleToPlayer(&enemy->absPos);
     case 10050:
@@ -300,7 +300,7 @@ int *ResolveOperand(Enemy *enemy, int *operand, WORD mask, int bit)
     case 10040:
         return &g_GameManager.difficulty;
     case 10041:
-        return &g_GameManager.rank.unknownB4;
+        return &g_GameManager.rank.unk_b4;
     case 10049:
         return &enemy->callbackTimer.current;
     case 10051:
@@ -558,7 +558,7 @@ float GetFloatOperand(Enemy *enemy, float id)
     case 10040:
         return g_GameManager.difficulty;
     case 10041:
-        return g_GameManager.rank.unknownB4;
+        return g_GameManager.rank.unk_b4;
     case 10049:
         return enemy->callbackTimer.current;
     case 10051:
@@ -686,9 +686,9 @@ float GetFloatOperand(Enemy *enemy, float id)
     case 10101:
         if (enemy->unknownType < 3)
         {
-            return enemy->manager->otherSide->player->unknownA0;
+            return enemy->manager->otherSide->player->unk_a0;
         }
-        return enemy->manager->otherSide->player->unknownA4;
+        return enemy->manager->otherSide->player->unk_a4;
     case 10084:
         return enemy->bossIndex;
     case 10083:
@@ -1125,7 +1125,7 @@ static void ScriptFireBullets(Enemy *enemy, EnemyScriptInstr *instr)
     bs->speed1 = FLOAT_OP(instr->args[3].f, 0x10);
     bs->angle2 = FLOAT_OP(instr->args[6].f, 0x80);
     bs->speed2 = FLOAT_OP(instr->args[4].f, 0x20);
-    bs->unknown1fa = 0;
+    bs->unk_1fa = 0;
     bs->flags = instr->args[7].i;
     shortArg = ((short *)instr->args)[1];
     bs->color = INT_OP(shortArg, 2);
@@ -1134,7 +1134,7 @@ static void ScriptFireBullets(Enemy *enemy, EnemyScriptInstr *instr)
 
 // 0x408180
 // Moves the enemy by its move mode, then (new in th09) runs the player's
-// capture of it while unknown3380 is set. (esi = enemy.)
+// capture of it while unk_3380 is set. (esi = enemy.)
 static void ScriptUpdateMovement(Enemy *enemy)
 {
     // Body layout in the asm: case 3 (0x4081a9), case 2 (0x408269), case 1
@@ -1235,19 +1235,19 @@ static void ScriptUpdateMovement(Enemy *enemy)
     }
     }
     // 0x40848e: new in th09.
-    if (enemy->unknown3380)
+    if (enemy->unk_3380)
     {
-        if (!enemy->useVelocity2 && enemy->manager->side->player->unknown364 != NULL &&
+        if (!enemy->useVelocity2 && enemy->manager->side->player->unk_364 != NULL &&
             enemy->manager->side->player->CallUnknown30404(&enemy->pos))
         {
             enemy->useVelocity2 = 1;
-            enemy->manager->anm->StartScript(&enemy->primarySprite, enemy->unknown3380 + 0x16);
+            enemy->manager->anm->StartScript(&enemy->primarySprite, enemy->unk_3380 + 0x16);
             enemy->turnLeft = -1;
             g_SoundPlayer.QueueSound(0x2f, enemy->manager->sideIdx != 0 ? 500 : -500);
         }
         if (enemy->useVelocity2)
         {
-            enemy->manager->side->player->unknown30408(enemy->manager->side->player, enemy);
+            enemy->manager->side->player->unk_30408(enemy->manager->side->player, enemy);
         }
     }
 }
@@ -2260,7 +2260,7 @@ loop:
         case 148:
             // th08's g_Gui.SetBossLives(INT_ARG(0)) is gone; only the
             // progressFrames add is left.
-            g_GameManager.unknown380 += 1800;
+            g_GameManager.unk_380 += 1800;
             break;
         // 0x40b309
         case 93:
@@ -2444,24 +2444,24 @@ loop:
             // New in th09. Every not-taken path jumps to 0x40b410.
             if (enemy->unknownType < 3)
             {
-                if (enemy->manager->side->spellCard->unknownA4 != 0)
+                if (enemy->manager->side->spellCard->unk_a4 != 0)
                 {
-                    enemy->manager->side->spellCard->unknownA4 = 2;
+                    enemy->manager->side->spellCard->unk_a4 = 2;
                 }
             }
             else if (enemy->unknownType == 3)
             {
-                if (enemy->manager->side->spellCard->unknownA8 != 0)
+                if (enemy->manager->side->spellCard->unk_a8 != 0)
                 {
                     int i;
 
-                    enemy->manager->side->spellCard->unknownA8 = 2;
+                    enemy->manager->side->spellCard->unk_a8 = 2;
                     enemy->manager->side->stage->StartSpellCard();
                     for (i = 0; i < enemy->manager->side->stage->dialogueSpriteCount; i++)
                     {
                         enemy->manager->otherSide->stage->playerAnm->StartScript(
                             &enemy->manager->side->stage->dialogueSprites[i],
-                            enemy->manager->otherSide->player->unknown303f4 +
+                            enemy->manager->otherSide->player->unk_303f4 +
                                 enemy->manager->otherSide->stage->dialogueScriptOffset + i);
                     }
                 }
@@ -2672,7 +2672,7 @@ void ScatterBullets(Enemy *enemy, EnemyScriptInstr *instr)
         }
         if (bullet->sprites.sprite0.spriteHeight <= 16.0f)
         {
-            bullet->mgr->etamaAnm->SetSprite(&bullet->sprites.sprite0, bullet->sprites.unknownD44 + 0xf);
+            bullet->mgr->etamaAnm->SetSprite(&bullet->sprites.sprite0, bullet->sprites.unk_d44 + 0xf);
         }
         bullet->speed = 0.0f;
         bullet->accelSpeed = 0.0f;
@@ -2694,9 +2694,9 @@ void ScatterBullets(Enemy *enemy, EnemyScriptInstr *instr)
         {
             continue;
         }
-        if (bullet->sprites.sprite0.spriteHeight <= 16.0f && bullet->sprites.unknownD44 < 0x157)
+        if (bullet->sprites.sprite0.spriteHeight <= 16.0f && bullet->sprites.unk_d44 < 0x157)
         {
-            bullet->mgr->etamaAnm->SetSprite(&bullet->sprites.sprite0, bullet->sprites.unknownD44 + 0xf);
+            bullet->mgr->etamaAnm->SetSprite(&bullet->sprites.sprite0, bullet->sprites.unk_d44 + 0xf);
         }
         bullet->speed = 0.0f;
         bullet->accelSpeed = 0.0f;

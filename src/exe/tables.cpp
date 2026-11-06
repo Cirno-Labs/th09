@@ -1358,7 +1358,7 @@ BgmInfo g_BgmInfos[19] = {
     { 17, "th09_17.mid", -1, 18 },
 };
 
-// GameSide::unknown2c selects all 71 levels, including the story CPU.
+// GameSide::unk_2c selects all 71 levels, including the story CPU.
 PlayerCpuLevel g_PlayerCpuLevels[71] = {
     { { 0, 0, 0 }, { 0, 5, 10 }, 3 },
     { { 0, 0, 0 }, { 0, 6, 10 }, 3 },

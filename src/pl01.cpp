@@ -9,9 +9,9 @@
 #include "spellcard.h"
 #include "unsorted.h"
 
-// The unknown30404 of character 1: whether `pos` is above the player,
-// within a parabola about it that the player's unknown368 widens by its
-// unknown84, and at least 14 across (0x4417f0).
+// The unk_30404 of character 1: whether `pos` is above the player,
+// within a parabola about it that the player's unk_368 widens by its
+// unk_84, and at least 14 across (0x4417f0).
 int CheckFocusAreaCharacter1(Player *player, D3DXVECTOR3 *pos)
 {
     float top = player->pos.y + 32.0f;
@@ -24,7 +24,7 @@ int CheckFocusAreaCharacter1(Player *player, D3DXVECTOR3 *pos)
     }
     top = pos->y - (top - 448.0f);
     dx = pos->x - player->pos.x;
-    width = (200704.0f - top * top) * player->unknown368->unknown84 * player->unknown368->unknown84;
+    width = (200704.0f - top * top) * player->unk_368->unk_84 * player->unk_368->unk_84;
     if (width < 196.0f)
     {
         width = 196.0f;
@@ -36,23 +36,23 @@ int CheckFocusAreaCharacter1(Player *player, D3DXVECTOR3 *pos)
     return 0;
 }
 
-// A hit callback of the shot table (22): counts unknown30354 up.
+// A hit callback of the shot table (22): counts unk_30354 up.
 // Returns 0 (0x441880).
 int HitPlayerShotType1(Player *player, PlayerBullet *bullet, D3DXVECTOR3 *pos)
 {
-    player->unknown30354++;
+    player->unk_30354++;
     return 0;
 }
 
-// The unknown30408 of all characters but 2 and 4: gives the enemy a
+// The unk_30408 of all characters but 2 and 4: gives the enemy a
 // random sideways velocity2 and one upwards that grows over 120 frames
-// of its unknown5424. Returns 0 (0x4418b0).
+// of its unk_5424. Returns 0 (0x4418b0).
 int UpdateFocusedEnemyDrift(Player *player, Enemy *enemy)
 {
     enemy->velocity2.x = g_Rng.GetRandomF32SignedInRange(0.1f);
-    enemy->velocity2.y = enemy->unknown5424 > 0x78 ? -1.0f : enemy->unknown5424.AsFloat() * (-1.0f / 120.0f);
+    enemy->velocity2.y = enemy->unk_5424 > 0x78 ? -1.0f : enemy->unk_5424.AsFloat() * (-1.0f / 120.0f);
     enemy->velocity2.z = 0.0f;
-    enemy->unknown5424++;
+    enemy->unk_5424++;
     return 0;
 }
 
@@ -113,15 +113,15 @@ int UpdateExAttackType2(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 1: while unknown34 reaches
-// (40 - unknownB4) * 3, sends an extra attack of type 2 from `pos` and
-// takes (30 - unknownB4) * 4 off it. Returns 0 (0x441b00).
+// The combo func of character 1: while unk_34 reaches
+// (40 - unk_b4) * 3, sends an extra attack of type 2 from `pos` and
+// takes (30 - unk_b4) * 4 off it. Returns 0 (0x441b00).
 int SendComboAttacksCharacter1(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (40 - g_GameManager.rank.unknownB4) * 3)
+    while (combo->unk_34 >= (40 - g_GameManager.rank.unk_b4) * 3)
     {
         g_GameManager.exAttackManager->AddAttack(2, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (30 - g_GameManager.rank.unknownB4) * 4;
+        combo->unk_34 -= (30 - g_GameManager.rank.unk_b4) * 4;
     }
     return 0;
 }
@@ -132,16 +132,16 @@ int InitSpellCardTypes3And6(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl01.cpp");
+    card->unk_1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl01.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(0, &pos, 0x1e, -2, 1000, 0);
     return 0;
 }
 
 // The update callback of spell card types 0, 1, 3, 4, 6 and 7: whether
-// unknown98 passed 192 frames (0x441bc0).
+// unk_98 passed 192 frames (0x441bc0).
 int IsSpellCardDurationOver(SpellCard *card)
 {
-    if (card->unknown98 > 0xc0)
+    if (card->unk_98 > 0xc0)
     {
         return 1;
     }
@@ -152,7 +152,7 @@ int InitSpellCardTypes4And7(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl01.cpp");
+    card->unk_1360 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl01.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(1, &pos, 0x1e, -2, 10000, 0);
     return 0;
 }
@@ -162,7 +162,7 @@ int InitSpellCardTypes5And8(SpellCard *card)
 {
     D3DXVECTOR3 pos;
 
-    card->unknown1364 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl01.cpp");
+    card->unk_1364 = g_MemoryTracker.Alloc(0x2b8, ".\\pl\\pl01.cpp");
     g_GameManager.sides[card->sideIdx].enemyManager->SpawnPlayerEnemy(2, &pos, 0x578, -2, 1000, 0);
     return 0;
 }

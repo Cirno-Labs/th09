@@ -13,7 +13,7 @@ struct Effect;
 // grown. Placeholder name; only the fields known so far.
 struct PlayerHitArea
 {
-    // Zeroes it, then sets unknown34 to 1, as th08's Reset (0x41bda0).
+    // Zeroes it, then sets unk_34 to 1, as th08's Reset (0x41bda0).
     void Reset();
     // Clears active, as th08's. Inline; the copy is at 0x41bd90.
     void Deactivate()
@@ -48,21 +48,21 @@ struct PlayerHitArea
     int kind;
     BYTE active;
     unsigned char pad_3d[0x40 - 0x3d];
-    int unknown40;
+    int unk_40;
 };
 ASSERT_SIZE(PlayerHitArea, 0x44);
 
 class Player;
 
-// How long the CPU player holds back, by GameSide::unknown2c (0x1c
+// How long the CPU player holds back, by GameSide::unk_2c (0x1c
 // bytes).
 struct PlayerCpuLevel
 {
     // The seconds of PlayerUnknown24's two timers, by the player's
-    // unknownA8 (10 and up, 2 and up, below).
+    // unk_a8 (10 and up, 2 and up, below).
     int seconds5c[3];
     int seconds68[3];
-    // Goes to GameManager's rank.unknownBc.
+    // Goes to GameManager's rank.unk_bc.
     int rank;
 };
 ASSERT_SIZE(PlayerCpuLevel, 0x1c);
@@ -82,8 +82,8 @@ struct PlayerUnknown24
     void Run();
 
     Timer timer0;
-    // Set once unknown30388 reaches unknown58, for a charge release.
-    int unknownC;
+    // Set once unk_30388 reaches unk_58, for a charge release.
+    int unk_c;
     // The buttons of the last directions, newest first; history2 only
     // while counter is 0.
     int history[8];
@@ -91,7 +91,7 @@ struct PlayerUnknown24
     // Frames left of a sidestep.
     int counter;
     int lastDirection;
-    float unknown58;
+    float unk_58;
     Timer timer5c;
     Timer timer68;
     DWORD flags;
@@ -105,12 +105,12 @@ struct PlayerUnknown36cEntry
 {
     D3DXVECTOR3 pos;
     // CheckLaserHit's origin.
-    D3DXVECTOR3 unknownC;
+    D3DXVECTOR3 unk_c;
     D3DXVECTOR3 size;
     // A circle's radius, or 0 for a box, turned by angle unless it is 0.
     float radius;
     float angle;
-    void *unknown2c;
+    void *unk_2c;
 };
 ASSERT_SIZE(PlayerUnknown36cEntry, 0x30);
 
@@ -120,29 +120,29 @@ struct PlayerUnknown36c
 {
     // Sets the player's hitbox around it and returns the first of the
     // first `count` entries that touches it, or NULL, or NULL while
-    // the player's unknown0 is set or unknown1b74 runs (0x41da70).
+    // the player's unk_0 is set or unk_1b74 runs (0x41da70).
     PlayerUnknown36cEntry *CheckHits();
     // The same for a hitbox `size` around `pos`, the circles grown by
     // `margin`; the player's position and hitbox are put back after
     // (0x41d810).
     PlayerUnknown36cEntry *CheckHitsAt(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, float margin);
     // Adds an entry: a box `size` across at `pos`, unturned (0x40f8e0).
-    void Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unknown2c);
+    void Add(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, void *unk_2c);
     // Adds a circle entry of `radius` at `pos`, if one is free. Inline;
     // the copy is at 0x440d30.
-    void AddCircle(D3DXVECTOR3 *pos, float radius, void *unknown2c)
+    void AddCircle(D3DXVECTOR3 *pos, float radius, void *unk_2c)
     {
         if (this->count < 0x80)
         {
             this->entries[this->count].pos = *pos;
             this->entries[this->count].radius = radius;
-            this->entries[this->count].unknown2c = unknown2c;
+            this->entries[this->count].unk_2c = unk_2c;
             this->count++;
         }
     }
     // Add, for a box turned by `angle` about `origin`; used by
     // BulletManager::OnUpdate (0x412830).
-    void AddTurned(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle, void *unknown2c);
+    void AddTurned(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle, void *unk_2c);
 
     Player *player;
     PlayerUnknown36cEntry entries[0x80];
@@ -202,7 +202,7 @@ struct PlayerBullet
     D3DVECTOR velocity;
     // Character 2's shot fire callback keeps ShotData::offsetY here, and
     // offsetX in velocity.z.
-    float unknown448;
+    float unk_448;
     float speed;
     // The direction it flies in.
     float angle;
@@ -215,18 +215,18 @@ struct PlayerBullet
     unsigned char pad_466[0x468 - 0x466];
     // Set by character 2's shot fire callback: ShotData::option, and
     // 15.
-    short unknown468;
-    short unknown46a;
+    short unk_468;
+    short unk_46a;
     // Its script, from 5.
     short script;
     // Drawn blue while it is hit; cleared when fired, where th08 set
     // its red flag.
-    BYTE unknown46e;
+    BYTE unk_46e;
     unsigned char pad_46f[0x470 - 0x46f];
     // Cleared when fired, where th08 copied the player's focus.
-    short unknown470;
+    short unk_470;
     // Set by character 4's shot update callback.
-    BYTE unknown472;
+    BYTE unk_472;
     unsigned char pad_473[0x474 - 0x473];
     // The shot's callbacks, copied when it fires.
     ShotUpdateFunc update;
@@ -248,7 +248,7 @@ struct PlayerLaser
     int unknown10;
     unsigned char pad_14[0x18 - 0x14];
     // Set to 60 while the player respawns, then counted down each frame.
-    int unknown18;
+    int unk_18;
 };
 ASSERT_SIZE(PlayerLaser, 0x1c);
 
@@ -256,25 +256,25 @@ ASSERT_SIZE(PlayerLaser, 0x1c);
 // bytes). Placeholder name.
 struct PlayerUnknown30410
 {
-    // Counts a hit at `pos` and adds `d` (more with rank.unknownB4) to
-    // unknownC, which starts the other side's spell cards as it passes
+    // Counts a hit at `pos` and adds `d` (more with rank.unk_b4) to
+    // unk_c, which starts the other side's spell cards as it passes
     // 100000, 300000 and 500000, and shows it in a popup. With `a` set,
-    // adds `a`, `b` and `c` to unknown2c, unknown30 and unknown34, runs
+    // adds `a`, `b` and `c` to unk_2c, unk_30 and unk_34, runs
     // func and sends particles to the other side. Then extends timer20
-    // and keeps the highest unknownC in bonus (0x41d150).
+    // and keeps the highest unk_c in bonus (0x41d150).
     void AddCombo(D3DXVECTOR3 *pos, int a, int b, int c, int d);
-    // AddCombo, counting unknown38 too (0x40f8b0).
+    // AddCombo, counting unk_38 too (0x40f8b0).
     void AddComboCounted(D3DXVECTOR3 *pos, int a, int b, int c, int d)
     {
-        this->unknown38++;
+        this->unk_38++;
         this->AddCombo(pos, a, b, c, d);
     }
-    // Sets timer20, count and unknown38 to 0 (0x40f8c0).
+    // Sets timer20, count and unk_38 to 0 (0x40f8c0).
     void ResetCombo()
     {
         this->timer20 = 0;
         this->count = 0;
-        this->unknown38 = 0;
+        this->unk_38 = 0;
     }
     // Runs the two timers down: when timer20 runs out the count is
     // reset, and when timer14 does the combo ends as in EndCombo
@@ -288,23 +288,23 @@ struct PlayerUnknown30410
     // The hits counted, and the most of them.
     int count;
     int maxCount;
-    int unknownC;
+    int unk_c;
     // Added to the side's score when the combo ends.
     int bonus;
     Timer timer14;
     Timer timer20;
     // AddCombo's first argument, scaled by difficulty: every
-    // (30 - rank.unknownB4) * 4 of it sends a particle of kind 4 to the
+    // (30 - rank.unk_b4) * 4 of it sends a particle of kind 4 to the
     // other side.
-    int unknown2c;
-    // AddCombo's second argument: every 60 - rank.unknownB4 * 1.5 of
+    int unk_2c;
+    // AddCombo's second argument: every 60 - rank.unk_b4 * 1.5 of
     // it sends a particle of kind 1 to the other side. Character 7's
     // func takes 5 off it for each attack, down to 0.
-    int unknown30;
+    int unk_30;
     // What the character's func spends on extra attacks.
-    int unknown34;
-    int unknown38;
-    int unknown3c;
+    int unk_34;
+    int unk_38;
+    int unk_3c;
     // The character's function from the table at 0x4a19d0, run by
     // AddCombo when it is given points.
     PlayerComboFunc func;
@@ -321,7 +321,7 @@ struct PlayerUnknown30454
     // Set to (0, -1.5, 0) when started.
     D3DXVECTOR3 velocity;
     // Drawn while set.
-    int unknown1c;
+    int unk_1c;
     Sprite sprite;
 };
 ASSERT_SIZE(PlayerUnknown30454, 0x2c4);
@@ -336,17 +336,17 @@ public:
     Player();
 
     // Allocates and zeroes a player for side `sideIdx`, keeping `arg` in
-    // registerChainArg and `unknown20`, and adds it to the chains (update
+    // registerChainArg and `unk_20`, and adds it to the chains (update
     // priority sideIdx + 0xf, draw sideIdx + 0xc and sideIdx + 0xe).
     // Returns it, even if adding fails (0x41f170).
-    static Player *RegisterChain(int arg, int sideIdx, int unknown20);
+    static Player *RegisterChain(int arg, int sideIdx, int unk_20);
     // The chain callbacks (0x41e900, 0x41eb10, 0x41cdc0, 0x41ee50).
     static int OnUpdate(Player *player);
     static int OnDraw(Player *player);
     static int OnDraw2(Player *player);
     static int AddedCallback(Player *player);
     // Loads each side's character ANM into slot side + 5 (its second
-    // one while GameSide::unknown30 is set), unless it is loaded and the
+    // one while GameSide::unk_30 is set), unless it is loaded and the
     // character is the last game's. Returns 0, or -1 if one does not
     // load (0x41cde0).
     static int LoadAnms();
@@ -354,24 +354,24 @@ public:
     // deletes it, if any (0x41ced0).
     static void RemoveChain(Player *player);
     // Resets the player for a new round: puts it at (-160, arena bottom
-    // - 64), frees the hit areas and bullets, sets unknown0 to 5 for 120
-    // frames, the lives from GameManager::initialLives and unknownA0 and
-    // unknownA4 by difficulty and unknown100 (one life and a full
-    // unknown30388 on difficulty 4) (0x41ebc0).
+    // - 64), frees the hit areas and bullets, sets unk_0 to 5 for 120
+    // frames, the lives from GameManager::initialLives and unk_a0 and
+    // unk_a4 by difficulty and unk_100 (one life and a full
+    // unk_30388 on difficulty 4) (0x41ebc0).
     void Reset();
-    // The player is hit, unless the front's unknown11ea8 is set: queues
-    // sound 4 and takes rank.unknownB8 lives (and rank.unknownBc more
-    // while unknown20 is set) from unknownA8, keeping one. With one left,
-    // character 8 with unknown30388 at 200 or more instead starts a
+    // The player is hit, unless the front's unk_11ea8 is set: queues
+    // sound 4 and takes rank.unk_b8 lives (and rank.unk_bc more
+    // while unk_20 is set) from unk_a8, keeping one. With one left,
+    // character 8 with unk_30388 at 200 or more instead starts a
     // spell card on the other side by it and returns; otherwise the
-    // other side wins the round. Then sets unknown0 to 4, blows the
+    // other side wins the round. Then sets unk_0 to 4, blows the
     // player off at a random angle and lowers the rank (0x41e420).
     void Die();
-    // Calls the character's unknown30404 with `pos`. Called by the
+    // Calls the character's unk_30404 with `pos`. Called by the
     // enemies; the copy is at 0x406820.
     int CallUnknown30404(D3DXVECTOR3 *pos)
     {
-        return this->unknown30404(this, pos);
+        return this->unk_30404(this, pos);
     }
     // The angle from the player to `pos`, or pi / 2 at the player
     // (0x41bb00).
@@ -379,8 +379,8 @@ public:
     // The angle from `pos` to the player, or pi / 2 at the player
     // (0x41bb70).
     float AngleToPlayer(D3DXVECTOR3 *pos);
-    // Raises unknown30388 by `amount` (and character 1 by 0.15 times
-    // more), capped at 400, and starts the front's unknown66fc when its
+    // Raises unk_30388 by `amount` (and character 1 by 0.15 times
+    // more), capped at 400, and starts the front's unk_66fc when its
     // hundreds change (0x41bc90).
     void AddUnknown30388(float amount);
     // Whether a box `size` from `pos` each way touches the hitbox
@@ -395,21 +395,21 @@ public:
     // graze (0x41bfc0).
     int CheckLaserHit(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, D3DXVECTOR3 *origin, float angle, int canGraze);
     // Whether a `size` box at `pos` touches grazeTestMin-Max while
-    // unknown0 is 0 or 3, as th08's (0x41bee0).
+    // unk_0 is 0 or 3, as th08's (0x41bee0).
     int TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size);
-    // Sets unknown0. Inline; the copy is at 0x403c20.
+    // Sets unk_0. Inline; the copy is at 0x403c20.
     void SetPlayerState(int value)
     {
         this->playerState = value;
     }
     // Start a circle that clears around the player, growing from 0 by 4,
     // 4 or 3.5 a frame for 0x30, 0x40 or 0x80 frames, with effect 0xd,
-    // 0xe or 0xf, and set unknown0 to 3 and stateTimer to the frames
+    // 0xe or 0xf, and set unk_0 to 3 and stateTimer to the frames
     // (0x403c30, 0x403c90, 0x403cf0).
     void StartClearCircle1();
     void StartClearCircle2();
     void StartClearCircle3();
-    // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
+    // Returns unk_0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
     int GetPlayerState()
     {
@@ -419,34 +419,34 @@ public:
     void SetRegisterChainArg(BYTE arg);
     // Takes a free hit area (the last of the free list), or the spare
     // when one is left, resets it and starts it at `pos` with
-    // `framesLeft` and `unknown40` (0x41cf30).
-    PlayerHitArea *AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unknown40);
+    // `framesLeft` and `unk_40` (0x41cf30).
+    PlayerHitArea *AllocHitArea(D3DXVECTOR3 *pos, int framesLeft, int unk_40);
     // AllocHitArea, then a box (width and height halved) or a circle,
-    // with unknown28 for some and kind 1, 0, 4 or 2 (0x41cfa0, 0x41cfe0,
+    // with unk_28 for some and kind 1, 0, 4 or 2 (0x41cfa0, 0x41cfe0,
     // 0x41d010, 0x41d050, 0x41d090, 0x41d0d0, 0x41d110).
-    PlayerHitArea *AddHitBox(D3DXVECTOR3 *pos, float width, float height, int framesLeft, int unknown40);
-    PlayerHitArea *AddHitCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int framesLeft, int unknown40);
-    PlayerHitArea *AddDamageBox(D3DXVECTOR3 *pos, float width, float height, int unknown28, int framesLeft, int unknown40);
-    PlayerHitArea *AddDamageCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40);
-    PlayerHitArea *AddKind4Box(D3DXVECTOR3 *pos, float width, float height, int unknown28, int framesLeft, int unknown40);
-    PlayerHitArea *AddKind4Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40);
-    PlayerHitArea *AddKind2Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unknown28, int framesLeft, int unknown40);
+    PlayerHitArea *AddHitBox(D3DXVECTOR3 *pos, float width, float height, int framesLeft, int unk_40);
+    PlayerHitArea *AddHitCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int framesLeft, int unk_40);
+    PlayerHitArea *AddDamageBox(D3DXVECTOR3 *pos, float width, float height, int unk_28, int framesLeft, int unk_40);
+    PlayerHitArea *AddDamageCircle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unk_28, int framesLeft, int unk_40);
+    PlayerHitArea *AddKind4Box(D3DXVECTOR3 *pos, float width, float height, int unk_28, int framesLeft, int unk_40);
+    PlayerHitArea *AddKind4Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unk_28, int framesLeft, int unk_40);
+    PlayerHitArea *AddKind2Circle(D3DXVECTOR3 *pos, float radius, float radiusGrowth, int unk_28, int framesLeft, int unk_40);
     // The damage the bullets and the hit areas deal to an enemy with a
     // `size` box at `pos`, as th08's: the bullets' damage is stored in
     // `damageTaken`, and the kind 4 areas' damage added to `kind4Damage`.
     // Clears `hitByBomb` and nothing sets it. The bullets that hit stop
     // and turn to their hit script (0x41fcd0).
     int CalcDamage(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, int *damageTaken, int *hitByBomb, int *kind4Damage);
-    // Lowers unknown30388 by `amount`, down to 1 (0x41f310).
+    // Lowers unk_30388 by `amount`, down to 1 (0x41f310).
     void SubUnknown30388(float amount)
     {
-        if (this->unknown30388 - amount < 1.0f)
+        if (this->unk_30388 - amount < 1.0f)
         {
-            this->unknown30388 = 1.0f;
+            this->unk_30388 = 1.0f;
         }
         else
         {
-            this->unknown30388 -= amount;
+            this->unk_30388 -= amount;
         }
     }
     // Moves the bullets and runs their update callbacks, freeing those
@@ -464,42 +464,42 @@ public:
     // th08's CheckGraze without its state test or Graze call
     // (0x41e350).
     int CheckGraze(D3DXVECTOR3 *pos, D3DXVECTOR3 *size, Bullet *bullet);
-    // Starts the first free entry of unknown30454 at `pos` with script
+    // Starts the first free entry of unk_30454 at `pos` with script
     // 0x46 + `script` of the side's bullet ANM, unless the front's
-    // unknown1095c is set (0x41db90).
+    // unk_1095c is set (0x41db90).
     void AddUnknown30454(int script, D3DXVECTOR3 *pos);
-    // Moves the entries of unknown30454 down, faster up to 3, and drops
+    // Moves the entries of unk_30454 down, faster up to 3, and drops
     // them below 464. One the player touches is collected by its script:
-    // 0 raises unknown30388 by 400, 1 sends particles to the other side,
-    // 2 and 3 count a combo; the lowest one not touched sets unknown30f64
-    // and unknown30f68 (0x41dc20).
+    // 0 raises unk_30388 by 400, 1 sends particles to the other side,
+    // 2 and 3 count a combo; the lowest one not touched sets unk_30f64
+    // and unk_30f68 (0x41dc20).
     void UpdateUnknown30454();
-    // Draws the sprites of unknown30454 that are set at their positions
+    // Draws the sprites of unk_30454 that are set at their positions
     // (0x41df80).
     void DrawUnknown30454();
     // Draws the bullets that hit (state 2) at their positions on the
     // side's screen, turned to their angle when they rotate, blue while
-    // unknown46e is set, as th08's DrawHitBullets (0x41f760).
+    // unk_46e is set, as th08's DrawHitBullets (0x41f760).
     void DrawHitBullets();
     // Handles the shot and charge buttons by the side's charge setting
     // (0x41f810).
     int UpdateShotInput();
-    // What OnUpdate runs while unknown0 is 2, a function returning 0
+    // What OnUpdate runs while unk_0 is 2, a function returning 0
     // folded with others (0x44ab20).
     static int UpdateUnknown0Is2();
     // Moves the player by its side's input, as th08's HandleInput:
     // picks the direction and focus, starts or stops the focus effects
     // (7 and the character's from g_CharacterValuesA10), sets the move
-    // angle unknown1cd8, the sprite's leaning script and velocity, keeps
+    // angle unk_1cd8, the sprite's leaning script and velocity, keeps
     // the player in playerArea, updates the boxes and options and records
-    // the position. Does nothing while unknownA8 is clear (0x41c170).
+    // the position. Does nothing while unk_a8 is clear (0x41c170).
     int HandleInput();
     // HandleInput's movement for `direction` (1 up, 2 down, 3 left, 4
     // right, 5 to 8 the diagonals), focused or not, into `deltaX` and
     // `deltaY`; the CPU player plans with it (0x404710).
     void GetMoveDelta(int direction, int focused, float *deltaX, float *deltaY);
 
-    // OnDraw draws only unknown30454 while it is 5.
+    // OnDraw draws only unk_30454 while it is 5.
     int playerState;
     // RegisterChain's first argument.
     BYTE registerChainArg;
@@ -511,34 +511,34 @@ public:
     ChainElem *calcElem;
     ChainElem *drawElem;
     ChainElem *drawElem2;
-    int unknown20;
-    // Its player is set by AddedCallback, as are unknownA0 and unknownA4
+    int unk_20;
+    // Its player is set by AddedCallback, as are unk_a0 and unk_a4
     // to 1.
-    PlayerUnknown24 unknown24;
-    int unknownA0;
-    int unknownA4;
-    // Draws the player whatever the front's unknown1095c and
-    // unknown10960.
-    int unknownA8;
+    PlayerUnknown24 unk_24;
+    int unk_a0;
+    int unk_a4;
+    // Draws the player whatever the front's unk_1095c and
+    // unk_10960.
+    int unk_a8;
     // Set by AddedCallback: 2, 0, 0, 0.
-    int unknownAc;
-    int unknownB0;
-    int unknownB4;
-    int unknownB8;
+    int unk_ac;
+    int unk_b0;
+    int unk_b4;
+    int unk_b8;
     // The character's ANM, in slot sideIdx + 5.
     AnmLoaded *anm;
     Sprite sprite;
     // Effect 7, started in the side's reserved slot; Die interrupts its
     // sprites with 1.
-    Effect *unknown364;
-    // An effect whose unknown7c is the radius the character's
-    // unknown30404 tests.
-    Effect *unknown368;
-    PlayerUnknown36c unknown36c;
-    Timer unknown1b74;
+    Effect *unk_364;
+    // An effect whose unk_7c is the radius the character's
+    // unk_30404 tests.
+    Effect *unk_368;
+    PlayerUnknown36c unk_36c;
+    Timer unk_1b74;
     union
     {
-        DWORD unknown1b80;
+        DWORD pad_1b80;
         struct
         {
             // Set while the player moves focused: by the focus button,
@@ -546,15 +546,15 @@ public:
             // charge setting 1.
             DWORD focused : 2;
             // Set while a charged attack fires, for the shot file's
-            // unknown28 frames (unknown30398).
+            // unk_28 frames (unk_30398).
             DWORD charging : 1;
             // OnUpdate plays sound 0x30 and starts the side's
-            // unknown6ee8 once it is set, and clears it.
+            // unk_6ee8 once it is set, and clears it.
             DWORD unknownFlag3 : 1;
         };
     };
     // Set to 1 by Reset.
-    int unknown1b84;
+    int unk_1b84;
     D3DXVECTOR3 pos;
     unsigned char pad_1b94[0x1ba0 - 0x1b94];
     // The player's last positions, as th08's.
@@ -573,15 +573,15 @@ public:
     D3DXVECTOR3 grazeTestHalfSize;
     // The move of the last frame: x is below 0 or above 0 by the way
     // the player moves across, as character 10's effect update callback
-    // tells; Die sets it one along unknown1cd8, and the player is blown
+    // tells; Die sets it one along unk_1cd8, and the player is blown
     // along it while dying.
-    D3DXVECTOR3 unknown1ccc;
+    D3DXVECTOR3 unk_1ccc;
     // An angle; character 2's effect type 17 starts opposite it.
-    float unknown1cd8;
+    float unk_1cd8;
     // Character 3's shot callback sets both to 0.5.
-    float unknown1cdc;
-    float unknown1ce0;
-    // HandleInput scales the movement by unknown1cdc times these.
+    float unk_1cdc;
+    float unk_1ce0;
+    // HandleInput scales the movement by unk_1cdc times these.
     float moveScaleX;
     float moveScaleY;
     PlayerOption options[4];
@@ -595,12 +595,12 @@ public:
     int freeHitAreaCount;
     unsigned char pad_c118[0xc11c - 0xc118];
     PlayerBullet bullets[0x80];
-    PlayerLaser unknown3031c;
+    PlayerLaser unk_3031c;
     // The character's shot file (plXX.sht).
     ShtFile *shtFile;
     unsigned char pad_3033c[0x30354 - 0x3033c];
     // Counted up by character 1's shot hit callback.
-    BYTE unknown30354;
+    BYTE unk_30354;
     unsigned char pad_30355[0x30358 - 0x30355];
     // The direction the player moves, as th08's (0 still, 1 up, 2
     // down, 3 left, 4 right, 5 to 8 diagonal), and its speed.
@@ -615,44 +615,44 @@ public:
     Enemy *homingEnemy;
     // Cleared each frame.
     int homingTargetSet;
-    // Die sets it with unknown30388.
-    float unknown30384;
+    // Die sets it with unk_30388.
+    float unk_30384;
     // Lowered by SubUnknown30388, down to 1, and raised by
     // AddUnknown30388, up to 400.
-    float unknown30388;
-    Timer unknown3038c;
-    Timer unknown30398;
-    Timer unknown303a4;
-    Timer unknown303b0;
-    Timer unknown303bc;
+    float unk_30388;
+    Timer unk_3038c;
+    Timer unk_30398;
+    Timer unk_303a4;
+    Timer unk_303b0;
+    Timer unk_303bc;
     Timer stateTimer;
-    Timer unknown303d4;
-    // An effect kept at the player while unknown0 is 3, stopped when
+    Timer pad_303d4;
+    // An effect kept at the player while unk_0 is 3, stopped when
     // stateTimer runs out.
-    Effect *unknown303e0;
+    Effect *unk_303e0;
     unsigned char pad_303e4[0x303e8 - 0x303e4];
     // Cleared by Reset.
-    int unknown303e8;
+    int unk_303e8;
     unsigned char pad_303ec[0x303f0 - 0x303ec];
     // The character's values from the tables at 0x4a1bd0, 0x4a1b90,
     // 0x4a1b50, 0x4a1b10 and 0x4a1ad0.
-    int unknown303f0;
-    int unknown303f4;
-    int unknown303f8;
-    int unknown303fc;
-    int unknown30400;
+    int unk_303f0;
+    int unk_303f4;
+    int unk_303f8;
+    int unk_303fc;
+    int unk_30400;
     // The character's functions from the tables at 0x4a1a50 and
     // 0x4a1a90. The first takes a position, from CallUnknown30404.
-    PlayerPosFunc unknown30404;
-    PlayerEnemyFunc unknown30408;
+    PlayerPosFunc unk_30404;
+    PlayerEnemyFunc unk_30408;
     unsigned char pad_3040c[0x30410 - 0x3040c];
-    PlayerUnknown30410 unknown30410;
-    PlayerUnknown30454 unknown30454[4];
-    // The x of the last entry of unknown30454 the player did not touch
+    PlayerUnknown30410 unk_30410;
+    PlayerUnknown30454 unk_30454[4];
+    // The x of the last entry of unk_30454 the player did not touch
     // (-1000 if none), and its y halfway to 400.
-    float unknown30f64;
-    float unknown30f68;
-    float unknown30f6c;
+    float unk_30f64;
+    float unk_30f68;
+    float pad_30f6c;
 };
 ASSERT_SIZE(Player, 0x30f70);
 
@@ -716,9 +716,9 @@ struct ShtFile
     float speedDiagonal;
     float speedDiagonalFocused;
     // How fast the charge rises, times App::gameSpeed.
-    float unknown24;
+    float unk_24;
     // How long a charged attack fires, in frames.
-    float unknown28;
+    float unk_28;
     // The names of the character's three spell cards, by level.
     char spellCardNames[3][0x40];
     unsigned char pad_ec[0x42c - 0xec];
@@ -764,7 +764,7 @@ extern const int g_PlayerCpuAltDirs[2][9];
 // The directions the CPU player tries, by region; [1] is set to the last
 // one each frame (0x4a0150).
 extern int g_PlayerCpuDirOrder[12][10];
-// By GameSide::unknown2c (0x4a0330).
+// By GameSide::unk_2c (0x4a0330).
 extern PlayerCpuLevel g_PlayerCpuLevels[71];
 extern PlayerPosFunc g_CharacterFuncsA50[16];
 extern PlayerEnemyFunc g_CharacterFuncsA90[16];

@@ -96,11 +96,11 @@ int UpdateExAttackType17(ExAttack *attack)
             attack->pos += data->velocity;
             if (data->variant < 2)
             {
-                g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 28.0f, NULL);
+                g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&attack->pos, 28.0f, NULL);
             }
             else
             {
-                g_GameManager.sides[attack->targetSide].player->unknown36c.AddCircle(&attack->pos, 18.0f, NULL);
+                g_GameManager.sides[attack->targetSide].player->unk_36c.AddCircle(&attack->pos, 18.0f, NULL);
             }
             if (attack->pos.y >= 512.0f)
             {
@@ -118,15 +118,15 @@ int UpdateExAttackType17(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 9: while unknown34 reaches (30 -
-// unknownB4) * 2, sends an extra attack of type 17 from `pos` and
+// The combo func of character 9: while unk_34 reaches (30 -
+// unk_b4) * 2, sends an extra attack of type 17 from `pos` and
 // takes as much off it. Returns 0 (0x448640).
 int SendComboAttacksCharacter9(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= (30 - g_GameManager.rank.unknownB4) * 2)
+    while (combo->unk_34 >= (30 - g_GameManager.rank.unk_b4) * 2)
     {
         g_GameManager.exAttackManager->AddAttack(17, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= (30 - g_GameManager.rank.unknownB4) * 2;
+        combo->unk_34 -= (30 - g_GameManager.rank.unk_b4) * 2;
     }
     return 0;
 }
@@ -142,35 +142,35 @@ int InitEffectType29(Effect *effect)
     {
         return -1;
     }
-    effect->unknown48 = effect->pos;
-    effect->unknown54.z = 1.0f;
-    effect->unknown9c = 1.0f;
-    effect->unknown54.x = 0.0f;
-    effect->unknown54.y = 0.0f;
-    effect->unknown60.x = 0.0f;
-    effect->unknown60.y = -1.0f;
-    effect->unknown60.z = 0.0f;
-    effect->unknown80 = 0.0f;
-    effect->unknown88 = effect->velocity.z;
-    effect->unknown94 = 0.0f;
-    effect->unknown98 = 0.0f;
-    effect->unknown8c = 0x20;
-    effect->unknown7c = 32.0f;
-    effect->unknownC9 = 1;
+    effect->unk_48 = effect->pos;
+    effect->unk_54.z = 1.0f;
+    effect->unk_9c = 1.0f;
+    effect->unk_54.x = 0.0f;
+    effect->unk_54.y = 0.0f;
+    effect->unk_60.x = 0.0f;
+    effect->unk_60.y = -1.0f;
+    effect->unk_60.z = 0.0f;
+    effect->unk_80 = 0.0f;
+    effect->unk_88 = effect->velocity.z;
+    effect->unk_94 = 0.0f;
+    effect->unk_98 = 0.0f;
+    effect->unk_8c = 0x20;
+    effect->unk_7c = 32.0f;
+    effect->unk_c9 = 1;
     return 0;
 }
 
-// The draw callback of effect type 29: while unknownC9 is set, a ring
-// fan of unknown8c segments at radius unknown7c about the effect, and
+// The draw callback of effect type 29: while unk_c9 is set, a ring
+// fan of unk_8c segments at radius unk_7c about the effect, and
 // six fans of half as many at radius 24 around it, a sixth of a turn
-// apart from unknown80. Returns 1 (0x448750).
+// apart from unk_80. Returns 1 (0x448750).
 int DrawEffectType29(Effect *effect)
 {
     float angle;
 
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
-        int n = effect->unknown8c;
+        int n = effect->unk_8c;
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         VertexDiffuseXyzrwh *fan = vtx;
         float step = 6.2831855f / (n - 1);
@@ -190,7 +190,7 @@ int DrawEffectType29(Effect *effect)
                 angle -= 6.2831855f;
             }
             vtx->pos.z = 0.0f;
-            SetPolar((Vector2 *)&vtx->pos, angle, effect->unknown7c);
+            SetPolar((Vector2 *)&vtx->pos, angle, effect->unk_7c);
             vtx->pos += effect->pos;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
             vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y);
@@ -203,10 +203,10 @@ int DrawEffectType29(Effect *effect)
         n /= 2;
         {
             float step = 6.2831855f / (n - 1);
-            angle = effect->unknown80;
+            angle = effect->unk_80;
             D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
             fan = vtx;
-            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            SetPolar((Vector2 *)&centre, angle, effect->unk_7c + 24.0f);
             centre += effect->pos;
             vtx->pos = centre;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
@@ -234,11 +234,11 @@ int DrawEffectType29(Effect *effect)
         }
         {
             float step = 6.2831855f / (n - 1);
-            angle = effect->unknown80;
+            angle = effect->unk_80;
             D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
             angle = AddNormalizeAngle(angle, 1.0471976f);
             fan = vtx;
-            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            SetPolar((Vector2 *)&centre, angle, effect->unk_7c + 24.0f);
             centre += effect->pos;
             vtx->pos = centre;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
@@ -266,11 +266,11 @@ int DrawEffectType29(Effect *effect)
         }
         {
             float step = 6.2831855f / (n - 1);
-            angle = effect->unknown80;
+            angle = effect->unk_80;
             D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
             angle = AddNormalizeAngle(angle, 2.0943952f);
             fan = vtx;
-            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            SetPolar((Vector2 *)&centre, angle, effect->unk_7c + 24.0f);
             centre += effect->pos;
             vtx->pos = centre;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
@@ -298,11 +298,11 @@ int DrawEffectType29(Effect *effect)
         }
         {
             float step = 6.2831855f / (n - 1);
-            angle = effect->unknown80;
+            angle = effect->unk_80;
             D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
             angle = AddNormalizeAngle(angle, 3.1415927f);
             fan = vtx;
-            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            SetPolar((Vector2 *)&centre, angle, effect->unk_7c + 24.0f);
             centre += effect->pos;
             vtx->pos = centre;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
@@ -330,11 +330,11 @@ int DrawEffectType29(Effect *effect)
         }
         {
             float step = 6.2831855f / (n - 1);
-            angle = effect->unknown80;
+            angle = effect->unk_80;
             D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
             angle = AddNormalizeAngle(angle, 4.1887903f);
             fan = vtx;
-            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            SetPolar((Vector2 *)&centre, angle, effect->unk_7c + 24.0f);
             centre += effect->pos;
             vtx->pos = centre;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);
@@ -362,11 +362,11 @@ int DrawEffectType29(Effect *effect)
         }
         {
             float step = 6.2831855f / (n - 1);
-            angle = effect->unknown80;
+            angle = effect->unk_80;
             D3DXVECTOR3 centre(0.0f, 0.0f, 0.0f);
             angle = AddNormalizeAngle(angle, 5.2359877f);
             fan = vtx;
-            SetPolar((Vector2 *)&centre, angle, effect->unknown7c + 24.0f);
+            SetPolar((Vector2 *)&centre, angle, effect->unk_7c + 24.0f);
             centre += effect->pos;
             vtx->pos = centre;
             vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x);

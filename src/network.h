@@ -25,7 +25,7 @@ struct NetPacket
     // The input, or the setup's isLan.
     union
     {
-        int unknown8;
+        int unk_8;
         struct
         {
             WORD input;
@@ -44,13 +44,13 @@ struct Network
     // Reads IP.txt: the host name, the port, the sync mode and the side
     // (0x4324c0).
     void Init();
-    // Sets and clears unknownA8 (0x42e9a0, 0x42e9b0).
+    // Sets and clears unk_a8 (0x42e9a0, 0x42e9b0).
     void SetUnknownA8();
     void ClearUnknownA8();
     // Cancels and closes the connection, releases the addresses and
     // initializes the peer anew; always returns 1 (0x432f70).
     int Close();
-    // The entry of unknown1c for the side unknownAc is not (0x42e980).
+    // The entry of unk_1c for the side unk_ac is not (0x42e980).
     int GetOtherUnknown1c();
     // Closes the peer and releases the addresses and the peer
     // (0x432340).
@@ -61,7 +61,7 @@ struct Network
     // Whether the peer has TCP/IP among its service providers; the
     // argument is unused (0x432770).
     BOOL IsServiceProviderValid(const GUID *serviceProvider);
-    // Clears unknown1c and creates the TCP/IP address on `port` to host
+    // Clears unk_1c and creates the TCP/IP address on `port` to host
     // on (0x432840).
     HRESULT CreateDeviceAddress();
     // Creates the TCP/IP address of the host to connect to, hostName on
@@ -81,26 +81,26 @@ struct Network
     IDirectPlay8Peer *peer;
     IDirectPlay8Address *deviceAddress;
     unsigned char pad_8[4];
-    IDirectPlay8Address *unknownC;
+    IDirectPlay8Address *unk_c;
     IDirectPlay8Address *hostAddress;
     DPNHANDLE sendHandle;
     DPNHANDLE connectHandle;
     // One per side.
-    int unknown1c[2];
+    int unk_1c[2];
     // The host to connect to, from IP.txt's IPAddress.
     char hostName[0x80];
     // From IP.txt's Port.
     DWORD port;
     // While set, the menus do not skip the entries that are not open.
-    int unknownA8;
+    int unk_a8;
     // The local side, 0 or 1, so it seems.
-    int unknownAc;
+    int unk_ac;
     // Set when a send completes, or a check packet matches.
-    int unknownB0;
+    int unk_b0;
     // Set after the initial frame records and setup packet are sent.
     int initialFramesQueued;
     // Cleared by App::ResetRun.
-    int unknownB8;
+    int unk_b8;
     // Set by IP.txt's Sync LAN.
     int isLan;
     // From IP.txt's Side: 0 for 1P, 1 for 2P, 2 for Auto.

@@ -478,7 +478,7 @@ int ContinueMenu::UpdateContinueMenu()
         g_App.scene = 1;
         return 1;
     }
-    if (g_GameManager.sides[0].stats->unknown14 >= 3)
+    if (g_GameManager.sides[0].stats->unk_14 >= 3)
     {
         g_GameManager.isInContinueMenu = 0;
         g_App.scene = 6;
@@ -497,7 +497,7 @@ int ContinueMenu::UpdateContinueMenu()
             {
                 this->sprites[i].pendingInterrupt = 1;
             }
-            g_AsciiText.anm->SetSprite(&this->sprites[4], 0x78 - g_GameManager.sides[0].stats->unknown14);
+            g_AsciiText.anm->SetSprite(&this->sprites[4], 0x78 - g_GameManager.sides[0].stats->unk_14);
         }
         else
         {
@@ -587,7 +587,7 @@ int ContinueMenu::UpdateContinueMenu()
                 {
                     this->sprites[i].ClearShown();
                 }
-                g_GameManager.sides[0].stats->unknown14++;
+                g_GameManager.sides[0].stats->unk_14++;
                 g_GameManager.stateFlags |= 0x2000;
                 g_GameManager.sides[0].stats->guiScore = 0;
                 g_GameManager.sides[0].stats->score = 0;
@@ -600,16 +600,16 @@ int ContinueMenu::UpdateContinueMenu()
                 g_App.StopMusic();
                 g_App.PlayBgm();
                 GameManager::ResetRound();
-                g_GameManager.unknown108[0] = 0;
-                g_GameManager.unknown108[1] = 0;
-                g_GameManager.sides[0].stats->lives = g_GameManager.config->unknownAc + 2.0f;
+                g_GameManager.unk_108[0] = 0;
+                g_GameManager.unk_108[1] = 0;
+                g_GameManager.sides[0].stats->lives = g_GameManager.config->unk_ac + 2.0f;
                 g_GameManager.stateFlags |= 0x4000;
                 return 1;
             }
             this->state = 0;
             g_App.scene = 13;
             this->stateFrames = 0;
-            g_GameManager.unknownFc = 0;
+            g_GameManager.unk_fc = 0;
             g_GameManager.isInContinueMenu = 0;
             g_App.lastTotalPlayTimeTick = timeGetTime();
             return 1;
@@ -722,7 +722,7 @@ int UnknownMenu::UpdateUnknownMenu()
 
     if (g_GameManager.IsReplay())
     {
-        g_GameManager.unknown13e = 0;
+        g_GameManager.unk_13e = 0;
         g_App.scene = 1;
         return 1;
     }
@@ -828,7 +828,7 @@ int UnknownMenu::UpdateUnknownMenu()
         {
             this->state = 0;
             g_App.scene = 1;
-            g_GameManager.unknown13e = 0;
+            g_GameManager.unk_13e = 0;
             g_App.lastTotalPlayTimeTick = timeGetTime();
             return 1;
         }
@@ -838,7 +838,7 @@ int UnknownMenu::UpdateUnknownMenu()
         {
             this->state = 0;
             g_App.scene = 10;
-            g_GameManager.unknown13e = 0;
+            g_GameManager.unk_13e = 0;
             g_App.lastTotalPlayTimeTick = timeGetTime();
             return 1;
         }
@@ -848,7 +848,7 @@ int UnknownMenu::UpdateUnknownMenu()
         {
             this->state = 0;
             g_App.scene = 6;
-            g_GameManager.unknown13e = 0;
+            g_GameManager.unk_13e = 0;
             g_App.lastTotalPlayTimeTick = timeGetTime();
             return 1;
         }
@@ -866,7 +866,7 @@ void UnknownMenu::DrawUnknownMenu()
 {
     int i;
 
-    if (g_GameManager.unknown13e)
+    if (g_GameManager.unk_13e)
     {
         g_SpriteEngine->FlushQuadBatch();
         g_App.SetView(2);
@@ -924,7 +924,7 @@ int AsciiText::OnUpdate(AsciiText *text)
             return 3;
         }
     }
-    if (g_GameManager.unknown13e)
+    if (g_GameManager.unk_13e)
     {
         if (text->unknownMenu.UpdateUnknownMenu())
         {

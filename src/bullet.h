@@ -20,7 +20,7 @@ struct BulletTypeSprites
     Sprite sprite4;
     // The size of the bullet's hitbox.
     D3DXVECTOR3 hitboxSize;
-    BYTE unknownD40;
+    BYTE unk_d40;
     // The height of the bullet's sprite.
     BYTE height;
     // The draw list the bullet goes into, as th08's.
@@ -28,7 +28,7 @@ struct BulletTypeSprites
     unsigned char pad_d43[0xd44 - 0xd43];
     // sprite0's first sprite index, from AddedCallback; 0x14a for the
     // bullets that extra attack type 21 leaves alone.
-    int unknownD44;
+    int unk_d44;
 };
 ASSERT_SIZE(BulletTypeSprites, 0xd48);
 
@@ -146,11 +146,11 @@ struct Bullet
     BulletEx ex[7];
     // Neither grazed nor hit, as th08's.
     char harmless;
-    // The shooter's unknown20c.
-    char unknown10bd;
+    // The shooter's unk_20c.
+    char unk_10bd;
     // Set once extra attack type 21 has doubled the bullet, and on the
     // copy.
-    char unknown10be;
+    char unk_10be;
     unsigned char pad_10bf[0x10c0 - 0x10bf];
     // The shooter's bullet type and color.
     short sprite;

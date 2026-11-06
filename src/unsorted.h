@@ -206,8 +206,8 @@ BYTE *GetPadButtons(int player);
 extern BYTE g_PadButtons[0x80];
 
 // Puts `buttons` in g_PlayerInputs[player]: the last ones go to
-// unknown2, those just pressed to unknown6 and just released to
-// unknown8, and unknown4 gets the held ones' repeats, every 8 frames from
+// unk_2, those just pressed to unk_6 and just released to
+// unk_8, and unk_4 gets the held ones' repeats, every 8 frames from
 // the 26th. Returns the input buttons (0x42ace0).
 WORD UpdatePlayerInput(int player, WORD buttons);
 
@@ -270,7 +270,7 @@ struct CryptParams
     BYTE type;
     BYTE key;
     BYTE step;
-    BYTE unusedByte3;
+    BYTE pad_3;
     int blockSize;
     int limit;
 };
@@ -385,46 +385,46 @@ struct PlayerInput
     // and 6 (0x423158).
     WORD IsPressed(WORD mask)
     {
-        return (WORD)(this->unknown6 & mask) != 0 || (WORD)(this->unknown4 & mask) != 0;
+        return (WORD)(this->unk_6 & mask) != 0 || (WORD)(this->unk_4 & mask) != 0;
     }
 
-    // unknown0 & mask and unknown6 & mask (0x40e2b0, 0x40e2d0), and the
-    // same for the second set, unknown2c and unknown32 (0x415cb0,
+    // unk_0 & mask and unk_6 & mask (0x40e2b0, 0x40e2d0), and the
+    // same for the second set, unk_2c and unk_32 (0x415cb0,
     // 0x415cd0).
     WORD IsHeld(WORD mask)
     {
-        return this->unknown0 & mask;
+        return this->unk_0 & mask;
     }
     WORD IsJustPressed(WORD mask)
     {
-        return this->unknown6 & mask;
+        return this->unk_6 & mask;
     }
     WORD IsHeld2(WORD mask);
     WORD IsJustPressed2(WORD mask);
-    // Clears unknown4 and updates the second set from unknown2c and
-    // unknown2e: counts how long each button is held, setting bit 0 of
-    // unknown30 every 8 frames from the 26th, and takes the buttons just
-    // pressed into unknown32 and just released into unknown34
+    // Clears unk_4 and updates the second set from unk_2c and
+    // unk_2e: counts how long each button is held, setting bit 0 of
+    // unk_30 every 8 frames from the 26th, and takes the buttons just
+    // pressed into unk_32 and just released into unk_34
     // (0x4200f0).
     void UpdateRepeat2();
 
-    WORD unknown0;
-    WORD unknown2;
-    WORD unknown4;
-    WORD unknown6;
-    WORD unknown8;
-    // How long each button of unknown0 has been held.
+    WORD unk_0;
+    WORD unk_2;
+    WORD unk_4;
+    WORD unk_6;
+    WORD unk_8;
+    // How long each button of unk_0 has been held.
     WORD heldFrames[16];
     // How long button 1 of the second set has been held during a
-    // replay, up to 8, for the sides whose config unknownB4 is 1.
-    WORD unknown2a;
-    WORD unknown2c;
-    WORD unknown2e;
-    WORD unknown30;
-    WORD unknown32;
-    WORD unknown34;
+    // replay, up to 8, for the sides whose config unk_b4 is 1.
+    WORD unk_2a;
+    WORD unk_2c;
+    WORD unk_2e;
+    WORD unk_30;
+    WORD unk_32;
+    WORD unk_34;
     unsigned char pad_36[0x38 - 0x36];
-    // How long each button of unknown2c has been held.
+    // How long each button of unk_2c has been held.
     WORD heldFrames2[16];
     // The default mappings.
     ControllerMapping mappings[3];
@@ -439,7 +439,7 @@ struct BgmDatHeader
     DWORD magic;
     int version;
     int gameVersion;
-    DWORD unknownC;
+    DWORD unk_c;
 };
 ASSERT_SIZE(BgmDatHeader, 0x10);
 
@@ -463,7 +463,7 @@ struct GameConfig
     short padThresholdY;
     // Nonzero in mode 0 has Gui::ScoreRoundBonus show sprite 0x41 and
     // give no bonus.
-    BYTE unknownAc;
+    BYTE unk_ac;
     // Whether the full screen is 16-bit; 0xff until the first start,
     // as th08's.
     BYTE colorMode16Bits;
@@ -477,9 +477,9 @@ struct GameConfig
     BYTE windowed;
     // How many frames to skip drawing, as th08's.
     BYTE frameSkip;
-    BYTE unknownB3;
+    BYTE unk_b3;
     // By player; the key config switches each between 0 and 1.
-    BYTE unknownB4[3];
+    BYTE unk_b4[3];
     // The pad each player's keys are read from: 0 and 1 are the
     // joysticks (GetPadButtons), 2 to 4 keyboard layouts; the two
     // players' cannot clash.
@@ -499,10 +499,10 @@ class Sprite;
 // A record in App's lists.
 struct RunRecord
 {
-    WORD unknown0;
+    WORD unk_0;
     WORD seed;
     int value;
-    int unknown8;
+    int unk_8;
 };
 ASSERT_SIZE(RunRecord, 0xc);
 
@@ -635,19 +635,19 @@ struct App
     // (0x42e9e0).
     void AddRecord(int side, int value, WORD unknown, WORD seed);
     // Puts a record of `value` with `seed` and the side's last record's
-    // unknown0 in the side's list, before the first greater one, marked
-    // with unknown8 1 (0x42eac0).
+    // unk_0 in the side's list, before the first greater one, marked
+    // with unk_8 1 (0x42eac0).
     void InsertRecord(int side, int value, WORD seed);
-    // Takes the side's first record off its list: returns its unknown0,
-    // or the side's input if its unknown8 is set, and stores its seed
-    // and unknown8 (0x42eb80).
-    WORD PopRecord(int side, WORD *seed, int *unknown8);
+    // Takes the side's first record off its list: returns its unk_0,
+    // or the side's input if its unk_8 is set, and stores its seed
+    // and unk_8 (0x42eb80).
+    WORD PopRecord(int side, WORD *seed, int *unk_8);
     // Whether the side has a record and both sides' first records have
     // the same value (0x42ecf0).
     BOOL RecordsMeet(int side);
     // Resets the run: clears the fields from 0x458 and the records,
     // restarts the timers, adds each side a record of -9999 with the
-    // random seed, and sets network play's unknownA8 (0x42ec30).
+    // random seed, and sets network play's unk_a8 (0x42ec30).
     void ResetRun();
     // Looks `id` up in g_BgmInfos and loads its MIDI file into slot `id`,
     // or queues the wave file of the same name, as th08's LoadMidi.
@@ -742,7 +742,7 @@ struct App
     int UpdateNetPlay();
     // Clears subThread, closeSubThread and subThreadRunning (0x41a997).
     void ResetSubThread();
-    // Zeroes unknown77c to unknown790 (0x423382).
+    // Zeroes unk_77c to unk_790 (0x423382).
     void ResetClockDriftCounters();
 
     // WinMain's instance.
@@ -781,21 +781,21 @@ struct App
     GameConfig config;
     // Counts the frames, as th08's.
     int frames;
-    int unknown458;
-    int unknown45c;
-    int unknown460;
+    int unk_458;
+    int unk_45c;
+    int unk_460;
     // The time ResetRun ran.
-    DWORD unknown464;
-    DWORD unknown468;
-    DWORD unknown46c;
+    DWORD unk_464;
+    DWORD unk_468;
+    DWORD unk_46c;
     unsigned char pad_470[0x474 - 0x470];
-    DWORD unknown474;
-    int unknown478;
+    DWORD unk_474;
+    int unk_478;
     // Each side's ten records, ordered by value, and its last one.
     RunRecord records[2][10];
     RunRecord lastRecords[2];
-    // Drawn by OnDraw while unknown478 is set.
-    Sprite *unknown584;
+    // Drawn by OnDraw while unk_478 is set.
+    Sprite *unk_584;
     // When the current connection attempt started.
     DWORD connectStartTime;
     // The scene running, as th08's.
@@ -807,7 +807,7 @@ struct App
     // the game's objects then free their resources, as th08's.
     int freesResources;
     // Set when the game restarts, as th08's isRestarting.
-    int unknown59c;
+    int unk_59c;
     unsigned char pad_5a0[0x5a4 - 0x5a0];
     // How many more frames to redraw, as th08's: set to 2 when the
     // device is lost, cleared by LoadingThread.
@@ -866,13 +866,13 @@ struct App
     // th08's App::perfFrequency.
     DWORD perfFrequency[2];
     unsigned char pad_74c[0x77c - 0x74c];
-    int unknown77c;
+    int unk_77c;
     // Set when the frame rate is low, as th08's.
     int fpsWarning;
-    int unknown784;
-    int unknown788;
-    int unknown78c;
-    int unknown790;
+    int unk_784;
+    int unk_788;
+    int unk_78c;
+    int unk_790;
     // Whether fog is on, as EnableFog and DisableFog last set it.
     DWORD fogState;
     // timeGetTime() when AddPlayTime and AddTotalPlayTime last ran.

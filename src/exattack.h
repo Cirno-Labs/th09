@@ -57,7 +57,7 @@ struct ExAttack
 };
 ASSERT_SIZE(ExAttack, 0x4c);
 
-// The extra attacks (0x4c80 bytes), at GameManager::unknownAc. Only the
+// The extra attacks (0x4c80 bytes), at GameManager::unk_ac. Only the
 // fields known so far.
 class ExAttackManager
 {
@@ -126,14 +126,14 @@ struct ExAttackData19
     ExAttackData00 base;
     // The centre and the rim, in texture coordinates about (0.5, 0.5).
     VertexTex1DiffuseXyzrwh vertices[0x21];
-    // The centre, then where each rim point is, unknown7c... about it.
+    // The centre, then where each rim point is, unk_7c... about it.
     D3DXVECTOR3 points[0x21];
     float radii[0x21];
     float radiusSpeeds[0x21];
     // How fast the texture scrolls.
     float scrollU;
     float scrollV;
-    int unknown684;
+    int unk_684;
 };
 ASSERT_SIZE(ExAttackData19, 0x688);
 

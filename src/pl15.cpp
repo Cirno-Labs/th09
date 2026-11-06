@@ -9,28 +9,28 @@
 #include "player.h"
 #include "unsorted.h"
 
-// The update callback of effect type 37: grows unknown7c by 0.5 up to 8,
-// sets unknownC9 and puts the effect on its side's player. Returns 1
+// The update callback of effect type 37: grows unk_7c by 0.5 up to 8,
+// sets unk_c9 and puts the effect on its side's player. Returns 1
 // (0x44c290).
 int UpdateEffectType37(Effect *effect)
 {
-    effect->unknownC9 = 1;
-    if (effect->unknown7c < 8.0f)
+    effect->unk_c9 = 1;
+    if (effect->unk_7c < 8.0f)
     {
-        effect->unknown7c += 0.5f;
+        effect->unk_7c += 0.5f;
     }
     effect->pos = g_GameManager.sides[effect->mgr->sideIdx].player->pos;
     return 1;
 }
 
-// The unknown30404 of character 15: whether `pos` is within the radius
-// of the player's unknown368 across or up or down (0x44c2e0).
+// The unk_30404 of character 15: whether `pos` is within the radius
+// of the player's unk_368 across or up or down (0x44c2e0).
 int CheckFocusAreaCharacter15(Player *player, D3DXVECTOR3 *pos)
 {
     D3DXVECTOR3 diff = player->pos - *pos;
 
-    if (diff.x * diff.x < player->unknown368->unknown7c * player->unknown368->unknown7c ||
-        diff.y * diff.y < player->unknown368->unknown7c * player->unknown368->unknown7c)
+    if (diff.x * diff.x < player->unk_368->unk_7c * player->unk_368->unk_7c ||
+        diff.y * diff.y < player->unk_368->unk_7c * player->unk_368->unk_7c)
     {
         return 1;
     }
@@ -110,7 +110,7 @@ int UpdateExAttackType26(ExAttack *attack)
                 shooter.SetAccelCommand(0, 0, 120, 0.006666667f, -999.0f);
                 shooter.angle2 = 0.0f;
                 shooter.speed2 = 0.0f;
-                shooter.unknown1fa = 0;
+                shooter.unk_1fa = 0;
                 shooter.flags = 0x10;
                 g_GameManager.sides[attack->targetSide].bulletManager->FirePattern(&shooter);
             }
@@ -130,15 +130,15 @@ int UpdateExAttackType26(ExAttack *attack)
     return 0;
 }
 
-// The combo func of character 15: while unknown34 reaches 80 -
-// unknownB4 * 3, sends an extra attack of type 26 from `pos` and takes
+// The combo func of character 15: while unk_34 reaches 80 -
+// unk_b4 * 3, sends an extra attack of type 26 from `pos` and takes
 // as much off it. Returns 0 (0x44c680).
 int SendComboAttacksCharacter15(PlayerUnknown30410 *combo, D3DXVECTOR3 *pos)
 {
-    while (combo->unknown34 >= 80 - g_GameManager.rank.unknownB4 * 3)
+    while (combo->unk_34 >= 80 - g_GameManager.rank.unk_b4 * 3)
     {
         g_GameManager.exAttackManager->AddAttack(26, pos, combo->player->sideIdx, NULL);
-        combo->unknown34 -= 80 - g_GameManager.rank.unknownB4 * 3;
+        combo->unk_34 -= 80 - g_GameManager.rank.unk_b4 * 3;
     }
     return 0;
 }
@@ -153,43 +153,43 @@ int InitEffectType37(Effect *effect)
     {
         return -1;
     }
-    effect->unknown48 = effect->pos;
-    effect->unknown54.x = 0.0f;
-    effect->unknown54.y = 0.0f;
-    effect->unknown54.z = 1.0f;
-    effect->unknown60.x = 0.0f;
-    effect->unknown60.y = -1.0f;
-    effect->unknown60.z = 0.0f;
-    effect->unknown80 = effect->velocity.x;
-    effect->unknown88 = effect->velocity.z;
-    effect->unknown94 = 0.0f;
-    effect->unknown98 = 0.0f;
-    effect->unknown9c = 1.0f;
-    effect->unknown8c = 0x20;
-    effect->unknown7c = 0.0f;
-    effect->unknownC9 = 1;
+    effect->unk_48 = effect->pos;
+    effect->unk_54.x = 0.0f;
+    effect->unk_54.y = 0.0f;
+    effect->unk_54.z = 1.0f;
+    effect->unk_60.x = 0.0f;
+    effect->unk_60.y = -1.0f;
+    effect->unk_60.z = 0.0f;
+    effect->unk_80 = effect->velocity.x;
+    effect->unk_88 = effect->velocity.z;
+    effect->unk_94 = 0.0f;
+    effect->unk_98 = 0.0f;
+    effect->unk_9c = 1.0f;
+    effect->unk_8c = 0x20;
+    effect->unk_7c = 0.0f;
+    effect->unk_c9 = 1;
     return 0;
 }
 
-// The draw callback of effect type 37: while unknownC9 is set, a
+// The draw callback of effect type 37: while unk_c9 is set, a
 // vertical and then a horizontal beam through the effect, each a strip
-// 2 * unknown7c wide across the playfield, brighter at the edges than
+// 2 * unk_7c wide across the playfield, brighter at the edges than
 // in the middle. Returns 1 (0x44c790).
 int DrawEffectType37(Effect *effect)
 {
-    if (effect->unknownC9)
+    if (effect->unk_c9)
     {
         VertexDiffuseXyzrwh *vtx = (VertexDiffuseXyzrwh *)effect->vertices;
         VertexDiffuseXyzrwh *strip;
 
         vtx->pos = effect->pos;
-        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x - effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x - effect->unk_7c);
         vtx->pos.y = g_GameManager.ArenaToScreenY(0.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x - effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x - effect->unk_7c);
         vtx->pos.y = g_GameManager.ArenaToScreenY(448.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
@@ -207,13 +207,13 @@ int DrawEffectType37(Effect *effect)
         vtx->diffuse = 0x30600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x + effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x + effect->unk_7c);
         vtx->pos.y = g_GameManager.ArenaToScreenY(0.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x + effect->unknown7c);
+        vtx->pos.x = g_GameManager.ArenaToScreenX(vtx->pos.x + effect->unk_7c);
         vtx->pos.y = g_GameManager.ArenaToScreenY(448.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
@@ -221,13 +221,13 @@ int DrawEffectType37(Effect *effect)
         g_SpriteEngine->DrawColoredStrip(effect->sprites, (VertexDiffuseXyzrwh *)effect->vertices, 6);
         strip = vtx;
         vtx->pos = effect->pos;
-        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unk_7c);
         vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y - effect->unk_7c);
         vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
@@ -245,13 +245,13 @@ int DrawEffectType37(Effect *effect)
         vtx->diffuse = 0x30600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y + effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y + effect->unk_7c);
         vtx->pos.x = g_GameManager.ArenaToScreenX(-144.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;
         vtx++;
         vtx->pos = effect->pos;
-        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y + effect->unknown7c);
+        vtx->pos.y = g_GameManager.ArenaToScreenY(vtx->pos.y + effect->unk_7c);
         vtx->pos.x = g_GameManager.ArenaToScreenX(144.0f);
         vtx->w = 1.0f;
         vtx->diffuse = 0x70600040;

@@ -108,7 +108,7 @@ public:
     int ShowButtonDigits(Sprite *vm, short value);
     // Moves cursors[idx] by `delta` among `count` entries, wrapping,
     // until it is on one that g_PlayRecord's openEntries marks open; entries[i] is
-    // the entry at i. Not while unknownA8 of g_Network is set
+    // the entry at i. Not while unk_a8 of g_Network is set
     // (0x42304d; 0x4230a6 and 0x4230ff with openEntries2 and 3).
     void SkipClosedEntries(int idx, int delta, char *entries, int count);
     void SkipClosedEntries2(int idx, int delta, char *entries, int count);
@@ -203,7 +203,7 @@ public:
     // The states' update functions, by the first state each runs in.
     // UpdateState2 also runs states 4 and 7, UpdateState3 state 5, and
     // state 8 runs UpdateState8b instead of UpdateState8 when
-    // g_GameManager's unknown114 is 1 to 3. UpdateState13 runs the high
+    // g_GameManager's unk_114 is 1 to 3. UpdateState13 runs the high
     // score tables: left and right pick the character among the open
     // ones, a cancel goes back to state 1, and a code of ten buttons
     // opens every entry. UpdateState14 puts g_Hscr in the tables and
@@ -214,20 +214,20 @@ public:
     // UpdateState3 is the story character select (g_StoryCharacters,
     // opened by openEntries2, or openEntries3 on difficulty 4): cursors[0]
     // and [1] pick the two characters and cursors[2] and [3] mark them
-    // chosen; while button 4 is held, unknown11b84 can be changed. It
+    // chosen; while button 4 is held, unk_11b84 can be changed. It
     // starts the game in scene 2, or goes back to state 2, 4 or 7.
     // UpdateState8 is the versus character select of two players
     // (g_VsCharacters, opened by openEntries or network play), each with
     // their own input, cursors[0] and [1], and chosen marks cursors[2]
     // and [3]; once both chose it goes to state 16.
-    // UpdateState8b is the same against the CPU (unknown114 1 to 3):
+    // UpdateState8b is the same against the CPU (unk_114 1 to 3):
     // the one player picks their character, then the opponent's.
-    // UpdateState9 is the options, th08's UpdateOptions: unknownAc, the
+    // UpdateState9 is the options, th08's UpdateOptions: unk_ac, the
     // colour depth, the music, the two volumes and the window, the
     // defaults, the key config (state 10) and leaving, which returns 5
     // when the colour depth or the window changed.
     // UpdateState10 is the key config, th08's UpdateKeyConfig for the
-    // player unknownC920: the pad, unknownB4 and shoot, bomb, focus,
+    // player unk_c920: the pad, unk_b4 and shoot, bomb, focus,
     // skip and menu, which only the joysticks set; saving copies the
     // mappings to the config and the inputs.
     // UpdateState12 is the music room, th08's music screen: it reads
@@ -278,7 +278,7 @@ public:
     unsigned char pad_30[0x84 - 0x30];
     // The state before the current one.
     int prevState;
-    int unknown88;
+    int unk_88;
     // The name typed in for the replay being saved.
     char replayName[9];
     unsigned char pad_95[0x28c - 0x95];
@@ -287,21 +287,21 @@ public:
     char replayPaths[50][0x200];
     unsigned char pad_668c[0x681c - 0x668c];
     // Files ReleaseTitleScene frees.
-    void *unknown681c[50];
+    void *unk_681c[50];
     // The headers of the replay files.
     ReplayHeader replays[50];
     void *loadedReplay;
     // Set to 0 and 50 once UpdateState11 has read the replays.
-    int unknownC900;
+    int unk_c900;
     int replayCount;
     // The replay slot being saved to.
     int replaySlot;
     unsigned char pad_c90c[0xc910 - 0xc90c];
     int subMenuIdleFrames;
     unsigned char pad_c914[0xc918 - 0xc914];
-    int unknownC918;
+    int unk_c918;
     unsigned char pad_c91c[0xc920 - 0xc91c];
-    int unknownC920;
+    int unk_c920;
     unsigned char pad_c924[0xc934 - 0xc924];
     // The music room's tunes.
     MusicTune tunes[32];
@@ -312,11 +312,11 @@ public:
     int listTop;
     int musicPaused;
     // Go to GameManager::initialLives.
-    int unknown11b84;
-    int unknown11b88;
+    int unk_11b84;
+    int unk_11b88;
     // Set while UpdateState3 lets left and right change the two
     // values above.
-    int unknown11b8c;
+    int unk_11b8c;
     // The title's ANM file, and the result screen's text.
     AnmLoaded *anm;
     AnmLoaded *resultTextAnm;
@@ -334,14 +334,14 @@ public:
     int spriteCount;
     int state;
     // 1 makes InitTitleScene start in state 14.
-    int unknown1b22c;
+    int unk_1b22c;
     int inputLockout;
     // The frames without input on the title; at 1500 a demo plays.
     int idleFrames;
     // While nonzero, OnDraw draws nothing: 1 while LoadingThread loads,
     // 2 if it failed.
     int loadingState;
-    int unknown1b23c;
+    int unk_1b23c;
     // The entries SelectCursorEntry lights: the first sprite and the
     // count.
     int entryFirst;
@@ -355,6 +355,6 @@ public:
 ASSERT_SIZE(MainMenu, 0x1b388);
 
 // Creates the title menu and registers its chain elements, as th08's.
-// `arg` goes to unknown1b22c. Returns 0, or -1 if the update element
+// `arg` goes to unk_1b22c. Returns 0, or -1 if the update element
 // could not be added (0x42ab13).
 int SetUpTitleScene(int arg);
