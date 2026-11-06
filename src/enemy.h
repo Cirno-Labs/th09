@@ -412,8 +412,10 @@ struct Enemy
     int powerItems;
     // The particles of its death, as th08's; none if negative.
     char deathEffect;
-    BYTE deathEffectIndex;
-    BYTE deathEffectVariant;
+    // Set with deathEffect by opcode 138, as th08's; nothing here reads
+    // them.
+    BYTE deathEffect2;
+    BYTE deathEffect3;
     // Its slot in EnemyManager::bosses, as th08's.
     BYTE bossIndex;
     BYTE hitFlashTimer;

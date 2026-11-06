@@ -341,8 +341,8 @@ void EnemyManager::Initialize()
     enemy->life = 1;
     enemy->score = 100;
     enemy->deathEffect = 0;
-    enemy->deathEffectIndex = 0;
-    enemy->deathEffectVariant = 0;
+    enemy->deathEffect2 = 0;
+    enemy->deathEffect3 = 0;
     enemy->shootInterval = 0;
     enemy->shootTimer = 0;
     enemy->shootOffset = D3DXVECTOR3(0.0f, 0.0f, 0.0f);

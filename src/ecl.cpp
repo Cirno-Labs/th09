@@ -1913,8 +1913,8 @@ loop:
         // 0x40a28d
         case 138:
             enemy->deathEffect = *(char *)instr->args;
-            enemy->deathEffectIndex = ((BYTE *)instr->args)[1];
-            enemy->deathEffectVariant = ((BYTE *)instr->args)[2];
+            enemy->deathEffect2 = ((BYTE *)instr->args)[1];
+            enemy->deathEffect3 = ((BYTE *)instr->args)[2];
             break;
         // 0x40a2b6
         case 105:
