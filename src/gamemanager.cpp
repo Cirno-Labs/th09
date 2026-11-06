@@ -26,8 +26,8 @@
 // This object's startup entries begin at 0x48d7b0. Its /Ob1 settings
 // expand GameManager's inline constructor into the call to Init.
 GameManager g_GameManager;
-ChainElem g_GameManagerCalcChain;
-ChainElem g_GameManagerDrawChain;
+ChainElem g_GameManagerCalcElem;
+ChainElem g_GameManagerDrawElem;
 #endif
 
 BOOL GameManager::IsInPlayArea(float x, float y, float width, float height)
@@ -116,8 +116,8 @@ void RemoveGameManagerChain()
     }
     g_GameManager.sides[1].stats->guiScore = g_GameManager.sides[1].stats->score;
     g_App.gameSpeed = 1.0f;
-    g_Chain.Remove(&g_GameManagerCalcChain);
-    g_Chain.Remove(&g_GameManagerDrawChain);
+    g_Chain.Remove(&g_GameManagerCalcElem);
+    g_Chain.Remove(&g_GameManagerDrawElem);
 }
 
 WORD Rng::GetSeed()
@@ -842,17 +842,17 @@ int GameManager::RegisterChain()
     GameManager *mgr = &g_GameManager;
 
     mgr->frames = 0;
-    g_GameManagerCalcChain.SetCallback((ChainCallback)GameManager::OnUpdate);
-    g_GameManagerCalcChain.addedCallback = (ChainCallback)GameManager::AddedCallback;
-    g_GameManagerCalcChain.deletedCallback = (ChainCallback)GameManager::DeletedCallback;
-    g_GameManagerCalcChain.arg = mgr;
-    if (g_Chain.AddToCalcChain(&g_GameManagerCalcChain, 2) != 0)
+    g_GameManagerCalcElem.SetCallback((ChainCallback)GameManager::OnUpdate);
+    g_GameManagerCalcElem.addedCallback = (ChainCallback)GameManager::AddedCallback;
+    g_GameManagerCalcElem.deletedCallback = (ChainCallback)GameManager::DeletedCallback;
+    g_GameManagerCalcElem.arg = mgr;
+    if (g_Chain.AddToCalcChain(&g_GameManagerCalcElem, 2) != 0)
     {
         return -1;
     }
-    g_GameManagerDrawChain.SetCallback((ChainCallback)GameManager::OnDraw);
-    g_GameManagerDrawChain.arg = mgr;
-    g_Chain.AddToDrawChain(&g_GameManagerDrawChain, 5);
+    g_GameManagerDrawElem.SetCallback((ChainCallback)GameManager::OnDraw);
+    g_GameManagerDrawElem.arg = mgr;
+    g_Chain.AddToDrawChain(&g_GameManagerDrawElem, 5);
     return 0;
 }
 

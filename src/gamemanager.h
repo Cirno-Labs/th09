@@ -387,8 +387,8 @@ extern unsigned char g_Unknown4d9698[0x2bc0];
 #endif
 
 // Its update and draw chain elements (0x4a8120, 0x4a8140).
-extern ChainElem g_GameManagerCalcChain;
-extern ChainElem g_GameManagerDrawChain;
+extern ChainElem g_GameManagerCalcElem;
+extern ChainElem g_GameManagerDrawElem;
 
 // Removes the GameManager's chain elements, caps both sides' score at
 // 999999999 and copies it to guiScore, and resets gameSpeed, as th08's

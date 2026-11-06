@@ -346,8 +346,8 @@ public:
     // count.
     int entryFirst;
     int entryCount;
-    ChainElem *calcChain;
-    ChainElem *drawChain;
+    ChainElem *calcElem;
+    ChainElem *drawElem;
     // The key config's copy of the config's mappings.
     ControllerMapping mappings[2][3];
     GameConfig config;

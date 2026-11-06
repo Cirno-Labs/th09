@@ -147,9 +147,9 @@ public:
     static int AddedCallbackMode1(ReplayManager *mgr);
     static int OnUpdateMode1b(ReplayManager *mgr);
     // Creates the replay manager, zeroed, in `mode`, and adds its update
-    // elements: in mode 0, calcElem (priority 0x1a) and unknownElem15c
+    // elements: in mode 0, calcElem (priority 0x1a) and calcElem3
     // (7); in mode 1, which keeps `path`, calcElem (6) and
-    // unknownElem158 (0x1b). Returns it, or NULL if adding calcElem
+    // calcElem2 (0x1b). Returns it, or NULL if adding calcElem
     // fails (0x421670).
     static ReplayManager *RegisterChain(int mode, char *path);
     // Runs the added callback of `mode`, 0 or 1, on `mgr` (0x4217e0).
@@ -186,8 +186,8 @@ public:
     unsigned char pad_11c[0x150 - 0x11c];
     ChainElem *calcElem;
     unsigned char pad_154[0x158 - 0x154];
-    ChainElem *unknownElem158;
-    ChainElem *unknownElem15c;
+    ChainElem *calcElem2;
+    ChainElem *calcElem3;
     // The RNG seed the recording starts from, and flags; bit 8 is
     // GameManager::unknown130 at the start.
     WORD seed;

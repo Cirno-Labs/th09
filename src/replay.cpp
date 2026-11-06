@@ -386,20 +386,20 @@ int ReplayManager::AddedCallbackMode1(ReplayManager *mgr)
     return 0;
 }
 
-// Removes the chain elements unknownElem158 and unknownElem15c, if set,
+// Removes the chain elements calcElem2 and calcElem3, if set,
 // and frees the blocks. Returns 0. Static, with the manager in eax
 // (0x420a60).
 static int FreeResources(ReplayManager *mgr)
 {
-    if (mgr->unknownElem158 != NULL)
+    if (mgr->calcElem2 != NULL)
     {
-        g_Chain.Remove(mgr->unknownElem158);
-        mgr->unknownElem158 = NULL;
+        g_Chain.Remove(mgr->calcElem2);
+        mgr->calcElem2 = NULL;
     }
-    if (mgr->unknownElem15c != NULL)
+    if (mgr->calcElem3 != NULL)
     {
-        g_Chain.Remove(mgr->unknownElem15c);
-        mgr->unknownElem15c = NULL;
+        g_Chain.Remove(mgr->calcElem3);
+        mgr->calcElem3 = NULL;
     }
     g_MemoryManager.Free(mgr->unknown08);
     if (mgr->unknown110 != NULL)
@@ -797,10 +797,10 @@ ReplayManager *ReplayManager::RegisterChain(int mode, char *path)
         {
             return NULL;
         }
-        mgr->unknownElem158 = NULL;
-        mgr->unknownElem15c = g_Chain.CreateElem((ChainCallback)ReplayManager::OnUpdateMode0b);
-        mgr->unknownElem15c->arg = mgr;
-        g_Chain.AddToCalcChain(mgr->unknownElem15c, 7);
+        mgr->calcElem2 = NULL;
+        mgr->calcElem3 = g_Chain.CreateElem((ChainCallback)ReplayManager::OnUpdateMode0b);
+        mgr->calcElem3->arg = mgr;
+        g_Chain.AddToCalcChain(mgr->calcElem3, 7);
         ReplayManager::OnUpdateMode0b(mgr);
         break;
     case 1:
@@ -812,10 +812,10 @@ ReplayManager *ReplayManager::RegisterChain(int mode, char *path)
         {
             return NULL;
         }
-        mgr->unknownElem158 = g_Chain.CreateElem((ChainCallback)ReplayManager::OnUpdateMode1b);
-        mgr->unknownElem158->arg = mgr;
-        g_Chain.AddToCalcChain(mgr->unknownElem158, 0x1b);
-        mgr->unknownElem15c = NULL;
+        mgr->calcElem2 = g_Chain.CreateElem((ChainCallback)ReplayManager::OnUpdateMode1b);
+        mgr->calcElem2->arg = mgr;
+        g_Chain.AddToCalcChain(mgr->calcElem2, 0x1b);
+        mgr->calcElem3 = NULL;
         break;
     }
     return mgr;

@@ -2380,8 +2380,8 @@ address,size,name,symbol
 0x004a7d88,,g_MsgFile,?g_MsgFile@@3PAUMsgFile@@A
 0x004a7d8c,,g_MsgFile2,?g_MsgFile2@@3PAUMsgFile@@A
 0x004a7d90,,g_GameManager,?g_GameManager@@3VGameManager@@A
-0x004a8120,,g_GameManagerCalcChain,?g_GameManagerCalcChain@@3UChainElem@@A
-0x004a8140,,g_GameManagerDrawChain,?g_GameManagerDrawChain@@3UChainElem@@A
+0x004a8120,,g_GameManagerCalcElem,?g_GameManagerCalcElem@@3UChainElem@@A
+0x004a8140,,g_GameManagerDrawElem,?g_GameManagerDrawElem@@3UChainElem@@A
 0x004a8160,,g_ShtFiles,?g_ShtFiles@@3PAPAUShtFile@@A
 0x004a8168,,g_Lsnm,?g_Lsnm@@3ULsnm@@A
 0x004a8180,,g_PlayRecord,?g_PlayRecord@@3UPlayRecord@@A
@@ -2415,11 +2415,11 @@ address,size,name,symbol
 0x004b42e0,320,g_UnusedArchives,?g_UnusedArchives@@3PAVDatArchive@@A
 0x004b4420,,g_LzssTree,?g_LzssTree@@3PAULzssNode@@A
 0x004cc430,,g_LzssWindow,?g_LzssWindow@@3PAEA
-0x004ce438,,g_AsciiTextElemDraw,?g_AsciiTextElemDraw@@3UChainElem@@A
+0x004ce438,,g_AsciiDrawElem,?g_AsciiDrawElem@@3UChainElem@@A
 0x004ce458,,g_AsciiText,?g_AsciiText@@3VAsciiText@@A
 0x004d9698,,g_Unknown4d9698,?g_Unknown4d9698@@3PAEA
-0x004dc504,,g_AsciiCalcChain,?g_AsciiCalcChain@@3UChainElem@@A
-0x004dc524,,g_AsciiDrawChain2,?g_AsciiDrawChain2@@3UChainElem@@A
+0x004dc504,,g_AsciiCalcElem,?g_AsciiCalcElem@@3UChainElem@@A
+0x004dc524,,g_AsciiDrawElem2,?g_AsciiDrawElem2@@3UChainElem@@A
 0x004dc544,,g_TextSurface,?g_TextSurface@@3PAUIDirect3DSurface8@@A
 0x004dc548,,g_TextOutlineColor,?g_TextOutlineColor@@3KA
 0x004dc550,,g_SpriteEngine,?g_SpriteEngine@@3PAVSpriteEngine@@A

@@ -56,8 +56,8 @@ public:
     // or -1 if adding fails (0x40f080).
     static int RegisterChain();
 
-    ChainElem *calcChain;
-    ChainElem *drawChain;
+    ChainElem *calcElem;
+    ChainElem *drawElem;
     // Where the background image (surface 0) is copied from.
     float scrollX;
     float scrollY;

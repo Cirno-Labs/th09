@@ -242,6 +242,6 @@ ASSERT_SIZE(AsciiText, 0xe0ac);
 extern AsciiText g_AsciiText;
 // The update element and the draw elements (0x4dc504, 0x4ce438,
 // 0x4dc524).
-extern ChainElem g_AsciiCalcChain;
-extern ChainElem g_AsciiTextElemDraw;
-extern ChainElem g_AsciiDrawChain2;
+extern ChainElem g_AsciiCalcElem;
+extern ChainElem g_AsciiDrawElem;
+extern ChainElem g_AsciiDrawElem2;
