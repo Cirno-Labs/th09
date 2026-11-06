@@ -153,7 +153,7 @@ int UpdateExAttackType6(ExAttack *attack)
         {
             if (attack->timer.HasTickedEvery(20 - g_GameManager.rank.unknownB4 / 8))
             {
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = attack->pos;
                 shooter.sprite = 6;
@@ -274,7 +274,7 @@ int UpdateExAttackType7(ExAttack *attack)
             if (attack->timer.HasTickedEvery(10 - g_GameManager.difficulty))
             {
                 float angle = data->spin = AddNormalizeAngle(data->spin, 0.10471976f);
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = attack->pos;
                 shooter.sprite = 6;
@@ -396,7 +396,7 @@ int UpdateExAttackTypes8And9(ExAttack *attack)
             if (attack->timer.HasTickedEvery(10 - g_GameManager.difficulty))
             {
                 float angle = data->spin = AddNormalizeAngle(data->spin, 0.10471976f);
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = attack->pos;
                 shooter.sprite = 6;
@@ -549,7 +549,7 @@ int UpdateExAttackType11(ExAttack *attack)
             if (attack->timer.HasTickedEvery(10))
             {
                 float angle = data->spin = AddNormalizeAngle(data->spin, 0.10471976f);
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = attack->pos;
                 shooter.sprite = data->alternate != 0 ? 6 : 0;
@@ -628,7 +628,7 @@ int UpdateExAttackType12(ExAttack *attack)
             if (attack->timer.HasTickedEvery(10))
             {
                 data->spin = AddNormalizeAngle(data->spin, 0.10471976f);
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = attack->pos;
                 shooter.sprite = data->alternate != 0 ? 6 : 0;

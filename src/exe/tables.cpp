@@ -33,20 +33,20 @@ int FreeSecondarySpellCardData(SpellCard *card);
 int InitSpellCardTypes3And6(SpellCard *card);
 int InitSpellCardTypes4And7(SpellCard *card);
 int InitSpellCardTypes5And8(SpellCard *card);
-void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t);
-void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t);
-void SendExAttack1(Enemy *enemy, EclInstr *instr);
-void SetSidesFlag0(Enemy *enemy, EclInstr *instr);
-void ScatterBullets(Enemy *enemy, EclInstr *instr);
-void SendExAttack7(Enemy *enemy, EclInstr *instr);
-void SendExAttack9(Enemy *enemy, EclInstr *instr);
-void SendExAttack8(Enemy *enemy, EclInstr *instr);
-void SendExAttack10(Enemy *enemy, EclInstr *instr);
-void SendExAttack11(Enemy *enemy, EclInstr *instr);
-void SendExAttack12(Enemy *enemy, EclInstr *instr);
-void SendExAttack22(Enemy *enemy, EclInstr *instr);
-void SendExAttack23(Enemy *enemy, EclInstr *instr);
-void SendExAttack24(Enemy *enemy, EclInstr *instr);
+void ScriptMoveLinear(Enemy *enemy, EnemyScriptInstr *instr, float t);
+void ScriptMoveHermite(Enemy *enemy, EnemyScriptInstr *instr, float t);
+void SendExAttack1(Enemy *enemy, EnemyScriptInstr *instr);
+void SetSidesFlag0(Enemy *enemy, EnemyScriptInstr *instr);
+void ScatterBullets(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack7(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack9(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack8(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack10(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack11(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack12(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack22(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack23(Enemy *enemy, EnemyScriptInstr *instr);
+void SendExAttack24(Enemy *enemy, EnemyScriptInstr *instr);
 int InitExAttackType0(ExAttack *attack);
 int UpdateExAttackTypes0And1(ExAttack *attack);
 int InitExAttackType1(ExAttack *attack);
@@ -735,30 +735,30 @@ SpellCardType g_SpellCardTypes[9] = {
     { (SpellCardCallback)InitSpellCardTypes5And8, (SpellCardCallback)IsSpellCardEnemyDefeated, (SpellCardCallback)ReturnZero, (SpellCardCallback)FreeSecondarySpellCardData },
 };
 
-void (*g_EnemyScriptInterps[8])(Enemy *enemy, EclInstr *instr, float t) = {
-    (void (*)(Enemy *, EclInstr *, float))ScriptMoveLinear,
-    (void (*)(Enemy *, EclInstr *, float))ScriptMoveLinear,
-    (void (*)(Enemy *, EclInstr *, float))ScriptMoveLinear,
-    (void (*)(Enemy *, EclInstr *, float))ScriptMoveLinear,
-    (void (*)(Enemy *, EclInstr *, float))ScriptMoveLinear,
-    (void (*)(Enemy *, EclInstr *, float))ScriptMoveLinear,
-    (void (*)(Enemy *, EclInstr *, float))ScriptMoveLinear,
-    (void (*)(Enemy *, EclInstr *, float))ScriptMoveHermite,
+void (*g_EnemyScriptInterps[8])(Enemy *enemy, EnemyScriptInstr *instr, float t) = {
+    (void (*)(Enemy *, EnemyScriptInstr *, float))ScriptMoveLinear,
+    (void (*)(Enemy *, EnemyScriptInstr *, float))ScriptMoveLinear,
+    (void (*)(Enemy *, EnemyScriptInstr *, float))ScriptMoveLinear,
+    (void (*)(Enemy *, EnemyScriptInstr *, float))ScriptMoveLinear,
+    (void (*)(Enemy *, EnemyScriptInstr *, float))ScriptMoveLinear,
+    (void (*)(Enemy *, EnemyScriptInstr *, float))ScriptMoveLinear,
+    (void (*)(Enemy *, EnemyScriptInstr *, float))ScriptMoveLinear,
+    (void (*)(Enemy *, EnemyScriptInstr *, float))ScriptMoveHermite,
 };
 
-EclFunc g_EnemyScriptFuncs[12] = {
-    (EclFunc)SendExAttack1,
-    (EclFunc)SetSidesFlag0,
-    (EclFunc)ScatterBullets,
-    (EclFunc)SendExAttack7,
-    (EclFunc)SendExAttack9,
-    (EclFunc)SendExAttack8,
-    (EclFunc)SendExAttack10,
-    (EclFunc)SendExAttack11,
-    (EclFunc)SendExAttack12,
-    (EclFunc)SendExAttack22,
-    (EclFunc)SendExAttack23,
-    (EclFunc)SendExAttack24,
+EnemyScriptFunc g_EnemyScriptFuncs[12] = {
+    (EnemyScriptFunc)SendExAttack1,
+    (EnemyScriptFunc)SetSidesFlag0,
+    (EnemyScriptFunc)ScatterBullets,
+    (EnemyScriptFunc)SendExAttack7,
+    (EnemyScriptFunc)SendExAttack9,
+    (EnemyScriptFunc)SendExAttack8,
+    (EnemyScriptFunc)SendExAttack10,
+    (EnemyScriptFunc)SendExAttack11,
+    (EnemyScriptFunc)SendExAttack12,
+    (EnemyScriptFunc)SendExAttack22,
+    (EnemyScriptFunc)SendExAttack23,
+    (EnemyScriptFunc)SendExAttack24,
 };
 
 ExAttackType g_ExAttackTypes[27] = {

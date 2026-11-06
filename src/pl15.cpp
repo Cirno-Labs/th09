@@ -97,7 +97,7 @@ int UpdateExAttackType26(ExAttack *attack)
         {
             if (attack->timer.HasTickedEvery(3))
             {
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = attack->pos;
                 shooter.sprite = 0x13;

@@ -103,7 +103,7 @@ BulletCommand *Bullet::SetCommand(int i, int concurrent, DWORD flag)
     return cmd;
 }
 
-BulletCommand *EnemyShooter::SetCommand(int i, int concurrent, DWORD flag)
+BulletCommand *BulletShooter::SetCommand(int i, int concurrent, DWORD flag)
 {
     BulletCommand *cmd = &this->commands[i];
 
@@ -137,7 +137,7 @@ void Bullet::SetSpriteCommand(int i, int concurrent, int type, int color)
     cmd->maxTurns = color;
 }
 
-void EnemyShooter::SetAngleAccelCommand(int i, int concurrent, int frames, float arg1, float arg0)
+void BulletShooter::SetAngleAccelCommand(int i, int concurrent, int frames, float arg1, float arg0)
 {
     BulletCommand *cmd = this->SetCommand(i, concurrent, 0x20);
 
@@ -146,7 +146,7 @@ void EnemyShooter::SetAngleAccelCommand(int i, int concurrent, int frames, float
     cmd->arg1 = arg1;
 }
 
-void EnemyShooter::SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1)
+void BulletShooter::SetAccelCommand(int i, int concurrent, int frames, float arg0, float arg1)
 {
     BulletCommand *cmd = this->SetCommand(i, concurrent, 0x10);
 
@@ -155,7 +155,7 @@ void EnemyShooter::SetAccelCommand(int i, int concurrent, int frames, float arg0
     cmd->arg1 = arg1;
 }
 
-void EnemyShooter::SetWaitCommand(int i, int concurrent, int frames)
+void BulletShooter::SetWaitCommand(int i, int concurrent, int frames)
 {
     BulletCommand *cmd = this->SetCommand(i, concurrent, 0x20000);
 
@@ -186,7 +186,7 @@ void Bullet::FreeBullet()
     this->grazeDelayTimer = 0;
 }
 
-Bullet *BulletManager::SpawnBullet(EnemyShooter *shooter, int col, int row, float aimAngle, int set)
+Bullet *BulletManager::SpawnBullet(BulletShooter *shooter, int col, int row, float aimAngle, int set)
 {
     float v;
     int i;
@@ -375,7 +375,7 @@ Bullet *BulletManager::SpawnBullet(EnemyShooter *shooter, int col, int row, floa
     return cur;
 }
 
-Bullet *BulletManager::FirePattern(EnemyShooter *shooter)
+Bullet *BulletManager::FirePattern(BulletShooter *shooter)
 {
     int col;
     int row;
@@ -403,7 +403,7 @@ done:
     return bullet;
 }
 
-Bullet *BulletManager::FirePattern2(EnemyShooter *shooter)
+Bullet *BulletManager::FirePattern2(BulletShooter *shooter)
 {
     int col;
     int row;
@@ -433,7 +433,7 @@ done:
 
 // Flag 1: the bullet starts 5 faster and slows to its speed over 16
 // frames, as th08's (0x413460).
-Laser *BulletManager::SpawnLaser(EnemyShooter *shooter)
+Laser *BulletManager::SpawnLaser(BulletShooter *shooter)
 {
     int i;
     Laser *laser;
@@ -1031,7 +1031,7 @@ void RunBulletCommands(Bullet *bullet)
             continue;
         case 0x1000000:
         {
-            EnemyShooter shooter;
+            BulletShooter shooter;
             // The packed shot: bit 31 stop, then aim mode, sprite, color
             // and command index. Copied for the aim mode and command index
             // only; the sprite and color bytes are read from the command.

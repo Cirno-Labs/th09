@@ -508,7 +508,7 @@ int UpdateEffectTypes1And2(Effect *effect)
     {
         return 0;
     }
-    EnemyShooter shooter;
+    BulletShooter shooter;
     shooter.pos = effect->velocity;
     if (effect->unknownAa >= 2 && g_Rng.GetRandomU32InRange(5) == 0)
     {

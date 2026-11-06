@@ -107,7 +107,7 @@ int UpdateExAttackType15(ExAttack *attack)
     case 1:
         if (attack->timer > 0x14)
         {
-            EnemyShooter shooter;
+            BulletShooter shooter;
 
             shooter.pos = attack->pos;
             shooter.sprite = 0x13;

@@ -16,7 +16,7 @@ inline Enemy *EnemyManager::SpawnPlayerEnemy(int sub, D3DXVECTOR3 *pos, int life
 }
 
 inline Enemy *EnemyManager::SpawnPlayerEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score,
-                                                     EclVars *vars)
+                                                     EnemyScriptVars *vars)
 {
     return this->SpawnEnemyWithVars(sub, pos, life, itemDrop, score, vars, 1);
 }

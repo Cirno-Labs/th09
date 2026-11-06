@@ -6,7 +6,7 @@
 #include "sprite.h"
 #include "timer.h"
 
-struct EnemyShooter;
+struct BulletShooter;
 struct GameSide;
 
 // The five sprites of a bullet type, as th08's (0xd48 bytes). Only the
@@ -229,7 +229,7 @@ public:
     void ConvertBulletsToItems(D3DXVECTOR3 *pos, float arg);
     // Fires a laser from `shooter`, as th08's SpawnLaser. Returns it
     // (0x413290).
-    Laser *SpawnLaser(EnemyShooter *shooter);
+    Laser *SpawnLaser(BulletShooter *shooter);
     // Preloads etama.anm into ANM slot 8; returns 1 if that fails
     // (0x4125e0).
     static int LoadAnm();
@@ -241,13 +241,13 @@ public:
     // Spawns the shooter's bullet `col` of row `row` into the first set,
     // or the second if `set`, as th08's. Returns it, or the cursor if
     // the set is full (0x412960).
-    Bullet *SpawnBullet(EnemyShooter *shooter, int col, int row, float aimAngle, int set);
+    Bullet *SpawnBullet(BulletShooter *shooter, int col, int row, float aimAngle, int set);
     // Fires the shooter's count1 by count2 bullets into the first set,
     // as th08's FirePattern, stopping once the set is full. Returns the
     // last bullet spawned, unset if count2 is 0 (0x4130f0).
-    Bullet *FirePattern(EnemyShooter *shooter);
+    Bullet *FirePattern(BulletShooter *shooter);
     // FirePattern into the second set (0x4131c0).
-    Bullet *FirePattern2(EnemyShooter *shooter);
+    Bullet *FirePattern2(BulletShooter *shooter);
     // The update chain callback and its added callback, and the draw
     // chain callback (0x4146f0, 0x413e40, 0x413be0).
     static int OnUpdate(BulletManager *mgr);

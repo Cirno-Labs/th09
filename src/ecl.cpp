@@ -15,11 +15,11 @@ void BulletManager::ClearBulletsForTransition()
     this->ClearAll(1);
 }
 
-int EclManager::Load(char *path)
+int EnemyScripts::Load(char *path)
 {
     int i;
 
-    this->file = (EclHeader *)OpenPath(path, NULL, 0);
+    this->file = (EnemyScriptHeader *)OpenPath(path, NULL, 0);
     if (this->file == NULL)
     {
         LogPrintf(&g_Log, "敵データの読み込みに失敗しました、データが壊れてるか失われています\r\n");
@@ -426,7 +426,7 @@ float *ResolveFloatOperand(Enemy *enemy, float *operand, WORD mask, int bit)
 // 0x406680
 // Returns from a subroutine: pops the call stack, or ends the thread when it is
 // empty. Returns 1 when the thread ended. (eax = enemy; instr not received.)
-static int ScriptReturn(Enemy *enemy, EclInstr *instr)
+static int ScriptReturn(Enemy *enemy, EnemyScriptInstr *instr)
 {
     int i;
 
@@ -458,7 +458,7 @@ static int ScriptReturn(Enemy *enemy, EclInstr *instr)
 // 0x406740
 // Sets the turning sprite scripts and forgets the direction. (eax = enemy,
 // the six scripts on the stack, callee pops 0x18; instr not received.)
-static void ScriptSetTurnSprites(Enemy *enemy, EclInstr *instr, int still, int left, int right,
+static void ScriptSetTurnSprites(Enemy *enemy, EnemyScriptInstr *instr, int still, int left, int right,
                                  int stillFromLeft, int stillFromRight, int extra)
 {
     enemy->turnStill = still;
@@ -470,7 +470,7 @@ static void ScriptSetTurnSprites(Enemy *enemy, EclInstr *instr, int still, int l
     enemy->spriteDirection = 0xff;
 }
 
-void EclManager::Unload()
+void EnemyScripts::Unload()
 {
     if (this->file != NULL)
     {
@@ -479,7 +479,7 @@ void EclManager::Unload()
     this->file = NULL;
 }
 
-int EclManager::StartSub(EnemyUnknown22c *ctx, short sub)
+int EnemyScripts::StartSub(EnemyScriptState *ctx, short sub)
 {
     if (sub < 0)
     {
@@ -720,7 +720,7 @@ float GetFloatOperand(Enemy *enemy, float id)
 // 0x4070a0
 // Starts a timed move by args[3] per frame along angle args[2], mirrored.
 // (edi = enemy, esi = instr.)
-static void ScriptMoveAngle(Enemy *enemy, EclInstr *instr)
+static void ScriptMoveAngle(Enemy *enemy, EnemyScriptInstr *instr)
 {
     float angle;
 
@@ -743,7 +743,7 @@ static void ScriptMoveAngle(Enemy *enemy, EclInstr *instr)
 // 0x407200
 // Starts a timed move by args[2] per frame along `angle`, unmirrored.
 // (edi = enemy, esi = instr, angle on the stack, callee pops 4.)
-static void ScriptMoveAngleTimed(Enemy *enemy, EclInstr *instr, float angle)
+static void ScriptMoveAngleTimed(Enemy *enemy, EnemyScriptInstr *instr, float angle)
 {
     // Evaluated FLOAT_ARG(2), INT_ARG(0), cosf; fimul then fmul, as above.
     enemy->moveDelta.x = cosf(angle) * FLOAT_ARG(2) * INT_ARG(0);
@@ -757,7 +757,7 @@ static void ScriptMoveAngleTimed(Enemy *enemy, EclInstr *instr, float angle)
 
 // 0x407320
 // Starts a timed move to (args[2], args[3]). (ecx = enemy, eax = instr.)
-static void ScriptMovePos(Enemy *enemy, EclInstr *instr)
+static void ScriptMovePos(Enemy *enemy, EnemyScriptInstr *instr)
 {
     D3DXVECTOR3 target;
 
@@ -776,7 +776,7 @@ static void ScriptMovePos(Enemy *enemy, EclInstr *instr)
     }
 }
 
-void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t)
+void ScriptMoveLinear(Enemy *enemy, EnemyScriptInstr *instr, float t)
 {
     float start;
     float end;
@@ -786,7 +786,7 @@ void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t)
     *ResolveFloatOperand(enemy, &instr->args[8].f, 0, -1) = (end - start) * t + start;
 }
 
-void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t)
+void ScriptMoveHermite(Enemy *enemy, EnemyScriptInstr *instr, float t)
 {
     float start;
     float hStart;
@@ -812,7 +812,7 @@ void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t)
 // 0x407560
 // Sets the float variable args[0] to args[3] of the way from args[2] to
 // args[1]. (edi = enemy, esi = instr.)
-static void ScriptLerp(Enemy *enemy, EclInstr *instr)
+static void ScriptLerp(Enemy *enemy, EnemyScriptInstr *instr)
 {
     float diff;
 
@@ -823,10 +823,10 @@ static void ScriptLerp(Enemy *enemy, EclInstr *instr)
 // 0x407600
 // Starts an interpolation loop on the variable args[0], in the loop already
 // running on it or the first free one. (ebx = enemy, esi = instr.)
-static void ScriptStartInterp(Enemy *enemy, EclInstr *instr)
+static void ScriptStartInterp(Enemy *enemy, EnemyScriptInstr *instr)
 {
     int i;
-    EnemyUnknown30 *loop;
+    EnemyScriptLoop *loop;
 
     for (loop = enemy->currentCtx->loops, i = 0; i < 8; i++, loop++)
     {
@@ -852,7 +852,7 @@ static void ScriptStartInterp(Enemy *enemy, EclInstr *instr)
 // The conditional jumps, opcodes 40 to 51: returns the instruction jumped
 // to, setting the time to args[2], or NULL. (edi = enemy, esi = instr;
 // result in eax.)
-static EclInstr *ScriptJumpIf(Enemy *enemy, EclInstr *instr)
+static EnemyScriptInstr *ScriptJumpIf(Enemy *enemy, EnemyScriptInstr *instr)
 {
     switch (instr->opcode)
     {
@@ -931,7 +931,7 @@ static EclInstr *ScriptJumpIf(Enemy *enemy, EclInstr *instr)
         break;
     jump:
         enemy->currentCtx->timer.current = instr->args[2].i;
-        return (EclInstr *)((char *)instr + instr->args[3].i);
+        return (EnemyScriptInstr *)((char *)instr + instr->args[3].i);
     }
     return NULL;
 }
@@ -939,14 +939,14 @@ static EclInstr *ScriptJumpIf(Enemy *enemy, EclInstr *instr)
 // 0x407a80
 // Calls subroutine `sub` of the context's ECL, saving the context on the
 // call stack. (ebx = enemy, eax = instr, sub on the stack, callee pops 4.)
-static void ScriptCallSub(Enemy *enemy, EclInstr *instr, int sub)
+static void ScriptCallSub(Enemy *enemy, EnemyScriptInstr *instr, int sub)
 {
     enemy->currentCtx->code = (char *)instr + instr->size;
     if (!enemy->disableCallStack)
     {
         enemy->callStack[enemy->stackDepth] = *enemy->currentCtx;
     }
-    // th08 calls g_EnemyScripts; th09 the context's own EclManager.
+    // th08 calls g_EnemyScripts; th09 the context's own EnemyScripts.
     enemy->currentCtx->ecl->StartSub(enemy->currentCtx, sub);
     enemy->currentCtx->args = enemy->currentCtx->ecl->callArgs;
     if (!enemy->disableCallStack && enemy->stackDepth < 15)
@@ -958,7 +958,7 @@ static void ScriptCallSub(Enemy *enemy, EclInstr *instr, int sub)
 // 0x407b20
 // Starts script args[1] on sub sprite args[0], or stops it for a negative
 // one. (edi = enemy, esi = instr.)
-static void ScriptSetSubSprite(Enemy *enemy, EclInstr *instr)
+static void ScriptSetSubSprite(Enemy *enemy, EnemyScriptInstr *instr)
 {
     if (INT_ARG(0) >= 2)
     {
@@ -985,7 +985,7 @@ static void ScriptSetSubSprite(Enemy *enemy, EclInstr *instr)
 // 0x407c30
 // Moves in a random direction away from the player's side and the bounds,
 // for args[0] frames (timed) or at speed args[2]. (ecx = enemy, eax = instr.)
-static void ScriptMoveRandom(Enemy *enemy, EclInstr *instr)
+static void ScriptMoveRandom(Enemy *enemy, EnemyScriptInstr *instr)
 {
     float angle;
 
@@ -1047,7 +1047,7 @@ static void ScriptMoveRandom(Enemy *enemy, EclInstr *instr)
 // 0x407e30
 // The same, mostly towards the farther side of the player, else anywhere.
 // (ecx = enemy, eax = instr.)
-static void ScriptMoveRandom2(Enemy *enemy, EclInstr *instr)
+static void ScriptMoveRandom2(Enemy *enemy, EnemyScriptInstr *instr)
 {
     float bound;
     float angle;
@@ -1109,10 +1109,10 @@ static void ScriptMoveRandom2(Enemy *enemy, EclInstr *instr)
 // Fires the bullets of instr (opcodes 96 up), through the side's bullet
 // manager. th09 has no youkai/minShootDistSq checks and no rank scaling.
 // (ebx = enemy, esi = instr.)
-static void ScriptFireBullets(Enemy *enemy, EclInstr *instr)
+static void ScriptFireBullets(Enemy *enemy, EnemyScriptInstr *instr)
 {
     int shortArg;
-    EnemyShooter *bs;
+    BulletShooter *bs;
 
     bs = &enemy->shooter;
     bs->pos = enemy->absPos + enemy->shootOffset;
@@ -1264,7 +1264,7 @@ static void ScriptUpdateShooting(Enemy *enemy)
             enemy->shootTimer++;
             if (enemy->shootTimer >= enemy->shootInterval)
             {
-                ScriptFireBullets(enemy, (EclInstr *)enemy->shootInstr);
+                ScriptFireBullets(enemy, (EnemyScriptInstr *)enemy->shootInstr);
                 enemy->shootTimer = 0;
             }
         }
@@ -1322,18 +1322,18 @@ static void ScriptUpdateShooting(Enemy *enemy)
     }
 }
 
-int EclManager::RunEnemy(Enemy *enemy)
+int EnemyScripts::RunEnemy(Enemy *enemy)
 {
     int value;
     int ctxIndex;
-    EclInstr *instr;
+    EnemyScriptInstr *instr;
 
     ctxIndex = -1;
     enemy->callStack = enemy->savedCtx;
     enemy->currentCtx = &enemy->ctx;
     enemy->stackDepth = enemy->savedStackDepth;
 restart:
-    instr = (EclInstr *)enemy->currentCtx->code;
+    instr = (EnemyScriptInstr *)enemy->currentCtx->code;
     if (enemy->pendingInterrupt >= 0)
     {
         goto interrupt;
@@ -1384,7 +1384,7 @@ loop:
         // 0x408937
         case 4:
             enemy->currentCtx->timer = instr->args[0].i;
-            instr = (EclInstr *)((char *)instr + instr->args[1].i);
+            instr = (EnemyScriptInstr *)((char *)instr + instr->args[1].i);
             goto loop;
         // 0x408954
         case 6:
@@ -1557,7 +1557,7 @@ loop:
         case 50:
         case 51:
         {
-            EclInstr *target;
+            EnemyScriptInstr *target;
 
             target = ScriptJumpIf(enemy, instr);
             if (target != NULL)
@@ -1857,7 +1857,7 @@ loop:
             // Calls subroutine argument 1 in boss argument 0's script.
             value = INT_ARG(0);
             ScriptCallSub(enemy->manager->bosses[value],
-                          (EclInstr *)enemy->manager->bosses[value]->currentCtx->code, instr->args[1].i);
+                          (EnemyScriptInstr *)enemy->manager->bosses[value]->currentCtx->code, instr->args[1].i);
             break;
         // 0x40a0f8
         case 89:
@@ -1956,8 +1956,8 @@ loop:
         case 114:
         case 115:
         {
-            EclArg *laserArgs;
-            EnemyShooter *shooter;
+            EnemyScriptArg *laserArgs;
+            BulletShooter *shooter;
 
             laserArgs = instr->args;
             // unknown30c4 = th08's laserShooter (rename suggested).
@@ -2500,7 +2500,7 @@ loop:
 
         }
     next:
-        instr = (EclInstr *)((char *)instr + instr->size);
+        instr = (EnemyScriptInstr *)((char *)instr + instr->size);
         goto loop;
     }
 done:
@@ -2509,7 +2509,7 @@ done:
         int i;
         BOOL moved;
         float time;
-        EnemyUnknown30 *l;
+        EnemyScriptLoop *l;
 
         moved = FALSE;
         l = enemy->currentCtx->loops;
@@ -2552,7 +2552,7 @@ done:
                     time = 1.0f - time;
                     break;
                 }
-                l->func(enemy, (EclInstr *)l, time);
+                l->func(enemy, (EnemyScriptInstr *)l, time);
                 if (l->timer >= l->duration)
                 {
                     l->func = NULL;
@@ -2597,7 +2597,7 @@ done:
                 buf = enemy->threads[i];
                 enemy->callStack = buf->callStack;
                 enemy->currentCtx = &buf->ctx;
-                instr = (EclInstr *)enemy->currentCtx->code;
+                instr = (EnemyScriptInstr *)enemy->currentCtx->code;
                 enemy->currentCtx->timedCallActive = i + 1;
                 enemy->stackDepth = buf->stackDepth;
                 ctxIndex = i;
@@ -2612,12 +2612,12 @@ done:
     return 0;
 }
 
-void SendExAttack1(Enemy *enemy, EclInstr *instr)
+void SendExAttack1(Enemy *enemy, EnemyScriptInstr *instr)
 {
     g_GameManager.exAttackManager->AddAttack(1, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
-void SetSidesFlag0(Enemy *enemy, EclInstr *instr)
+void SetSidesFlag0(Enemy *enemy, EnemyScriptInstr *instr)
 {
     enemy->manager->side->flag0 = instr->args[1].i;
     enemy->manager->otherSide->flag0 = instr->args[1].i;
@@ -2627,27 +2627,27 @@ void SetSidesFlag0(Enemy *enemy, EclInstr *instr)
     }
 }
 
-void SendExAttack7(Enemy *enemy, EclInstr *instr)
+void SendExAttack7(Enemy *enemy, EnemyScriptInstr *instr)
 {
     g_GameManager.exAttackManager->AddAttack(7, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
-void SendExAttack8(Enemy *enemy, EclInstr *instr)
+void SendExAttack8(Enemy *enemy, EnemyScriptInstr *instr)
 {
     g_GameManager.exAttackManager->AddAttack(8, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
-void SendExAttack9(Enemy *enemy, EclInstr *instr)
+void SendExAttack9(Enemy *enemy, EnemyScriptInstr *instr)
 {
     g_GameManager.exAttackManager->AddAttack(9, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
-void SendExAttack23(Enemy *enemy, EclInstr *instr)
+void SendExAttack23(Enemy *enemy, EnemyScriptInstr *instr)
 {
     g_GameManager.exAttackManager->AddAttack(23, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
-void SendExAttack24(Enemy *enemy, EclInstr *instr)
+void SendExAttack24(Enemy *enemy, EnemyScriptInstr *instr)
 {
     g_GameManager.exAttackManager->AddAttack(24, &enemy->pos, 1 - enemy->manager->sideIdx, NULL);
 }
@@ -2658,7 +2658,7 @@ void SendExAttack24(Enemy *enemy, EclInstr *instr)
 // side every second small one turned to sprite 0 colour 15, look like
 // their type's next variant. The test for a height of exactly 16 is an
 // integer compare in the original (0x40c530).
-void ScatterBullets(Enemy *enemy, EclInstr *instr)
+void ScatterBullets(Enemy *enemy, EnemyScriptInstr *instr)
 {
     Bullet *bullet;
     int i;
@@ -2724,7 +2724,7 @@ void ScatterBullets(Enemy *enemy, EclInstr *instr)
     g_SoundPlayer.PlaySoundByIdx(0x34, 0);
 }
 
-void SendExAttack10(Enemy *enemy, EclInstr *instr)
+void SendExAttack10(Enemy *enemy, EnemyScriptInstr *instr)
 {
     D3DXVECTOR3 pos;
 
@@ -2734,7 +2734,7 @@ void SendExAttack10(Enemy *enemy, EclInstr *instr)
     g_GameManager.exAttackManager->AddAttack(10, &pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
-void SendExAttack11(Enemy *enemy, EclInstr *instr)
+void SendExAttack11(Enemy *enemy, EnemyScriptInstr *instr)
 {
     D3DXVECTOR3 pos;
 
@@ -2744,7 +2744,7 @@ void SendExAttack11(Enemy *enemy, EclInstr *instr)
     g_GameManager.exAttackManager->AddAttack(11, &pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
-void SendExAttack12(Enemy *enemy, EclInstr *instr)
+void SendExAttack12(Enemy *enemy, EnemyScriptInstr *instr)
 {
     D3DXVECTOR3 pos;
 
@@ -2754,7 +2754,7 @@ void SendExAttack12(Enemy *enemy, EclInstr *instr)
     g_GameManager.exAttackManager->AddAttack(12, &pos, 1 - enemy->manager->sideIdx, NULL);
 }
 
-void SendExAttack22(Enemy *enemy, EclInstr *instr)
+void SendExAttack22(Enemy *enemy, EnemyScriptInstr *instr)
 {
     D3DXVECTOR3 target;
 

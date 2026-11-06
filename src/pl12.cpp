@@ -132,7 +132,7 @@ int UpdateExAttackType20(ExAttack *attack)
         {
             if (attack->timer.HasTickedEvery(2))
             {
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = attack->pos;
                 shooter.sprite = 0x15;
@@ -402,7 +402,7 @@ int UpdateExAttackType21(ExAttack *attack)
                 if (v.x * v.x + v.y * v.y <= 1024.0f)
                 {
                     bullet->unknown10be = 1;
-                    EnemyShooter shooter;
+                    BulletShooter shooter;
                     shooter.pos = bullet->pos;
                     shooter.sprite = 0x16;
                     shooter.aimMode = 1;
@@ -428,7 +428,7 @@ int UpdateExAttackType21(ExAttack *attack)
                 if (v.x * v.x + v.y * v.y <= 1024.0f)
                 {
                     bullet->unknown10be = 1;
-                    EnemyShooter shooter;
+                    BulletShooter shooter;
                     shooter.pos = bullet->pos;
                     shooter.sprite = 0x16;
                     shooter.aimMode = 1;

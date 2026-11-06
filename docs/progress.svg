@@ -173,7 +173,7 @@
 <rect width="12" height="12" x="480" y="15" class="named"><title>0x00404980 Gui::IsMsgRunning (24 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="15" class="named"><title>0x004049a0 PlayerUnknown24::Run (3238 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="15" class="named"><title>0x00405650 BulletManager::ClearBulletsForTransition (8 bytes)</title></rect>
-<rect width="12" height="12" x="525" y="15" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
+<rect width="12" height="12" x="525" y="15" class="named"><title>0x00405660 EnemyScripts::Load (154 bytes)</title></rect>
 <rect width="12" height="12" x="540" y="15" class="named"><title>0x00405700 Atan2 (15 bytes)</title></rect>
 <rect width="12" height="12" x="555" y="15" class="named"><title>0x00405710 Fmod (18 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="15" class="named"><title>0x00405730 D3DXVECTOR3::operator+= (36 bytes)</title></rect>
@@ -196,8 +196,8 @@
 <rect width="12" height="12" x="75" y="30" class="named"><title>0x004067d0 AsciiText::SetBossMarkerInterrupt (32 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="30" class="named"><title>0x004067f0 AsciiText::SetBossMarkerPos (42 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="30" class="named"><title>0x00406820 Player::CallUnknown30404 (16 bytes)</title></rect>
-<rect width="12" height="12" x="120" y="30" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
-<rect width="12" height="12" x="135" y="30" class="named"><title>0x00406850 EclManager::StartSub (73 bytes)</title></rect>
+<rect width="12" height="12" x="120" y="30" class="named"><title>0x00406830 EnemyScripts::Unload (28 bytes)</title></rect>
+<rect width="12" height="12" x="135" y="30" class="named"><title>0x00406850 EnemyScripts::StartSub (73 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="30" class="named"><title>0x004068a0 GetFloatOperand (1636 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="30" class="named"><title>0x004070a0 ScriptMoveAngle (346 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="30" class="named"><title>0x00407200 ScriptMoveAngleTimed (288 bytes)</title></rect>
@@ -214,7 +214,7 @@
 <rect width="12" height="12" x="345" y="30" class="named"><title>0x00408040 ScriptFireBullets (315 bytes)</title></rect>
 <rect width="12" height="12" x="360" y="30" class="named"><title>0x00408180 ScriptUpdateMovement (967 bytes)</title></rect>
 <rect width="12" height="12" x="375" y="30" class="named"><title>0x00408560 ScriptUpdateShooting (349 bytes)</title></rect>
-<rect width="12" height="12" x="390" y="30" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
+<rect width="12" height="12" x="390" y="30" class="nonmatching"><title>0x004086c0 EnemyScripts::RunEnemy (14792 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="30" class="named"><title>0x0040c390 Bullet::ClearCommands (41 bytes)</title></rect>
 <rect width="12" height="12" x="420" y="30" class="named"><title>0x0040c3c0 SendExAttack1 (41 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="30" class="named"><title>0x0040c3f0 SetSidesFlag0 (76 bytes)</title></rect>
@@ -248,7 +248,7 @@
 <rect width="12" height="12" x="105" y="45" class="named"><title>0x0040d470 UpdateEffectFromSprite (87 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="45" class="named"><title>0x0040d4d0 Vector2::SetPolarEllipse (32 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="45" class="named"><title>0x0040d4f0 Gui::GetUnknown11ea8 (7 bytes)</title></rect>
-<rect width="12" height="12" x="150" y="45" class="named"><title>0x0040d500 EnemyShooter::EnemyShooter (28 bytes)</title></rect>
+<rect width="12" height="12" x="150" y="45" class="named"><title>0x0040d500 BulletShooter::BulletShooter (28 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="45" class="named"><title>0x0040d520 InitEffectTypes1And2 (210 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="45" class="named"><title>0x0040d600 UpdateEffectTypes1And2 (775 bytes)</title></rect>
 <rect width="12" height="12" x="195" y="45" class="named"><title>0x0040d910 InitEffectTypes3And4 (200 bytes)</title></rect>
@@ -279,8 +279,8 @@
 <rect width="12" height="12" x="570" y="45" class="named"><title>0x0040ef60 Ending::Ending (119 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="45" class="named"><title>0x0040efe0 Ending::OnUpdate (145 bytes)</title></rect>
 <rect width="12" height="12" x="600" y="45" class="named"><title>0x0040f080 Ending::RegisterChain (223 bytes)</title></rect>
-<rect width="12" height="12" x="615" y="45" class="named"><title>0x0040f160 EclManager::GetTimelineCount (7 bytes)</title></rect>
-<rect width="12" height="12" x="630" y="45" class="named"><title>0x0040f170 EclManager::GetTimeline (16 bytes)</title></rect>
+<rect width="12" height="12" x="615" y="45" class="named"><title>0x0040f160 EnemyScripts::GetTimelineCount (7 bytes)</title></rect>
+<rect width="12" height="12" x="630" y="45" class="named"><title>0x0040f170 EnemyScripts::GetTimeline (16 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="45" class="named"><title>0x0040f180 Enemy::ResetRankSpeeds (51 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="45" class="named"><title>0x0040f1c0 Fabs (12 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="45" class="named"><title>0x0040f1d0 EnemyManager::SpawnEnemy (364 bytes)</title></rect>
@@ -301,7 +301,7 @@
 <rect width="12" height="12" x="150" y="60" class="named"><title>0x0040f8e0 PlayerUnknown36c::Add (205 bytes)</title></rect>
 <rect width="12" height="12" x="165" y="60" class="named"><title>0x0040f9b0 Enemy::Move (188 bytes)</title></rect>
 <rect width="12" height="12" x="180" y="60" class="named"><title>0x0040fa70 EnemyManager::Initialize (554 bytes)</title></rect>
-<rect width="12" height="12" x="195" y="60" class="named"><title>0x0040fca0 EclContext::EclContext (28 bytes)</title></rect>
+<rect width="12" height="12" x="195" y="60" class="named"><title>0x0040fca0 EnemyScriptsStar::EnemyScriptsStar (28 bytes)</title></rect>
 <rect width="12" height="12" x="210" y="60" class="named"><title>0x0040fcc0 EnemyTimeline::Run (976 bytes)</title></rect>
 <rect width="12" height="12" x="225" y="60" class="named"><title>0x004100e0 Enemy::FreeUnknown33d8 (48 bytes)</title></rect>
 <rect width="12" height="12" x="240" y="60" class="named"><title>0x00410110 Enemy::Despawn (184 bytes)</title></rect>
@@ -316,10 +316,10 @@
 <rect width="12" height="12" x="375" y="60" class="named"><title>0x00411f30 FreeResources (68 bytes)</title></rect>
 <rect width="12" height="12" x="390" y="60" class="named"><title>0x00411f80 EnemyManager::RemoveChain (74 bytes)</title></rect>
 <rect width="12" height="12" x="405" y="60" class="named"><title>0x00411fd0 EnemyManager::Reset (177 bytes)</title></rect>
-<rect width="12" height="12" x="420" y="60" class="named"><title>0x00412090 EclManager::EclManager (15 bytes)</title></rect>
+<rect width="12" height="12" x="420" y="60" class="named"><title>0x00412090 EnemyScripts::EnemyScripts (15 bytes)</title></rect>
 <rect width="12" height="12" x="435" y="60" class="named"><title>0x004120a0 EnemyTimeline::EnemyTimeline (20 bytes)</title></rect>
-<rect width="12" height="12" x="450" y="60" class="named"><title>0x004120c0 EnemyUnknown30::EnemyUnknown30 (15 bytes)</title></rect>
-<rect width="12" height="12" x="465" y="60" class="named"><title>0x004120d0 EnemyUnknown22c::EnemyUnknown22c (47 bytes)</title></rect>
+<rect width="12" height="12" x="450" y="60" class="named"><title>0x004120c0 EnemyScriptLoop::EnemyScriptLoop (15 bytes)</title></rect>
+<rect width="12" height="12" x="465" y="60" class="named"><title>0x004120d0 EnemyScriptState::EnemyScriptState (47 bytes)</title></rect>
 <rect width="12" height="12" x="480" y="60" class="named"><title>0x00412100 Enemy::Enemy (207 bytes)</title></rect>
 <rect width="12" height="12" x="495" y="60" class="named"><title>0x004121d0 EnemyManager::EnemyManager (101 bytes)</title></rect>
 <rect width="12" height="12" x="510" y="60" class="named"><title>0x00412240 EnemyManager::RegisterChain (328 bytes)</title></rect>
@@ -334,13 +334,13 @@
 <rect width="12" height="12" x="645" y="60" class="named"><title>0x004125e0 BulletManager::LoadAnm (24 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="60" class="named"><title>0x00412600 BulletManager::ReleaseAnm (14 bytes)</title></rect>
 <rect width="12" height="12" x="675" y="60" class="named"><title>0x00412610 Bullet::SetCommand (54 bytes)</title></rect>
-<rect width="12" height="12" x="690" y="60" class="named"><title>0x00412650 EnemyShooter::SetCommand (37 bytes)</title></rect>
+<rect width="12" height="12" x="690" y="60" class="named"><title>0x00412650 BulletShooter::SetCommand (37 bytes)</title></rect>
 <rect width="12" height="12" x="705" y="60" class="named"><title>0x00412680 Bullet::SetAccelCommand (39 bytes)</title></rect>
 <rect width="12" height="12" x="720" y="60" class="named"><title>0x004126b0 Bullet::SetWaitCommand (31 bytes)</title></rect>
 <rect width="12" height="12" x="735" y="60" class="named"><title>0x004126d0 Bullet::SetSpriteCommand (37 bytes)</title></rect>
-<rect width="12" height="12" x="0" y="75" class="named"><title>0x00412700 EnemyShooter::SetAngleAccelCommand (39 bytes)</title></rect>
-<rect width="12" height="12" x="15" y="75" class="named"><title>0x00412730 EnemyShooter::SetAccelCommand (39 bytes)</title></rect>
-<rect width="12" height="12" x="30" y="75" class="named"><title>0x00412760 EnemyShooter::SetWaitCommand (31 bytes)</title></rect>
+<rect width="12" height="12" x="0" y="75" class="named"><title>0x00412700 BulletShooter::SetAngleAccelCommand (39 bytes)</title></rect>
+<rect width="12" height="12" x="15" y="75" class="named"><title>0x00412730 BulletShooter::SetAccelCommand (39 bytes)</title></rect>
+<rect width="12" height="12" x="30" y="75" class="named"><title>0x00412760 BulletShooter::SetWaitCommand (31 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="75" class="named"><title>0x00412780 SinCos (33 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="75" class="named"><title>0x004127b0 Sprite::Initialize (66 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="75" class="named"><title>0x00412800 AnmLoaded::InitSprite (41 bytes)</title></rect>
@@ -1212,7 +1212,7 @@
 <g transform="translate(0 522)">
 <text text-anchor="start" x="0" y="7.50">By function size</text>
 <g transform="translate(0 20)">
-<rect width="63.70" height="141.24" x="0" y="0" class="nonmatching"><title>0x004086c0 EclManager::RunEnemy (14792 bytes)</title></rect>
+<rect width="63.70" height="141.24" x="0" y="0" class="nonmatching"><title>0x004086c0 EnemyScripts::RunEnemy (14792 bytes)</title></rect>
 <rect width="63.70" height="89.71" x="0" y="144.24" class="named"><title>0x00436f30 SpriteEngine::Step (9360 bytes)</title></rect>
 <rect width="63.70" height="37.08" x="0" y="236.95" class="nonmatching"><title>0x00410730 EnemyManager::OnUpdate (3881 bytes)</title></rect>
 <rect width="63.70" height="31.16" x="0" y="277.03" class="nonmatching"><title>0x004026c0 Stage::DrawLayer (3274 bytes)</title></rect>
@@ -1649,7 +1649,7 @@
 <rect width="9.60" height="9.93" x="564.33" y="109.97" class="named"><title>0x0044a6e0 InitEffectType31 (156 bytes)</title></rect>
 <rect width="9.53" height="9.93" x="576.92" y="109.97" class="named"><title>0x00447c40 InitEffectTypes10And18And24And25And26And28And33 (155 bytes)</title></rect>
 <rect width="9.53" height="9.93" x="589.46" y="109.97" class="named"><title>0x0044aff0 InitEffectType32 (155 bytes)</title></rect>
-<rect width="9.47" height="9.93" x="601.99" y="109.97" class="named"><title>0x00405660 EclManager::Load (154 bytes)</title></rect>
+<rect width="9.47" height="9.93" x="601.99" y="109.97" class="named"><title>0x00405660 EnemyScripts::Load (154 bytes)</title></rect>
 <rect width="9.47" height="9.93" x="614.47" y="109.97" class="named"><title>0x004346a0 AsciiText::AddPopup (154 bytes)</title></rect>
 <rect width="9.41" height="9.93" x="626.94" y="109.97" class="named"><title>0x0042c5c0 LogPrintf (153 bytes)</title></rect>
 <rect width="9.41" height="9.93" x="639.35" y="109.97" class="named"><title>0x0042c660 LogError (153 bytes)</title></rect>
@@ -1871,7 +1871,7 @@
 <rect width="6.78" height="6.67" x="730.44" y="178.11" class="named"><title>0x0042f770 SpriteEngine::ResetFrameState (74 bytes)</title></rect>
 <rect width="6.78" height="6.67" x="740.22" y="178.11" class="named"><title>0x00433050 DatArchive::FindEntry (74 bytes)</title></rect>
 <rect width="6.41" height="7.05" x="592.25" y="187.78" class="named"><title>0x0043e1a0 FindRiffChunk (74 bytes)</title></rect>
-<rect width="6.41" height="6.96" x="592.25" y="197.83" class="named"><title>0x00406850 EclManager::StartSub (73 bytes)</title></rect>
+<rect width="6.41" height="6.96" x="592.25" y="197.83" class="named"><title>0x00406850 EnemyScripts::StartSub (73 bytes)</title></rect>
 <rect width="6.41" height="6.86" x="592.25" y="207.78" class="named"><title>0x00424e95 MainMenu::ShowEntryFrame (72 bytes)</title></rect>
 <rect width="6.41" height="6.86" x="592.25" y="217.65" class="named"><title>0x00436de0 SpriteEngine::SendInterruptToLoadedSprites (72 bytes)</title></rect>
 <rect width="6.41" height="6.86" x="592.25" y="227.51" class="named"><title>0x0043e9e0 SoundPlayer::SwitchBgmTrack (72 bytes)</title></rect>
@@ -1976,7 +1976,7 @@
 <rect width="5.74" height="5.22" x="698.50" y="214.68" class="named"><title>0x0043fd20 CStreamingSound::UpdateFadeUp (49 bytes)</title></rect>
 <rect width="5.62" height="5.22" x="707.24" y="214.68" class="named"><title>0x004100e0 Enemy::FreeUnknown33d8 (48 bytes)</title></rect>
 <rect width="5.62" height="5.22" x="715.86" y="214.68" class="named"><title>0x0043bc80 SpriteEngine::ReleaseTexture (48 bytes)</title></rect>
-<rect width="5.51" height="5.22" x="724.48" y="214.68" class="named"><title>0x004120d0 EnemyUnknown22c::EnemyUnknown22c (47 bytes)</title></rect>
+<rect width="5.51" height="5.22" x="724.48" y="214.68" class="named"><title>0x004120d0 EnemyScriptState::EnemyScriptState (47 bytes)</title></rect>
 <rect width="5.51" height="5.22" x="732.99" y="214.68" class="named"><title>0x0041ba4f GameManager::Init (47 bytes)</title></rect>
 <rect width="5.51" height="5.22" x="741.49" y="214.68" class="named"><title>0x00422900 ScreenEffect::DeletedCallback (47 bytes)</title></rect>
 <rect width="5.46" height="5.26" x="619.75" y="222.90" class="named"><title>0x00423469 SpriteEngine::HasTexture (47 bytes)</title></rect>
@@ -2028,8 +2028,8 @@
 <rect width="5.25" height="4.65" x="652.54" y="230.95" class="named"><title>0x0043cfe0 MidiDevice::Close (40 bytes)</title></rect>
 <rect width="5.12" height="4.65" x="660.79" y="230.95" class="named"><title>0x00412390 BulletManager::ClearDrawBuckets (39 bytes)</title></rect>
 <rect width="5.12" height="4.65" x="668.91" y="230.95" class="named"><title>0x00412680 Bullet::SetAccelCommand (39 bytes)</title></rect>
-<rect width="5.12" height="4.65" x="677.04" y="230.95" class="named"><title>0x00412700 EnemyShooter::SetAngleAccelCommand (39 bytes)</title></rect>
-<rect width="5.12" height="4.65" x="685.16" y="230.95" class="named"><title>0x00412730 EnemyShooter::SetAccelCommand (39 bytes)</title></rect>
+<rect width="5.12" height="4.65" x="677.04" y="230.95" class="named"><title>0x00412700 BulletShooter::SetAngleAccelCommand (39 bytes)</title></rect>
+<rect width="5.12" height="4.65" x="685.16" y="230.95" class="named"><title>0x00412730 BulletShooter::SetAccelCommand (39 bytes)</title></rect>
 <rect width="5.12" height="4.65" x="693.28" y="230.95" class="named"><title>0x00415c60 DecodeMsgString (39 bytes)</title></rect>
 <rect width="5.12" height="4.65" x="701.40" y="230.95" class="named"><title>0x0042ae20 Rng::GetRandomU16 (39 bytes)</title></rect>
 <rect width="5.12" height="4.65" x="709.52" y="230.95" class="named"><title>0x00435d40 PauseMenu::PauseMenu (39 bytes)</title></rect>
@@ -2049,7 +2049,7 @@
 <rect width="5.02" height="4.63" x="636.04" y="307.24" class="named"><title>0x004417c0 EnemyManager::SpawnPlayerEnemyWithVars (38 bytes)</title></rect>
 <rect width="5.02" height="4.63" x="636.04" y="314.87" class="named"><title>0x00445c80 UpdateEffectType35 (38 bytes)</title></rect>
 <rect width="5.02" height="4.50" x="636.04" y="322.49" class="named"><title>0x0040e3a0 PlayRecord::AddClear (37 bytes)</title></rect>
-<rect width="5.02" height="4.50" x="636.04" y="329.99" class="named"><title>0x00412650 EnemyShooter::SetCommand (37 bytes)</title></rect>
+<rect width="5.02" height="4.50" x="636.04" y="329.99" class="named"><title>0x00412650 BulletShooter::SetCommand (37 bytes)</title></rect>
 <rect width="5.02" height="4.50" x="636.04" y="337.50" class="named"><title>0x004126d0 Bullet::SetSpriteCommand (37 bytes)</title></rect>
 <rect width="4.77" height="4.74" x="644.06" y="238.60" class="named"><title>0x0041f490 TryFireShot (37 bytes)</title></rect>
 <rect width="4.77" height="4.74" x="651.83" y="238.60" class="named"><title>0x0042ac80 SetButtonFromDirectInput (37 bytes)</title></rect>
@@ -2097,7 +2097,7 @@
 <rect width="4.13" height="4.58" x="651.49" y="276.89" class="named"><title>0x004012c0 D3DXVec3LengthSq (31 bytes)</title></rect>
 <rect width="4.13" height="4.58" x="651.49" y="284.47" class="named"><title>0x00403d60 RunEndCallbacks (31 bytes)</title></rect>
 <rect width="4.13" height="4.58" x="651.49" y="292.06" class="named"><title>0x004126b0 Bullet::SetWaitCommand (31 bytes)</title></rect>
-<rect width="4.13" height="4.58" x="651.49" y="299.64" class="named"><title>0x00412760 EnemyShooter::SetWaitCommand (31 bytes)</title></rect>
+<rect width="4.13" height="4.58" x="651.49" y="299.64" class="named"><title>0x00412760 BulletShooter::SetWaitCommand (31 bytes)</title></rect>
 <rect width="4.13" height="4.58" x="651.49" y="307.23" class="named"><title>0x0041cdc0 Player::OnDraw2 (31 bytes)</title></rect>
 <rect width="4.13" height="4.58" x="651.49" y="314.81" class="named"><title>0x0042f3d0 SpriteEngine::ReleaseVertexBuffer (31 bytes)</title></rect>
 <rect width="4.13" height="4.58" x="651.49" y="322.39" class="named"><title>0x00434280 AsciiText::RemoveChain (31 bytes)</title></rect>
@@ -2110,9 +2110,9 @@
 <rect width="4.32" height="4.10" x="658.62" y="282.10" class="named"><title>0x00435f20 GdiSurface::GdiSurface (29 bytes)</title></rect>
 <rect width="4.32" height="4.10" x="658.62" y="289.20" class="named"><title>0x00439680 SpriteEngine::BeginQuadBatch (29 bytes)</title></rect>
 <rect width="4.32" height="3.96" x="658.62" y="296.30" class="named"><title>0x004014b0 Timer::NextTick (28 bytes)</title></rect>
-<rect width="4.32" height="3.96" x="658.62" y="303.26" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
-<rect width="4.32" height="3.96" x="658.62" y="310.22" class="named"><title>0x0040d500 EnemyShooter::EnemyShooter (28 bytes)</title></rect>
-<rect width="4.32" height="3.96" x="658.62" y="317.17" class="named"><title>0x0040fca0 EclContext::EclContext (28 bytes)</title></rect>
+<rect width="4.32" height="3.96" x="658.62" y="303.26" class="named"><title>0x00406830 EnemyScripts::Unload (28 bytes)</title></rect>
+<rect width="4.32" height="3.96" x="658.62" y="310.22" class="named"><title>0x0040d500 BulletShooter::BulletShooter (28 bytes)</title></rect>
+<rect width="4.32" height="3.96" x="658.62" y="317.17" class="named"><title>0x0040fca0 EnemyScriptsStar::EnemyScriptsStar (28 bytes)</title></rect>
 <rect width="4.32" height="3.96" x="658.62" y="324.13" class="named"><title>0x004157b0 ExAttackManager::ExAttackManager (28 bytes)</title></rect>
 <rect width="4.32" height="3.96" x="658.62" y="331.09" class="named"><title>0x0041a470 GuiSideA678::GuiSideA678 (28 bytes)</title></rect>
 <rect width="4.32" height="3.96" x="658.62" y="338.04" class="named"><title>0x0041ceb0 PlayerUnknown36c::PlayerUnknown36c (28 bytes)</title></rect>
@@ -2204,7 +2204,7 @@
 <rect width="3.45" height="2.82" x="685.26" y="315.92" class="named"><title>0x0040e3d0 PlayRecord::OpenEntry (16 bytes)</title></rect>
 <rect width="3.45" height="2.82" x="685.26" y="321.73" class="named"><title>0x0040e3e0 PlayRecord::OpenEntry2 (16 bytes)</title></rect>
 <rect width="3.45" height="2.82" x="685.26" y="327.55" class="named"><title>0x0040e3f0 PlayRecord::OpenEntry3 (16 bytes)</title></rect>
-<rect width="3.45" height="2.82" x="685.26" y="333.37" class="named"><title>0x0040f170 EclManager::GetTimeline (16 bytes)</title></rect>
+<rect width="3.45" height="2.82" x="685.26" y="333.37" class="named"><title>0x0040f170 EnemyScripts::GetTimeline (16 bytes)</title></rect>
 <rect width="3.45" height="2.82" x="685.26" y="339.18" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>
 <rect width="2.92" height="3.34" x="691.71" y="280.28" class="named"><title>0x004124d0 CopyBulletSprite (16 bytes)</title></rect>
 <rect width="2.92" height="3.34" x="697.64" y="280.28" class="named"><title>0x004302a0 AsciiText::SetAlpha (16 bytes)</title></rect>
@@ -2216,8 +2216,8 @@
 <rect width="2.73" height="3.34" x="732.80" y="280.28" class="named"><title>0x00404970 GameManager::IsMode1 (15 bytes)</title></rect>
 <rect width="2.73" height="3.34" x="738.53" y="280.28" class="named"><title>0x00405700 Atan2 (15 bytes)</title></rect>
 <rect width="2.73" height="3.34" x="744.27" y="280.28" class="named"><title>0x00406200 Rng::GetRandomF32SignedInRange (15 bytes)</title></rect>
-<rect width="2.83" height="3.23" x="691.71" y="286.62" class="named"><title>0x00412090 EclManager::EclManager (15 bytes)</title></rect>
-<rect width="2.83" height="3.23" x="697.54" y="286.62" class="named"><title>0x004120c0 EnemyUnknown30::EnemyUnknown30 (15 bytes)</title></rect>
+<rect width="2.83" height="3.23" x="691.71" y="286.62" class="named"><title>0x00412090 EnemyScripts::EnemyScripts (15 bytes)</title></rect>
+<rect width="2.83" height="3.23" x="697.54" y="286.62" class="named"><title>0x004120c0 EnemyScriptLoop::EnemyScriptLoop (15 bytes)</title></rect>
 <rect width="2.83" height="3.23" x="703.37" y="286.62" class="named"><title>0x004157a0 ExAttack::ExAttack (15 bytes)</title></rect>
 <rect width="2.83" height="3.23" x="709.20" y="286.62" class="named"><title>0x00415d30 GameManager::IsMode2 (15 bytes)</title></rect>
 <rect width="2.83" height="3.23" x="715.03" y="286.62" class="named"><title>0x0041f060 PlayerUnknown30454::PlayerUnknown30454 (15 bytes)</title></rect>
@@ -2304,7 +2304,7 @@
 <rect width="2.58" height="1.87" x="720.42" y="330.66" class="named"><title>0x00434380 Sprite::ClearShown (8 bytes)</title></rect>
 <rect width="2.58" height="1.87" x="720.42" y="335.52" class="named"><title>0x00443430 HitPlayerShotType2 (8 bytes)</title></rect>
 <rect width="2.58" height="1.61" x="720.42" y="340.39" class="named"><title>0x0040d4f0 Gui::GetUnknown11ea8 (7 bytes)</title></rect>
-<rect width="1.98" height="2.16" x="725.99" y="320.92" class="named"><title>0x0040f160 EclManager::GetTimelineCount (7 bytes)</title></rect>
+<rect width="1.98" height="2.16" x="725.99" y="320.92" class="named"><title>0x0040f160 EnemyScripts::GetTimelineCount (7 bytes)</title></rect>
 <rect width="1.98" height="2.16" x="730.98" y="320.92" class="named"><title>0x00433900 FileBase::~FileBase (7 bytes)</title></rect>
 <rect width="1.98" height="2.16" x="735.96" y="320.92" class="named"><title>0x0043e420 CWaveFile::GetFormat (7 bytes)</title></rect>
 <rect width="1.69" height="2.16" x="740.94" y="320.92" class="named"><title>0x00415cf0 FreesResources (6 bytes)</title></rect>

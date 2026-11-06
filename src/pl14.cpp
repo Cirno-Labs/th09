@@ -98,7 +98,7 @@ int UpdateExAttackType25(ExAttack *attack)
         {
             if (attack->timer.HasTickedEvery(3))
             {
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = attack->pos;
                 shooter.pos.y += 24.0f;

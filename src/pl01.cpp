@@ -96,7 +96,7 @@ int InitExAttackType2(ExAttack *attack)
 int UpdateExAttackType2(ExAttack *attack)
 {
     ExAttackData00 *data = (ExAttackData00 *)attack->data;
-    EclVars vars;
+    EnemyScriptVars vars;
 
     if (data->state == 0)
     {

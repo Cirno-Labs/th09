@@ -70,7 +70,7 @@ Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDro
 }
 
 Enemy *EnemyManager::SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score,
-                                        EclVars *vars, int usePlayerEcl)
+                                        EnemyScriptVars *vars, int usePlayerEcl)
 {
     Enemy *enemy;
     int i;
@@ -877,7 +877,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
             }
             if (enemy->unknown5424 > mgr->unknown2ac44c)
             {
-                EnemyShooter shooter;
+                BulletShooter shooter;
 
                 shooter.pos = enemy->pos;
                 shooter.sprite = 1;
@@ -1509,7 +1509,7 @@ int EnemyManager::AddedCallback(EnemyManager *mgr)
         mgr->anm = anm;
     }
     mgr->otherPlayerAnm = g_SpriteEngine->GetAnm(6 - mgr->sideIdx);
-    memset(&mgr->ecl, 0, sizeof(EclManager));
+    memset(&mgr->ecl, 0, sizeof(EnemyScripts));
     if (mgr->ecl.Load("enemy.ecl") != 0)
     {
         return -1;

@@ -10,11 +10,11 @@
 class EnemyManager;
 struct GameSide;
 struct Enemy;
-struct EnemyUnknown22c;
-struct EclInstr;
+struct EnemyScriptState;
+struct EnemyScriptInstr;
 
 // The head of an ECL file, as th08's: then the offsets of the timelines.
-struct EclHeader
+struct EnemyScriptHeader
 {
     int version;
     short subCount;
@@ -23,23 +23,24 @@ struct EclHeader
 };
 
 // The arguments of a subroutine call, as th08's.
-struct EclCallArgs
+struct EnemyScriptCallArgs
 {
     int ints[4];
     float floats[4];
 };
 
-// The state of an ECL script. Only the fields known so far; its
-// implicit constructor is at 0x40fca0.
-struct EclContext
+// th06's ScriptStarPattern keeps its star here; th09 only constructs
+// it. Only the fields known so far; its implicit constructor is at
+// 0x40fca0.
+struct EnemyScriptsStar
 {
     unsigned char pad_0[0x100];
-    D3DXVECTOR3 unknown100[8];
+    D3DXVECTOR3 ends[8];
 };
 
 // An ECL file and the state of its scripts (0x188 bytes). Only the
 // fields known so far; its implicit constructor is at 0x412090.
-struct EclManager
+struct EnemyScripts
 {
     // Loads the ECL file `path`. Returns 0, or -1 on failure (0x405660).
     int Load(char *path);
@@ -50,7 +51,7 @@ struct EclManager
     void Unload();
     // Starts subroutine `sub` in `ctx`, unless it is negative, as th08's.
     // Returns 0 (0x406850).
-    int StartSub(EnemyUnknown22c *ctx, short sub);
+    int StartSub(EnemyScriptState *ctx, short sub);
 
     // How many timelines the file has. Inline, as th08's; the copy is
     // at 0x40f160.
@@ -65,21 +66,21 @@ struct EclManager
         return this->file->timelines[i];
     }
 
-    EclHeader *file;
+    EnemyScriptHeader *file;
     // The subroutines, after the timelines' offsets in the file.
     void **subs;
-    EclContext context;
+    EnemyScriptsStar star;
     // The arguments the next subroutine call passes, as th08's.
-    EclCallArgs callArgs;
+    EnemyScriptCallArgs callArgs;
 };
-ASSERT_SIZE(EclManager, 0x188);
+ASSERT_SIZE(EnemyScripts, 0x188);
 
 // An interpolation loop of an ECL script, as th08's EnemyScriptLoop:
 // runs `func` for `duration` frames with the eased time, to set the
 // variable `target` names. Its implicit constructor is at 0x4120c0.
-struct EnemyUnknown30
+struct EnemyScriptLoop
 {
-    void (*func)(Enemy *enemy, EclInstr *instr, float t);
+    void (*func)(Enemy *enemy, EnemyScriptInstr *instr, float t);
     Timer timer;
     int duration;
     int type;
@@ -87,10 +88,10 @@ struct EnemyUnknown30
     float args[4];
     float target;
 };
-ASSERT_SIZE(EnemyUnknown30, 0x30);
+ASSERT_SIZE(EnemyScriptLoop, 0x30);
 
 // An argument of an ECL instruction, as th08's.
-union EclArg
+union EnemyScriptArg
 {
     int i;
     float f;
@@ -98,7 +99,7 @@ union EclArg
 
 // An ECL instruction, as th08's: the enemy script function instruction
 // takes the function in args[0] and passes it the instruction.
-struct EclInstr
+struct EnemyScriptInstr
 {
     // The frame it runs on.
     int time;
@@ -109,7 +110,7 @@ struct EclInstr
     BYTE difficultyMask;
     // Bit n: argument n names a variable.
     WORD paramMask;
-    EclArg args[9];
+    EnemyScriptArg args[9];
 };
 
 // `id`, or the int variable it names, as th08's GetIntOperand
@@ -126,10 +127,10 @@ float GetFloatOperand(Enemy *enemy, float id);
 float *ResolveFloatOperand(Enemy *enemy, float *operand, WORD mask, int bit);
 // The interpolation loops' linear function, as th08's: sets args[8] to
 // t of the way from args[4] to args[5] (0x407450).
-void ScriptMoveLinear(Enemy *enemy, EclInstr *instr, float t);
+void ScriptMoveLinear(Enemy *enemy, EnemyScriptInstr *instr, float t);
 // The Hermite one, from args[4] to args[5] with the slopes args[6] and
 // args[7], as th08's (0x4074a0).
-void ScriptMoveHermite(Enemy *enemy, EclInstr *instr, float t);
+void ScriptMoveHermite(Enemy *enemy, EnemyScriptInstr *instr, float t);
 
 // The arguments of the spawn instructions, as th08's.
 struct EnemySpawnArgs
@@ -143,40 +144,40 @@ struct EnemySpawnArgs
 ASSERT_SIZE(EnemySpawnArgs, 0x1c);
 
 // A function opcodes 136 and 137 run, as th08's EnemyScriptFunc.
-typedef void (*EclFunc)(Enemy *enemy, EclInstr *instr);
+typedef void (*EnemyScriptFunc)(Enemy *enemy, EnemyScriptInstr *instr);
 // The interpolations by loop type, as th08's (0x4a0af4).
-extern void (*g_EnemyScriptInterps[8])(Enemy *enemy, EclInstr *instr, float t);
+extern void (*g_EnemyScriptInterps[8])(Enemy *enemy, EnemyScriptInstr *instr, float t);
 // The functions opcodes 136 and 137 run (0x4a0b14).
-extern EclFunc g_EnemyScriptFuncs[12];
+extern EnemyScriptFunc g_EnemyScriptFuncs[12];
 
 // An ECL script's variables, which SpawnEnemyWithVars copies in (0x78
 // bytes).
-struct EclVars
+struct EnemyScriptVars
 {
     int intVars[8];
     float floatVars[8];
     int intVars2[4];
     float floatVars2[2];
-    EclCallArgs args;
+    EnemyScriptCallArgs args;
 };
-ASSERT_SIZE(EclVars, 0x78);
+ASSERT_SIZE(EnemyScriptVars, 0x78);
 
 // The state of an enemy's ECL script, as th08's EnemyScriptState (0x22c
 // bytes). Only the fields known so far; its implicit constructor is at
 // 0x4120d0.
-struct EnemyUnknown22c
+struct EnemyScriptState
 {
     // The manager whose subroutine runs, and where it is.
-    EclManager *ecl;
+    EnemyScripts *ecl;
     void *code;
     // The frame of the subroutine, and of a wait.
     Timer timer;
     // What runs each frame with `funcInstr`, as th08's.
-    void (*func)(Enemy *enemy, EclInstr *instr);
-    EclInstr *funcInstr;
+    void (*func)(Enemy *enemy, EnemyScriptInstr *instr);
+    EnemyScriptInstr *funcInstr;
     union
     {
-        EclVars vars;
+        EnemyScriptVars vars;
         struct
         {
             // The script's variables, by their place in th08's.
@@ -184,11 +185,11 @@ struct EnemyUnknown22c
             float floatVars[8];
             int intVars2[4];
             float floatVars2[2];
-            EclCallArgs args;
+            EnemyScriptCallArgs args;
         };
     };
     Timer waitTimer;
-    EnemyUnknown30 loops[8];
+    EnemyScriptLoop loops[8];
     int compareResult;
     // 1 + the index of the thread it is, or 0 for the main one.
     int timedCallActive;
@@ -196,7 +197,7 @@ struct EnemyUnknown22c
     short sub;
     unsigned char pad_22a[0x22c - 0x22a];
 };
-ASSERT_SIZE(EnemyUnknown22c, 0x22c);
+ASSERT_SIZE(EnemyScriptState, 0x22c);
 
 // One of an enemy's four extra script threads, as th08's ("ECLInt"),
 // which RunEnemy runs after its main context each frame.
@@ -206,20 +207,20 @@ struct EnemyScriptThread
     short unusedShort4;
     // Enemy::stackDepth while the thread runs.
     short stackDepth;
-    EnemyUnknown22c ctx;
+    EnemyScriptState ctx;
     // Its call stack (Enemy::callStack while it runs).
-    EnemyUnknown22c callStack[16];
+    EnemyScriptState callStack[16];
 };
 ASSERT_SIZE(EnemyScriptThread, 0x24f4);
 
 // How an enemy shoots, as th08's shooter (0x214 bytes). Only the fields
 // known so far.
-struct EnemyShooter
+struct BulletShooter
 {
     // Inline; the copy is at 0x40d500.
-    EnemyShooter()
+    BulletShooter()
     {
-        memset(this, 0, sizeof(EnemyShooter));
+        memset(this, 0, sizeof(BulletShooter));
         this->bulletSound = -1;
     }
 
@@ -265,13 +266,13 @@ struct EnemyShooter
     // The bullet type's sprites, as th08's.
     BulletTypeSprites *typeSprites;
 };
-ASSERT_SIZE(EnemyShooter, 0x214);
+ASSERT_SIZE(BulletShooter, 0x214);
 
 // Something of 0x1c bytes, starting with a position, with an empty
 // constructor; the linker folded it with D3DXVECTOR3's (0x4343d0).
-struct EnemyUnknown1c
+struct EnemyBox
 {
-    EnemyUnknown1c()
+    EnemyBox()
     {
     }
 
@@ -280,7 +281,7 @@ struct EnemyUnknown1c
     D3DXVECTOR3 velocity;
     float angle;
 };
-ASSERT_SIZE(EnemyUnknown1c, 0x1c);
+ASSERT_SIZE(EnemyBox, 0x1c);
 
 // An enemy (0x5430 bytes), as th08's as far as EnemyManager::Initialize
 // shows it. Only the fields known so far.
@@ -329,12 +330,12 @@ struct Enemy
     Sprite primarySprite;
     Sprite sprites[2];
     // The main context, and its call stack, as th08's.
-    EnemyUnknown22c ctx;
-    EnemyUnknown22c savedCtx[0x10];
+    EnemyScriptState ctx;
+    EnemyScriptState savedCtx[0x10];
     // The context running, as th08's currentCtx.
-    EnemyUnknown22c *currentCtx;
+    EnemyScriptState *currentCtx;
     // Where calls save the context, as th08's callStack.
-    EnemyUnknown22c *callStack;
+    EnemyScriptState *callStack;
     // The enemy's own variables, as th08's.
     int enemyInts[8];
     float enemyFloats[8];
@@ -396,12 +397,12 @@ struct Enemy
     Timer callbackTimer;
     // The primary sprite's color when it spawned, as th08's.
     D3DCOLOR color;
-    EnemyShooter shooter;
+    BulletShooter shooter;
     // The instruction a held shot fires, as th08's.
     unsigned char shootInstr[0x2c];
     int shootInterval;
     Timer shootTimer;
-    EnemyShooter unknown30c4;
+    BulletShooter unknown30c4;
     // The lasers it fired, as th08's.
     Laser *lasers[0x20];
     int laserIndex;
@@ -512,9 +513,9 @@ struct Enemy
     int timerCallbackSub;
     // The extra script threads, as th08's.
     EnemyScriptThread *threads[4];
-    EnemyUnknown1c trailBoxes[0x60];
+    EnemyBox trailBoxes[0x60];
     // The trail strip's vertices, as th08's spriteStripVertices.
-    EnemyUnknown1c unknown3e68[0xc2];
+    EnemyBox unknown3e68[0xc2];
     // As th08's: whether it has trail boxes, and how many.
     BYTE trailFlags;
     unsigned char pad_53a1[0x1];
@@ -644,14 +645,14 @@ public:
     Enemy *SpawnPlayerEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored);
     // SpawnEnemy unmirrored, with the script's variables from `vars`, as
     // th08's SpawnWithVars (0x40f340).
-    Enemy *SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EclVars *vars,
+    Enemy *SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EnemyScriptVars *vars,
                               int usePlayerEcl);
     // SpawnEnemyWithVars from playerEcl. Inline, in pl.h (0x4417c0).
-    Enemy *SpawnPlayerEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EclVars *vars);
+    Enemy *SpawnPlayerEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EnemyScriptVars *vars);
 
     // enemy.ecl, and the character's plXX.ecl.
-    EclManager ecl;
-    EclManager playerEcl;
+    EnemyScripts ecl;
+    EnemyScripts playerEcl;
     ChainElem *calcElem;
     ChainElem *drawElem;
     ChainElem *drawElem2;
