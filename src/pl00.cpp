@@ -285,7 +285,7 @@ int DrawEffectType10(Effect *effect)
 
 // An update callback of the shot table (1): from 40 frames on, every
 // other frame, steers a flying bullet towards the player's
-// unknown30364, by up to a quarter of its speed and at 1 to 10 pixels
+// orbHomingTarget, by up to a quarter of its speed and at 1 to 10 pixels
 // a frame, or speeds it up by a third up to 10 without a target; turns
 // it to its velocity. Returns 0 (0x4415e0).
 int UpdatePlayerShotType1(Player *player, PlayerBullet *bullet)
@@ -296,10 +296,10 @@ int UpdatePlayerShotType1(Player *player, PlayerBullet *bullet)
 
     if (bullet->state == 1 && bullet->timer.AsFrames() >= 40 && bullet->timer.HasTicked())
     {
-        if (player->unknown30364.x > -900.0f)
+        if (player->orbHomingTarget.x > -900.0f)
         {
-            x = player->unknown30364.x - bullet->pos[0];
-            y = player->unknown30364.y - bullet->pos[1];
+            x = player->orbHomingTarget.x - bullet->pos[0];
+            y = player->orbHomingTarget.y - bullet->pos[1];
             len = sqrtf(x * x + y * y) / (bullet->speed * 0.25f);
             if (len < 1.0f)
             {

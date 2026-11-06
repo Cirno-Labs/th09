@@ -200,7 +200,7 @@ int PauseMenu::UpdatePauseMenu()
 
     if (g_PlayerInputs[2].IsJustPressed(8) && this->state != 3)
     {
-        g_SoundPlayer.PlaySoundByIdx(10, 0);
+        g_SoundPlayer.QueueSound(10, 0);
         this->state = 3;
         for (i = 0; i < ARRAY_SIZE(this->sprites); i++)
         {
@@ -214,7 +214,7 @@ int PauseMenu::UpdatePauseMenu()
     }
     if (g_PlayerInputs[2].IsJustPressed(0x200) && this->state != 8)
     {
-        g_SoundPlayer.PlaySoundByIdx(10, 0);
+        g_SoundPlayer.QueueSound(10, 0);
         this->state = 8;
         for (i = 0; i < ARRAY_SIZE(this->sprites); i++)
         {
@@ -251,22 +251,22 @@ int PauseMenu::UpdatePauseMenu()
                 if (g_PlayerInputs[2].IsJustPressed(0x10))
                 {
                     this->state = 2;
-                    g_SoundPlayer.PlaySoundByIdx(0, 0);
+                    g_SoundPlayer.QueueSound(0, 0);
                 }
             }
             else if (g_PlayerInputs[2].IsJustPressed(0x10))
             {
                 this->state = 2;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x20))
             {
                 this->state = 2;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 0; i < 3; i++)
                 {
                     this->sprites[i].pendingInterrupt = 2;
@@ -287,24 +287,24 @@ int PauseMenu::UpdatePauseMenu()
             if (g_PlayerInputs[2].IsJustPressed(0x10))
             {
                 this->state = 1;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_GameManager.IsReplay())
             {
                 if (g_PlayerInputs[2].IsJustPressed(0x20))
                 {
                     this->state = 1;
-                    g_SoundPlayer.PlaySoundByIdx(0, 0);
+                    g_SoundPlayer.QueueSound(0, 0);
                 }
             }
             else if (g_PlayerInputs[2].IsJustPressed(0x20))
             {
                 this->state = 1;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 0; i < 3; i++)
                 {
                     this->sprites[i].pendingInterrupt = 2;
@@ -349,11 +349,11 @@ int PauseMenu::UpdatePauseMenu()
                 {
                     this->state = 7;
                 }
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 3; i < 6; i++)
                 {
                     this->sprites[i].pendingInterrupt = 2;
@@ -388,11 +388,11 @@ int PauseMenu::UpdatePauseMenu()
                 {
                     this->state = 6;
                 }
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 0; i < 3; i++)
                 {
                     this->sprites[i].pendingInterrupt = 1;
@@ -522,11 +522,11 @@ int ContinueMenu::UpdateContinueMenu()
             if (g_PlayerInputs[2].IsJustPressed(0x10) || g_PlayerInputs[2].IsJustPressed(0x20))
             {
                 this->state = 2;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 0; i < 5; i++)
                 {
                     this->sprites[i].pendingInterrupt = 1;
@@ -546,11 +546,11 @@ int ContinueMenu::UpdateContinueMenu()
             if (g_PlayerInputs[2].IsJustPressed(0x10) || g_PlayerInputs[2].IsJustPressed(0x20))
             {
                 this->state = 1;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 0; i < 5; i++)
                 {
                     this->sprites[i].pendingInterrupt = 1;
@@ -746,16 +746,16 @@ int UnknownMenu::UpdateUnknownMenu()
             if (g_PlayerInputs[2].IsJustPressed(0x10))
             {
                 this->state = 3;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x20))
             {
                 this->state = 2;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 0; i < 3; i++)
                 {
                     this->sprites[i].pendingInterrupt = 2;
@@ -775,16 +775,16 @@ int UnknownMenu::UpdateUnknownMenu()
             if (g_PlayerInputs[2].IsJustPressed(0x10))
             {
                 this->state = 1;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x20))
             {
                 this->state = 3;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 0; i < 3; i++)
                 {
                     this->sprites[i].pendingInterrupt = 2;
@@ -804,16 +804,16 @@ int UnknownMenu::UpdateUnknownMenu()
             if (g_PlayerInputs[2].IsJustPressed(0x10))
             {
                 this->state = 2;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x20))
             {
                 this->state = 1;
-                g_SoundPlayer.PlaySoundByIdx(0, 0);
+                g_SoundPlayer.QueueSound(0, 0);
             }
             if (g_PlayerInputs[2].IsJustPressed(0x1001))
             {
-                g_SoundPlayer.PlaySoundByIdx(10, 0);
+                g_SoundPlayer.QueueSound(10, 0);
                 for (i = 0; i < 3; i++)
                 {
                     this->sprites[i].pendingInterrupt = 2;

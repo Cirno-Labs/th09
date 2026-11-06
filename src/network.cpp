@@ -156,7 +156,7 @@ void Network::Init()
     {
         return;
     }
-    data = (char *)OpenPath("IP.txt", &size, 1);
+    data = (char *)LoadFileData("IP.txt", &size, 1);
     memset(this->hostName, 0, sizeof(this->hostName));
     this->isLan = 0;
     this->syncFrames = 30;

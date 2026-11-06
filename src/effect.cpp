@@ -87,7 +87,7 @@ Effect *EffectManager::StartEffect(Effect *effect, int effectIdx, D3DXVECTOR3 *p
     return effect;
 }
 
-Effect *EffectManager::SpawnParticles(int effectIdx, D3DXVECTOR3 *pos, int count, D3DCOLOR color)
+Effect *EffectManager::SpawnEffect(int effectIdx, D3DXVECTOR3 *pos, int count, D3DCOLOR color)
 {
     Effect *effect = &this->effects[this->next];
     D3DXVECTOR3 velocity(0.0f, 0.0f, 0.0f);
@@ -121,7 +121,7 @@ Effect *EffectManager::SpawnParticles(int effectIdx, D3DXVECTOR3 *pos, int count
     return tries >= this->unknown34 ? &this->effects[this->unknown38 + this->unknown34] : effect;
 }
 
-Effect *EffectManager::SpawnParticlesWithVelocity(int effectIdx, D3DXVECTOR3 *pos, D3DXVECTOR3 *velocity, int count,
+Effect *EffectManager::SpawnEffectWithVelocity(int effectIdx, D3DXVECTOR3 *pos, D3DXVECTOR3 *velocity, int count,
                                                   D3DCOLOR color)
 {
     Effect *effect = &this->effects[this->next];
@@ -184,10 +184,10 @@ int EffectManager::OnUpdate(EffectManager *mgr)
     mgr->activeCount = 0;
     mgr->drawListTails[0] = &mgr->unknown3c;
     mgr->drawListTails[1] = &mgr->unknown114;
-    mgr->drawListTails[2] = &mgr->unknown1ec;
+    mgr->drawListTails[2] = &mgr->drawList2;
     mgr->unknown3c.next = NULL;
     mgr->unknown114.next = NULL;
-    mgr->unknown1ec.next = NULL;
+    mgr->drawList2.next = NULL;
     // Preserve the original order of the two live pool-bound reads.
     for (i = 0; i < static_cast<const volatile int &>(mgr->unknown34) + mgr->unknown38; i++, effect++)
     {
@@ -483,7 +483,7 @@ int UpdateEffectTypes1And2(Effect *effect)
         effect->unknownD0 = 1;
         if (effect->unknownAc.AsFloat() >= effect->unknown98)
         {
-            g_SoundPlayer.PlaySoundByIdx(0x2e, effect->mgr->sideIdx != 0 ? 500 : -500);
+            g_SoundPlayer.QueueSound(0x2e, effect->mgr->sideIdx != 0 ? 500 : -500);
             effect->unknown98 = 0.0f;
             effect->unknownAc = 0;
             effect->unknownD0 = 0;
@@ -604,7 +604,7 @@ int UpdateEffectTypes3And4(Effect *effect)
     if (g_GameManager.gui->GetUnknown11ea8() == 0 &&
         g_GameManager.sides[1 - effect->unknownA8].enemyManager->unknown2ac3b8 < 10)
     {
-        enemy = g_GameManager.sides[1 - effect->unknownA8].enemyManager->SpawnEnemy(
+        enemy = g_GameManager.sides[1 - effect->unknownA8].enemyManager->Spawn(
             effect->unknownA4, &effect->velocity, 0x14, -2, 1000, 0, 0);
         enemy->unknown3380 = effect->unknownA6;
         enemy->acceleration += effect->unknownA0;
@@ -620,7 +620,7 @@ int UpdateEffectTypes3And4(Effect *effect)
     return 0;
 }
 
-int InitRingEffect(Effect *effect)
+int EffectInitRing(Effect *effect)
 {
     effect->vertices = (VertexTex1DiffuseXyzrwh *)g_MemoryManager.Alloc(0x1c38, "Effect");
     if (effect->vertices == NULL)

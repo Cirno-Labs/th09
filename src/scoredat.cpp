@@ -178,7 +178,7 @@ ScoreDat *LoadScoreDat(char *path)
     ScoreDat *unpacked;
 
     LogPrintf(&g_Log, "info : score load\r\n");
-    dat = (ScoreDat *)OpenPath(path, &readSize, 1);
+    dat = (ScoreDat *)LoadFileData(path, &readSize, 1);
     if (dat == NULL)
     {
     fail:
@@ -274,7 +274,7 @@ void ReleaseScoreDat(ScoreDat *dat)
     g_MemoryManager.Free(dat);
 }
 
-int LoadScore()
+int LoadScoreFile()
 {
     ScoreDat *dat;
 
@@ -287,7 +287,7 @@ int LoadScore()
     return 0;
 }
 
-int SaveScore()
+int SaveScoreDat()
 {
     int size;
     Vrsm vrsm;

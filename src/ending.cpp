@@ -126,7 +126,7 @@ int Ending::Load(char *path)
     char *oldFile;
 
     oldFile = this->file;
-    this->file = (char *)OpenPath(path, NULL, 0);
+    this->file = (char *)LoadFileData(path, NULL, 0);
     if (this->file == NULL)
     {
         this->file = oldFile;
@@ -388,7 +388,7 @@ int Ending::RunScript()
             case 'M':
                 this->cursor++;
                 secs4 = this->ReadInt();
-                g_App.FadeOutBgm(secs4);
+                g_App.FadeOutMusic(secs4);
                 break;
             case 's':
                 this->cursor++;

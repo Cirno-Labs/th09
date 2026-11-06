@@ -29,7 +29,7 @@ int UpdateEffectType32(Effect *effect)
 }
 
 // A fire callback of the shot table (7): on the frame of `sd`, fires it
-// at unknown30364 turned by its angle, or straight up once that is left
+// at orbHomingTarget turned by its angle, or straight up once that is left
 // of the side. Returns 1 if it fired (0x44ab90).
 int FirePlayerShotType7(Player *player, PlayerBullet *bullet, int frame, ShotData *sd)
 {
@@ -37,8 +37,8 @@ int FirePlayerShotType7(Player *player, PlayerBullet *bullet, int frame, ShotDat
 
     if (frame == sd->frame)
     {
-        angle = player->AngleFromPlayer(&player->unknown30364) + sd->angle;
-        if (player->unknown30364.x < -144.0f)
+        angle = player->AngleFromPlayer(&player->orbHomingTarget) + sd->angle;
+        if (player->orbHomingTarget.x < -144.0f)
         {
             angle = -1.5707964f;
         }

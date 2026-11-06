@@ -72,7 +72,7 @@ int GameManager::OnDraw(GameManager *mgr)
     return 1;
 }
 
-void FormatDate(char *buf)
+void FormatTodayDate(char *buf)
 {
     time_t t;
 
@@ -159,7 +159,7 @@ void App::ResetSubThread()
 {
     this->subThread = NULL;
     this->closeSubThread = 0;
-    this->unknown6b8 = 0;
+    this->subThreadRunning = 0;
 }
 
 int GameManager::IsDemo()
@@ -172,7 +172,7 @@ void GameManager::AddExtend()
     if (g_GameManager.sides[0].stats->lives < 7.0f)
     {
         g_GameManager.sides[0].stats->lives += 1.0f;
-        g_SoundPlayer.PlaySoundByIdx(0x1c, 0);
+        g_SoundPlayer.QueueSound(0x1c, 0);
     }
     g_GameManager.sides[0].stats->extendsGiven++;
     if (g_GameManager.mode == 1)
@@ -233,7 +233,7 @@ int GameManager::OnUpdate(GameManager *mgr)
         mgr->isPaused = 1;
         mgr->unknown130 = 1;
         g_SoundPlayer.QueueSoundCommand(6, 0, "Pause");
-        g_SoundPlayer.PlaySoundByIdx(0x22, 0);
+        g_SoundPlayer.QueueSound(0x22, 0);
         g_App.AddTotalPlayTime();
     }
     if (mgr->stateFlags >> 1 & 1)
@@ -246,7 +246,7 @@ int GameManager::OnUpdate(GameManager *mgr)
         if (mgr->demoFrames == 6000)
         {
             ScreenEffect::StartEffect(4, 120, 0, 0, 0, 0x23, 2);
-            g_App.FadeOutBgm(3.0f);
+            g_App.FadeOutMusic(3.0f);
         }
         if (mgr->demoFrames == 6120)
         {
@@ -320,13 +320,13 @@ int GameManager::OnUpdate(GameManager *mgr)
             pos.z = 0.0f;
             g_GameManager.unknown374 = item;
             pos.y = -32.0f;
-            enemy = g_GameManager.sides[0].enemyManager->SpawnEnemy(0x13, &pos, 0x33e, -2, 10000, 0, 0);
+            enemy = g_GameManager.sides[0].enemyManager->Spawn(0x13, &pos, 0x33e, -2, 10000, 0, 0);
             enemy->item = item;
             enemy->unknownBit13 = 1;
-            enemy = g_GameManager.sides[1].enemyManager->SpawnEnemy(0x13, &pos, 0x33e, -2, 10000, 0, 0);
+            enemy = g_GameManager.sides[1].enemyManager->Spawn(0x13, &pos, 0x33e, -2, 10000, 0, 0);
             enemy->unknownBit13 = 1;
             enemy->item = item;
-            g_SoundPlayer.PlaySoundByIdx(0x33, 0);
+            g_SoundPlayer.QueueSound(0x33, 0);
             g_GameManager.sides[0].gui->StartUnknown6ee8(1);
             g_GameManager.sides[1].gui->StartUnknown6ee8(1);
         }
@@ -394,7 +394,7 @@ void GameManager::LoadingThread(GameManager *arg)
     int i;
 
     g_GameManager.ResetState();
-    FormatDate(g_Hscr.date);
+    FormatTodayDate(g_Hscr.date);
     mgr->stateFlags |= 4;
     mgr->unknownBits134_11 = 0;
     g_GameManager.unknown374 = -1;
@@ -644,7 +644,7 @@ void GameManager::LoadingThread(GameManager *arg)
     g_GameManager.loadingThreadState = 0;
     g_App.subThread = NULL;
     g_App.closeSubThread = 0;
-    g_App.unknown6b8 = 0;
+    g_App.subThreadRunning = 0;
     g_App.redrawFrames = 60;
     g_App.unknown59c = 0;
     g_Unknown4ac884 = 2;
@@ -656,7 +656,7 @@ fail:
     g_App.FinishLoadingSprites();
     g_App.subThread = NULL;
     g_App.closeSubThread = 0;
-    g_App.unknown6b8 = 0;
+    g_App.subThreadRunning = 0;
     g_App.unknown59c = 0;
     g_Unknown4ac884 = 2;
 }

@@ -26,7 +26,7 @@ struct Effect
     // As spawned; some types' init callbacks take an angle in x.
     D3DXVECTOR3 velocity;
     unsigned char pad_24[0x3c - 0x24];
-    // Set by the init callbacks: InitRingEffect's start position and
+    // Set by the init callbacks: EffectInitRing's start position and
     // two directions, InitEffectTypes1And2's two random offsets in 3c and
     // 48, its start position in 54 and velocity on screen in 60.
     D3DXVECTOR3 unknown3c;
@@ -67,7 +67,7 @@ struct Effect
     BYTE fadeOut;
     unsigned char pad_c7[0xc8 - 0xc7];
     // OnUpdate puts the effect on draw list unknown114 when set, or
-    // unknown1ec when unknownCa is.
+    // drawList2 when unknownCa is.
     BYTE unknownC8;
     BYTE unknownC9;
     BYTE unknownCa;
@@ -137,10 +137,10 @@ public:
     // still, in the first unknown34 effects, as th08's
     // SpawnEffectWithVelocity. Returns the last effect started, or the
     // last of all effects if not all could be (0x40cc00).
-    Effect *SpawnParticles(int effectIdx, D3DXVECTOR3 *pos, int count, D3DCOLOR color);
-    // SpawnParticles with `velocity`, as th08's SpawnEffectWithVelocity
+    Effect *SpawnEffect(int effectIdx, D3DXVECTOR3 *pos, int count, D3DCOLOR color);
+    // SpawnEffect with `velocity`, as th08's SpawnEffectWithVelocity
     // (0x40ccc0).
-    Effect *SpawnParticlesWithVelocity(int effectIdx, D3DXVECTOR3 *pos, D3DXVECTOR3 *velocity, int count,
+    Effect *SpawnEffectWithVelocity(int effectIdx, D3DXVECTOR3 *pos, D3DXVECTOR3 *velocity, int count,
                                        D3DCOLOR color);
     // Starts effect `effectIdx` at `pos` in `color`, standing still, in
     // reserved slot `slot`, after the first unknown34 effects, as th08's
@@ -170,7 +170,7 @@ public:
         return &this->effects[slot + 0x100];
     }
 
-    // Where SpawnParticles starts looking for a free effect.
+    // Where SpawnEffect starts looking for a free effect.
     int next;
     unsigned char pad_4[0x8 - 0x4];
     // How many effects are active, counted by OnUpdate.
@@ -189,9 +189,9 @@ public:
     // The heads of three lists of effects; OnDraw2 draws the first.
     Effect unknown3c;
     Effect unknown114;
-    Effect unknown1ec;
+    Effect drawList2;
     // The last effects of the draw lists unknown3c, unknown114 and
-    // unknown1ec.
+    // drawList2.
     Effect *drawListTails[3];
     // How many frames OnUpdate ran.
     int frames;
@@ -219,7 +219,7 @@ int UpdateEffectFromSprite(Effect *effect);
 // vertices, filled from the first sprite, and takes the position and
 // velocity's parts into the effect. Returns 0, or -1 if the allocation
 // fails (0x40dbb0).
-int InitRingEffect(Effect *effect);
+int EffectInitRing(Effect *effect);
 
 // An init callback of the effect table: keeps the start position and the
 // velocity moved to the screen, and picks two random offsets and

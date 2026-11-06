@@ -642,7 +642,7 @@ int MidiPlayer::LoadFile(int slot, char *path)
         this->Stop();
     }
     this->UnloadFile(slot);
-    this->fileData[slot] = OpenPath(path, NULL, 0);
+    this->fileData[slot] = LoadFileData(path, NULL, 0);
     if (this->fileData[slot] == NULL)
     {
         // "\rv\r\n" in the original.

@@ -33,9 +33,9 @@ void Network::ClearUnknownA8()
 
 void ReadInputs()
 {
-    ReadInput(0);
-    ReadInput(1);
-    ReadInput(2);
+    ReadButtons(0);
+    ReadButtons(1);
+    ReadButtons(2);
 }
 
 void App::AddRecord(int side, int value, WORD unknown, WORD seed)
@@ -325,7 +325,7 @@ int OpenGameArchive()
     if (g_Archive.Open("th09.dat"))
     {
         sprintf(path, "th09_%.4x%c.ver", 0x150, 'a');
-        g_App.verFile = (char *)OpenPath(path, &size, 0);
+        g_App.verFile = (char *)LoadFileData(path, &size, 0);
         g_App.verFileSize = size;
         if (g_App.verFile == NULL)
         {
@@ -611,7 +611,7 @@ int App::LoadConfig(char *path)
     int size;
 
     g_App.config.SetDefaults();
-    file = (GameConfig *)OpenPath(path, &size, 1);
+    file = (GameConfig *)LoadFileData(path, &size, 1);
     if (file == NULL)
     {
         LogPrintf(&g_Log, "コンフィグデータが見つからないので初期化しました\r\n");
@@ -830,7 +830,7 @@ int App::UnloadBgm(int id)
     return 0;
 }
 
-int App::FadeOutBgm(float seconds)
+int App::FadeOutMusic(float seconds)
 {
     float duration;
 
@@ -1247,7 +1247,7 @@ int App::OnUpdate(App *app)
         {
             return 4;
         }
-        if (app->unknown6b8 != 0)
+        if (app->subThreadRunning != 0)
         {
             return 1;
         }
@@ -1636,7 +1636,7 @@ int App::StartSubThread(LPTHREAD_START_ROUTINE proc, LPVOID arg)
 {
     this->CloseSubThread();
     this->subThread = CreateThread(NULL, 0, proc, arg, 0, &this->subThreadId);
-    this->unknown6b8 = 1;
+    this->subThreadRunning = 1;
     return this->subThread != NULL ? 0 : -1;
 }
 
@@ -1726,7 +1726,7 @@ int App::DeletedCallback(App *app)
         delete g_App.timer;
         g_App.timer = NULL;
     }
-    SaveScore();
+    SaveScoreDat();
     BulletManager::ReleaseAnm();
     Gui::ReleaseAnm();
     return 0;
@@ -1830,7 +1830,7 @@ void App::LoadingThread(App *app)
             strcpy(g_SoundPlayer.bgmPath, "th09.dat");
         }
     }
-    LoadScore();
+    LoadScoreFile();
     if (g_App.stateFlags >> 6 & 1)
     {
         g_App.timer = (MidiTimer *)g_MemoryManager.Register(new MidiTimer(), sizeof(MidiTimer), "DummyTimerSysInf");

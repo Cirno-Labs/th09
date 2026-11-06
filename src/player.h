@@ -239,7 +239,7 @@ ASSERT_SIZE(PlayerBullet, 0x484);
 
 // A part of the player at +0x3031c with a timer (0x1c bytes). Its
 // constructor folds with BulletEx's. Placeholder name.
-struct PlayerUnknown3031c
+struct PlayerLaser
 {
     Timer timer;
     // The bullet character 2's shot fire callback set the timer for.
@@ -250,7 +250,7 @@ struct PlayerUnknown3031c
     // Set to 60 while the player respawns, then counted down each frame.
     int unknown18;
 };
-ASSERT_SIZE(PlayerUnknown3031c, 0x1c);
+ASSERT_SIZE(PlayerLaser, 0x1c);
 
 // A part of the player at +0x30410, which points back to it (0x40
 // bytes). Placeholder name.
@@ -398,20 +398,20 @@ public:
     // unknown0 is 0 or 3, as th08's (0x41bee0).
     int TouchesGrazeBox(D3DXVECTOR3 *pos, D3DXVECTOR3 *size);
     // Sets unknown0. Inline; the copy is at 0x403c20.
-    void SetUnknown0(int value)
+    void SetPlayerState(int value)
     {
         this->unknown0 = value;
     }
     // Start a circle that clears around the player, growing from 0 by 4,
     // 4 or 3.5 a frame for 0x30, 0x40 or 0x80 frames, with effect 0xd,
-    // 0xe or 0xf, and set unknown0 to 3 and unknown303c8 to the frames
+    // 0xe or 0xf, and set unknown0 to 3 and stateTimer to the frames
     // (0x403c30, 0x403c90, 0x403cf0).
     void StartClearCircle1();
     void StartClearCircle2();
     void StartClearCircle3();
     // Returns unknown0. Out of line, folded with GdiSurface::GetFormat
     // (0x435ec0).
-    int GetUnknown0()
+    int GetPlayerState()
     {
         return this->unknown0;
     }
@@ -570,7 +570,7 @@ public:
     // Half the shot file's sizes, square, with a z of 5, as th08's.
     D3DXVECTOR3 hitboxSize;
     D3DXVECTOR3 grazeSize;
-    D3DXVECTOR3 unknown1cc0;
+    D3DXVECTOR3 grazeTestHalfSize;
     // The move of the last frame: x is below 0 or above 0 by the way
     // the player moves across, as character 10's effect update callback
     // tells; Die sets it one along unknown1cd8, and the player is blown
@@ -582,8 +582,8 @@ public:
     float unknown1cdc;
     float unknown1ce0;
     // HandleInput scales the movement by unknown1cdc times these.
-    float unknown1ce4;
-    float unknown1ce8;
+    float moveScaleX;
+    float moveScaleY;
     PlayerOption options[4];
     // The hit areas; the last is the spare AllocHitArea hands out when
     // none is free.
@@ -595,7 +595,7 @@ public:
     int freeHitAreaCount;
     unsigned char pad_c118[0xc11c - 0xc118];
     PlayerBullet bullets[0x80];
-    PlayerUnknown3031c unknown3031c;
+    PlayerLaser unknown3031c;
     // The character's shot file (plXX.sht).
     ShtFile *shtFile;
     unsigned char pad_3033c[0x30354 - 0x3033c];
@@ -608,13 +608,13 @@ public:
     float velocityX;
     float velocityY;
     // Where character 12's shot fire callback aims.
-    D3DXVECTOR3 unknown30364;
-    // Reset to (-999, -999, 0) with unknown30364 each frame.
-    D3DXVECTOR3 unknown30370;
+    D3DXVECTOR3 orbHomingTarget;
+    // Reset to (-999, -999, 0) with orbHomingTarget each frame.
+    D3DXVECTOR3 homingTarget;
     // An enemy, forgotten when it despawns.
-    Enemy *unknown3037c;
+    Enemy *homingEnemy;
     // Cleared each frame.
-    int unknown30380;
+    int homingTargetSet;
     // Die sets it with unknown30388.
     float unknown30384;
     // Lowered by SubUnknown30388, down to 1, and raised by
@@ -625,10 +625,10 @@ public:
     Timer unknown303a4;
     Timer unknown303b0;
     Timer unknown303bc;
-    Timer unknown303c8;
+    Timer stateTimer;
     Timer unknown303d4;
     // An effect kept at the player while unknown0 is 3, stopped when
-    // unknown303c8 runs out.
+    // stateTimer runs out.
     Effect *unknown303e0;
     unsigned char pad_303e4[0x303e8 - 0x303e4];
     // Cleared by Reset.

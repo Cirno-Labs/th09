@@ -461,8 +461,8 @@ int GuiMsg::Run()
             this->scriptIndex = -1;
             return -1;
         case 23:
-            g_GameManager.sides[this->instr->i].player->SetUnknown0(1);
-            g_GameManager.sides[this->instr->i].player->unknown303c8 = 0;
+            g_GameManager.sides[this->instr->i].player->SetPlayerState(1);
+            g_GameManager.sides[this->instr->i].player->stateTimer = 0;
             break;
         case 15:
         {
@@ -710,17 +710,17 @@ int GuiMsg::Run()
         }
         case 8:
             g_GameManager.sides[1].gui->unknownA678.anm->StartScript(
-                &this->unknown1a7c, g_GameManager.sides[1].player->unknown303f0 + 4);
+                &this->nameplate, g_GameManager.sides[1].player->unknown303f0 + 4);
             this->waitFrames = 0;
             break;
         case 9:
             g_GameManager.gui->ScoreRoundBonus();
-            g_App.FadeOutBgm(4.0f);
+            g_App.FadeOutMusic(4.0f);
             break;
         case 10:
             goto stepSprites;
         case 12:
-            g_App.FadeOutBgm(4.0f);
+            g_App.FadeOutMusic(4.0f);
             break;
         case 14:
             g_Unknown4a7c80 = ScreenEffect::StartEffect(5, 300, 0xffffff, 0, 0, 0x23, 2);
@@ -765,7 +765,7 @@ int GuiMsg::Run()
             g_GameManager.sides[1].stage->waitLabel = this->instr->i;
             break;
         }
-        this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argSize + 4);
+        this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argsSize + 4);
     }
     this->timer++;
 stepSprites:
@@ -779,7 +779,7 @@ stepSprites:
     g_SpriteEngine->Step(&this->portraits[7]);
     g_SpriteEngine->Step(&this->text[0]);
     g_SpriteEngine->Step(&this->text[1]);
-    g_SpriteEngine->Step(&this->unknown1a7c);
+    g_SpriteEngine->Step(&this->nameplate);
     if (this->timer < 60 && this->skippable && g_PlayerInputs[2].IsHeld2(0x100))
     {
         this->timer = 60;
@@ -872,7 +872,7 @@ int GuiMsg::Draw()
     }
     g_SpriteEngine->DrawUnrotated(&this->text[0]);
     g_SpriteEngine->DrawUnrotated(&this->text[1]);
-    g_SpriteEngine->DrawUnrotated(&this->unknown1a7c);
+    g_SpriteEngine->DrawUnrotated(&this->nameplate);
     return 0;
 }
 
@@ -906,7 +906,7 @@ void GuiMsg::UnloadBgm(int firstScript)
                     g_App.UnloadBgm(this->instr->i);
                     unloaded[this->instr->i] = 1;
                 }
-                this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argSize + 4);
+                this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argsSize + 4);
             }
         }
     }
@@ -1051,7 +1051,7 @@ int Gui::OnUpdate(Gui *gui)
     }
     else if (gui->unknown10960 == 30)
     {
-        g_SoundPlayer.PlaySoundByIdx(0x31, 0);
+        g_SoundPlayer.QueueSound(0x31, 0);
         g_GameManager.sides[1 - gui->unknown10964].stage->tintFadeMode = 1;
         g_GameManager.sides[1 - gui->unknown10964].stage->tintFadeFrames = 30;
         ScreenEffect::StartEffect(1, 60, 16, 0, 0, 0x23, 1 - gui->unknown10964);
@@ -1256,7 +1256,7 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
     this->Clear();
     if (g_MsgFile == NULL)
     {
-        g_MsgFile = this->msgFile = (MsgFile *)OpenPath(path, NULL, 0);
+        g_MsgFile = this->msgFile = (MsgFile *)LoadFileData(path, NULL, 0);
         if (this->msgFile == NULL)
         {
             LogPrintf(&g_Log, "error : メッセージファイル %s が読み込めませんでした\r\n", path);
@@ -1295,14 +1295,14 @@ int GuiMsg::Load(char *path, char *path2, int firstScript)
                     g_App.LoadBgm(this->instr->i);
                     loaded[this->instr->i] = 1;
                 }
-                this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argSize + 4);
+                this->instr = (MsgInstr *)((BYTE *)this->instr + this->instr->argsSize + 4);
             }
         }
         return 0;
     }
     if (g_MsgFile2 == NULL)
     {
-        g_MsgFile2 = this->msgFile2 = (MsgFile *)OpenPath(path2, NULL, 0);
+        g_MsgFile2 = this->msgFile2 = (MsgFile *)LoadFileData(path2, NULL, 0);
         if (this->msgFile2 == NULL)
         {
             LogPrintf(&g_Log, "error : メッセージファイル %s が読み込めませんでした\r\n", path2);

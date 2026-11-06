@@ -68,11 +68,11 @@ int SoundPlayer::FindTrackIndex(char *path)
 
 int SoundPlayer::LoadBgmFormat(char *path)
 {
-    this->bgmFormat = (BgmFormat *)OpenPath(path, NULL, 0);
+    this->bgmFormat = (BgmFormat *)LoadFileData(path, NULL, 0);
     return this->bgmFormat != NULL ? 0 : -1;
 }
 
-void SoundPlayer::PlaySoundByIdx(int idx, int arg)
+void SoundPlayer::QueueSound(int idx, int arg)
 {
     int i;
     int pri;
@@ -237,7 +237,7 @@ int SoundPlayer::LoadSound(int index, char *path)
         this->soundBuffers[index]->Release();
         this->soundBuffers[index] = NULL;
     }
-    wavBuf = (char *)OpenPath(path, NULL, 0);
+    wavBuf = (char *)LoadFileData(path, NULL, 0);
     cursor = wavBuf;
     if (cursor == NULL)
     {
@@ -794,7 +794,7 @@ again:
         command->stage++;
         goto done;
     case 5:
-        g_SoundPlayer.FadeOutBgm(command->arg);
+        g_SoundPlayer.FadeOutMusic(command->arg);
         goto shift;
     case 6:
         if (g_App.config.musicMode == 1)

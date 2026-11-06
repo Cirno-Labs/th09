@@ -19,7 +19,7 @@ ExAttack *ExAttackManager::AddAttack(int type, D3DXVECTOR3 *pos, int side, D3DXV
     {
         return &this->attacks[0x100];
     }
-    g_SoundPlayer.PlaySoundByIdx(0x2d, side != 0 ? 500 : -500);
+    g_SoundPlayer.QueueSound(0x2d, side != 0 ? 500 : -500);
     attack = this->attacks;
     for (i = 0; i < 0x100; i++, attack++)
     {

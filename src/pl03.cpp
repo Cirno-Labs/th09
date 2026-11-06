@@ -154,7 +154,7 @@ int UpdateExAttackType13(ExAttack *attack)
     case 1:
         if (attack->timer.HasTickedEvery(2))
         {
-            g_GameManager.sides[attack->targetSide].effectManager->SpawnParticles(9, &attack->pos, 1, 0xffffffff);
+            g_GameManager.sides[attack->targetSide].effectManager->SpawnEffect(9, &attack->pos, 1, 0xffffffff);
         }
         if (attack->timer > 0x14)
         {

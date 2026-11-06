@@ -233,7 +233,7 @@ public:
     // the arena.
     int dialogueSpriteCount;
     // Cleared by AddedCallback.
-    int unknownCdc;
+    int dialogueScriptOffset;
     Sprite dialogueSprites[0x20];
     Sprite unknown6160;
     // Called by OnDraw2 once spellCardState is 1, if set.

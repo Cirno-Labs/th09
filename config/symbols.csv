@@ -57,7 +57,7 @@ address,size,name,symbol
 0x00403a10,45,Sprite::Sprite,??0Sprite@@QAE@XZ
 0x00403a40,160,Stage::Stage,??0Stage@@QAE@XZ
 0x00403ae0,307,Stage::RegisterChain,?RegisterChain@Stage@@SIPAV1@H@Z
-0x00403c20,12,Player::SetUnknown0,?SetUnknown0@Player@@QAEXH@Z
+0x00403c20,12,Player::SetPlayerState,?SetPlayerState@Player@@QAEXH@Z
 0x00403c30,91,Player::StartClearCircle1,?StartClearCircle1@Player@@QAEXXZ
 0x00403c90,91,Player::StartClearCircle2,?StartClearCircle2@Player@@QAEXXZ
 0x00403cf0,100,Player::StartClearCircle3,?StartClearCircle3@Player@@QAEXXZ
@@ -83,7 +83,7 @@ address,size,name,symbol
 0x00404970,15,GameManager::IsMode1,?IsMode1@GameManager@@QAEHXZ
 0x00404980,24,Gui::IsMsgRunning,?IsMsgRunning@Gui@@QAEHXZ
 0x004049a0,3238,PlayerUnknown24::Run,?Run@PlayerUnknown24@@QAEXXZ
-0x00405650,8,BulletManager::ClearBulletsForTransition,?ClearBulletsForTransition@BulletManager@@QAEXXZ
+0x00405650,8,BulletManager::ClearAllToItems,?ClearAllToItems@BulletManager@@QAEXXZ
 0x00405660,154,EnemyScripts::Load,?Load@EnemyScripts@@QAEHPAD@Z
 0x00405700,15,Atan2,?Atan2@@YIMMM@Z
 0x00405710,18,Fmod,?Fmod@@YIMMM@Z
@@ -143,8 +143,8 @@ address,size,name,symbol
 0x0040c960,38,EffectUpdateFollowPlayer,?EffectUpdateFollowPlayer@@YIHPAUEffect@@@Z
 0x0040c990,194,EffectManager::Reset,?Reset@EffectManager@@QAEXXZ
 0x0040ca60,407,EffectManager::StartEffect,?StartEffect@EffectManager@@QAEPAUEffect@@PAU2@HPAUD3DXVECTOR3@@K1@Z
-0x0040cc00,184,EffectManager::SpawnParticles,?SpawnParticles@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@HK@Z
-0x0040ccc0,175,EffectManager::SpawnParticlesWithVelocity,?SpawnParticlesWithVelocity@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@0HK@Z
+0x0040cc00,184,EffectManager::SpawnEffect,?SpawnEffect@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@HK@Z
+0x0040ccc0,175,EffectManager::SpawnEffectWithVelocity,?SpawnEffectWithVelocity@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@0HK@Z
 0x0040cd70,85,EffectManager::SpawnReservedEffect,?SpawnReservedEffect@EffectManager@@QAEPAUEffect@@HPAUD3DXVECTOR3@@HK@Z
 0x0040cdd0,475,EffectManager::OnUpdate,?OnUpdate@EffectManager@@SIHPAV1@@Z
 0x0040cfb0,183,EffectManager::OnDraw,?OnDraw@EffectManager@@SIHPAV1@@Z
@@ -164,7 +164,7 @@ address,size,name,symbol
 0x0040d600,775,UpdateEffectTypes1And2,?UpdateEffectTypes1And2@@YIHPAUEffect@@@Z
 0x0040d910,200,InitEffectTypes3And4,?InitEffectTypes3And4@@YIHPAUEffect@@@Z
 0x0040d9e0,464,UpdateEffectTypes3And4,?UpdateEffectTypes3And4@@YIHPAUEffect@@@Z
-0x0040dbb0,184,InitRingEffect,?InitRingEffect@@YIHPAUEffect@@@Z
+0x0040dbb0,184,EffectInitRing,?EffectInitRing@@YIHPAUEffect@@@Z
 0x0040dc70,1028,EffectDrawRing,?EffectDrawRing@@YIHPAUEffect@@@Z
 0x0040e080,71,InitOrientedEffect,?InitOrientedEffect@@YIHPAUEffect@@@Z
 0x0040e0d0,84,Ending::ReadInt,?ReadInt@Ending@@QAEHXZ
@@ -194,8 +194,8 @@ address,size,name,symbol
 0x0040f170,16,EnemyScripts::GetTimeline,?GetTimeline@EnemyScripts@@QAEPAXH@Z
 0x0040f180,51,Enemy::ResetRankSpeeds,?ResetRankSpeeds@Enemy@@QAEXXZ
 0x0040f1c0,12,Fabs,?Fabs@@YIMM@Z
-0x0040f1d0,364,EnemyManager::SpawnEnemy,?SpawnEnemy@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HHHHH@Z
-0x0040f340,373,EnemyManager::SpawnEnemyWithVars,?SpawnEnemyWithVars@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHPAUEnemyScriptVars@@H@Z
+0x0040f1d0,364,EnemyManager::Spawn,?Spawn@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HHHHH@Z
+0x0040f340,373,EnemyManager::SpawnWithVars,?SpawnWithVars@EnemyManager@@QAEPAUEnemy@@HPAUD3DXVECTOR3@@HDHPAUEnemyScriptVars@@H@Z
 0x0040f4c0,151,MoveEnemyEffects,?MoveEnemyEffects@@YIXPAUEnemy@@@Z
 0x0040f560,64,Enemy::ReleaseEffects,?ReleaseEffects@Enemy@@QAEXXZ
 0x0040f5a0,56,D3DXVECTOR3::operator/,??KD3DXVECTOR3@@QBE?AU0@M@Z
@@ -214,7 +214,7 @@ address,size,name,symbol
 0x0040fa70,554,EnemyManager::Initialize,?Initialize@EnemyManager@@QAEXXZ
 0x0040fca0,28,EnemyScriptsStar::EnemyScriptsStar,??0EnemyScriptsStar@@QAE@XZ
 0x0040fcc0,976,EnemyTimeline::Run,?Run@EnemyTimeline@@QAEHXZ
-0x004100e0,48,Enemy::FreeUnknown33d8,?FreeUnknown33d8@Enemy@@QAEXXZ
+0x004100e0,48,Enemy::FreeThreads,?FreeThreads@Enemy@@QAEXXZ
 0x00410110,184,Enemy::Despawn,?Despawn@Enemy@@QAEXXZ
 0x004101d0,127,Enemy::ClampPos,?ClampPos@Enemy@@QAEXXZ
 0x00410250,82,Enemy::CheckPlayerContact,?CheckPlayerContact@Enemy@@QAEXPAUD3DXVECTOR3@@0@Z
@@ -234,7 +234,7 @@ address,size,name,symbol
 0x00412100,207,Enemy::Enemy,??0Enemy@@QAE@XZ
 0x004121d0,101,EnemyManager::EnemyManager,??0EnemyManager@@QAE@XZ
 0x00412240,328,EnemyManager::RegisterChain,?RegisterChain@EnemyManager@@SIPAV1@H@Z
-0x00412390,39,BulletManager::ClearDrawBuckets,?ClearDrawBuckets@BulletManager@@QAEXXZ
+0x00412390,39,BulletManager::ClearDrawLists,?ClearDrawLists@BulletManager@@QAEXXZ
 0x004123c0,173,BulletManager::Initialize,?Initialize@BulletManager@@QAEXXZ
 0x00412470,95,BulletManager::Reset,?Reset@BulletManager@@QAEXXZ
 0x004124d0,16,CopyBulletSprite,?CopyBulletSprite@@YIXPAVSprite@@0@Z
@@ -345,7 +345,7 @@ address,size,name,symbol
 0x0041a5d0,283,GuiSide::RegisterChain,?RegisterChain@GuiSide@@SIPAV1@H@Z
 0x0041a6eb,116,GameManager::IsInPlayArea,?IsInPlayArea@GameManager@@QAEHMMMM@Z
 0x0041a75f,55,GameManager::OnDraw,?OnDraw@GameManager@@SIHPAV1@@Z
-0x0041a796,45,FormatDate,?FormatDate@@YIXPAD@Z
+0x0041a796,45,FormatTodayDate,?FormatTodayDate@@YIXPAD@Z
 0x0041a7c3,100,GameManager::ResetState,?ResetState@GameManager@@QAEXXZ
 0x0041a827,98,RemoveGameManagerChain,?RemoveGameManagerChain@@YIXXZ
 0x0041a889,21,ChainElem::SetCallback,?SetCallback@ChainElem@@QAEXP6IHPAX@Z@Z
@@ -366,10 +366,10 @@ address,size,name,symbol
 0x0041ba80,121,ResetTargets,?ResetTargets@@YIXPAVPlayer@@@Z
 0x0041bb00,101,Player::AngleFromPlayer,?AngleFromPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
 0x0041bb70,101,Player::AngleToPlayer,?AngleToPlayer@Player@@QAEMPAUD3DXVECTOR3@@@Z
-0x0041bbe0,172,LoadShtFile,?LoadShtFile@@YIHPAPAUShtFile@@PAD@Z
+0x0041bbe0,172,LoadShotTypeFile,?LoadShotTypeFile@@YIHPAPAUShtFile@@PAD@Z
 0x0041bc90,162,Player::AddUnknown30388,?AddUnknown30388@Player@@QAEXM@Z
-0x0041bd40,19,Sprite::SetBlendMode1,?SetBlendMode1@Sprite@@QAEXXZ
-0x0041bd60,8,Sprite::ClearBlendMode,?ClearBlendMode@Sprite@@QAEXXZ
+0x0041bd40,19,Sprite::SetBlendModeAdd,?SetBlendModeAdd@Sprite@@QAEXXZ
+0x0041bd60,8,Sprite::SetBlendModeNormal,?SetBlendModeNormal@Sprite@@QAEXXZ
 0x0041bd70,19,SpriteEngine::GetAnmFile,?GetAnmFile@SpriteEngine@@QAEPAUAnmFile@@H@Z
 0x0041bd90,5,PlayerHitArea::Deactivate,?Deactivate@PlayerHitArea@@QAEXXZ
 0x0041bda0,23,PlayerHitArea::Reset,?Reset@PlayerHitArea@@QAEXXZ
@@ -382,7 +382,7 @@ address,size,name,symbol
 0x0041c170,1835,Player::HandleInput,?HandleInput@Player@@QAEHXZ
 0x0041c8e0,273,UpdateHitAreas,?UpdateHitAreas@@YIXPAVPlayer@@@Z
 0x0041ca00,335,UpdateSpellCardInput,?UpdateSpellCardInput@@YIXPAVPlayer@@@Z
-0x0041cb50,293,UpdateRespawn,?UpdateRespawn@@YIXPAVPlayer@@@Z
+0x0041cb50,293,UpdateRespawningState,?UpdateRespawningState@@YIXPAVPlayer@@@Z
 0x0041cc80,320,UpdateInvulnerability,?UpdateInvulnerability@@YIXPAVPlayer@@@Z
 0x0041cdc0,31,Player::OnDraw2,?OnDraw2@Player@@SIHPAV1@@Z
 0x0041cde0,114,Player::LoadAnms,?LoadAnms@Player@@SIHXZ
@@ -408,13 +408,13 @@ address,size,name,symbol
 0x0041dff0,862,Player::CheckHitAreas,?CheckHitAreas@Player@@QAEHPAUD3DXVECTOR3@@0PAUBullet@@@Z
 0x0041e350,204,Player::CheckGraze,?CheckGraze@Player@@QAEHPAUD3DXVECTOR3@@0PAUBullet@@@Z
 0x0041e420,753,Player::Die,?Die@Player@@QAEXXZ
-0x0041e720,400,UpdateDying,?UpdateDying@@YIHPAVPlayer@@@Z
+0x0041e720,400,UpdateDyingState,?UpdateDyingState@@YIHPAVPlayer@@@Z
 0x0041e8b0,74,CheckDeath,?CheckDeath@@YIHPAVPlayer@@@Z
 0x0041e900,522,Player::OnUpdate,?OnUpdate@Player@@SIHPAV1@@Z
 0x0041eb10,166,Player::OnDraw,?OnDraw@Player@@SIHPAV1@@Z
 0x0041ebc0,552,Player::Reset,?Reset@Player@@QAEXXZ
 0x0041ee00,28,PlayerUnknown24::PlayerUnknown24,??0PlayerUnknown24@@QAE@XZ
-0x0041ee20,12,BulletEx::BulletEx,??0BulletEx@@QAE@XZ ??0PlayerUnknown3031c@@QAE@XZ
+0x0041ee20,12,BulletEx::BulletEx,??0BulletEx@@QAE@XZ ??0PlayerLaser@@QAE@XZ
 0x0041ee30,23,PlayerUnknown30410::PlayerUnknown30410,??0PlayerUnknown30410@@QAE@XZ
 0x0041ee50,438,Player::AddedCallback,?AddedCallback@Player@@SIHPAV1@@Z
 0x0041f010,23,PlayerOption::PlayerOption,??0PlayerOption@@QAE@XZ
@@ -461,8 +461,8 @@ address,size,name,symbol
 0x00421c60,18,Hscr::Hscr,??0Hscr@@QAE@XZ
 0x00421c80,523,LoadScoreDat,?LoadScoreDat@@YIPAUScoreDat@@PAD@Z
 0x00421e90,12,ReleaseScoreDat,?ReleaseScoreDat@@YIXPAUScoreDat@@@Z
-0x00421ea0,98,LoadScore,?LoadScore@@YIHXZ
-0x00421f10,745,SaveScore,?SaveScore@@YIHXZ
+0x00421ea0,98,LoadScoreFile,?LoadScoreFile@@YIHXZ
+0x00421f10,745,SaveScoreDat,?SaveScoreDat@@YIHXZ
 0x00422200,139,ClearScreen,?ClearScreen@@YIXK@Z
 0x00422290,38,ClearViewport,?ClearViewport@@YIXK@Z
 0x004222c0,103,ScreenEffect::OnUpdateFadeIn,?OnUpdateFadeIn@ScreenEffect@@SIHPAV1@@Z
@@ -494,7 +494,7 @@ address,size,name,symbol
 0x00423158,42,PlayerInput::IsPressed,?IsPressed@PlayerInput@@QAEGG@Z
 0x00423182,479,MainMenu::ShowHalves,?ShowHalves@MainMenu@@QAEXHH@Z
 0x00423361,33,MidiPlayer::Restart,?Restart@MidiPlayer@@QAEXH@Z
-0x00423382,33,App::ClearUnknown77c,?ClearUnknown77c@App@@QAEXXZ
+0x00423382,33,App::ResetClockDriftCounters,?ResetClockDriftCounters@App@@QAEXXZ
 0x004233a3,81,Sprite::SetMoveInterp,?SetMoveInterp@Sprite@@QAEXHEPAUD3DXVECTOR3@@0@Z
 0x004233f4,117,Sprite::SetColorInterp,?SetColorInterp@Sprite@@QAEXHEKK@Z
 0x00423469,47,SpriteEngine::HasTexture,?HasTexture@SpriteEngine@@QAEHPAVSprite@@@Z
@@ -505,8 +505,8 @@ address,size,name,symbol
 0x004239f6,800,MainMenu::DrawState15,?DrawState15@MainMenu@@QAEHXZ
 0x00423d16,1939,MainMenu::DrawState13,?DrawState13@MainMenu@@QAEHXZ
 0x004244a9,209,MainMenu::DrawState12,?DrawState12@MainMenu@@QAEHXZ
-0x0042457a,135,MainMenu::MoveCursor,?MoveCursor@MainMenu@@QAEHH@Z
-0x00424601,112,MainMenu::MoveCursorLR,?MoveCursorLR@MainMenu@@QAEHH@Z
+0x0042457a,135,MainMenu::MoveMenuCursor,?MoveMenuCursor@MainMenu@@QAEHH@Z
+0x00424601,112,MainMenu::MoveMenuCursorLR,?MoveMenuCursorLR@MainMenu@@QAEHH@Z
 0x00424671,217,MainMenu::MoveCursor4,?MoveCursor4@MainMenu@@QAEHH@Z
 0x0042474a,167,MainMenu::MovePlayerCursor,?MovePlayerCursor@MainMenu@@QAEHHH@Z
 0x004247f1,167,MainMenu::MovePlayerCursor2,?MovePlayerCursor2@MainMenu@@QAEHHHH@Z
@@ -571,9 +571,9 @@ address,size,name,symbol
 0x0042b270,143,Chain::AddToDrawChain,?AddToDrawChain@Chain@@QAEHPAUChainElem@@H@Z
 0x0042b300,71,Chain::CreateElem,?CreateElem@Chain@@QAEPAUChainElem@@P6IHPAX@Z@Z
 0x0042b350,188,Chain::RemoveLocked,?RemoveLocked@Chain@@QAEXPAUChainElem@@@Z
-0x0042b410,808,ReadPad,?ReadPad@@YIGHHG@Z
+0x0042b410,808,ReadJoystick,?ReadJoystick@@YIGHHG@Z
 0x0042b740,259,GetPadButtons,?GetPadButtons@@YIPAEH@Z
-0x0042b850,1507,ReadInput,?ReadInput@@YIGH@Z
+0x0042b850,1507,ReadButtons,?ReadButtons@@YIGH@Z
 0x0042be40,819,ReadNetInput,?ReadNetInput@@YIGXZ
 0x0042c180,259,DecryptData,?DecryptData@@YIPAEPAEHEEHH@Z
 0x0042c290,220,DecryptFileData,?DecryptFileData@@YIPAEPAEPAHH@Z
@@ -586,7 +586,7 @@ address,size,name,symbol
 0x0042c7e0,188,Chain::RunDrawChain,?RunDrawChain@Chain@@QAEHXZ
 0x0042c8c0,46,Chain::Remove,?Remove@Chain@@QAEXPAUChainElem@@@Z
 0x0042c8f0,120,InitJoystick,?InitJoystick@@YIGXZ
-0x0042c970,355,OpenPath,?OpenPath@@YIPAXPADPAHH@Z
+0x0042c970,355,LoadFileData,?LoadFileData@@YIPAXPADPAHH@Z
 0x0042cae0,241,Chain::ReleaseList,?ReleaseList@Chain@@QAEXPAUChainElem@@@Z
 0x0042cbe0,34,Chain::Release,?Release@Chain@@QAEXXZ
 0x0042cc10,25,Network::Network,??0Network@@QAE@XZ
@@ -657,7 +657,7 @@ address,size,name,symbol
 0x0042fcf0,53,App::PlayBgm,?PlayBgm@App@@QAEHXZ
 0x0042fd30,81,App::StopBgm,?StopBgm@App@@QAEHXZ
 0x0042fd90,130,App::UnloadBgm,?UnloadBgm@App@@QAEHH@Z
-0x0042fe20,148,App::FadeOutBgm,?FadeOutBgm@App@@QAEHM@Z
+0x0042fe20,148,App::FadeOutMusic,?FadeOutMusic@App@@QAEHM@Z
 0x0042fec0,56,App::EnableFog,?EnableFog@App@@QAEHXZ
 0x0042ff00,56,App::DisableFog,?DisableFog@App@@QAEHXZ
 0x0042ff40,42,App::SetRenderState,?SetRenderState@App@@QAEHW4_D3DRENDERSTATETYPE@@K@Z
@@ -776,7 +776,7 @@ address,size,name,symbol
 0x00435da0,28,UnknownMenu::UnknownMenu,??0UnknownMenu@@QAE@XZ
 0x00435dc0,227,AsciiText::AsciiText,??0AsciiText@@QAE@XZ
 0x00435eb0,4,GdiSurface::GetBits,?GetBits@GdiSurface@@QAEPAXXZ
-0x00435ec0,3,GdiSurface::GetFormat,?GetFormat@GdiSurface@@QAEHXZ ?GetUnknown0@Player@@QAEHXZ
+0x00435ec0,3,GdiSurface::GetFormat,?GetFormat@GdiSurface@@QAEHXZ ?GetPlayerState@Player@@QAEHXZ
 0x00435ed0,4,GdiSurface::GetHdc,?GetHdc@GdiSurface@@QAEPAUHDC__@@XZ
 0x00435ee0,4,GdiSurface::GetWidthBytes,?GetWidthBytes@GdiSurface@@QAEHXZ
 0x00435ef0,4,GdiSurface::GetWidth,?GetWidth@GdiSurface@@QAEHXZ
@@ -895,14 +895,14 @@ address,size,name,symbol
 0x0043e1a0,74,FindRiffChunk,?FindRiffChunk@@YIPADPAD0PAHI@Z
 0x0043e1f0,208,SoundPlayer::FindTrackIndex,?FindTrackIndex@SoundPlayer@@QAEHPAD@Z
 0x0043e2c0,39,SoundPlayer::LoadBgmFormat,?LoadBgmFormat@SoundPlayer@@QAEHPAD@Z
-0x0043e2f0,140,SoundPlayer::PlaySoundByIdx,?PlaySoundByIdx@SoundPlayer@@QAEXHH@Z
+0x0043e2f0,140,SoundPlayer::QueueSound,?QueueSound@SoundPlayer@@QAEXHH@Z
 0x0043e380,153,SoundPlayer::QueueSoundPanned,?QueueSoundPanned@SoundPlayer@@QAEXHM@Z
 0x0043e420,7,CWaveFile::GetFormat,?GetFormat@CWaveFile@@QAEPAUBgmFormat@@XZ
 0x0043e430,4,CSound::GetWaveFile,?GetWaveFile@CSound@@QAEPAVCWaveFile@@XZ
 0x0043e440,38,CStreamingSound::FadeOut,?FadeOut@CStreamingSound@@QAEXM@Z
 0x0043e470,34,SoundPlayer::SoundPlayer,??0SoundPlayer@@QAE@XZ
 0x0043e4a0,49,SoundPlayer::FreePreloadedBgm,?FreePreloadedBgm@SoundPlayer@@QAEXH@Z
-0x0043e4e0,23,SoundPlayer::FadeOutBgm,?FadeOutBgm@SoundPlayer@@QAEXM@Z
+0x0043e4e0,23,SoundPlayer::FadeOutMusic,?FadeOutMusic@SoundPlayer@@QAEXM@Z
 0x0043e500,613,SoundPlayer::Initialize,?Initialize@SoundPlayer@@QAEHPAUHWND__@@@Z
 0x0043e770,614,SoundPlayer::LoadSound,?LoadSound@SoundPlayer@@QAEHHPAD@Z
 0x0043e9e0,72,SoundPlayer::SwitchBgmTrack,?SwitchBgmTrack@SoundPlayer@@QAEHPAD@Z
@@ -2394,7 +2394,7 @@ address,size,name,symbol
 0x004ac888,56,g_UnusedScreenEffect,?g_UnusedScreenEffect@@3VScreenEffect@@A
 0x004ac8c4,,g_OpenCharacters,?g_OpenCharacters@@3PADA
 0x004ac8d4,,g_CheatCodeProgress,?g_CheatCodeProgress@@3HA
-0x004ac8d8,,g_JoyCaps,?g_JoyCaps@@3PAUtagJOYCAPSA@@A
+0x004ac8d8,,g_JoyDeviceCaps,?g_JoyDeviceCaps@@3PAUtagJOYCAPSA@@A
 0x004acc00,,g_PathBuffer,?g_PathBuffer@@3PADA
 0x004acd08,,g_DataDir,?g_DataDir@@3PADA
 0x004ace0c,,g_Rng,?g_Rng@@3VRng@@A

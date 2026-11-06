@@ -416,7 +416,7 @@ found:
     }
 }
 
-WORD ReadPad(int input, int pad, WORD buttons)
+WORD ReadJoystick(int input, int pad, WORD buttons)
 {
     JOYINFOEX joyInfo;
     DWORD margin;
@@ -444,12 +444,12 @@ WORD ReadPad(int input, int pad, WORD buttons)
         SetButtonFromJoystick(&buttons, playerInput->mappings[0].leftButton, 0x40, joyInfo.dwButtons);
         SetButtonFromJoystick(&buttons, playerInput->mappings[0].rightButton, 0x80, joyInfo.dwButtons);
         SetButtonFromJoystick(&buttons, playerInput->mappings[0].skipButton, 0x100, joyInfo.dwButtons);
-        margin = (g_JoyCaps[pad].wXmax - g_JoyCaps[pad].wXmin) / 2 / 2;
-        buttons |= ((g_JoyCaps[pad].wXmin + g_JoyCaps[pad].wXmax) / 2 + margin < joyInfo.dwXpos) ? 0x80 : 0;
-        buttons |= (joyInfo.dwXpos < (g_JoyCaps[pad].wXmin + g_JoyCaps[pad].wXmax) / 2 - margin) ? 0x40 : 0;
-        margin = (g_JoyCaps[pad].wYmax - g_JoyCaps[pad].wYmin) / 2 / 2;
-        buttons |= ((g_JoyCaps[pad].wYmin + g_JoyCaps[pad].wYmax) / 2 + margin < joyInfo.dwYpos) ? 0x20 : 0;
-        buttons |= (joyInfo.dwYpos < (g_JoyCaps[pad].wYmin + g_JoyCaps[pad].wYmax) / 2 - margin) ? 0x10 : 0;
+        margin = (g_JoyDeviceCaps[pad].wXmax - g_JoyDeviceCaps[pad].wXmin) / 2 / 2;
+        buttons |= ((g_JoyDeviceCaps[pad].wXmin + g_JoyDeviceCaps[pad].wXmax) / 2 + margin < joyInfo.dwXpos) ? 0x80 : 0;
+        buttons |= (joyInfo.dwXpos < (g_JoyDeviceCaps[pad].wXmin + g_JoyDeviceCaps[pad].wXmax) / 2 - margin) ? 0x40 : 0;
+        margin = (g_JoyDeviceCaps[pad].wYmax - g_JoyDeviceCaps[pad].wYmin) / 2 / 2;
+        buttons |= ((g_JoyDeviceCaps[pad].wYmin + g_JoyDeviceCaps[pad].wYmax) / 2 + margin < joyInfo.dwYpos) ? 0x20 : 0;
+        buttons |= (joyInfo.dwYpos < (g_JoyDeviceCaps[pad].wYmin + g_JoyDeviceCaps[pad].wYmax) / 2 - margin) ? 0x10 : 0;
         return buttons;
     }
     hr = g_App.joysticks[pad]->Poll();
@@ -543,7 +543,7 @@ BYTE *GetPadButtons(int player)
 // Sets `bit` in `buttons` while key `key` of `keyState` is down.
 #define KEY(key, bit) buttons |= ((keyState[key] & 0x80) ? (bit) : 0)
 
-WORD ReadInput(int player)
+WORD ReadButtons(int player)
 {
     WORD buttons = 0;
     BYTE keyState[0x100];
@@ -702,16 +702,16 @@ WORD ReadInput(int player)
     {
         if (g_App.config.pads[0] == 0 || g_App.config.pads[0] == 1)
         {
-            buttons = ReadPad(0, g_App.config.pads[0] != 0, buttons);
+            buttons = ReadJoystick(0, g_App.config.pads[0] != 0, buttons);
         }
         if (g_App.config.pads[1] == 0 || g_App.config.pads[1] == 1)
         {
-            buttons = ReadPad(1, g_App.config.pads[1] != 0, buttons);
+            buttons = ReadJoystick(1, g_App.config.pads[1] != 0, buttons);
         }
     }
     else if (g_App.config.pads[player] == 0 || g_App.config.pads[player] == 1)
     {
-        buttons = ReadPad(player, g_App.config.pads[player] != 0, buttons);
+        buttons = ReadJoystick(player, g_App.config.pads[player] != 0, buttons);
     }
     input->unknown2 = input->unknown0;
     input->unknown0 = buttons;
@@ -820,11 +820,11 @@ WORD ReadNetInput()
     }
     if (g_App.config.pads[0] == 0 || g_App.config.pads[0] == 1)
     {
-        buttons = ReadPad(0, g_App.config.pads[0] != 0, buttons);
+        buttons = ReadJoystick(0, g_App.config.pads[0] != 0, buttons);
     }
     if (g_App.config.pads[1] == 0 || g_App.config.pads[1] == 1)
     {
-        buttons = ReadPad(1, g_App.config.pads[1] != 0, buttons);
+        buttons = ReadJoystick(1, g_App.config.pads[1] != 0, buttons);
     }
     return buttons;
 }
@@ -1170,12 +1170,12 @@ WORD InitJoystick()
         LogPrintf(&g_Log, "使えるパッドが存在しないようです、残念\r\n");
         return 1;
     }
-    joyGetDevCapsA(JOYSTICKID1, &g_JoyCaps[0], sizeof(g_JoyCaps[0]));
-    joyGetDevCapsA(JOYSTICKID2, &g_JoyCaps[1], sizeof(g_JoyCaps[1]));
+    joyGetDevCapsA(JOYSTICKID1, &g_JoyDeviceCaps[0], sizeof(g_JoyDeviceCaps[0]));
+    joyGetDevCapsA(JOYSTICKID2, &g_JoyDeviceCaps[1], sizeof(g_JoyDeviceCaps[1]));
     return 0;
 }
 
-void *OpenPath(char *path, int *size, int isExternal)
+void *LoadFileData(char *path, int *size, int isExternal)
 {
     char *name;
     DWORD dataSize;

@@ -197,7 +197,7 @@ int UpdateExAttackTypes14And22(ExAttack *attack)
         }
         if (diff.x * diff.x + diff.y * diff.y < 9216.0f)
         {
-            g_SoundPlayer.PlaySoundByIdx(0x10, attack->targetSide != 0 ? 500 : -500);
+            g_SoundPlayer.QueueSound(0x10, attack->targetSide != 0 ? 500 : -500);
             attack->sprites->shown = 0;
             attack->sprites->scriptPos = NULL;
             attack->sprites->color = 0xffffffff;

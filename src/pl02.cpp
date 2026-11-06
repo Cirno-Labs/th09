@@ -590,7 +590,7 @@ int DrawEffectType17(Effect *effect)
 }
 
 // An update callback of the shot table (12): 30 frames after it fires,
-// aims a flying bullet at the player's unknown30364, turned by its
+// aims a flying bullet at the player's orbHomingTarget, turned by its
 // angle, or straight up if that is left of the play area.
 // Returns 0 (0x443150).
 int UpdatePlayerShotType3(Player *player, PlayerBullet *bullet)
@@ -601,10 +601,10 @@ int UpdatePlayerShotType3(Player *player, PlayerBullet *bullet)
 
     if (bullet->state == 1 && bullet->timer.AsFrames() == 30)
     {
-        if (player->unknown30364.x >= -144.0f)
+        if (player->orbHomingTarget.x >= -144.0f)
         {
-            dx = player->unknown30364.x - bullet->pos.x;
-            dy = player->unknown30364.y - bullet->pos.y;
+            dx = player->orbHomingTarget.x - bullet->pos.x;
+            dy = player->orbHomingTarget.y - bullet->pos.y;
             if (dy == 0.0f && dx == 0.0f)
             {
                 angle = bullet->angle + 1.5707964f;

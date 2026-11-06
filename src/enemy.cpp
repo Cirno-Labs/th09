@@ -10,7 +10,7 @@
 #include "sprite.h"
 #include "unsorted.h"
 
-Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
+Enemy *EnemyManager::Spawn(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
                                 int usePlayerEcl)
 {
     Enemy *enemy;
@@ -69,7 +69,7 @@ Enemy *EnemyManager::SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDro
     return enemy;
 }
 
-Enemy *EnemyManager::SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score,
+Enemy *EnemyManager::SpawnWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score,
                                         EnemyScriptVars *vars, int usePlayerEcl)
 {
     Enemy *enemy;
@@ -407,7 +407,7 @@ int EnemyTimeline::Run()
                 pos.x = args->x;
                 pos.y = args->y;
                 pos.z = 0.0f;
-                this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+                this->mgr->Spawn(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
             }
                 break;
             case 17:
@@ -419,7 +419,7 @@ int EnemyTimeline::Run()
                 pos.x = args->x;
                 pos.y = args->y;
                 pos.z = 0.0f;
-                enemy = this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+                enemy = this->mgr->Spawn(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
                 enemy->unknownBit9 = 1;
             }
                 break;
@@ -431,7 +431,7 @@ int EnemyTimeline::Run()
                 pos.x = args->x;
                 pos.y = args->y;
                 pos.z = 0.0f;
-                this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+                this->mgr->Spawn(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
             }
                 break;
             case 12:
@@ -445,7 +445,7 @@ int EnemyTimeline::Run()
                 pos.x = args->x;
                 pos.y = args->y;
                 pos.z = 0.0f;
-                enemy = this->mgr->SpawnEnemy(args->sub, &pos, args->life, -1, args->score, this->mirror, 0);
+                enemy = this->mgr->Spawn(args->sub, &pos, args->life, -1, args->score, this->mirror, 0);
                 enemy->pointItems = args->pointItems;
                 enemy->powerItems = args->powerItems;
             }
@@ -460,7 +460,7 @@ int EnemyTimeline::Run()
                 pos.x = g_Rng.GetRandomF32InRange(args->xMax - args->xMin) + args->xMin;
                 pos.y = args->y;
                 pos.z = 0.0f;
-                this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+                this->mgr->Spawn(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
             }
                 break;
             case 5:
@@ -473,7 +473,7 @@ int EnemyTimeline::Run()
                 pos.x = g_Rng.GetRandomF32InRange(384.0f);
                 pos.y = args->y;
                 pos.z = 0.0f;
-                this->mgr->SpawnEnemy(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
+                this->mgr->Spawn(args->sub, &pos, args->life, args->item, args->score, this->mirror, 0);
             }
                 break;
             case 8:
@@ -541,7 +541,7 @@ tick:
     return 0;
 }
 
-void Enemy::FreeUnknown33d8()
+void Enemy::FreeThreads()
 {
     int i;
 
@@ -583,10 +583,10 @@ void Enemy::Despawn()
         this->lifeCallbackLife[i] = -1;
     }
     this->timerCallbackTime = -1;
-    this->FreeUnknown33d8();
-    if (this->manager->side->player->unknown3037c == this)
+    this->FreeThreads();
+    if (this->manager->side->player->homingEnemy == this)
     {
-        this->manager->side->player->unknown3037c = NULL;
+        this->manager->side->player->homingEnemy = NULL;
     }
 }
 
@@ -657,11 +657,11 @@ void Enemy::DropItems(int kind)
     g_SoundPlayer.QueueSoundPanned(this->index % 2 + 2, this->absPos.x);
     if (this->unknown3380 && kind && !this->useVelocity2)
     {
-        this->manager->side->effectManager->SpawnParticles(5, &this->absPos, 1, 0xffffffff);
+        this->manager->side->effectManager->SpawnEffect(5, &this->absPos, 1, 0xffffffff);
     }
     else
     {
-        this->manager->side->effectManager->SpawnParticles(this->deathEffect + 0x14, &this->absPos, 1, 0xffffffff);
+        this->manager->side->effectManager->SpawnEffect(this->deathEffect + 0x14, &this->absPos, 1, 0xffffffff);
         deathEffect = this->deathEffect;
         if (!this->unknown3380)
         {
@@ -765,7 +765,7 @@ void Enemy::DropItems(int kind)
             effectVelocity.x = g_Rng.GetRandomF32SignedInRange(g_GameManager.arena[2] * 0.5f - 8.0f);
             effectVelocity.y = g_Rng.GetRandomF32InRange(128.0f);
             effectVelocity.z = 0.0f;
-            effect = g_GameManager.sides[2].effectManager->SpawnParticlesWithVelocity(
+            effect = g_GameManager.sides[2].effectManager->SpawnEffectWithVelocity(
                 this->manager->sideIdx + 3, &effectPos, &effectVelocity, 1, 0xffffffff);
             g_App.SetCamera(this->manager->sideIdx);
             effect->unknownA4 = this->unknown3380 > 2 ? 2 : this->unknown3380;
@@ -832,9 +832,9 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
     {
         if (!enemy->active)
         {
-            if (mgr->side->player->unknown3037c == enemy)
+            if (mgr->side->player->homingEnemy == enemy)
             {
-                mgr->side->player->unknown3037c = NULL;
+                mgr->side->player->homingEnemy = NULL;
             }
             continue;
         }
@@ -873,7 +873,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
         {
             if (enemy->unknown5424.HasTickedEvery(2))
             {
-                mgr->side->effectManager->SpawnParticles(9, &enemy->pos, 1, 0xffffffff);
+                mgr->side->effectManager->SpawnEffect(9, &enemy->pos, 1, 0xffffffff);
             }
             if (enemy->unknown5424 > mgr->unknown2ac44c)
             {
@@ -897,7 +897,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                 continue;
             }
         }
-        if ((enemy->haltedByBomb && mgr->side->player->GetUnknown0()) || enemy->halted)
+        if ((enemy->haltedByBomb && mgr->side->player->GetPlayerState()) || enemy->halted)
         {
             enemy->callbackTimer--;
             goto flash;
@@ -1014,7 +1014,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                 {
                     if (enemy->contactDamage)
                     {
-                        if (enemy->unknown53a8 > 0)
+                        if (enemy->invulnTimer > 0)
                         {
                             if (enemy->isBoss)
                             {
@@ -1049,17 +1049,17 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                     }
                     hit = 1;
                 }
-                D3DXVECTOR3 targetDiff = mgr->side->player->unknown30364 - mgr->side->player->pos;
+                D3DXVECTOR3 targetDiff = mgr->side->player->orbHomingTarget - mgr->side->player->pos;
                 D3DXVECTOR3 toward = enemy->absPos - mgr->side->player->pos;
                 if (targetDiff.x * targetDiff.x + targetDiff.y * targetDiff.y > toward.x * toward.x + toward.y * toward.y)
                 {
-                    mgr->side->player->unknown30364 = enemy->absPos;
+                    mgr->side->player->orbHomingTarget = enemy->absPos;
                 }
                 player = mgr->side->player;
                 if (Fabs(enemy->absPos.x - player->pos.x) < 64.0f &&
-                    (player->unknown3037c == NULL || player->unknown3037c->pos.y > enemy->absPos.y))
+                    (player->homingEnemy == NULL || player->homingEnemy->pos.y > enemy->absPos.y))
                 {
-                    player->unknown3037c = enemy;
+                    player->homingEnemy = enemy;
                 }
             }
         }
@@ -1095,14 +1095,14 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                 enemy->life = 1;
                 if (enemy->deathEffect >= 0)
                 {
-                    mgr->side->effectManager->SpawnParticles(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
-                    mgr->side->effectManager->SpawnParticles(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
-                    mgr->side->effectManager->SpawnParticles(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
+                    mgr->side->effectManager->SpawnEffect(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
+                    mgr->side->effectManager->SpawnEffect(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
+                    mgr->side->effectManager->SpawnEffect(enemy->deathEffect + 20, &enemy->absPos, 1, 0xffffffff);
                 }
-                if (mgr->side->player->GetUnknown0() == 0)
+                if (mgr->side->player->GetPlayerState() == 0)
                 {
-                    mgr->side->player->unknown303c8 = 90;
-                    mgr->side->player->SetUnknown0(3);
+                    mgr->side->player->stateTimer = 90;
+                    mgr->side->player->SetPlayerState(3);
                 }
                 enemy->haltedByBomb = 0;
                 enemy->intangibleDuringBomb = 0;
@@ -1141,7 +1141,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                     enemy->lifeCallbackLife[l] = -1;
                 }
                 enemy->timerCallbackTime = -1;
-                enemy->FreeUnknown33d8();
+                enemy->FreeThreads();
                 enemy->shooter = enemy->manager->enemyTemplate.shooter;
                 enemy->shootInterval = 0;
                 mgr->ecl.StartSub(&enemy->ctx, enemy->deathSub);
@@ -1221,9 +1221,9 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
         }
         MoveEnemyEffects(enemy);
         enemy->callbackTimer++;
-        if (enemy->unknown53a8 > 0)
+        if (enemy->invulnTimer > 0)
         {
-            enemy->unknown53a8--;
+            enemy->invulnTimer--;
         }
         if (!enemy->hidden && enemy->active)
         {
@@ -1232,7 +1232,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
             *head = enemy;
         }
     }
-    mgr->unknown2ac404++;
+    mgr->frameTimer++;
     return 1;
 }
 
@@ -1353,7 +1353,7 @@ static int DrawEnemies(EnemyManager *mgr, int from, int to)
                         uSpan2 = enemy->primarySprite.spriteData->uvEndX - enemy->primarySprite.spriteData->uvStartX;
                         uDecr = uSpan2 / ((vertices + 1) / 2 - 1);
                         tu = enemy->primarySprite.spriteData->uvEndX + enemy->primarySprite.uvScrollX;
-                        out = (VertexTex1DiffuseXyzrwh *)enemy->unknown3e68;
+                        out = (VertexTex1DiffuseXyzrwh *)enemy->spriteStripVertices;
                         for (b = 0; b < enemy->trailSegmentCount; b += enemy->trailSegmentStep, tu -= uDecr)
                         {
                             if (enemy->trailBoxes[b].pos.x < -990.0f)
@@ -1420,7 +1420,7 @@ static int DrawEnemies(EnemyManager *mgr, int from, int to)
                         if (vertices > 2)
                         {
                             g_SpriteEngine->DrawVertexStrip(&enemy->primarySprite,
-                                                            (VertexTex1DiffuseXyzrwh *)enemy->unknown3e68, vertices);
+                                                            (VertexTex1DiffuseXyzrwh *)enemy->spriteStripVertices, vertices);
                         }
                     }
                 }
@@ -1541,7 +1541,7 @@ static int FreeResources(EnemyManager *mgr)
     enemy = mgr->enemies;
     for (i = 0; i < 0x80; i++, enemy++)
     {
-        enemy->FreeUnknown33d8();
+        enemy->FreeThreads();
     }
     g_SpriteEngine->ReleaseAnm(9);
     mgr->ecl.Unload();
@@ -1569,7 +1569,7 @@ void EnemyManager::Reset()
     enemy = this->enemies;
     for (i = 0; i < 0x80; i++, enemy++)
     {
-        enemy->FreeUnknown33d8();
+        enemy->FreeThreads();
         enemy->active = 0;
     }
     if (this->sideIdx == 0)

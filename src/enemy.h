@@ -150,7 +150,7 @@ extern void (*g_EnemyScriptInterps[8])(Enemy *enemy, EnemyScriptInstr *instr, fl
 // The functions opcodes 136 and 137 run (0x4a0b14).
 extern EnemyScriptFunc g_EnemyScriptFuncs[12];
 
-// An ECL script's variables, which SpawnEnemyWithVars copies in (0x78
+// An ECL script's variables, which SpawnWithVars copies in (0x78
 // bytes).
 struct EnemyScriptVars
 {
@@ -302,7 +302,7 @@ struct Enemy
     // (0x40f560).
     void ReleaseEffects();
     // Frees the threads (0x4100e0).
-    void FreeUnknown33d8();
+    void FreeThreads();
     // Stops the enemy unless it has a death mode, frees its boss slot,
     // effects and blocks and clears its callbacks, as th08's (0x410110).
     void Despawn();
@@ -402,7 +402,7 @@ struct Enemy
     unsigned char shootInstr[0x2c];
     int shootInterval;
     Timer shootTimer;
-    BulletShooter unknown30c4;
+    BulletShooter laserShooter;
     // The lasers it fired, as th08's.
     Laser *lasers[0x20];
     int laserIndex;
@@ -515,14 +515,14 @@ struct Enemy
     EnemyScriptThread *threads[4];
     EnemyBox trailBoxes[0x60];
     // The trail strip's vertices, as th08's spriteStripVertices.
-    EnemyBox unknown3e68[0xc2];
+    EnemyBox spriteStripVertices[0xc2];
     // As th08's: whether it has trail boxes, and how many.
     BYTE trailFlags;
     unsigned char pad_53a1[0x1];
     short trailSegmentCount;
     short trailContactSegments;
     short trailSegmentStep;
-    Timer unknown53a8;
+    Timer invulnTimer;
     // Effects that follow it, as th08's.
     struct Effect *effects[0x18];
     int effectCount;
@@ -639,15 +639,15 @@ public:
     // Starts the first free enemy as subroutine `sub` (of playerEcl if
     // `usePlayerEcl`) at `pos`, mirrored if `mirrored`, with `life` and
     // `score` unless negative. Returns it (0x40f1d0).
-    Enemy *SpawnEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
+    Enemy *Spawn(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored,
                       int usePlayerEcl);
-    // SpawnEnemy from playerEcl. Inline, in pl.h (0x440c80).
+    // Spawn from playerEcl. Inline, in pl.h (0x440c80).
     Enemy *SpawnPlayerEnemy(int sub, D3DXVECTOR3 *pos, int life, int itemDrop, int score, int mirrored);
-    // SpawnEnemy unmirrored, with the script's variables from `vars`, as
+    // Spawn unmirrored, with the script's variables from `vars`, as
     // th08's SpawnWithVars (0x40f340).
-    Enemy *SpawnEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EnemyScriptVars *vars,
+    Enemy *SpawnWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EnemyScriptVars *vars,
                               int usePlayerEcl);
-    // SpawnEnemyWithVars from playerEcl. Inline, in pl.h (0x4417c0).
+    // SpawnWithVars from playerEcl. Inline, in pl.h (0x4417c0).
     Enemy *SpawnPlayerEnemyWithVars(int sub, D3DXVECTOR3 *pos, int life, char itemDrop, int score, EnemyScriptVars *vars);
 
     // enemy.ecl, and the character's plXX.ecl.
@@ -682,7 +682,7 @@ public:
     int scriptArg163;
     // The timeline running.
     EnemyTimeline timeline;
-    Timer unknown2ac404;
+    Timer frameTimer;
     // The enemies drawn by OnDraw (0 and 1) and OnDraw2 (2 and 3), as
     // th08's.
     Enemy *drawListHeads[4];

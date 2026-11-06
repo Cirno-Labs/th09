@@ -111,7 +111,7 @@ public:
     int PlayQueuedSounds();
     // Fades the wave music out over `seconds`. An out-of-line copy
     // (0x43e4e0).
-    void FadeOutBgm(float seconds)
+    void FadeOutMusic(float seconds)
     {
         if (this->bgm != NULL)
         {
@@ -131,8 +131,8 @@ public:
     // Queues sound effect `idx` with `arg` to start on the next update:
     // a sound already queued collects up to 0x80 arguments, and up to 12
     // sounds are queued; th08's QueueSound (0x43e2f0).
-    void PlaySoundByIdx(int idx, int arg);
-    // PlaySoundByIdx with the pan for horizontal position `x`, as th08's
+    void QueueSound(int idx, int arg);
+    // QueueSound with the pan for horizontal position `x`, as th08's
     // QueueSoundPanned (0x43e380).
     void QueueSoundPanned(int idx, float x);
     // Queues a command of `type` with `arg` and `path` in the first free

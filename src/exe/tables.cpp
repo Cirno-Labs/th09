@@ -149,7 +149,7 @@ int InitEffectTypes1And2(Effect *effect);
 int UpdateEffectTypes1And2(Effect *effect);
 int InitEffectTypes3And4(Effect *effect);
 int UpdateEffectTypes3And4(Effect *effect);
-int InitRingEffect(Effect *effect);
+int EffectInitRing(Effect *effect);
 int UpdateEffectFromSprite(Effect *effect);
 int EffectDrawRing(Effect *effect);
 int EffectUpdateFollowPlayer(Effect *effect);
@@ -892,16 +892,16 @@ EffectInfo g_EffectInfos[38] = {
     { 35, 0, 1, (int (*)(Effect *))InitEffectTypes3And4, (int (*)(Effect *))UpdateEffectTypes3And4, NULL },
     { 36, 0, 1, (int (*)(Effect *))InitEffectTypes3And4, (int (*)(Effect *))UpdateEffectTypes3And4, NULL },
     { 32, 0, 1, NULL, NULL, NULL },
-    { 86, 0, 1, (int (*)(Effect *))InitRingEffect, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
+    { 86, 0, 1, (int (*)(Effect *))EffectInitRing, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
     { 63, 0, 1, NULL, (int (*)(Effect *))EffectUpdateFollowPlayer, NULL },
-    { 87, 0, 1, (int (*)(Effect *))InitRingEffect, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
+    { 87, 0, 1, (int (*)(Effect *))EffectInitRing, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
     { 85, 0, 1, NULL, NULL, NULL },
     { 88, 0, 1, (int (*)(Effect *))InitEffectTypes10And18And24And25And26And28And33, (int (*)(Effect *))UpdateEffectType10, (int (*)(Effect *))DrawEffectType10 },
     { 89, 0, 1, (int (*)(Effect *))InitOrientedEffect, NULL, NULL },
     { 90, 0, 1, (int (*)(Effect *))InitOrientedEffect, NULL, NULL },
-    { 91, 0, 1, (int (*)(Effect *))InitRingEffect, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
-    { 92, 0, 1, (int (*)(Effect *))InitRingEffect, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
-    { 93, 0, 1, (int (*)(Effect *))InitRingEffect, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
+    { 91, 0, 1, (int (*)(Effect *))EffectInitRing, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
+    { 92, 0, 1, (int (*)(Effect *))EffectInitRing, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
+    { 93, 0, 1, (int (*)(Effect *))EffectInitRing, (int (*)(Effect *))UpdateEffectFromSprite, (int (*)(Effect *))EffectDrawRing },
     { 88, 0, 1, (int (*)(Effect *))InitEffectType16, (int (*)(Effect *))UpdateEffectType16, (int (*)(Effect *))DrawEffectType16 },
     { 88, 0, 1, (int (*)(Effect *))InitEffectType17, (int (*)(Effect *))UpdateEffectType17, (int (*)(Effect *))DrawEffectType17 },
     { 88, 0, 1, (int (*)(Effect *))InitEffectTypes10And18And24And25And26And28And33, (int (*)(Effect *))UpdateEffectType18, (int (*)(Effect *))DrawEffectType18 },

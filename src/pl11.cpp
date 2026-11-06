@@ -89,7 +89,7 @@ int InitExAttackType19(ExAttack *attack)
 // The update callback of extra attack type 19: flies in along the curve
 // for 90 frames, then appears hidden on the target's side as the disc,
 // its texture scrolling and its rim wobbling, slowing the player there
-// by unknown1ce4 and unknown1ce8 while they are within 64 of it from
+// by moveScaleX and moveScaleY while they are within 64 of it from
 // frame 20 to 300. Returns 1 once its sprite has hidden (0x44a330).
 int UpdateExAttackType19(ExAttack *attack)
 {
@@ -170,8 +170,8 @@ int UpdateExAttackType19(ExAttack *attack)
             D3DXVECTOR3 diff = g_GameManager.sides[attack->targetSide].player->pos - attack->pos;
             if (diff.x * diff.x + diff.y * diff.y <= 4096.0f)
             {
-                g_GameManager.sides[attack->targetSide].player->unknown1ce4 *= 0.4f;
-                g_GameManager.sides[attack->targetSide].player->unknown1ce8 *= 0.4f;
+                g_GameManager.sides[attack->targetSide].player->moveScaleX *= 0.4f;
+                g_GameManager.sides[attack->targetSide].player->moveScaleY *= 0.4f;
             }
         }
         if (!attack->sprites->shown)

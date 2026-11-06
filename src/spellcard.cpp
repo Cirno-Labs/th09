@@ -11,27 +11,27 @@ void Player::StartClearCircle1()
 {
     this->AddHitCircle(&this->pos, 0.0f, 4.0f, 0x30, 0);
     this->AddKind4Circle(&this->pos, 0.0f, 4.0f, 2, 0x30, 0);
-    this->SetUnknown0(3);
-    this->unknown303c8 = 0x30;
-    this->side->effectManager->SpawnParticles(0xd, &this->pos, 1, 0xffffffff);
+    this->SetPlayerState(3);
+    this->stateTimer = 0x30;
+    this->side->effectManager->SpawnEffect(0xd, &this->pos, 1, 0xffffffff);
 }
 
 void Player::StartClearCircle2()
 {
     this->AddHitCircle(&this->pos, 0.0f, 4.0f, 0x40, 0);
     this->AddKind4Circle(&this->pos, 0.0f, 4.0f, 2, 0x40, 0);
-    this->SetUnknown0(3);
-    this->unknown303c8 = 0x40;
-    this->side->effectManager->SpawnParticles(0xe, &this->pos, 1, 0xffffffff);
+    this->SetPlayerState(3);
+    this->stateTimer = 0x40;
+    this->side->effectManager->SpawnEffect(0xe, &this->pos, 1, 0xffffffff);
 }
 
 void Player::StartClearCircle3()
 {
     this->AddHitCircle(&this->pos, 0.0f, 3.5f, 0x80, 0);
     this->AddKind4Circle(&this->pos, 0.0f, 3.5f, 2, 0x80, 0);
-    this->SetUnknown0(3);
-    this->unknown303c8 = 0x80;
-    this->side->effectManager->SpawnParticles(0xf, &this->pos, 1, 0xffffffff);
+    this->SetPlayerState(3);
+    this->stateTimer = 0x80;
+    this->side->effectManager->SpawnEffect(0xf, &this->pos, 1, 0xffffffff);
 }
 
 // Calls the spell card's end callbacks, if set.
@@ -105,7 +105,7 @@ void SpellCard::Start(int type, int kind, int unknown, char *name)
         {
             this->side->player->unknownA4++;
         }
-        g_SoundPlayer.PlaySoundByIdx(0x35, 0);
+        g_SoundPlayer.QueueSound(0x35, 0);
     }
     else
     {
@@ -130,7 +130,7 @@ void SpellCard::Start(int type, int kind, int unknown, char *name)
         {
             this->otherSide->player->unknownA0++;
         }
-        g_SoundPlayer.PlaySoundByIdx(0xe, 0);
+        g_SoundPlayer.QueueSound(0xe, 0);
     }
     this->anm->StartScript(&this->unknown5f4[0], 0x1e);
     this->anm->StartScript(&this->unknown5f4[1], 0x1f);
@@ -212,7 +212,7 @@ int SpellCard::OnUpdate(SpellCard *card)
         card->callbacks[1].update = NULL;
         card->callbacks[1].draw = NULL;
         card->callbacks[1].end = NULL;
-        g_SoundPlayer.PlaySoundByIdx(0xf, 0);
+        g_SoundPlayer.QueueSound(0xf, 0);
         card->side->stage->Reset();
     }
     if (g_SpriteEngine->Step(&card->unknownAc[0]))

@@ -22,7 +22,7 @@ MusicTune::MusicTune()
 
 void MainMenu::PlaySoundNow(int idx, int arg)
 {
-    g_SoundPlayer.PlaySoundByIdx(idx, arg);
+    g_SoundPlayer.QueueSound(idx, arg);
     g_SoundPlayer.PlayQueuedSounds();
 }
 
@@ -175,7 +175,7 @@ void MidiPlayer::Restart(int slot)
     this->Play();
 }
 
-void App::ClearUnknown77c()
+void App::ResetClockDriftCounters()
 {
     this->unknown77c = 0;
     this->unknown784 = 0;
@@ -289,9 +289,9 @@ int MainMenu::DrawState11()
         pos.y = slot * 13.0f + 90.0f;
         pos.z = 0.0f;
         D3DXVECTOR3 end(216.5f, 160.0f, 0.0f);
-        if (this->unknown1b230 < 10)
+        if (this->inputLockout < 10)
         {
-            pos = pos + (end - pos) * (float)this->unknown1b230 * 0.1f;
+            pos = pos + (end - pos) * (float)this->inputLockout * 0.1f;
         }
         else
         {
@@ -380,9 +380,9 @@ int MainMenu::DrawState15()
         pos.y = row * 13.0f + 90.0f;
         D3DXVECTOR3 end = pos;
         end.x = end.y = 224.0f;
-        if (this->unknown1b230 < 10)
+        if (this->inputLockout < 10)
         {
-            pos = pos + (end - pos) * (float)this->unknown1b230 * 0.1f;
+            pos = pos + (end - pos) * (float)this->inputLockout * 0.1f;
         }
         else
         {
@@ -475,7 +475,7 @@ int MainMenu::DrawState13()
         mask = 1 << g_GameManager.difficulty;
         highlight = this->scoreRank;
     }
-    alpha = this->unknown1b230 < 30 ? this->unknown1b230 * 255 / 30 : 255;
+    alpha = this->inputLockout < 30 ? this->inputLockout * 255 / 30 : 255;
     g_AsciiText.color = mask & 1 ? (alpha << 24) | 0xd0ffd0 : (alpha << 24) | 0x808080;
     pos.x = 102.0f;
     pos.y = 80.0f;
@@ -710,7 +710,7 @@ int MainMenu::DrawState12()
     return 1;
 }
 
-int MainMenu::MoveCursor(int count)
+int MainMenu::MoveMenuCursor(int count)
 {
     if (count == 0)
     {
@@ -719,7 +719,7 @@ int MainMenu::MoveCursor(int count)
     if (g_PlayerInputs[2].IsPressed(0x10))
     {
         this->cursor--;
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         if (this->cursor < 0)
         {
             this->cursor = count - 1;
@@ -733,7 +733,7 @@ int MainMenu::MoveCursor(int count)
     if (g_PlayerInputs[2].IsPressed(0x20))
     {
         this->cursor++;
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         if (this->cursor < 0)
         {
             this->cursor = count - 1;
@@ -747,7 +747,7 @@ int MainMenu::MoveCursor(int count)
     return 0;
 }
 
-int MainMenu::MoveCursorLR(int count)
+int MainMenu::MoveMenuCursorLR(int count)
 {
     if (count == 0)
     {
@@ -760,7 +760,7 @@ int MainMenu::MoveCursorLR(int count)
         {
             this->cursor += count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return -1;
     }
     if (g_PlayerInputs[2].IsPressed(0x80))
@@ -770,7 +770,7 @@ int MainMenu::MoveCursorLR(int count)
         {
             this->cursor -= count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return 1;
     }
     return 0;
@@ -789,7 +789,7 @@ int MainMenu::MoveCursor4(int count)
         {
             this->cursor += count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return -1;
     }
     if (g_PlayerInputs[2].IsPressed(0x80))
@@ -799,13 +799,13 @@ int MainMenu::MoveCursor4(int count)
         {
             this->cursor -= count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return 1;
     }
     if (g_PlayerInputs[2].IsPressed(0x10))
     {
         this->cursor--;
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         if (this->cursor < 0)
         {
             this->cursor = count - 1;
@@ -819,7 +819,7 @@ int MainMenu::MoveCursor4(int count)
     if (g_PlayerInputs[2].IsPressed(0x20))
     {
         this->cursor++;
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         if (this->cursor < 0)
         {
             this->cursor = count - 1;
@@ -846,7 +846,7 @@ int MainMenu::MovePlayerCursor(int idx, int count)
         {
             this->cursors[idx] += count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return -1;
     }
     if (g_PlayerInputs[idx].IsPressed(0x80))
@@ -856,7 +856,7 @@ int MainMenu::MovePlayerCursor(int idx, int count)
         {
             this->cursors[idx] -= count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return 1;
     }
     if (g_PlayerInputs[idx].IsPressed(0x10))
@@ -866,7 +866,7 @@ int MainMenu::MovePlayerCursor(int idx, int count)
         {
             this->cursors[idx] += count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return -1;
     }
     if (g_PlayerInputs[idx].IsPressed(0x20))
@@ -876,7 +876,7 @@ int MainMenu::MovePlayerCursor(int idx, int count)
         {
             this->cursors[idx] -= count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return 1;
     }
     return 0;
@@ -895,7 +895,7 @@ int MainMenu::MovePlayerCursor2(int player, int idx, int count)
         {
             this->cursors[idx] += count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return -1;
     }
     if (g_PlayerInputs[player].IsPressed(0x80))
@@ -905,7 +905,7 @@ int MainMenu::MovePlayerCursor2(int player, int idx, int count)
         {
             this->cursors[idx] -= count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return 1;
     }
     if (g_PlayerInputs[player].IsPressed(0x10))
@@ -915,7 +915,7 @@ int MainMenu::MovePlayerCursor2(int player, int idx, int count)
         {
             this->cursors[idx] += count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return -1;
     }
     if (g_PlayerInputs[player].IsPressed(0x20))
@@ -925,7 +925,7 @@ int MainMenu::MovePlayerCursor2(int player, int idx, int count)
         {
             this->cursors[idx] -= count;
         }
-        g_SoundPlayer.PlaySoundByIdx(12, 0);
+        g_SoundPlayer.QueueSound(12, 0);
         return 1;
     }
     return 0;
@@ -1078,7 +1078,7 @@ void MainMenu::LoadingThread(MainMenu *menu)
     g_App.StopLoadingSprites();
     g_App.subThread = NULL;
     g_App.closeSubThread = 0;
-    g_App.unknown6b8 = 0;
+    g_App.subThreadRunning = 0;
 }
 
 
@@ -1098,7 +1098,7 @@ int MainMenu::InitTitleScene()
         g_GameManager.stateFlags &= ~8;
     }
     this->SetState(1);
-    g_App.ClearUnknown77c();
+    g_App.ResetClockDriftCounters();
     if (g_Network->unknownA8 != 0 && g_GameManager.mode != 2)
     {
         this->unknown1b23c = 2;
@@ -1157,10 +1157,10 @@ int MainMenu::AddedCallback(MainMenu *menu)
 
 int MainMenu::ReleaseTitleScene()
 {
-    if (this->unknownC8fc != NULL)
+    if (this->loadedReplay != NULL)
     {
-        free(this->unknownC8fc);
-        this->unknownC8fc = NULL;
+        free(this->loadedReplay);
+        this->loadedReplay = NULL;
     }
     if (this->sprites != NULL)
     {
@@ -1550,7 +1550,7 @@ int MainMenu::UpdateState3()
         }
         break;
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 13);
             g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
@@ -1623,15 +1623,15 @@ int MainMenu::UpdateState3()
                 this->FlashSprite(0, g_PlayRecord.GetClearFlags(characters[0], g_App.config.difficulty));
             }
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -1821,7 +1821,7 @@ int MainMenu::UpdateState8b()
         }
         break;
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 13);
             g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
@@ -1880,15 +1880,15 @@ int MainMenu::UpdateState8b()
             this->FlashHalves(this->unknown11b84, this->unknown11b88);
             this->MoveCharacterCursor(0, characters[0], characters[0], g_VsCpuCharacters);
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -1902,7 +1902,7 @@ int MainMenu::UpdateState16()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x1a);
             g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
@@ -1940,7 +1940,7 @@ int MainMenu::UpdateState16()
             this->unknownC918 = 1;
             this->MoveCharacterCursor2(0, character, g_CharacterOrder);
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
@@ -2056,8 +2056,8 @@ int MainMenu::UpdateState16()
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -2070,7 +2070,7 @@ int MainMenu::UpdateState13()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             if (g_SpriteEngine->LoadSurface(0, "title/result00.png") != 0)
             {
@@ -2086,7 +2086,7 @@ int MainMenu::UpdateState13()
             this->helpSprite = NULL;
             this->scoreRank = 0;
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
@@ -2148,10 +2148,10 @@ int MainMenu::UpdateState13()
                 g_PlayRecord.openEntries2[(char)i] = 1;
                 g_PlayRecord.openEntries3[(char)i] = 1;
             }
-            g_SoundPlayer.PlaySoundByIdx(0x1c, 0);
+            g_SoundPlayer.QueueSound(0x1c, 0);
             g_CheatCodeProgress = 0;
         }
-        if ((delta = this->MoveCursorLR(14)) != 0)
+        if ((delta = this->MoveMenuCursorLR(14)) != 0)
         {
             while (!g_PlayRecord.openEntries2[this->cursor])
             {
@@ -2184,8 +2184,8 @@ int MainMenu::UpdateState13()
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -2203,7 +2203,7 @@ int MainMenu::UpdateState11()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             g_GameManager.stateFlags &= ~8;
             if (this->prevState != 11 && g_SpriteEngine->LoadSurface(0, "title/replay00.png") != 0)
@@ -2219,7 +2219,7 @@ int MainMenu::UpdateState11()
             for (i = 0; i < 25; i++)
             {
                 sprintf(path, "./replay/th9_%.2d.rpy", i + 1);
-                replay = (ReplayHeader *)OpenPath(path, &size, 1);
+                replay = (ReplayHeader *)LoadFileData(path, &size, 1);
                 if (replay == NULL)
                 {
                     continue;
@@ -2241,7 +2241,7 @@ int MainMenu::UpdateState11()
                 {
                     strcpy(userPath, "replay/");
                     strcat(userPath, fd.cFileName);
-                    replay = (ReplayHeader *)OpenPath(userPath, &size, 1);
+                    replay = (ReplayHeader *)LoadFileData(userPath, &size, 1);
                     if (replay == NULL)
                     {
                         continue;
@@ -2261,10 +2261,10 @@ int MainMenu::UpdateState11()
             }
             FindClose(findHandle);
             _chdir("../");
-            this->unknownC904 = 50;
+            this->replayCount = 50;
             this->unknownC900 = 0;
         }
-        if (this->unknown1b230 >= 8)
+        if (this->inputLockout >= 8)
         {
             this->subState = 1;
             this->stateFrames = 0;
@@ -2273,7 +2273,7 @@ int MainMenu::UpdateState11()
     case 1:
         if (g_PlayerInputs[2].IsPressed(0x10))
         {
-            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            g_SoundPlayer.QueueSound(12, 0);
             this->cursor--;
             if (this->cursor < 0)
             {
@@ -2283,7 +2283,7 @@ int MainMenu::UpdateState11()
         }
         if (g_PlayerInputs[2].IsPressed(0x20))
         {
-            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            g_SoundPlayer.QueueSound(12, 0);
             this->cursor++;
             if (this->cursor >= 50)
             {
@@ -2293,7 +2293,7 @@ int MainMenu::UpdateState11()
         }
         if (g_PlayerInputs[2].IsPressed(0x40))
         {
-            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            g_SoundPlayer.QueueSound(12, 0);
             this->cursor -= 25;
             if (this->cursor < 0)
             {
@@ -2303,7 +2303,7 @@ int MainMenu::UpdateState11()
         }
         if (g_PlayerInputs[2].IsPressed(0x80))
         {
-            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            g_SoundPlayer.QueueSound(12, 0);
             this->cursor += 25;
             if (this->cursor >= 50)
             {
@@ -2336,7 +2336,7 @@ int MainMenu::UpdateState11()
                 this->subState = 2;
                 this->stateFrames = 0;
                 this->cursor = 0;
-                this->unknown1b230 = 0;
+                this->inputLockout = 0;
                 while (this->replays[this->replaySlot].unknown20[0][this->cursor] == NULL)
                 {
                     this->cursor++;
@@ -2349,7 +2349,7 @@ int MainMenu::UpdateState11()
         }
         break;
     case 2:
-        if ((delta = this->MoveCursor(10)) != 0)
+        if ((delta = this->MoveMenuCursor(10)) != 0)
         {
             while (this->replays[this->replaySlot].unknown20[0][this->cursor] == NULL)
             {
@@ -2443,9 +2443,9 @@ int MainMenu::UpdateState11()
         }
         break;
     }
-    this->unknownC910++;
+    this->subMenuIdleFrames++;
     this->stateFrames++;
-    this->unknown1b230++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -2462,7 +2462,7 @@ int MainMenu::UpdateState12()
     switch (this->subState)
     {
     case 1:
-        if (this->unknown1b230 == 2)
+        if (this->inputLockout == 2)
         {
             this->commentSprites[0].pendingInterrupt = 1;
             if (g_PlayRecord.bgmHeard[this->playingTune])
@@ -2474,7 +2474,7 @@ int MainMenu::UpdateState12()
                 g_SpriteEngine->RenderText(&this->commentSprites[0], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[0]);
             }
         }
-        else if (this->unknown1b230 == 4)
+        else if (this->inputLockout == 4)
         {
             this->commentSprites[1].pendingInterrupt = 1;
             if (g_PlayRecord.bgmHeard[this->playingTune])
@@ -2486,7 +2486,7 @@ int MainMenu::UpdateState12()
                 g_SpriteEngine->RenderText(&this->commentSprites[1], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[1]);
             }
         }
-        else if (this->unknown1b230 == 6)
+        else if (this->inputLockout == 6)
         {
             this->commentSprites[2].pendingInterrupt = 1;
             if (g_PlayRecord.bgmHeard[this->playingTune])
@@ -2498,7 +2498,7 @@ int MainMenu::UpdateState12()
                 g_SpriteEngine->RenderText(&this->commentSprites[2], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[2]);
             }
         }
-        else if (this->unknown1b230 == 8)
+        else if (this->inputLockout == 8)
         {
             this->commentSprites[3].pendingInterrupt = 1;
             if (g_PlayRecord.bgmHeard[this->playingTune])
@@ -2510,7 +2510,7 @@ int MainMenu::UpdateState12()
                 g_SpriteEngine->RenderText(&this->commentSprites[3], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[3]);
             }
         }
-        else if (this->unknown1b230 == 10)
+        else if (this->inputLockout == 10)
         {
             this->commentSprites[4].pendingInterrupt = 1;
             if (g_PlayRecord.bgmHeard[this->playingTune])
@@ -2522,7 +2522,7 @@ int MainMenu::UpdateState12()
                 g_SpriteEngine->RenderText(&this->commentSprites[4], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[4]);
             }
         }
-        else if (this->unknown1b230 == 12)
+        else if (this->inputLockout == 12)
         {
             this->commentSprites[5].pendingInterrupt = 1;
             if (g_PlayRecord.bgmHeard[this->playingTune])
@@ -2534,7 +2534,7 @@ int MainMenu::UpdateState12()
                 g_SpriteEngine->RenderText(&this->commentSprites[5], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[5]);
             }
         }
-        else if (this->unknown1b230 == 14)
+        else if (this->inputLockout == 14)
         {
             this->commentSprites[6].pendingInterrupt = 1;
             if (g_PlayRecord.bgmHeard[this->playingTune])
@@ -2546,7 +2546,7 @@ int MainMenu::UpdateState12()
                 g_SpriteEngine->RenderText(&this->commentSprites[6], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[6]);
             }
         }
-        else if (this->unknown1b230 == 16)
+        else if (this->inputLockout == 16)
         {
             this->commentSprites[7].pendingInterrupt = 1;
             if (g_PlayRecord.bgmHeard[this->playingTune])
@@ -2558,7 +2558,7 @@ int MainMenu::UpdateState12()
                 g_SpriteEngine->RenderText(&this->commentSprites[7], 0xe0e0ff, 0x302080, g_MusicNotHeardComment[7]);
             }
         }
-        if (this->MoveCursor(this->tuneCount) != 0)
+        if (this->MoveMenuCursor(this->tuneCount) != 0)
         {
             if (this->cursor < this->listTop)
             {
@@ -2590,7 +2590,7 @@ int MainMenu::UpdateState12()
         }
         if (g_PlayerInputs[2].unknown6 & 4)
         {
-            g_App.FadeOutBgm(20.0f);
+            g_App.FadeOutMusic(20.0f);
         }
         if (g_PlayerInputs[2].unknown6 & 0x200)
         {
@@ -2622,7 +2622,7 @@ int MainMenu::UpdateState12()
             this->playingTune = this->cursor;
             this->musicPaused = 0;
             g_App.PlayMusicFile(this->tunes[this->playingTune].path, 0);
-            this->unknown1b230 = 0;
+            this->inputLockout = 0;
             for (i = 0; i < 8; i++)
             {
                 g_App.textAnm->StartScript(&this->commentSprites[i], i + 6);
@@ -2638,7 +2638,7 @@ int MainMenu::UpdateState12()
         }
         break;
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             if (g_SpriteEngine->LoadSurface(0, "title/music00.png") != 0)
             {
@@ -2651,7 +2651,7 @@ int MainMenu::UpdateState12()
             this->subState = 0;
             this->stateFrames = 0;
             this->helpSprite = NULL;
-            data = rp = (char *)OpenPath("sprt/musiccmt.txt", &fileSize, 0);
+            data = rp = (char *)LoadFileData("sprt/musiccmt.txt", &fileSize, 0);
             if (rp == NULL)
             {
                 return -1;
@@ -2779,10 +2779,10 @@ int MainMenu::UpdateState12()
             }
             this->musicPaused = 0;
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
-            this->unknown1b230 = 0;
+            this->inputLockout = 0;
         }
         break;
     }
@@ -2791,8 +2791,8 @@ int MainMenu::UpdateState12()
         g_SpriteEngine->Step(&this->commentSprites[i]);
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -2808,7 +2808,7 @@ int MainMenu::UpdateState9()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 3);
             g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
@@ -2873,7 +2873,7 @@ int MainMenu::UpdateState9()
             this->sprites[31].alpha = 0;
             this->sprites[31].flags &= ~2;
         }
-        if (this->MoveCursor(9) != 0)
+        if (this->MoveMenuCursor(9) != 0)
         {
             this->SelectCursorEntry();
         }
@@ -2883,7 +2883,7 @@ int MainMenu::UpdateState9()
             this->helpSprite->SetPendingInterrupt(1);
         }
         this->prevCursor = this->cursor;
-        if (this->unknown1b230 < 4)
+        if (this->inputLockout < 4)
         {
             break;
         }
@@ -2892,7 +2892,7 @@ int MainMenu::UpdateState9()
             switch (this->cursor)
             {
             case 0:
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 if (g_App.config.unknownAc == 0)
                 {
                     g_App.config.unknownAc = 2;
@@ -2904,7 +2904,7 @@ int MainMenu::UpdateState9()
                 this->SelectEntry(g_App.config.unknownAc, 0x12, 3);
                 break;
             case 1:
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 if (g_App.config.colorMode16Bits == 0)
                 {
                     g_App.config.colorMode16Bits = 1;
@@ -2916,7 +2916,7 @@ int MainMenu::UpdateState9()
                 this->SelectEntry(g_App.config.colorMode16Bits, 0x15, 2);
                 break;
             case 2:
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 g_App.StopBgm();
                 if (g_App.config.musicMode == 0)
                 {
@@ -2931,7 +2931,7 @@ int MainMenu::UpdateState9()
                 this->SelectEntry(g_App.config.musicMode, 0x17, 3);
                 break;
             case 5:
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 if (g_App.config.windowed == 0)
                 {
                     g_App.config.windowed = 1;
@@ -3039,7 +3039,7 @@ int MainMenu::UpdateState9()
             switch (this->cursor)
             {
             case 0:
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 if (g_App.config.unknownAc >= 2)
                 {
                     g_App.config.unknownAc = 0;
@@ -3051,7 +3051,7 @@ int MainMenu::UpdateState9()
                 this->SelectEntry(g_App.config.unknownAc, 0x12, 3);
                 break;
             case 1:
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 if (g_App.config.colorMode16Bits >= 1)
                 {
                     g_App.config.colorMode16Bits = 0;
@@ -3063,7 +3063,7 @@ int MainMenu::UpdateState9()
                 this->SelectEntry(g_App.config.colorMode16Bits, 0x15, 2);
                 break;
             case 2:
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 g_App.StopBgm();
                 if (g_App.config.musicMode >= 1)
                 {
@@ -3078,7 +3078,7 @@ int MainMenu::UpdateState9()
                 this->SelectEntry(g_App.config.musicMode, 0x17, 3);
                 break;
             case 5:
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 if (g_App.config.windowed >= 1)
                 {
                     g_App.config.windowed = 0;
@@ -3095,11 +3095,11 @@ int MainMenu::UpdateState9()
             this->PlaySoundNow(12, 0);
         }
     idle:
-        if (this->cursor >= 3 && this->cursor <= 4 && this->unknown1b230 % 50 == 0)
+        if (this->cursor >= 3 && this->cursor <= 4 && this->inputLockout % 50 == 0)
         {
-            g_SoundPlayer.PlaySoundByIdx(0x1d, 0);
+            g_SoundPlayer.QueueSound(0x1d, 0);
         }
-        this->unknownC910 = 0;
+        this->subMenuIdleFrames = 0;
         if (g_PlayerInputs[2].unknown6 & 0x1001)
         {
             switch (this->cursor)
@@ -3145,9 +3145,9 @@ int MainMenu::UpdateState9()
             this->PlaySoundNow(11, 0);
         }
     }
-    this->unknownC910++;
+    this->subMenuIdleFrames++;
     this->stateFrames++;
-    this->unknown1b230++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -3162,7 +3162,7 @@ int MainMenu::UpdateState10()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 4);
             g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
@@ -3194,7 +3194,7 @@ int MainMenu::UpdateState10()
             g_SpriteEngine->RenderTextCentered(&this->helpSprites[i], 0xfff0e0, 0x300000, g_KeyConfigHelpTexts[i]);
         }
     case 1:
-        if ((delta = this->MoveCursor(10)) != 0)
+        if ((delta = this->MoveMenuCursor(10)) != 0)
         {
             if (g_App.config.pads[this->unknownC920] >= 2)
             {
@@ -3300,7 +3300,7 @@ int MainMenu::UpdateState10()
                         this->sprites[i + 50].color = 0xffffffff;
                     }
                 }
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 break;
             case 1:
                 do
@@ -3342,7 +3342,7 @@ int MainMenu::UpdateState10()
                         this->sprites[i + 50].color = 0xffffffff;
                     }
                 }
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 break;
             case 2:
                 if (g_App.config.unknownB4[this->unknownC920] <= 0)
@@ -3352,7 +3352,7 @@ int MainMenu::UpdateState10()
                 g_App.config.unknownB4[this->unknownC920]--;
                 this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x31);
                 this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x2a);
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 break;
             default:
                 break;
@@ -3390,7 +3390,7 @@ int MainMenu::UpdateState10()
                         this->sprites[i + 50].color = 0xffffffff;
                     }
                 }
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 break;
             case 1:
                 do
@@ -3432,7 +3432,7 @@ int MainMenu::UpdateState10()
                         this->sprites[i + 50].color = 0xffffffff;
                     }
                 }
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 break;
             case 2:
                 g_App.config.unknownB4[this->unknownC920]++;
@@ -3442,7 +3442,7 @@ int MainMenu::UpdateState10()
                 }
                 this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x31);
                 this->ShowEntryFrame(g_App.config.unknownB4[this->unknownC920], 0x2a);
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 break;
             default:
                 break;
@@ -3495,9 +3495,9 @@ int MainMenu::UpdateState10()
             }
         }
     }
-    this->unknownC910++;
+    this->subMenuIdleFrames++;
     this->stateFrames++;
-    this->unknown1b230++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -3730,7 +3730,7 @@ int MainMenu::UpdateState8()
         }
         break;
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 13);
             g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
@@ -3778,15 +3778,15 @@ int MainMenu::UpdateState8()
             this->MoveCharacterCursor(0, characters[0], characters[1], g_VsCharacters);
             this->MoveCharacterCursor(1, characters[1], characters[0], g_VsCharacters);
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -3797,7 +3797,7 @@ int MainMenu::UpdateState14()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             g_App.StopBgm();
             if (g_SpriteEngine->LoadSurface(0, "title/result00.png") != 0)
@@ -3836,7 +3836,7 @@ int MainMenu::UpdateState14()
                        g_Lsnm.name);
             }
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
@@ -3846,7 +3846,7 @@ int MainMenu::UpdateState14()
         {
             if (g_PlayerInputs[2].IsPressed(0x10))
             {
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 this->cursor -= 16;
                 if (this->cursor < 0)
                 {
@@ -3860,7 +3860,7 @@ int MainMenu::UpdateState14()
             }
             if (g_PlayerInputs[2].IsPressed(0x20))
             {
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 this->cursor += 16;
                 if (this->cursor >= 0x60)
                 {
@@ -3874,7 +3874,7 @@ int MainMenu::UpdateState14()
             }
             if (g_PlayerInputs[2].IsPressed(0x40))
             {
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 if (this->cursor % 16 == 0)
                 {
                     this->cursor += 15;
@@ -3891,7 +3891,7 @@ int MainMenu::UpdateState14()
             }
             if (g_PlayerInputs[2].IsPressed(0x80))
             {
-                g_SoundPlayer.PlaySoundByIdx(12, 0);
+                g_SoundPlayer.QueueSound(12, 0);
                 if (this->cursor % 16 == 15)
                 {
                     this->cursor -= 15;
@@ -3911,7 +3911,7 @@ int MainMenu::UpdateState14()
         {
             if (this->cursor == 0x5f)
             {
-                SaveScore();
+                SaveScoreDat();
                 this->PlaySoundNow(11, 0);
                 this->stateFrames = 0;
                 this->SetState(15);
@@ -3962,8 +3962,8 @@ int MainMenu::UpdateState14()
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -3979,7 +3979,7 @@ int MainMenu::UpdateState15()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             if (g_GameManager.stateFlags & 0x2000)
             {
@@ -4028,7 +4028,7 @@ int MainMenu::UpdateState15()
                 for (i = 0; i < 25; i++)
                 {
                     sprintf(slotPath, "./replay/th9_%.2d.rpy", i + 1);
-                    data = OpenPath(slotPath, &size, 1);
+                    data = LoadFileData(slotPath, &size, 1);
                     if (data != NULL && (replay = ValidateReplay(data, size)) != NULL)
                     {
                         this->replays[i] = *replay;
@@ -4037,7 +4037,7 @@ int MainMenu::UpdateState15()
                     }
                 }
                 this->subState = 2;
-                this->unknown1b230 = 0;
+                this->inputLockout = 0;
                 this->cursor = 0;
                 g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x16);
                 g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
@@ -4048,13 +4048,13 @@ int MainMenu::UpdateState15()
             this->SelectCursorEntry();
             _mkdir("replay");
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
         break;
     case 1:
-        if (this->MoveCursorLR(2) != 0)
+        if (this->MoveMenuCursorLR(2) != 0)
         {
             this->SelectCursorEntry();
         }
@@ -4085,11 +4085,11 @@ int MainMenu::UpdateState15()
         }
         break;
     case 2:
-        if (this->unknown1b230 < 6)
+        if (this->inputLockout < 6)
         {
             break;
         }
-        if (this->MoveCursor(25) != 0)
+        if (this->MoveMenuCursor(25) != 0)
         {
             this->SelectCursorEntry();
         }
@@ -4097,7 +4097,7 @@ int MainMenu::UpdateState15()
         {
             this->PlaySoundNow(11, 0);
             this->cursor = 0;
-            this->unknown1b230 = 0;
+            this->inputLockout = 0;
             this->subState = 1;
             g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x13);
             g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
@@ -4127,16 +4127,16 @@ int MainMenu::UpdateState15()
                 g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x17);
                 g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
             }
-            this->unknown1b230 = 0;
+            this->inputLockout = 0;
             strcpy(this->replayName, g_Lsnm.name);
         }
         break;
     case 3:
-        if (this->unknown1b230 < 10)
+        if (this->inputLockout < 10)
         {
             break;
         }
-        if (this->MoveCursorLR(2) != 0)
+        if (this->MoveMenuCursorLR(2) != 0)
         {
             this->SelectCursorEntry();
         }
@@ -4166,13 +4166,13 @@ int MainMenu::UpdateState15()
         }
         break;
     case 4:
-        if (this->unknown1b230 < 10)
+        if (this->inputLockout < 10)
         {
             break;
         }
         if (g_PlayerInputs[2].IsPressed(0x10))
         {
-            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            g_SoundPlayer.QueueSound(12, 0);
             this->cursor -= 16;
             if (this->cursor < 0)
             {
@@ -4186,7 +4186,7 @@ int MainMenu::UpdateState15()
         }
         if (g_PlayerInputs[2].IsPressed(0x20))
         {
-            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            g_SoundPlayer.QueueSound(12, 0);
             this->cursor += 16;
             if (this->cursor >= 0x60)
             {
@@ -4200,7 +4200,7 @@ int MainMenu::UpdateState15()
         }
         if (g_PlayerInputs[2].IsPressed(0x40))
         {
-            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            g_SoundPlayer.QueueSound(12, 0);
             if (this->cursor % 16 == 0)
             {
                 this->cursor += 15;
@@ -4217,7 +4217,7 @@ int MainMenu::UpdateState15()
         }
         if (g_PlayerInputs[2].IsPressed(0x80))
         {
-            g_SoundPlayer.PlaySoundByIdx(12, 0);
+            g_SoundPlayer.QueueSound(12, 0);
             if (this->cursor % 16 == 15)
             {
                 this->cursor -= 15;
@@ -4275,15 +4275,15 @@ int MainMenu::UpdateState15()
                 this->subState = 2;
                 g_SpriteEngine->SendInterruptToLoadedSprites(this->sprites, this->spriteCount, 0x16);
                 g_SpriteEngine->StepSprites(this->sprites, this->spriteCount);
-                this->unknown1b230 = 0;
+                this->inputLockout = 0;
             }
             this->stateFrames = 0;
         }
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -4299,7 +4299,7 @@ int MainMenu::UpdateState1()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             if (this->prevState == 0 || this->prevState == 14 || this->prevState == 12 || this->prevState == 15)
             {
@@ -4345,20 +4345,20 @@ int MainMenu::UpdateState1()
             }
             g_GameManager.stateFlags &= ~2;
         }
-        if (this->unknown1b230 < ARRAY_SIZE(g_TitleHelpTexts))
+        if (this->inputLockout < ARRAY_SIZE(g_TitleHelpTexts))
         {
-            g_SpriteEngine->RenderTextCentered(&this->helpSprites[this->unknown1b230], 0xfff0e0, 0x300000,
-                                               g_TitleHelpTexts[this->unknown1b230]);
-            this->unknown1b230++;
+            g_SpriteEngine->RenderTextCentered(&this->helpSprites[this->inputLockout], 0xfff0e0, 0x300000,
+                                               g_TitleHelpTexts[this->inputLockout]);
+            this->inputLockout++;
             return 1;
         }
         this->prevCursor = -1;
-        this->unknown1b230 = 0;
+        this->inputLockout = 0;
         this->stateFrames = 0;
         this->subState = 1;
         this->idleFrames = 0;
     case 1:
-        delta = this->MoveCursor(8);
+        delta = this->MoveMenuCursor(8);
         if (delta != 0)
         {
             if (!g_PlayRecord.openEntries3[12] && this->cursor == 1)
@@ -4377,7 +4377,7 @@ int MainMenu::UpdateState1()
         {
             this->sprites[2].color = 0xb0b0b040;
         }
-        if (this->unknown1b230 < 10)
+        if (this->inputLockout < 10)
         {
             break;
         }
@@ -4464,7 +4464,7 @@ int MainMenu::UpdateState1()
                 this->PlaySoundNow(10, 0);
                 this->subState = 0;
                 this->cursor = 0;
-                this->unknown1b230 = 0;
+                this->inputLockout = 0;
                 this->stateFrames = 0;
                 this->UpdateState9();
                 this->SelectEntry(g_App.config.unknownAc, 0x12, 5);
@@ -4501,7 +4501,7 @@ int MainMenu::UpdateState1()
             delete[] this->sprites;
             this->sprites = NULL;
             this->spriteCount = 0;
-            this->unknown1b230 = 0;
+            this->inputLockout = 0;
             g_App.scene = -1;
             return 0;
         }
@@ -4515,9 +4515,9 @@ int MainMenu::UpdateState1()
             return 1;
         }
     }
-    this->unknownC910++;
+    this->subMenuIdleFrames++;
     this->stateFrames++;
-    this->unknown1b230++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -4526,7 +4526,7 @@ int MainMenu::UpdateState2()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             if (g_SpriteEngine->LoadSurface(0, "title/select00.png") != 0)
             {
@@ -4592,7 +4592,7 @@ int MainMenu::UpdateState2()
             this->stateFrames = 0;
             this->helpSprite = NULL;
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
@@ -4600,7 +4600,7 @@ int MainMenu::UpdateState2()
     case 1:
         if (this->state != 4)
         {
-            if (this->MoveCursor(4) != 0)
+            if (this->MoveMenuCursor(4) != 0)
             {
                 this->SelectCursorEntry();
             }
@@ -4686,8 +4686,8 @@ int MainMenu::UpdateState2()
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 
@@ -4696,7 +4696,7 @@ int MainMenu::UpdateState6()
     switch (this->subState)
     {
     case 0:
-        if (this->unknown1b230 == 0)
+        if (this->inputLockout == 0)
         {
             if (this->prevState != 7 && g_SpriteEngine->LoadSurface(0, "title/select00.png") != 0)
             {
@@ -4720,13 +4720,13 @@ int MainMenu::UpdateState6()
             this->stateFrames = 0;
             this->helpSprite = NULL;
         }
-        if (this->unknown1b230 == 8)
+        if (this->inputLockout == 8)
         {
             this->subState = 1;
         }
         break;
     case 1:
-        if (this->MoveCursor(5) != 0)
+        if (this->MoveMenuCursor(5) != 0)
         {
             this->SelectCursorEntry();
         }
@@ -4766,8 +4766,8 @@ int MainMenu::UpdateState6()
         break;
     }
     this->stateFrames++;
-    this->unknownC910++;
-    this->unknown1b230++;
+    this->subMenuIdleFrames++;
+    this->inputLockout++;
     return 1;
 }
 

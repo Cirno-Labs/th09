@@ -30,12 +30,12 @@ struct MsgPortraitArgs
 };
 
 // An instruction of a dialogue script, as th08's MsgInstr: its
-// arguments follow, argSize bytes of them.
+// arguments follow, argsSize bytes of them.
 struct MsgInstr
 {
     WORD time;
     BYTE opcode;
-    BYTE argSize;
+    BYTE argsSize;
     union
     {
         MsgArgs args;
@@ -108,7 +108,7 @@ struct GuiMsg
     Sprite portraits[8];
     // The two lines of text.
     Sprite text[2];
-    Sprite unknown1a7c;
+    Sprite nameplate;
     // The speakers' text and shadow colors, as th08's.
     D3DCOLOR textColors[4];
     D3DCOLOR shadowColors[4];

@@ -70,8 +70,8 @@ void Player::GetMoveDelta(int direction, int focused, float *deltaX, float *delt
             break;
         }
     }
-    *deltaX *= this->unknown1ce4 * this->unknown1cdc;
-    *deltaY *= this->unknown1ce8 * this->unknown1ce0;
+    *deltaX *= this->moveScaleX * this->unknown1cdc;
+    *deltaY *= this->moveScaleY * this->unknown1ce0;
 }
 
 void PlayerUnknown24::Run()
@@ -128,10 +128,10 @@ void PlayerUnknown24::Run()
         {
             limit = level->seconds5c[2];
         }
-        if (g_GameManager.IsMode1() && player->GetUnknown0() != 1)
+        if (g_GameManager.IsMode1() && player->GetPlayerState() != 1)
         {
-            player->SetUnknown0(3);
-            this->player->unknown303c8 = 2;
+            player->SetPlayerState(3);
+            this->player->stateTimer = 2;
         }
         if (this->timer5c.AsFrames() / 60 >= limit)
         {
@@ -286,7 +286,7 @@ void PlayerUnknown24::Run()
         if (!(this->flags & 1))
         {
             player = this->player;
-            if (player->GetUnknown0() == 0 && player->unknown1b74 == 0)
+            if (player->GetPlayerState() == 0 && player->unknown1b74 == 0)
             {
                 if (this->unknownC && player->unknown30384 >= 100.0f)
                 {

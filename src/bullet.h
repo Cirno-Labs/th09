@@ -137,7 +137,7 @@ struct Bullet
     // The next bullet in its draw list.
     Bullet *next;
     // Cleared on spawning, as th08's scriptFuncState.
-    int unknownDcc;
+    int scriptFuncState;
     // The sound the commands play, if not negative.
     int sound;
     // The command to start next, as th08's.
@@ -205,13 +205,13 @@ public:
 
     // Calls ClearAll with 1. Called by the ECL interpreter; the
     // copy is at 0x405650.
-    void ClearBulletsForTransition();
-    // Clears unknown25e198. Inline: OnUpdate reloads its registers after
+    void ClearAllToItems();
+    // Clears drawLists. Inline: OnUpdate reloads its registers after
     // the copy at 0x412390.
-    void ClearDrawBuckets()
+    void ClearDrawLists()
     {
-        this->unknown25e198[0] = this->unknown25e198[1] = this->unknown25e198[2] = this->unknown25e198[3] =
-            this->unknown25e198[4] = this->unknown25e198[5] = 0;
+        this->drawLists[0] = this->drawLists[1] = this->drawLists[2] = this->drawLists[3] =
+            this->drawLists[4] = this->drawLists[5] = 0;
     }
     // Zeroes everything, marks the spare bullets and clears the script
     // index of every bullet's sprites, as th08's Reset (0x4123c0).
@@ -258,7 +258,7 @@ public:
     // Returns it, or NULL if adding fails (0x4150d0).
     static BulletManager *RegisterChain(int sideIdx);
 
-    BulletTypeSprites bulletTypes[0x20];
+    BulletTypeSprites typeSprites[0x20];
     // Two sets of bullets, each with a spare after the last.
     Bullet bullets[0xb0];
     Bullet bullets2[0x169];
@@ -278,8 +278,8 @@ public:
     GameSide *side;
     GameSide *otherSide;
     // The bullets to draw, one list per size class; cleared by
-    // ClearDrawBuckets.
-    Bullet *unknown25e198[6];
+    // ClearDrawLists.
+    Bullet *drawLists[6];
     // Where the searches for a free bullet start, as th08's nextBullet.
     Bullet *nextBullet;
     Bullet *nextBullet2;

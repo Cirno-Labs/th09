@@ -460,7 +460,7 @@ int ChecksumExecutable()
         {
             name++;
         }
-        data = words = (int *)OpenPath(name, &fileSize, 1);
+        data = words = (int *)LoadFileData(name, &fileSize, 1);
         if (words == NULL)
         {
             return -1;

@@ -10,7 +10,7 @@
 #include "stage.h"
 #include "unsorted.h"
 
-void BulletManager::ClearBulletsForTransition()
+void BulletManager::ClearAllToItems()
 {
     this->ClearAll(1);
 }
@@ -19,7 +19,7 @@ int EnemyScripts::Load(char *path)
 {
     int i;
 
-    this->file = (EnemyScriptHeader *)OpenPath(path, NULL, 0);
+    this->file = (EnemyScriptHeader *)LoadFileData(path, NULL, 0);
     if (this->file == NULL)
     {
         LogPrintf(&g_Log, "敵データの読み込みに失敗しました、データが壊れてるか失われています\r\n");
@@ -1243,7 +1243,7 @@ static void ScriptUpdateMovement(Enemy *enemy)
             enemy->useVelocity2 = 1;
             enemy->manager->anm->StartScript(&enemy->primarySprite, enemy->unknown3380 + 0x16);
             enemy->turnLeft = -1;
-            g_SoundPlayer.PlaySoundByIdx(0x2f, enemy->manager->sideIdx != 0 ? 500 : -500);
+            g_SoundPlayer.QueueSound(0x2f, enemy->manager->sideIdx != 0 ? 500 : -500);
         }
         if (enemy->useVelocity2)
         {
@@ -1960,8 +1960,8 @@ loop:
             BulletShooter *shooter;
 
             laserArgs = instr->args;
-            // unknown30c4 = th08's laserShooter (rename suggested).
-            shooter = &enemy->unknown30c4;
+            // laserShooter = th08's laserShooter (rename suggested).
+            shooter = &enemy->laserShooter;
             shooter->pos = enemy->absPos + enemy->shootOffset;
             shooter->sprite = *(short *)&laserArgs[0];
             shooter->color = INT_OP(((short *)laserArgs)[1], 2);
@@ -2186,7 +2186,7 @@ loop:
             break;
         // 0x40afa1
         case 139:
-            enemy->manager->side->effectManager->SpawnParticles(INT_ARG(0), &enemy->pos, INT_ARG(1), INT_VAR(2));
+            enemy->manager->side->effectManager->SpawnEffect(INT_ARG(0), &enemy->pos, INT_ARG(1), INT_VAR(2));
             break;
 
 // r4: RunEnemy cases at [0x40b00d, 0x40bddb), plus the out-of-line cases
@@ -2215,7 +2215,7 @@ loop:
             velocity.x = FLOAT_ARG(3);
             velocity.y = FLOAT_ARG(4);
             velocity.z = FLOAT_ARG(5);
-            enemy->manager->side->effectManager->SpawnParticlesWithVelocity(INT_ARG(0), &enemy->pos, &velocity,
+            enemy->manager->side->effectManager->SpawnEffectWithVelocity(INT_ARG(0), &enemy->pos, &velocity,
                                                                             INT_ARG(1), INT_VAR(2));
             break;
         }
@@ -2276,7 +2276,7 @@ loop:
                 pos.x = FLOAT_OP(spawn.pos.x, 2);
                 pos.y = FLOAT_OP(spawn.pos.y, 4);
                 pos.z = FLOAT_OP(spawn.pos.z, 8);
-                child = enemy->manager->SpawnEnemyWithVars(spawn.sub, &pos, INT_ARG(4), INT_ARG(5), INT_ARG(6),
+                child = enemy->manager->SpawnWithVars(spawn.sub, &pos, INT_ARG(4), INT_ARG(5), INT_ARG(6),
                                                            &enemy->currentCtx->vars, 1);
             }
             // life <= 0 jumps to 0x40b410; the call falls into it (after
@@ -2298,7 +2298,7 @@ loop:
                 pos.y = FLOAT_OP(spawn.pos.y, 4);
                 pos.z = FLOAT_OP(spawn.pos.z, 8);
                 pos += enemy->pos;
-                child = enemy->manager->SpawnEnemyWithVars(spawn.sub, &pos, INT_ARG(4), INT_ARG(5), INT_ARG(6),
+                child = enemy->manager->SpawnWithVars(spawn.sub, &pos, INT_ARG(4), INT_ARG(5), INT_ARG(6),
                                                            &enemy->currentCtx->vars, 1);
             }
             // The call is tail-merged with case 93's (jmp 0x40b405), then
@@ -2319,7 +2319,7 @@ loop:
             break;
         // 0x40b5a6
         case 112:
-            enemy->manager->side->bulletManager->ClearBulletsForTransition();
+            enemy->manager->side->bulletManager->ClearAllToItems();
             break;
         // 0x40b5c4
         case 113:
@@ -2371,14 +2371,14 @@ loop:
             // Not taken: jumps to 0x40b410.
             if (enemy->trailFlags & 8)
             {
-                g_SpriteEngine->FillSpriteStripVertices(&enemy->primarySprite, (VertexTex1DiffuseXyzrwh *)enemy->unknown3e68,
+                g_SpriteEngine->FillSpriteStripVertices(&enemy->primarySprite, (VertexTex1DiffuseXyzrwh *)enemy->spriteStripVertices,
                                                         enemy->trailSegmentCount / enemy->trailSegmentStep * 2);
             }
             break;
         // 0x40b871
         case 160:
             // th08's invulnTimer.
-            enemy->unknown53a8 = INT_ARG(0);
+            enemy->invulnTimer = INT_ARG(0);
             break;
         // 0x40b8b8
         case 161:
@@ -2462,7 +2462,7 @@ loop:
                         enemy->manager->otherSide->stage->playerAnm->StartScript(
                             &enemy->manager->side->stage->dialogueSprites[i],
                             enemy->manager->otherSide->player->unknown303f4 +
-                                enemy->manager->otherSide->stage->unknownCdc + i);
+                                enemy->manager->otherSide->stage->dialogueScriptOffset + i);
                     }
                 }
             }
@@ -2623,7 +2623,7 @@ void SetSidesFlag0(Enemy *enemy, EnemyScriptInstr *instr)
     enemy->manager->otherSide->flag0 = instr->args[1].i;
     if (instr->args[1].i != 0)
     {
-        g_SoundPlayer.PlaySoundByIdx(0x34, 0);
+        g_SoundPlayer.QueueSound(0x34, 0);
     }
 }
 
@@ -2721,7 +2721,7 @@ void ScatterBullets(Enemy *enemy, EnemyScriptInstr *instr)
             bullet->SetAccelCommand(1, 0, 0x3c, enemy->currentCtx->floatVars[0], -999.0f);
         }
     }
-    g_SoundPlayer.PlaySoundByIdx(0x34, 0);
+    g_SoundPlayer.QueueSound(0x34, 0);
 }
 
 void SendExAttack10(Enemy *enemy, EnemyScriptInstr *instr)

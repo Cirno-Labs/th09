@@ -96,9 +96,9 @@ public:
         this->prevState = this->state;
         this->state = state;
         this->stateFrames = 0;
-        this->unknown1b230 = 0;
+        this->inputLockout = 0;
         this->subState = 0;
-        this->unknownC910 = 0;
+        this->subMenuIdleFrames = 0;
     }
     // Gives every button of `mapping` assigned `button` the value
     // `replacement`, as th08's. The last argument is unused (0x422f67).
@@ -140,13 +140,13 @@ public:
     // Moves cursor by up and down among `count` entries, wrapping, as
     // th08's MoveMenuCursor; returns -1, 1, or 0 when it did not move
     // (0x42457a).
-    int MoveCursor(int count);
+    int MoveMenuCursor(int count);
     // The same with left and right (0x424601).
-    int MoveCursorLR(int count);
+    int MoveMenuCursorLR(int count);
     // The same with all four directions, left and right first
     // (0x424671).
     int MoveCursor4(int count);
-    // MoveCursorLR, up and down as left and right, on cursors[idx] with
+    // MoveMenuCursorLR, up and down as left and right, on cursors[idx] with
     // player `idx`'s input (0x42474a).
     int MovePlayerCursor(int idx, int count);
     // The same on cursors[idx] with player `player`'s input (0x4247f1).
@@ -290,14 +290,14 @@ public:
     void *unknown681c[50];
     // The headers of the replay files.
     ReplayHeader replays[50];
-    void *unknownC8fc;
+    void *loadedReplay;
     // Set to 0 and 50 once UpdateState11 has read the replays.
     int unknownC900;
-    int unknownC904;
+    int replayCount;
     // The replay slot being saved to.
     int replaySlot;
     unsigned char pad_c90c[0xc910 - 0xc90c];
-    int unknownC910;
+    int subMenuIdleFrames;
     unsigned char pad_c914[0xc918 - 0xc914];
     int unknownC918;
     unsigned char pad_c91c[0xc920 - 0xc91c];
@@ -326,7 +326,7 @@ public:
     Sprite *helpSprite;
     // Sprites of textAnm's script 5, as th08's.
     Sprite helpSprites[14];
-    Sprite unknown14098[21];
+    Sprite textSprites[21];
     // Sprites 0x15 to 0x22 of textAnm, as th08's card details.
     Sprite cardDetailSprites[14];
     // The music room's comment, a line each.
@@ -335,7 +335,7 @@ public:
     int state;
     // 1 makes InitTitleScene start in state 14.
     int unknown1b22c;
-    int unknown1b230;
+    int inputLockout;
     // The frames without input on the title; at 1500 a demo plays.
     int idleFrames;
     // While nonzero, OnDraw draws nothing: 1 while LoadingThread loads,

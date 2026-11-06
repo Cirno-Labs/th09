@@ -332,7 +332,7 @@ int ReplayManager::AddedCallbackMode1(ReplayManager *mgr)
     mgr->unknown0 = 0;
     if (mgr->unknown08 == NULL)
     {
-        mgr->unknown08 = (ReplayHeader *)OpenPath(mgr->path, &size, !(g_GameManager.stateFlags >> 1 & 1));
+        mgr->unknown08 = (ReplayHeader *)LoadFileData(mgr->path, &size, !(g_GameManager.stateFlags >> 1 & 1));
         mgr->unknown08 = ValidateReplay(mgr->unknown08, size);
         if (mgr->unknown08 == NULL)
         {

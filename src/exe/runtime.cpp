@@ -38,7 +38,7 @@ Hscr g_Hscr;
 int g_Unknown4ac884;
 char g_OpenCharacters[16];
 int g_CheatCodeProgress;
-JOYCAPSA g_JoyCaps[2];
+JOYCAPSA g_JoyDeviceCaps[2];
 char g_PathBuffer[0x108];
 char g_DataDir[0x104];
 Rng g_Rng;

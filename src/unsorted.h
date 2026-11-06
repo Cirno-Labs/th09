@@ -187,17 +187,17 @@ int LogPrintf(Log *log, const char *fmt, ...);
 int LogError(Log *log, const char *fmt, ...);
 
 // Logs and returns 1 if neither joystick answers, else reads both
-// joysticks' capabilities into g_JoyCaps and returns 0, as th08's for
+// joysticks' capabilities into g_JoyDeviceCaps and returns 0, as th08's for
 // one (0x42c8f0).
 WORD InitJoystick();
 // The joysticks' capabilities, from joyGetDevCaps (0x4ac8d8).
-extern JOYCAPSA g_JoyCaps[2];
+extern JOYCAPSA g_JoyDeviceCaps[2];
 
 // Adds what pad `pad` (0 or 1) has down to `buttons` by
 // g_PlayerInputs[input]'s first mapping, and the stick as the
 // directions, as th08's ReadJoystick for one pad; joyGetPosEx reads it
 // unless both DirectInput pads are there (0x42b410).
-WORD ReadPad(int input, int pad, WORD buttons);
+WORD ReadJoystick(int input, int pad, WORD buttons);
 // Player `player`'s pad buttons, 0x80 for each one down, as th08's
 // GetPadButtons: through DirectInput, or joyGetPosEx when the player
 // has no DirectInput pad (0x42b740). Returns g_PadButtons.
@@ -227,7 +227,7 @@ void DrawFps(int draw);
 // numpad with Z, X and shift, 3 TFHB with RYVN as the diagonals, 4 the
 // numpad with down, right and left as shot, bomb and focus. Player 2
 // also reads both pads.
-WORD ReadInput(int player);
+WORD ReadButtons(int player);
 // Reads the local keyboard and the pads of both players' settings
 // into one set of buttons, for network play (0x42be40).
 WORD ReadNetInput();
@@ -289,7 +289,7 @@ BYTE *DecryptFileData(BYTE *data, int *size, int fileSize);
 // else from g_DataDir, decrypted, into a new block, inside critical
 // section 2, as th08's LoadFileData. Stores its size in `size` unless
 // NULL. Returns the data, or NULL (0x42c970).
-void *OpenPath(char *path, int *size, int isExternal);
+void *LoadFileData(char *path, int *size, int isExternal);
 
 // a + b, brought back into -pi..pi in at most 17 steps, as th08's
 // (0x42aed0).
@@ -664,7 +664,7 @@ struct App
     // Fades the music out over `seconds`, as th08's FadeOutMusic; the
     // wave fade is stretched while the game runs slow. Returns 0, or -1
     // without music (0x42fe20).
-    int FadeOutBgm(float seconds);
+    int FadeOutMusic(float seconds);
     // Plays the piece `id` of the table at 0x4a21d0; what `arg` does is
     // not known. Returns 1 for an unknown id (0x431930).
     int PlayMusic(int id, int arg);
@@ -740,10 +740,10 @@ struct App
     // Runs a frame of network play; 1 to run another, 2 to skip the
     // frame, 3 when it ended and 4 when it failed (0x430aa0).
     int UpdateNetPlay();
-    // Clears subThread, closeSubThread and unknown6b8 (0x41a997).
+    // Clears subThread, closeSubThread and subThreadRunning (0x41a997).
     void ResetSubThread();
     // Zeroes unknown77c to unknown790 (0x423382).
-    void ClearUnknown77c();
+    void ResetClockDriftCounters();
 
     // WinMain's instance.
     HINSTANCE hInstance;
@@ -852,7 +852,7 @@ struct App
     DWORD subThreadId;
     // Set to ask the sub thread to end.
     int closeSubThread;
-    int unknown6b8;
+    int subThreadRunning;
     // Set while LoadingThread runs, as th08's.
     int loadingThreadState;
     CRITICAL_SECTION criticalSections[5];
@@ -904,8 +904,8 @@ BOOL CALLBACK EnumAxesCallback2(const DIDEVICEOBJECTINSTANCE *pdidoi, VOID *pCon
 
 // Loads score.dat (0x421ea0), and writes it back through scoretmp
 // (0x421f10).
-int LoadScore();
-int SaveScore();
+int LoadScoreFile();
+int SaveScoreDat();
 
 class ScreenEffect;
 // The loading screen's fade, at 0x4b30f8.

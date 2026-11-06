@@ -221,11 +221,11 @@ public:
         this->rotationChanged = 1;
     }
     // Set blendMode to 1 and to 0 (0x41bd40, 0x41bd60).
-    void SetBlendMode1()
+    void SetBlendModeAdd()
     {
         this->blendMode = 1;
     }
-    void ClearBlendMode()
+    void SetBlendModeNormal()
     {
         this->blendMode = 0;
     }

@@ -2034,7 +2034,7 @@ int SpriteEngine::PreloadAnmTexture(AnmLoaded *anm, int index, int *spriteIndex,
         name = (char *)anmHeader + anmHeader->nameOffset;
         if (*name != '@')
         {
-            data = OpenPath(name, &size, 1);
+            data = LoadFileData(name, &size, 1);
             if (data == NULL)
             {
                 LogError(&g_Log, "テクスチャ %s が読み込めません。データが失われてるか壊れています\r\n", name);
@@ -2452,7 +2452,7 @@ AnmLoaded *SpriteEngine::PreloadAnmFile(int slot, char *path)
             Sleep(1);
         }
     }
-    data = (AnmFile *)OpenPath(path, NULL, 0);
+    data = (AnmFile *)LoadFileData(path, NULL, 0);
     anmCount = 0;
     numScripts = 0;
     spriteCount = 0;
@@ -2627,7 +2627,7 @@ int SpriteEngine::LoadSurface(int surface, char *path)
     }
     if (this->surfaceFiles[surface] == NULL)
     {
-        data = OpenPath(path, &size, 0);
+        data = LoadFileData(path, &size, 0);
         if (data == NULL)
         {
             LogError(&g_Log, "%sが読み込めないです。\r\n", path);
@@ -2701,7 +2701,7 @@ int SpriteEngine::PreloadSurface(int surface, char *path)
     {
         this->ReleaseSurface(surface);
     }
-    data = OpenPath(path, &size, 0);
+    data = LoadFileData(path, &size, 0);
     if (data == NULL)
     {
         LogError(&g_Log, "%sが読み込めないです。\r\n", path);

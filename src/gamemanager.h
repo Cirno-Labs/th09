@@ -396,4 +396,4 @@ extern ChainElem g_GameManagerDrawElem;
 void RemoveGameManagerChain();
 
 // Writes today's date to `buf` as "yy/mm/dd" (0x41a796).
-void FormatDate(char *buf);
+void FormatTodayDate(char *buf);

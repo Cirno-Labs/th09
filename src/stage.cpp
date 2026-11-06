@@ -593,7 +593,7 @@ int Stage::Load(char *dataPath)
     StageObject *obj;
     StageQuad *quad;
 
-    this->data = (StageData *)OpenPath(dataPath, NULL, 0);
+    this->data = (StageData *)LoadFileData(dataPath, NULL, 0);
     if (this->data == NULL)
     {
         LogPrintf(&g_Log, "ステージデータが見つかりません。データが壊れています\r\n");
@@ -1143,7 +1143,7 @@ int Stage::AddedCallback(Stage *stage)
     stage->cameraPos.y = 0.0f;
     stage->cameraPos.z = 0.0f;
     stage->fogFadeFrames = 0;
-    stage->unknownCdc = 0;
+    stage->dialogueScriptOffset = 0;
     stage->dialogueSpriteCount = 2;
     anm = g_SpriteEngine->GetAnm(4);
     if (anm->file != NULL && strcmp(anm->path, g_StageFiles[g_GameManager.stage][0]) == 0)
