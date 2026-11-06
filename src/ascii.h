@@ -146,21 +146,21 @@ public:
     // Shows `value` at `pos` in `color` for a while, among side
     // `side`'s popups, as th08's (0x4346a0).
     void AddPopup(int side, D3DXVECTOR3 *pos, int value, D3DCOLOR color);
-    // Sets the pending interrupt of unknown17c4[`i`]. Called by the ECL
+    // Sets the pending interrupt of bossMarkers[`i`]. Called by the ECL
     // interpreter; the copy is at 0x4067d0.
-    void SetUnknown17c4Interrupt(int i, short interrupt)
+    void SetBossMarkerInterrupt(int i, short interrupt)
     {
-        this->unknown17c4[i].SetPendingInterrupt(interrupt);
+        this->bossMarkers[i].SetPendingInterrupt(interrupt);
     }
-    // Sets the position of unknown17c4[`i`] (0x4067f0).
-    void SetUnknown17c4Pos(int i, D3DXVECTOR3 *pos)
+    // Sets the position of bossMarkers[`i`] (0x4067f0).
+    void SetBossMarkerPos(int i, D3DXVECTOR3 *pos)
     {
-        this->unknown17c4[i].pos = *pos;
+        this->bossMarkers[i].pos = *pos;
     }
-    // Sets unknown2254[`i`] (0x40f890).
-    void SetUnknown2254(int i, int value)
+    // Sets bossMarkerStates[`i`] (0x40f890).
+    void SetBossMarkerState(int i, int value)
     {
-        this->unknown2254[i] = value;
+        this->bossMarkerStates[i] = value;
     }
 
     // Empties the queue of strings. Inline, as th08's; the copy is at
@@ -190,15 +190,15 @@ public:
     Sprite digit;
     Sprite digit2;
     // As th08's summaryPopup to summaryPopup4, summaryDigit,
-    // summaryBombIcon and nearbyLabels.
+    // summaryBombIcon and bossMarkers.
     Sprite unknown7ec;
     Sprite unknownA90;
     Sprite unknownD34;
     Sprite unknownFd8;
     Sprite unknown127c;
     Sprite unknown1520;
-    Sprite unknown17c4[4];
-    int unknown2254[4];
+    Sprite bossMarkers[4];
+    int bossMarkerStates[4];
     AsciiString strings[0x100];
     // How many strings are queued.
     int stringCount;

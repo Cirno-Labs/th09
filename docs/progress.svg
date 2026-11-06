@@ -193,8 +193,8 @@
 <rect width="12" height="12" x="30" y="30" class="named"><title>0x00406740 ScriptSetTurnSprites (80 bytes)</title></rect>
 <rect width="12" height="12" x="45" y="30" class="named"><title>0x00406790 Sprite::SetPendingInterrupt (18 bytes)</title></rect>
 <rect width="12" height="12" x="60" y="30" class="named"><title>0x004067b0 Stage::StartSpellCard (21 bytes)</title></rect>
-<rect width="12" height="12" x="75" y="30" class="named"><title>0x004067d0 AsciiText::SetUnknown17c4Interrupt (32 bytes)</title></rect>
-<rect width="12" height="12" x="90" y="30" class="named"><title>0x004067f0 AsciiText::SetUnknown17c4Pos (42 bytes)</title></rect>
+<rect width="12" height="12" x="75" y="30" class="named"><title>0x004067d0 AsciiText::SetBossMarkerInterrupt (32 bytes)</title></rect>
+<rect width="12" height="12" x="90" y="30" class="named"><title>0x004067f0 AsciiText::SetBossMarkerPos (42 bytes)</title></rect>
 <rect width="12" height="12" x="105" y="30" class="named"><title>0x00406820 Player::CallUnknown30404 (16 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="30" class="named"><title>0x00406830 EclManager::Unload (28 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="30" class="named"><title>0x00406850 EclManager::StartSub (73 bytes)</title></rect>
@@ -295,7 +295,7 @@
 <rect width="12" height="12" x="60" y="60" class="named"><title>0x0040f830 Timer::operator% (16 bytes)</title></rect>
 <rect width="12" height="12" x="75" y="60" class="named"><title>0x0040f840 Sprite::SetRotationZ (20 bytes)</title></rect>
 <rect width="12" height="12" x="90" y="60" class="named"><title>0x0040f860 GameSide::AddScore (33 bytes)</title></rect>
-<rect width="12" height="12" x="105" y="60" class="named"><title>0x0040f890 AsciiText::SetUnknown2254 (20 bytes)</title></rect>
+<rect width="12" height="12" x="105" y="60" class="named"><title>0x0040f890 AsciiText::SetBossMarkerState (20 bytes)</title></rect>
 <rect width="12" height="12" x="120" y="60" class="named"><title>0x0040f8b0 PlayerUnknown30410::AddComboCounted (12 bytes)</title></rect>
 <rect width="12" height="12" x="135" y="60" class="named"><title>0x0040f8c0 PlayerUnknown30410::ResetCombo (29 bytes)</title></rect>
 <rect width="12" height="12" x="150" y="60" class="named"><title>0x0040f8e0 PlayerUnknown36c::Add (205 bytes)</title></rect>
@@ -2001,7 +2001,7 @@
 <rect width="5.20" height="5.05" x="661.37" y="222.90" class="named"><title>0x0042d2f0 SpriteEngine::ReleaseSurfaces (43 bytes)</title></rect>
 <rect width="5.08" height="5.05" x="669.57" y="222.90" class="named"><title>0x004013e0 App::ResetView (42 bytes)</title></rect>
 <rect width="5.08" height="5.05" x="677.65" y="222.90" class="named"><title>0x00401410 App::ResetView3D (42 bytes)</title></rect>
-<rect width="5.08" height="5.05" x="685.73" y="222.90" class="named"><title>0x004067f0 AsciiText::SetUnknown17c4Pos (42 bytes)</title></rect>
+<rect width="5.08" height="5.05" x="685.73" y="222.90" class="named"><title>0x004067f0 AsciiText::SetBossMarkerPos (42 bytes)</title></rect>
 <rect width="5.08" height="5.05" x="693.81" y="222.90" class="named"><title>0x00420c10 ReplayManager::RemoveChain (42 bytes)</title></rect>
 <rect width="5.08" height="5.05" x="701.89" y="222.90" class="named"><title>0x00423158 PlayerInput::IsPressed (42 bytes)</title></rect>
 <rect width="5.08" height="5.05" x="709.97" y="222.90" class="named"><title>0x0042ff40 App::SetRenderState (42 bytes)</title></rect>
@@ -2087,7 +2087,7 @@
 <rect width="4.62" height="4.36" x="697.21" y="246.34" class="named"><title>0x00440620 CWaveFile::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="4.62" height="4.36" x="704.84" y="246.34" class="named"><title>0x00440c20 CSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
 <rect width="4.62" height="4.36" x="712.46" y="246.34" class="named"><title>0x00440c50 CStreamingSound::`scalar deleting destructor&#x27; (33 bytes)</title></rect>
-<rect width="4.48" height="4.36" x="720.08" y="246.34" class="named"><title>0x004067d0 AsciiText::SetUnknown17c4Interrupt (32 bytes)</title></rect>
+<rect width="4.48" height="4.36" x="720.08" y="246.34" class="named"><title>0x004067d0 AsciiText::SetBossMarkerInterrupt (32 bytes)</title></rect>
 <rect width="4.48" height="4.36" x="727.56" y="246.34" class="named"><title>0x0040d4d0 Vector2::SetPolarEllipse (32 bytes)</title></rect>
 <rect width="4.48" height="4.36" x="735.04" y="246.34" class="named"><title>0x00433940 File::File (32 bytes)</title></rect>
 <rect width="4.48" height="4.36" x="742.52" y="246.34" class="named"><title>0x0043d0a0 MmTimer::MmTimer (32 bytes)</title></rect>
@@ -2168,7 +2168,7 @@
 <rect width="3.49" height="3.50" x="692.08" y="267.51" class="named"><title>0x00406720 Timer::operator&lt;= (20 bytes)</title></rect>
 <rect width="3.49" height="3.50" x="698.57" y="267.51" class="named"><title>0x0040e450 PlayRecord::GetClears5 (20 bytes)</title></rect>
 <rect width="3.49" height="3.50" x="705.07" y="267.51" class="named"><title>0x0040f840 Sprite::SetRotationZ (20 bytes)</title></rect>
-<rect width="3.49" height="3.50" x="711.56" y="267.51" class="named"><title>0x0040f890 AsciiText::SetUnknown2254 (20 bytes)</title></rect>
+<rect width="3.49" height="3.50" x="711.56" y="267.51" class="named"><title>0x0040f890 AsciiText::SetBossMarkerState (20 bytes)</title></rect>
 <rect width="3.49" height="3.50" x="718.06" y="267.51" class="named"><title>0x004120a0 EnemyTimeline::EnemyTimeline (20 bytes)</title></rect>
 <rect width="3.49" height="3.50" x="724.55" y="267.51" class="named"><title>0x004276d7 MainMenu::SelectCursorEntry (20 bytes)</title></rect>
 <rect width="3.32" height="3.50" x="731.05" y="267.51" class="named"><title>0x00401340 MemoryManager::Alloc (19 bytes)</title></rect>

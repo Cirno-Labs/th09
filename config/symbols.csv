@@ -104,8 +104,8 @@ address,size,name,symbol
 0x00406740,80,ScriptSetTurnSprites,?ScriptSetTurnSprites@@YIXPAUEnemy@@PAUEclInstr@@HHHHHH@Z
 0x00406790,18,Sprite::SetPendingInterrupt,?SetPendingInterrupt@Sprite@@QAEXF@Z
 0x004067b0,21,Stage::StartSpellCard,?StartSpellCard@Stage@@QAEXXZ
-0x004067d0,32,AsciiText::SetUnknown17c4Interrupt,?SetUnknown17c4Interrupt@AsciiText@@QAEXHF@Z
-0x004067f0,42,AsciiText::SetUnknown17c4Pos,?SetUnknown17c4Pos@AsciiText@@QAEXHPAUD3DXVECTOR3@@@Z
+0x004067d0,32,AsciiText::SetBossMarkerInterrupt,?SetBossMarkerInterrupt@AsciiText@@QAEXHF@Z
+0x004067f0,42,AsciiText::SetBossMarkerPos,?SetBossMarkerPos@AsciiText@@QAEXHPAUD3DXVECTOR3@@@Z
 0x00406820,16,Player::CallUnknown30404,?CallUnknown30404@Player@@QAEHPAUD3DXVECTOR3@@@Z
 0x00406830,28,EclManager::Unload,?Unload@EclManager@@QAEXXZ
 0x00406850,73,EclManager::StartSub,?StartSub@EclManager@@QAEHPAUEnemyUnknown22c@@F@Z
@@ -206,7 +206,7 @@ address,size,name,symbol
 0x0040f830,16,Timer::operator%,??LTimer@@QAEHH@Z
 0x0040f840,20,Sprite::SetRotationZ,?SetRotationZ@Sprite@@QAEXM@Z
 0x0040f860,33,GameSide::AddScore,?AddScore@GameSide@@QAEXH@Z
-0x0040f890,20,AsciiText::SetUnknown2254,?SetUnknown2254@AsciiText@@QAEXHH@Z
+0x0040f890,20,AsciiText::SetBossMarkerState,?SetBossMarkerState@AsciiText@@QAEXHH@Z
 0x0040f8b0,12,PlayerUnknown30410::AddComboCounted,?AddComboCounted@PlayerUnknown30410@@QAEXPAUD3DXVECTOR3@@HHHH@Z
 0x0040f8c0,29,PlayerUnknown30410::ResetCombo,?ResetCombo@PlayerUnknown30410@@QAEXXZ
 0x0040f8e0,205,PlayerUnknown36c::Add,?Add@PlayerUnknown36c@@QAEXPAUD3DXVECTOR3@@0PAX@Z

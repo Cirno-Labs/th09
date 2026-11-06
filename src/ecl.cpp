@@ -2101,16 +2101,16 @@ loop:
                 enemy->manager->bosses[INT_ARG(0)] = enemy;
                 enemy->isBoss = 1;
                 enemy->bossIndex = INT_ARG(0);
-                g_AsciiText.SetUnknown17c4Interrupt(enemy->bossIndex, 1);
+                g_AsciiText.SetBossMarkerInterrupt(enemy->bossIndex, 1);
                 enemy->minShootDistSq = 0.0f;
             }
             else
             {
                 enemy->manager->bosses[enemy->bossIndex] = NULL;
                 enemy->isBoss = 0;
-                g_AsciiText.SetUnknown17c4Interrupt(enemy->bossIndex, 2);
+                g_AsciiText.SetBossMarkerInterrupt(enemy->bossIndex, 2);
                 enemy->ReleaseEffects();
-                g_AsciiText.SetUnknown17c4Pos(enemy->bossIndex, &D3DXVECTOR3(-999.0f, -999.0f, 0.0f));
+                g_AsciiText.SetBossMarkerPos(enemy->bossIndex, &D3DXVECTOR3(-999.0f, -999.0f, 0.0f));
             }
             break;
         // 0x40ac45

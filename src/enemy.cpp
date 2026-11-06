@@ -1191,14 +1191,14 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
                 }
                 markerPos.y = 472.0f;
                 markerPos.z = 0.0f;
-                g_AsciiText.SetUnknown17c4Pos(enemy->bossIndex, &markerPos);
+                g_AsciiText.SetBossMarkerPos(enemy->bossIndex, &markerPos);
                 if (enemy->lifeCallbackProximity == 0)
                 {
-                    g_AsciiText.SetUnknown2254(enemy->bossIndex, enemy->primarySprite.useColor2);
+                    g_AsciiText.SetBossMarkerState(enemy->bossIndex, enemy->primarySprite.useColor2);
                 }
                 else
                 {
-                    g_AsciiText.SetUnknown2254(enemy->bossIndex, enemy->lifeCallbackProximity + 1);
+                    g_AsciiText.SetBossMarkerState(enemy->bossIndex, enemy->lifeCallbackProximity + 1);
                 }
             }
         }
