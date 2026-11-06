@@ -62,7 +62,7 @@ allow_diff = [
     "EnemyManager::OnUpdate",
     "GameManager::LoadingThread",
     "Player::HandleInput",
-    "ReplayManager::AddedCallbackMode1",
+    "ReplayManager::PlayAddedCallback",
     "ReplayManager::SaveReplay",
     "ScreenEffect::OnUpdateShakeRamp",
     "MainMenu::DrawState11",

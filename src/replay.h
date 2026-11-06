@@ -136,16 +136,16 @@ public:
     {
     }
 
-    // The update callbacks and added callbacks of mode 0, which also
-    // runs OnUpdateMode0b once from RegisterChain (0x4202a0, 0x421140,
-    // 0x420190), and of mode 1, which takes a path (0x4204b0, 0x420840,
-    // 0x420470).
-    static int OnUpdateMode0(ReplayManager *mgr);
-    static int AddedCallbackMode0(ReplayManager *mgr);
-    static int OnUpdateMode0b(ReplayManager *mgr);
-    static int OnUpdateMode1(ReplayManager *mgr);
-    static int AddedCallbackMode1(ReplayManager *mgr);
-    static int OnUpdateMode1b(ReplayManager *mgr);
+    // The update callbacks and added callbacks of recording, which also
+    // runs RecordOnUpdate2 once from RegisterChain (0x4202a0, 0x421140,
+    // 0x420190), and of playing, which takes a path (0x4204b0, 0x420840,
+    // 0x420470), as th08's.
+    static int RecordOnUpdate(ReplayManager *mgr);
+    static int RecordAddedCallback(ReplayManager *mgr);
+    static int RecordOnUpdate2(ReplayManager *mgr);
+    static int PlayOnUpdate(ReplayManager *mgr);
+    static int PlayAddedCallback(ReplayManager *mgr);
+    static int PlayOnUpdate2(ReplayManager *mgr);
     // Creates the replay manager, zeroed, in `mode`, and adds its update
     // elements: in mode 0, calcElem (priority 0x1a) and calcElem3
     // (7); in mode 1, which keeps `path`, calcElem (6) and
@@ -165,10 +165,10 @@ public:
     // data; does nothing if either is NULL. Returns 0 (0x420c60).
     static int SaveReplay(ReplayManager *mgr, char *path, char *name);
 
-    // OnUpdateMode1b returns 6 while a dialogue runs unless it is 2
+    // PlayOnUpdate2 returns 6 while a dialogue runs unless it is 2
     // modulo 3.
     int unknown0;
-    // How many frames OnUpdateMode0 recorded while bit 9 of stateFlags
+    // How many frames RecordOnUpdate recorded while bit 9 of stateFlags
     // was set; it stops at 3.
     int unknown4;
     ReplayHeader *unknown08;
@@ -191,6 +191,6 @@ public:
     // The RNG seed the recording starts from, and flags; bit 8 is
     // GameManager::unknown130 at the start.
     WORD seed;
-    WORD unknown162;
+    WORD frameEvents;
 };
 ASSERT_SIZE(ReplayManager, 0x164);

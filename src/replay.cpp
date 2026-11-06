@@ -69,17 +69,17 @@ void Rng::ResetGenerated()
     this->generated = 0;
 }
 
-int ReplayManager::OnUpdateMode0b(ReplayManager *mgr)
+int ReplayManager::RecordOnUpdate2(ReplayManager *mgr)
 {
     int i;
     GameConfig *config;
 
-    mgr->unknown162 = 0;
+    mgr->frameEvents = 0;
     mgr->seed = g_Rng.GetSeed();
     g_Rng.ResetGenerated();
     if (g_GameManager.unknown130)
     {
-        mgr->unknown162 |= 0x100;
+        mgr->frameEvents |= 0x100;
     }
     g_GameManager.unknown130 = 0;
     g_PlayerInputs[0].unknown2e = g_PlayerInputs[0].unknown2c;
@@ -112,7 +112,7 @@ int ReplayManager::OnUpdateMode0b(ReplayManager *mgr)
     return 1;
 }
 
-int ReplayManager::OnUpdateMode0(ReplayManager *mgr)
+int ReplayManager::RecordOnUpdate(ReplayManager *mgr)
 {
     DWORD flags = g_GameManager.stateFlags;
 
@@ -174,7 +174,7 @@ int ReplayManager::OnUpdateMode0(ReplayManager *mgr)
     return 1;
 }
 
-int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
+int ReplayManager::PlayOnUpdate2(ReplayManager *mgr)
 {
     if ((g_GameManager.stateFlags & 4) && !(g_GameManager.stateFlags & 0x200) && g_GameManager.gui->IsMsgRunning() &&
         mgr->unknown0 % 3 != 2)
@@ -184,7 +184,7 @@ int ReplayManager::OnUpdateMode1b(ReplayManager *mgr)
     return 1;
 }
 
-int ReplayManager::OnUpdateMode1(ReplayManager *mgr)
+int ReplayManager::PlayOnUpdate(ReplayManager *mgr)
 {
     int i;
     BYTE *types;
@@ -319,7 +319,7 @@ ReplayInfo::ReplayInfo()
 {
 }
 
-int ReplayManager::AddedCallbackMode1(ReplayManager *mgr)
+int ReplayManager::PlayAddedCallback(ReplayManager *mgr)
 {
     int size;
     int idx;
@@ -643,7 +643,7 @@ int ReplayManager::SaveReplay(ReplayManager *mgr, char *path, char *name)
 // list to one chunk with fresh input buffers. The small blocks come from
 // operator new itself, which the original pushes Register's other
 // arguments before calling.
-int ReplayManager::AddedCallbackMode0(ReplayManager *mgr)
+int ReplayManager::RecordAddedCallback(ReplayManager *mgr)
 {
     int idx;
     int i;
@@ -790,29 +790,29 @@ ReplayManager *ReplayManager::RegisterChain(int mode, char *path)
     switch (mode)
     {
     case 0:
-        mgr->calcElem = g_Chain.CreateElem((ChainCallback)ReplayManager::OnUpdateMode0);
-        mgr->calcElem->addedCallback = (ChainCallback)ReplayManager::AddedCallbackMode0;
+        mgr->calcElem = g_Chain.CreateElem((ChainCallback)ReplayManager::RecordOnUpdate);
+        mgr->calcElem->addedCallback = (ChainCallback)ReplayManager::RecordAddedCallback;
         mgr->calcElem->arg = mgr;
         if (g_Chain.AddToCalcChain(mgr->calcElem, 0x1a) != 0)
         {
             return NULL;
         }
         mgr->calcElem2 = NULL;
-        mgr->calcElem3 = g_Chain.CreateElem((ChainCallback)ReplayManager::OnUpdateMode0b);
+        mgr->calcElem3 = g_Chain.CreateElem((ChainCallback)ReplayManager::RecordOnUpdate2);
         mgr->calcElem3->arg = mgr;
         g_Chain.AddToCalcChain(mgr->calcElem3, 7);
-        ReplayManager::OnUpdateMode0b(mgr);
+        ReplayManager::RecordOnUpdate2(mgr);
         break;
     case 1:
         mgr->path = path;
-        mgr->calcElem = g_Chain.CreateElem((ChainCallback)ReplayManager::OnUpdateMode1);
-        mgr->calcElem->addedCallback = (ChainCallback)ReplayManager::AddedCallbackMode1;
+        mgr->calcElem = g_Chain.CreateElem((ChainCallback)ReplayManager::PlayOnUpdate);
+        mgr->calcElem->addedCallback = (ChainCallback)ReplayManager::PlayAddedCallback;
         mgr->calcElem->arg = mgr;
         if (g_Chain.AddToCalcChain(mgr->calcElem, 6) != 0)
         {
             return NULL;
         }
-        mgr->calcElem2 = g_Chain.CreateElem((ChainCallback)ReplayManager::OnUpdateMode1b);
+        mgr->calcElem2 = g_Chain.CreateElem((ChainCallback)ReplayManager::PlayOnUpdate2);
         mgr->calcElem2->arg = mgr;
         g_Chain.AddToCalcChain(mgr->calcElem2, 0x1b);
         mgr->calcElem3 = NULL;
@@ -826,10 +826,10 @@ void ReplayManager::RunAddedCallback(ReplayManager *mgr, int mode)
     switch (mode)
     {
     case 0:
-        ReplayManager::AddedCallbackMode0(mgr);
+        ReplayManager::RecordAddedCallback(mgr);
         break;
     case 1:
-        ReplayManager::AddedCallbackMode1(mgr);
+        ReplayManager::PlayAddedCallback(mgr);
         break;
     }
 }
