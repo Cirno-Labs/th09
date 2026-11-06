@@ -550,8 +550,8 @@ static void UpdateRespawn(Player *player)
 
     player->unknown3031c.unknown18 = 60;
     t = 1.0f - player->unknown303c8.AsFloat() * (1.0f / 30.0f);
-    player->sprite.scaleX = t + t + 1.0f;
-    player->sprite.scaleY = 1.0f - t;
+    player->sprite.scaleY = t + t + 1.0f;
+    player->sprite.scaleX = 1.0f - t;
     player->sprite.SetBlendMode1();
     player->unknown1cdc = player->unknown1ce0 = 1.0f;
     player->sprite.color = (player->unknown303c8.AsFrames() * 255 / 30) << 24 | 0xffffff;
@@ -568,7 +568,7 @@ static void UpdateRespawn(Player *player)
     if (player->unknown303c8.AsFrames() >= 30)
     {
         player->SetUnknown0(3);
-        player->sprite.scaleX = player->sprite.scaleY = 1.0f;
+        player->sprite.scaleY = player->sprite.scaleX = 1.0f;
         player->sprite.color = 0xffffffff;
         player->sprite.ClearBlendMode();
         player->pos.x = 0.0f;

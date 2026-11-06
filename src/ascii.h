@@ -15,8 +15,8 @@ struct AsciiString
     char text[0x40];
     D3DXVECTOR3 pos;
     D3DCOLOR color;
-    float scaleX;
     float scaleY;
+    float scaleX;
     // Drawn with the second glyph set, in white; always 0 in th09.
     int highlight;
     // Drawn inside the play area's viewport.
@@ -32,8 +32,8 @@ struct AsciiPopup
     D3DXVECTOR3 pos;
     D3DCOLOR color;
     Timer timer;
-    float scaleX;
     float scaleY;
+    float scaleX;
     BYTE active;
     BYTE digitCount;
     unsigned char pad_32[0x6];
@@ -212,8 +212,8 @@ public:
             BYTE alpha;
         };
     };
-    float scaleX;
     float scaleY;
+    float scaleX;
     int inArena;
     int highlight;
     unsigned char pad_827c[0x8280 - 0x827c];

@@ -1597,8 +1597,8 @@ int GuiSide::OnUpdate(GuiSide *side)
         g_SpriteEngine->Step(&side->unknown2a40[i]);
     }
     gameSide = side->side;
-    side->unknown2a40[0].scaleY = gameSide->player->unknown30388 * 0.0025f;
-    side->unknown2a40[1].scaleY = gameSide->player->unknown30384 * 0.0025f;
+    side->unknown2a40[0].scaleX = gameSide->player->unknown30388 * 0.0025f;
+    side->unknown2a40[1].scaleX = gameSide->player->unknown30384 * 0.0025f;
     if (gameSide->player->unknown30384 >= 400.0f)
     {
         side->unknown2a40[1].color = side->timerAbdc % 2 ? 0xffffffff : 0xffff0000;
@@ -1643,7 +1643,7 @@ int GuiSide::OnUpdate(GuiSide *side)
     side->anm->SetSprite(&side->unknown2a40[6], n % 10 + 8);
     g_SpriteEngine->Step(&side->unknownA678.sprites[0]);
     g_SpriteEngine->Step(&side->unknownA678.sprites[1]);
-    side->unknown3cbc.scaleY = side->side->player->unknown30410.timer14.AsFloat() * (1.0f / 105.0f);
+    side->unknown3cbc.scaleX = side->side->player->unknown30410.timer14.AsFloat() * (1.0f / 105.0f);
     g_SpriteEngine->Step(&side->unknown3cbc);
     g_SpriteEngine->Step(&side->unknown59c8);
     g_SpriteEngine->Step(&side->unknown5c6c[0]);

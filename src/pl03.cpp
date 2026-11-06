@@ -62,8 +62,8 @@ int DrawPlayerShotType2(Player *player, PlayerBullet *bullet)
         {
             break;
         }
-        bullet->sprite.scaleY = 3.0f - i * 0.33333334f;
-        bullet->sprite.scaleX = 4.0f - i * 0.33333334f;
+        bullet->sprite.scaleX = 3.0f - i * 0.33333334f;
+        bullet->sprite.scaleY = 4.0f - i * 0.33333334f;
         bullet->sprite.colorRgb[2] = blue * i / 4 + 0x3f;
         bullet->sprite.colorRgb[1] = green * i / 4 + 0x3f;
         bullet->sprite.alpha = alpha * i / 4 + 0x3f;

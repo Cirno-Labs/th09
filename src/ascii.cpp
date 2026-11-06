@@ -35,8 +35,8 @@ void AsciiText::AddString(D3DXVECTOR3 *pos, char *text)
     strcpy(str->text, text);
     str->pos = *pos;
     str->color = this->color;
-    str->scaleX = this->scaleX;
     str->scaleY = this->scaleY;
+    str->scaleX = this->scaleX;
     str->inArena = this->inArena;
     str->highlight = 0;
 }
@@ -68,8 +68,8 @@ void AsciiText::Initialize()
     this->nextPopup2 = 0;
     this->unknown829c = 0;
     this->color = 0xffffffff;
-    this->scaleX = 1.0f;
     this->scaleY = 1.0f;
+    this->scaleX = 1.0f;
     this->digit.flags |= 0x1800;
     this->digit2.flags |= 0x1800;
     this->anm->InitSprite(&this->digit, 0x61);
@@ -111,9 +111,9 @@ void AsciiText::DrawStrings()
     {
         this->glyph.pos = string->pos;
         c = (BYTE *)string->text;
-        this->glyph.scaleY = string->scaleX;
         this->glyph.scaleX = string->scaleY;
-        advance = this->glyphWidth * string->scaleX;
+        this->glyph.scaleY = string->scaleX;
+        advance = this->glyphWidth * string->scaleY;
         if (clipped != string->inArena)
         {
             clipped = string->inArena;
@@ -131,7 +131,7 @@ void AsciiText::DrawStrings()
         {
             if (*c == '\n')
             {
-                this->glyph.pos.y += 14.0f * string->scaleY;
+                this->glyph.pos.y += 14.0f * string->scaleX;
                 this->glyph.pos.x = string->pos.x;
             }
             else if (*c != ' ')

@@ -431,7 +431,7 @@ int UpdateEffectFromSprite(Effect *effect)
 {
     effect->unknown8c = effect->sprites->scriptVar0;
     effect->unknown9c = effect->sprites->scriptVar1;
-    effect->unknown88 = effect->sprites->scaleY;
+    effect->unknown88 = effect->sprites->scaleX;
     effect->unknown7c = effect->sprites->posOffset.x;
     effect->unknown94 = effect->sprites->posOffset.y;
     effect->unknown80 = effect->sprites->rotation.z;

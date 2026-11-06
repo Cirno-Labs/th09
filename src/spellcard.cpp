@@ -172,8 +172,8 @@ int SpellCard::OnUpdate(SpellCard *card)
         {
             card->anm->StartScript(&card->unknownAc[0], card->sideIdx + 0x12);
             g_App.textAnm->SetSprite(&card->unknownAc[1], card->sideIdx + 4);
-            card->unknownAc[1].scaleY = 1.0f;
             card->unknownAc[1].scaleX = 1.0f;
+            card->unknownAc[1].scaleY = 1.0f;
             g_SpriteEngine->RenderTextCentered(&card->unknownAc[1], 0xfffffe, 0, card->name);
         }
         card->unknownA4 = 0;
@@ -184,8 +184,8 @@ int SpellCard::OnUpdate(SpellCard *card)
         {
             card->anm->StartScript(&card->unknownAc[0], card->sideIdx + 0x12);
             g_App.textAnm->SetSprite(&card->unknownAc[1], card->sideIdx + 4);
-            card->unknownAc[1].scaleY = 1.0f;
             card->unknownAc[1].scaleX = 1.0f;
+            card->unknownAc[1].scaleY = 1.0f;
             g_SpriteEngine->RenderTextCentered(&card->unknownAc[1], 0xfffffe, 0, card->name);
         }
         card->unknownA8 = 0;

@@ -35,7 +35,7 @@ struct Effect
     D3DXVECTOR3 unknown60;
     unsigned char pad_6c[0x7c - 0x6c];
     // Taken from the first sprite by UpdateEffectFromSprite: its posOffset.x,
-    // rotation.z, scaleY, scriptVar0, posOffset.y, rotation.y and
+    // rotation.z, scaleX, scriptVar0, posOffset.y, rotation.y and
     // scriptVar1.
     float unknown7c;
     float unknown80;

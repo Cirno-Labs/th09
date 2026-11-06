@@ -1236,7 +1236,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
     return 1;
 }
 
-// Sprite::scaleY and scaleX, as DrawEnemies saves them around a trail,
+// Sprite::scaleX and scaleY, as DrawEnemies saves them around a trail,
 // as th08's.
 struct EnemySpriteScale
 {
@@ -1307,7 +1307,7 @@ static int DrawEnemies(EnemyManager *mgr, int from, int to)
             enemy->primarySprite.pos.z = 0.25f;
             if (enemy->trailFlags)
             {
-                savedScale = *(EnemySpriteScale *)&enemy->primarySprite.scaleY;
+                savedScale = *(EnemySpriteScale *)&enemy->primarySprite.scaleX;
                 savedColor = enemy->primarySprite.color;
                 if (!(enemy->trailFlags & 8))
                 {
@@ -1323,7 +1323,7 @@ static int DrawEnemies(EnemyManager *mgr, int from, int to)
                         }
                         if (enemy->trailFlags & 2)
                         {
-                            enemy->primarySprite.scaleY = savedScale.x - b * savedScale.x / enemy->trailSegmentCount;
+                            enemy->primarySprite.scaleX = savedScale.x - b * savedScale.x / enemy->trailSegmentCount;
                         }
                         if (enemy->trailFlags & 4)
                         {
@@ -1424,7 +1424,7 @@ static int DrawEnemies(EnemyManager *mgr, int from, int to)
                         }
                     }
                 }
-                *(EnemySpriteScale *)&enemy->primarySprite.scaleY = savedScale;
+                *(EnemySpriteScale *)&enemy->primarySprite.scaleX = savedScale;
                 enemy->primarySprite.color = savedColor;
             }
             if (!(enemy->trailFlags & 0x10) && !enemy->hiddenByBomb)

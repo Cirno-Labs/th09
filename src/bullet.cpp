@@ -775,10 +775,10 @@ int BulletManager::OnDraw(BulletManager *mgr)
             laser->sprite1.unusedFlag6 = 1;
             laser->sprite1.color = laser->sprite1.color & 0xffffff | 0xff000000;
             scale = laser->width / 10.0f;
-            laser->sprite1.scaleX = laser->sprite1.scaleY = scale * ((16.0f - laser->startOffset) / 16.0f);
-            if (laser->sprite1.scaleX <= 0.0f)
+            laser->sprite1.scaleY = laser->sprite1.scaleX = scale * ((16.0f - laser->startOffset) / 16.0f);
+            if (laser->sprite1.scaleY <= 0.0f)
             {
-                laser->sprite1.scaleX = laser->sprite1.scaleY = scale;
+                laser->sprite1.scaleY = laser->sprite1.scaleX = scale;
             }
             g_SpriteEngine->Draw(&laser->sprite1);
         }
@@ -1312,8 +1312,8 @@ int BulletManager::OnUpdate(BulletManager *mgr)
             scale = las->endOffset - las->startOffset;
             extent.x = scale;
             center.x = scale / 2.0f + las->startOffset + las->pos.x;
-            las->sprite0.scaleY = las->width / las->sprite0.spriteData->width;
-            las->sprite0.scaleX = scale / las->sprite0.spriteData->height;
+            las->sprite0.scaleX = las->width / las->sprite0.spriteData->width;
+            las->sprite0.scaleY = scale / las->sprite0.spriteData->height;
             las->sprite0.SetRotationZ(AddNormalizeAngle(las->angle + 1.5707964f, 0.0f));
             switch (las->state)
             {
@@ -1341,7 +1341,7 @@ int BulletManager::OnUpdate(BulletManager *mgr)
                         scale = 1.2f;
                     }
                     las->baseWidth = scale;
-                    las->sprite0.scaleY = scale / 16.0f;
+                    las->sprite0.scaleX = scale / 16.0f;
                     extent.x = scale / 2.0f;
                 }
                 if (las->timer >= las->hitStartFrame)
@@ -1385,7 +1385,7 @@ int BulletManager::OnUpdate(BulletManager *mgr)
                     if (frames > 0)
                     {
                         scale = las->width - las->timer.AsFloat() * las->width / frames;
-                        las->sprite0.scaleY = scale / 16.0f;
+                        las->sprite0.scaleX = scale / 16.0f;
                         extent.x = scale / 2.0f;
                     }
                 }

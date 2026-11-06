@@ -142,7 +142,7 @@ int UpdatePlayerShotType2(Player *player, PlayerBullet *bullet)
     bullet->pos.x += bullet->velocity.z;
     bullet->pos.z = 0.44f;
     bullet->size.y = bullet->pos.y;
-    bullet->sprite.scaleX = bullet->pos.y * 0.071428575f;
+    bullet->sprite.scaleY = bullet->pos.y * 0.071428575f;
     bullet->pos.y *= 0.5f;
     for (i = 0x1f; i > 0; i--)
     {

@@ -233,8 +233,8 @@ int PlayRecord::GetClearFlags(char character, int difficulty)
 
 void AsciiText::SetScale(float x, float y)
 {
-    this->scaleX = x;
-    this->scaleY = y;
+    this->scaleY = x;
+    this->scaleX = y;
 }
 
 int MainMenu::DrawState11()
@@ -415,15 +415,15 @@ int MainMenu::DrawState15()
                         {
                             scale = 2.0f - this->stateFrames % 32 * 0.025f;
                         }
-                        g_AsciiText.scaleX = scale;
                         g_AsciiText.scaleY = scale;
+                        g_AsciiText.scaleX = scale;
                         offsetY = offsetX = (scale - 1.0f) * -8.0f;
                     }
                     else
                     {
                         g_AsciiText.color = 0xc0c0c0c0;
-                        g_AsciiText.scaleX = 1.0f;
                         g_AsciiText.scaleY = 1.0f;
+                        g_AsciiText.scaleX = 1.0f;
                     }
                     D3DXVECTOR3 charPos = D3DXVECTOR3(offsetX, offsetY, 0.0f) + pos;
                     str[0] = g_NameAlphabet[row * 16 + col];
@@ -447,8 +447,8 @@ int MainMenu::DrawState15()
     }
     g_AsciiText.color = 0xffffffff;
     g_AsciiText.highlight = 0;
-    g_AsciiText.scaleX = 1.0f;
     g_AsciiText.scaleY = 1.0f;
+    g_AsciiText.scaleX = 1.0f;
     return 1;
 }
 
@@ -654,15 +654,15 @@ int MainMenu::DrawState13()
                     {
                         scale = 2.0f - this->stateFrames % 32 * 0.025f;
                     }
-                    g_AsciiText.scaleX = scale;
                     g_AsciiText.scaleY = scale;
+                    g_AsciiText.scaleX = scale;
                     offsetY = offsetX = (scale - 1.0f) * -8.0f;
                 }
                 else
                 {
                     g_AsciiText.color = 0xc0c0c0c0;
-                    g_AsciiText.scaleX = 1.0f;
                     g_AsciiText.scaleY = 1.0f;
+                    g_AsciiText.scaleX = 1.0f;
                 }
                 D3DXVECTOR3 charPos = D3DXVECTOR3(offsetX, offsetY, 0.0f) + pos;
                 str[0] = g_NameAlphabet[row * 16 + col];
@@ -684,8 +684,8 @@ int MainMenu::DrawState13()
         }
     }
     g_AsciiText.color = 0xffffffff;
-    g_AsciiText.scaleX = 1.0f;
     g_AsciiText.scaleY = 1.0f;
+    g_AsciiText.scaleX = 1.0f;
     return 1;
 }
 
