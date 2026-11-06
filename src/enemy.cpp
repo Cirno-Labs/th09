@@ -351,7 +351,7 @@ void EnemyManager::Initialize()
     enemy->turnStill = -1;
     enemy->shootable = 1;
     enemy->contactDamage = 1;
-    enemy->hideFollowEffects = 0;
+    enemy->hidden = 0;
     enemy->hitByShots = 1;
     enemy->grazeable = 0;
     enemy->deathMode = 0;
@@ -840,7 +840,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
         }
         if (mgr->side->flag0 && enemy->unknownType != 1 && enemy->unknownType != 2)
         {
-            if (enemy->hideFollowEffects)
+            if (enemy->hidden)
             {
                 continue;
             }
@@ -936,9 +936,9 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
         }
         if (enemy->primarySprite.spriteData == NULL)
         {
-            enemy->hideFollowEffects = 1;
+            enemy->hidden = 1;
         }
-        if (!enemy->hideFollowEffects && !enemy->onScreen &&
+        if (!enemy->hidden && !enemy->onScreen &&
             g_GameManager.IsInPlayArea(enemy->absPos[0], enemy->absPos[1], enemy->primarySprite.spriteData->width,
                                        enemy->primarySprite.spriteData->height))
         {
@@ -981,7 +981,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
             }
         }
         kind = 0;
-        if (!enemy->hideFollowEffects && !enemy->hiddenByBomb)
+        if (!enemy->hidden && !enemy->hiddenByBomb)
         {
             if (enemy->shootable && (!enemy->unknown3380 || mgr->side->character != 11))
             {
@@ -1181,7 +1181,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
 
             if (enemy->isBoss < 4)
             {
-                if (!enemy->hideFollowEffects)
+                if (!enemy->hidden)
                 {
                     markerPos.x = enemy->absPos.x + 32.0f;
                 }
@@ -1225,7 +1225,7 @@ int EnemyManager::OnUpdate(EnemyManager *mgr)
         {
             enemy->unknown53a8--;
         }
-        if (!enemy->hideFollowEffects && enemy->active)
+        if (!enemy->hidden && enemy->active)
         {
             head = &mgr->drawListHeads[enemy->drawListIndex];
             enemy->nextInDrawList = *head;

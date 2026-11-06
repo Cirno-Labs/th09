@@ -1777,7 +1777,7 @@ loop:
             enemy->hitByShots = !(value & 1);
             enemy->shootable = (value & 2) ? 0 : 1;
             enemy->contactDamage = !(value & 4);
-            enemy->hideFollowEffects = (value & 8) != 0;
+            enemy->hidden = (value & 8) != 0;
             enemy->staysOffscreen = (value & 0x10) != 0;
             enemy->undying = (value & 0x20) != 0;
             break;
@@ -1798,7 +1798,7 @@ loop:
             }
             if (value & 8)
             {
-                enemy->hideFollowEffects = 1;
+                enemy->hidden = 1;
             }
             if (value & 0x10)
             {
@@ -1826,7 +1826,7 @@ loop:
             }
             if (value & 8)
             {
-                enemy->hideFollowEffects = 0;
+                enemy->hidden = 0;
             }
             if (value & 0x10)
             {
