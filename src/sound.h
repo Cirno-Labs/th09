@@ -57,7 +57,7 @@ struct SoundInfo
 {
     int buffer;
     short volume;
-    short priority;
+    short unk_6;
 };
 // 0x36 sound effects, at 0x4a1f80 (th08 0x2e).
 extern SoundInfo g_SoundInfos[0x36];
@@ -150,8 +150,9 @@ public:
     IDirectSoundBuffer *soundBuffers[0x80];
     // Each sound effect's own buffer.
     IDirectSoundBuffer *sounds[0x80];
-    // Set when a sound is queued; -1 at first.
-    int queuedSound[0x80];
+    // Set from g_SoundInfos[].unk_6 when a sound is queued (nothing reads
+    // either); -1 at first.
+    int unk_408[0x80];
     // A silent buffer, looping from start-up.
     IDirectSoundBuffer *silence;
     // The window the sound timer posts to.

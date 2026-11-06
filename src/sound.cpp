@@ -77,7 +77,7 @@ void SoundPlayer::PlaySoundByIdx(int idx, int arg)
     int i;
     int pri;
 
-    pri = g_SoundInfos[idx].priority;
+    pri = g_SoundInfos[idx].unk_6;
     for (i = 0; i < 0xc; i++)
     {
         if (this->queue[i] < 0)
@@ -99,7 +99,7 @@ void SoundPlayer::PlaySoundByIdx(int idx, int arg)
         return;
     }
     this->queue[i] = idx;
-    this->queuedSound[idx] = pri;
+    this->unk_408[idx] = pri;
     this->queueArgs[i][0] = arg;
     this->queueArgCounts[i]++;
 }
@@ -110,7 +110,7 @@ void SoundPlayer::QueueSoundPanned(int idx, float x)
     int pan;
     int pri;
 
-    pri = g_SoundInfos[idx].priority;
+    pri = g_SoundInfos[idx].unk_6;
     pan = x * (1000.0f / 144.0f);
     for (i = 0; i < 0xc; i++)
     {
@@ -133,7 +133,7 @@ void SoundPlayer::QueueSoundPanned(int idx, float x)
         return;
     }
     this->queue[i] = idx;
-    this->queuedSound[idx] = pri;
+    this->unk_408[idx] = pri;
     this->queueArgs[i][0] = pan;
     this->queueArgCounts[i]++;
 }
@@ -145,7 +145,7 @@ SoundPlayer::SoundPlayer()
     memset(this, 0, sizeof(*this));
     for (i = 0; i < 0x80; i++)
     {
-        this->queuedSound[i] = -1;
+        this->unk_408[i] = -1;
     }
 }
 
@@ -163,7 +163,7 @@ int SoundPlayer::Initialize(HWND hwnd)
     memset(this, 0, sizeof(*this));
     for (j = 0; j < 0x80; j++)
     {
-        this->queuedSound[j] = -1;
+        this->unk_408[j] = -1;
     }
     for (m = 0; m < 0xc; m++)
     {
