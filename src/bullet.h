@@ -203,7 +203,7 @@ public:
     // Constructs the members and initializes (0x415050).
     BulletManager();
 
-    // Calls CancelBullets with 1. Called by the ECL interpreter; the
+    // Calls ClearAll with 1. Called by the ECL interpreter; the
     // copy is at 0x405650.
     void ClearBulletsForTransition();
     // Clears unknown25e198. Inline: OnUpdate reloads its registers after
@@ -221,11 +221,12 @@ public:
     static void RemoveChain(BulletManager *mgr);
     // Clears the bullets for a new round (0x412470).
     void Reset();
-    // Empty; called by the ECL interpreter (0x412590).
-    void CancelBullets(int arg);
-    // Empty; called by the ECL interpreter with the enemy's position and
-    // an argument, where th08 turns bullets into items (0x4125a0).
-    void CancelBulletsInRadius(D3DXVECTOR3 *pos, float arg);
+    // Empty: th08's ClearAll, emptied; still called by the ECL
+    // interpreter where th08 calls it (0x412590).
+    void ClearAll(int arg);
+    // Empty: th08's ConvertBulletsToItems, emptied; still called by the
+    // ECL interpreter with the enemy's position (0x4125a0).
+    void ConvertBulletsToItems(D3DXVECTOR3 *pos, float arg);
     // Fires a laser from `shooter`, as th08's SpawnLaser. Returns it
     // (0x413290).
     Laser *SpawnLaser(EnemyShooter *shooter);

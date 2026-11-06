@@ -239,8 +239,8 @@ address,size,name,symbol
 0x00412470,95,BulletManager::Reset,?Reset@BulletManager@@QAEXXZ
 0x004124d0,16,CopyBulletSprite,?CopyBulletSprite@@YIXPAVSprite@@0@Z
 0x004124e0,161,BulletManager::ShowSpawnSprite,?ShowSpawnSprite@BulletManager@@QAEXPAVSprite@@0PAUBulletTypeSprites@@H@Z
-0x00412590,3,BulletManager::CancelBullets,?CancelBullets@BulletManager@@QAEXH@Z
-0x004125a0,3,BulletManager::CancelBulletsInRadius,?CancelBulletsInRadius@BulletManager@@QAEXPAUD3DXVECTOR3@@M@Z
+0x00412590,3,BulletManager::ClearAll,?ClearAll@BulletManager@@QAEXH@Z
+0x004125a0,3,BulletManager::ConvertBulletsToItems,?ConvertBulletsToItems@BulletManager@@QAEXPAUD3DXVECTOR3@@M@Z
 0x004125b0,36,D3DXVECTOR3::operator-=,??ZD3DXVECTOR3@@QAEAAU0@ABU0@@Z
 0x004125e0,24,BulletManager::LoadAnm,?LoadAnm@BulletManager@@SIHXZ
 0x00412600,14,BulletManager::ReleaseAnm,?ReleaseAnm@BulletManager@@SIXXZ

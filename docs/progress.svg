@@ -328,8 +328,8 @@
 <rect width="12" height="12" x="555" y="60" class="named"><title>0x00412470 BulletManager::Reset (95 bytes)</title></rect>
 <rect width="12" height="12" x="570" y="60" class="named"><title>0x004124d0 CopyBulletSprite (16 bytes)</title></rect>
 <rect width="12" height="12" x="585" y="60" class="named"><title>0x004124e0 BulletManager::ShowSpawnSprite (161 bytes)</title></rect>
-<rect width="12" height="12" x="600" y="60" class="named"><title>0x00412590 BulletManager::CancelBullets (3 bytes)</title></rect>
-<rect width="12" height="12" x="615" y="60" class="named"><title>0x004125a0 BulletManager::CancelBulletsInRadius (3 bytes)</title></rect>
+<rect width="12" height="12" x="600" y="60" class="named"><title>0x00412590 BulletManager::ClearAll (3 bytes)</title></rect>
+<rect width="12" height="12" x="615" y="60" class="named"><title>0x004125a0 BulletManager::ConvertBulletsToItems (3 bytes)</title></rect>
 <rect width="12" height="12" x="630" y="60" class="named"><title>0x004125b0 D3DXVECTOR3::operator-= (36 bytes)</title></rect>
 <rect width="12" height="12" x="645" y="60" class="named"><title>0x004125e0 BulletManager::LoadAnm (24 bytes)</title></rect>
 <rect width="12" height="12" x="660" y="60" class="named"><title>0x00412600 BulletManager::ReleaseAnm (14 bytes)</title></rect>
@@ -2325,8 +2325,8 @@
 <rect width="1.86" height="1.29" x="745.14" y="330.36" class="named"><title>0x00435f00 GdiSurface::GetHeight (4 bytes)</title></rect>
 <rect width="1.02" height="2.17" x="735.43" y="334.65" class="named"><title>0x0043e430 CSound::GetWaveFile (4 bytes)</title></rect>
 <rect width="1.02" height="2.17" x="735.43" y="339.83" class="named"><title>0x0043fe00 CWaveFile::GetSize (4 bytes)</title></rect>
-<rect width="1" height="2.17" x="739.46" y="334.65" class="named"><title>0x00412590 BulletManager::CancelBullets (3 bytes)</title></rect>
-<rect width="1" height="2.17" x="739.46" y="339.83" class="named"><title>0x004125a0 BulletManager::CancelBulletsInRadius (3 bytes)</title></rect>
+<rect width="1" height="2.17" x="739.46" y="334.65" class="named"><title>0x00412590 BulletManager::ClearAll (3 bytes)</title></rect>
+<rect width="1" height="2.17" x="739.46" y="339.83" class="named"><title>0x004125a0 BulletManager::ConvertBulletsToItems (3 bytes)</title></rect>
 <rect width="1" height="2.51" x="743.12" y="334.65" class="named"><title>0x004343d0 D3DXVECTOR3::D3DXVECTOR3 (3 bytes)</title></rect>
 <rect width="1" height="2.51" x="746" y="334.65" class="named"><title>0x00435ec0 GdiSurface::GetFormat (3 bytes)</title></rect>
 <rect width="1" height="1.84" x="743.12" y="340.16" class="named"><title>0x0044ab20 ReturnZero (3 bytes)</title></rect>

@@ -74,11 +74,11 @@ void BulletManager::ShowSpawnSprite(Sprite *dst, Sprite *src, BulletTypeSprites 
     }
 }
 
-void BulletManager::CancelBullets(int arg)
+void BulletManager::ClearAll(int arg)
 {
 }
 
-void BulletManager::CancelBulletsInRadius(D3DXVECTOR3 *pos, float arg)
+void BulletManager::ConvertBulletsToItems(D3DXVECTOR3 *pos, float arg)
 {
 }
 
